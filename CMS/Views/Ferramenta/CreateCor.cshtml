@@ -1,0 +1,47 @@
+﻿@model business.Back.Cor
+
+@{
+    ViewData["Title"] = "CreateCor";
+}
+
+<h1>Criar Cor</h1>
+
+<h4>Cor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="CreateCor">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CorBackground" class="control-label"></label>
+                <input asp-for="CorBackground" type="color" class="form-control" />
+                <span asp-validation-for="CorBackground" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Position" class="control-label"></label>
+                <input asp-for="Position" type="range" min="0" max="100" class="form-control" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transparencia" class="control-label"></label>
+                <input asp-for="Transparencia" type="range" min="0" max="10" class="form-control" />
+                <span asp-validation-for="Transparencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BackgroundId" class="control-label"></label>
+                <select asp-for="BackgroundId" class="form-control" asp-items="ViewBag.BackgroundId"></select>
+            </div>
+            <div class="form-group">
+                <script src="~/js/Cor.js"></script>
+                <div class="form-group">
+                    <input type="button" value="Save" onclick="ScriptCor.Create()" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

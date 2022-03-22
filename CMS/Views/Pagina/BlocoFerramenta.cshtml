@@ -1,0 +1,151 @@
+﻿
+<style>
+    .container1 {
+        width: 255px;
+        margin-left: 0px;
+    }
+</style>
+
+<style>
+    #discussion {
+        background-color: lightblue;
+        width: 255px;
+        height: 255px;
+        overflow: scroll;
+    }
+</style>
+
+<h2>Chat</h2>
+<div class="container1">
+    <input type="text" id="message" />
+    <input type="button" id="sendmessage" value="Enviar mensagem" />
+    <input type="hidden" id="displayname" />
+    <ul id="discussion"></ul>
+</div>
+
+<ul class="nav navbar-nav navbar-left" style="width:100px;">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle glyphicon glyphicon-list" data-toggle="dropdown">Criar |</a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="#" id="BlocoCriarFormulario" class="btn-warning glyphicon glyphicon-align-left"> Formulários</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarCampo" class="btn-warning glyphicon glyphicon-align-left">Campos para formulários</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarTexto" class="btn-warning glyphicon glyphicon-text-width">Textos</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarVideo" class="btn btn-warning glyphicon glyphicon-facetime-video">Videos</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarCarouselImg" class="btn btn-warning glyphicon glyphicon-sound-dolby">Carrosseis</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarCarouselPagina" class="btn btn-warning glyphicon glyphicon-file">Carrosseis de pagina</a>
+            </li>
+        </ul>
+    </li>
+    
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle glyphicon glyphicon-list" data-toggle="dropdown">Criar ||</a>
+        <ul class="dropdown-menu">
+
+            <li class="BlocoCriar">
+                <a href="#" id="BlocoCriarImagem" class="btn btn-warning glyphicon glyphicon-picture">Imagens</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarLink" class="btn btn-warning glyphicon glyphicon-hand-up">Links</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarDropdown" class="btn btn-warning glyphicon glyphicon-hand-up">Conjunto de links</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarTable" class="btn btn-warning glyphicon glyphicon-list-alt">Tabelas de produtos</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarProduto" class="btn btn-warning glyphicon glyphicon-lamp">Produtos</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarBlocoComum" class="btn btn-warning glyphicon glyphicon-th-large">Blocos comuns</a>
+            </li> 
+            <li>
+                <a href="#" id="BlocoCriarBlocoFixo" class="btn btn-warning glyphicon glyphicon-th-large">Blocos fixos</a>
+            </li>            
+        </ul>
+    </li>
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle glyphicon glyphicon-list" data-toggle="dropdown">Criar |||</a>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="#" id="BlocoCriarCor" class="btn btn-warning CoresBack glyphicon glyphicon-tint">Cores</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarBackground" class="btn btn-warning CriarPlano glyphicon glyphicon-tint">Background</a>
+            </li>
+
+            <li>
+                <a href="#" id="EscolherMusica" class="btn btn-warning glyphicon glyphicon-music">Musica</a>
+            </li>
+
+            <li>
+                <a href="#" id="CreatePath" class="btn btn-warning glyphicon glyphicon-folder-open">Pasta de imagens</a>
+            </li>
+
+            <li>
+                <a href="#" id="BlocoCriarPaginaComLayout" class="btn btn-warning glyphicon glyphicon-file">Novas paginas com Layout</a>
+            </li>
+
+            <li>
+                <a href="/Criar-Pagina/" id="BlocoCriarPagina" class="btn btn-warning glyphicon glyphicon-file">Nova pagina</a>
+            </li>
+
+            <li>
+                <a href="/Criar-Site/" id="BlocoCriarSite" class="btn btn-warning glyphicon glyphicon-globe">Novo site</a>
+            </li>
+        </ul>
+    </li>
+
+    
+</ul>
+
+<br /><br /><br />
+
+
+
+<label>Informe id do elemento:</label>
+<input type="number" id="NumeroElementoEditar" />
+<a href="#" id="BotaoEditarElemento" class="glyphicon glyphicon-edit"></a>
+
+<div id="conteudomodal" style="background-color: white; min-height:200px;">
+    <h4>Formulário</h4>
+</div>
+
+<div id="conteudoImagem" style="background-color: greenyellow; min-height:200px;">
+    <h4>Imagem</h4>
+</div>
+
+<div id="conteudoMusica" style="background-color: yellow; min-height:200px;">
+    <h4>Música</h4>
+</div>
+
+<div id="conteudoVideo" style="background-color: cadetblue; min-height:200px;">
+    <h4>Vídeo</h4>
+</div>
+
+
+
+

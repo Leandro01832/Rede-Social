@@ -1,0 +1,54 @@
+﻿@model CMS.Models.UserModel
+
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<h2>Perfil</h2>
+
+<img class="img-circle img-responsive" src="@Model.Image" />
+
+<div class="jumbotron">
+    <h4>@Model.Name</h4>
+    <hr />
+
+    <div style="z-index: 2;">
+        <input type="number" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
+               placeholder="N° da pag. Ex: 2, 3, 4, 5, ..." max="@ViewBag.quantidade" />
+        <center>
+            <a id="acessoPaginaComInput" href="/@Model.Name/Story-Padrao-Pagina/" class="btn btn-primary glyphicon glyphicon-search">
+                Acessar
+            </a>
+        </center>
+    </div>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Twiter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Twiter)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Instagram)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Instagram)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Facebook)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Facebook)
+        </dd>
+    </dl>
+</div>
+

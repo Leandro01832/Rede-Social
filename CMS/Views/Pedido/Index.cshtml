@@ -1,0 +1,35 @@
+﻿@model IList<business.business.Pagina>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #esquerda {
+        left: 1%;
+    }
+
+    #direita {
+        right: 1%;
+    }
+</style>
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+
+
+<br />
+<div style="position: fixed; z-index: 2;">
+    <input type="number" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
+           placeholder="N° da pag. Ex: 2, 3, 4, 5, ..." max="@ViewBag.quantidade" />
+    <center>
+        <a id="acessoPaginaComInput" href="/Padrao/" class="btn btn-primary glyphicon glyphicon-search">
+            Acessar
+        </a>
+    </center>
+</div>
+
+<div>
+    <img src="~/imagem/story.jpg" class="img-circle" width="600" />
+</div>
+

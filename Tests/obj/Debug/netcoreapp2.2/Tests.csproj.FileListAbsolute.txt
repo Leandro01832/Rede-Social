@@ -1,0 +1,56 @@
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\obj\Debug\netcoreapp2.2\Tests.csprojAssemblyReference.cache
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\obj\Debug\netcoreapp2.2\Tests.csproj.CoreCompileInputs.cache
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\obj\Debug\netcoreapp2.2\Tests.AssemblyInfoInputs.cache
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\obj\Debug\netcoreapp2.2\Tests.AssemblyInfo.cs
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\Tests.deps.json
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\Tests.runtimeconfig.json
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\Tests.runtimeconfig.dev.json
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\Tests.dll
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\Tests.pdb
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\business.dll
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\Newtonsoft.Json.dll
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.SignalR.Core.dll
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\business.pdb
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\Newtonsoft.Json.xml
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.SignalR.Core.xml
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\obj\Debug\netcoreapp2.2\Tests.csproj.CopyComplete
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\obj\Debug\netcoreapp2.2\Tests.dll
+C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\Tests\obj\Debug\netcoreapp2.2\Tests.pdb
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\Tests.deps.json
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\Tests.runtimeconfig.json
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\Tests.runtimeconfig.dev.json
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\Tests.dll
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\Tests.pdb
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\business.dll
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.SignalR.Core.dll
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\business.pdb
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.SignalR.Core.xml
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\obj\Debug\netcoreapp2.2\Tests.csprojAssemblyReference.cache
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\obj\Debug\netcoreapp2.2\Tests.csproj.CoreCompileInputs.cache
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\obj\Debug\netcoreapp2.2\Tests.AssemblyInfoInputs.cache
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\obj\Debug\netcoreapp2.2\Tests.AssemblyInfo.cs
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\obj\Debug\netcoreapp2.2\Tests.csproj.CopyComplete
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\obj\Debug\netcoreapp2.2\Tests.dll
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\obj\Debug\netcoreapp2.2\Tests.pdb
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\CMS.Views.dll
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\CMS.Views.pdb
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\CMS.dll
+C:\Users\leand\Documents\cms-aspnetcore\copia\Tests\bin\Debug\netcoreapp2.2\CMS.pdb
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\CMS.Views.dll
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\CMS.Views.pdb
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\Tests.deps.json
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\Tests.runtimeconfig.json
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\Tests.runtimeconfig.dev.json
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\Tests.dll
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\Tests.pdb
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\business.dll
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\CMS.dll
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\business.pdb
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\bin\Debug\netcoreapp2.2\CMS.pdb
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\obj\Debug\netcoreapp2.2\Tests.csprojAssemblyReference.cache
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\obj\Debug\netcoreapp2.2\Tests.csproj.CoreCompileInputs.cache
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\obj\Debug\netcoreapp2.2\Tests.AssemblyInfoInputs.cache
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\obj\Debug\netcoreapp2.2\Tests.AssemblyInfo.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\obj\Debug\netcoreapp2.2\Tests.csproj.CopyComplete
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\obj\Debug\netcoreapp2.2\Tests.dll
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\Tests\obj\Debug\netcoreapp2.2\Tests.pdb

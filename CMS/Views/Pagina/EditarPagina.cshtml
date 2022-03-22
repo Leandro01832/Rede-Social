@@ -1,0 +1,130 @@
+﻿@model business.business.Pagina
+
+<h4>Pagina</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_EditarPagina">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input asp-for="ArquivoMusic" type="hidden" />
+
+            </div>
+
+            <div class="jumbotron">
+                <p class="text-primary text-center">Rotas Possíveis</p>
+                <p class="text-danger">@ViewBag.Rotas</p>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Rotas" class="control-label"></label>
+                <input asp-for="Rotas" class="form-control" />
+                <span asp-validation-for="Rotas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Music" /> @Html.DisplayNameFor(model => model.Music)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Margem" /> @Html.DisplayNameFor(model => model.Margem)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Topo" /> @Html.DisplayNameFor(model => model.Topo)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Menu" /> @Html.DisplayNameFor(model => model.Menu)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="StoryId" class="control-label"></label>
+                <select asp-for="StoryId" class="form-control" asp-items="ViewBag.StoryId"></select>
+                <span asp-validation-for="StoryId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Layout" /> @Html.DisplayNameFor(model => model.Layout)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Blocos da pagina</label>
+                <input asp-for="Blocos" type="text" value="@ViewBag.elementos" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <script type="text/javascript">
+
+        let token = $('[name=__RequestVerificationToken]').val();
+        let headers = {};
+        headers['RequestVerificationToken'] = token;  
+
+        $("input, select").change(function () {
+
+            var data = {
+            Id: @Model.Id,
+            Titulo: $("#Titulo").val(),
+            Facebook: $("#Facebook").val(),
+            Twiter: $("#Twiter").val(),
+            ArquivoMusic: $("#ArquivoMusic").val(),
+            Rotas: $("#Rotas").val(),
+            Music: $("#Music").is(':checked'),
+            Margem: $("#Margem").is(':checked'),
+            PedidoId: $("#PedidoId").val(),
+            StoryId: $("#StoryId").val(),
+            Blocos: $("#Blocos").val(),
+            Topo: $("#Topo").is(':checked'),
+            Menu: $("#Menu").is(':checked'),
+            Layout: $("#Layout").is(':checked')
+        };  
+
+            $.ajax({
+                type: 'POST',
+                contentType: 'application/json',
+                url: '/Pagina/EditarPagina',
+                data: JSON.stringify(data),
+                 headers: headers
+            }).done(function (response) {
+
+                    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
+                    numero = numero.replace('44311', '');
+                    $(".content").load("/Pagina/getview", { id: numero });
+                });
+            return false;
+        });
+    </script>
+</div>
+

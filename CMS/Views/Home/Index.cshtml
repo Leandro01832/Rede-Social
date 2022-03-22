@@ -1,0 +1,54 @@
+﻿@model IList<business.business.Pagina>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #esquerda {
+        left: 1%;
+    }
+
+    #direita {
+        right: 1%;
+    }
+</style>
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+<br />
+<br />
+<br />
+
+<input type="text" id="NumeroPaginaAcesso" style="width:90%;" placeholder="Usuario" />
+<a id="acessoPaginaComInput" href="#" style="width:10%;" class="glyphicon glyphicon-search">
+    Acessar
+</a>
+
+
+<div>
+    <img src="~/imagem/story.jpg" class="img-circle img-responsive" width="1000" />
+</div>
+
+
+
+@section Scripts
+    {
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            jQuery(function () {
+
+                $('.item:first-child').addClass('active').show();
+            });
+
+        });
+
+    </script>
+
+
+}
+

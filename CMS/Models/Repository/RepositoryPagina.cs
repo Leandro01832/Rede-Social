@@ -25,13 +25,11 @@ namespace CMS.Models.Repository
 {
     public interface IRepositoryPagina
     {
-        Task<List<Pagina>> MostrarPageModels();
+        Task<List<Pagina>> MostrarPageModels(string userId);
         Task<string> renderizarPagina(Pagina pagina);
         Task<string> renderizarPaginaComMenuDropDown(Pagina pagina);
         Task<bool> verificaTable(Pagina pagina);
         int[] criarRows(Pagina pagina);
-        void criandoArquivoHtml(Pagina pagina);
-        byte[] FazerDownload(string site);
         Task<string> renderizarPaginaComCarousel(Pagina pagina);
         Task BlocosdaPagina(Pagina pagina);
         Task<Pagina> TestarPagina(string id);
@@ -86,10 +84,10 @@ namespace CMS.Models.Repository
 
         public static List<Pagina> paginas = new List<Pagina>();
 
-        public async Task<List<Pagina>> MostrarPageModels()
+        public async Task<List<Pagina>> MostrarPageModels(string userId)
         {         
 
-            var lista = await  includes()
+            var lista = await  includes().Where(p => p.UserId == userId)
             .ToListAsync();           
 
             foreach (var pag in lista)
@@ -199,88 +197,8 @@ namespace CMS.Models.Repository
                 + CodigoCarousel + CodigoModal);
             return resultado;
         }
-
-        public void criandoArquivoHtml(Pagina pagina)
-        {
-            string path = this.HostingEnvironment.WebRootPath + "\\Html\\" + $"\\{pagina.UserId}\\";
-
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(
-                Html + $"{pagina.UserId}/" +
-                pagina.Titulo.Trim() +
-                ".html", false))
-            {   
-                sw.WriteLine("<div class='content'>");             
-                sw.WriteLine(pagina.Html);
-                sw.WriteLine("</div>"); 
-                sw.Close();
-            }
-        }
-
-        public byte[] FazerDownload(string site)
-        {
-            var paginas = contexto.Pagina.Where(p => p.UserId == site).ToList();
-            var user = contexto.Users.First(u => u.Id == site);
-            foreach (var pag in paginas)
-            {
-                criandoArquivoHtml(pag);
-            }
-
-            var webroot = this.HostingEnvironment.WebRootPath;
-            var filename = $"{user.UserName}.zip";
-            var tempOutput = webroot + $"/Html/{user.UserName}/" + filename;
-
-            using (ZipOutputStream zipOutputStream = new ZipOutputStream(System.IO.File.Create(tempOutput)))
-            {
-                zipOutputStream.SetLevel(9);
-                byte[] buffer = new byte[4096];
-                var imageList = new List<string>();
-
-                foreach (var pag in paginas)
-                {
-                    imageList.Add(webroot + "/Html" + $"/{user.UserName}/{pag.Titulo.Trim()}.html");
-                }
-
-                for (int i = 0; i < imageList.Count; i++)
-                {
-                    ZipEntry entry = new ZipEntry(Path.GetFileName(imageList[i]));
-                    entry.DateTime = DateTime.Now;
-                    entry.IsUnicodeText = true;
-                    zipOutputStream.PutNextEntry(entry);
-
-                    using (FileStream fileStream = System.IO.File.OpenRead(imageList[i]))
-                    {
-                        int sourcebytes;
-                        do
-                        {
-                            sourcebytes = fileStream.Read(buffer, 0, buffer.Length);
-                            zipOutputStream.Write(buffer, 0, sourcebytes);
-                        } while (sourcebytes > 0);
-                    }
-                }
-
-                zipOutputStream.Finish();
-                zipOutputStream.Flush();
-                zipOutputStream.Close();
-            }
-
-            byte[] finalResult = File.ReadAllBytes(tempOutput);
-
-            if (File.Exists(tempOutput))
-            {
-                File.Delete(tempOutput);
-            }
-
-            if (finalResult == null || !finalResult.Any())
-            {
-                throw new Exception(string.Format("Nothing Found"));
-            }
-
-            return finalResult;
-        }
-
+        
+        
         public async Task BlocosdaPagina(Pagina pagina)
         {
             var site1 = await UserManager.Users.FirstAsync(p => p.Id == pagina.UserId);
@@ -377,7 +295,7 @@ namespace CMS.Models.Repository
 
             
                 redeFacebook = site1.Facebook;
-                redeTwiter = site1.Twiter;
+                redeTwiter = site1.Twitter;
                 redeInstagram = site1.Instagram;
             
 

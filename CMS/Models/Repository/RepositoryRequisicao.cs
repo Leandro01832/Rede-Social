@@ -90,7 +90,7 @@ namespace CMS.Models.Repository
                 pedido = new Requisicao(clienteId);
                 await dbSet.AddAsync(pedido);
                 await contexto.SaveChangesAsync();
-                HttpHelper.SetPedidoId(pedido.IdRequisicao);
+                HttpHelper.SetPaginaId(pedido.IdRequisicao);
             }
 
             return pedido;

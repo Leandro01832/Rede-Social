@@ -290,43 +290,6 @@ $.ajax({
 });
 
 
-$.ajax({
-    type: 'POST',
-    url: '/AjaxGet/GetSites',
-    dataType: 'json',
-    data: { Pagina: numero },
-    success: function (data) {
-        $(".site").empty();
-
-        if ($("#selecionadoPedido").val() === "") {
-            $(".site").append('<option value="">[Selecione  uma site..]</option>');
-        }
-
-        $.each(data, function (i, data) {
-
-            if ($("#selecionadoPedido").val() !== "" &&
-                parseInt($("#selecionadoPedido").val()) === data[i]) {
-                $(".site").append('<option value="'
-                    + data.id + '" ' + '" selected =' + "selected" + ' >'
-                    + data.nome + ' - Chave: ' + data.id + '</option>');
-            }
-            else {
-                $(".site").append('<option value="'
-                    + data.id + '" ' + ' >'
-                    + data.nome + ' - Chave: ' + data.id + '</option>');
-            }
-
-        });
-    },
-    error: function (ex) {
-        alert('Falha ao buscar sites.' + ex);
-    }
-});
-
-
-
-
-
 $(".site").change(function () {
 
     $.ajax({

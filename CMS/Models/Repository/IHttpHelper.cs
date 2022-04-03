@@ -9,9 +9,9 @@ namespace CMS.Models.Repository
    public interface IHttpHelper
     {
         IConfiguration Configuration { get; }
-        int? GetPedidoId();
+        int? GetPaginaId();
         int? GetRequisicaoId();
-        void SetPedidoId(int pedidoId);
+        void SetPaginaId(int paginaId);
         void SetRequisicaoId(int pedidoId);
         void ResetPedidoId();
         void ResetRequisicaoId();

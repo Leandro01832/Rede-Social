@@ -19,7 +19,7 @@ namespace CMS.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CMS.Models.User", b =>
+            modelBuilder.Entity("CMS.Models.UserModel", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -60,7 +60,7 @@ namespace CMS.Migrations
 
                     b.Property<string>("SecurityStamp");
 
-                    b.Property<string>("Twiter");
+                    b.Property<string>("Twitter");
 
                     b.Property<bool>("TwoFactorEnabled");
 
@@ -367,6 +367,8 @@ namespace CMS.Migrations
 
                     b.Property<string>("ArquivoMusic");
 
+                    b.Property<DateTime>("Data");
+
                     b.Property<bool>("Exibicao");
 
                     b.Property<bool>("Layout");
@@ -391,8 +393,6 @@ namespace CMS.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("StoryId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Pagina");
                 });
@@ -442,6 +442,44 @@ namespace CMS.Migrations
                     b.ToTable("Rota");
                 });
 
+            modelBuilder.Entity("business.business.Seguidor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("User");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("UserModelId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserModelId");
+
+                    b.ToTable("Seguidor");
+                });
+
+            modelBuilder.Entity("business.business.Seguindo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("User");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("UserModelId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserModelId");
+
+                    b.ToTable("Seguindo");
+                });
+
             modelBuilder.Entity("business.business.Story", b =>
                 {
                     b.Property<int>("Id")
@@ -449,6 +487,10 @@ namespace CMS.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Nome");
+
+                    b.Property<int>("PaginaPadraoLink");
+
+                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
@@ -941,7 +983,7 @@ namespace CMS.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("CMS.Models.User")
+                    b.HasOne("CMS.Models.UserModel")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -949,7 +991,7 @@ namespace CMS.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("CMS.Models.User")
+                    b.HasOne("CMS.Models.UserModel")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -962,7 +1004,7 @@ namespace CMS.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("CMS.Models.User")
+                    b.HasOne("CMS.Models.UserModel")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -970,7 +1012,7 @@ namespace CMS.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("CMS.Models.User")
+                    b.HasOne("CMS.Models.UserModel")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -1073,10 +1115,20 @@ namespace CMS.Migrations
                         .WithMany("Pagina")
                         .HasForeignKey("StoryId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
 
-                    b.HasOne("CMS.Models.User")
-                        .WithMany("Pagina")
-                        .HasForeignKey("UserId");
+            modelBuilder.Entity("business.business.Seguidor", b =>
+                {
+                    b.HasOne("CMS.Models.UserModel")
+                        .WithMany("Seguidores")
+                        .HasForeignKey("UserModelId");
+                });
+
+            modelBuilder.Entity("business.business.Seguindo", b =>
+                {
+                    b.HasOne("CMS.Models.UserModel")
+                        .WithMany("Seguindo")
+                        .HasForeignKey("UserModelId");
                 });
 
             modelBuilder.Entity("business.ecommerce.ItemRequisicao", b =>

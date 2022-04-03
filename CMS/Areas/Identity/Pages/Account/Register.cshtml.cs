@@ -1,4 +1,7 @@
-﻿using CMS.Models;
+﻿using business.business;
+using CMS.Data;
+using CMS.Models;
+using CMS.Models.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -19,23 +22,30 @@ namespace CMS.Areas.Identity.Pages.Account
         private readonly UserManager<UserModel> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        public ApplicationDbContext Context { get; }
+        public IUserHelper UserHelper { get; }
 
         public RegisterModel(
             UserManager<UserModel> userManager,
             SignInManager<UserModel> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ApplicationDbContext context,
+            IUserHelper userHelper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            Context = context;
+            UserHelper = userHelper;
         }
 
         [BindProperty]
         public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
+        
 
         public class InputModel
         {
@@ -92,13 +102,64 @@ namespace CMS.Areas.Identity.Pages.Account
                     Email = Input.Email,
                     Name = Input.Name,
                     Image = "/ImagensGaleria/Padrao.jpg",
-                    Twiter = Input.Twiter,
+                    Twitter = Input.Twiter,
                     Instagram = Input.Instagram,
                     Facebook = Input.Facebook
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    var story = new Story
+                    {
+                        Nome = "Padrao",
+                        UserId = user.Id
+                    };
+                    await Context.AddAsync(story);
+
+
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Video");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Texto");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Imagem");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Carousel");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Background");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Music");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Link");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Div");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Elemento");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Pagina");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Ecommerce");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Formulario");
+                    await UserHelper.CreateUserASPAsync(user.UserName, "Admin");
+
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Video", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Texto", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Imagem", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Carousel", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Background", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Music", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Link", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Div", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Elemento", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Pagina", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Ecommerce", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Formulario", UserId = user.Id, UserName = user.UserName });
+                    await Context.Permissao.AddAsync(new Permissao
+                    { NomePermissao = "Admin", UserId = user.Id, UserName = user.UserName });
+
+                    await Context.SaveChangesAsync();
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

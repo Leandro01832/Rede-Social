@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    <a asp-action="Create">Criar novo</a>
+    <a asp-action="Create" class="btn btn-primary">Criar novo story</a>
 </p>
 <table class="table">
     <thead>
@@ -19,17 +19,29 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @{
+                        if (item.Nome != "Padrao")
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Detalhes</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+                        }
+                        else
+                        {
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">Detalhes</a>
+                        }
+                    }
+
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

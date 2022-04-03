@@ -26,7 +26,6 @@ C:\Users\leand\Documents\cms-aspnetcore\copia\business\obj\Debug\netstandard2.0\
 C:\Users\leand\Documents\cms-aspnetcore\copia\business\obj\Debug\netstandard2.0\business.csproj.CopyComplete
 C:\Users\leand\Documents\cms-aspnetcore\copia\business\obj\Debug\netstandard2.0\business.dll
 C:\Users\leand\Documents\cms-aspnetcore\copia\business\obj\Debug\netstandard2.0\business.pdb
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\business\obj\Debug\netstandard2.0\business.csprojAssemblyReference.cache
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\business\obj\Debug\netstandard2.0\business.csproj.CoreCompileInputs.cache
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\business\obj\Debug\netstandard2.0\business.AssemblyInfoInputs.cache
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\business\obj\Debug\netstandard2.0\business.AssemblyInfo.cs

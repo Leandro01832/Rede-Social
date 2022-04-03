@@ -1,12 +1,9 @@
 ﻿using business.Back;
-using business.business;
 using business.div;
 using business.Join;
 using CMS.Data;
-using CMS.Models;
 using CMS.Models.Repository;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,19 +19,17 @@ namespace CMS.Controllers
 
         public IRepositoryElemento RepositoryElemento { get; }
         public IRepositoryDiv RepositoryDiv { get; }
-        public UserManager<UserModel> UserManager { get; }
         public IHttpHelper HttpHelper { get; }
         public IUserHelper UserHelper { get; }
         public IRepositoryPagina RepositoryPagina { get; }
 
         public DivController(ApplicationDbContext context, IRepositoryElemento repositoryElemento,
-            IRepositoryDiv repositoryDiv, UserManager<UserModel> userManager, IHttpHelper httpHelper,
-            IUserHelper userHelper, IRepositoryPagina repositoryPagina)
+            IRepositoryDiv repositoryDiv, IHttpHelper httpHelper, IUserHelper userHelper,
+            IRepositoryPagina repositoryPagina)
         {
             _context = context;
             RepositoryElemento = repositoryElemento;
             RepositoryDiv = repositoryDiv;
-            UserManager = userManager;
             HttpHelper = httpHelper;
             UserHelper = userHelper;
             RepositoryPagina = repositoryPagina;
@@ -46,10 +41,10 @@ namespace CMS.Controllers
             List<Div> lista = new List<Div>();
 
             var pagina = await _context.Pagina
-            .FirstAsync(p => p.Id == HttpHelper.GetPedidoId());
+            .FirstAsync(p => p.Id == HttpHelper.GetPaginaId());
 
-            var paginas = await _context.Pagina.Where(p => p.UserId == pagina.UserId).ToListAsync();
-            
+            var paginas = await RepositoryPagina.includes().Where(p => p.UserId == pagina.UserId).ToListAsync();
+
             pagina.Margem = false;
             pagina.Div = new List<DivPagina>();
 
@@ -61,16 +56,15 @@ namespace CMS.Controllers
 
 
             foreach (var page in paginas)
-                if (id == null && _context.Div.FirstOrDefault(d => d.Pagina_ == page.Id && d is DivFixo) != null)
+            {
+                foreach (var div in _context.Div.Where(d => d.Pagina_ == page.Id && d is DivFixo).ToList())
                 {
-                    var d1 = _context.Div.First(d => d.Pagina_ == page.Id && d is DivFixo);
-                    foreach (var item in paginas)
-                        foreach (var item2 in item.Div)
-                            if (item2.Div.Id == d1.Id)
-                                d1 = item2.Div;
-                    pagina.Div.Add(new DivPagina { Div = d1, DivId = d1.Id, Pagina = page, PaginaId = page.Id });
+                    pagina.Div.Add(new DivPagina { Pagina = pagina, Div = div });
                     break;
                 }
+                if (pagina.Div.Count == 7)
+                    break;
+            }
 
             if (id != null)
             {
@@ -112,9 +106,9 @@ namespace CMS.Controllers
             List<Div> lista = new List<Div>();
 
             var pagina = await _context.Pagina
-            .FirstAsync(p => p.Id == HttpHelper.GetPedidoId());
+            .FirstAsync(p => p.Id == HttpHelper.GetPaginaId());
 
-            var paginas = await _context.Pagina.Where(p => p.UserId == pagina.UserId).ToListAsync();
+            var paginas = await RepositoryPagina.includes().Where(p => p.UserId == pagina.UserId).ToListAsync();
             
             pagina.Margem = false;
             pagina.Div = new List<DivPagina>();
@@ -124,10 +118,11 @@ namespace CMS.Controllers
                 new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
                 new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() }
             });
+            
 
             foreach (var page in paginas)
-                if (page.Div.Skip(6).Where(d => d.Div is DivComum).ToList().Count > 0)
-                    pagina.Div.AddRange(page.Div.Skip(6).Where(d => d.Div is DivComum).ToList());
+            foreach (var div in _context.Div.Where(d => d.Pagina_ == page.Id && d is DivComum).ToList())
+                    pagina.Div.Add(new DivPagina { Pagina = pagina, Div = div  });
 
             for (int i = 0; i <= 5; i++)
             {
@@ -157,11 +152,6 @@ namespace CMS.Controllers
             if (div == "DivFixo") bloco = new DivFixo();
 
             bloco.Background = new BackgroundCor();
-
-            var backgrounds = new List<Background>();
-            var site = HttpHelper.GetPedidoId();
-
-
             return PartialView(bloco);
         }
 
@@ -183,7 +173,7 @@ namespace CMS.Controllers
                 div.Elementos += el.Elemento.Id + ", ";
             }
 
-            var site = HttpHelper.GetPedidoId();
+            var site = HttpHelper.GetPaginaId();
 
 
             return PartialView(div);

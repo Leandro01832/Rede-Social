@@ -1,12 +1,39 @@
-﻿@model CMS.Models.UserModel
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UserModel> SignInManager
+@inject UserManager<UserModel> UserManager
+@model CMS.Models.UserModel
 
 @{
     ViewData["Title"] = "Perfil";
+    List<UserModel> seguidores = ViewBag.seguidores;
+    List<UserModel> seguindo = ViewBag.seguindo;
+    List<business.business.Story> stories = ViewBag.stories;
+    List<UserModel> solicitacoes = ViewBag.solicitacoes;
+    var user = await UserManager.GetUserAsync(this.User);
 }
 
 <h2>Perfil</h2>
 
-<img class="img-circle img-responsive" src="@Model.Image" />
+
+<img class="img-circle img-responsive" src="@Model.Image" width="100" />
+@if (SignInManager.IsSignedIn(User) && user.Id == Model.Id)
+{
+    <a href="/Home/Alterar" class="btn btn-primary">Alterar dados</a>
+}
+
+@if (SignInManager.IsSignedIn(User) && user.Id != Model.Id)
+{
+    if (seguidores.FirstOrDefault() == null)
+    {
+        <a href="/Home/Seguir/@Model.Name" class="btn btn-primary">Seguir Perfil</a>
+    }
+    else
+    {
+        <p>seguindo</p>
+    }
+}
+
+
 
 <div class="jumbotron">
     <h4>@Model.Name</h4>
@@ -16,7 +43,7 @@
         <input type="number" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
                placeholder="N° da pag. Ex: 2, 3, 4, 5, ..." max="@ViewBag.quantidade" />
         <center>
-            <a id="acessoPaginaComInput" href="/@Model.Name/Story-Padrao-Pagina/" class="btn btn-primary glyphicon glyphicon-search">
+            <a id="acessoPaginaComInput" href="#" class="btn btn-primary glyphicon glyphicon-search">
                 Acessar
             </a>
         </center>
@@ -26,16 +53,22 @@
 
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.UserName)
+            @Html.DisplayName("Email")
         </dt>
         <dd>
             @Html.DisplayFor(model => model.UserName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Twiter)
+            @Html.DisplayName("Nome de usuario")
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Twiter)
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Twitter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Twitter)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Instagram)
@@ -52,3 +85,105 @@
     </dl>
 </div>
 
+<div class="row">
+
+    <div class="col-md-6 text-center bg-warning" style="display:grid">
+        <p>Solicitações</p>
+        @{
+            foreach (var item in solicitacoes)
+            {
+                <img class="img-circle img-responsive" src="@item.Image" width="100" />
+                <a href="/Perfil/@item.Name">Perfil</a>
+                <form action="/Home/Aceitar" method="post">
+                    <input type="hidden" value="@item.Name" name="Seguidor" id="Seguidor" />
+                    <input type="hidden" value="@Model.Name" name="Seguindo" id="Seguindo" />
+                    <input type='submit' value='Aceitar' class='btn btn-default' />
+                </form>
+                <hr />
+            }
+        }
+    </div>
+
+    <div class="col-md-6 text-center" style="display:grid">
+        <p>Seguidores</p>
+        @{
+            foreach (var item in seguidores)
+            {
+                <div>
+                    <img class="img-circle img-responsive" src="@item.Image" width="100" />
+                    <span>@item.Name</span>
+                </div>
+            }
+        }
+    </div>
+
+    <div class="col-md-6 text-center" style="display:grid">
+        <p>Seguindo</p>
+        @{
+            foreach (var item in seguindo)
+            {
+                <div>
+                    <img class="img-circle img-responsive" src="@item.Image" width="100" />
+                    <span>@item.Name</span>
+                </div>
+            }
+        }
+    </div>
+
+    @{
+        if (stories.Count > 0)
+        {
+            <div class="col-md-6 text-center bg-warning" style="display:grid">
+                <p>Sumário</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Stories")
+                            </th>
+                            <th></th>
+                            <th>
+                                @Html.DisplayName("Story Padrão")
+                            </th>
+                        </tr>
+                    </thead>
+                    @{
+
+                        foreach (var item in stories)
+                        {
+                            <tr>
+                                <td>
+                                    Story @item.Nome
+                                </td>
+                                <td>
+                                    ........................................................................
+                                </td>
+                                <td>
+                                    <a href="/@Model.Name/Story-Padrao-Pagina/@item.PaginaPadraoLink">pag. @item.PaginaPadraoLink</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
+        }
+    }
+
+
+
+
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+            $("#NumeroPaginaAcesso").change(function () {
+                document.getElementById('acessoPaginaComInput').href = '/@Model.Name/Story-Padrao-Pagina/';
+                document.getElementById("acessoPaginaComInput").href +=  $(this).val();
+            });
+
+
+        });
+    </script>
+}

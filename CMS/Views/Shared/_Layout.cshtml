@@ -39,9 +39,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sites</a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Criar Site", "Create", "Pedido")</li>
-                                <li>Email:<input type="email" id="InputEmail" /></li>
-                                <li><a href="#" id="AcessoTemplates">Acessar sites do email</a></li>
+                                <li><a href="/Galeria" id="AcessoTemplates">Acessar paginas</a></li>
                                 <li>@Html.ActionLink("Story", "Index", "Story")</li>
                             </ul>
                         </li>
@@ -69,7 +67,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - Instag Leo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - Instag Leo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
@@ -127,9 +125,7 @@
         });
 
 
-        $("#NumeroPaginaAcesso").change(function () {
-            document.getElementById("acessoPaginaComInput").href += $(this).val();
-        });
+        
 
         $("#InputEmail").change(function () {
             document.getElementById("AcessoTemplates").href = "/Pedido/GaleriaSite/";

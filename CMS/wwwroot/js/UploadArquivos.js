@@ -33,12 +33,15 @@
     });
 }
 
+
 function uploadFilesImagem(inputId) {
 
     var input = document.getElementById(inputId);
     var Arquivos = input.files;
     var formData = new FormData();
     $("#arquivoImagem").css("display", "block");
+
+    
 
     let token = $('[name=__RequestVerificationToken]').val();
 

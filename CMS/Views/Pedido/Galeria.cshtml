@@ -15,6 +15,9 @@
             @Html.DisplayNameFor(model => model.Titulo)
         </th>
         <th>
+            @Html.DisplayName("Story")
+        </th>
+        <th>
             @Html.DisplayName("Preview dinâmico")
         </th>
 
@@ -28,10 +31,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Titulo)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Story.Nome)
+            </td>
 
             <td>
 
-                <a href="/Editar/@item.Id" target="_blank" class="btn btn-warning">Mostrar Pagina</a>
+                <a href="/Editar/@item.Id" target="_blank" class="btn btn-warning">Mostrar pagina</a>
             </td>
 
 
@@ -49,7 +55,7 @@
     $(document).ready(function () {
 
         $("#numeroAcesso").change(function () {
-            window.location.href = "/Galeria/@(ViewBag.site)/" + $(this).val();
+            window.location.href = "/Galeria/" + $(this).val();
         });
 
 });

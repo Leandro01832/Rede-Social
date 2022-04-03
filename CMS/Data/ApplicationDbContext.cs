@@ -25,6 +25,9 @@ namespace CMS.Data
 
         }
 
+        public DbSet<Solicitacao> Solicitacao { get; set; }
+        public DbSet<Seguindo> Seguindo { get; set; }
+        public DbSet<Seguidor> Seguidor { get; set; }
         public DbSet<Story> Story { get; set; }
         public DbSet<BackgroundGradiente> BackgroundGradiente { get; set; }
         public DbSet<Cadastro> Cadastro { get; set; }

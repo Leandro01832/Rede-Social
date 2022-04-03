@@ -2,6 +2,7 @@
 using business.div;
 using business.Join;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,8 +14,9 @@ namespace business.business
         private bool margem = true;
         private string rotas = "";
         private int mostrarDados = 0;
+        private DateTime data = DateTime.Now;
 
-
+        public DateTime Data { get { return data; } set { data = value; } }
         public int StoryId { get; set; }
         public virtual Story Story { get; set; }
 
@@ -46,12 +48,8 @@ namespace business.business
         public virtual List<DivPagina> Div { get; set; }
         [JsonIgnore]
         public virtual List<PaginaCarouselPagina> CarouselPagina { get; set; }
-
-
-        [Range(1, 10000, ErrorMessage = "Escolha qual o site para esta pagina")]
-        [Display(Name = "Qual é o site desta pagina?")]
-        public string UserId { get; set; }
-        
+                       
+        public string UserId { get; set; }        
 
         [NotMapped]
         public string Blocos { get; set; }

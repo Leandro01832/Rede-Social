@@ -31,16 +31,7 @@ namespace CMS
 
         public async Task InicializaDBAsync(IServiceProvider provider)
         {
-            var contexto = provider.GetService<ApplicationDbContext>();
-
-            //  await contexto.Database.MigrateAsync();           
-
-            if (RepositoryPagina.paginas.Count == 0)
-            {
-                var listaPagina = await epositoryPagina.MostrarPageModels();
-                if (listaPagina.Count > 0)
-                    RepositoryPagina.paginas.AddRange(listaPagina.Where(l => ! l.Layout).ToList());
-            }
+            var contexto = provider.GetService<ApplicationDbContext>();           
 
             var quant = await contexto.Story.ToListAsync();
 

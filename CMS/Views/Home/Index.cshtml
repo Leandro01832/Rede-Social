@@ -1,4 +1,4 @@
-﻿@model IList<business.business.Pagina>
+﻿
 
 @{
     ViewData["Title"] = "Index";
@@ -20,35 +20,49 @@
 <br />
 <br />
 
-<input type="text" id="NumeroPaginaAcesso" style="width:90%;" placeholder="Usuario" />
-<a id="acessoPaginaComInput" href="#" style="width:10%;" class="glyphicon glyphicon-search">
-    Acessar
-</a>
+<input type="text" id="NameUser" style="width:90%;" placeholder="Nome de Usuario" />
+<div style="position:absolute; top:20%;" class="jumbotron">
 
-
-<div>
-    <img src="~/imagem/story.jpg" class="img-circle img-responsive" width="1000" />
+<ul id="listaUsers"></ul>
 </div>
 
 
+<div>
+    <img src="~/imagem/story.jpg" class="img-responsive" width="1000" />
+</div>
 
-@section Scripts
-    {
 
-
+<div>
     <script type="text/javascript">
 
         $(document).ready(function () {
 
-            jQuery(function () {
+            $("#NameUser").keyup(function () {
 
-                $('.item:first-child').addClass('active').show();
+                $.ajax({
+                    type: 'POST',
+                    url: '/AjaxGet/GetUser',
+                    dataType: 'json',
+                    data: { valor: $(this).val() },
+                    success: function (data) {
+
+                        $("#listaUsers").empty();
+                        $.each(data, function (i) {
+
+                            $("#listaUsers").append('<li>' +
+                                "<a href='Perfil/" + data[i].name + "/' class='Users' >" + data[i].name + " </a>" +
+                                '</li>');
+                        });
+                    },
+                    error: function (ex) {
+                        alert('Falha ao buscar users.' + ex);
+                    }
+                });
             });
-
         });
 
     </script>
+</div>
 
 
-}
 

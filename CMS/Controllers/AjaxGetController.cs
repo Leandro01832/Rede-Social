@@ -6,7 +6,9 @@ using business.business.Elementos.imagem;
 using business.business.Elementos.texto;
 using business.business.link;
 using CMS.Data;
+using CMS.Models;
 using CMS.Models.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -17,19 +19,18 @@ namespace CMS.Controllers
 {
     public class AjaxGetController : Controller
     {
-        private readonly ApplicationDbContext db;
-
-        public IRepositoryPedido RepositoryPedido { get; }
+        private readonly ApplicationDbContext db;        
         public IRepositoryPagina RepositoryPagina { get; }
         public IHttpHelper HttpHelper { get; }
+        public UserManager<UserModel> UserManager { get; }
 
-        public AjaxGetController(ApplicationDbContext context, IRepositoryPedido repositoryPedido,
-            IRepositoryPagina repositoryPagina, IHttpHelper httpHelper)
+        public AjaxGetController(ApplicationDbContext context, IRepositoryPagina repositoryPagina,
+            IHttpHelper httpHelper, UserManager<UserModel> userManager)
         {
             db = context;
-            RepositoryPedido = repositoryPedido;
             RepositoryPagina = repositoryPagina;
             HttpHelper = httpHelper;
+            UserManager = userManager;
         }
 
         public JsonResult GetStories(string valor)
@@ -37,6 +38,17 @@ namespace CMS.Controllers
             var stories = db.Story.Where(s => s.Id >= 1);
 
             return Json(stories);
+        }
+
+        public JsonResult GetUser(string valor)
+        {
+            IQueryable users;
+            if(valor != null)
+             users = UserManager.Users.Where(s => s.Name.ToLower().Contains(valor.ToLower()));
+            else
+            users = new List<UserModel>().AsQueryable();
+
+            return Json(users);
         }
 
         public JsonResult GetPastas(string Pagina)

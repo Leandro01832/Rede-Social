@@ -16,13 +16,11 @@ namespace CMS.Controllers
     public class FerramentaController : Controller
     {
         private readonly ApplicationDbContext _context;
+        
 
-        public UserManager<UserModel> UserManager { get; }
-
-        public FerramentaController(ApplicationDbContext context, UserManager<UserModel> userManager)
+        public FerramentaController(ApplicationDbContext context)
         {
             _context = context;
-            UserManager = userManager;
         }
 
         [Authorize(Roles = "Background")]

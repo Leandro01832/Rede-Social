@@ -1,27 +1,37 @@
-﻿using business.business;
-using CMS.Data;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using CMS.Data;
+using business.business;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using CMS.Models;
 
-namespace MeuProjetoAgora.Controllers
+namespace CMS.Controllers
 {
-    [Authorize(Roles = "SuperAdmin")]
+    [Authorize(Roles = "Admin")]
     public class StoryController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public StoryController(ApplicationDbContext context)
+        public UserManager<UserModel> UserManager { get; }
+
+        public StoryController(ApplicationDbContext context, UserManager<UserModel> userManager)
         {
             _context = context;
+            UserManager = userManager;
         }
 
         // GET: Story
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Story.ToListAsync());
+            var usuario = await UserManager.GetUserAsync(this.User);
+            var stories = await _context.Story.Where(str => str.UserId == usuario.Id).ToListAsync();
+            return View(stories);
         }
 
         // GET: Story/Details/5
@@ -43,8 +53,10 @@ namespace MeuProjetoAgora.Controllers
         }
 
         // GET: Story/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var user = await UserManager.GetUserAsync(this.User);
+            ViewBag.UserId = user.Id;
             return View();
         }
 
@@ -53,12 +65,29 @@ namespace MeuProjetoAgora.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome")] Story story)
+        public async Task<IActionResult> Create([Bind("Nome,UserId,PaginaPadraoLink,Id")] Story story)
         {
+            var user = await UserManager.GetUserAsync(this.User);
+            ViewBag.UserId = user.Id;
+            var str = await _context.Story.
+            FirstOrDefaultAsync(st => st.Nome.ToLower() == story.Nome.ToLower() && st.UserId == user.Id);
+            if (str != null)
+            {
+                ModelState.AddModelError("", "Este story ja existe!!!");
+                return View(story);
+            }
+
+            if (story.Nome != "Padrao" && story.PaginaPadraoLink == 0)
+            {
+                ModelState.AddModelError("", "Informe a pagina padrão que será o link para acessar story!!!");
+                return View(story);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(story);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             return View(story);
@@ -77,6 +106,8 @@ namespace MeuProjetoAgora.Controllers
             {
                 return NotFound();
             }
+            var user = await UserManager.GetUserAsync(this.User);
+            ViewBag.UserId = user.Id;
             return View(story);
         }
 
@@ -85,11 +116,22 @@ namespace MeuProjetoAgora.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Story story)
+        public async Task<IActionResult> Edit(Story story)
         {
-            if (id != story.Id)
+            var user = await UserManager.GetUserAsync(this.User);
+            ViewBag.UserId = user.Id;
+            var str = await _context.Story.
+            FirstOrDefaultAsync(st => st.Nome.ToLower() == story.Nome.ToLower() && st.UserId == user.Id);
+            if (str != null)
             {
-                return NotFound();
+                ModelState.AddModelError("", "Este story ja existe!!!");
+                return View(story);
+            }
+
+            if (story.Nome != "Padrao" && story.PaginaPadraoLink == 0)
+            {
+                ModelState.AddModelError("", "Informe a pagina padrão que será o link para acessar story!!!");
+                return View(story);
             }
 
             if (ModelState.IsValid)
@@ -99,8 +141,9 @@ namespace MeuProjetoAgora.Controllers
                     _context.Update(story);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (Exception)
                 {
+
                     if (!StoryExists(story.Id))
                     {
                         return NotFound();
@@ -148,7 +191,5 @@ namespace MeuProjetoAgora.Controllers
         {
             return _context.Story.Any(e => e.Id == id);
         }
-
-        
     }
 }

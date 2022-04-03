@@ -174,10 +174,11 @@ else
     <script>
         $(document).ready(function () {
 
-            $('#PaginaInput').change(function () {
-                document.getElementById('acessoPaginaInput').href = '/Pagina/0/';
-                document.getElementById('acessoPaginaInput').href += $(this).val();
+            $("#NumeroPaginaAcesso").change(function () {
+                document.getElementById('acessoPaginaComInput').href = '/Editar/';
+                document.getElementById("acessoPaginaComInput").href +=  $(this).val();
             });
+            
 
             $("button").click(function () {
 

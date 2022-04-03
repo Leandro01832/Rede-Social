@@ -14,11 +14,12 @@ namespace CMS.Models
         public string Facebook { get; set; }
 
         [DataType(DataType.Url)]
-        public string Twiter { get; set; }
+        public string Twitter { get; set; }
 
         [DataType(DataType.Url)]
         public string Instagram { get; set; }
 
-        public List<Pagina> Pagina { get; set; }
+        public List<Seguidor> Seguidores { get; set; }
+        public List<Seguindo> Seguindo { get; set; }
     }
 }

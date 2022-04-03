@@ -12,9 +12,12 @@ using business.div;
 using business.ecommerce;
 using business.Join;
 using CMS.Data;
+using CMS.Models;
 using CMS.Models.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +30,14 @@ namespace Tests
         static void Main(string[] args)
         {
             CMSContext banco = new CMSContext();
+            var serviceCollection = new ServiceCollection();
+            ConfigureServices(serviceCollection);
+
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+            var user =  userManager.Users.First();
 
             var pag2 = includes().First(p => p.Id == 2);
 
@@ -131,6 +142,13 @@ namespace Tests
 
 
             Console.Read();
+
+
+        }
+
+        public static void ConfigureServices(IServiceCollection services)
+        {
+            services.AddIdentityCore<IdentityUser>();
 
 
         }

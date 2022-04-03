@@ -46,7 +46,7 @@
                         <div id="QuantidadeElementos" class="col-md-2" style='background-color: aqua;'>QuantidadeElementos</div>
                         <div id="ElementoId" class="col-md-2" style='background-color: #00ff21'>ElementoId</div>
                         <div id="ElementoId" class="col-md-2" style='background-color: #ff0000'>
-                            <p class="text-primary text-center glyphicon glyphicon-globe">@Model.Pedido.Nome </p>
+                            <p class="text-primary text-center glyphicon glyphicon-globe">@Model.Titulo </p>
                             
                         </div>
                         <div id="Informações" class="col-md-4" style='background-color: #dcdcdc;'>
@@ -95,11 +95,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a id="Ocultar" class="glyphicon glyphicon-th-large">Mostrar blocos fixos</a></li>
                                     <li><a class="Ferramenta glyphicon glyphicon-wrench">Mostrar ferramenta</a></li>
-                                    <li>
-                                        <a href="/site/@Model.Pedido.DominioTemporario/@Model.Titulo.Replace(" ", "")" target="_blank" class="glyphicon glyphicon-fullscreen">
-                                            visualizar na Tela inteira
-                                        </a>
-                                    </li>
+                                    
                                     <li><input id="modo" type="checkbox" />  Desktop || Mobile</li>
                                 </ul>
                             </li>
@@ -182,11 +178,7 @@
 
     $(document).ready(function () {
 
-
-        $("#NumeroPaginaAcesso").change(function () {
-            document.getElementById("acessoPaginaComInput").href = "/Pagina/";
-            document.getElementById("acessoPaginaComInput").href += $(this).val();
-        });
+        
 
         $("#InputEmail").change(function () {
             document.getElementById("AcessoTemplates").href = "/Pedido/GaleriaSite/";

@@ -33,14 +33,14 @@ namespace CMS.Models.Repository
             contextAccessor.HttpContext.Session.Remove($"RequisicaoId_{GetClienteId()}");
         }
 
-        public int? GetPedidoId()
+        public int? GetPaginaId()
         {
             return contextAccessor.HttpContext.Session.GetInt32($"pedidoId_{GetClienteId()}");
         }
 
-        public void SetPedidoId(int pedidoId)
+        public void SetPaginaId(int paginaId)
         {
-            contextAccessor.HttpContext.Session.SetInt32($"pedidoId_{GetClienteId()}", pedidoId);
+            contextAccessor.HttpContext.Session.SetInt32($"pedidoId_{GetClienteId()}", paginaId);
         }
 
         public void ResetPedidoId()

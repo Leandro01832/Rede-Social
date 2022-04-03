@@ -29,9 +29,8 @@ namespace CMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<string> CadastrarCpf([FromBody] InfoVenda info)
         {
-            var usuario = await UserManager.GetUserAsync(this.User);
-            var id = usuario.Id;
-            info.ClienteId = id;
+            var usuario = await UserManager.GetUserAsync(this.User);            
+            info.ClienteId = usuario.Id;
 
             await db.InfoVenda.AddAsync(info);
             await db.SaveChangesAsync(); 
@@ -68,14 +67,11 @@ namespace CMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<string> CadastrarContaBancaria([FromBody] ContaBancaria info)
         {
-            var usuario = await UserManager.GetUserAsync(this.User);
-            var id = usuario.Id;
-            info.ClienteId = id;
+            var usuario = await UserManager.GetUserAsync(this.User);            
+            info.ClienteId = usuario.Id;
 
             await db.ContaBancaria.AddAsync(info);
             await db.SaveChangesAsync();
-
-
             return "Cadastro feito com sucesso!!!";
         }        
 

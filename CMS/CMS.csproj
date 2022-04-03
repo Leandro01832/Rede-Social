@@ -7,6 +7,11 @@
     <AspNetCoreModuleName>AspNetCoreModule</AspNetCoreModuleName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20220331100528_Inicio4.cs" />
+    <Compile Remove="Migrations\20220331100528_Inicio4.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />

@@ -46,15 +46,17 @@ namespace CMS.Controllers
             HttpHelper = httpHelper;
             UserHelper = userHelper;
             epositoryPagina = repositoryPagina;
-        }        
+        }
 
         [Route("Elemento/Lista/{id}")]
         public async Task<IActionResult> Lista(string id)
         {
             var arr = id.Split('-');
             var numero = int.Parse(arr[1]);
+            var page = await _context.Pagina.FirstAsync(p => p.Id == numero);
+
             var tipo = arr[0].Replace("GaleriaElemento", "");
-            List<Elemento> lista =  await _context.Elemento
+            List<Elemento> lista = await _context.Elemento
                 .Include(e => e.Imagem)
                 .Include(e => e.Texto)
                 .Include(e => e.Table)
@@ -63,7 +65,7 @@ namespace CMS.Controllers
                 .Include(e => e.Dependentes).ThenInclude(e => e.ElementoDependente)
                 .Include(e => e.Paginas).ThenInclude(e => e.Pagina)
                 .Include(e => e.Paginas).ThenInclude(e => e.Elemento)
-                .Where(e => e.Pagina_ == numero &&  e.GetType().Name == tipo).ToListAsync();            
+                .Where(e => e.Pagina_ == numero && e.GetType().Name == tipo).ToListAsync();
 
             Pagina pagina = new Pagina();
             pagina.Margem = false;
@@ -76,7 +78,7 @@ namespace CMS.Controllers
                 new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
                 new DivPagina{ Div = new DivComum() }
             });
-            
+
             for (int i = 0; i <= 6; i++)
             {
                 if (i <= 6)
@@ -91,7 +93,7 @@ namespace CMS.Controllers
             }
 
             if (RepositoryPagina.paginas.Count == 0)
-                RepositoryPagina.paginas = await epositoryPagina.MostrarPageModels();
+                RepositoryPagina.paginas = await epositoryPagina.MostrarPageModels(page.UserId);
 
             foreach (var div in pagina.Div)
             {
@@ -115,16 +117,14 @@ namespace CMS.Controllers
             string html = await epositoryPagina.renderizarPaginaComCarousel(pagina);
             ViewBag.Html = html;
             return PartialView(pagina);
-        }        
-                
+        }
+
         [Route("Elemento/Create/{elemento}/{pagina}")]
         public async Task<IActionResult> Create(string elemento, int pagina)
         {
             var page = await _context.Pagina.Include(p => p.Story)
             .ThenInclude(p => p.Pagina).FirstAsync(p => p.Id == pagina);
-            var site = page.UserId;
             var usuario = await UserManager.GetUserAsync(this.User);
-            var email = usuario.UserName;
             
             ViewBag.elemento = elemento;
             ViewBag.condicao = _context.InfoVenda.FirstOrDefault(i => i.ClienteId == usuario.Id);
@@ -139,36 +139,36 @@ namespace CMS.Controllers
             }
 
             Elemento ele = null;
-            
-            if (elemento == "Imagem")            ele =  new Imagem         ();
-            if (elemento == "Show")              ele =  new Show           ();
-            if (elemento == "Video")             ele =  new Video          ();
-            if (elemento == "Texto")             ele =  new Texto          ();
-            if (elemento == "Table")             ele =  new Table          ();
-            if (elemento == "Roupa")             ele =  new Roupa          ();
-            if (elemento == "Calcado")           ele =  new Calcado        ();
-            if (elemento == "Alimenticio")       ele =  new Alimenticio    ();
-            if (elemento == "Acessorio")         ele =  new Acessorio      ();
-            if (elemento == "LinkBody")          ele =  new LinkBody       ();
-            if (elemento == "Formulario")        ele =  new Formulario     ();
-            if (elemento == "Dropdown")          ele =  new Dropdown       ();
-            if (elemento == "CarouselPagina")    ele =  new CarouselPagina ();
-            if (elemento == "CarouselImg")       ele =  new CarouselImg    ();
-            if (elemento == "Campo")             ele =  new Campo          ();
 
-            var pedido = await UserManager.Users.FirstAsync(p => p.Id == site);
+            if (elemento == "Imagem") ele = new Imagem();
+            if (elemento == "Show") ele = new Show();
+            if (elemento == "Video") ele = new Video();
+            if (elemento == "Texto") ele = new Texto();
+            if (elemento == "Table") ele = new Table();
+            if (elemento == "Roupa") ele = new Roupa();
+            if (elemento == "Calcado") ele = new Calcado();
+            if (elemento == "Alimenticio") ele = new Alimenticio();
+            if (elemento == "Acessorio") ele = new Acessorio();
+            if (elemento == "LinkBody") ele = new LinkBody();
+            if (elemento == "Formulario") ele = new Formulario();
+            if (elemento == "Dropdown") ele = new Dropdown();
+            if (elemento == "CarouselPagina") ele = new CarouselPagina();
+            if (elemento == "CarouselImg") ele = new CarouselImg();
+            if (elemento == "Campo") ele = new Campo();
+
+            var pedido = await UserManager.Users.FirstAsync(p => p.Id == page.UserId);
             var elementos = new List<Elemento>();
             var els = await _context.Elemento.Where(elem => elem.Pagina_ == pagina).ToListAsync();
 
             List<Pagina> lista = new List<Pagina>();
             lista.Add(new Pagina { Id = 0, Titulo = "[[ Escolha uma pagina ]]" });
-            
+
             lista.AddRange(page.Story.Pagina);
             ViewBag.PaginaEscolhida = new SelectList(lista, "Id", "Titulo");
 
             elementos.AddRange(els);
-            
-            ViewBag.condicao = ! page.Layout;
+
+            ViewBag.condicao = !page.Layout;
 
             PreencherCombo(ele, page.UserId, elementos);
 
@@ -178,7 +178,9 @@ namespace CMS.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             var usuario = await UserManager.GetUserAsync(this.User);
-            
+            var pedido = await UserManager.Users.FirstAsync(p => p.Id == usuario.Id);
+            var elementos = new List<Elemento>();
+
             Elemento elemento;
             ViewBag.condicao = _context.InfoVenda.FirstOrDefault(i => i.ClienteId == usuario.Id);
             ViewBag.condicao2 = _context.InfoEntrega.FirstOrDefault(i => i.ClienteId == usuario.Id);
@@ -201,22 +203,17 @@ namespace CMS.Controllers
                 return RedirectToAction("NaoEncontrado");
             }
 
-            var site = HttpHelper.GetPedidoId();
-
-            var email = usuario.UserName;
 
             if (elemento == null)
             {
                 return NotFound();
             }
 
-            var pedido = await UserManager.Users.FirstAsync(p => p.Id == usuario.Id);
-            var elementos = new List<Elemento>();
-            
-                var els = await _context.Elemento.Where(ele => ele.Pagina_ == elemento.Pagina_).ToListAsync();
-                elementos.AddRange(els);           
-            
-            
+            var els = await _context.Elemento.Where(ele => ele.Pagina_ == elemento.Pagina_).ToListAsync();
+
+            elementos.AddRange(els);
+
+
 
             List<Pagina> lista = new List<Pagina>();
             lista.Add(new Pagina { Id = 0, Titulo = "[[ Escolha uma pagina ]]" });
@@ -226,12 +223,12 @@ namespace CMS.Controllers
             if (elemento.PaginaEscolhida == null) elemento.PaginaEscolhida = 0;
             ViewBag.PaginaEscolhida = new SelectList(lista, "Id", "Titulo", elemento.PaginaEscolhida);
 
-            ViewBag.condicao = ! page.Layout;
+            ViewBag.condicao = !page.Layout;
 
             PreencherCombo(elemento, pedido.Id, elementos);
 
             return PartialView(elemento);
-        }        
+        }
 
         #region Create-Edit-Elemento
         [HttpPost]
@@ -245,9 +242,9 @@ namespace CMS.Controllers
                 else
                     return await RepositoryElemento.Editar(elemento);
             }
-            catch(Exception ex) { return ex.Message; }
+            catch (Exception ex) { return ex.Message; }
         }
-        
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -361,7 +358,7 @@ namespace CMS.Controllers
             catch (Exception ex) { return ex.Message; }
         }
 
-        
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -445,9 +442,9 @@ namespace CMS.Controllers
                     return await RepositoryElemento.Editar(elemento);
             }
             catch (Exception ex) { return ex.Message; }
-        } 
+        }
         #endregion
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Div")]
@@ -534,7 +531,7 @@ namespace CMS.Controllers
                 var link = (LinkBody)elemento;
                 ViewBag.ImagemId = new SelectList(els, "Id", "NomeComId", link.ImagemId);
                 ViewBag.TextoId = new SelectList(elementos.OfType<Texto>().ToList(), "Id", "NomeComId", link.TextoId);
-            }           
+            }
 
             if (elemento is Campo)
             {

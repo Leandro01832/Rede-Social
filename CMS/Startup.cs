@@ -79,10 +79,11 @@ namespace CMS
                         Newtonsoft.Json.NullValueHandling.Ignore;
                 });
 
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+            services.AddTransient<IServiceEmailSender, EmailSender>();
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IHttpHelper, HttpHelper>();
-            services.AddTransient<IRepositoryPedido, RepositoryPedido>();
             services.AddTransient<IRepositoryPagina, RepositoryPagina>();
             services.AddTransient<IRepositoryDiv, RepositoryDiv>();
             services.AddTransient<IRepositoryElemento, RepositoryElemento>();

@@ -497,8 +497,6 @@ C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\net
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\CreatePagina.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Galeria.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GetView.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\ViewCreate.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Details.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\BuscaProdutos.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Cadastro.g.cshtml.cs
@@ -511,11 +509,6 @@ C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\net
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render2.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Create.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Delete.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Details.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Edit.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Index.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Create.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Delete.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Details.g.cshtml.cs
@@ -561,3 +554,10 @@ C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\net
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Perfil.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Create.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Delete.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Details.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Edit.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Index.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Alterar.g.cshtml.cs

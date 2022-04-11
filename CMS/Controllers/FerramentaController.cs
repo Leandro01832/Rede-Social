@@ -16,11 +16,13 @@ namespace CMS.Controllers
     public class FerramentaController : Controller
     {
         private readonly ApplicationDbContext _context;
-        
 
-        public FerramentaController(ApplicationDbContext context)
+        public UserManager<UserModel> UserManager { get; }
+
+        public FerramentaController(ApplicationDbContext context, UserManager<UserModel> userManager)
         {
             _context = context;
+            UserManager = userManager;
         }
 
         [Authorize(Roles = "Background")]
@@ -48,15 +50,18 @@ namespace CMS.Controllers
             return PartialView(lista);
         }        
 
-        [Authorize(Roles = "Imagem")]
-        public IActionResult CreatePasta()
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreatePasta()
         {
-            return PartialView();
+            var usuario = await UserManager.GetUserAsync(this.User);
+            PastaImagem pasta = new PastaImagem();
+            pasta.UserId = usuario.Id;
+            return PartialView(pasta);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles ="Imagem")]
+        [Authorize(Roles ="Admin")]
         public async Task<string> CreatePasta([FromBody]PastaImagem pasta)
         {
             if (ModelState.IsValid)

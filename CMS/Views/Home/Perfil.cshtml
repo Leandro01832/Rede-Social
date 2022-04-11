@@ -41,7 +41,7 @@
 
     <div style="z-index: 2;">
         <input type="number" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
-               placeholder="N° da pag. Ex: 2, 3, 4, 5, ..." max="@ViewBag.quantidade" />
+               placeholder="N° do capítulo. Ex: 2, 3, 4, 5, ..." max="@ViewBag.quantidade" />
         <center>
             <a id="acessoPaginaComInput" href="#" class="btn btn-primary glyphicon glyphicon-search">
                 Acessar
@@ -142,9 +142,7 @@
                                 @Html.DisplayName("Stories")
                             </th>
                             <th></th>
-                            <th>
-                                @Html.DisplayName("Story Padrão")
-                            </th>
+                            <th></th>
                         </tr>
                     </thead>
                     @{
@@ -159,7 +157,7 @@
                                     ........................................................................
                                 </td>
                                 <td>
-                                    <a href="/@Model.Name/Story-Padrao-Pagina/@item.PaginaPadraoLink">pag. @item.PaginaPadraoLink</a>
+                                    <a href="/@Model.Name/Story-Padrao-Pagina/@item.PaginaPadraoLink">Cap. @item.PaginaPadraoLink</a>
                                 </td>
                             </tr>
                         }

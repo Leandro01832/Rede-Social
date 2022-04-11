@@ -188,7 +188,14 @@ namespace CMS.Controllers
             try
             {
                 if (div.Id == 0)
+                {
+                    div.Background = new BackgroundCor
+                    {
+                        backgroundTransparente = true,
+                        Cor = "transparent"
+                    };
                     return await RepositoryDiv.SalvarBloco(div);
+                }
                 else
                     return await RepositoryDiv.EditarBloco(div);
             }

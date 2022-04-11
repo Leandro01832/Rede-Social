@@ -20,10 +20,9 @@
 <br />
 <br />
 
-<input type="text" id="NameUser" style="width:90%;" placeholder="Nome de Usuario" />
-<div style="position:absolute; top:20%;" class="jumbotron">
+<input type="text" id="NameUser" style="width:90%; position:absolute; top:10%;" placeholder="Nome do livro" />
+<div id="listaUsers" style="position:absolute; top:15%; width:300px; display:none;" class="jumbotron">
 
-<ul id="listaUsers"></ul>
 </div>
 
 
@@ -46,13 +45,19 @@
                     data: { valor: $(this).val() },
                     success: function (data) {
 
+                        if (data.length == 0)
+                            $("#listaUsers").css("display", "none");
+                        else
+                            $("#listaUsers").css("display", "block");
+
                         $("#listaUsers").empty();
                         $.each(data, function (i) {
-
-                            $("#listaUsers").append('<li>' +
-                                "<a href='Perfil/" + data[i].name + "/' class='Users' >" + data[i].name + " </a>" +
-                                '</li>');
+                            $("#listaUsers").append('<p>' +
+                                "<a href='Perfil/" + data[i].name + "/' class='Users' >" + data[i].name +
+                                " <img class='img-circle img-responsive' src='" + data[i].image + "' width='50' /> </a>" +
+                                '</p>');
                         });
+
                     },
                     error: function (ex) {
                         alert('Falha ao buscar users.' + ex);

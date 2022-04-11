@@ -1,16 +1,10 @@
-﻿using business.Back;
-using business.business.carousel;
-using business.business.Elementos;
-using business.business.Elementos.element;
-using business.business.Elementos.imagem;
-using business.business.Elementos.texto;
-using business.business.link;
-using CMS.Data;
+﻿using CMS.Data;
 using CMS.Models;
 using CMS.Models.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +13,7 @@ namespace CMS.Controllers
 {
     public class AjaxGetController : Controller
     {
-        private readonly ApplicationDbContext db;        
+        private readonly ApplicationDbContext db;
         public IRepositoryPagina RepositoryPagina { get; }
         public IHttpHelper HttpHelper { get; }
         public UserManager<UserModel> UserManager { get; }
@@ -33,6 +27,22 @@ namespace CMS.Controllers
             UserManager = userManager;
         }
 
+        public async Task<JsonResult> GetStory(int Indice, string User)
+        {
+            var usuario = await UserManager.Users.FirstOrDefaultAsync(u => u.Name == User);
+            var stories = await db.Story.Where(s => s.UserId == usuario.Id).ToListAsync();
+
+            try
+            {
+                var story = stories[Indice + 1];
+                return Json(story.Nome);
+            }
+            catch (Exception)
+            {
+                return Json(stories[1].Nome);
+            }            
+        }
+
         public JsonResult GetStories(string valor)
         {
             var stories = db.Story.Where(s => s.Id >= 1);
@@ -43,18 +53,22 @@ namespace CMS.Controllers
         public JsonResult GetUser(string valor)
         {
             IQueryable users;
-            if(valor != null)
-             users = UserManager.Users.Where(s => s.Name.ToLower().Contains(valor.ToLower()));
+            if (valor != null)
+                users = UserManager.Users.Where(s => s.Name.ToLower().Contains(valor.ToLower()));
             else
-            users = new List<UserModel>().AsQueryable();
+                users = new List<UserModel>().AsQueryable();
 
             return Json(users);
         }
 
         public JsonResult GetPastas(string Pagina)
         {
-            var page = db.Pagina.First(b => b.UserId == Pagina);
-            var pastas = db.PastaImagem.Where(b => b.UserId == page.UserId);
+            IQueryable pastas;
+            var page = db.Pagina.FirstOrDefault(b => b.UserId == Pagina);
+            if (page != null)
+                pastas = db.PastaImagem.Where(b => b.UserId == page.UserId);
+            else
+                pastas = db.PastaImagem.Where(b => b.UserId == "");
 
             return Json(pastas);
         }
@@ -88,10 +102,10 @@ namespace CMS.Controllers
             var paginas = db.Pagina.Where(m => m.UserId == page.UserId);
 
             return Json(paginas);
-        }       
+        }
 
         public JsonResult Elementos(int Pagina, string Tipo)
-        {        
+        {
             var els = db.Elemento.Where(ele => ele.GetType().Name == Tipo && ele.Pagina_ == Pagina);
             return Json(els);
         }

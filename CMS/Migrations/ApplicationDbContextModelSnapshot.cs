@@ -450,7 +450,7 @@ namespace CMS.Migrations
 
                     b.Property<string>("User");
 
-                    b.Property<string>("UserId");
+                    b.Property<string>("UserIdSeguidor");
 
                     b.Property<string>("UserModelId");
 
@@ -469,7 +469,7 @@ namespace CMS.Migrations
 
                     b.Property<string>("User");
 
-                    b.Property<string>("UserId");
+                    b.Property<string>("UserIdSeguindo");
 
                     b.Property<string>("UserModelId");
 
@@ -478,6 +478,21 @@ namespace CMS.Migrations
                     b.HasIndex("UserModelId");
 
                     b.ToTable("Seguindo");
+                });
+
+            modelBuilder.Entity("business.business.Solicitacao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("UserId");
+
+                    b.Property<string>("UserIdSolicitando");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Solicitacao");
                 });
 
             modelBuilder.Entity("business.business.Story", b =>

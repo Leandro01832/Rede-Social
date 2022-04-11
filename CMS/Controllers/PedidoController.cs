@@ -67,7 +67,13 @@ namespace MeuProjetoAgora.Controllers
         public async Task<ActionResult> CreatePagina()
         {
             var user = await UserManager.GetUserAsync(this.User);
-            var stories = await Context.Story.Where(str => str.UserId == user.Id).ToListAsync();
+            var stories = await Context.Story.Where(str => str.UserId == user.Id && str.Nome != "Padrao").ToListAsync();
+
+            if(stories.Count != 0)
+            {
+                ViewBag.Error = "Crie seu story primeiro!!!";
+                RedirectToAction("Create", "Story");
+            }
 
             ViewBag.UserId = user.Id;
             ViewBag.StoryId = new SelectList(stories, "Id", "Nome");

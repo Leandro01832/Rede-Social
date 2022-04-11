@@ -1,11 +1,9 @@
-﻿using business.Back;
-using business.business;
+﻿using business.business;
 using business.business.carousel;
 using business.business.Elementos;
 using business.div;
 using business.Join;
 using CMS.Data;
-using ICSharpCode.SharpZipLib.Zip;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -281,9 +279,7 @@ namespace CMS.Models.Repository
             var site1 = await UserManager.Users.FirstAsync(p => p.Id == pagina.UserId);
             int[] numero = criarRows(pagina);           
 
-            var condicao = await verificaTable(pagina);
-
-             await verificaBackground(pagina);
+            var condicao = await verificaTable(pagina);            
 
             var condicaoLogin = SignInManager.IsSignedIn(ContextAccessor.HttpContext.User);
 
@@ -335,21 +331,7 @@ namespace CMS.Models.Repository
             return html.ToString();
         }
 
-        private async Task verificaBackground(Pagina pagina)
-        {
-            foreach(var item in pagina.Div)
-            if( item.Div.Background == null)
-                {
-                    item.Div.Background = new BackgroundCor
-                    {
-                        Id = item.Div.Id,
-                        backgroundTransparente = true,
-                        Cor = "transparent"                          
-                    };
-                    contexto.Add(item.Div.Background);
-                    await contexto.SaveChangesAsync();
-                }
-        }
+        
 
         public async Task<Pagina> TestarPagina(string id)
         {

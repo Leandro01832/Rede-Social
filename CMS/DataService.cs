@@ -32,18 +32,7 @@ namespace CMS
         public async Task InicializaDBAsync(IServiceProvider provider)
         {
             var contexto = provider.GetService<ApplicationDbContext>();           
-
-            var quant = await contexto.Story.ToListAsync();
-
-            if (quant.Count == 0)
-            {
-                var str = new Story
-                {
-                    Nome = "Padrao"
-                };
-                await contexto.AddAsync(str);
-                await contexto.SaveChangesAsync();
-            }
+            
 
             if (await contexto.Set<Imagem>().AnyAsync())
             {

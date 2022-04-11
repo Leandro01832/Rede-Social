@@ -40,11 +40,7 @@ namespace CMS.Controllers
             EmailSender = emailSender;
         }
 
-        [Route("Carousel")]
-        [Route("Carrossel")]
-        [Route("Pages")]
-        [Route("Paginas")]
-        [Route("Index")]
+        
         [Route("")]
         public IActionResult Index()
         {
@@ -217,6 +213,7 @@ namespace CMS.Controllers
                 option.Expires = DateTime.Now.AddHours(10);
 
             option.HttpOnly = false;
+            option.Path = "/";
 
             Response.Cookies.Append(key, value, option);
         }

@@ -77,58 +77,7 @@ namespace MeuProjetoAgora.Controllers
             ViewBag.id = elemento;
             return PartialView();
         }
-
-        [Route("AlterarStory/{Name}/{story}/{id}")]
-        public async Task<IActionResult> AlterarStory(string Name, string story, int id)
-        {
-            var user = UserManager.Users.FirstOrDefault(u => u.Name.ToLower() == Name.Trim().ToLower());
-            var Story = story.Replace("Story-", "").Replace("-Pagina", "");
-            if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
-            {
-                RepositoryPagina.paginas.
-               AddRange(await epositoryPagina.includes().Where(p => p.UserId == user.Id).ToListAsync());
-            }
-
-            ViewBag.story = Story;
-            ViewBag.user = user.Name;
-
-            // var lista = Pagina.paginas;
-            ViewBag.stories = db.Story.ToList();
-
-            var lista = RepositoryPagina.paginas.Where(p => p.Story.Nome == Story && p.Story.UserId == user.Id).ToList();
-
-            ViewBag.quantidadePaginas = lista.Count();
-
-            if (id > 0)
-            {
-                Pagina pagina = lista.Skip((int)id - 1).FirstOrDefault();
-
-                if (pagina == null || pagina.Id == 1) pagina = lista.Skip((int)id).FirstOrDefault();
-
-                if (pagina == null)
-                {
-                    ViewBag.paginas = new SelectList(new List<Pagina>(), "Id", "Titulo");
-                    ViewBag.numeroErro = id;
-                    return View("HttpNotFound");
-                }
-                else
-                {
-                    HttpHelper.SetPaginaId(pagina.Id);
-                    string html = await epositoryPagina.renderizarPaginaComCarousel(pagina);
-                    ViewBag.Html = html;
-                    pagina.Html = html;
-                }
-
-                if (pagina.Id == 2)
-                    ViewBag.proximo = 3;
-                else
-                    ViewBag.proximo = id + 1;
-                return View(pagina);
-            }
-            return HttpNotFound();
-        }
-
-
+        
         [Route("{Name}/{story}/{id}")]
         public async Task<IActionResult> RenderizarDinamico(string Name, string story, int id)
         {

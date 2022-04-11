@@ -68,6 +68,8 @@ namespace CMS.Controllers
                 .Where(e => e.Pagina_ == numero && e.GetType().Name == tipo).ToListAsync();
 
             Pagina pagina = new Pagina();
+            pagina.Id = numero;
+            pagina.UserId = page.UserId;
             pagina.Margem = false;
             pagina.MostrarDados = 1;
             pagina.Div = new List<DivPagina>();

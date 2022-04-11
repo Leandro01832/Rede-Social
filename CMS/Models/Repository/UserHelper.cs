@@ -1,4 +1,5 @@
-﻿using CMS.Data;
+﻿using business.business;
+using CMS.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -75,7 +76,60 @@ namespace CMS.Models.Repository
             var userASP = await UserManager.FindByNameAsync(email);
             if (userASP == null)
             {
-               await UserManager.CreateAsync(new UserModel { UserName = email, Name = "Leandro" }, password);
+                var user = new UserModel { UserName = email, Name = "Leandro", Image = "/ImagensGaleria/Padrao.jpg" };
+               await UserManager.CreateAsync(user, password);
+
+                await CreateUserASPAsync(user.UserName, "Video");
+                await CreateUserASPAsync(user.UserName, "Texto");
+                await CreateUserASPAsync(user.UserName, "Imagem");
+                await CreateUserASPAsync(user.UserName, "Carousel");
+                await CreateUserASPAsync(user.UserName, "Background");
+                await CreateUserASPAsync(user.UserName, "Music");
+                await CreateUserASPAsync(user.UserName, "Link");
+                await CreateUserASPAsync(user.UserName, "Div");
+                await CreateUserASPAsync(user.UserName, "Elemento");
+                await CreateUserASPAsync(user.UserName, "Pagina");
+                await CreateUserASPAsync(user.UserName, "Ecommerce");
+                await CreateUserASPAsync(user.UserName, "Formulario");
+                await CreateUserASPAsync(user.UserName, "Admin");
+
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Video", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Texto", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Imagem", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Carousel", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Background", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Music", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Link", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Div", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Elemento", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Pagina", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Ecommerce", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Formulario", UserId = user.Id, UserName = user.UserName });
+                await userContext.Permissao.AddAsync(new Permissao
+                { NomePermissao = "Admin", UserId = user.Id, UserName = user.UserName });
+
+                var str = new Story
+                {
+                    Nome = "Padrao",
+                    UserId = user.Id,
+                     PaginaPadraoLink = 0
+                };
+                await userContext.AddAsync(str);
+                await userContext.SaveChangesAsync();
+
+                await userContext.SaveChangesAsync();
                 return;
             }
 

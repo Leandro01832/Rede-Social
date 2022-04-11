@@ -3978,11 +3978,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leand\\Documents\\Visual Studio 2017\\C#\\rede-social\\business\\business.csproj",
+      "projectUniqueName": "C:\\Users\\leand\\Documents\\Visual Studio 2017\\C#\\cms-rede-social\\business\\business.csproj",
       "projectName": "business",
-      "projectPath": "C:\\Users\\leand\\Documents\\Visual Studio 2017\\C#\\rede-social\\business\\business.csproj",
+      "projectPath": "C:\\Users\\leand\\Documents\\Visual Studio 2017\\C#\\cms-rede-social\\business\\business.csproj",
       "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leand\\Documents\\Visual Studio 2017\\C#\\rede-social\\business\\obj\\",
+      "outputPath": "C:\\Users\\leand\\Documents\\Visual Studio 2017\\C#\\cms-rede-social\\business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4036,10 +4036,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.417\\RuntimeIdentifierGraph.json"
       }
     }
   }

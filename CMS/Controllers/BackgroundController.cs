@@ -20,7 +20,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Background")]
-        public async Task<IActionResult> ListaBackground(int? id)
+        public async Task<IActionResult> ListaBackground(ulong? id)
         {
             List<Background> lista = new List<Background>();
             Pagina pagina = await _context.Pagina.FirstAsync(p => p.Id == id);
@@ -40,7 +40,7 @@ namespace CMS.Controllers
 
         [Authorize(Roles = "Background")]
         [Route("Background/Create/{back}/{Id}")]
-        public IActionResult Create(string back, int Id)
+        public IActionResult Create(string back, ulong Id)
         {
             Background background = null;
 
@@ -54,7 +54,7 @@ namespace CMS.Controllers
 
         [Authorize(Roles = "Background")]
         [Route("Background/Edit/{back}/{Id}")]
-        public async Task<IActionResult> Edit(string back, int Id)
+        public async Task<IActionResult> Edit(string back, ulong Id)
         {
             Background background = null;
 
@@ -148,7 +148,7 @@ namespace CMS.Controllers
         #endregion
 
 
-        public async Task<IActionResult> DeleteBackground(int? id)
+        public async Task<IActionResult> DeleteBackground(ulong? id)
         {
             if (id == null)
             {
@@ -167,7 +167,7 @@ namespace CMS.Controllers
 
         [HttpPost, ActionName("DeleteBackground")]
         [ValidateAntiForgeryToken]
-        public async Task<string> DeleteBackgroundConfirmed(int id)
+        public async Task<string> DeleteBackgroundConfirmed(ulong id)
         {
             var background = await _context.Background.FindAsync(id);
             _context.Background.Remove(background);

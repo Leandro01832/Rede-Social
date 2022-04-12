@@ -4,8 +4,8 @@ namespace business.business.Elementos.element
 {
     public class ElementoDependenteElemento
     {
-        public int? ElementoDependenteId { get; set; }
-        public int? ElementoId { get; set; }
+        public ulong? ElementoDependenteId { get; set; }
+        public ulong? ElementoId { get; set; }
         public virtual Elemento Elemento { get; set; }
         public virtual ElementoDependente ElementoDependente { get; set; }
     }

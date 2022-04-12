@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20220331100528_Inicio4.cs" />
-    <Compile Remove="Migrations\20220331100528_Inicio4.Designer.cs" />
+    <Compile Remove="Migrations\20220412142957_Inicio.cs" />
+    <Compile Remove="Migrations\20220412142957_Inicio.Designer.cs" />
   </ItemGroup>
 
 

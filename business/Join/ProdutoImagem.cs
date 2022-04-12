@@ -5,8 +5,8 @@ namespace business.Join
 {
     public class ProdutoImagem
     {
-        public int? ElementoId { get; set; }
-        public int? ImagemId { get; set; }
+        public ulong? ElementoId { get; set; }
+        public ulong? ImagemId { get; set; }
         public Elemento Elemento { get; set; }
         public Imagem Imagem { get; set; }
     }

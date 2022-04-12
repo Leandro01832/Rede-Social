@@ -9,7 +9,7 @@ namespace CMS.Models.Repository
 {
     public interface IRepositoryCadastro
     {
-        Task<Cadastro> UpdateAsync(int idCadastro, Cadastro cadastro);
+        Task<Cadastro> UpdateAsync(ulong idCadastro, Cadastro cadastro);
     }
 
 
@@ -23,7 +23,7 @@ namespace CMS.Models.Repository
             
         }
 
-        public async Task<Cadastro> UpdateAsync(int cadastroId, Cadastro novoCadastro)
+        public async Task<Cadastro> UpdateAsync(ulong cadastroId, Cadastro novoCadastro)
         {
             var cadastroDB = dbSet.Where(c => c.Id == cadastroId)
                 .SingleOrDefault();

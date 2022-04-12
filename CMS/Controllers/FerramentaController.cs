@@ -26,7 +26,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Background")]
-        public async Task<IActionResult> ListaCores(int? id)
+        public async Task<IActionResult> ListaCores(ulong? id)
         {
             List<Cor> lista = new List<Cor>();
 
@@ -75,7 +75,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Background")]
-        public async Task<IActionResult> CreateCor(int? id)
+        public async Task<IActionResult> CreateCor(ulong? id)
         {
             List<Background> lista = new List<Background>();
 
@@ -115,7 +115,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Background")]
-        public async Task<IActionResult> EditCor(int? id)
+        public async Task<IActionResult> EditCor(ulong? id)
         {
             var cor = await _context.Cor.FindAsync(id);
             if (cor == null)
@@ -170,7 +170,7 @@ namespace CMS.Controllers
         
         
 
-        public async Task<IActionResult> DeleteCor(int? id)
+        public async Task<IActionResult> DeleteCor(ulong? id)
         {
             var cor = await _context.Cor
                 .Include(b => b.Background)
@@ -185,7 +185,7 @@ namespace CMS.Controllers
 
         [HttpPost, ActionName("DeleteCor")]
         [ValidateAntiForgeryToken]
-        public async Task<string> DeleteCorConfirmed(int id)
+        public async Task<string> DeleteCorConfirmed(ulong id)
         {
             var cor = await _context.Cor.FindAsync(id);
             _context.Cor.Remove(cor);
@@ -193,7 +193,7 @@ namespace CMS.Controllers
             return "";
         }
 
-        private bool BackgroundExists(int id)
+        private bool BackgroundExists(ulong id)
         {
             return _context.Background.Any(e => e.Id == id);
         }

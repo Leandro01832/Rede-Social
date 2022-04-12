@@ -37,8 +37,8 @@ namespace CMS.Models.Repository
 
                 foreach (var item in arr)
                     if (elemento.Dependentes.FirstOrDefault(d => d.ElementoId == elemento.Id &&
-                     d.ElementoDependenteId == int.Parse(item)) == null)
-                        elemento.IncluiElemento(dbSet.First(e => e.Id == int.Parse(item)));
+                     d.ElementoDependenteId == ulong.Parse(item)) == null)
+                        elemento.IncluiElemento(dbSet.First(e => e.Id == ulong.Parse(item)));
 
                 await contexto.SaveChangesAsync();
 
@@ -66,7 +66,7 @@ namespace CMS.Models.Repository
 
                 foreach (var item in arr)
                 {
-                    var ele = await contexto.Pagina.FirstAsync(el => el.Id == int.Parse(item));
+                    var ele = await contexto.Pagina.FirstAsync(el => el.Id == ulong.Parse(item));
                     PaginaCarouselPagina depe = new PaginaCarouselPagina
                     {
                         ElementoId = elemento.Id,
@@ -94,7 +94,7 @@ namespace CMS.Models.Repository
 
                 foreach (var item in arr)
                 {
-                    var ele = await dbSet.FirstAsync(el => el.Id == int.Parse(item));
+                    var ele = await dbSet.FirstAsync(el => el.Id == ulong.Parse(item));
                     ElementoDependenteElemento depe = new ElementoDependenteElemento
                     {
                         ElementoId = elemento.Id,

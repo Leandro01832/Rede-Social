@@ -20,7 +20,7 @@ namespace business.business.Elementos.imagem
         [JsonIgnore]
         public virtual List<Elemento> Elemento { get; set; }
 
-        public int? PastaImagemId { get; set; }
+        public ulong? PastaImagemId { get; set; }
         [JsonIgnore]
         public virtual PastaImagem PastaImagem { get; set; }
 

@@ -60,7 +60,7 @@ namespace CMS.Controllers
         
         //Região Detalhes
         #region
-        public async Task<IActionResult> DetailsBackground(int? id)
+        public async Task<IActionResult> DetailsBackground(ulong? id)
         {
             if (id == null)
             {
@@ -76,7 +76,7 @@ namespace CMS.Controllers
 
             return View(background);
         }
-        public async Task<IActionResult> DetailsElementoDependente(int? id)
+        public async Task<IActionResult> DetailsElementoDependente(ulong? id)
         {
             if (id == null)
             {
@@ -92,7 +92,7 @@ namespace CMS.Controllers
 
             return View(elemento);
         }
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(ulong? id)
         {
             if (id == null)
             {
@@ -139,7 +139,7 @@ namespace CMS.Controllers
 
         //Região Editar
         #region
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(ulong? id)
         {
             if (id == null)
             {
@@ -155,7 +155,7 @@ namespace CMS.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdMensagem,Pagina,NomeUsuario,Mensagem")] MensagemChat mensagemChat)
+        public async Task<IActionResult> Edit(ulong id, [Bind("IdMensagem,Pagina,NomeUsuario,Mensagem")] MensagemChat mensagemChat)
         {
             if (id != mensagemChat.Id)
             {
@@ -183,7 +183,7 @@ namespace CMS.Controllers
 
         //Região Ddelete
         #region
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(ulong? id)
         {
             if (id == null)
             {
@@ -201,7 +201,7 @@ namespace CMS.Controllers
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(ulong id)
         {
             var mensagemChat = await _context.MensagemChat.FindAsync(id);
             _context.MensagemChat.Remove(mensagemChat);

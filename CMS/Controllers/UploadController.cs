@@ -36,7 +36,7 @@ namespace CMS.Controllers
             return path + filename;
         }
 
-        private string GetPathAndFilenameArquivoMusica(string filename, int Id)
+        private string GetPathAndFilenameArquivoMusica(string filename, ulong Id)
         {
             string path = this.HostingEnvironment.WebRootPath + "\\Music\\";
 
@@ -46,7 +46,7 @@ namespace CMS.Controllers
             return path + filename;
         }
 
-        private string GetPathAndFilenameImagens(string filename, string pasta, int Id)
+        private string GetPathAndFilenameImagens(string filename, string pasta, ulong Id)
         {
             string path = this.HostingEnvironment.WebRootPath + "\\ImagensGaleria\\" + Id + "Pagina" + pasta + "\\";
 
@@ -56,7 +56,7 @@ namespace CMS.Controllers
             return path + filename;
         }
 
-        private string EnsureCorrectFilename(string filename, int Id)
+        private string EnsureCorrectFilename(string filename, ulong Id)
         {
             if (filename.Contains("\\"))
                 filename = filename.Substring(filename.LastIndexOf("\\") + 1);
@@ -68,7 +68,7 @@ namespace CMS.Controllers
         [ValidateAntiForgeryToken]
         [RequestFormLimits(MultipartBodyLengthLimit = 409715200)]
         [RequestSizeLimit(409715200)]
-        public async Task<string> SalvarVideo(IFormFile files, string Nome, int Id, int PaginaEscolhida,
+        public async Task<string> SalvarVideo(IFormFile files, string Nome, ulong Id, ulong PaginaEscolhida,
             [FromServices] IHostingEnvironment hostingEnvironment)
         {
             string filename = ContentDispositionHeaderValue.Parse(files.ContentDisposition).FileName.ToString().Trim('"');
@@ -122,7 +122,7 @@ namespace CMS.Controllers
         [ValidateAntiForgeryToken]
         [RequestFormLimits(MultipartBodyLengthLimit = 409715200)]
         [RequestSizeLimit(409715200)]
-        public async Task<IActionResult> SalvarMusica(IFormFile files, int Id,
+        public async Task<IActionResult> SalvarMusica(IFormFile files, ulong Id,
             [FromServices] IHostingEnvironment hostingEnvironment)
         {
 
@@ -160,12 +160,12 @@ namespace CMS.Controllers
 
         [RequestFormLimits(MultipartBodyLengthLimit = 409715200)]
         [RequestSizeLimit(409715200)]
-        public async Task<IActionResult> ImageUpload(IList<IFormFile> files, int Id, string pasta, int PaginaEscolhida,
+        public async Task<IActionResult> ImageUpload(IList<IFormFile> files, ulong Id, string pasta, ulong PaginaEscolhida,
             [FromServices] IHostingEnvironment hostingEnvironment)
         {
             var local = await db.PastaImagem
                 .Include(p => p.Imagens)
-                .FirstAsync(p => p.Id == int.Parse(pasta));
+                .FirstAsync(p => p.Id == ulong.Parse(pasta));
             var location = local.Nome;
 
             long totalBytes = files.Sum(f => f.Length);

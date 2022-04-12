@@ -56,7 +56,7 @@ namespace CMS.Controllers.Api
 
         // GET: api/PaginaApi/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PaginaApi>> GetPagina(int id)
+        public async Task<ActionResult<PaginaApi>> GetPagina(ulong id)
         {
             var pagina = await includes().FirstAsync(p => p.Id == id);
 
@@ -86,7 +86,7 @@ namespace CMS.Controllers.Api
 
         // PUT: api/PaginaApi/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPagina(int id, Pagina pagina)
+        public async Task<IActionResult> PutPagina(ulong id, Pagina pagina)
         {
             if (id != pagina.Id)
             {
@@ -140,7 +140,7 @@ namespace CMS.Controllers.Api
             return pagina;
         }
 
-        private bool PaginaExists(int id)
+        private bool PaginaExists(ulong id)
         {
             return _context.Pagina.Any(e => e.Id == id);
         }

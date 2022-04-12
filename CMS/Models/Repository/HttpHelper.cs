@@ -18,14 +18,14 @@ namespace CMS.Models.Repository
             UserManager = userManager;
         }
 
-        public int? GetRequisicaoId()
+        public ulong? GetRequisicaoId()
         {
-            return contextAccessor.HttpContext.Session.GetInt32($"RequisicaoId_{GetClienteId()}");
+            return (ulong) contextAccessor.HttpContext.Session.GetInt32($"RequisicaoId_{GetClienteId()}");
         }
 
-        public void SetRequisicaoId(int RequisicaoId)
+        public void SetRequisicaoId(ulong RequisicaoId)
         {
-            contextAccessor.HttpContext.Session.SetInt32($"RequisicaoId_{GetClienteId()}", RequisicaoId);
+            contextAccessor.HttpContext.Session.SetInt32($"RequisicaoId_{GetClienteId()}", (int) RequisicaoId);
         }
 
         public void ResetRequisicaoId()
@@ -33,14 +33,14 @@ namespace CMS.Models.Repository
             contextAccessor.HttpContext.Session.Remove($"RequisicaoId_{GetClienteId()}");
         }
 
-        public int? GetPaginaId()
+        public ulong? GetPaginaId()
         {
-            return contextAccessor.HttpContext.Session.GetInt32($"pedidoId_{GetClienteId()}");
+            return (ulong)contextAccessor.HttpContext.Session.GetInt32($"pedidoId_{GetClienteId()}");
         }
 
-        public void SetPaginaId(int paginaId)
+        public void SetPaginaId(ulong paginaId)
         {
-            contextAccessor.HttpContext.Session.SetInt32($"pedidoId_{GetClienteId()}", paginaId);
+            contextAccessor.HttpContext.Session.SetInt32($"pedidoId_{GetClienteId()}", (int) paginaId);
         }
 
         public void ResetPedidoId()

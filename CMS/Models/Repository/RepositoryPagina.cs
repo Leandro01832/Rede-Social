@@ -241,7 +241,7 @@ namespace CMS.Models.Repository
                 Div div;
                 bool MesmoCliente = false;
 
-                var Bloco = await contexto.Div.FirstOrDefaultAsync(d => d.Id == int.Parse(id));
+                var Bloco = await contexto.Div.FirstOrDefaultAsync(d => d.Id == ulong.Parse(id));
 
                 if (Bloco != null)
                 {
@@ -256,7 +256,7 @@ namespace CMS.Models.Repository
 
                 try
                 {
-                    div = await contexto.Div.FirstOrDefaultAsync(d => d.Id == int.Parse(id));
+                    div = await contexto.Div.FirstOrDefaultAsync(d => d.Id == ulong.Parse(id));
                 }
                 catch (Exception)
                 {
@@ -338,7 +338,7 @@ namespace CMS.Models.Repository
             Pagina pag;
             try
             {
-                pag = await contexto.Pagina.FirstOrDefaultAsync(e => e.Id == int.Parse(id));
+                pag = await contexto.Pagina.FirstOrDefaultAsync(e => e.Id == ulong.Parse(id));
             }
             catch (Exception)
             {

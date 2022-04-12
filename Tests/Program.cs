@@ -11,8 +11,6 @@ using business.business.link;
 using business.div;
 using business.ecommerce;
 using business.Join;
-using CMS.Data;
-using CMS.Models;
 using CMS.Models.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -35,9 +33,42 @@ namespace Tests
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+           // var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+           // var repository = serviceProvider.GetRequiredService<IRepositoryPagina>();
 
-            var user =  userManager.Users.First();
+            var paginas = RepositoryPagina.paginas;
+
+            for(ulong i = 0; i <= 1000000; i++)
+            {
+                Console.WriteLine(i);
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i,
+                    ArquivoMusic = "",
+                    Html = "",
+                    Margem = false,
+                    Music = false,
+                    Rotas = "",
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    Exibicao = false,
+                    StoryId = 0
+                });
+            }
+
+            var lista1 = RepositoryPagina.paginas.Where(p => p.Id < 10000).ToList();
+            var lista2 = RepositoryPagina.paginas.Where(p => p.Id < 20000).ToList();
+            var lista3 = RepositoryPagina.paginas.Where(p => p.Id < 30000).ToList();
+            var lista4 = RepositoryPagina.paginas.Where(p => p.Id < 40000).ToList();
+            var lista5 = RepositoryPagina.paginas.Where(p => p.Id < 50000).ToList();
+            var lista6 = RepositoryPagina.paginas.Where(p => p.Id < 60000).ToList();
+            var lista7 = RepositoryPagina.paginas.Where(p => p.Id < 70000).ToList();
+            var lista8 = RepositoryPagina.paginas.Where(p => p.Id < 80000).ToList();
+            var lista9 = RepositoryPagina.paginas.Where(p => p.Id < 90000).ToList();
+            var lista10 = RepositoryPagina.paginas.Where(p => p.Id < 100000).ToList();
+
+            //var user =  userManager.Users.First();
 
             var pag2 = includes().First(p => p.Id == 2);
 

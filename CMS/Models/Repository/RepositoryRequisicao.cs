@@ -80,7 +80,7 @@ namespace CMS.Models.Repository
                 await dbSet
                 .Include(p => p.ItemRequisicao)
                 .Include(p => p.Cadastro)
-                .Where(p => p.IdRequisicao == pedidoId)
+                .Where(p => p.Id == pedidoId)
                 .SingleOrDefaultAsync();
 
             if (pedido == null)
@@ -90,7 +90,7 @@ namespace CMS.Models.Repository
                 pedido = new Requisicao(clienteId);
                 await dbSet.AddAsync(pedido);
                 await contexto.SaveChangesAsync();
-                HttpHelper.SetPaginaId(pedido.IdRequisicao);
+                HttpHelper.SetPaginaId(pedido.Id);
             }
 
             return pedido;
@@ -128,7 +128,7 @@ namespace CMS.Models.Repository
             throw new ArgumentException("ItemPedido não encontrado");
         }
 
-        private async Task<ItemRequisicao> GetItemPedidoAsync(int itemPedidoId)
+        private async Task<ItemRequisicao> GetItemPedidoAsync(ulong itemPedidoId)
         {
             return
             await contexto.Set<ItemRequisicao>()
@@ -136,7 +136,7 @@ namespace CMS.Models.Repository
                 .SingleOrDefaultAsync();
         }
 
-        private async Task RemoveItemPedidoAsync(int itemPedidoId)
+        private async Task RemoveItemPedidoAsync(ulong itemPedidoId)
         {
             contexto.Set<ItemRequisicao>()
                 .Remove(await GetItemPedidoAsync(itemPedidoId));

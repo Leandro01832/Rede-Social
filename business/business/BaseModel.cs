@@ -6,7 +6,7 @@ namespace business.business
     public abstract class BaseModel 
     {
         [Key]
-        public int Id { get; set; }
+        public ulong Id { get; set; }
         
         [NotMapped]
         public string Tipo

@@ -217,9 +217,13 @@ else
 
             if("@(Model.Story.Nome)" != "Padrao")
                 $("#NumeroPaginaAcesso2").attr('placeholder', 'Nº versiculo');
+
+            
             
 
             $("#DivPagina@(atual)").addClass('minhaClasse3');
+
+           
 
             $("#voltar").click(function () {
                 window.location.href = "/@ViewBag.user/Story-" + "@ViewBag.story" + "-Pagina/" + @anterior;
@@ -235,6 +239,12 @@ else
             }
             function desativarCheckbox(el) {
                 el.checked = false;
+            }
+
+             if ("@(atual)" == "1") {
+                debugger;
+                $.cookie('automatico', '1');
+                ativarCheckbox(checkbox);
             }
 
             $("input").change(function () {

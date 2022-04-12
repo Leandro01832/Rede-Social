@@ -15,13 +15,12 @@ namespace business.Back
         {
             mudanca = new MudancaEstado();
         }
-
-        private string nome = "Background";
+        
 
         [Key, ForeignKey("Div")]
-        public new int Id { get; set; }
+        public new ulong Id { get; set; }
 
-        public int? ImagemId { get; set; }
+        public ulong? ImagemId { get; set; }
         public virtual Imagem Imagem { get; set; }
 
         public virtual List<Cor> Cores { get; set; }

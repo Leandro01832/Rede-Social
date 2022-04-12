@@ -36,7 +36,7 @@ namespace CMS.Controllers
         }
 
         [Route("Div/ListaFixo/{id?}")]
-        public async Task<IActionResult> ListaFixo(int? id)
+        public async Task<IActionResult> ListaFixo(ulong? id)
         {
             List<Div> lista = new List<Div>();
 
@@ -156,7 +156,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Div")]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(ulong? id)
         {
             var div = await _context.Div
                 .Include(d => d.Elemento)

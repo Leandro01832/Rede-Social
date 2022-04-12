@@ -6,8 +6,8 @@ namespace business.Join
 {
     public class PaginaCarouselPagina
     {
-        public int? ElementoId { get; set; }
-        public int? PaginaId { get; set; }
+        public ulong? ElementoId { get; set; }
+        public ulong? PaginaId { get; set; }
         public virtual Elemento Elemento { get; set; }
         public virtual Pagina Pagina { get; set; }
     }

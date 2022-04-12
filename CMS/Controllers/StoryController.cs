@@ -44,7 +44,7 @@ namespace CMS.Controllers
         }
 
         // GET: Story/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(ulong? id)
         {
             if (id == null)
             {
@@ -233,7 +233,7 @@ namespace CMS.Controllers
         }
 
         // GET: Story/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(ulong? id)
         {
             if (id == null)
             {
@@ -261,7 +261,7 @@ namespace CMS.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool StoryExists(int id)
+        private bool StoryExists(ulong id)
         {
             return _context.Story.Any(e => e.Id == id);
         }

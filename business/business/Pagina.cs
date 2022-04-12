@@ -17,7 +17,7 @@ namespace business.business
         private DateTime data = DateTime.Now;
 
         public DateTime Data { get { return data; } set { data = value; } }
-        public int StoryId { get; set; }
+        public ulong StoryId { get; set; }
         public virtual Story Story { get; set; }
 
         [Required(ErrorMessage = "O titulo é necessário")]

@@ -1,12 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using business.business;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace business.ecommerce
 {
-    public class EnderecoRequisicao
+    public class EnderecoRequisicao : BaseModel
     {
         [Key, ForeignKey("Requisicao")]
-        public int IdEnderecoRequisicao { get; set; }
+        public new ulong Id { get; set; }
         public string Cep { get; set; }
         public string Estado { get; set; }
         public string Cidade { get; set; }

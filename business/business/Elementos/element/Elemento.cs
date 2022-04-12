@@ -13,13 +13,13 @@ namespace business.business.Elementos.element
     {
         private string nome = "elemento";
         private string elementosDependentes = "";
-        private int? textoId = null;
-        private int? imagemId = null;
-        private int? tableId = null;
-        private int? formularioId = null;
-        private int? paginaEscolhida = null;
+        private ulong? textoId = null;
+        private ulong? imagemId = null;
+        private ulong? tableId = null;
+        private ulong? formularioId = null;
+        private ulong? paginaEscolhida = null;
 
-        public int? PaginaEscolhida
+        public ulong? PaginaEscolhida
         {
             get { if (paginaEscolhida == 0) return null; return paginaEscolhida; }
             set { paginaEscolhida = value; }
@@ -36,14 +36,14 @@ namespace business.business.Elementos.element
         [JsonIgnore]
         public virtual List<DivElemento> div { get; set; }
 
-        public int Pagina_ { get; set; }
+        public ulong Pagina_ { get; set; }
         
         public bool Renderizar;
         [NotMapped]
         public string NomeComId { get { return Nome + " chave - " + Id.ToString(); } }
 
         [Display(Name = "Qual é o texto do Link?")]
-        public int? TextoId
+        public ulong? TextoId
         {
             get { if (textoId == 0) return null; return textoId; }
             set { textoId = value; }
@@ -51,7 +51,7 @@ namespace business.business.Elementos.element
         public virtual Texto Texto { get; set; }
 
         [Display(Name = "Qual é a Imagem do Link?")]
-        public int? ImagemId
+        public ulong? ImagemId
         {
             get { if (imagemId == 0) return null; return imagemId; }
             set { imagemId = value; }
@@ -66,7 +66,7 @@ namespace business.business.Elementos.element
         }
 
         [Display(Name = "Tabela do produto")]
-        public int? TableId
+        public ulong? TableId
         {
             get { if (tableId == 0) return null; return tableId; }
             set { tableId = value; }
@@ -74,7 +74,7 @@ namespace business.business.Elementos.element
         public Table Table { get; set; }
 
         [Display(Name = "Formulario do campo")]
-        public int? FormularioId
+        public ulong? FormularioId
         {
             get { if (formularioId == 0) return null; return formularioId; }
             set { formularioId = value; }

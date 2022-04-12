@@ -52,7 +52,7 @@ namespace CMS.Controllers
         public async Task<IActionResult> Lista(string id)
         {
             var arr = id.Split('-');
-            var numero = int.Parse(arr[1]);
+            var numero = ulong.Parse(arr[1]);
             var page = await _context.Pagina.FirstAsync(p => p.Id == numero);
 
             var tipo = arr[0].Replace("GaleriaElemento", "");
@@ -122,7 +122,7 @@ namespace CMS.Controllers
         }
 
         [Route("Elemento/Create/{elemento}/{pagina}")]
-        public async Task<IActionResult> Create(string elemento, int pagina)
+        public async Task<IActionResult> Create(string elemento, ulong pagina)
         {
             var page = await _context.Pagina.Include(p => p.Story)
             .ThenInclude(p => p.Pagina).FirstAsync(p => p.Id == pagina);
@@ -177,7 +177,7 @@ namespace CMS.Controllers
             return PartialView(ele);
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(ulong? id)
         {
             var usuario = await UserManager.GetUserAsync(this.User);
             var pedido = await UserManager.Users.FirstAsync(p => p.Id == usuario.Id);
@@ -450,7 +450,7 @@ namespace CMS.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Div")]
-        public async Task<JsonResult> AlterarPosicaoBloco(IList<int> numeros, int? id)
+        public async Task<JsonResult> AlterarPosicaoBloco(IList<ulong> numeros, ulong? id)
         {
             //  db.Configuration.ProxyCreationEnabled = false;
             try
@@ -469,10 +469,10 @@ namespace CMS.Controllers
                 return Json("");
             }
 
-            for (int i = 0; i < numeros.Count; i++)
+            for (ulong i = 0; i < (ulong)numeros.Count; i++)
             {
-                var bloco = await _context.Div.FirstAsync(d => d.Id == numeros[i]);
-                bloco.Ordem = i;
+                var bloco = await _context.Div.FirstAsync(d => d.Id == numeros[(int)i]);
+                bloco.Ordem = (int)i;
                 _context.Entry(bloco).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
 
@@ -483,7 +483,7 @@ namespace CMS.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Elemento")]
-        public async Task<JsonResult> AlterarPosicaoElemento(IList<int> numeros, int? id)
+        public async Task<JsonResult> AlterarPosicaoElemento(IList<ulong> numeros, ulong? id)
         {
             //  db.Configuration.ProxyCreationEnabled = false;
             try

@@ -60,7 +60,7 @@ namespace business.div
         [JsonIgnore]
         public virtual List<DivPagina> Pagina { get; set; }
 
-        public int Pagina_ { get; set; }
+        public ulong Pagina_ { get; set; }
 
         [NotMapped]
         public string Elementos { get { return elementos; } set { elementos = value; } }

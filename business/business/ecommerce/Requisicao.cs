@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using business.business;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace business.ecommerce
 {
-    public class Requisicao
+    public class Requisicao : BaseModel
     {
         public Requisicao(string clienteId)
         {
@@ -15,7 +16,7 @@ namespace business.ecommerce
         }
 
         [Key, ForeignKey("Cadastro")]
-        public int IdRequisicao { get; set; }
+        public new ulong Id { get; set; }
         public string Status { get; set; }
         [Display(Name = "Data do pedido")]
         public DateTime DataPedidoCompra { get; set; }

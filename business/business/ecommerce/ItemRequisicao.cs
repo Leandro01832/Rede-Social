@@ -8,12 +8,12 @@ namespace business.ecommerce
     public class ItemRequisicao : BaseModel
     {
         public int Quantidade { get; set; }
-        public int RequisicaoId { get; set; }
+        public ulong RequisicaoId { get; set; }
         [Required]
         public decimal PrecoUnitario { get; private set; }
         [JsonIgnore]
         public virtual Requisicao Requisicao { get; set; }
-        public int ElementoId { get; set; }
+        public ulong ElementoId { get; set; }
         [JsonIgnore]
         public virtual Elemento Elemento { get; set; }
 

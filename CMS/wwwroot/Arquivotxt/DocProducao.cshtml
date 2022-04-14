@@ -42,7 +42,7 @@
 
             #if ($condicao == 0 && $bloco.Div.Desenhado == 0)
 
-                #if ($model.Pagina.Id == 0 && $bloco.Div.Id != 0)
+                #if ($model.Pagina.Id == 0 && $bloco.Div.Id != 0 && $model.Pagina.MostrarDados == 1)
                 <p>Identificação do bloco: $bloco.Div.Id </p>
                 #end
             <div id='DIV${bloco.Div.Id}Pagina${model.Pagina.Id}' class='ClassDiv $bloco.Div.Divisao grid-container' data-value='$bloco.Div.Id'>

@@ -1,4 +1,7 @@
 ﻿using business.business;
+using business.business.Elementos.texto;
+using business.div;
+using business.Join;
 using CMS.Data;
 using CMS.Models;
 using CMS.Models.Repository;
@@ -7,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -16,6 +20,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace CMS.Controllers
 {
@@ -40,7 +45,7 @@ namespace CMS.Controllers
             EmailSender = emailSender;
         }
 
-        
+
         [Route("")]
         public IActionResult Index()
         {
@@ -50,16 +55,16 @@ namespace CMS.Controllers
                 Set("automatico", "0", 12);
             if (option2 == null)
                 Set("story", "0", 12);
-            
+
             return View();
         }
 
         [Route("Perfil/{Name}")]
         public async Task<IActionResult> Perfil(string Name)
         {
-           var user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == Name.Trim().ToLower());
+            var user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == Name.Trim().ToLower());
 
-            if(RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
+            if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
             {
                 RepositoryPagina.paginas.
                AddRange(await epositoryPagina.includes().Where(p => p.UserId == user.Id).ToListAsync());
@@ -79,7 +84,7 @@ namespace CMS.Controllers
                 seguindo.Add(await UserManager.Users.FirstAsync(u => u.Id == item.UserIdSeguindo));
 
             var solicitacoes = await _context.Solicitacao.
-                Where(sol => sol.UserId == user.Id && 
+                Where(sol => sol.UserId == user.Id &&
                 seguidores.FirstOrDefault(u => u.Id == sol.UserIdSolicitando) == null).ToListAsync();
 
             var UsuarioSolicitando = new List<UserModel>();
@@ -92,27 +97,27 @@ namespace CMS.Controllers
             ViewBag.stories = stories;
             ViewBag.solicitacoes = UsuarioSolicitando;
 
-                return View(user);
+            return View(user);
         }
-        
+
         [Authorize]
         public async Task<IActionResult> Alterar()
         {
             var user = await UserManager.GetUserAsync(this.User);
             ViewBag.UserId = user.Id;
-           return View(user);
+            return View(user);
         }
 
         [HttpPost]
         public async Task<IActionResult> Alterar(UserModel user)
         {
-           var user2 = await UserManager.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+            var user2 = await UserManager.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
             user2.Image = "/ImagensUsers/" + user2.Name + ".jpg";
             user2.Facebook = user.Facebook;
             user2.Twitter = user.Twitter;
             user2.Instagram = user.Instagram;
 
-            var result =  await UserManager.UpdateAsync(user2);
+            var result = await UserManager.UpdateAsync(user2);
 
 
             if (result.Succeeded && Request.Form.Files.Count > 0)
@@ -135,7 +140,7 @@ namespace CMS.Controllers
                     }
                 }
                 return RedirectToAction("Perfil", new { Name = user2.Name });
-            }  
+            }
 
             return View(user2);
         }
@@ -155,8 +160,8 @@ namespace CMS.Controllers
             mail.Body = "<img class='img-circle img-responsive' src='@Model.Image width='100' /> <br />";
             mail.Body += "<p> Você aceita o usuário " + usuario.Name + " - " + usuario.UserName + " como seguidor? </p>";
             mail.Body += "<form action='/Home/Aceitar' method='Post' > ";
-            mail.Body += " <input type='hidden' value='" + usuario.Name +"' name='Seguidor' id='Seguidor'  /> ";
-            mail.Body += " <input type='hidden' value='" + user.Name +"' name='Seguindo' id='Seguindo'  /> ";
+            mail.Body += " <input type='hidden' value='" + usuario.Name + "' name='Seguidor' id='Seguidor'  /> ";
+            mail.Body += " <input type='hidden' value='" + user.Name + "' name='Seguindo' id='Seguindo'  /> ";
             mail.Body += " <input type='submit' value='Aceitar' class='btn btn-default' /> ";
             mail.Body += " </form>";
 
@@ -188,8 +193,106 @@ namespace CMS.Controllers
             await _context.AddAsync(registroSeguindo);
 
             await _context.SaveChangesAsync();
-            
+
             return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> CreatePagina()
+        {
+            var user = await UserManager.GetUserAsync(this.User);
+            var lista = await _context.Story.Where(st => st.UserId == user.Id && st.Nome != "Padrao").ToListAsync();
+            var layouts = await _context.Pagina.Where(p => p.UserId == user.Id && p.Layout).ToListAsync();
+
+            if (lista.Count == 0)
+            {
+                ViewBag.Error = "Crie seu story primeiro!!!";
+                RedirectToAction("Create", "Story");
+            }
+
+            ViewBag.UserId = user.Id;
+            ViewBag.StoryId = new SelectList(lista, "Id", "Nome");
+            ViewBag.Layout = new SelectList(layouts, "Id", "Id");
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> CreatePagina(string Titulo, string UserId, ulong StoryId, string Conteudo, int Layout)
+        {
+            var user = await UserManager.GetUserAsync(this.User);
+            var lista = await _context.Story.Where(st => st.UserId == user.Id && st.Nome != "Padrao").ToListAsync();
+
+            if (lista.Count == 0)
+            {
+                ViewBag.Error = "Crie seu story primeiro!!!";
+                RedirectToAction("Create", "Story");
+            }
+
+            ViewBag.UserId = user.Id;
+            ViewBag.StoryId = new SelectList(lista, "Id", "Nome");
+            return View();
+        }
+        
+        public async Task<ActionResult> Preview(ulong Layout, string Conteudo, string UserId)
+        {
+            Pagina pagina = new Pagina
+            {
+                ArquivoMusic = "",
+                Html = "",
+                Margem = false,
+                Music = false,
+                Rotas = "",
+                Titulo = "Default",
+                Layout = false,
+                UserId = UserId,
+                Exibicao = false,
+                StoryId = 0
+            };
+
+            var page = await epositoryPagina.includes().FirstAsync(p => p.Id == Layout);
+            pagina.Div = page.Div;
+            if (pagina.Div.Count > 6)
+            {
+                pagina.Div[6].Div.Elemento.Add(new DivElemento
+                {
+                    Div = pagina.Div[6].Div,
+                    Elemento = new Texto
+                    {
+                        PalavrasTexto = Conteudo
+                    }
+                });
+            }
+            else
+            {
+                var div = new DivPagina
+                {
+                    Div = new DivComum(),
+                    Pagina = pagina
+
+                };
+                pagina.Div.Add(div);
+                pagina.Div[6].Div.Elemento = new List<DivElemento>
+                        {
+                            new DivElemento
+                            {
+                                 Div = pagina.Div[6].Div,
+                                 Elemento = new Texto
+                                 {
+                                     PalavrasTexto = Conteudo
+                                 }
+                            }
+                        };
+                pagina.Div[6].Div.Id = 1;
+            }
+
+
+            string html = await epositoryPagina.renderizarPaginaComCarousel(pagina);
+            ViewBag.html = html;
+            pagina.Html = html;
+
+            //return Json(html);
+            return PartialView("Preview");
         }
 
         public IActionResult Privacy()
@@ -218,6 +321,6 @@ namespace CMS.Controllers
             Response.Cookies.Append(key, value, option);
         }
 
-        
+
     }
 }

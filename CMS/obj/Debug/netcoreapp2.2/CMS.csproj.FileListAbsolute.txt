@@ -561,3 +561,5 @@ C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\net
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\modal.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreatePagina.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Preview.g.cshtml.cs

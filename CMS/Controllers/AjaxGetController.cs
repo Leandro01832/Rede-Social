@@ -1,4 +1,5 @@
-﻿using CMS.Data;
+﻿using business.business;
+using CMS.Data;
 using CMS.Models;
 using CMS.Models.Repository;
 using Microsoft.AspNetCore.Identity;
@@ -14,7 +15,7 @@ namespace CMS.Controllers
     public class AjaxGetController : Controller
     {
         private readonly ApplicationDbContext db;
-        public IRepositoryPagina RepositoryPagina { get; }
+        public IRepositoryPagina epositoryPagina { get; }
         public IHttpHelper HttpHelper { get; }
         public UserManager<UserModel> UserManager { get; }
 
@@ -22,7 +23,7 @@ namespace CMS.Controllers
             IHttpHelper httpHelper, UserManager<UserModel> userManager)
         {
             db = context;
-            RepositoryPagina = repositoryPagina;
+            epositoryPagina = repositoryPagina;
             HttpHelper = httpHelper;
             UserManager = userManager;
         }
@@ -30,7 +31,14 @@ namespace CMS.Controllers
         public async Task<JsonResult> GetStory(int Indice, string User)
         {
             var usuario = await UserManager.Users.FirstOrDefaultAsync(u => u.Name == User);
-            var stories = await db.Story.Where(s => s.UserId == usuario.Id).ToListAsync();
+            var paginas = RepositoryPagina.paginas.Where(s => s.UserId == usuario.Id).ToList();
+            var stories = new List<Story>();
+
+            foreach (var item in paginas)
+            if(stories.FirstOrDefault(str => str.Nome == item.Story.Nome) == null)
+            stories.Add(item.Story);
+
+            stories = stories.OrderBy(s => s.PaginaPadraoLink).ToList();
 
             try
             {

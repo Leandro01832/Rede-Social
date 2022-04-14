@@ -69,7 +69,7 @@ namespace MeuProjetoAgora.Controllers
             var user = await UserManager.GetUserAsync(this.User);
             var stories = await Context.Story.Where(str => str.UserId == user.Id && str.Nome != "Padrao").ToListAsync();
 
-            if(stories.Count != 0)
+            if(stories.Count == 0)
             {
                 ViewBag.Error = "Crie seu story primeiro!!!";
                 RedirectToAction("Create", "Story");

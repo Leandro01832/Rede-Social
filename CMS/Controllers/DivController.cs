@@ -36,7 +36,7 @@ namespace CMS.Controllers
         }
 
         [Route("Div/ListaFixo/{id?}")]
-        public async Task<IActionResult> ListaFixo(ulong? id)
+        public async Task<IActionResult> ListaFixo(Int64? id)
         {
             List<Div> lista = new List<Div>();
 
@@ -156,7 +156,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Div")]
-        public async Task<IActionResult> Edit(ulong? id)
+        public async Task<IActionResult> Edit(Int64? id)
         {
             var div = await _context.Div
                 .Include(d => d.Elemento)
@@ -187,15 +187,8 @@ namespace CMS.Controllers
         {
             try
             {
-                if (div.Id == 0)
-                {
-                    div.Background = new BackgroundCor
-                    {
-                        backgroundTransparente = true,
-                        Cor = "transparent"
-                    };
-                    return await RepositoryDiv.SalvarBloco(div);
-                }
+                if (div.Id == 0)                
+                    return await RepositoryDiv.SalvarBloco(div);                
                 else
                     return await RepositoryDiv.EditarBloco(div);
             }

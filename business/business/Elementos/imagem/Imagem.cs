@@ -2,6 +2,7 @@
 using business.business.element;
 using business.business.Elementos.element;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -20,7 +21,7 @@ namespace business.business.Elementos.imagem
         [JsonIgnore]
         public virtual List<Elemento> Elemento { get; set; }
 
-        public ulong? PastaImagemId { get; set; }
+        public Int64? PastaImagemId { get; set; }
         [JsonIgnore]
         public virtual PastaImagem PastaImagem { get; set; }
 

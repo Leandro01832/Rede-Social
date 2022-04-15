@@ -38,21 +38,18 @@ namespace Tests
 
             var paginas = RepositoryPagina.paginas;
 
-            for(ulong i = 0; i <= 1000000; i++)
+            for(Int64 i = 0; i <= 1000000; i++)
             {
                 Console.WriteLine(i);
                 RepositoryPagina.paginas.Add(new Pagina
                 {
                     Id = i,
                     ArquivoMusic = "",
-                    Html = "",
                     Margem = false,
                     Music = false,
-                    Rotas = "",
                     Titulo = "Default",
                     Layout = false,
                     UserId = "",
-                    Exibicao = false,
                     StoryId = 0
                 });
             }
@@ -156,8 +153,6 @@ namespace Tests
 
             Pagina pagina = new Pagina
             {
-                Html = "",
-                Rotas = "",
                 ArquivoMusic = "",
                 Blocos = "",
                 Titulo = "vida louca",
@@ -166,7 +161,6 @@ namespace Tests
                 Margem = false,
                 Menu = false,
                 Topo = false,
-                Exibicao = false,
                 Music = false,
             };
             
@@ -241,7 +235,6 @@ namespace Tests
         public DbSet<DivPagina> DivPagina { get; set; }
         public DbSet<ElementoDependenteElemento> ElementoDependenteElemento { get; set; }
         public DbSet<Cor> Cor { get; set; }
-        public DbSet<Rota> Rota { get; set; }
         public DbSet<ContaBancaria> ContaBancaria { get; set; }
         public DbSet<InfoEntrega> InfoEntrega { get; set; }
         public DbSet<InfoVenda> InfoVenda { get; set; }

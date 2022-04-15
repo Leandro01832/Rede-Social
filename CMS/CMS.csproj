@@ -7,11 +7,6 @@
     <AspNetCoreModuleName>AspNetCoreModule</AspNetCoreModuleName>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Migrations\20220412142957_Inicio.cs" />
-    <Compile Remove="Migrations\20220412142957_Inicio.Designer.cs" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.0" />

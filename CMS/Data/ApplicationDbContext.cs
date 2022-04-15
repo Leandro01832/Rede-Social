@@ -14,6 +14,8 @@ using business.Join;
 using CMS.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 
 namespace CMS.Data
 {
@@ -25,6 +27,7 @@ namespace CMS.Data
 
         }
 
+        public DbSet<CopiaLayout> CopiaLayout { get; set; }
         public DbSet<Solicitacao> Solicitacao { get; set; }
         public DbSet<Seguindo> Seguindo { get; set; }
         public DbSet<Seguidor> Seguidor { get; set; }
@@ -39,7 +42,6 @@ namespace CMS.Data
         public DbSet<DivPagina> DivPagina { get; set; }
         public DbSet<ElementoDependenteElemento> ElementoDependenteElemento { get; set; }
         public DbSet<Cor> Cor { get; set; }
-        public DbSet<Rota> Rota { get; set; }
         public DbSet<ContaBancaria> ContaBancaria { get; set; }
         public DbSet<InfoEntrega> InfoEntrega { get; set; }
         public DbSet<InfoVenda> InfoVenda { get; set; }
@@ -112,7 +114,18 @@ namespace CMS.Data
             builder.Entity<Table>().ToTable("Table");
             builder.Entity<Campo>().ToTable("Campo");
             builder.Entity<Video>().ToTable("Video");
-            builder.Entity<Dropdown>().ToTable("Dropdown");        
+            builder.Entity<Dropdown>().ToTable("Dropdown");
+
+           // var converter = new ValueConverter<Int64, Int64>(
+           //v => v,
+           //v => (Int64)v,
+           //new ConverterMappingHints(valueGeneratorFactory: (p, t) => new TemporaryIntValueGenerator()));
+
+           // builder.Entity<BaseModel>()
+           //     .Property("Id")
+           //     .ValueGeneratedOnAdd()
+           //     .UseSqlServerIdentityColumn()
+           //     .HasConversion(converter);
 
         }
 

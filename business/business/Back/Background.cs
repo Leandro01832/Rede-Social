@@ -3,6 +3,7 @@ using business.business.Elementos.imagem;
 using business.contrato;
 using business.div;
 using business.implementacao;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -18,9 +19,9 @@ namespace business.Back
         
 
         [Key, ForeignKey("Div")]
-        public new ulong Id { get; set; }
+        public new Int64 Id { get; set; }
 
-        public ulong? ImagemId { get; set; }
+        public Int64? ImagemId { get; set; }
         public virtual Imagem Imagem { get; set; }
 
         public virtual List<Cor> Cores { get; set; }

@@ -47,7 +47,7 @@ namespace MeuProjetoAgora.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> QuantidadeBloco(ulong div)
+        public async Task<ActionResult> QuantidadeBloco(Int64 div)
         {
             var bloco = await db.DivElemento
                 .Include(de => de.Elemento)
@@ -59,7 +59,7 @@ namespace MeuProjetoAgora.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> IdentificacaoBloco(ulong div)
+        public async Task<ActionResult> IdentificacaoBloco(Int64 div)
         {
             var bloco = await db.DivElemento
                 .Include(de => de.Elemento)
@@ -116,7 +116,6 @@ namespace MeuProjetoAgora.Controllers
                     HttpHelper.SetPaginaId(pagina.Id);
                     string html = await epositoryPagina.renderizarPaginaComCarousel(pagina);
                     ViewBag.Html = html;
-                    pagina.Html = html;
                 }
 
                 if (pagina.Id == 2)
@@ -129,7 +128,7 @@ namespace MeuProjetoAgora.Controllers
         }
 
         [Route("Editar/{id?}")]
-        public async Task<IActionResult> Editar(ulong? id)
+        public async Task<IActionResult> Editar(Int64? id)
         {
             if (id == 1) id = 2;
 
@@ -149,7 +148,6 @@ namespace MeuProjetoAgora.Controllers
                 HttpHelper.SetPaginaId(pagina.Id);
                 string html = await epositoryPagina.renderizarPaginaComCarousel(pagina);
                 ViewBag.Html = html;
-                pagina.Html = html;
             }
 
             ViewBag.proximo = id + 1;
@@ -157,7 +155,7 @@ namespace MeuProjetoAgora.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<ActionResult> GetView(ulong? id)
+        public async Task<ActionResult> GetView(Int64? id)
         {
             Pagina pagina = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);            
 
@@ -174,7 +172,7 @@ namespace MeuProjetoAgora.Controllers
         
 
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Salvar(ulong id)
+        public async Task<IActionResult> Salvar(Int64 id)
         {
             Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
             var lista = await BuscarPaginas(pag.UserId);
@@ -210,7 +208,7 @@ namespace MeuProjetoAgora.Controllers
         }
 
         [Authorize(Roles = "Pagina")]
-        public IActionResult EditarPagina(ulong id)
+        public IActionResult EditarPagina(Int64 id)
         {
 
             var pagina = db.Pagina
@@ -281,7 +279,7 @@ namespace MeuProjetoAgora.Controllers
         }
 
         [Authorize(Roles = "Pagina")]
-        public async Task<IActionResult> CreatePaginaComLayout(ulong Id)
+        public async Task<IActionResult> CreatePaginaComLayout(Int64 Id)
         {
             var page = await db.Pagina.FirstAsync(p => p.Id == Id);
             ViewBag.condicao = page.Layout;
@@ -292,7 +290,7 @@ namespace MeuProjetoAgora.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Pagina")]
-        public async Task<IActionResult> CreatePaginaComLayout(ulong IdPagina, int Loop)
+        public async Task<IActionResult> CreatePaginaComLayout(Int64 IdPagina, int Loop)
         {
             var pag2 = await epositoryPagina.includes().FirstAsync(p => p.Id == IdPagina);
 

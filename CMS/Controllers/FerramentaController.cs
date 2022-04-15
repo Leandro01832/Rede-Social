@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Background")]
-        public async Task<IActionResult> ListaCores(ulong? id)
+        public async Task<IActionResult> ListaCores(Int64? id)
         {
             List<Cor> lista = new List<Cor>();
 
@@ -75,7 +76,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Background")]
-        public async Task<IActionResult> CreateCor(ulong? id)
+        public async Task<IActionResult> CreateCor(Int64? id)
         {
             List<Background> lista = new List<Background>();
 
@@ -115,7 +116,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Background")]
-        public async Task<IActionResult> EditCor(ulong? id)
+        public async Task<IActionResult> EditCor(Int64? id)
         {
             var cor = await _context.Cor.FindAsync(id);
             if (cor == null)
@@ -170,7 +171,7 @@ namespace CMS.Controllers
         
         
 
-        public async Task<IActionResult> DeleteCor(ulong? id)
+        public async Task<IActionResult> DeleteCor(Int64? id)
         {
             var cor = await _context.Cor
                 .Include(b => b.Background)
@@ -185,7 +186,7 @@ namespace CMS.Controllers
 
         [HttpPost, ActionName("DeleteCor")]
         [ValidateAntiForgeryToken]
-        public async Task<string> DeleteCorConfirmed(ulong id)
+        public async Task<string> DeleteCorConfirmed(Int64 id)
         {
             var cor = await _context.Cor.FindAsync(id);
             _context.Cor.Remove(cor);
@@ -193,7 +194,7 @@ namespace CMS.Controllers
             return "";
         }
 
-        private bool BackgroundExists(ulong id)
+        private bool BackgroundExists(Int64 id)
         {
             return _context.Background.Any(e => e.Id == id);
         }

@@ -7,6 +7,7 @@ using CMS.Models.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -56,7 +57,7 @@ namespace CMS.Controllers.Api
 
         // GET: api/PaginaApi/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PaginaApi>> GetPagina(ulong id)
+        public async Task<ActionResult<PaginaApi>> GetPagina(Int64 id)
         {
             var pagina = await includes().FirstAsync(p => p.Id == id);
 
@@ -86,7 +87,7 @@ namespace CMS.Controllers.Api
 
         // PUT: api/PaginaApi/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPagina(ulong id, Pagina pagina)
+        public async Task<IActionResult> PutPagina(Int64 id, Pagina pagina)
         {
             if (id != pagina.Id)
             {
@@ -140,7 +141,7 @@ namespace CMS.Controllers.Api
             return pagina;
         }
 
-        private bool PaginaExists(ulong id)
+        private bool PaginaExists(Int64 id)
         {
             return _context.Pagina.Any(e => e.Id == id);
         }

@@ -53,13 +53,10 @@ namespace CMS
             var pagina = new Pagina
             {
                 ArquivoMusic = "",
-                Html = "",
                 Margem = false,
                 Music = false,
-                Rotas = "",
                 Titulo = "Default",
                 UserId = user.Id,
-                Exibicao = false,
                 StoryId = contexto.Story.ToList().First().Id
             };
 

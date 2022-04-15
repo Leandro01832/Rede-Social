@@ -18,12 +18,8 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PaginaPadraoLink" class="control-label"></label>
-                <input asp-for="PaginaPadraoLink" class="form-control" min="0" />
-                <span asp-validation-for="PaginaPadraoLink" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <input asp-for="UserId" type="hidden" value="@ViewBag.UserId" />
+                <input asp-for="PaginaPadraoLink" type="hidden" />
             </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">

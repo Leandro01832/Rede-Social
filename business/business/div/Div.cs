@@ -5,6 +5,7 @@ using business.contrato;
 using business.implementacao;
 using business.Join;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -22,6 +23,11 @@ namespace business.div
         private int ordem = 0;
         private int desenhado = 0;
         private int borderRadius = 0;
+        private Background background =  new BackgroundCor
+        {
+            backgroundTransparente = true,
+            Cor = "transparent"
+        };
         private MudancaEstado mudanca;
 
         public Div()
@@ -43,6 +49,7 @@ namespace business.div
         [Display(Name = "Quantidade de colunas")]
         public string Colunas { get { return colunas; } set { colunas = value; } }
 
+        [NotMapped]
         public int Desenhado { get { return desenhado; } set { desenhado = value; } }
 
         [Display(Name = "Espaçamento")]
@@ -54,13 +61,13 @@ namespace business.div
         public int Ordem { get { return ordem; } set { ordem = value; } }
         
         [JsonIgnore]
-        public virtual Background Background { get; set; }
+        public virtual Background Background{ get { return background; } set { background = value; } }
         [JsonIgnore]
         public virtual List<DivElemento> Elemento { get; set; }
         [JsonIgnore]
         public virtual List<DivPagina> Pagina { get; set; }
 
-        public ulong Pagina_ { get; set; }
+        public Int64 Pagina_ { get; set; }
 
         [NotMapped]
         public string Elementos { get { return elementos; } set { elementos = value; } }

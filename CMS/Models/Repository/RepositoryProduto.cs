@@ -46,7 +46,7 @@ namespace CMS.Models.Repository
             try
             {
                 produto = await contexto.Elemento.
-               OfType<Produto>().FirstOrDefaultAsync(e => e.Id == ulong.Parse(id));
+               OfType<Produto>().FirstOrDefaultAsync(e => e.Id == Int64.Parse(id));
             }
             catch (Exception)
             {
@@ -61,7 +61,7 @@ namespace CMS.Models.Repository
             try
             {
                 elementoDependente = await contexto.ElementoDependente
-                .FirstOrDefaultAsync(e => e.Id == ulong.Parse(id));
+                .FirstOrDefaultAsync(e => e.Id == Int64.Parse(id));
             }
             catch (Exception)
             {

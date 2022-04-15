@@ -44,7 +44,7 @@ namespace CMS.Controllers
         }
 
         // GET: Story/Details/5
-        public async Task<IActionResult> Details(ulong? id)
+        public async Task<IActionResult> Details(Int64? id)
         {
             if (id == null)
             {
@@ -74,7 +74,7 @@ namespace CMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nome,UserId,PaginaPadraoLink,Id")] Story story)
+        public async Task<IActionResult> Create(Story story)
         {
             
             var user = await UserManager.GetUserAsync(this.User);
@@ -87,37 +87,26 @@ namespace CMS.Controllers
                 return View(story);
             }
 
-            if (story.Nome != "Padrao" && story.PaginaPadraoLink == 0)
+            var lst = await _context.Story.Where(st => st.Nome != "Padrao" && st.UserId == user.Id).ToListAsync();
+            story.PaginaPadraoLink = lst.Count + 1;
+            _context.Add(story);
+            await _context.SaveChangesAsync();
+
+            var Story = await _context.Story.FirstAsync(st => st.Nome == "Padrao" && st.UserId == user.Id);
+
+            var pagina = new Pagina
             {
-                ModelState.AddModelError("", "Informe a pagina padrão que será o link para acessar story!!!");
-                return View(story);
-            }
+                ArquivoMusic = "",
+                Margem = false,
+                Music = false,
+                Titulo = "Default",
+                Layout = false,
+                UserId = user.Id,
+                StoryId = Story.Id
+            };
 
-            if (ModelState.IsValid)
-            {
-                var lst = await _context.Story.Where(st => st.Nome != "Padrao").ToListAsync();
-                story.PaginaPadraoLink = lst.Count + 1;
-                _context.Add(story);
-                await _context.SaveChangesAsync();
-
-                var Story = await _context.Story.FirstAsync(st => st.Nome == "Padrao" && st.UserId == user.Id);
-
-                var pagina = new Pagina
-                {
-                    ArquivoMusic = "",
-                    Html = "",
-                    Margem = false,
-                    Music = false,
-                    Rotas = "",
-                    Titulo = "Default",
-                    Layout = false,
-                    UserId = user.Id,
-                    Exibicao = false,
-                    StoryId = Story.Id
-                };
-
-                pagina.Div = new List<DivPagina>();
-                pagina.Div.AddRange(new List<DivPagina> {
+            pagina.Div = new List<DivPagina>();
+            pagina.Div.AddRange(new List<DivPagina> {
                 new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
                 new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
                 new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
@@ -126,45 +115,43 @@ namespace CMS.Controllers
 
             });
 
-                for (int i = 0; i <= 6; i++)
-                {
-                    if (i <= 6)
-                        pagina.Div[i].Div = new DivComum
-                        {
-                            Background = new BackgroundCor
-                            {
-                                backgroundTransparente = true,
-                                Cor = "transparent"
-                            }
-                        };
-                }
-
-                pagina.Div[6].Div.Elemento = new List<DivElemento>();
-                pagina.Div[6].Div.Elemento.Add(new DivElemento
-                {
-                    Div = pagina.Div[6].Div,
-                    Elemento = new LinkBody
+            for (int i = 0; i <= 6; i++)
+            {
+                if (i <= 6)
+                    pagina.Div[i].Div = new DivComum
                     {
-                        TextoLink = "/" + user.Name + "/Story-" + story.Nome + "-Pagina/1",
-                        Texto = new Texto
+                        Background = new BackgroundCor
                         {
-                            PalavrasTexto = "<h1> Story " + story.Nome + "</h1>"
-                        },
-                    }
-                });
-
-               await  _context.AddAsync(pagina);
-                await _context.SaveChangesAsync();
-
-                Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == pagina.Id);
-                var lista = await epositoryPagina.MostrarPageModels(pag.UserId);
-                RepositoryPagina.paginas.RemoveAll(p => p.UserId == pag.UserId);
-                RepositoryPagina.paginas.AddRange(lista.Where(l => !l.Layout).ToList());
-
-
-                return RedirectToAction(nameof(Index));
+                            backgroundTransparente = true,
+                            Cor = "transparent"
+                        }
+                    };
             }
-            return View(story);
+
+            pagina.Div[6].Div.Elemento = new List<DivElemento>();
+            pagina.Div[6].Div.Elemento.Add(new DivElemento
+            {
+                Div = pagina.Div[6].Div,
+                Elemento = new LinkBody
+                {
+                    TextoLink = "/" + user.Name + "/Story-" + story.Nome + "-Pagina/1",
+                    Texto = new Texto
+                    {
+                        PalavrasTexto = "<h1> Story " + story.Nome + "</h1>"
+                    },
+                }
+            });
+
+            await _context.AddAsync(pagina);
+            await _context.SaveChangesAsync();
+
+            Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == pagina.Id);
+            var lista = await epositoryPagina.MostrarPageModels(pag.UserId);
+            RepositoryPagina.paginas.RemoveAll(p => p.UserId == pag.UserId);
+            RepositoryPagina.paginas.AddRange(lista.Where(l => !l.Layout).ToList());
+
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Story/Edit/5
@@ -202,38 +189,28 @@ namespace CMS.Controllers
                 return View(story);
             }
 
-            if (story.Nome != "Padrao" && story.PaginaPadraoLink == 0)
+            try
             {
-                ModelState.AddModelError("", "Informe a pagina padrão que será o link para acessar story!!!");
-                return View(story);
+                _context.Update(story);
+                await _context.SaveChangesAsync();
             }
-
-            if (ModelState.IsValid)
+            catch (Exception)
             {
-                try
-                {
-                    _context.Update(story);
-                    await _context.SaveChangesAsync();
-                }
-                catch (Exception)
-                {
 
-                    if (!StoryExists(story.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                if (!StoryExists(story.Id))
+                {
+                    return NotFound();
                 }
-                return RedirectToAction(nameof(Index));
+                else
+                {
+                    throw;
+                }
             }
-            return View(story);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Story/Delete/5
-        public async Task<IActionResult> Delete(ulong? id)
+        public async Task<IActionResult> Delete(Int64? id)
         {
             if (id == null)
             {
@@ -261,7 +238,7 @@ namespace CMS.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool StoryExists(ulong id)
+        private bool StoryExists(Int64 id)
         {
             return _context.Story.Any(e => e.Id == id);
         }

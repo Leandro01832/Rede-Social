@@ -1,4 +1,5 @@
 ﻿using business.business;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
@@ -11,7 +12,7 @@ namespace business.Back
         public int Position { get; set; }
         public double Transparencia { get; set; }
         [Display(Name="Para qual plano de fundo?")]
-        public ulong BackgroundId { get; set; }        
+        public Int64 BackgroundId { get; set; }        
         public virtual Background Background { get; set; }
 
         [NotMapped]

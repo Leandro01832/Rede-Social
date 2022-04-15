@@ -4,6 +4,7 @@ using CMS.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Background")]
-        public async Task<IActionResult> ListaBackground(ulong? id)
+        public async Task<IActionResult> ListaBackground(Int64? id)
         {
             List<Background> lista = new List<Background>();
             Pagina pagina = await _context.Pagina.FirstAsync(p => p.Id == id);
@@ -40,7 +41,7 @@ namespace CMS.Controllers
 
         [Authorize(Roles = "Background")]
         [Route("Background/Create/{back}/{Id}")]
-        public IActionResult Create(string back, ulong Id)
+        public IActionResult Create(string back, Int64 Id)
         {
             Background background = null;
 
@@ -54,7 +55,7 @@ namespace CMS.Controllers
 
         [Authorize(Roles = "Background")]
         [Route("Background/Edit/{back}/{Id}")]
-        public async Task<IActionResult> Edit(string back, ulong Id)
+        public async Task<IActionResult> Edit(string back, Int64 Id)
         {
             Background background = null;
 
@@ -148,7 +149,7 @@ namespace CMS.Controllers
         #endregion
 
 
-        public async Task<IActionResult> DeleteBackground(ulong? id)
+        public async Task<IActionResult> DeleteBackground(Int64? id)
         {
             if (id == null)
             {
@@ -167,7 +168,7 @@ namespace CMS.Controllers
 
         [HttpPost, ActionName("DeleteBackground")]
         [ValidateAntiForgeryToken]
-        public async Task<string> DeleteBackgroundConfirmed(ulong id)
+        public async Task<string> DeleteBackgroundConfirmed(Int64 id)
         {
             var background = await _context.Background.FindAsync(id);
             _context.Background.Remove(background);

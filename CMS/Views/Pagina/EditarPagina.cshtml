@@ -23,12 +23,6 @@
                 <p class="text-danger">@ViewBag.Rotas</p>
             </div>
 
-
-            <div class="form-group">
-                <label asp-for="Rotas" class="control-label"></label>
-                <input asp-for="Rotas" class="form-control" />
-                <span asp-validation-for="Rotas" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
@@ -98,8 +92,7 @@
                 UserId: $("#UserId").val(),
             Facebook: $("#Facebook").val(),
             Twiter: $("#Twiter").val(),
-            ArquivoMusic: $("#ArquivoMusic").val(),
-            Rotas: $("#Rotas").val(),
+            ArquivoMusic: $("#ArquivoMusic").val(),            
             Music: $("#Music").is(':checked'),
             Margem: $("#Margem").is(':checked'),
             PedidoId: $("#PedidoId").val(),

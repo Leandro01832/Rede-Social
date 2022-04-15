@@ -16,7 +16,7 @@ namespace business.ecommerce
         }
 
         [Key, ForeignKey("Cadastro")]
-        public new ulong Id { get; set; }
+        public new Int64 Id { get; set; }
         public string Status { get; set; }
         [Display(Name = "Data do pedido")]
         public DateTime DataPedidoCompra { get; set; }

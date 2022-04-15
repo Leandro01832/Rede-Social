@@ -128,7 +128,7 @@ namespace CMS.Models.Repository
             throw new ArgumentException("ItemPedido não encontrado");
         }
 
-        private async Task<ItemRequisicao> GetItemPedidoAsync(ulong itemPedidoId)
+        private async Task<ItemRequisicao> GetItemPedidoAsync(Int64 itemPedidoId)
         {
             return
             await contexto.Set<ItemRequisicao>()
@@ -136,7 +136,7 @@ namespace CMS.Models.Repository
                 .SingleOrDefaultAsync();
         }
 
-        private async Task RemoveItemPedidoAsync(ulong itemPedidoId)
+        private async Task RemoveItemPedidoAsync(Int64 itemPedidoId)
         {
             contexto.Set<ItemRequisicao>()
                 .Remove(await GetItemPedidoAsync(itemPedidoId));

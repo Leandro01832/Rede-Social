@@ -52,7 +52,7 @@ namespace CMS.Controllers
         public async Task<IActionResult> Lista(string id)
         {
             var arr = id.Split('-');
-            var numero = ulong.Parse(arr[1]);
+            var numero = Int64.Parse(arr[1]);
             var page = await _context.Pagina.FirstAsync(p => p.Id == numero);
 
             var tipo = arr[0].Replace("GaleriaElemento", "");
@@ -122,7 +122,7 @@ namespace CMS.Controllers
         }
 
         [Route("Elemento/Create/{elemento}/{pagina}")]
-        public async Task<IActionResult> Create(string elemento, ulong pagina)
+        public async Task<IActionResult> Create(string elemento, Int64 pagina)
         {
             var page = await _context.Pagina.Include(p => p.Story)
             .ThenInclude(p => p.Pagina).FirstAsync(p => p.Id == pagina);
@@ -177,7 +177,7 @@ namespace CMS.Controllers
             return PartialView(ele);
         }
 
-        public async Task<IActionResult> Edit(ulong? id)
+        public async Task<IActionResult> Edit(Int64? id)
         {
             var usuario = await UserManager.GetUserAsync(this.User);
             var pedido = await UserManager.Users.FirstAsync(p => p.Id == usuario.Id);
@@ -450,7 +450,7 @@ namespace CMS.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Div")]
-        public async Task<JsonResult> AlterarPosicaoBloco(IList<ulong> numeros, ulong? id)
+        public async Task<JsonResult> AlterarPosicaoBloco(IList<Int64> numeros, Int64? id)
         {
             //  db.Configuration.ProxyCreationEnabled = false;
             try
@@ -469,7 +469,7 @@ namespace CMS.Controllers
                 return Json("");
             }
 
-            for (ulong i = 0; i < (ulong)numeros.Count; i++)
+            for (Int64 i = 0; i < (Int64)numeros.Count; i++)
             {
                 var bloco = await _context.Div.FirstAsync(d => d.Id == numeros[(int)i]);
                 bloco.Ordem = (int)i;
@@ -483,7 +483,7 @@ namespace CMS.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Elemento")]
-        public async Task<JsonResult> AlterarPosicaoElemento(IList<ulong> numeros, ulong? id)
+        public async Task<JsonResult> AlterarPosicaoElemento(IList<Int64> numeros, Int64? id)
         {
             //  db.Configuration.ProxyCreationEnabled = false;
             try

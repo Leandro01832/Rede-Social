@@ -1,4 +1,5 @@
-﻿using business.business;
+﻿using business.Back;
+using business.business;
 using business.business.Elementos.texto;
 using business.div;
 using business.Join;
@@ -20,7 +21,6 @@ using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace CMS.Controllers
 {
@@ -32,10 +32,11 @@ namespace CMS.Controllers
         public IHostingEnvironment HostingEnvironment { get; }
         public IConfiguration Configuration { get; }
         public IServiceEmailSender EmailSender { get; }
+        public IRepositoryDiv RepositoryDiv { get; }
 
         public HomeController(UserManager<UserModel> userManager, IRepositoryPagina repositoryPagina,
             ApplicationDbContext context, IHostingEnvironment hostingEnvironment,
-            IConfiguration configuration, IServiceEmailSender emailSender)
+            IConfiguration configuration, IServiceEmailSender emailSender, IRepositoryDiv repositoryDiv)
         {
             UserManager = userManager;
             epositoryPagina = repositoryPagina;
@@ -43,6 +44,7 @@ namespace CMS.Controllers
             HostingEnvironment = hostingEnvironment;
             Configuration = configuration;
             EmailSender = emailSender;
+            RepositoryDiv = repositoryDiv;
         }
 
 
@@ -202,7 +204,7 @@ namespace CMS.Controllers
         {
             var user = await UserManager.GetUserAsync(this.User);
             var lista = await _context.Story.Where(st => st.UserId == user.Id && st.Nome != "Padrao").ToListAsync();
-            var layouts = await _context.Pagina.Where(p => p.UserId == user.Id && p.Layout).ToListAsync();
+            var layouts = await _context.Pagina.Where(p => p.UserId == user.Id && p.LayoutModelo).ToListAsync();
 
             if (lista.Count == 0)
             {
@@ -218,35 +220,208 @@ namespace CMS.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreatePagina(string Titulo, string UserId, ulong StoryId, string Conteudo, int Layout)
+        public async Task<IActionResult> CreatePagina(string Titulo, string UserId, Int64 StoryId, string Conteudo, Int64 Layout)
         {
             var user = await UserManager.GetUserAsync(this.User);
-            var lista = await _context.Story.Where(st => st.UserId == user.Id && st.Nome != "Padrao").ToListAsync();
-
-            if (lista.Count == 0)
+            var copia = await _context.CopiaLayout.FirstOrDefaultAsync(c => c.LayoutModelo == Layout && c.UserId == user.Id);
+            if(copia != null)
             {
-                ViewBag.Error = "Crie seu story primeiro!!!";
-                RedirectToAction("Create", "Story");
+                var page = await _context.Pagina.
+                    Include(p => p.Div).
+                    ThenInclude(p => p.Div).
+                    ThenInclude(p => p.Elemento).
+                    Include(p => p.Div).
+                    ThenInclude(p => p.Div).
+                    ThenInclude(p => p.Background).
+                    FirstAsync(p => p.Id == copia.LayoutUser);
+                Pagina pagina = new Pagina
+                {
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,                    
+                    Titulo = Titulo,
+                    Layout = false,
+                    UserId = UserId,
+                    StoryId = StoryId
+                };
+
+                pagina.Div = new List<DivPagina>();
+
+                foreach (var item in page.Div)
+                    pagina.Div.Add(new DivPagina { Div = item.Div, Pagina = pagina });
+
+                if (pagina.Div.Count > 6)
+                {
+                    pagina.Div[6].Div.Elemento.Add(new DivElemento
+                    {
+                        Div = pagina.Div[6].Div,
+                        Elemento = new Texto
+                        {
+                            PalavrasTexto = Conteudo
+                        }
+                    });
+                }
+                else
+                {
+                    var div = new DivPagina
+                    {
+                        Div = new DivComum(),
+                        Pagina = pagina
+
+                    };
+                    pagina.Div.Add(div);
+                    pagina.Div[6].Div.Elemento = new List<DivElemento>
+                        {
+                            new DivElemento
+                            {
+                                 Div = pagina.Div[6].Div,
+                                 Elemento = new Texto
+                                 {
+                                     PalavrasTexto = Conteudo
+                                 }
+                            }
+                        };
+                }
+                await _context.AddAsync(pagina);
+                await _context.SaveChangesAsync();
+
+                Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == pagina.Id);
+                var listagem = await epositoryPagina.MostrarPageModels(pag.UserId);
+                RepositoryPagina.paginas.RemoveAll(p => p.UserId == pag.UserId);
+                RepositoryPagina.paginas.AddRange(listagem.Where(l => !l.Layout).ToList());
+            }
+            else
+            {
+                var page = await _context.Pagina.
+                    Include(p => p.Div).
+                    ThenInclude(p => p.Div).
+                    ThenInclude(p => p.Elemento).
+                    Include(p => p.Div).
+                    ThenInclude(p => p.Div).
+                    ThenInclude(p => p.Background).
+                    FirstAsync(p => p.Id == Layout);
+                Pagina pagina = new Pagina
+                {
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = Titulo,
+                    Layout = true,
+                    UserId = UserId,
+                    StoryId = StoryId
+                };
+                var lista = new List<Div>();
+                await _context.AddAsync(pagina);
+                await _context.SaveChangesAsync();
+
+                foreach (var item in page.Div)
+                {
+                    var div = (Div) Activator.CreateInstance(item.Div.GetType());
+                    foreach (var item2 in div.GetType().GetProperties().Where(p => p.Name != "Tipo"))
+                        item2.SetValue(div, item2.GetValue(item.Div));
+                    div.Pagina = new List<DivPagina>();
+                    div.Id = 0;
+                    div.Pagina_ = pagina.Id;
+                    var back = (Background)Activator.CreateInstance(item.Div.Background.GetType());
+                    foreach (var item2 in back.GetType().GetProperties().Where(p => p.Name != "Tipo" && p.Name != "Id"
+                    && !p.PropertyType.IsSubclassOf(typeof(BaseModel))))
+                        item2.SetValue(back, item2.GetValue(item.Div.Background));
+                    div.Background = back;
+                    await RepositoryDiv.SalvarBloco(div);
+                    lista.Add(div);
+                }
+                pagina.Div = new List<DivPagina>();
+
+                foreach(var item in lista)
+                {
+                    pagina.Div.Add(new DivPagina
+                    {
+                         Div = item,
+                          Pagina = pagina
+                    });
+                }               
+
+                var copiar = new CopiaLayout
+                {
+                    LayoutModelo = Layout,
+                    LayoutUser = pagina.Id,
+                    UserId = pagina.UserId
+                };
+                
+                await _context.AddAsync(copiar);
+                await _context.SaveChangesAsync();
+
+                var paginaSeguindoLayout = new Pagina
+                {
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = Titulo,
+                    Layout = false,
+                    UserId = UserId,
+                    StoryId = StoryId
+                };
+
+                paginaSeguindoLayout.Div = new List<DivPagina>();
+
+                foreach (var item in pagina.Div)
+                    paginaSeguindoLayout.Div.Add(new DivPagina { Div = item.Div, Pagina = paginaSeguindoLayout });
+
+                if (paginaSeguindoLayout.Div.Count > 6)
+                {
+                    pagina.Div[6].Div.Elemento.Add(new DivElemento
+                    {
+                        Div = pagina.Div[6].Div,
+                        Elemento = new Texto
+                        {
+                            PalavrasTexto = Conteudo
+                        }
+                    });
+                }
+                else
+                {
+                    var div = new DivPagina
+                    {
+                        Div = new DivComum(),
+                        Pagina = paginaSeguindoLayout
+
+                    };
+                    pagina.Div.Add(div);
+                    pagina.Div[6].Div.Elemento = new List<DivElemento>
+                        {
+                            new DivElemento
+                            {
+                                 Div = pagina.Div[6].Div,
+                                 Elemento = new Texto
+                                 {
+                                     PalavrasTexto = Conteudo
+                                 }
+                            }
+                        };
+                }
+
+                await _context.AddAsync(paginaSeguindoLayout);
+                await _context.SaveChangesAsync();
+
+                Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == paginaSeguindoLayout.Id);
+                var listagem = await epositoryPagina.MostrarPageModels(pag.UserId);
+                RepositoryPagina.paginas.RemoveAll(p => p.UserId == pag.UserId);
+                RepositoryPagina.paginas.AddRange(listagem.Where(l => !l.Layout).ToList());
             }
 
-            ViewBag.UserId = user.Id;
-            ViewBag.StoryId = new SelectList(lista, "Id", "Nome");
-            return View();
+            return RedirectToAction("Galeria", "Pedido");
         }
         
-        public async Task<ActionResult> Preview(ulong Layout, string Conteudo, string UserId)
+        public async Task<ActionResult> Preview(Int64 Layout, string Conteudo, string UserId)
         {
             Pagina pagina = new Pagina
             {
                 ArquivoMusic = "",
-                Html = "",
                 Margem = false,
                 Music = false,
-                Rotas = "",
                 Titulo = "Default",
                 Layout = false,
                 UserId = UserId,
-                Exibicao = false,
                 StoryId = 0
             };
 
@@ -289,7 +464,6 @@ namespace CMS.Controllers
 
             string html = await epositoryPagina.renderizarPaginaComCarousel(pagina);
             ViewBag.html = html;
-            pagina.Html = html;
 
             //return Json(html);
             return PartialView("Preview");

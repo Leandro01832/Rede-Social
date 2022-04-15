@@ -537,7 +537,6 @@ C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\net
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Edit.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Index.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\IndexUsers.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Rotas.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\Carousel.g.cshtml.cs
@@ -563,3 +562,4 @@ C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\net
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreatePagina.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Preview.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\CreatePaginaModelo.g.cshtml.cs

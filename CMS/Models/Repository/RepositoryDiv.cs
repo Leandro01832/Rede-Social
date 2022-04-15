@@ -62,7 +62,7 @@ namespace CMS.Models.Repository
                 await dbSet.AddAsync(div);
                 await contexto.SaveChangesAsync();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return "";
             }
@@ -119,7 +119,7 @@ namespace CMS.Models.Repository
 
                 try
                 {
-                    ele = await contexto.Elemento.FirstOrDefaultAsync(d => d.Id == ulong.Parse(id));
+                    ele = await contexto.Elemento.FirstOrDefaultAsync(d => d.Id == Int64.Parse(id));
                     if (ele != null)
                     {
                         var paginaElementoDepe = contexto.Pagina.First(p => p.Id == ele.Pagina_);
@@ -231,7 +231,7 @@ namespace CMS.Models.Repository
                 div = await contexto.Div
                      .Include(d => d.Elemento)
                      .ThenInclude(d => d.Elemento)
-                     .FirstOrDefaultAsync(d => d.Id == ulong.Parse(id));
+                     .FirstOrDefaultAsync(d => d.Id == Int64.Parse(id));
 
                 if(div != null)
                 {

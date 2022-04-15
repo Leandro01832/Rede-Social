@@ -12,12 +12,11 @@ namespace business.business
     public class Pagina : BaseModel
     {
         private bool margem = true;
-        private string rotas = "";
         private int mostrarDados = 0;
         private DateTime data = DateTime.Now;
 
         public DateTime Data { get { return data; } set { data = value; } }
-        public ulong StoryId { get; set; }
+        public Int64 StoryId { get; set; }
         public virtual Story Story { get; set; }
 
         [Required(ErrorMessage = "O titulo é necessário")]
@@ -25,13 +24,7 @@ namespace business.business
         public string Titulo { get; set; }        
 
         [Display(Name = "Arquivo")]
-        public string ArquivoMusic { get; set; }
-
-        [NotMapped]
-        public string Html { get; set; }
-
-        [Display(Name ="Informe todas as rotas de uma pagina separando por virgulas.")]
-        public string Rotas { get { return rotas; } set { rotas = value; } }
+        public string ArquivoMusic { get; set; }       
 
         public bool Music { get; set; }
 
@@ -41,8 +34,7 @@ namespace business.business
         public bool Topo { get; set; }
 
         public bool Menu { get; set; }
-
-        public bool Exibicao { get; set; }
+        
         
         [JsonIgnore]
         public virtual List<DivPagina> Div { get; set; }
@@ -60,7 +52,10 @@ namespace business.business
         [NotMapped]
         public string NomeComId { get { return Titulo + " chave - " + Id.ToString(); } }
 
+        //Para Programador
         public bool Layout { get; set; }
+        //Para Usuario
+        public bool LayoutModelo { get; set; }
 
         public void IncluiDiv(Div div)
         {

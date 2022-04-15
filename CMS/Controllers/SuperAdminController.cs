@@ -1,13 +1,17 @@
-﻿using business.business;
+﻿using business.Back;
+using business.business;
+using business.div;
 using business.Join;
 using CMS.Data;
 using CMS.Models;
+using CMS.Models.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -19,11 +23,14 @@ namespace CMS.Controllers
         private readonly ApplicationDbContext _context;
 
         public UserManager<UserModel> UserManager { get; }
+        public IRepositoryPagina epositoryPagina { get; }
 
-        public SuperAdminController(ApplicationDbContext context, UserManager<UserModel> userManager)
+        public SuperAdminController(ApplicationDbContext context, UserManager<UserModel> userManager,
+            IRepositoryPagina repositoryPagina)
         {
             _context = context;
             UserManager = userManager;
+            epositoryPagina = repositoryPagina;
         }
 
         //Região Index
@@ -50,17 +57,11 @@ namespace CMS.Controllers
             return View(await elementos.ToListAsync());
         }
 
-        [Route("SuperAdmin/Rotas")]
-        [Route("Rotas")]
-        public async Task<IActionResult> Rotas()
-        {
-            return View(await _context.Rota.ToListAsync());
-        }
         #endregion
         
         //Região Detalhes
         #region
-        public async Task<IActionResult> DetailsBackground(ulong? id)
+        public async Task<IActionResult> DetailsBackground(Int64? id)
         {
             if (id == null)
             {
@@ -76,7 +77,7 @@ namespace CMS.Controllers
 
             return View(background);
         }
-        public async Task<IActionResult> DetailsElementoDependente(ulong? id)
+        public async Task<IActionResult> DetailsElementoDependente(Int64? id)
         {
             if (id == null)
             {
@@ -92,7 +93,7 @@ namespace CMS.Controllers
 
             return View(elemento);
         }
-        public async Task<IActionResult> Details(ulong? id)
+        public async Task<IActionResult> Details(Int64? id)
         {
             if (id == null)
             {
@@ -110,8 +111,59 @@ namespace CMS.Controllers
         }
         #endregion
 
-        //Região Create
-        #region
+
+        #region Create
+        [Route("Layout")]
+        public async Task<IActionResult> CreatePaginaModelo()
+        {
+            var user = await UserManager.GetUserAsync(this.User);
+            var stories = await _context.Story.Where(str => str.UserId == user.Id && str.Nome != "Padrao").ToListAsync();            
+
+            ViewBag.UserId = user.Id;
+            ViewBag.StoryId = new SelectList(stories, "Id", "Nome");
+            return View();
+        }
+
+        [HttpPost]
+        [Route("Layout")]
+        public async Task<IActionResult> CreatePaginaModelo(Pagina pagina)
+        {
+            var user = await UserManager.GetUserAsync(this.User);
+            var stories = await _context.Story.Where(str => str.UserId == user.Id).ToListAsync();
+
+            pagina.Div = new List<DivPagina>();
+
+            pagina.Div.AddRange(new List<DivPagina> {
+                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
+                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
+                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() }
+            });
+
+            for (int i = 0; i <= 5; i++)
+            {
+                pagina.Div[i].Div = new DivComum
+                {
+                    Background = new BackgroundCor
+                    {
+                        backgroundTransparente = true,
+                        Cor = "transparent"
+                    }
+                };
+            }
+
+            pagina.LayoutModelo = true;
+            await _context.Pagina.AddAsync(pagina);
+            await _context.SaveChangesAsync();
+
+
+            RepositoryPagina.paginas.Clear();
+            var lista = await epositoryPagina.MostrarPageModels(pagina.UserId);
+            RepositoryPagina.paginas.AddRange(lista.Where(l => !l.Layout).ToList());
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
         public IActionResult Create()
         {
             return View();
@@ -139,7 +191,7 @@ namespace CMS.Controllers
 
         //Região Editar
         #region
-        public async Task<IActionResult> Edit(ulong? id)
+        public async Task<IActionResult> Edit(Int64? id)
         {
             if (id == null)
             {
@@ -155,7 +207,7 @@ namespace CMS.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(ulong id, [Bind("IdMensagem,Pagina,NomeUsuario,Mensagem")] MensagemChat mensagemChat)
+        public async Task<IActionResult> Edit(Int64 id, [Bind("IdMensagem,Pagina,NomeUsuario,Mensagem")] MensagemChat mensagemChat)
         {
             if (id != mensagemChat.Id)
             {
@@ -183,7 +235,7 @@ namespace CMS.Controllers
 
         //Região Ddelete
         #region
-        public async Task<IActionResult> Delete(ulong? id)
+        public async Task<IActionResult> Delete(Int64? id)
         {
             if (id == null)
             {
@@ -201,7 +253,7 @@ namespace CMS.Controllers
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(ulong id)
+        public async Task<IActionResult> DeleteConfirmed(Int64 id)
         {
             var mensagemChat = await _context.MensagemChat.FindAsync(id);
             _context.MensagemChat.Remove(mensagemChat);

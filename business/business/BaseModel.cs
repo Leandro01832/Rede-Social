@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace business.business
@@ -6,7 +7,7 @@ namespace business.business
     public abstract class BaseModel 
     {
         [Key]
-        public ulong Id { get; set; }
+        public Int64 Id { get; set; }
         
         [NotMapped]
         public string Tipo

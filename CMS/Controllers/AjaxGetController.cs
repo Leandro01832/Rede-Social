@@ -81,21 +81,21 @@ namespace CMS.Controllers
             return Json(pastas);
         }
 
-        public JsonResult GetCores(ulong Background)
+        public JsonResult GetCores(Int64 Background)
         {
             var cores = db.Cor.Where(b => b.BackgroundId == Background);
 
             return Json(cores);
         }
 
-        public JsonResult Mensagens(ulong Pagina)
+        public JsonResult Mensagens(Int64 Pagina)
         {
             var pastas = db.MensagemChat.Where(b => b.Pagina == Pagina);
 
             return Json(pastas);
         }
 
-        public async Task<JsonResult> GetPaginas(ulong Pagina)
+        public async Task<JsonResult> GetPaginas(Int64 Pagina)
         {
             var pagina = await db.Pagina.FirstAsync(p => p.Id == Pagina);
             var PedidoId = pagina.UserId;
@@ -112,7 +112,7 @@ namespace CMS.Controllers
             return Json(paginas);
         }
 
-        public JsonResult Elementos(ulong Pagina, string Tipo)
+        public JsonResult Elementos(Int64 Pagina, string Tipo)
         {
             var els = db.Elemento.Where(ele => ele.GetType().Name == Tipo && ele.Pagina_ == Pagina);
             return Json(els);

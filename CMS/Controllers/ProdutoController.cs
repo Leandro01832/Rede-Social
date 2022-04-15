@@ -2,6 +2,7 @@
 using CMS.Models.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 
 namespace CMS.Controllers
@@ -17,7 +18,7 @@ namespace CMS.Controllers
         public ApplicationDbContext Contexto { get; }
         public IRepositoryElemento RepositoryElemento { get; }
 
-        public async Task<IActionResult> Details(ulong id)
+        public async Task<IActionResult> Details(Int64 id)
         {
             var produto = await RepositoryElemento.includes()
             .FirstAsync(p => p.Id == id);             

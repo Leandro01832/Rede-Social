@@ -14,7 +14,7 @@ namespace business.business.Elementos.produto
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
         [Display(Name = "Preço")]
-        public decimal Preco { get; set; }
+        public Int64 Preco { get; set; }
         public long? estoque { get; set; }
         [Required]
         public string Codigo { get; set; }

@@ -100,7 +100,7 @@ namespace CMS.Areas.Identity.Pages.Account
                 {
                     UserName = Input.Email,
                     Email = Input.Email,
-                    Name = Input.Name,
+                    Name = Input.Name.Trim().ToLower().Replace(" ", "-"),
                     Image = "/ImagensGaleria/Padrao.jpg",
                     Twitter = Input.Twiter,
                     Instagram = Input.Instagram,

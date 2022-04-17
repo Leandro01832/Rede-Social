@@ -222,6 +222,7 @@ namespace CMS.Controllers
         [Authorize]
         public async Task<IActionResult> CreatePagina(string Titulo, string UserId, Int64 StoryId, string Conteudo, Int64 Layout)
         {
+            var paginaCriada = new Pagina();
             var user = await UserManager.GetUserAsync(this.User);
             var copia = await _context.CopiaLayout.FirstOrDefaultAsync(c => c.LayoutModelo == Layout && c.UserId == user.Id);
             if(copia != null)
@@ -285,10 +286,17 @@ namespace CMS.Controllers
                 await _context.AddAsync(pagina);
                 await _context.SaveChangesAsync();
 
+                pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento.PaginaEscolhida = pagina.Id;
+                pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento.Pagina_ = pagina.Id;
+
+                _context.Elemento.Update(pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento);
+                await _context.SaveChangesAsync();
+
                 Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == pagina.Id);
                 var listagem = await epositoryPagina.MostrarPageModels(pag.UserId);
                 RepositoryPagina.paginas.RemoveAll(p => p.UserId == pag.UserId);
                 RepositoryPagina.paginas.AddRange(listagem.Where(l => !l.Layout).ToList());
+                paginaCriada = pagina;
             }
             else
             {
@@ -326,6 +334,17 @@ namespace CMS.Controllers
                     foreach (var item2 in back.GetType().GetProperties().Where(p => p.Name != "Tipo" && p.Name != "Id"
                     && !p.PropertyType.IsSubclassOf(typeof(BaseModel))))
                         item2.SetValue(back, item2.GetValue(item.Div.Background));
+                    if(item.Div.Background is BackgroundGradiente)
+                    {
+                        var gradiente = (BackgroundGradiente)back;
+                        back.Cores = new List<Cor>();
+                        foreach(var item3 in gradiente.Cores)
+                        {
+                            back.Id = 0;
+                            item3.Background = back;
+                            back.Cores.Add(item3);
+                        }
+                    }
                     div.Background = back;
                     await RepositoryDiv.SalvarBloco(div);
                     lista.Add(div);
@@ -369,9 +388,9 @@ namespace CMS.Controllers
 
                 if (paginaSeguindoLayout.Div.Count > 6)
                 {
-                    pagina.Div[6].Div.Elemento.Add(new DivElemento
+                    paginaSeguindoLayout.Div[6].Div.Elemento.Add(new DivElemento
                     {
-                        Div = pagina.Div[6].Div,
+                        Div = paginaSeguindoLayout.Div[6].Div,
                         Elemento = new Texto
                         {
                             PalavrasTexto = Conteudo
@@ -386,12 +405,12 @@ namespace CMS.Controllers
                         Pagina = paginaSeguindoLayout
 
                     };
-                    pagina.Div.Add(div);
-                    pagina.Div[6].Div.Elemento = new List<DivElemento>
+                    paginaSeguindoLayout.Div.Add(div);
+                    paginaSeguindoLayout.Div[6].Div.Elemento = new List<DivElemento>
                         {
                             new DivElemento
                             {
-                                 Div = pagina.Div[6].Div,
+                                 Div = paginaSeguindoLayout.Div[6].Div,
                                  Elemento = new Texto
                                  {
                                      PalavrasTexto = Conteudo
@@ -403,13 +422,24 @@ namespace CMS.Controllers
                 await _context.AddAsync(paginaSeguindoLayout);
                 await _context.SaveChangesAsync();
 
+                paginaSeguindoLayout.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento.PaginaEscolhida = paginaSeguindoLayout.Id;
+                paginaSeguindoLayout.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento.Pagina_ = paginaSeguindoLayout.Id;
+
+                _context.Elemento.Update(paginaSeguindoLayout.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento);
+                await _context.SaveChangesAsync();
+
                 Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == paginaSeguindoLayout.Id);
                 var listagem = await epositoryPagina.MostrarPageModels(pag.UserId);
                 RepositoryPagina.paginas.RemoveAll(p => p.UserId == pag.UserId);
                 RepositoryPagina.paginas.AddRange(listagem.Where(l => !l.Layout).ToList());
+                paginaCriada = paginaSeguindoLayout;
             }
+            
+            var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == paginaCriada.StoryId);
+            var versiculos = story.Pagina.Where(p => !p.Layout).ToList().Count;
 
-            return RedirectToAction("Galeria", "Pedido");
+            return RedirectToAction(nameof(PaginaCriada),
+                new { user = user.Name, capitulo = story.PaginaPadraoLink, versiculo = versiculos });
         }
         
         public async Task<ActionResult> Preview(Int64 Layout, string Conteudo, string UserId)
@@ -467,6 +497,15 @@ namespace CMS.Controllers
 
             //return Json(html);
             return PartialView("Preview");
+        }
+        
+        public ActionResult PaginaCriada(string user, int capitulo, int versiculo)
+        {
+            ViewBag.user = user;            
+            ViewBag.capitulo = capitulo;
+            ViewBag.versiculo = versiculo;
+
+            return View();
         }
 
         public IActionResult Privacy()

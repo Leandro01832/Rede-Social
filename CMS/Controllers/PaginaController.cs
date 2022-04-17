@@ -25,7 +25,7 @@ namespace MeuProjetoAgora.Controllers
         public IHttpHelper HttpHelper { get; }
         public IHttpContextAccessor ContextAccessor { get; }
         public UserManager<UserModel> UserManager { get; }
-        public IUserHelper UserHelper { get; }
+        public IUserHelper Helper { get; }
 
 
         public PaginaController(ApplicationDbContext context, IRepositoryPagina repositoryPagina,
@@ -37,7 +37,7 @@ namespace MeuProjetoAgora.Controllers
             HttpHelper = httpHelper;
             ContextAccessor = contextAccessor;
             UserManager = userManager;
-            UserHelper = userHelper;
+            Helper = userHelper;
         }
 
         [AllowAnonymous]
@@ -77,11 +77,16 @@ namespace MeuProjetoAgora.Controllers
             ViewBag.id = elemento;
             return PartialView();
         }
-        
+
         [Route("{Name}/{story}/{id}")]
         public async Task<IActionResult> RenderizarDinamico(string Name, string story, int id)
         {
-            var user = UserManager.Users.FirstOrDefault(u => u.Name.ToLower() == Name.Trim().ToLower());
+            var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == Name.Trim().ToLower());
+            if (user == null)
+            {
+                user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == Name.Trim().ToLower());
+                UserHelper.Users.Add(user);
+            }
             var Story = story.Replace("Story-", "").Replace("-Pagina", "");
             if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
             {
@@ -92,39 +97,34 @@ namespace MeuProjetoAgora.Controllers
             ViewBag.story = Story;
             ViewBag.user = user.Name;
 
-            // var lista = Pagina.paginas;
-            ViewBag.stories = db.Story.ToList();            
-            
             var lista = RepositoryPagina.paginas.Where(p => p.Story.Nome == Story && p.Story.UserId == user.Id).ToList();
 
             ViewBag.quantidadePaginas = lista.Count();
 
-            if (id > 0)
+
+            Pagina pagina = lista.Skip((int)id - 1).FirstOrDefault();
+
+            if (pagina == null || pagina.Id == 1) pagina = lista.Skip((int)id).FirstOrDefault();
+
+            if (pagina == null)
             {
-                Pagina pagina = lista.Skip((int)id - 1).FirstOrDefault();
-
-                if (pagina == null || pagina.Id == 1) pagina = lista.Skip((int)id).FirstOrDefault();
-
-                if (pagina == null)
-                {
-                    ViewBag.paginas = new SelectList(new List<Pagina>(), "Id", "Titulo");
-                    ViewBag.numeroErro = id;
-                    return View("HttpNotFound");
-                }
-                else
-                {
-                    HttpHelper.SetPaginaId(pagina.Id);
-                    string html = await epositoryPagina.renderizarPaginaComCarousel(pagina);
-                    ViewBag.Html = html;
-                }
-
-                if (pagina.Id == 2)
-                    ViewBag.proximo = 3;
-                else
-                    ViewBag.proximo = id + 1;
-                return View(pagina);
+                ViewBag.paginas = new SelectList(new List<Pagina>(), "Id", "Titulo");
+                ViewBag.numeroErro = id;
+                return View("HttpNotFound");
             }
-            return HttpNotFound();
+            else
+            {
+                HttpHelper.SetPaginaId(pagina.Id);
+                string html = await epositoryPagina.renderizarPaginaComCarousel(pagina);
+                ViewBag.Html = html;
+            }
+
+            if (pagina.Id == 2)
+                ViewBag.proximo = 3;
+            else
+                ViewBag.proximo = id + 1;
+            return View(pagina);
+            
         }
 
         [Route("Editar/{id?}")]
@@ -133,7 +133,7 @@ namespace MeuProjetoAgora.Controllers
             if (id == 1) id = 2;
 
             Pagina pagina = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
-            
+
 
             if (pagina == null)
             {
@@ -157,7 +157,7 @@ namespace MeuProjetoAgora.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> GetView(Int64? id)
         {
-            Pagina pagina = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);            
+            Pagina pagina = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
 
             if (pagina == null)
             {
@@ -169,7 +169,7 @@ namespace MeuProjetoAgora.Controllers
             return PartialView("GetView");
         }
 
-        
+
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Salvar(Int64 id)
@@ -177,8 +177,8 @@ namespace MeuProjetoAgora.Controllers
             Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
             var lista = await BuscarPaginas(pag.UserId);
             RepositoryPagina.paginas.RemoveAll(p => p.UserId == pag.UserId);
-            RepositoryPagina.paginas.AddRange(lista.Where(l => ! l.Layout).ToList());
-            
+            RepositoryPagina.paginas.AddRange(lista.Where(l => !l.Layout).ToList());
+
             ViewBag.html = epositoryPagina.renderizarPagina(pag);
 
             return Content("Salvo com sucesso");
@@ -216,7 +216,7 @@ namespace MeuProjetoAgora.Controllers
             .ThenInclude(p => p.Div)
             .First(p => p.Id == id);
             ViewBag.StoryId = new SelectList(db.Story.ToList(), "Id", "Nome", pagina.StoryId);
-            
+
 
             var elements = "";
 
@@ -267,7 +267,7 @@ namespace MeuProjetoAgora.Controllers
             var user = await UserManager.GetUserAsync(this.User);
             int numeroPagina = (pagina ?? 1);
             const int TAMANHO_PAGINA = 3;
-            
+
 
             ViewBag.pagina = numeroPagina;
             var applicationDbContext = await db.Pagina
@@ -316,7 +316,7 @@ namespace MeuProjetoAgora.Controllers
                 {
                     pag.Div.Add(new DivPagina { DivId = item.DivId, PaginaId = pag.Id });
                 }
-                await db.SaveChangesAsync(); 
+                await db.SaveChangesAsync();
             }
             ViewBag.condicao = true;
             ViewBag.pagina = IdPagina;

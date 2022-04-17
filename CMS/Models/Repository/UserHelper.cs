@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,6 +26,8 @@ namespace CMS.Models.Repository
         public UserManager<UserModel> UserManager { get; }
         public RoleManager<IdentityRole> RoleManager { get; }
         public IConfiguration Configuration { get; }
+
+        public static List<UserModel> Users = new List<UserModel>();
 
         public UserHelper(ApplicationDbContext contexto, UserManager<UserModel> userManager,
             RoleManager<IdentityRole> roleManager, IConfiguration configuration)

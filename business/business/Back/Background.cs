@@ -1,4 +1,5 @@
 ﻿using business.business;
+using business.business.Elementos;
 using business.business.Elementos.imagem;
 using business.contrato;
 using business.div;
@@ -23,6 +24,9 @@ namespace business.Back
 
         public Int64? ImagemId { get; set; }
         public virtual Imagem Imagem { get; set; }
+
+        public Int64? VideoId { get; set; }
+        public virtual Video Video { get; set; }
 
         public virtual List<Cor> Cores { get; set; }
 

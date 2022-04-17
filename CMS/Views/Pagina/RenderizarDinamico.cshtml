@@ -6,7 +6,6 @@
     var anterior = proximo - 2;
     var atual = proximo - 1;
     var quant = ViewBag.quantidadePaginas;
-    List<business.business.Story> stories = ViewBag.stories;
 }
 
 <script src="/lib/jquery/dist/jquery.js"></script>
@@ -97,7 +96,7 @@ else
 {
 
 
-
+    ViewData["Title"] = Model.Titulo;
     ViewBag.Title = Model.Titulo;
     string valor = ViewBag.html;
 
@@ -242,7 +241,7 @@ else
             }
 
              if ("@(atual)" == "1") {
-                debugger;
+                
                 $.cookie('automatico', '1');
                 ativarCheckbox(checkbox);
             }

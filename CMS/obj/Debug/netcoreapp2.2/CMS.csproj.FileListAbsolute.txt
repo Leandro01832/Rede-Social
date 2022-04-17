@@ -563,3 +563,4 @@ C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\net
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreatePagina.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Preview.g.cshtml.cs
 C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\CreatePaginaModelo.g.cshtml.cs
+C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\PaginaCriada.g.cshtml.cs

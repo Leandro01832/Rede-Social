@@ -30,8 +30,13 @@ namespace CMS.Controllers
 
         public async Task<JsonResult> GetStory(int Indice, string User)
         {
-            var usuario = await UserManager.Users.FirstOrDefaultAsync(u => u.Name == User);
-            var paginas = RepositoryPagina.paginas.Where(s => s.UserId == usuario.Id).ToList();
+            var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == User.Trim().ToLower());
+            if (user == null)
+            {
+                user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == User.Trim().ToLower());
+                UserHelper.Users.Add(user);
+            }
+            var paginas = RepositoryPagina.paginas.Where(s => s.UserId == user.Id).ToList();
             var stories = new List<Story>();
 
             foreach (var item in paginas)
@@ -58,13 +63,25 @@ namespace CMS.Controllers
             return Json(stories);
         }
 
-        public JsonResult GetUser(string valor)
+        public async Task<JsonResult> GetUser(string valor)
         {
+
             IQueryable users;
+            var lista = new List<UserModel>();
             if (valor != null)
-                users = UserManager.Users.Where(s => s.Name.ToLower().Contains(valor.ToLower()));
+            {
+                lista = await UserManager.Users.Where(s => s.Name.ToLower().Contains(valor.ToLower())).ToListAsync();
+                foreach(var item in lista)
+                {
+                    var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == item.Name.Trim().ToLower());
+                    if (user == null)
+                    UserHelper.Users.Add(item);                    
+                }
+            }
             else
-                users = new List<UserModel>().AsQueryable();
+                lista = new List<UserModel>();
+
+            users = lista.AsQueryable();
 
             return Json(users);
         }

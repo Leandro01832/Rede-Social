@@ -7,7 +7,7 @@
 
     Update() {
         let data = this.getData();
-        this.postElemento(data);
+        this.editElemento(data);
     }
 
     getData() {
@@ -24,6 +24,7 @@
 
         formdata["Pagina_"] = numero;
         formdata["PalavrasTexto"] = $("#textarea").val();
+        formdata["Id"] = $("#Id").val();
         return formdata;
     }
 

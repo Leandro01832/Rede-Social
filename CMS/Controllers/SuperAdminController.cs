@@ -113,7 +113,6 @@ namespace CMS.Controllers
 
 
         #region Create
-        [Route("Layout")]
         public async Task<IActionResult> CreatePaginaModelo()
         {
             var user = await UserManager.GetUserAsync(this.User);
@@ -125,7 +124,6 @@ namespace CMS.Controllers
         }
 
         [HttpPost]
-        [Route("Layout")]
         public async Task<IActionResult> CreatePaginaModelo(Pagina pagina)
         {
             var user = await UserManager.GetUserAsync(this.User);

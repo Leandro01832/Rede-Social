@@ -24,14 +24,15 @@ namespace CMS.Models.Repository
     public interface IRepositoryPagina
     {
         Task<List<Pagina>> MostrarPageModels(string userId);
-        Task<string> renderizarPagina(Pagina pagina);
-        Task<string> renderizarPaginaComMenuDropDown(Pagina pagina);
+         Task<string> renderizarPagina(Pagina pagina);
+         Task<string> renderizarPaginaComMenuDropDown(Pagina pagina);
         Task<bool> verificaTable(Pagina pagina);
         int[] criarRows(Pagina pagina);
-        Task<string> renderizarPaginaComCarousel(Pagina pagina);
+         Task<string> renderizarPaginaComCarousel(Pagina pagina);
         Task BlocosdaPagina(Pagina pagina);
         Task<Pagina> TestarPagina(string id);
         IIncludableQueryable<Pagina, Div> includes();
+        
     }
 
     public class RepositoryPagina : BaseRepository<Pagina>, IRepositoryPagina
@@ -48,7 +49,7 @@ namespace CMS.Models.Repository
             RepositoryDiv = repositoryDiv;
         }
 
-        string path = Directory.GetCurrentDirectory();
+       static string path = Directory.GetCurrentDirectory();
 
         public string MenuDropDown { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/MenuDropDown.cshtml")); } }
 
@@ -72,7 +73,7 @@ namespace CMS.Models.Repository
 
         public string CodigoCarousel { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/Carousel.cshtml")); } }
 
-        public string Html { get { return Path.Combine(path + "/wwwroot/Html/"); } }
+        public static string Html =  Path.Combine(path + "/wwwroot/Mostrar/"); 
         
         public IHostingEnvironment HostingEnvironment { get; }
         public SignInManager<UserModel> SignInManager { get; }
@@ -120,10 +121,10 @@ namespace CMS.Models.Repository
             var resultado = await renderizar(pagina, CodigoCss + CodigoBloco
                + CodigoCss2 + CodigoProducao + CodigoMusic  + CodigoModal);
             return resultado;
-        }        
+        }
 
         public async Task<bool> verificaTable(Pagina pagina)
-        {            
+        {
             bool verifica = false;
             var paginas = await contexto.Pagina.Where(p => p.UserId == pagina.UserId).ToListAsync();
             foreach (var pag in paginas)
@@ -276,7 +277,14 @@ namespace CMS.Models.Repository
 
         public async Task<string> renderizar(Pagina pagina, string TextoHtml)
         {
-            var site1 = await UserManager.Users.FirstAsync(p => p.Id == pagina.UserId);
+            var site1 = UserHelper.Users.FirstOrDefault(p => p.Id == pagina.UserId);
+            if (site1 == null)
+            {
+                site1 = await UserManager.Users.FirstOrDefaultAsync(p => p.Id == pagina.UserId);
+                UserHelper.Users.Add(site1);
+            }
+
+
             int[] numero = criarRows(pagina);           
 
             var condicao = await verificaTable(pagina);            
@@ -300,7 +308,6 @@ namespace CMS.Models.Repository
             {
                 Usuario = username,
                 Login = condicaoLogin,
-                Pedidos = condicao,
                 Musicbool = pagina.Music,
                 arquivoMusic = pagina.ArquivoMusic,
                 Pagina = pagina,
@@ -328,6 +335,8 @@ namespace CMS.Models.Repository
             bool result = Velocity.Evaluate(velocitycontext, new StringWriter(html), "NomeParaCapturarLogError",
             new StringReader(TextoHtml));
 
+            pagina.Html = html.ToString();
+
             return html.ToString();
         }
 
@@ -346,6 +355,7 @@ namespace CMS.Models.Repository
             }
             return pag;
         }
+        
 
         public IIncludableQueryable<Pagina, Div> includes()
         {
@@ -386,6 +396,28 @@ namespace CMS.Models.Repository
             .Include(p => p.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Div);
 
             return include;
+        }
+
+        public async void criandoArquivoHtml(Pagina pagina)
+        {
+            var user = UserManager.Users.First(u => u.Id == pagina.UserId);
+
+            string path = this.HostingEnvironment.WebRootPath + "\\Mostrar\\" + $"\\{user.Name}\\{pagina.Story.Nome}\\";
+            var story = await contexto.Story.Include(p => p.Pagina).FirstAsync(p => p.Id == pagina.Story.Id);
+
+            var index = story.Pagina.IndexOf(story.Pagina.First(pag => pag.Id == pagina.Id));
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(
+                Html + $"{user.Name}/{pagina.Story.Nome}/" +
+                index.ToString() +
+                ".html", false))
+            {
+                sw.WriteLine(pagina.Html);
+                sw.Close();
+            }
         }
     }
 }

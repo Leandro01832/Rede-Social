@@ -48,8 +48,7 @@ namespace CMS.Controllers
 
             return View();
         }
-
-        [Route("Error")]
+        
         [AllowAnonymous]
         public IActionResult Error(int statusCode)
         {

@@ -167,10 +167,8 @@ namespace CMS.Controllers
             }
 
             return "";
-        }        
-        
-        
-
+        }
+                
         public async Task<IActionResult> DeleteCor(Int64? id)
         {
             var cor = await _context.Cor

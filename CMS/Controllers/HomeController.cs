@@ -47,8 +47,7 @@ namespace CMS.Controllers
             RepositoryDiv = repositoryDiv;
         }
 
-
-        [Route("")]
+        
         public IActionResult Index()
         {
             var option = Request.Cookies["automatico"];
@@ -57,6 +56,8 @@ namespace CMS.Controllers
                 Set("automatico", "0", 12);
             if (option2 == null)
                 Set("story", "0", 12);
+
+         var p = RepositoryPagina.paginas.FirstOrDefault();
 
             return View();
         }
@@ -68,8 +69,9 @@ namespace CMS.Controllers
 
             if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
             {
-                RepositoryPagina.paginas.
-               AddRange(await epositoryPagina.includes().Where(p => p.UserId == user.Id).ToListAsync());
+                RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
+                var lst = await epositoryPagina.MostrarPageModels(user.Id);
+                RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
             }
 
             user.Seguidores = await _context.Seguidor.Where(u => u.User == user.Id).ToListAsync();
@@ -148,7 +150,6 @@ namespace CMS.Controllers
         }
 
         [Authorize]
-        [Route("Seguir/{Id}")]
         public async Task<IActionResult> Seguir(string Name)
         {
             var usuario = await UserManager.GetUserAsync(this.User);
@@ -181,7 +182,7 @@ namespace CMS.Controllers
             }
             return View(user);
         }
-
+        
         public async Task<IActionResult> Aceitar(string Seguidor, string Seguindo)
         {
             var usuario = await UserManager.GetUserAsync(this.User);
@@ -507,12 +508,12 @@ namespace CMS.Controllers
 
             return View();
         }
-
+        
         public IActionResult Privacy()
         {
             return View();
         }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

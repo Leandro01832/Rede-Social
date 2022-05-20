@@ -1,21 +1,20 @@
-﻿using System;
+﻿using business.Back;
+using business.business;
+using business.business.Elementos.texto;
+using business.business.link;
+using business.div;
+using business.Join;
+using CMS.Data;
+using CMS.Models;
+using CMS.Models.Repository;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using CMS.Data;
-using business.business;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using CMS.Models;
-using business.Join;
-using business.div;
-using business.Back;
-using business.business.link;
-using business.business.Elementos.texto;
-using CMS.Models.Repository;
 
 namespace CMS.Controllers
 {
@@ -42,8 +41,7 @@ namespace CMS.Controllers
             var stories = await _context.Story.Where(str => str.UserId == usuario.Id).ToListAsync();
             return View(stories);
         }
-
-        // GET: Story/Details/5
+        
         public async Task<IActionResult> Details(Int64? id)
         {
             if (id == null)
@@ -60,18 +58,14 @@ namespace CMS.Controllers
 
             return View(story);
         }
-
-        // GET: Story/Create
+        
         public async Task<IActionResult> Create()
         {
             var user = await UserManager.GetUserAsync(this.User);
             ViewBag.UserId = user.Id;
             return View();
         }
-
-        // POST: Story/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Story story)
@@ -134,7 +128,7 @@ namespace CMS.Controllers
                 Div = pagina.Div[6].Div,
                 Elemento = new LinkBody
                 {
-                    TextoLink = "/" + user.Name + "/Story-" + story.Nome + "-Pagina/1",
+                    TextoLink = "/Renderizar/" + user.Name + "/" + story.Nome + "/1",
                     Texto = new Texto
                     {
                         PalavrasTexto = "<h1> Story " + story.Nome + "</h1>"
@@ -153,9 +147,8 @@ namespace CMS.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
-        // GET: Story/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        
+        public async Task<IActionResult> Edit(Int64? id)
         {
             if (id == null)
             {
@@ -171,10 +164,7 @@ namespace CMS.Controllers
             ViewBag.UserId = user.Id;
             return View(story);
         }
-
-        // POST: Story/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Story story)

@@ -9,7 +9,7 @@ function uploadFiles(inputId) {
 
     for (var i = 0; i !== Arquivos.length; i++) {
         formData.append("files", Arquivos[i]);
-        formData.append("Id", $(".Topo")[0].baseURI.replace(/[^0-9]/g, '').replace('5001', ''));
+        formData.append("Id",  $("#IdentificaPagina").val());
         formData.append("pasta", $("#pastas").val());
   }
 

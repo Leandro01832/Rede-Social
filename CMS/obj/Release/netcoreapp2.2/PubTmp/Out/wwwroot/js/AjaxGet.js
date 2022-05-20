@@ -108,7 +108,7 @@ $.ajax({
     type: 'POST',
     url: '/AjaxGet/GetPastas',
     dataType: 'json',
-    data: { Pedido: $("#IdentificaSite").val() }
+    data: { Pagina: $("#IdentificaSite").val() }
 })
     .done(function (response) {
 

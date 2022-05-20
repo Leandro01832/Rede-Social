@@ -17,8 +17,8 @@ namespace CMS.Controllers
 
         public ApplicationDbContext Contexto { get; }
         public IRepositoryElemento RepositoryElemento { get; }
-
-        public async Task<IActionResult> Details(Int64 id)
+        
+        public async Task<IActionResult> Details(Int64? id)
         {
             var produto = await RepositoryElemento.includes()
             .FirstAsync(p => p.Id == id);             

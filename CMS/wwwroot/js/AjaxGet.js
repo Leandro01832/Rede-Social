@@ -1,6 +1,5 @@
 ﻿var items = $(".imagem");
-var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-numero = numero.replace('44311', '');
+var numero = $("#IdentificaPagina").val();
 var imgs_ = [['']];
 
 var selects = $("select");

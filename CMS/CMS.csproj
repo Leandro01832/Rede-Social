@@ -27,8 +27,8 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\Html\" />
-    <Folder Include="wwwroot\Html\site\" />
+    <Folder Include="wwwroot\Mostrar\" />
+    <Folder Include="wwwroot\Mostrar\site\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\ImagensUsers\" />

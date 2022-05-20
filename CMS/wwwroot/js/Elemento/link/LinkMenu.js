@@ -22,8 +22,7 @@ class LinkMenu {
 
     getData() {
 
-        var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-        numero = numero.replace('44311', '');
+        var numero = $("#IdentificaPagina").val();
 
         var data = $("form#formulario").serializeArray();
 
@@ -51,8 +50,7 @@ class LinkMenu {
             headers: headers
         }).done(function (response) {
 
-            var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-            numero = numero.replace('44311', '');
+            var numero = $("#IdentificaPagina").val();
             $(".content").load("/Pagina/getview", { id: numero });
             alert("Elemento criado com sucesso!!! " + response);
         });
@@ -73,8 +71,7 @@ class LinkMenu {
             headers: headers
         }).done(function (response) {
 
-            var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-            numero = numero.replace('44311', '');
+            var numero = $("#IdentificaPagina").val();
             $(".content").load("/Pagina/getview", { id: numero });
         });
     }

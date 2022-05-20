@@ -57,6 +57,9 @@ namespace business.business
         //Para Usuario
         public bool LayoutModelo { get; set; }
 
+        [NotMapped]
+        public string Html { get; set; }
+
         public void IncluiDiv(Div div)
         {
             this.Div.Add(new DivPagina { Div = div });

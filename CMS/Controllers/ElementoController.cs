@@ -48,10 +48,10 @@ namespace CMS.Controllers
             epositoryPagina = repositoryPagina;
         }
 
-        [Route("Elemento/Lista/{id}")]
-        public async Task<IActionResult> Lista(string id)
+        [Route("Elemento/Lista/{dados}")]
+        public async Task<IActionResult> Lista(string dados)
         {
-            var arr = id.Split('-');
+            var arr = dados.Split('-');
             var numero = Int64.Parse(arr[1]);
             var page = await _context.Pagina.FirstAsync(p => p.Id == numero);
 
@@ -176,7 +176,7 @@ namespace CMS.Controllers
 
             return PartialView(ele);
         }
-
+        
         public async Task<IActionResult> Edit(Int64? id)
         {
             var usuario = await UserManager.GetUserAsync(this.User);
@@ -450,6 +450,7 @@ namespace CMS.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Div")]
+        
         public async Task<JsonResult> AlterarPosicaoBloco(IList<Int64> numeros, Int64? id)
         {
             //  db.Configuration.ProxyCreationEnabled = false;
@@ -483,6 +484,7 @@ namespace CMS.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Elemento")]
+        
         public async Task<JsonResult> AlterarPosicaoElemento(IList<Int64> numeros, Int64? id)
         {
             //  db.Configuration.ProxyCreationEnabled = false;

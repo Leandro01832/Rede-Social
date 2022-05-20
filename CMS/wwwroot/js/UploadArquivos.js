@@ -8,13 +8,13 @@
     let token = $('[name=__RequestVerificationToken]').val();
 
     let headers = {};
-    headers['RequestVerificationToken'] = token;
+    headers['RequestVerificationToken'] = token;    
 
     for (var i = 0; i !== Arquivos.length; i++)
     {
         formData.append("files", Arquivos[i]);
         formData.append("Nome", $("#NomeVideo").val());
-        formData.append("Id", $(".bloco")[0].baseURI.replace(/[^0-9]/g, '').replace('44311', ''));
+        formData.append("Id", $("#IdentificaPagina").val());
         formData.append("PaginaEscolhida", $("#PaginaEscolhida").val());
     }
 
@@ -50,7 +50,7 @@ function uploadFilesImagem(inputId) {
 
     for (var i = 0; i !== Arquivos.length; i++) {
         formData.append("files", Arquivos[i]);
-        formData.append("Id", $(".bloco")[0].baseURI.replace(/[^0-9]/g, '').replace('44311', ''));
+        formData.append("Id", $("#IdentificaPagina").val());
         formData.append("pasta", $("#PastaImagemId").val());
         formData.append("PaginaEscolhida", $("#PaginaEscolhida").val());
     }
@@ -83,7 +83,7 @@ function uploadFilesMusica(inputId) {
 
     for (var i = 0; i !== Arquivos.length; i++) {
         formData.append("files", Arquivos[i]);
-        formData.append("Id", $(".bloco")[0].baseURI.replace(/[^0-9]/g, '').replace('44311', ''));
+        formData.append("Id", $("#IdentificaPagina").val());
     }
 
     $.ajax({

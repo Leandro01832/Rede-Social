@@ -1,39 +1,30 @@
 ﻿$(".GaleriaBackground").click(function () {
 
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
-
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Ferramenta/ListaBackground/" + numero);
 });
 
 
 $("#GaleriaBlocoFixo").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
 
     $("#FormTexto, #estrutura, #Permissao, #Galeria, #GaleriaBlocos").fadeOut("slow");
     $("#GaleriaBlocos").fadeIn("slow");
     $("#GaleriaBlocos").load("/Div/ListaFixo/");
 
-
 });
 
 $(".GaleriaLayout").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     
     $("#conteudomodal").load("/Pagina/GaleriaLayout/" + numero);
 });
 
 
-$("#GaleriaBloco").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+$("#GaleriaBloco").click(function () {    
 
     $("#FormTexto, #estrutura, #Permissao, #Galeria, #GaleriaBlocos").fadeOut("slow");
     $("#GaleriaBlocos").fadeIn("slow");
     $("#GaleriaBlocos").load("/Div/Lista/");
-
 
 });
 
@@ -54,8 +45,7 @@ $("#CreatePath").click(function () {
 });
 
 $("#EditarCores").click(function () {  
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
 
     $("#conteudomodal").load("/Ferramenta/ListaCores/" + numero);
 });
@@ -73,8 +63,7 @@ $("#BlocoCriarBackgroundCor").click(function () {
 });
 
 $(".CoresBack").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Ferramenta/CreateCor/" + numero);
 });
 
@@ -209,111 +198,92 @@ $("#BlocoCriarBlocoFixo").click(function () {
 });
 
 $("#BlocoCriarTexto").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
-
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Texto/" + numero);
 });
 
 $("#BlocoCriarTextoDependente").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/TextoDependente/" + numero);
 });
 
 $("#BlocoCriarVideo").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudoVideo").load("/Elemento/Create/Video/" + numero);
 });
 
 $("#BlocoCriarLink").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/LinkBody/" + numero);
 });
 
 $("#BlocoCriarLinkMenu").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/LinkMenu/" + numero);
 });
 
 $("#BlocoCriarTable").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Table/" + numero);
 });
 
 $("#BlocoCriarImagem").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudoImagem").load("/Elemento/Create/Imagem/" + numero);
 });
 
 $("#BlocoCriarCarouselImg").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/CarouselImg/" + numero);
 });
 
 $("#BlocoCriarCarouselPagina").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/CarouselPagina/" + numero);
 });
 
 $("#BlocoCriarDropdown").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Dropdown/" + numero);
 });
 
 $("#BlocoCriarProdutoAcessorio").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Acessorio/" + numero);
 });
 
 $("#BlocoCriarProdutoCalcado").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Calcado/" + numero);
 });
 
 $("#BlocoCriarProdutoAlimenticio").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Alimenticio/" + numero);
 });
 
 $("#BlocoCriarProdutoRoupa").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Roupa/" + numero);
 });
 
 $("#BlocoCriarProdutoShow").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Show/" + numero);
 });
 
 $("#BlocoCriarFormulario").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Formulario/" + numero);
 });
 
 $("#BlocoCriarCampo").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Campo/" + numero);
 });
 
 $("#BlocoCriarPaginaComLayout").click(function () {
-    var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-    numero = numero.replace('44311', '');
+    var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Pagina/CreatePaginaComLayout/" + numero);
 });
 

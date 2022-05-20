@@ -43,7 +43,7 @@
         <input type="number" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
                placeholder="N° do capítulo. Ex: 2, 3, 4, 5, ..." max="@ViewBag.quantidade" />
         <center>
-            <a id="acessoPaginaComInput" href="#" class="btn btn-primary glyphicon glyphicon-search">
+            <a id="acessoPaginaComInput" href="#" target="_blank" class="btn btn-primary glyphicon glyphicon-search">
                 Acessar
             </a>
         </center>
@@ -157,7 +157,7 @@
                                     ........................................................................
                                 </td>
                                 <td>
-                                    <a href="/@Model.Name/Story-Padrao-Pagina/@item.PaginaPadraoLink">Cap. @item.PaginaPadraoLink</a>
+                                    <a href="/Renderizar/@Model.Name/Padrao/@item.PaginaPadraoLink">Cap. @item.PaginaPadraoLink</a>
                                 </td>
                             </tr>
                         }
@@ -173,15 +173,20 @@
 </div>
 
 @section Scripts {
-    <script>
+<script>
         $(document).ready(function () {
 
             $("#NumeroPaginaAcesso").change(function () {
-                document.getElementById('acessoPaginaComInput').href = '/@Model.Name/Story-Padrao-Pagina/';
+                document.getElementById('acessoPaginaComInput').href = '/Renderizar/@Model.Name/Padrao/';
                 document.getElementById("acessoPaginaComInput").href +=  $(this).val();
             });
 
+            setTimeout(function () {
+                window.location.href = "/Perfil/@Model.Name/";
+
+                }, 300000);
+
 
         });
-    </script>
+</script>
 }

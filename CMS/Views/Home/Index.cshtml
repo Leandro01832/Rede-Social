@@ -36,6 +36,11 @@
 
         $(document).ready(function () {
 
+            setTimeout(function () {
+                window.location.href = "/Home/Index/";
+
+                }, 180000);
+
             $("#NameUser").keyup(function () {
 
                 $.ajax({
@@ -53,7 +58,8 @@
                         $("#listaUsers").empty();
                         $.each(data, function (i) {
                             $("#listaUsers").append('<p>' +
-                                "<a href='Perfil/" + data[i].name + "/' class='Users' >" + data[i].name +
+                                "<a href='/Perfil/" + data[i].name +
+                                "/' target='_blank' class='Users' >" + data[i].name +
                                 " <img class='img-circle img-responsive' src='" + data[i].image + "' width='50' /> </a>" +
                                 '</p>');
                         });

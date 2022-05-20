@@ -62,7 +62,7 @@ namespace CMS.Models.Repository
                 await dbSet.AddAsync(div);
                 await contexto.SaveChangesAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "";
             }

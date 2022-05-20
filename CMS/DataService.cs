@@ -1,9 +1,6 @@
 ﻿using business.Back;
-using business.business;
-using business.business.Elementos;
 using business.business.Elementos.imagem;
 using business.div;
-using business.Join;
 using CMS.Data;
 using CMS.Models;
 using CMS.Models.Repository;
@@ -12,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CMS
@@ -48,18 +44,7 @@ namespace CMS
         {
             var contexto = provider.GetService<ApplicationDbContext>();
 
-          var user =  await UserManager.Users.FirstAsync();
-
-            var pagina = new Pagina
-            {
-                ArquivoMusic = "",
-                Margem = false,
-                Music = false,
-                Titulo = "Default",
-                UserId = user.Id,
-                StoryId = contexto.Story.ToList().First().Id
-            };
-
+          var user =  await UserManager.Users.FirstAsync();  
 
             var listaImagens = new List<Imagem>()
             {
@@ -142,7 +127,6 @@ namespace CMS
 
             await contexto.Imagem.AddAsync(listaImagens[1]);
             await contexto.Imagem.AddAsync(listaImagens[2]);
-            await contexto.Pagina.AddAsync(pagina);
             await contexto.SaveChangesAsync();
             return listaImagens;
         }

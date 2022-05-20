@@ -156,6 +156,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Div")]
+        [Route("Div/Edit/{id}")]
         public async Task<IActionResult> Edit(Int64? id)
         {
             var div = await _context.Div
@@ -172,10 +173,7 @@ namespace CMS.Controllers
             {
                 div.Elementos += el.Elemento.Id + ", ";
             }
-
-            var site = HttpHelper.GetPaginaId();
-
-
+            
             return PartialView(div);
         }
 

@@ -21,6 +21,7 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Background")]
+      
         public async Task<IActionResult> ListaBackground(Int64? id)
         {
             List<Background> lista = new List<Background>();
@@ -41,7 +42,7 @@ namespace CMS.Controllers
 
         [Authorize(Roles = "Background")]
         [Route("Background/Create/{back}/{Id}")]
-        public IActionResult Create(string back, Int64 Id)
+        public IActionResult Create(string back, Int64? Id)
         {
             Background background = null;
 
@@ -55,7 +56,7 @@ namespace CMS.Controllers
 
         [Authorize(Roles = "Background")]
         [Route("Background/Edit/{back}/{Id}")]
-        public async Task<IActionResult> Edit(string back, Int64 Id)
+        public async Task<IActionResult> Edit(string back, Int64? Id)
         {
             Background background = null;
 
@@ -148,7 +149,7 @@ namespace CMS.Controllers
         }
         #endregion
 
-
+        
         public async Task<IActionResult> DeleteBackground(Int64? id)
         {
             if (id == null)

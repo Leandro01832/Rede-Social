@@ -12,8 +12,7 @@
             headers: headers,
             success: function (data) {
                 if (data !== "") {
-                    var numero = $(".Topo")[0].baseURI.replace(/[^0-9]/g, '');
-                    numero = numero.replace('5001', '');
+                    var numero = $("#IdentificaPagina").val();
                     $("#Hidden1").val(true);
                     $(".content").load("/Pagina/getview", { id: numero });
                     alert("Elemento apagado com sucesso");

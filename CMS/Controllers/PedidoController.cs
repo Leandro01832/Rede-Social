@@ -133,7 +133,7 @@ namespace MeuProjetoAgora.Controllers
             ViewBag.StoryId = new SelectList(stories, "Id", "Nome", pagina.StoryId);
             return View(pagina);
         }
-                     
+        
         private ActionResult HttpNotFound()
         {
             throw new NotImplementedException();

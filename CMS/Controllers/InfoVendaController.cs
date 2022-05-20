@@ -56,7 +56,6 @@ namespace CMS.Controllers
 
             return "Cadastro realizado com sucesso!!!";
         }
-
         
         public ActionResult CadastrarContaBancaria()
         {

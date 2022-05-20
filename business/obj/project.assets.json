@@ -3013,7 +3013,7 @@
       ]
     },
     "System.Reflection.Emit/4.3.0": {
-      "sha512": "vPGJ5srPqvcEgaQrlyMKBEr3xcW2//DclDb64FidaTNDTKvvzpIUCK3bMd0ZE57AJ4MjKqHgMjte/2C7iRVnew==",
+      "sha512": "228FG0jLcIwTVJyz8CLFKueVqQK36ANazUManGaJHkO0icjiIypKW7YLWLIWahyIkdh5M7mV2dJepllLyA1SKg==",
       "type": "package",
       "path": "system.reflection.emit/4.3.0",
       "files": [
@@ -3048,7 +3048,7 @@
       ]
     },
     "System.Reflection.Emit.ILGeneration/4.3.0": {
-      "sha512": "5B/fwfNC6DyqAHd5WgKiBFGGBXxic6VyMXCPERbInf5QO0STz6qm7t7xyZ0g1bEMDmxgL2scPgCQ7d+aDdU2lg==",
+      "sha512": "59tBslAk9733NXLrUJrwNZEzbMAcu8k344OYo+wfSVygcgZ9lgBdGIzH/nrg3LYhXceynyvTc8t5/GD4Ri0/ng==",
       "type": "package",
       "path": "system.reflection.emit.ilgeneration/4.3.0",
       "files": [
@@ -3972,23 +3972,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\leand\\.nuget\\packages\\": {},
+    "C:\\Users\\simon\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leand\\Documents\\Visual Studio 2017\\C#\\cms-rede-social\\business\\business.csproj",
+      "projectUniqueName": "C:\\Users\\simon\\source\\repos\\C#\\rede-social\\business\\business.csproj",
       "projectName": "business",
-      "projectPath": "C:\\Users\\leand\\Documents\\Visual Studio 2017\\C#\\cms-rede-social\\business\\business.csproj",
-      "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leand\\Documents\\Visual Studio 2017\\C#\\cms-rede-social\\business\\obj\\",
+      "projectPath": "C:\\Users\\simon\\source\\repos\\C#\\rede-social\\business\\business.csproj",
+      "packagesPath": "C:\\Users\\simon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\simon\\source\\repos\\C#\\rede-social\\business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\simon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

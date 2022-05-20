@@ -136,13 +136,13 @@ namespace CMS
             app.UseForwardedHeaders();
 
             app.UseResponseCompression();
+            
 
             app.UseMvc(routes =>
             {
-
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Pedido}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             app.UseSignalR(Endpoint => Endpoint.MapHub<StreamingHub>("/streamingHub"));

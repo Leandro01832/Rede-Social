@@ -48,11 +48,11 @@ namespace CMS.Controllers
             try
             {
                 var story = stories[Indice + 1];
-                return Json(story.Nome);
+                return Json(story.PaginaPadraoLink);
             }
             catch (Exception)
             {
-                return Json(stories[1].Nome);
+                return Json(stories[1].PaginaPadraoLink);
             }            
         }
 

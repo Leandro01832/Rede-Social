@@ -94,7 +94,7 @@ namespace CMS.Controllers
             }
 
             ViewBag.divs = divs;
-            string html = await RepositoryPagina.renderizarPaginaComCarousel(pagina);
+            string html = await RepositoryPagina.renderizarPagina(pagina);
             ViewBag.Html = html;
 
             return PartialView(pagina);
@@ -137,7 +137,7 @@ namespace CMS.Controllers
                     };
             }
 
-            string html = await RepositoryPagina.renderizarPaginaComCarousel(pagina);
+            string html = await RepositoryPagina.renderizarPagina(pagina);
             ViewBag.Html = html;
 
             return PartialView(pagina);

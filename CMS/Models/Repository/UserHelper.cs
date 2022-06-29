@@ -79,7 +79,7 @@ namespace CMS.Models.Repository
             var userASP = await UserManager.FindByNameAsync(email);
             if (userASP == null)
             {
-                var user = new UserModel { UserName = email, Name = "Leandro", Image = "/ImagensGaleria/Padrao.jpg" };
+                var user = new UserModel { UserName = email, Name = "leandro", Image = "/ImagensGaleria/Padrao.jpg" };
                await UserManager.CreateAsync(user, password);
 
                 await CreateUserASPAsync(user.UserName, "Video");

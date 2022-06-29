@@ -154,7 +154,7 @@
                                     Story @item.Nome
                                 </td>
                                 <td>
-                                    ........................................................................
+                                    .......................................
                                 </td>
                                 <td>
                                     <a href="/Renderizar/@Model.Name/Padrao/@item.PaginaPadraoLink">Cap. @item.PaginaPadraoLink</a>
@@ -177,7 +177,7 @@
         $(document).ready(function () {
 
             $("#NumeroPaginaAcesso").change(function () {
-                document.getElementById('acessoPaginaComInput').href = '/Renderizar/@Model.Name/Padrao/';
+                document.getElementById('acessoPaginaComInput').href = '/Renderizar/@Model.Name/0/';
                 document.getElementById("acessoPaginaComInput").href +=  $(this).val();
             });
 

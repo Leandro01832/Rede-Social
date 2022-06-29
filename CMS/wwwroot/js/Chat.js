@@ -1,5 +1,5 @@
-﻿var numeroPagina = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-numeroPagina = numeroPagina.replace('44311', '');
+﻿
+var numero = $("#IdentificaPagina").val();
 
 var chat = new signalR.HubConnectionBuilder().withUrl("/streamingHub").build();
 
@@ -17,7 +17,7 @@ $.ajax({
     url: '/AjaxGet/Mensagens',
     dataType: 'json',
     data: {
-        Pagina: numeroPagina
+        Pagina: numero
     },
     success: function (data) {
 
@@ -53,7 +53,7 @@ $("#sendmessage").click(function () {
         url: '/AjaxCreate/EnviaMensagem',
         dataType: 'json',
         data: {
-            Id: numeroPagina,
+            Id: numero,
             NomeUsuario: $('#displayname').val(),
             Mensagem: $('#message').val()
         },

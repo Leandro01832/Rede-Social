@@ -93,7 +93,7 @@ namespace CMS.Controllers
                 ArquivoMusic = "",
                 Margem = false,
                 Music = false,
-                Titulo = "Default",
+                Titulo = "Link Padrao",
                 Layout = false,
                 UserId = user.Id,
                 StoryId = Story.Id
@@ -128,7 +128,7 @@ namespace CMS.Controllers
                 Div = pagina.Div[6].Div,
                 Elemento = new LinkBody
                 {
-                    TextoLink = "/Renderizar/" + user.Name + "/" + story.Nome + "/1",
+                    TextoLink = "/Renderizar/" + user.Name + "/" + story.PaginaPadraoLink + "/1",
                     Texto = new Texto
                     {
                         PalavrasTexto = "<h1> Story " + story.Nome + "</h1>"

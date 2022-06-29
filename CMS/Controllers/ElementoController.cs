@@ -116,7 +116,7 @@ namespace CMS.Controllers
             pagina.Div[6].Div.Elemento = listaDivElemento;
             pagina.Div[6].Div.Colunas = "auto auto auto";
 
-            string html = await epositoryPagina.renderizarPaginaComCarousel(pagina);
+            string html = await epositoryPagina.renderizarPagina(pagina);
             ViewBag.Html = html;
             return PartialView(pagina);
         }

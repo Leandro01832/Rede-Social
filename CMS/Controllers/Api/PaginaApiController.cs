@@ -42,7 +42,7 @@ namespace CMS.Controllers.Api
                     div.Div.Elemento = div.Div.Elemento.OrderBy(e => e.Elemento.Ordem).ToList();
                 }
 
-                var texto = await RepositoryPagina.renderizarPaginaComMenuDropDown(pag);
+                var texto = await RepositoryPagina.renderizarPagina(pag);
                 var html = texto;
 
                 lista.Add(new PaginaApi
@@ -66,7 +66,7 @@ namespace CMS.Controllers.Api
                 div.Div.Elemento = div.Div.Elemento.OrderBy(e => e.Elemento.Ordem).ToList();
             }
 
-            var texto = await RepositoryPagina.renderizarPaginaComMenuDropDown(pagina);
+            var texto = await RepositoryPagina.renderizarPagina(pagina);
 
             var html = texto;
 

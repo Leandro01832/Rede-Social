@@ -86,6 +86,15 @@
 </style>
 
 
+    <input type="hidden" value="@Model.Id" id="IdentificacaoPagina" />
+    <input type="hidden" value="@ViewBag.user" id="ValorUser" />
+    <input type="hidden" value="@atual" id="ValorAtual" />
+    <input type="hidden" value="@quant" id="ValorQuant" />
+    <input type="hidden" value="@proximo" id="ValorProximo" />
+    <input type="hidden" value="@anterior" id="ValorAnterior" />
+    <input type="hidden" value="@Model.Story.PaginaPadraoLink" id="ValorPaginaPadraoLink" />
+    <input type="hidden" value="@Model.Story.Nome" id="ValorStoryNome" />
+
 @{
 
 
@@ -93,7 +102,7 @@
     ViewBag.Title = Model.Titulo;
     string valor = ViewBag.html;
 
-    <input type="hidden" value="@Model.Id" id="IdentificacaoPagina" />
+    
 
     <style media="screen and (max-width: 450px)">
         .content {
@@ -102,13 +111,13 @@
     </style>
 
     <link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
-    <a class="left carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(ViewBag.story)/@(anterior)" style="display:none;">
+    <a class="left carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(Model.Story.PaginaPadraoLink)/@(anterior)" style="display:none;">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
     </a>
 
 
-    <a class="right carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(ViewBag.story)/@(proximo)" style="display:none;">
+    <a class="right carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(Model.Story.PaginaPadraoLink)/@(proximo)" style="display:none;">
         <span class="glyphicon glyphicon-chevron-right"></span>
         <span class="sr-only">Next</span>
     </a>
@@ -122,7 +131,7 @@
                     <span style="background-color:white;">Story: @Model.Story.Nome</span>
                     <br />
                     <span style="font-size: 12px; background-color: white;">
-                        <a href="/Renderizar/@ViewBag.user/Padrao/@Model.Story.PaginaPadraoLink" class="btn btn-primary">
+                        <a href="/Renderizar/@ViewBag.user/0/@Model.Story.PaginaPadraoLink" class="btn btn-primary">
                             Capítulo @Model.Story.PaginaPadraoLink
                         </a>
                     </span>
@@ -150,13 +159,17 @@
             <a id="acessoPaginaComInput2" href="#"
                class="btn btn-primary glyphicon glyphicon-search loader">
             </a>
+            <a href="/" class="glyphicon glyphicon-home" style="left: 3%;"></a>
+            <br />
             <a id="voltar" href="#"
                class="btn btn-primary loader glyphicon glyphicon-chevron-left">
             </a>
             <a id="avancar" href="#"
                class="btn btn-primary loader glyphicon glyphicon-chevron-right">
             </a>
-            <a href="/" class="glyphicon glyphicon-home" style="left: 3%;"></a>
+            <a id="message" href="#" class="btn btn-warning">
+                <img src="~/imagem/blue-messager2.png" width="30" alt="messager" />
+            </a>
         </div>
 
     </div>
@@ -166,25 +179,51 @@
     <div style="position:fixed; bottom:4%; left: 1%; width: 100%; overflow-x:auto;" class="DivPagina">
 
         <center>
+            <a href="/Perfil/@ViewBag.user"  style="font-size:1.5rem; background-color:white; opacity: 0.80;">
+               <span class="text-primary" >Livro: @ViewBag.user</span> 
+            </a>
             <h3 style="background-color:darkgray; opacity: 0.80;">@Html.CheckBox("automatico") Automático </h3>
 
             <div>
 
-                @{ for (var indice = 1; indice <= quant; indice++)
+                @{
+                    if (quant <= 60)
                     {
-                        <div style="width:14px; display:inline-grid; margin: 0px, 4px, 0px, 4px; background-color:darkgray; opacity: 0.80;" id="DivPagina@(indice)">
 
-                            <span style="font-size: 1rem;"><b>@indice</b> </span>
-                            <span class="glyphicon glyphicon-record"
-                                  style="font-size: 1rem;"></span>
+                        for (var indice = 1; indice <= quant; indice++)
+                        {
+                            <div style="width:14px; display:inline-grid; margin: 0px, 4px, 0px, 4px; background-color:darkgray; opacity: 0.80;" id="DivPagina@(indice)">
 
-                        </div>
+                                <span style="font-size: 1rem;"><b>@indice</b> </span>
+                                <span class="glyphicon glyphicon-record"
+                              style="font-size: 1rem;"></span>
+
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        if (Model.Story.Nome == "Padrao")
+                        {
+                            <p style="background-color:darkgray; opacity: 0.80;">Capitulo @atual de @quant</p>
+                        }
+                        else
+                        {
+                            <p style="background-color:darkgray; opacity: 0.80;">Versiculo @atual de @quant</p>
+                        }
                     }
                 }
 
             </div>
         </center>
 
+    </div>
+
+    <div class="container1" style="display:none;">
+    <input type="text" id="message" />
+    <input type="button" id="sendmessage" value="Enviar mensagem" />
+    <input type="hidden" id="displayname" />
+    <ul id="discussion"></ul>
     </div>
 
 
@@ -195,129 +234,11 @@
 
 
 @section scripts{
-
-    @*<script src="https://unpkg.com/jquery@2.2.0/dist/jquery.js"></script>*@
+  
     <script src="~/lib/jquery/dist/jquery.cookie.js"></script>
+    <script src="~/lib/aspnet-signalr/signalr.min.js"></script>
+    <script type="text/javascript" src="~/js/Chat-Renderizar.js"></script>
     <script src="~/js/loader.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            var links = $(".LinksPagina");
-
-            if("@(Model.Story.Nome)" != "Padrao")
-                $("#NumeroPaginaAcesso2").attr('placeholder', 'Nº versiculo');
-
-
-
-
-            $("#DivPagina@(atual)").addClass('minhaClasse3');
-
-
-
-            $("#voltar").click(function () {
-                window.location.href = "/Renderizar/@ViewBag.user/" + "@ViewBag.story" + "/" + @anterior;
-            });
-
-            $("#avancar").click(function () {
-                window.location.href = "/Renderizar/@ViewBag.user/" + "@ViewBag.story" + "/" + @proximo;
-            });
-
-            var checkbox = document.querySelector("#automatico");
-            function ativarCheckbox(el) {
-                el.checked = true;
-            }
-            function desativarCheckbox(el) {
-                el.checked = false;
-            }
-
-             if ("@(atual)" == "1") {
-
-                $.cookie('automatico', '1');
-                ativarCheckbox(checkbox);
-            }
-
-            $("input").change(function () {
-
-                if ($("#automatico").is(':checked') == true) {
-                    $.cookie('automatico', '1');
-                    alert("As paginas serão mostradas automaticamente.");
-                    setTimeout(function () {
-                        $("#loading").show();
-
-                        if (@atual < @quant)
-                            window.location.href = "/Renderizar/@ViewBag.user/" + "@ViewBag.story" + "/" + @proximo;
-                        else
-                            window.location.href = "/Renderizar/@ViewBag.user/" + "@ViewBag.story" + "/1";
-                    }, 10000);
-                }
-                else
-                    $.cookie('automatico', '0');
-            });
-
-            function BuscarStory()
-            {
-                $.ajax({
-                    type: 'POST',
-                    url: '/AjaxGet/GetStory',
-                    dataType: 'json',
-                    data: { Indice: @(Model.Story.PaginaPadraoLink), User: "@(ViewBag.user)"   }
-                })
-                    .done(function (response) {
-
-                        $.cookie('automatico', '1');
-                        window.location.href = "/Renderizar/@ViewBag.user/" + response + "/1";
-
-
-                    });
-            }
-
-            if ($.cookie('automatico') == '1')
-            {
-                ativarCheckbox(checkbox);
-                setTimeout(function () {
-
-
-                    if ($.cookie('automatico') == '1')
-                    $("#loading").show();
-                    if (@atual < @quant && $.cookie('automatico') == '1')
-                        window.location.href = "/Renderizar/@ViewBag.user/" + "@ViewBag.story" + "/" + @proximo;
-                    else if ($.cookie('automatico') == '1')
-                    {
-                        if("@(Model.Story.Nome)" != "Padrao")
-                            BuscarStory();
-                        else
-                            window.location.href = "/Renderizar/@ViewBag.user/Padrao/1";
-                    }
-                }, 10000);
-            }
-            else
-                desativarCheckbox(checkbox);
-
-            
-
-            $(".carousel-control").click(function () { $("#loading").show(); });
-
-
-
-            $("#NumeroPaginaAcesso2").change(function () {
-
-                document.getElementById("acessoPaginaComInput2").href = "/Renderizar/@ViewBag.user/" +
-                    "@ViewBag.story" + "/";
-                document.getElementById("acessoPaginaComInput2").href += $(this).val();
-            });
-
-            setTimeout(function () {
-                if("@(Model.Story.Nome)" != "Padrao")
-                    window.location.href = "/Renderizar/@ViewBag.user/" + "@ViewBag.story" + "/" + @atual;
-                else
-                window.location.href = "/Renderizar/@ViewBag.user/Padrao/@atual";
-
-            }, 600000);
-
-        });
-    </script>
+    <script type="text/javascript" src="~/js/Navegacao.js"> </script>    
 
 }
-
-

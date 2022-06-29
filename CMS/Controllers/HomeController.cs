@@ -65,7 +65,12 @@ namespace CMS.Controllers
         [Route("Perfil/{Name}")]
         public async Task<IActionResult> Perfil(string Name)
         {
-            var user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == Name.Trim().ToLower());
+            var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == Name);
+            if (user == null)
+            {
+                user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == Name);
+                UserHelper.Users.Add(user);
+            }
 
             if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
             {
@@ -76,7 +81,9 @@ namespace CMS.Controllers
 
             user.Seguidores = await _context.Seguidor.Where(u => u.User == user.Id).ToListAsync();
             user.Seguindo = await _context.Seguindo.Where(u => u.User == user.Id).ToListAsync();
-            var stories = await _context.Story.Where(str => str.UserId == user.Id && str.Nome != "Padrao").ToListAsync();
+            var stories = await _context.Story.Where(str => str.UserId == user.Id && str.Nome != "Padrao")
+                .OrderBy(st => st.Nome)
+                .ToListAsync();
 
             var seguidores = new List<UserModel>();
             var seguindo = new List<UserModel>();
@@ -493,7 +500,7 @@ namespace CMS.Controllers
             }
 
 
-            string html = await epositoryPagina.renderizarPaginaComCarousel(pagina);
+            string html = await epositoryPagina.renderizarPagina(pagina);
             ViewBag.html = html;
 
             //return Json(html);
@@ -534,7 +541,6 @@ namespace CMS.Controllers
 
             Response.Cookies.Append(key, value, option);
         }
-
-
+        
     }
 }

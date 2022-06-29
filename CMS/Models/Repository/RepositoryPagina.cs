@@ -24,13 +24,10 @@ namespace CMS.Models.Repository
     public interface IRepositoryPagina
     {
         Task<List<Pagina>> MostrarPageModels(string userId);
-         Task<string> renderizarPagina(Pagina pagina);
-         Task<string> renderizarPaginaComMenuDropDown(Pagina pagina);
         Task<bool> verificaTable(Pagina pagina);
         int[] criarRows(Pagina pagina);
-         Task<string> renderizarPaginaComCarousel(Pagina pagina);
+         Task<string> renderizarPagina(Pagina pagina);
         Task BlocosdaPagina(Pagina pagina);
-        Task<Pagina> TestarPagina(string id);
         IIncludableQueryable<Pagina, Div> includes();
         
     }
@@ -49,17 +46,13 @@ namespace CMS.Models.Repository
             RepositoryDiv = repositoryDiv;
         }
 
-       static string path = Directory.GetCurrentDirectory();
-
-        public string MenuDropDown { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/MenuDropDown.cshtml")); } }
+       static string path = Directory.GetCurrentDirectory();       
 
         //529
-        public string CodigoCss2 { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss.cshtml")); } }
+        public string CodCss { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss.cshtml")); } }
 
         //142 linhas
-        public string CodigoCss { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss2.cshtml")); } }
-
-        public string CodigoCssMenuDropDwn { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss2MenuDropDown.cshtml")); } }
+        public string CodCss2 { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss2.cshtml")); } }      
 
         //119 linhas
         public string CodigoBloco { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocBloco.cshtml")); } }
@@ -72,8 +65,6 @@ namespace CMS.Models.Repository
         public string CodigoMusic { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/music.cshtml")); } }
 
         public string CodigoCarousel { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/Carousel.cshtml")); } }
-
-        public static string Html =  Path.Combine(path + "/wwwroot/Mostrar/"); 
         
         public IHostingEnvironment HostingEnvironment { get; }
         public SignInManager<UserModel> SignInManager { get; }
@@ -113,15 +104,7 @@ namespace CMS.Models.Repository
             }
 
             return  lista;
-        }
-
-        public async Task<string> renderizarPagina(Pagina pagina)
-        {
-            //producao
-            var resultado = await renderizar(pagina, CodigoCss + CodigoBloco
-               + CodigoCss2 + CodigoProducao + CodigoMusic  + CodigoModal);
-            return resultado;
-        }
+        }        
 
         public async Task<bool> verificaTable(Pagina pagina)
         {
@@ -182,16 +165,11 @@ namespace CMS.Models.Repository
             return numero;
         }      
 
-        public async Task<string> renderizarPaginaComMenuDropDown(Pagina pagina)
-        {
-            var resultado = await renderizar(pagina, MenuDropDown + CodigoCssMenuDropDwn +
-               CodigoBloco + CodigoCss2 + CodigoProducao  + CodigoMusic + CodigoModal);
-            return resultado;
-        }
+        
 
-        public async Task<string> renderizarPaginaComCarousel(Pagina pagina)
+        public async Task<string> renderizarPagina(Pagina pagina)
         {
-            var resultado = await renderizar(pagina, CodigoCss + CodigoBloco + CodigoCss2 +
+            var resultado = await renderizar(pagina, CodCss2 + CodigoBloco + CodCss +
                 CodigoProducao + CodigoMusic
                 + CodigoCarousel + CodigoModal);
             return resultado;
@@ -338,24 +316,7 @@ namespace CMS.Models.Repository
             pagina.Html = html.ToString();
 
             return html.ToString();
-        }
-
-        
-
-        public async Task<Pagina> TestarPagina(string id)
-        {
-            Pagina pag;
-            try
-            {
-                pag = await contexto.Pagina.FirstOrDefaultAsync(e => e.Id == Int64.Parse(id));
-            }
-            catch (Exception)
-            {
-                pag = null;
-            }
-            return pag;
-        }
-        
+        }       
 
         public IIncludableQueryable<Pagina, Div> includes()
         {
@@ -398,26 +359,6 @@ namespace CMS.Models.Repository
             return include;
         }
 
-        public async void criandoArquivoHtml(Pagina pagina)
-        {
-            var user = UserManager.Users.First(u => u.Id == pagina.UserId);
-
-            string path = this.HostingEnvironment.WebRootPath + "\\Mostrar\\" + $"\\{user.Name}\\{pagina.Story.Nome}\\";
-            var story = await contexto.Story.Include(p => p.Pagina).FirstAsync(p => p.Id == pagina.Story.Id);
-
-            var index = story.Pagina.IndexOf(story.Pagina.First(pag => pag.Id == pagina.Id));
-
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
-            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(
-                Html + $"{user.Name}/{pagina.Story.Nome}/" +
-                index.ToString() +
-                ".html", false))
-            {
-                sw.WriteLine(pagina.Html);
-                sw.Close();
-            }
-        }
+       
     }
 }

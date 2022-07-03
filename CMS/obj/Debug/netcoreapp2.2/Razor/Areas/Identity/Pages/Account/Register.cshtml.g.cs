@@ -13,13 +13,13 @@ namespace CMS.Areas.Identity.Pages.Account
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
-#line 2 "C:\Users\leandro\Documents\rede-social\CMS\Areas\Identity\Pages\_ViewImports.cshtml"
-using CMS.Areas.Identity;
+#line 1 "C:\Users\leandro\Documents\rede-social\CMS\Areas\Identity\Pages\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
-#line 3 "C:\Users\leandro\Documents\rede-social\CMS\Areas\Identity\Pages\_ViewImports.cshtml"
-using Microsoft.AspNetCore.Identity;
+#line 2 "C:\Users\leandro\Documents\rede-social\CMS\Areas\Identity\Pages\_ViewImports.cshtml"
+using CMS.Areas.Identity;
 
 #line default
 #line hidden
@@ -29,7 +29,7 @@ using CMS.Areas.Identity.Pages.Account;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"50c19687b6b51ad4b0b489a91b72e506e8005a75", @"/Areas/Identity/Pages/Account/Register.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5ed0228b8f7a4e7267c66b8887d09dcf3562adba", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"69a3e87011b0ed4196dcdc2cc9828e31db0e731c", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0864d6d967867a09d5c6d6c48452e1c403626899", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
     public class Areas_Identity_Pages_Account_Register : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     {

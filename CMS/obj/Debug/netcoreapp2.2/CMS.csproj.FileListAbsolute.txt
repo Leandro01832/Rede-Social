@@ -1014,16 +1014,6 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocHtml.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarousel.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarouselPagina.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocFormulario.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlFim.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlInicio.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocImagem.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocLink.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTable.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTexto.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocVideo.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\modal.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.cshtml.g.cs

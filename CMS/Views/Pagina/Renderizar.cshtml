@@ -6,6 +6,9 @@
     var anterior = proximo - 2;
     var atual = proximo - 1;
     var quant = ViewBag.quantidadePaginas;
+    ViewData["NomeStory"] = Model.Titulo;
+    ViewBag.Title = Model.Titulo;
+    string valor = ViewBag.html;
 }
 
 <script src="/lib/jquery/dist/jquery.js"></script>
@@ -16,6 +19,18 @@
         z-index: 40 !important;
     }
 
+    #record {
+        font-size: 1rem !important;
+    }
+
+    .indices {
+        font-size: 1rem !important;
+    }
+
+     .DivPagina {
+        width: 14px !important;
+    }
+
     #voltar {
         display: none !important;
     }
@@ -23,6 +38,8 @@
     #avancar {
         display: none !important;
     }
+
+   
 </style>
 
 <style>
@@ -62,7 +79,7 @@
         bottom: 30%;
     }
 
-    .DivPagina {
+    .Paginacao {
         z-index: 120;
     }
 
@@ -85,6 +102,12 @@
     }
 </style>
 
+    <style media="screen and (max-width: 450px)">
+        .content {
+            width: 100%;
+        }
+    </style>
+
 
     <input type="hidden" value="@Model.Id" id="IdentificacaoPagina" />
     <input type="hidden" value="@ViewBag.user" id="ValorUser" />
@@ -93,22 +116,7 @@
     <input type="hidden" value="@proximo" id="ValorProximo" />
     <input type="hidden" value="@anterior" id="ValorAnterior" />
     <input type="hidden" value="@Model.Story.PaginaPadraoLink" id="ValorPaginaPadraoLink" />
-    <input type="hidden" value="@Model.Story.Nome" id="ValorStoryNome" />
-
-@{
-
-
-    ViewData["Title"] = Model.Titulo;
-    ViewBag.Title = Model.Titulo;
-    string valor = ViewBag.html;
-
-    
-
-    <style media="screen and (max-width: 450px)">
-        .content {
-            width: 100%;
-        }
-    </style>
+    <input type="hidden" value="@Model.Story.Nome" id="ValorStoryNome" />   
 
     <link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
     <a class="left carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(Model.Story.PaginaPadraoLink)/@(anterior)" style="display:none;">
@@ -116,13 +124,12 @@
         <span class="sr-only">Previous</span>
     </a>
 
-
     <a class="right carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(Model.Story.PaginaPadraoLink)/@(proximo)" style="display:none;">
         <span class="glyphicon glyphicon-chevron-right"></span>
         <span class="sr-only">Next</span>
     </a>
 
-    <div style="position:fixed; top:5px;" class="blocoLoader row">
+    <div style="position:fixed; top:5px; width:100%;" class="blocoLoader">
         <div class="col-xs-4">
             @{
 
@@ -155,7 +162,7 @@
                 }
             }
             <input type="number" placeholder="N° pagina"
-                   id="NumeroPaginaAcesso2" value="@atual" style="width: 80px;" />
+                   id="NumeroPaginaAcesso2" value="@atual" style="width: 60px;" />
             <a id="acessoPaginaComInput2" href="#"
                class="btn btn-primary glyphicon glyphicon-search loader">
             </a>
@@ -176,7 +183,7 @@
 
     @Html.Raw(ViewBag.Html)
 
-    <div style="position:fixed; bottom:4%; left: 1%; width: 100%; overflow-x:auto;" class="DivPagina">
+    <div style="position:fixed; bottom:4%; left: 1%; width: 100%; overflow-x:auto;" class="Paginacao">
 
         <center>
             <a href="/Perfil/@ViewBag.user"  style="font-size:1.5rem; background-color:white; opacity: 0.80;">
@@ -192,11 +199,13 @@
 
                         for (var indice = 1; indice <= quant; indice++)
                         {
-                            <div style="width:14px; display:inline-grid; margin: 0px, 4px, 0px, 4px; background-color:darkgray; opacity: 0.80;" id="DivPagina@(indice)">
+                            <div class="DivPagina"
+                             style="width:22px; display:inline-grid; margin: 0px, 6px, 0px, 6px; background-color:darkgray; opacity: 0.80;"
+                             id="DivPagina@(indice)">
 
-                                <span style="font-size: 1rem;"><b>@indice</b> </span>
+                                <span style="font-size: 2rem;" class="indices"><b>@indice</b> </span>
                                 <span class="glyphicon glyphicon-record"
-                              style="font-size: 1rem;"></span>
+                              style="font-size: 2rem;" id="record" ></span>
 
                             </div>
                         }
@@ -219,19 +228,15 @@
 
     </div>
 
-    <div class="container1" style="display:none;">
-    <input type="text" id="message" />
+    <div class="container1" style="display:none; position:fixed; bottom:2%; left: 1%; width: 100%; background-color: rgba(239, 243, 11, 0.5); z-index: 2000;">
+        <a class="btn btn-primary" href="#" id="fecharChat" > <span class="glyphicon glyphicon-remove-circle"></span> Fechar</a>
+    <input type="text" id="menssagemChat" placeholder="digite a mensagem aqui." />
     <input type="button" id="sendmessage" value="Enviar mensagem" />
     <input type="hidden" id="displayname" />
     <ul id="discussion"></ul>
     </div>
 
-
     <div id="loading" style="display:none; z-index:50;"><img src="~/imagem/loader.gif" /></div>
-
-}
-
-
 
 @section scripts{
   

@@ -13,7 +13,7 @@
 
 .content {
     border: ridge;
-    border-width: 15px;
+    border-width: 5px;
     border-color: bisque;
     height: auto;
 }
@@ -41,4 +41,11 @@
 
 .content {
     overflow: auto;
+}
+
+#discussion {
+    background-color: rgba(133, 207, 231, 0.5);    
+    width: 380px;
+    height: 255px;
+    overflow: scroll;
 }

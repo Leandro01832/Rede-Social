@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace CMS
 {
@@ -26,9 +27,14 @@ namespace CMS
 
         public IConfiguration Configuration { get; }
 
+        static string path = Directory.GetCurrentDirectory();
+        
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+             string conecta1 = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={path}\rede-social.mdf;Integrated Security=True";
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -43,8 +49,8 @@ namespace CMS
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+              //  options.UseSqlServer( Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(conecta1));
             services.AddDefaultIdentity<UserModel>()
                 .AddRoles<IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap3)

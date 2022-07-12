@@ -1024,3 +1024,13 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.Co
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.dll
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.pdb
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.genruntimeconfig.cache
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarousel.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarouselPagina.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocFormulario.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlFim.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlInicio.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocImagem.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocLink.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTable.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTexto.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocVideo.cshtml.g.cs

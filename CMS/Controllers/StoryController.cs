@@ -63,7 +63,12 @@ namespace CMS.Controllers
         {
             var user = await UserManager.GetUserAsync(this.User);
             ViewBag.UserId = user.Id;
-            return View();
+            var lst = await _context.Story.Where(st => st.Nome != "Padrao" && st.UserId == user.Id).ToListAsync();
+            Story story = new Story
+            {
+                PaginaPadraoLink = lst.Count + 1
+            };
+            return View(story);
         }
         
         [HttpPost]
@@ -81,8 +86,6 @@ namespace CMS.Controllers
                 return View(story);
             }
 
-            var lst = await _context.Story.Where(st => st.Nome != "Padrao" && st.UserId == user.Id).ToListAsync();
-            story.PaginaPadraoLink = lst.Count + 1;
             _context.Add(story);
             await _context.SaveChangesAsync();
 

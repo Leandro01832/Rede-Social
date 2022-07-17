@@ -92,17 +92,21 @@ namespace MeuProjetoAgora.Controllers
 
             if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
             {
-                RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
-                var lst = await BuscarPaginas(user.Id);
-                var quant = lst.Where(l => !l.Layout && !l.LayoutModelo).ToList().Count;
-                RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
+               // RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
+               // var lst = await BuscarPaginas(user.Id);
+               // var quant = lst.Where(l => !l.Layout && !l.LayoutModelo).ToList().Count;
+               // RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
 
-                if (RepositoryPagina.paginas.Where(p => p.UserId == user.Id &&
-                !p.Layout && !p.LayoutModelo).ToList().Count != quant)
-                {
-                    RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
-                    RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
-                }
+               // if (RepositoryPagina.paginas.Where(p => p.UserId == user.Id &&
+               // !p.Layout && !p.LayoutModelo).ToList().Count != quant)
+               // {
+               //     RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
+               //     RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
+               // }
+                ViewBag.livro = Name;
+                ViewBag.capitulo = capitulo;
+                ViewBag.numeroErro = indice;
+                return View("HttpNotFound");
             }
 
             ViewBag.user = user.Name;
@@ -180,11 +184,8 @@ namespace MeuProjetoAgora.Controllers
         public async Task<IActionResult> Salvar(Int64 id)
         {
             Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
-            var user = await UserManager.Users.FirstOrDefaultAsync(u => u.Id == pag.UserId);
-
-            var lista = await epositoryPagina.MostrarPageModels(user.Id);
-            RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
-            RepositoryPagina.paginas.AddRange(lista.Where(l => !l.Layout && !l.LayoutModelo).ToList());
+            RepositoryPagina.paginas.Remove(RepositoryPagina.paginas.First(p => p.Id == id));
+            RepositoryPagina.paginas.Add(pag);
             return Content("Salvo com sucesso");
         }
 
@@ -316,7 +317,7 @@ namespace MeuProjetoAgora.Controllers
 
                 await db.Pagina.AddAsync(pag);
 
-                await db.SaveChangesAsync();
+                await db.SaveChangesAsync();                 
 
                 pag.Div = new List<DivPagina>();
                 foreach (var item in pag2.Div)
@@ -324,6 +325,8 @@ namespace MeuProjetoAgora.Controllers
                     pag.Div.Add(new DivPagina { DivId = item.DivId, PaginaId = pag.Id });
                 }
                 await db.SaveChangesAsync();
+
+                RepositoryPagina.paginas.Add(pag);
             }
             ViewBag.condicao = true;
             ViewBag.pagina = IdPagina;

@@ -72,12 +72,20 @@ namespace CMS.Controllers
                 UserHelper.Users.Add(user);
             }
 
-            if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
-            {
-                RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
-                var lst = await epositoryPagina.MostrarPageModels(user.Id);
-                RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
-            }
+          //  if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
+          //  {
+          //      RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
+          //      var lst = await epositoryPagina.MostrarPageModels(user.Id);
+          //      var quant = lst.Where(l => !l.Layout && !l.LayoutModelo).ToList().Count;
+          //      RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
+
+               // if (RepositoryPagina.paginas.Where(p => p.UserId == user.Id &&
+               // !p.Layout && !p.LayoutModelo).ToList().Count != quant)
+               // {
+               //     RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
+               //     RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
+               // }
+          //  }
 
             user.Seguidores = await _context.Seguidor.Where(u => u.User == user.Id).ToListAsync();
             user.Seguindo = await _context.Seguindo.Where(u => u.User == user.Id).ToListAsync();

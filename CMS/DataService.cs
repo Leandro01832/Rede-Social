@@ -10,6 +10,10 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace CMS
 {
@@ -17,26 +21,33 @@ namespace CMS
     {
         public IRepositoryPagina epositoryPagina { get; }
         public UserManager<UserModel> UserManager { get; }
+        public IConfiguration Configuration { get; }
 
-        public DataService(IRepositoryPagina repositoryPagina, UserManager<UserModel> userManager)
+        public DataService(IRepositoryPagina repositoryPagina, UserManager<UserModel> userManager, IConfiguration configuration)
         {
             epositoryPagina = repositoryPagina;
             UserManager = userManager;
+            Configuration = configuration;
         }
 
 
         public async Task InicializaDBAsync(IServiceProvider provider)
         {
-            var contexto = provider.GetService<ApplicationDbContext>();           
-            
+            var contexto = provider.GetService<ApplicationDbContext>();    
+
+            if (RepositoryPagina.paginas.FirstOrDefault() == null)
+            {
+                 var user = await UserManager.Users.FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
+                var lst = await epositoryPagina.MostrarPageModels(user.Id);
+                RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
+            }             
 
             if (await contexto.Set<Imagem>().AnyAsync())
             {
                 return;
             }
 
-            var lista = await ListaImagens(provider);
-            
+            var lista = await ListaImagens(provider);         
 
         }
 

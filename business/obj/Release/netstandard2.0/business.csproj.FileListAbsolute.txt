@@ -16,3 +16,13 @@ C:\Users\simon\source\repos\C#\rede-social\business\obj\Release\netstandard2.0\b
 C:\Users\simon\source\repos\C#\rede-social\business\obj\Release\netstandard2.0\business.AssemblyInfo.cs
 C:\Users\simon\source\repos\C#\rede-social\business\obj\Release\netstandard2.0\business.dll
 C:\Users\simon\source\repos\C#\rede-social\business\obj\Release\netstandard2.0\business.pdb
+C:\Users\leandro\Documents\rede-social\business\bin\Release\netstandard2.0\business.deps.json
+C:\Users\leandro\Documents\rede-social\business\bin\Release\netstandard2.0\business.dll
+C:\Users\leandro\Documents\rede-social\business\bin\Release\netstandard2.0\business.pdb
+C:\Users\leandro\Documents\rede-social\business\obj\Release\netstandard2.0\business.csproj.AssemblyReference.cache
+C:\Users\leandro\Documents\rede-social\business\obj\Release\netstandard2.0\business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leandro\Documents\rede-social\business\obj\Release\netstandard2.0\business.AssemblyInfoInputs.cache
+C:\Users\leandro\Documents\rede-social\business\obj\Release\netstandard2.0\business.AssemblyInfo.cs
+C:\Users\leandro\Documents\rede-social\business\obj\Release\netstandard2.0\business.csproj.CoreCompileInputs.cache
+C:\Users\leandro\Documents\rede-social\business\obj\Release\netstandard2.0\business.dll
+C:\Users\leandro\Documents\rede-social\business\obj\Release\netstandard2.0\business.pdb

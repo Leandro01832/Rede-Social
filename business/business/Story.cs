@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace business.business
 {
@@ -21,6 +23,12 @@ namespace business.business
             {   
                 paginaPadraoLink = value;
             }
+        }
+
+        [NotMapped]
+        public string CapituloComNome
+        {
+            get { return "Capitulo " + this.paginaPadraoLink + " - " + this.Nome; }
         }
 
     }

@@ -76,7 +76,7 @@ namespace MeuProjetoAgora.Controllers
             }
 
             ViewBag.UserId = user.Id;
-            ViewBag.StoryId = new SelectList(stories, "Id", "Nome");
+            ViewBag.StoryId = new SelectList(stories, "Id", "CapituloComNome");
             return View();
         }
 
@@ -123,14 +123,12 @@ namespace MeuProjetoAgora.Controllers
                     await Context.SaveChangesAsync();
                 }
 
-                RepositoryPagina.paginas.Clear();
-                var lista = await epositoryPagina.MostrarPageModels(pagina.UserId);
-                RepositoryPagina.paginas.AddRange(lista.Where(l => ! l.Layout).ToList());
+                RepositoryPagina.paginas.Add(pagina);
 
                 return RedirectToAction("Galeria", new { id = pagina.UserId });
             }
             
-            ViewBag.StoryId = new SelectList(stories, "Id", "Nome", pagina.StoryId);
+            ViewBag.StoryId = new SelectList(stories, "Id", "CapituloComNome", pagina.StoryId);
             return View(pagina);
         }
         

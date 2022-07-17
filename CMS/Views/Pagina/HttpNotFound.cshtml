@@ -6,14 +6,21 @@
 
 <script src="/lib/jquery/dist/jquery.js"></script>
 <br />
-<div style="position: fixed; z-index: 2;">
-    <input type="number" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
-           placeholder="N° do Capitulo. Ex: 2, 3, 4, 5" value="@ViewBag.numeroErro" />
+<div style="position: fixed; z-index: 2; display:none;" id="navegacao">
+    <input type="hidden" id="livro" value="@ViewBag.livro" />
+           <input type="hidden" id="capitulo" value="@ViewBag.capitulo" />
+    <input type="number" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;" placeholder="N° do Capitulo. Ex: 2, 3, 4, 5" value="@ViewBag.numeroErro" />
     <center>
         <a id="acessoPaginaComInput" href="/Pagina/" class="btn btn-primary glyphicon glyphicon-search loader">
             Acessar
         </a>
     </center>
+
+    <h1>Pagina não encontrada</h1>
+</div>
+
+<div style="position: fixed; z-index: 2; display:none;" id="aguarde">
+   <h1>Aguarde o processamento...</h1> 
 </div>
 
 
@@ -21,7 +28,7 @@
 <br />
 <br />
 
-<h1>Pagina não encontrada</h1>
+
 
 <div id="loading" style="display:none; z-index:50;"><img src="~/imagem/loader.gif" /></div>
 
@@ -30,6 +37,24 @@
 
     <script src="~/js/loader.js"></script>
     <script type="text/javascript">
+
+
+            if($("#livro").val() == "") 
+            {
+                    $("#navegacao").css("display", "block");
+                    $("#aguarde").css("display", "none");
+            }       
+            else
+            {
+                    $("#navegacao").css("display", "none");
+                    $("#aguarde").css("display", "block");
+
+                     setTimeout(function() {   window.location.href = "/Renderizar/"+ "@ViewBag.livro" +"/" + "@ViewBag.capitulo" + "/" + "@ViewBag.numeroErro";  }, 30000);
+            }
+
+
+      
+
         $("#NumeroPaginaAcesso").change(function () {
 
                 document.getElementById("acessoPaginaComInput2").href = "/@ViewBag.user/Story-Padrao-Pagina/";

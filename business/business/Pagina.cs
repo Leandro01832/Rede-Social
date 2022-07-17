@@ -16,6 +16,8 @@ namespace business.business
         private DateTime data = DateTime.Now;
 
         public DateTime Data { get { return data; } set { data = value; } }
+
+        [Display(Name ="Story")]
         public Int64 StoryId { get; set; }
         public virtual Story Story { get; set; }
 

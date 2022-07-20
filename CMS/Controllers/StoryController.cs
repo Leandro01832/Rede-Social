@@ -140,12 +140,12 @@ namespace CMS.Controllers
             });
 
             await _context.AddAsync(pagina);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();          
+            
 
-            Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == pagina.Id);
-            var lista = await epositoryPagina.MostrarPageModels(pag.UserId);
-            RepositoryPagina.paginas.RemoveAll(p => p.UserId == pag.UserId);
-            RepositoryPagina.paginas.AddRange(lista.Where(l => !l.Layout).ToList());
+             Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == pagina.Id);
+            RepositoryPagina.paginas.Remove(RepositoryPagina.paginas.First(p => p.Id == pag.Id));
+            RepositoryPagina.paginas.Add(pag);
 
 
             return RedirectToAction(nameof(Index));

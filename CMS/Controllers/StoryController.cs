@@ -131,7 +131,7 @@ namespace CMS.Controllers
                 Div = pagina.Div[6].Div,
                 Elemento = new LinkBody
                 {
-                    TextoLink = "/Renderizar/" + user.Name + "/" + story.PaginaPadraoLink + "/1",
+                    TextoLink = "#LinkPadrao",
                     Texto = new Texto
                     {
                         PalavrasTexto = "<h1> Story " + story.Nome + "</h1>"
@@ -178,7 +178,7 @@ namespace CMS.Controllers
             FirstOrDefaultAsync(st => st.Nome.ToLower() == story.Nome.ToLower() && st.UserId == user.Id);
             if (str != null)
             {
-                ModelState.AddModelError("", "Este story ja existe!!!");
+                ModelState.AddModelError("", "Este story já existe!!!");
                 return View(story);
             }
 

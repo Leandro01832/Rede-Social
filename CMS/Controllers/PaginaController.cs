@@ -91,18 +91,7 @@ namespace MeuProjetoAgora.Controllers
             }
 
             if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
-            {
-               // RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
-               // var lst = await BuscarPaginas(user.Id);
-               // var quant = lst.Where(l => !l.Layout && !l.LayoutModelo).ToList().Count;
-               // RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
-
-               // if (RepositoryPagina.paginas.Where(p => p.UserId == user.Id &&
-               // !p.Layout && !p.LayoutModelo).ToList().Count != quant)
-               // {
-               //     RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
-               //     RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
-               // }
+            {               
                 ViewBag.livro = Name;
                 ViewBag.capitulo = capitulo;
                 ViewBag.numeroErro = indice;

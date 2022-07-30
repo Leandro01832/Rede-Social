@@ -108,6 +108,11 @@ $(document).ready(function() {
         document.getElementById("acessoPaginaComInput2").href += $(this).val();
     });
 
+    $("#LinkPadrao").click(function() {        
+
+        window.location.href = "/Renderizar/"+ valorUser +"/" + valorAtual + "/1";
+    });
+
     setTimeout(function() {
         if (valorStoryNome != "Padrao")
             window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorAtual;

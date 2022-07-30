@@ -7,5 +7,6 @@ namespace business.business.link
     {
         [DataType(DataType.Url)]
         public string TextoLink { get; set; }
+              
     }
 }

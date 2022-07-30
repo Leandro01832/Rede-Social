@@ -109,6 +109,8 @@
 
                                                 #if($el.Elemento.Tipo == 'Link')
 
+                                                #if($element.Elemento.TextoLink != '#LinkPadrao')
+
                                                 <a href='$element.Elemento.TextoLink'>
 
                                                  ${element.Elemento.Texto.PalavrasTexto}
@@ -116,7 +118,13 @@
                                                 <img class='img-responsive' src='$site$element.Elemento.Imagem.ArquivoImagem' alt='imagem' style='width:100%;' />
                                
 
-                                                </a>                                             
+                                                </a>  
+
+                                                #else
+
+                                                <a id='LinkPadrao' href='#'> ${element.Elemento.Texto.PalavrasTexto} </a>
+
+                                                #end
 
                                                 #end
 
@@ -247,7 +255,7 @@
 
                         #if($element.Elemento.Tipo == 'LinkBody')
 
-                        
+                            #if($element.Elemento.TextoLink != '#LinkPadrao')
                             <a href='$element.Elemento.TextoLink'>
 
                                 ${element.Elemento.Texto.PalavrasTexto}
@@ -256,6 +264,10 @@
                                #end
 
                             </a>
+                            #else
+
+                            <a href='#' id='LinkPadrao'  > ${element.Elemento.Texto.PalavrasTexto} </a>
+                            #end
                         
                         #end
 
@@ -392,6 +404,7 @@
 
                                                 #if($el.Elemento.Tipo == 'Link')
 
+                                                #if($element.Elemento.TextoLink != '#LinkPadrao')
                                                 <a href='$element.Elemento.TextoLink'>
 
                                                  ${element.Elemento.Texto.PalavrasTexto}
@@ -399,7 +412,10 @@
                                                 <img class='img-responsive' src='$site$element.Elemento.Imagem.ArquivoImagem' alt='imagem' style='width:100%;' />
                                
 
-                                                </a>                                             
+                                                </a>      
+                                                #else
+                                                <a href='#' id='LinkPadrao'> ${element.Elemento.Texto.PalavrasTexto} </a>
+                                                #end                                       
 
                                                 #end
 
@@ -530,7 +546,7 @@
 
                         #if($element.Elemento.Tipo == 'LinkBody')
 
-                        
+                            #if($element.Elemento.TextoLink != '#LinkPadrao')
                             <a href='$element.Elemento.TextoLink'>
 
                                 ${element.Elemento.Texto.PalavrasTexto}
@@ -539,6 +555,9 @@
                                #end
 
                             </a>
+                            #else
+                            <a href='#' id='LinkPadrao'> ${element.Elemento.Texto.PalavrasTexto}</a>
+                            #end
                         
                         #end
 

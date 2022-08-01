@@ -27,7 +27,6 @@ namespace CMS.Data
 
         }
 
-        public DbSet<CopiaLayout> CopiaLayout { get; set; }
         public DbSet<Solicitacao> Solicitacao { get; set; }
         public DbSet<Seguindo> Seguindo { get; set; }
         public DbSet<Seguidor> Seguidor { get; set; }

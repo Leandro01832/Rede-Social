@@ -39,7 +39,7 @@ namespace CMS
             {
                  var user = await UserManager.Users.FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
                 var lst = await epositoryPagina.MostrarPageModels(user.Id);
-                RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
+                RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout).ToList());
             }             
 
             if (await contexto.Set<Imagem>().AnyAsync())

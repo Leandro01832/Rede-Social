@@ -33,9 +33,6 @@ namespace Tests
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
-           // var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
-           // var repository = serviceProvider.GetRequiredService<IRepositoryPagina>();
-
             var paginas = RepositoryPagina.paginas;
 
             for(Int64 i = 0; i <= 1000000; i++)
@@ -52,7 +49,156 @@ namespace Tests
                     UserId = "",
                     StoryId = 0
                 });
+
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 1000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 2000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 3000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 4000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 5000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 6000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 7000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 8000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 9000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 10000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                 RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 11000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                 RepositoryPagina.paginas.Add(new Pagina
+                {
+                    Id = i + 12000000,
+                    ArquivoMusic = "",
+                    Margem = false,
+                    Music = false,
+                    Titulo = "Default",
+                    Layout = false,
+                    UserId = "",
+                    StoryId = 0
+                });
+
+                
             }
+
+     
+            Console.WriteLine(RepositoryPagina.paginas.Count);            
 
             var lista1 = RepositoryPagina.paginas.Where(p => p.Id < 10000).ToList();
             var lista2 = RepositoryPagina.paginas.Where(p => p.Id < 20000).ToList();
@@ -65,110 +211,8 @@ namespace Tests
             var lista9 = RepositoryPagina.paginas.Where(p => p.Id < 90000).ToList();
             var lista10 = RepositoryPagina.paginas.Where(p => p.Id < 100000).ToList();
 
-            //var user =  userManager.Users.First();
-
-            var pag2 = includes().First(p => p.Id == 2);
-
-            var pag = new Pagina();
-
-            foreach (var item in pag.GetType().GetProperties().Where(p => p.Name != "NomeComId" && p.Name != "Tipo"))
-            item.SetValue(pag, item.GetValue(pag2));
-            pag.Id = 0;
-            pag.CarouselPagina = new List<PaginaCarouselPagina>();
-            pag.Div = new List<DivPagina>();
-            
-            pag.Story = null;
-            
-
-            banco.Pagina.Add(pag);
-            
-            banco.SaveChanges();
-
-            pag.Div = new List<DivPagina>();
-            foreach(var item in pag2.Div)
-            {
-                pag.Div.Add(new DivPagina { DivId = item.DivId, PaginaId = pag.Id });
-            }
-            banco.SaveChanges();
-
-            for(var i = 0; i <= 10; i++)
-            {
-                banco.Add(pag);
-            }
-            
-
-            Imagem img2 = null;
-
-            Console.WriteLine(img2.GetType().Name);
-
-            Div bloco1 = new DivComum
-            {
-                Background = new BackgroundCor(),
-                Colunas = "",
-                BorderRadius = 10,
-                Desenhado = 0,
-                Divisao = "",
-                Elemento = new List<DivElemento>(),
-                Elementos = "",
-                Height = 10,
-                Nome = "bloco1",
-                Ordem = 0,
-                Padding = 5,
-                Pagina_ = 1
-
-            };
-
-            Imagem img = new Imagem
-            {
-                Nome = "",
-                Background = null,
-                ArquivoImagem = "",
-                div = new List<DivElemento>(),
-                Ordem = 1,
-                Pagina_ = 1,
-                PastaImagemId = 1,
-                PastaImagem = new PastaImagem(),
-                Width = 100
-            };
-
-            List<DivElemento> elementos = new List<DivElemento>
-            {
-                 new DivElemento
-                 {
-                      Div = bloco1,
-                       DivId = bloco1.Id,
-                        Elemento = img,
-                        ElementoId = img.Id
-                 }
-            };
-
-
-
-            List<DivPagina> divs = new List<DivPagina>();
-            divs.Add(new DivPagina
-            {
-                Div = bloco1,
-                DivId = bloco1.Id
-            });
-
-            Pagina pagina = new Pagina
-            {
-                ArquivoMusic = "",
-                Blocos = "",
-                Titulo = "vida louca",
-                Div = divs,
-                CarouselPagina = new List<PaginaCarouselPagina>(),
-                Margem = false,
-                Menu = false,
-                Topo = false,
-                Music = false,
-            };
-            
-
-
+            Console.WriteLine("Executado!!!");  
             Console.Read();
-
-
         }
 
         public static void ConfigureServices(IServiceCollection services)

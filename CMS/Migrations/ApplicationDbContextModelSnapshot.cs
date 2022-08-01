@@ -276,23 +276,6 @@ namespace CMS.Migrations
                     b.ToTable("PaginaCarouselPagina");
                 });
 
-            modelBuilder.Entity("business.business.CopiaLayout", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("LayoutModelo");
-
-                    b.Property<long>("LayoutUser");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CopiaLayout");
-                });
-
             modelBuilder.Entity("business.business.DadoFormulario", b =>
                 {
                     b.Property<long>("Id")
@@ -391,8 +374,6 @@ namespace CMS.Migrations
                     b.Property<DateTime>("Data");
 
                     b.Property<bool>("Layout");
-
-                    b.Property<bool>("LayoutModelo");
 
                     b.Property<bool>("Margem");
 

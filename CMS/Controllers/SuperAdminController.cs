@@ -149,14 +149,10 @@ namespace CMS.Controllers
                 };
             }
 
-            pagina.LayoutModelo = true;
+            pagina.Layout = true;
             await _context.Pagina.AddAsync(pagina);
             await _context.SaveChangesAsync();
-
-
-            RepositoryPagina.paginas.Clear();
-            var lista = await epositoryPagina.MostrarPageModels(pagina.UserId);
-            RepositoryPagina.paginas.AddRange(lista.Where(l => !l.Layout).ToList());
+            RepositoryPagina.paginas.Add(pagina);
 
             return RedirectToAction("Index", "Home");
         }

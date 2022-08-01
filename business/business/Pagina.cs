@@ -56,8 +56,7 @@ namespace business.business
 
         //Para Programador
         public bool Layout { get; set; }
-        //Para Usuario
-        public bool LayoutModelo { get; set; }
+        
 
         [NotMapped]
         public string Html { get; set; }

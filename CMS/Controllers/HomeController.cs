@@ -220,17 +220,23 @@ namespace CMS.Controllers
         {
             var user = await UserManager.GetUserAsync(this.User);
             var lista = await _context.Story.Where(st => st.UserId == user.Id && st.Nome != "Padrao").ToListAsync();
-            var layouts = await _context.Pagina.Where(p => p.UserId == user.Id && p.LayoutModelo).ToListAsync();
+            var layouts = await _context.Pagina.Where(p => p.UserId == user.Id && p.Layout).ToListAsync();
 
-            if (lista.Count == 0)
+             if (lista.Count == 0)
             {
                 ViewBag.Error = "Crie seu story primeiro!!!";
                 RedirectToAction("Create", "Story");
             }
 
+             if (layouts.Count == 0)
+            {
+                ViewBag.Error = "Crie seu primeiro layout!!!";
+                RedirectToAction("CreatePagina", "Pedido");
+            }           
+
             ViewBag.UserId = user.Id;
             ViewBag.StoryId = new SelectList(lista, "Id", "Nome");
-            ViewBag.Layout = new SelectList(layouts, "Id", "Id");
+            ViewBag.Layout = new SelectList(layouts, "Id", "NomeComId");
             return View();
         }
 
@@ -238,11 +244,8 @@ namespace CMS.Controllers
         [Authorize]
         public async Task<IActionResult> CreatePagina(string Titulo, string UserId, Int64 StoryId, string Conteudo, Int64 Layout)
         {
-            var paginaCriada = new Pagina();
-            var user = await UserManager.GetUserAsync(this.User);
-            var copia = await _context.CopiaLayout.FirstOrDefaultAsync(c => c.LayoutModelo == Layout && c.UserId == user.Id);
-            if(copia != null)
-            {
+            var user = await UserManager.GetUserAsync(this.User);            
+            
                 var page = await _context.Pagina.
                     Include(p => p.Div).
                     ThenInclude(p => p.Div).
@@ -250,7 +253,8 @@ namespace CMS.Controllers
                     Include(p => p.Div).
                     ThenInclude(p => p.Div).
                     ThenInclude(p => p.Background).
-                    FirstAsync(p => p.Id == copia.LayoutUser);
+                    FirstAsync(p => p.Id == Layout);
+
                 Pagina pagina = new Pagina
                 {
                     ArquivoMusic = "",
@@ -307,151 +311,10 @@ namespace CMS.Controllers
 
                 _context.Elemento.Update(pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento);
                 await _context.SaveChangesAsync();
-
-                Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == pagina.Id);
-                var listagem = await epositoryPagina.MostrarPageModels(pag.UserId);
-                RepositoryPagina.paginas.RemoveAll(p => p.UserId == pag.UserId);
-                RepositoryPagina.paginas.AddRange(listagem.Where(l => !l.Layout).ToList());
-                paginaCriada = pagina;
-            }
-            else
-            {
-                var page = await _context.Pagina.
-                    Include(p => p.Div).
-                    ThenInclude(p => p.Div).
-                    ThenInclude(p => p.Elemento).
-                    Include(p => p.Div).
-                    ThenInclude(p => p.Div).
-                    ThenInclude(p => p.Background).
-                    FirstAsync(p => p.Id == Layout);
-                Pagina pagina = new Pagina
-                {
-                    ArquivoMusic = "",
-                    Margem = false,
-                    Music = false,
-                    Titulo = Titulo,
-                    Layout = true,
-                    UserId = UserId,
-                    StoryId = StoryId
-                };
-                var lista = new List<Div>();
-                await _context.AddAsync(pagina);
-                await _context.SaveChangesAsync();
-
-                foreach (var item in page.Div)
-                {
-                    var div = (Div) Activator.CreateInstance(item.Div.GetType());
-                    foreach (var item2 in div.GetType().GetProperties().Where(p => p.Name != "Tipo"))
-                        item2.SetValue(div, item2.GetValue(item.Div));
-                    div.Pagina = new List<DivPagina>();
-                    div.Id = 0;
-                    div.Pagina_ = pagina.Id;
-                    var back = (Background)Activator.CreateInstance(item.Div.Background.GetType());
-                    foreach (var item2 in back.GetType().GetProperties().Where(p => p.Name != "Tipo" && p.Name != "Id"
-                    && !p.PropertyType.IsSubclassOf(typeof(BaseModel))))
-                        item2.SetValue(back, item2.GetValue(item.Div.Background));
-                    if(item.Div.Background is BackgroundGradiente)
-                    {
-                        var gradiente = (BackgroundGradiente)back;
-                        back.Cores = new List<Cor>();
-                        foreach(var item3 in gradiente.Cores)
-                        {
-                            back.Id = 0;
-                            item3.Background = back;
-                            back.Cores.Add(item3);
-                        }
-                    }
-                    div.Background = back;
-                    await RepositoryDiv.SalvarBloco(div);
-                    lista.Add(div);
-                }
-                pagina.Div = new List<DivPagina>();
-
-                foreach(var item in lista)
-                {
-                    pagina.Div.Add(new DivPagina
-                    {
-                         Div = item,
-                          Pagina = pagina
-                    });
-                }               
-
-                var copiar = new CopiaLayout
-                {
-                    LayoutModelo = Layout,
-                    LayoutUser = pagina.Id,
-                    UserId = pagina.UserId
-                };
-                
-                await _context.AddAsync(copiar);
-                await _context.SaveChangesAsync();
-
-                var paginaSeguindoLayout = new Pagina
-                {
-                    ArquivoMusic = "",
-                    Margem = false,
-                    Music = false,
-                    Titulo = Titulo,
-                    Layout = false,
-                    UserId = UserId,
-                    StoryId = StoryId
-                };
-
-                paginaSeguindoLayout.Div = new List<DivPagina>();
-
-                foreach (var item in pagina.Div)
-                    paginaSeguindoLayout.Div.Add(new DivPagina { Div = item.Div, Pagina = paginaSeguindoLayout });
-
-                if (paginaSeguindoLayout.Div.Count > 6)
-                {
-                    paginaSeguindoLayout.Div[6].Div.Elemento.Add(new DivElemento
-                    {
-                        Div = paginaSeguindoLayout.Div[6].Div,
-                        Elemento = new Texto
-                        {
-                            PalavrasTexto = Conteudo
-                        }
-                    });
-                }
-                else
-                {
-                    var div = new DivPagina
-                    {
-                        Div = new DivComum(),
-                        Pagina = paginaSeguindoLayout
-
-                    };
-                    paginaSeguindoLayout.Div.Add(div);
-                    paginaSeguindoLayout.Div[6].Div.Elemento = new List<DivElemento>
-                        {
-                            new DivElemento
-                            {
-                                 Div = paginaSeguindoLayout.Div[6].Div,
-                                 Elemento = new Texto
-                                 {
-                                     PalavrasTexto = Conteudo
-                                 }
-                            }
-                        };
-                }
-
-                await _context.AddAsync(paginaSeguindoLayout);
-                await _context.SaveChangesAsync();
-
-                paginaSeguindoLayout.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento.PaginaEscolhida = paginaSeguindoLayout.Id;
-                paginaSeguindoLayout.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento.Pagina_ = paginaSeguindoLayout.Id;
-
-                _context.Elemento.Update(paginaSeguindoLayout.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento);
-                await _context.SaveChangesAsync();
-
-                Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == paginaSeguindoLayout.Id);
-                var listagem = await epositoryPagina.MostrarPageModels(pag.UserId);
-                RepositoryPagina.paginas.RemoveAll(p => p.UserId == pag.UserId);
-                RepositoryPagina.paginas.AddRange(listagem.Where(l => !l.Layout).ToList());
-                paginaCriada = paginaSeguindoLayout;
-            }
+                RepositoryPagina.paginas.Add(pagina);           
+                       
             
-            var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == paginaCriada.StoryId);
+            var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == pagina.StoryId);
             var versiculos = story.Pagina.Where(p => !p.Layout).ToList().Count;
 
             return RedirectToAction(nameof(PaginaCriada),

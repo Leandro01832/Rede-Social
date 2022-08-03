@@ -36,7 +36,11 @@ namespace CMS.Controllers
                 user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == User.Trim().ToLower());
                 UserHelper.Users.Add(user);
             }
-            var paginas = RepositoryPagina.paginas.Where(s => s.UserId == user.Id).ToList();
+            var paginas = new List<Pagina>();
+            foreach (var item in RepositoryPagina.paginas)
+            {
+             paginas.AddRange( item.Where(s => s.UserId == user.Id).ToList());
+            }
             var stories = new List<Story>();
 
             foreach (var item in paginas)

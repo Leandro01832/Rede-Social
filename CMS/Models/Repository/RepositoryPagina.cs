@@ -72,7 +72,7 @@ namespace CMS.Models.Repository
         public IHttpContextAccessor ContextAccessor { get; }
         public IRepositoryDiv RepositoryDiv { get; }
 
-        public static List<Pagina> paginas = new List<Pagina>();
+        public static List<Pagina>[] paginas = new List<Pagina>[999999];
 
         public async Task<List<Pagina>> MostrarPageModels(string userId)
         {         

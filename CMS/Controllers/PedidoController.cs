@@ -123,7 +123,14 @@ namespace MeuProjetoAgora.Controllers
                     await Context.SaveChangesAsync();
                 }
 
-                RepositoryPagina.paginas.Add(pagina);
+                foreach (var item in RepositoryPagina.paginas)
+                    {
+                        if(item.Count < 1000000000)
+                        {
+                            item.Add(pagina);
+                            break;
+                        }
+                    }
 
                 return RedirectToAction("Galeria", new { id = pagina.UserId });
             }

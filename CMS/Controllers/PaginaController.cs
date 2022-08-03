@@ -90,21 +90,18 @@ namespace MeuProjetoAgora.Controllers
                 UserHelper.Users.Add(user);
             }
 
-            if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
-            {               
-                ViewBag.livro = Name;
-                ViewBag.capitulo = capitulo;
-                ViewBag.numeroErro = indice;
-                return View("HttpNotFound");
-            }
+         
 
             ViewBag.user = user.Name;
 
             var lista = new List<Pagina>();
-            if (capitulo == null)
-                lista = RepositoryPagina.paginas.Where(p => p.Story.Nome == story && p.Story.UserId == user.Id).ToList();
+            if (capitulo == null)            
+                foreach (var item in RepositoryPagina.paginas)                
+                lista.AddRange( item.Where(p => p.Story.Nome == story && p.Story.UserId == user.Id).ToList());    
+            
             else
-                lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && p.Story.UserId == user.Id).ToList();
+             foreach (var item in RepositoryPagina.paginas) 
+             lista.AddRange( item.Where(p => p.Story.PaginaPadraoLink == capitulo && p.Story.UserId == user.Id).ToList());
 
             ViewBag.quantidadePaginas = lista.Count();
 
@@ -173,8 +170,14 @@ namespace MeuProjetoAgora.Controllers
         public async Task<IActionResult> Salvar(Int64 id)
         {
             Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
-            RepositoryPagina.paginas.Remove(RepositoryPagina.paginas.First(p => p.Id == id));
-            RepositoryPagina.paginas.Add(pag);
+             foreach (var item in RepositoryPagina.paginas)  
+             {
+             if(item.FirstOrDefault(p => p.Id == id) != null)
+             {
+                item.Remove(item.First(p => p.Id == id));
+                item.Add(pag);
+             }
+             }
             return Content("Salvo com sucesso");
         }
 
@@ -315,7 +318,14 @@ namespace MeuProjetoAgora.Controllers
                 }
                 await db.SaveChangesAsync();
 
-                RepositoryPagina.paginas.Add(pag);
+                    foreach (var item in RepositoryPagina.paginas)
+                    {
+                        if(item.Count < 1000000000)
+                        {
+                            item.Add(pag);
+                            break;
+                        }
+                    }
             }
             ViewBag.condicao = true;
             ViewBag.pagina = IdPagina;

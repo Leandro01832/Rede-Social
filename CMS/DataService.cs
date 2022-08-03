@@ -33,13 +33,18 @@ namespace CMS
 
         public async Task InicializaDBAsync(IServiceProvider provider)
         {
-            var contexto = provider.GetService<ApplicationDbContext>();    
+            var contexto = provider.GetService<ApplicationDbContext>();   
 
-            if (RepositoryPagina.paginas.FirstOrDefault() == null)
+             for (int i = 0; i < RepositoryPagina.paginas.Length; i++)
+             {
+                RepositoryPagina.paginas[i] = new List<business.business.Pagina>();
+             }
+
+            if (RepositoryPagina.paginas[0].FirstOrDefault() == null)
             {
                  var user = await UserManager.Users.FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
                 var lst = await epositoryPagina.MostrarPageModels(user.Id);
-                RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout).ToList());
+                RepositoryPagina.paginas[0].AddRange(lst.Where(l => !l.Layout).ToList());
             }             
 
             if (await contexto.Set<Imagem>().AnyAsync())

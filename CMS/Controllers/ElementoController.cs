@@ -94,8 +94,7 @@ namespace CMS.Controllers
                     };
             }
 
-            if (RepositoryPagina.paginas.Count == 0)
-                RepositoryPagina.paginas = await epositoryPagina.MostrarPageModels(page.UserId);
+            
 
             foreach (var div in pagina.Div)
             {
@@ -104,7 +103,8 @@ namespace CMS.Controllers
                     if (item.Elemento is CarouselPagina)
                     {
                         foreach (var item2 in item.Elemento.Paginas)
-                            item2.Pagina = RepositoryPagina.paginas.First(p => p.Id == item2.PaginaId);
+                            foreach (var item3 in RepositoryPagina.paginas)
+                            item2.Pagina =item3.First(p => p.Id == item2.PaginaId);
                     }
                 }
             }

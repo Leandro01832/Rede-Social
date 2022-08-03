@@ -96,29 +96,15 @@ $(document).ready(function() {
     else
         desativarCheckbox(checkbox);
 
-
-
     $(".carousel-control").click(function() { $("#loading").show(); });
 
-
-
     $("#NumeroPaginaAcesso2").change(function() {
-
         document.getElementById("acessoPaginaComInput2").href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/";
         document.getElementById("acessoPaginaComInput2").href += $(this).val();
     });
 
-    $("#LinkPadrao").click(function() {        
-
+    $("#LinkPadrao").click(function() {  
         window.location.href = "/Renderizar/"+ valorUser +"/" + valorAtual + "/1";
     });
-
-    setTimeout(function() {
-        if (valorStoryNome != "Padrao")
-            window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorAtual;
-        else
-            window.location.href = "/Renderizar/"+ valorUser +"/0/" + valorAtual;
-
-    }, 600000);
 
 });

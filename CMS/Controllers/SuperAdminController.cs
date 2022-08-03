@@ -152,7 +152,15 @@ namespace CMS.Controllers
             pagina.Layout = true;
             await _context.Pagina.AddAsync(pagina);
             await _context.SaveChangesAsync();
-            RepositoryPagina.paginas.Add(pagina);
+
+            foreach (var item in RepositoryPagina.paginas)
+                    {
+                        if(item.Count < 1000000000)
+                        {
+                            item.Add(pagina);
+                            break;
+                        }
+                    }
 
             return RedirectToAction("Index", "Home");
         }

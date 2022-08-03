@@ -57,7 +57,8 @@ namespace CMS.Controllers
             if (option2 == null)
                 Set("story", "0", 12);
 
-         var p = RepositoryPagina.paginas.FirstOrDefault();
+        foreach (var item in RepositoryPagina.paginas)
+        { var p = item.FirstOrDefault();}
 
             return View();
         }
@@ -311,8 +312,15 @@ namespace CMS.Controllers
 
                 _context.Elemento.Update(pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento);
                 await _context.SaveChangesAsync();
-                RepositoryPagina.paginas.Add(pagina);           
-                       
+
+                foreach (var item in RepositoryPagina.paginas)
+                    {
+                        if(item.Count < 1000000000)
+                        {
+                            item.Add(pagina);
+                            break;
+                        }
+                    }                      
             
             var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == pagina.StoryId);
             var versiculos = story.Pagina.Where(p => !p.Layout).ToList().Count;

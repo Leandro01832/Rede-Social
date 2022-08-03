@@ -144,9 +144,16 @@ namespace CMS.Controllers
             
 
              Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == pagina.Id);
-            RepositoryPagina.paginas.Remove(RepositoryPagina.paginas.First(p => p.Id == pag.Id));
-            RepositoryPagina.paginas.Add(pag);
 
+             foreach (var item in RepositoryPagina.paginas)  
+             {
+                if(item.FirstOrDefault(p => p.Id == pag.Id) != null)
+                {
+                    item.Remove(item.First(p => p.Id == pag.Id));
+                    item.Add(pag);
+                    break;
+                }
+             }
 
             return RedirectToAction(nameof(Index));
         }

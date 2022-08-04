@@ -39,6 +39,8 @@ namespace CMS.Controllers
             var paginas = new List<Pagina>();
             foreach (var item in RepositoryPagina.paginas)
             {
+                 if(item == null ||  item.FirstOrDefault(i => i.UserId == user.Id) == null)
+                    continue;
              paginas.AddRange( item.Where(s => s.UserId == user.Id).ToList());
             }
             var stories = new List<Story>();

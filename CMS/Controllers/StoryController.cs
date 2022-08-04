@@ -147,6 +147,9 @@ namespace CMS.Controllers
 
              foreach (var item in RepositoryPagina.paginas)  
              {
+                if(item == null || item.FirstOrDefault(i => i.UserId == user.Id) == null)
+                    continue;
+
                 if(item.FirstOrDefault(p => p.Id == pag.Id) != null)
                 {
                     item.Remove(item.First(p => p.Id == pag.Id));

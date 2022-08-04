@@ -57,8 +57,7 @@ namespace CMS.Controllers
             if (option2 == null)
                 Set("story", "0", 12);
 
-        foreach (var item in RepositoryPagina.paginas)
-        { var p = item.FirstOrDefault();}
+            var p = RepositoryPagina.paginas[0].FirstOrDefault();
 
             return View();
         }
@@ -313,11 +312,14 @@ namespace CMS.Controllers
                 _context.Elemento.Update(pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento);
                 await _context.SaveChangesAsync();
 
-                foreach (var item in RepositoryPagina.paginas)
+                for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
                     {
-                        if(item.Count < 1000000000)
+                         if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
+
+                         if(RepositoryPagina.paginas[indice] == null) {RepositoryPagina.paginas[indice]  = new List<Pagina>();}
+                        if(RepositoryPagina.paginas[indice] .Count < 1000000000)
                         {
-                            item.Add(pagina);
+                            RepositoryPagina.paginas[indice] .Add(pagina);
                             break;
                         }
                     }                      

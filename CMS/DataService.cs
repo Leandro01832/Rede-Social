@@ -35,10 +35,9 @@ namespace CMS
         {
             var contexto = provider.GetService<ApplicationDbContext>();   
 
-             for (int i = 0; i < RepositoryPagina.paginas.Length; i++)
-             {
-                RepositoryPagina.paginas[i] = new List<business.business.Pagina>();
-             }
+            if (RepositoryPagina.paginas[0] == null)     
+              RepositoryPagina.paginas[0] = new List<business.business.Pagina>();
+             
 
             if (RepositoryPagina.paginas[0].FirstOrDefault() == null)
             {

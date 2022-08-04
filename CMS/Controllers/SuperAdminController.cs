@@ -153,11 +153,14 @@ namespace CMS.Controllers
             await _context.Pagina.AddAsync(pagina);
             await _context.SaveChangesAsync();
 
-            foreach (var item in RepositoryPagina.paginas)
+            for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
                     {
-                        if(item.Count < 1000000000)
+                         if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
+
+                        if(RepositoryPagina.paginas[indice] == null) RepositoryPagina.paginas[indice] = new List<Pagina>();
+                        if(RepositoryPagina.paginas[indice].Count < 1000000000)
                         {
-                            item.Add(pagina);
+                            RepositoryPagina.paginas[indice].Add(pagina);
                             break;
                         }
                     }

@@ -88,20 +88,24 @@ namespace MeuProjetoAgora.Controllers
             {
                 user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == Name.Trim().ToLower());
                 UserHelper.Users.Add(user);
-            }
-
-         
+            }            
 
             ViewBag.user = user.Name;
 
             var lista = new List<Pagina>();
             if (capitulo == null)            
-                foreach (var item in RepositoryPagina.paginas)                
+                foreach (var item in RepositoryPagina.paginas) {
+                    if(item == null ||  item.FirstOrDefault(i => i.UserId == user.Id) == null)
+                    continue;
                 lista.AddRange( item.Where(p => p.Story.Nome == story && p.Story.UserId == user.Id).ToList());    
+                }               
             
             else
-             foreach (var item in RepositoryPagina.paginas) 
+             foreach (var item in RepositoryPagina.paginas) {
+                if(item == null || item.FirstOrDefault(i => i.UserId == user.Id) == null)
+                    continue;
              lista.AddRange( item.Where(p => p.Story.PaginaPadraoLink == capitulo && p.Story.UserId == user.Id).ToList());
+             }
 
             ViewBag.quantidadePaginas = lista.Count();
 
@@ -172,10 +176,13 @@ namespace MeuProjetoAgora.Controllers
             Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
              foreach (var item in RepositoryPagina.paginas)  
              {
+                if(item == null ||  item.FirstOrDefault(i => i.UserId == pag.UserId) == null)
+                    continue;
              if(item.FirstOrDefault(p => p.Id == id) != null)
              {
                 item.Remove(item.First(p => p.Id == id));
                 item.Add(pag);
+                break;
              }
              }
             return Content("Salvo com sucesso");
@@ -318,11 +325,14 @@ namespace MeuProjetoAgora.Controllers
                 }
                 await db.SaveChangesAsync();
 
-                    foreach (var item in RepositoryPagina.paginas)
+                    for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
                     {
-                        if(item.Count < 1000000000)
+                          if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
+
+                        if(RepositoryPagina.paginas[indice] == null) RepositoryPagina.paginas[indice] = new List<Pagina>();
+                        if(RepositoryPagina.paginas[indice].Count < 1000000000)
                         {
-                            item.Add(pag);
+                            RepositoryPagina.paginas[indice].Add(pag);
                             break;
                         }
                     }

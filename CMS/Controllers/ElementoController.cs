@@ -103,8 +103,11 @@ namespace CMS.Controllers
                     if (item.Elemento is CarouselPagina)
                     {
                         foreach (var item2 in item.Elemento.Paginas)
-                            foreach (var item3 in RepositoryPagina.paginas)
+                            foreach (var item3 in RepositoryPagina.paginas){
+                                 if(item3 == null ||  item3.FirstOrDefault(i => i.UserId == page.UserId) == null)
+                                 continue;
                             item2.Pagina =item3.First(p => p.Id == item2.PaginaId);
+                            }
                     }
                 }
             }

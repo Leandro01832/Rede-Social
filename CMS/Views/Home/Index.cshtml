@@ -36,10 +36,18 @@
 
         $(document).ready(function () {
 
-            setTimeout(function () {
-                window.location.href = "/Home/Index/";
-
-                }, 180000);
+            function refreshData() 
+             {
+                $.ajax({
+                    type: 'POST',
+                    url: '/AjaxGet/refresh',
+                    dataType: 'json',
+                    data: { }
+                    })
+                    .done(function(response) {
+                        
+                    });
+             }
 
             $("#NameUser").keyup(function () {
 
@@ -71,6 +79,8 @@
                 });
             });
         });
+
+         setTimeout(function () { refreshData(); }, 300000);
 
     </script>
 </div>

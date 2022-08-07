@@ -1,6 +1,4 @@
-﻿
-
-using CMS.Data;
+﻿using CMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -10,9 +8,7 @@ namespace CMS.Models.Repository
     {
         protected readonly IConfiguration configuration;
         protected readonly ApplicationDbContext contexto;
-        protected readonly DbSet<T> dbSet;
-
-        
+        protected readonly DbSet<T> dbSet;        
 
         public BaseRepository(IConfiguration configuration,
             ApplicationDbContext contexto)

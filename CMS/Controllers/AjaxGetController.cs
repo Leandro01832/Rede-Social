@@ -1,4 +1,5 @@
 ﻿using business.business;
+using business.business.Group;
 using CMS.Data;
 using CMS.Models;
 using CMS.Models.Repository;
@@ -26,6 +27,12 @@ namespace CMS.Controllers
             epositoryPagina = repositoryPagina;
             HttpHelper = httpHelper;
             UserManager = userManager;
+        }
+
+        public JsonResult refresh()
+        {
+            var p = RepositoryPagina.paginas[0].FirstOrDefault();
+            return Json("");
         }
 
         public async Task<JsonResult> GetStory(int Indice, string User)

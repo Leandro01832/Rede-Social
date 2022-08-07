@@ -1,6 +1,7 @@
 ﻿using business.Back;
 using business.div;
 using business.Join;
+using business.business.Group;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,22 @@ namespace business.business
         [Display(Name ="Story")]
         public Int64 StoryId { get; set; }
         public virtual Story Story { get; set; }
+
+        [Display(Name ="Sub-Story")]
+        public Int64? SubStoryId { get; set; }
+        public virtual SubStory SubStory { get; set; }
+
+        [Display(Name ="Grupo")]
+        public Int64? GrupoId { get; set; }
+        public virtual Grupo Grupo { get; set; }
+
+         [Display(Name ="Sub-Grupo")]
+        public Int64? SubGrupoId { get; set; }
+        public virtual SubGrupo SubGrupo { get; set; }
+
+         [Display(Name ="Sub-Sub-Grupo")]
+        public Int64? SubSubGrupoId { get; set; }
+        public virtual SubSubGrupo SubSubGrupo { get; set; }
 
         [Required(ErrorMessage = "O titulo é necessário")]
         [Display(Name = "Titulo da pagina")]

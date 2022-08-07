@@ -57,8 +57,6 @@ namespace CMS.Controllers
             if (option2 == null)
                 Set("story", "0", 12);
 
-            var p = RepositoryPagina.paginas[0].FirstOrDefault();
-
             return View();
         }
 

@@ -1,5 +1,6 @@
 ﻿using business.Back;
 using business.business;
+using business.business.Group;
 using business.business.carousel;
 using business.business.element;
 using business.business.Elementos;
@@ -27,6 +28,10 @@ namespace CMS.Data
 
         }
 
+        public DbSet<SubSubGrupo> SubSubGrupo { get; set; }
+        public DbSet<SubGrupo> SubGrupo { get; set; }
+        public DbSet<Grupo> Grupo { get; set; }
+        public DbSet<SubStory> SubStory { get; set; }
         public DbSet<Solicitacao> Solicitacao { get; set; }
         public DbSet<Seguindo> Seguindo { get; set; }
         public DbSet<Seguidor> Seguidor { get; set; }

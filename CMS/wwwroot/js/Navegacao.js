@@ -75,6 +75,19 @@ $(document).ready(function() {
             });
     }
 
+    function refreshData() 
+             {
+                $.ajax({
+                    type: 'POST',
+                    url: '/AjaxGet/refresh',
+                    dataType: 'json',
+                    data: { }
+                    })
+                    .done(function(response) {
+                       
+                    });
+             }
+
     if ($.cookie('automatico') == '1') {
         ativarCheckbox(checkbox);
         setTimeout(function() {
@@ -106,5 +119,7 @@ $(document).ready(function() {
     $("#LinkPadrao").click(function() {  
         window.location.href = "/Renderizar/"+ valorUser +"/" + valorAtual + "/1";
     });
+
+    setTimeout(function () { refreshData(); }, 300000);
 
 });

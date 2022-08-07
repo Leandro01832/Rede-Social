@@ -7,7 +7,7 @@
     ViewData["Title"] = "Perfil";
     List<UserModel> seguidores = ViewBag.seguidores;
     List<UserModel> seguindo = ViewBag.seguindo;
-    List<business.business.Story> stories = ViewBag.stories;
+    List<business.business.Group.Story> stories = ViewBag.stories;
     List<UserModel> solicitacoes = ViewBag.solicitacoes;
     var user = await UserManager.GetUserAsync(this.User);
 }
@@ -176,15 +176,25 @@
 <script>
         $(document).ready(function () {
 
+             function refreshData() 
+             {
+                $.ajax({
+                    type: 'POST',
+                    url: '/AjaxGet/refresh',
+                    dataType: 'json',
+                    data: {  }
+                    })
+                    .done(function(response) {
+                       
+                    });
+             }
+
             $("#NumeroPaginaAcesso").change(function () {
                 document.getElementById('acessoPaginaComInput').href = '/Renderizar/@Model.Name/0/';
                 document.getElementById("acessoPaginaComInput").href +=  $(this).val();
             });
 
-            setTimeout(function () {
-                window.location.href = "/Perfil/@Model.Name/";
-
-                }, 300000);
+            setTimeout(function () { refreshData(); }, 300000);
 
 
         });

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace business.business
+namespace business.business.Group
 {
     public class Story : BaseModel
     {
         private int paginaPadraoLink = 0;
+
+        public virtual List<SubStory> SubStory { get; set; }         
 
         public string Nome { get; set; }
         public virtual List<Pagina> Pagina { get; set; }

@@ -1,4 +1,5 @@
 using System;
+using CMS.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CMS.Data;
 using business.business.Group;
+using Microsoft.AspNetCore.Identity;
 
 namespace CMS.Controllers
 {
@@ -14,16 +16,25 @@ namespace CMS.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public SubSubGrupoController(ApplicationDbContext context)
+        public UserManager<UserModel> UserManager { get; }
+
+        public SubSubGrupoController(ApplicationDbContext context, UserManager<UserModel> userManager)
         {
             _context = context;
+            UserManager = userManager;
         }
 
         // GET: SubSubGrupo
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.SubSubGrupo.Include(s => s.SubGrupo);
-            return View(await applicationDbContext.ToListAsync());
+            var usuario = await UserManager.GetUserAsync(this.User);
+            var subsubgrupos = await _context.SubSubGrupo
+            .Include(s => s.SubGrupo)
+            .ThenInclude(s => s.Grupo)
+            .ThenInclude(s => s.SubStory)
+            .ThenInclude(s => s.Story)
+            .Where(str => str.SubGrupo.Grupo.SubStory.Story.UserId == usuario.Id).ToListAsync();
+            return View(subsubgrupos);
         }
 
         // GET: SubSubGrupo/Details/5
@@ -46,9 +57,10 @@ namespace CMS.Controllers
         }
 
         // GET: SubSubGrupo/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["SubGrupoId"] = new SelectList(_context.SubGrupo, "Id", "Id");
+            var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View();
         }
 
@@ -57,7 +69,7 @@ namespace CMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SubGrupoId,Id")] SubSubGrupo subSubGrupo)
+        public async Task<IActionResult> Create( SubSubGrupo subSubGrupo)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +77,8 @@ namespace CMS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SubGrupoId"] = new SelectList(_context.SubGrupo, "Id", "Id", subSubGrupo.SubGrupoId);
+             var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View(subSubGrupo);
         }
 
@@ -82,7 +95,8 @@ namespace CMS.Controllers
             {
                 return NotFound();
             }
-            ViewData["SubGrupoId"] = new SelectList(_context.SubGrupo, "Id", "Id", subSubGrupo.SubGrupoId);
+             var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View(subSubGrupo);
         }
 
@@ -91,12 +105,8 @@ namespace CMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("SubGrupoId,Id")] SubSubGrupo subSubGrupo)
+        public async Task<IActionResult> Edit( SubSubGrupo subSubGrupo)
         {
-            if (id != subSubGrupo.Id)
-            {
-                return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
@@ -118,7 +128,8 @@ namespace CMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SubGrupoId"] = new SelectList(_context.SubGrupo, "Id", "Id", subSubGrupo.SubGrupoId);
+             var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View(subSubGrupo);
         }
 

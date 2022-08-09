@@ -1,4 +1,5 @@
 using System;
+using CMS.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,23 +8,32 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CMS.Data;
 using business.business.Group;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace CMS.Controllers
 {
+    [Authorize]
     public class SubStoryController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public SubStoryController(ApplicationDbContext context)
+        public UserManager<UserModel> UserManager { get; }
+
+        public SubStoryController(ApplicationDbContext context, UserManager<UserModel> userManager)
         {
             _context = context;
+            UserManager = userManager;
         }
 
         // GET: SubStory
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.SubStory.Include(s => s.Story);
-            return View(await applicationDbContext.ToListAsync());
+             var usuario = await UserManager.GetUserAsync(this.User);
+            var substories = await _context.SubStory
+            .Include(s => s.Story)
+            .Where(str => str.Story.UserId == usuario.Id).ToListAsync();
+            return View(substories);
         }
 
         // GET: SubStory/Details/5
@@ -46,9 +56,11 @@ namespace CMS.Controllers
         }
 
         // GET: SubStory/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["StoryId"] = new SelectList(_context.Story, "Id", "Id");
+            var user = await UserManager.GetUserAsync(this.User);
+            var stories = await _context.Story.Where(str => str.UserId == user.Id && str.Nome != "Padrao").ToListAsync();
+            ViewData["StoryId"] = new SelectList(stories, "Id", "CapituloComNome");
             return View();
         }
 
@@ -57,7 +69,7 @@ namespace CMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StoryId,Id")] SubStory subStory)
+        public async Task<IActionResult> Create( SubStory subStory)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +77,10 @@ namespace CMS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StoryId"] = new SelectList(_context.Story, "Id", "Id", subStory.StoryId);
+
+             var user = await UserManager.GetUserAsync(this.User);
+            var stories = await _context.Story.Where(str => str.UserId == user.Id && str.Nome != "Padrao").ToListAsync();
+            ViewData["StoryId"] = new SelectList(stories, "Id", "CapituloComNome", subStory.StoryId);
             return View(subStory);
         }
 
@@ -82,7 +97,9 @@ namespace CMS.Controllers
             {
                 return NotFound();
             }
-            ViewData["StoryId"] = new SelectList(_context.Story, "Id", "Id", subStory.StoryId);
+             var user = await UserManager.GetUserAsync(this.User);
+            var stories = await _context.Story.Where(str => str.UserId == user.Id && str.Nome != "Padrao").ToListAsync();
+            ViewData["StoryId"] = new SelectList(stories, "Id", "CapituloComNome", subStory.StoryId);
             return View(subStory);
         }
 
@@ -91,12 +108,9 @@ namespace CMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("StoryId,Id")] SubStory subStory)
+        public async Task<IActionResult> Edit(SubStory subStory)
         {
-            if (id != subStory.Id)
-            {
-                return NotFound();
-            }
+            
 
             if (ModelState.IsValid)
             {
@@ -118,7 +132,9 @@ namespace CMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StoryId"] = new SelectList(_context.Story, "Id", "Id", subStory.StoryId);
+             var user = await UserManager.GetUserAsync(this.User);
+            var stories = await _context.Story.Where(str => str.UserId == user.Id && str.Nome != "Padrao").ToListAsync();
+            ViewData["StoryId"] = new SelectList(stories, "Id", "CapituloComNome", subStory.StoryId);
             return View(subStory);
         }
 

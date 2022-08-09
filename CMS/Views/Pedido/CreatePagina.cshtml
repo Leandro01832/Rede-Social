@@ -37,6 +37,30 @@
     </div>
 
     <div class="form-group">
+                <label asp-for="SubStoryId" class="control-label"></label>
+                <select asp-for="SubStoryId" class="form-control"></select>
+                <span asp-validation-for="SubStoryId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="GrupoId" class="control-label"></label>
+                <select asp-for="GrupoId" class="form-control" ></select>
+                <span asp-validation-for="GrupoId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SubGrupoId" class="control-label"></label>
+                <select asp-for="SubGrupoId" class="form-control" ></select>
+                <span asp-validation-for="SubGrupoId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SubSubGrupoId" class="control-label"></label>
+                <select asp-for="SubSubGrupoId" class="form-control" ></select>
+                <span asp-validation-for="SubSubGrupoId" class="text-danger"></span>
+            </div>
+
+    <div class="form-group">
         <div class="checkbox">
             <label>
                 <input asp-for="Layout" /> @Html.DisplayNameFor(model => model.Layout)
@@ -54,6 +78,10 @@
 
 <div>
     @Html.ActionLink("Voltar para a lista", "Index")
+</div>
+
+<div>
+    <script type="text/javascript" src="~/js/AjaxGet.js"></script>
 </div>
 
 

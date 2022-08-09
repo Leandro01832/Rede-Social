@@ -1,4 +1,5 @@
 using System;
+using CMS.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CMS.Data;
 using business.business.Group;
+using Microsoft.AspNetCore.Identity;
 
 namespace CMS.Controllers
 {
@@ -14,16 +16,24 @@ namespace CMS.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public SubGrupoController(ApplicationDbContext context)
+        public UserManager<UserModel> UserManager { get; }
+
+        public SubGrupoController(ApplicationDbContext context, UserManager<UserModel> userManager)
         {
             _context = context;
+            UserManager = userManager;
         }
 
         // GET: SubGrupo
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.SubGrupo.Include(s => s.Grupo);
-            return View(await applicationDbContext.ToListAsync());
+             var usuario = await UserManager.GetUserAsync(this.User);
+            var subgrupos = await _context.SubGrupo
+            .Include(s => s.Grupo)
+            .ThenInclude(s => s.SubStory)
+            .ThenInclude(s => s.Story)
+            .Where(str => str.Grupo.SubStory.Story.UserId == usuario.Id).ToListAsync();
+            return View(subgrupos);
         }
 
         // GET: SubGrupo/Details/5
@@ -46,9 +56,10 @@ namespace CMS.Controllers
         }
 
         // GET: SubGrupo/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["GrupoId"] = new SelectList(_context.Grupo, "Id", "Id");
+            var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View();
         }
 
@@ -57,7 +68,7 @@ namespace CMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GrupoId,Id")] SubGrupo subGrupo)
+        public async Task<IActionResult> Create( SubGrupo subGrupo)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +76,8 @@ namespace CMS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GrupoId"] = new SelectList(_context.Grupo, "Id", "Id", subGrupo.GrupoId);
+            var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View(subGrupo);
         }
 
@@ -82,7 +94,8 @@ namespace CMS.Controllers
             {
                 return NotFound();
             }
-            ViewData["GrupoId"] = new SelectList(_context.Grupo, "Id", "Id", subGrupo.GrupoId);
+            var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View(subGrupo);
         }
 
@@ -91,12 +104,8 @@ namespace CMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("GrupoId,Id")] SubGrupo subGrupo)
-        {
-            if (id != subGrupo.Id)
-            {
-                return NotFound();
-            }
+        public async Task<IActionResult> Edit( SubGrupo subGrupo)
+        {            
 
             if (ModelState.IsValid)
             {
@@ -118,7 +127,8 @@ namespace CMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GrupoId"] = new SelectList(_context.Grupo, "Id", "Id", subGrupo.GrupoId);
+            var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View(subGrupo);
         }
 

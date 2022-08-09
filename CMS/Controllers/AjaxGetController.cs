@@ -29,6 +29,36 @@ namespace CMS.Controllers
             UserManager = userManager;
         }
 
+        public JsonResult GetStories2(string User)
+        {
+            var stories = db.Story.Where(b => b.UserId == User);
+            return Json(stories);
+        }
+
+        public JsonResult GetSubStories(Int64 StoryId)
+        {
+            var substories = db.SubStory.Where(b => b.StoryId == StoryId);
+            return Json(substories);
+        }
+
+        public JsonResult GetGrupos(Int64 SubStoryId)
+        {
+            var grupos = db.Grupo.Where(b => b.SubStoryId == SubStoryId);
+            return Json(grupos);
+        }
+
+        public JsonResult GetSubGrupos(Int64 GrupoId)
+        {
+            var subgrupos = db.SubGrupo.Where(b => b.GrupoId == GrupoId);
+            return Json(subgrupos);
+        }
+
+        public JsonResult GetSubSubGrupos(Int64 SubGrupoId)
+        {
+            var subsubgrupos = db.SubSubGrupo.Where(b => b.SubGrupoId == SubGrupoId);
+            return Json(subsubgrupos);
+        }
+
         public JsonResult refresh()
         {
             var p = RepositoryPagina.paginas[0].FirstOrDefault();

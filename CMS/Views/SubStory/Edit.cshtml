@@ -1,7 +1,7 @@
 @model business.business.Group.SubStory
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -20,6 +20,11 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="StoryId" class="control-label"></label>
                 <select asp-for="StoryId" class="form-control" asp-items="ViewBag.StoryId"></select>
                 <span asp-validation-for="StoryId" class="text-danger"></span>
@@ -33,7 +38,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar para a lista</a>
 </div>
 
 </body>

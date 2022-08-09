@@ -346,11 +346,13 @@ namespace CMS.Migrations
                     b.ToTable("ElementoDependenteElemento");
                 });
 
-            modelBuilder.Entity("business.business.Grupo", b =>
+            modelBuilder.Entity("business.business.Group.Grupo", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome");
 
                     b.Property<long>("SubStoryId");
 
@@ -359,6 +361,74 @@ namespace CMS.Migrations
                     b.HasIndex("SubStoryId");
 
                     b.ToTable("Grupo");
+                });
+
+            modelBuilder.Entity("business.business.Group.Story", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome");
+
+                    b.Property<int>("PaginaPadraoLink");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Story");
+                });
+
+            modelBuilder.Entity("business.business.Group.SubGrupo", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("GrupoId");
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GrupoId");
+
+                    b.ToTable("SubGrupo");
+                });
+
+            modelBuilder.Entity("business.business.Group.SubStory", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome");
+
+                    b.Property<long>("StoryId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StoryId");
+
+                    b.ToTable("SubStory");
+                });
+
+            modelBuilder.Entity("business.business.Group.SubSubGrupo", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome");
+
+                    b.Property<long>("SubGrupoId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SubGrupoId");
+
+                    b.ToTable("SubSubGrupo");
                 });
 
             modelBuilder.Entity("business.business.MensagemChat", b =>
@@ -511,68 +581,6 @@ namespace CMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Solicitacao");
-                });
-
-            modelBuilder.Entity("business.business.Story", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nome");
-
-                    b.Property<int>("PaginaPadraoLink");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Story");
-                });
-
-            modelBuilder.Entity("business.business.SubGrupo", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("GrupoId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GrupoId");
-
-                    b.ToTable("SubGrupo");
-                });
-
-            modelBuilder.Entity("business.business.SubStory", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("StoryId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StoryId");
-
-                    b.ToTable("SubStory");
-                });
-
-            modelBuilder.Entity("business.business.SubSubGrupo", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("SubGrupoId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SubGrupoId");
-
-                    b.ToTable("SubSubGrupo");
                 });
 
             modelBuilder.Entity("business.business.Telefone", b =>
@@ -1189,34 +1197,58 @@ namespace CMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("business.business.Grupo", b =>
+            modelBuilder.Entity("business.business.Group.Grupo", b =>
                 {
-                    b.HasOne("business.business.SubStory", "SubStory")
+                    b.HasOne("business.business.Group.SubStory", "SubStory")
                         .WithMany("Grupo")
                         .HasForeignKey("SubStoryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("business.business.Group.SubGrupo", b =>
+                {
+                    b.HasOne("business.business.Group.Grupo", "Grupo")
+                        .WithMany("SubGrupo")
+                        .HasForeignKey("GrupoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.business.Group.SubStory", b =>
+                {
+                    b.HasOne("business.business.Group.Story", "Story")
+                        .WithMany("SubStory")
+                        .HasForeignKey("StoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.business.Group.SubSubGrupo", b =>
+                {
+                    b.HasOne("business.business.Group.SubGrupo", "SubGrupo")
+                        .WithMany("SubSubGrupo")
+                        .HasForeignKey("SubGrupoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("business.business.Pagina", b =>
                 {
-                    b.HasOne("business.business.Grupo", "Grupo")
+                    b.HasOne("business.business.Group.Grupo", "Grupo")
                         .WithMany("Pagina")
                         .HasForeignKey("GrupoId");
 
-                    b.HasOne("business.business.Story", "Story")
+                    b.HasOne("business.business.Group.Story", "Story")
                         .WithMany("Pagina")
                         .HasForeignKey("StoryId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("business.business.SubGrupo", "SubGrupo")
+                    b.HasOne("business.business.Group.SubGrupo", "SubGrupo")
                         .WithMany("Pagina")
                         .HasForeignKey("SubGrupoId");
 
-                    b.HasOne("business.business.SubStory", "SubStory")
+                    b.HasOne("business.business.Group.SubStory", "SubStory")
                         .WithMany("Pagina")
                         .HasForeignKey("SubStoryId");
 
-                    b.HasOne("business.business.SubSubGrupo", "SubSubGrupo")
+                    b.HasOne("business.business.Group.SubSubGrupo", "SubSubGrupo")
                         .WithMany("Pagina")
                         .HasForeignKey("SubSubGrupoId");
                 });
@@ -1233,30 +1265,6 @@ namespace CMS.Migrations
                     b.HasOne("CMS.Models.UserModel")
                         .WithMany("Seguindo")
                         .HasForeignKey("UserModelId");
-                });
-
-            modelBuilder.Entity("business.business.SubGrupo", b =>
-                {
-                    b.HasOne("business.business.Grupo", "Grupo")
-                        .WithMany("SubGrupo")
-                        .HasForeignKey("GrupoId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("business.business.SubStory", b =>
-                {
-                    b.HasOne("business.business.Story", "Story")
-                        .WithMany("SubStory")
-                        .HasForeignKey("StoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("business.business.SubSubGrupo", b =>
-                {
-                    b.HasOne("business.business.SubGrupo", "SubGrupo")
-                        .WithMany("SubSubGrupo")
-                        .HasForeignKey("SubGrupoId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("business.ecommerce.ItemRequisicao", b =>

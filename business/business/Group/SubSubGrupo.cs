@@ -4,7 +4,9 @@ using System.Collections.Generic;
 namespace business.business.Group
 {
     public class SubSubGrupo : BaseModel
-    {
+    {        
+
+        public string Nome { get; set; }
 
         public virtual List<Pagina> Pagina { get; set; }
 

@@ -1,4 +1,5 @@
 using System;
+using CMS.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CMS.Data;
 using business.business.Group;
+using Microsoft.AspNetCore.Identity;
 
 namespace CMS.Controllers
 {
@@ -14,16 +16,23 @@ namespace CMS.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public GrupoController(ApplicationDbContext context)
+        public UserManager<UserModel> UserManager { get; }
+
+        public GrupoController(ApplicationDbContext context, UserManager<UserModel> userManager)
         {
             _context = context;
+            UserManager = userManager;
         }
 
         // GET: Grupo
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Grupo.Include(g => g.SubStory);
-            return View(await applicationDbContext.ToListAsync());
+            var usuario = await UserManager.GetUserAsync(this.User);
+            var grupos = await _context.Grupo
+            .Include(s => s.SubStory)
+            .ThenInclude(s => s.Story)
+            .Where(str => str.SubStory.Story.UserId == usuario.Id).ToListAsync();
+            return View(grupos);
         }
 
         // GET: Grupo/Details/5
@@ -46,9 +55,10 @@ namespace CMS.Controllers
         }
 
         // GET: Grupo/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["SubStoryId"] = new SelectList(_context.SubStory, "Id", "Id");
+            var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View();
         }
 
@@ -57,7 +67,7 @@ namespace CMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SubStoryId,Id")] Grupo grupo)
+        public async Task<IActionResult> Create( Grupo grupo)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +75,8 @@ namespace CMS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SubStoryId"] = new SelectList(_context.SubStory, "Id", "Id", grupo.SubStoryId);
+            var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View(grupo);
         }
 
@@ -82,7 +93,8 @@ namespace CMS.Controllers
             {
                 return NotFound();
             }
-            ViewData["SubStoryId"] = new SelectList(_context.SubStory, "Id", "Id", grupo.SubStoryId);
+            var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View(grupo);
         }
 
@@ -91,12 +103,8 @@ namespace CMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("SubStoryId,Id")] Grupo grupo)
-        {
-            if (id != grupo.Id)
-            {
-                return NotFound();
-            }
+        public async Task<IActionResult> Edit( Grupo grupo)
+        {            
 
             if (ModelState.IsValid)
             {
@@ -118,7 +126,8 @@ namespace CMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SubStoryId"] = new SelectList(_context.SubStory, "Id", "Id", grupo.SubStoryId);
+            var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.IdentificacaoUser = usuario.Id;
             return View(grupo);
         }
 

@@ -15,6 +15,10 @@ namespace business.business
         private bool margem = true;
         private int mostrarDados = 0;
         private DateTime data = DateTime.Now;
+        private Int64? subSubGrupoId = 0;
+        private Int64? subGrupoId = 0;
+        private Int64? grupoId = 0;
+         private Int64? subStoryId = 0;
 
         public DateTime Data { get { return data; } set { data = value; } }
 
@@ -23,19 +27,65 @@ namespace business.business
         public virtual Story Story { get; set; }
 
         [Display(Name ="Sub-Story")]
-        public Int64? SubStoryId { get; set; }
+        public Int64? SubStoryId 
+        {
+            get
+            {
+                if (subStoryId == 0) return null;                
+                return subStoryId;
+            }
+            set
+            {   
+                subStoryId = value;
+            }
+        }
+
         public virtual SubStory SubStory { get; set; }
 
         [Display(Name ="Grupo")]
-        public Int64? GrupoId { get; set; }
+        public Int64? GrupoId 
+        {
+            get
+            {
+                if (grupoId == 0) return null;                
+                return grupoId;
+            }
+            set
+            {   
+                grupoId = value;
+            }
+        }
         public virtual Grupo Grupo { get; set; }
 
          [Display(Name ="Sub-Grupo")]
-        public Int64? SubGrupoId { get; set; }
-        public virtual SubGrupo SubGrupo { get; set; }
+        public Int64? SubGrupoId
+        {
+            get
+            {
+                if (subGrupoId == 0) return null;                
+                return subGrupoId;
+            }
+            set
+            {   
+                subGrupoId = value;
+            }
+        }
+        public virtual SubGrupo SubGrupo{get; set;}
+        
 
          [Display(Name ="Sub-Sub-Grupo")]
-        public Int64? SubSubGrupoId { get; set; }
+        public Int64? SubSubGrupoId
+        {
+            get
+            {
+                if (subSubGrupoId == 0) return null;                
+                return subSubGrupoId;
+            }
+            set
+            {   
+                subSubGrupoId = value;
+            }
+        }
         public virtual SubSubGrupo SubSubGrupo { get; set; }
 
         [Required(ErrorMessage = "O titulo é necessário")]

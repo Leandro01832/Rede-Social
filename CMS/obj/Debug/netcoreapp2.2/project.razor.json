@@ -12,7 +12,7 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": 672988365,
+        "HashCode": -108829637,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -209,7 +209,7 @@
         }
       },
       {
-        "HashCode": -1366856278,
+        "HashCode": 1356616579,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.CacheTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -336,7 +336,7 @@
         }
       },
       {
-        "HashCode": -847381608,
+        "HashCode": -177237894,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.DistributedCacheTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -468,7 +468,7 @@
         }
       },
       {
-        "HashCode": -2050908111,
+        "HashCode": 1114158035,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.EnvironmentTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -514,7 +514,7 @@
         }
       },
       {
-        "HashCode": 1528614104,
+        "HashCode": 1651492076,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -931,7 +931,7 @@
         }
       },
       {
-        "HashCode": 813747150,
+        "HashCode": 702254584,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1033,7 +1033,7 @@
         }
       },
       {
-        "HashCode": -1306195330,
+        "HashCode": 220324926,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ImageTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1079,7 +1079,7 @@
         }
       },
       {
-        "HashCode": 618900059,
+        "HashCode": 1675897743,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1149,7 +1149,7 @@
         }
       },
       {
-        "HashCode": 634185562,
+        "HashCode": 788302213,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1182,7 +1182,7 @@
         }
       },
       {
-        "HashCode": 994872038,
+        "HashCode": -1106163439,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1378,7 +1378,7 @@
         }
       },
       {
-        "HashCode": -525499278,
+        "HashCode": 1557969799,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1406,7 +1406,7 @@
         }
       },
       {
-        "HashCode": 994181050,
+        "HashCode": -1561790096,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1487,7 +1487,7 @@
         }
       },
       {
-        "HashCode": 1176568505,
+        "HashCode": 454626853,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1640,7 +1640,7 @@
         }
       },
       {
-        "HashCode": -1407990762,
+        "HashCode": -1540652331,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1699,7 +1699,7 @@
         }
       },
       {
-        "HashCode": 630613116,
+        "HashCode": 222908747,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1741,7 +1741,7 @@
         }
       },
       {
-        "HashCode": -1718653380,
+        "HashCode": -1144643085,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1773,7 +1773,7 @@
         }
       },
       {
-        "HashCode": -1161695887,
+        "HashCode": -2098196145,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1807,7 +1807,7 @@
         }
       },
       {
-        "HashCode": -22856693,
+        "HashCode": 1196244546,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.SpaServices.Prerendering.PrerenderTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.SpaServices",
@@ -1872,163 +1872,8 @@
   "RootNamespace": "CMS",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Grupo\\Edit.cshtml",
-      "TargetPath": "Views\\Grupo\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_CarouselImg.cshtml",
-      "TargetPath": "Views\\Elemento\\_CarouselImg.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocCss.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\DocCss.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Table.cshtml",
-      "TargetPath": "Views\\Elemento\\_Table.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\GaleriaLayout.cshtml",
-      "TargetPath": "Views\\Pagina\\GaleriaLayout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Story\\Edit.cshtml",
-      "TargetPath": "Views\\Story\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\Edit.cshtml",
-      "TargetPath": "Views\\Div\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Edit.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\_BackgroundGradiente.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundGradiente.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\InfoVenda\\CadastrarCpf.cshtml",
-      "TargetPath": "Views\\InfoVenda\\CadastrarCpf.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubSubGrupo\\Index.cshtml",
-      "TargetPath": "Views\\SubSubGrupo\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\_BackgroundCor.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundCor.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Alimenticio.cshtml",
-      "TargetPath": "Views\\Elemento\\_Alimenticio.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubGrupo\\Details.cshtml",
-      "TargetPath": "Views\\SubGrupo\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\ListaCores.cshtml",
-      "TargetPath": "Views\\Background\\ListaCores.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Admin\\EditPermissao.cshtml",
-      "TargetPath": "Views\\Admin\\EditPermissao.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Story\\Delete.cshtml",
-      "TargetPath": "Views\\Story\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Admin\\Admin.cshtml",
-      "TargetPath": "Views\\Admin\\Admin.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocBackgroundGradiente.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\DocBackgroundGradiente.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Imagem.cshtml",
-      "TargetPath": "Views\\Elemento\\_Imagem.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubGrupo\\Edit.cshtml",
-      "TargetPath": "Views\\SubGrupo\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\Alterar.cshtml",
-      "TargetPath": "Views\\Home\\Alterar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\IdentificacaoElemento.cshtml",
-      "TargetPath": "Views\\Pagina\\IdentificacaoElemento.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\ListaFixo.cshtml",
-      "TargetPath": "Views\\Div\\ListaFixo.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubSubGrupo\\Delete.cshtml",
-      "TargetPath": "Views\\SubSubGrupo\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocLink.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocLink.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Acessorio.cshtml",
+      "TargetPath": "Views\\Elemento\\_Acessorio.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2037,343 +1882,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Roupa.cshtml",
-      "TargetPath": "Views\\Elemento\\_Roupa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_CookieConsentPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubStory\\Create.cshtml",
-      "TargetPath": "Views\\SubStory\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubGrupo\\Delete.cshtml",
-      "TargetPath": "Views\\SubGrupo\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubGrupo\\Create.cshtml",
-      "TargetPath": "Views\\SubGrupo\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\Preview.cshtml",
-      "TargetPath": "Views\\Home\\Preview.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubSubGrupo\\Edit.cshtml",
-      "TargetPath": "Views\\SubSubGrupo\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Acessorio.cshtml",
-      "TargetPath": "Views\\Elemento\\_Acessorio.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\CreatePaginaModelo.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\CreatePaginaModelo.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Texto.cshtml",
-      "TargetPath": "Views\\Elemento\\_Texto.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\_BackgroundImagem.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundImagem.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocVideo.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocVideo.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocHtml.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\DocHtml.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_CarouselPagina.cshtml",
-      "TargetPath": "Views\\Elemento\\_CarouselPagina.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\ListaBackground.cshtml",
-      "TargetPath": "Views\\Background\\ListaBackground.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubSubGrupo\\Details.cshtml",
-      "TargetPath": "Views\\SubSubGrupo\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\MenuDropDown.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\MenuDropDown.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Formulario.cshtml",
-      "TargetPath": "Views\\Elemento\\_Formulario.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubStory\\Index.cshtml",
-      "TargetPath": "Views\\SubStory\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Dropdown.cshtml",
-      "TargetPath": "Views\\Elemento\\_Dropdown.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\Lista.cshtml",
-      "TargetPath": "Views\\Div\\Lista.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\Carousel.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\Carousel.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Calcado.cshtml",
-      "TargetPath": "Views\\Elemento\\_Calcado.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Musica.cshtml",
-      "TargetPath": "Views\\Elemento\\_Musica.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\Chat.cshtml",
-      "TargetPath": "Views\\Pagina\\Chat.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\Renderizar.cshtml",
-      "TargetPath": "Views\\Pagina\\Renderizar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocBloco.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\DocBloco.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Video.cshtml",
-      "TargetPath": "Views\\Elemento\\_Video.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_LoginPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Story\\Index.cshtml",
-      "TargetPath": "Views\\Story\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\InfoVenda\\CadastrarContaBancaria.cshtml",
       "TargetPath": "Views\\InfoVenda\\CadastrarContaBancaria.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\HttpNotFound.cshtml",
-      "TargetPath": "Views\\Pagina\\HttpNotFound.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubStory\\Delete.cshtml",
-      "TargetPath": "Views\\SubStory\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocHtmlInicio.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocHtmlInicio.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\IndexUsers.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\IndexUsers.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pedido\\ViewCreate.cshtml",
-      "TargetPath": "Views\\Pedido\\ViewCreate.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Ferramenta\\CreateCor.cshtml",
-      "TargetPath": "Views\\Ferramenta\\CreateCor.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocFormulario.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocFormulario.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\BlocoFerramenta.cshtml",
-      "TargetPath": "Views\\Pagina\\BlocoFerramenta.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Erros\\Error500.cshtml",
-      "TargetPath": "Views\\Erros\\Error500.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocTable.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocTable.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_Render.cshtml",
-      "TargetPath": "Views\\Shared\\_Render.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocImagem.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocImagem.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Requisicao\\BuscaProdutos.cshtml",
-      "TargetPath": "Views\\Requisicao\\BuscaProdutos.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocTexto.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocTexto.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pedido\\Index.cshtml",
-      "TargetPath": "Views\\Pedido\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Story\\Create.cshtml",
-      "TargetPath": "Views\\Story\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\IdentificacaoBloco.cshtml",
-      "TargetPath": "Views\\Pagina\\IdentificacaoBloco.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubSubGrupo\\Create.cshtml",
-      "TargetPath": "Views\\SubSubGrupo\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocCss2.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\DocCss2.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\_DivFixo.cshtml",
-      "TargetPath": "Views\\Div\\_DivFixo.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Details.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Grupo\\Details.cshtml",
-      "TargetPath": "Views\\Grupo\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\NoPermission.cshtml",
-      "TargetPath": "Views\\Pagina\\NoPermission.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubStory\\Edit.cshtml",
-      "TargetPath": "Views\\SubStory\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\Edit.cshtml",
-      "TargetPath": "Views\\Background\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Ferramenta\\ListaCores.cshtml",
-      "TargetPath": "Views\\Ferramenta\\ListaCores.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\Edit.cshtml",
-      "TargetPath": "Views\\Elemento\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\Editar.cshtml",
-      "TargetPath": "Views\\Pagina\\Editar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\modal.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\modal.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Requisicao\\Cadastro.cshtml",
-      "TargetPath": "Views\\Requisicao\\Cadastro.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\_DivComum.cshtml",
-      "TargetPath": "Views\\Div\\_DivComum.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\music.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\music.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Admin\\EditPermissao.cshtml",
+      "TargetPath": "Views\\Admin\\EditPermissao.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2382,53 +1897,28 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\CreatePaginaComLayout.cshtml",
-      "TargetPath": "Views\\Pagina\\CreatePaginaComLayout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubGrupo\\Index.cshtml",
-      "TargetPath": "Views\\SubGrupo\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Ferramenta\\EditCor.cshtml",
-      "TargetPath": "Views\\Ferramenta\\EditCor.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Produto\\Details.cshtml",
-      "TargetPath": "Views\\Produto\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\EditarPagina.cshtml",
-      "TargetPath": "Views\\Pagina\\EditarPagina.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_LinkBody.cshtml",
       "TargetPath": "Views\\Elemento\\_LinkBody.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Story\\Details.cshtml",
-      "TargetPath": "Views\\Story\\Details.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocCarousel.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocCarousel.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubSubGrupo\\Edit.cshtml",
+      "TargetPath": "Views\\SubSubGrupo\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pedido\\CreatePagina.cshtml",
-      "TargetPath": "Views\\Pedido\\CreatePagina.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Grupo\\Edit.cshtml",
+      "TargetPath": "Views\\Grupo\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\Edit.cshtml",
+      "TargetPath": "Views\\Background\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2437,43 +1927,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Create.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\Create.cshtml",
-      "TargetPath": "Views\\Background\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Pages\\_Layout.cshtml",
-      "TargetPath": "Pages\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\CreatePagina.cshtml",
-      "TargetPath": "Views\\Home\\CreatePagina.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_Render2.cshtml",
-      "TargetPath": "Views\\Shared\\_Render2.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\Create.cshtml",
-      "TargetPath": "Views\\Div\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Rotas.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\Rotas.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Campo.cshtml",
-      "TargetPath": "Views\\Elemento\\_Campo.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2482,8 +1937,443 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Formulario.cshtml",
+      "TargetPath": "Views\\Elemento\\_Formulario.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\EmBranco.cshtml",
+      "TargetPath": "Views\\Pagina\\EmBranco.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\InfoVenda\\CadastrarCpf.cshtml",
+      "TargetPath": "Views\\InfoVenda\\CadastrarCpf.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\_DivFixo.cshtml",
+      "TargetPath": "Views\\Div\\_DivFixo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocHtml.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\DocHtml.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\Create.cshtml",
+      "TargetPath": "Views\\Background\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Story\\Details.cshtml",
+      "TargetPath": "Views\\Story\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\Create.cshtml",
+      "TargetPath": "Views\\Div\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pedido\\ViewCreate.cshtml",
+      "TargetPath": "Views\\Pedido\\ViewCreate.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Admin\\Admin.cshtml",
+      "TargetPath": "Views\\Admin\\Admin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubGrupo\\Create.cshtml",
+      "TargetPath": "Views\\SubGrupo\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\ListaBackground.cshtml",
+      "TargetPath": "Views\\Background\\ListaBackground.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\IdentificacaoElemento.cshtml",
+      "TargetPath": "Views\\Pagina\\IdentificacaoElemento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\CreatePagina.cshtml",
+      "TargetPath": "Views\\Home\\CreatePagina.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\NoPermission.cshtml",
+      "TargetPath": "Views\\Pagina\\NoPermission.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Story\\Edit.cshtml",
+      "TargetPath": "Views\\Story\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Produto\\Details.cshtml",
+      "TargetPath": "Views\\Produto\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocHtmlInicio.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocHtmlInicio.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocBloco.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\DocBloco.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\HttpNotFound.cshtml",
+      "TargetPath": "Views\\Pagina\\HttpNotFound.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Erros\\HandleErrorCode.cshtml",
+      "TargetPath": "Views\\Erros\\HandleErrorCode.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\Editar.cshtml",
+      "TargetPath": "Views\\Pagina\\Editar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Show.cshtml",
+      "TargetPath": "Views\\Elemento\\_Show.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\GetView.cshtml",
+      "TargetPath": "Views\\Pagina\\GetView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\QuantidadeBloco.cshtml",
+      "TargetPath": "Views\\Pagina\\QuantidadeBloco.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\Lista.cshtml",
+      "TargetPath": "Views\\Elemento\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocTable.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocTable.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\_BackgroundGradiente.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundGradiente.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\Carousel.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\Carousel.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocImagem.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocImagem.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Video.cshtml",
+      "TargetPath": "Views\\Elemento\\_Video.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\Chat.cshtml",
+      "TargetPath": "Views\\Pagina\\Chat.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Erros\\Error.cshtml",
+      "TargetPath": "Views\\Erros\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_CarouselPagina.cshtml",
+      "TargetPath": "Views\\Elemento\\_CarouselPagina.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\PaginaCriada.cshtml",
+      "TargetPath": "Views\\Home\\PaginaCriada.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Story\\Index.cshtml",
+      "TargetPath": "Views\\Story\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubGrupo\\Edit.cshtml",
+      "TargetPath": "Views\\SubGrupo\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Pages\\_Layout.cshtml",
+      "TargetPath": "Pages\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Grupo\\Create.cshtml",
+      "TargetPath": "Views\\Grupo\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocBackgroundGradiente.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\DocBackgroundGradiente.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\CreatePaginaComLayout.cshtml",
+      "TargetPath": "Views\\Pagina\\CreatePaginaComLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\_BackgroundCor.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundCor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubGrupo\\Index.cshtml",
+      "TargetPath": "Views\\SubGrupo\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\ListaCores.cshtml",
+      "TargetPath": "Views\\Background\\ListaCores.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\MenuDropDown.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\MenuDropDown.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\Lista.cshtml",
+      "TargetPath": "Views\\Div\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Ferramenta\\EditCor.cshtml",
+      "TargetPath": "Views\\Ferramenta\\EditCor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubStory\\Delete.cshtml",
+      "TargetPath": "Views\\SubStory\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Calcado.cshtml",
+      "TargetPath": "Views\\Elemento\\_Calcado.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Index.cshtml",
       "TargetPath": "Views\\SuperAdmin\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\IndexUsers.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\IndexUsers.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubSubGrupo\\Details.cshtml",
+      "TargetPath": "Views\\SubSubGrupo\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Rotas.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\Rotas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Create.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocTexto.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocTexto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Ferramenta\\CreateCor.cshtml",
+      "TargetPath": "Views\\Ferramenta\\CreateCor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubStory\\Edit.cshtml",
+      "TargetPath": "Views\\SubStory\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\ApagarElemento.cshtml",
+      "TargetPath": "Views\\Pagina\\ApagarElemento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Background\\_BackgroundImagem.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundImagem.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Grupo\\Details.cshtml",
+      "TargetPath": "Views\\Grupo\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocVideo.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocVideo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\IdentificacaoBloco.cshtml",
+      "TargetPath": "Views\\Pagina\\IdentificacaoBloco.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Story\\Create.cshtml",
+      "TargetPath": "Views\\Story\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubGrupo\\Details.cshtml",
+      "TargetPath": "Views\\SubGrupo\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_CookieConsentPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Alimenticio.cshtml",
+      "TargetPath": "Views\\Elemento\\_Alimenticio.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\BlocoFerramenta.cshtml",
+      "TargetPath": "Views\\Pagina\\BlocoFerramenta.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Grupo\\Index.cshtml",
+      "TargetPath": "Views\\Grupo\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Texto.cshtml",
+      "TargetPath": "Views\\Elemento\\_Texto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\Edit.cshtml",
+      "TargetPath": "Views\\Div\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocCss.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\DocCss.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\modal.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\modal.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\Alterar.cshtml",
+      "TargetPath": "Views\\Home\\Alterar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubSubGrupo\\Create.cshtml",
+      "TargetPath": "Views\\SubSubGrupo\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pedido\\Galeria.cshtml",
+      "TargetPath": "Views\\Pedido\\Galeria.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2497,23 +2387,128 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Grupo\\Create.cshtml",
-      "TargetPath": "Views\\Grupo\\Create.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\music.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\music.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\QuantidadeBloco.cshtml",
-      "TargetPath": "Views\\Pagina\\QuantidadeBloco.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\_DivComum.cshtml",
+      "TargetPath": "Views\\Div\\_DivComum.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Grupo\\Delete.cshtml",
+      "TargetPath": "Views\\Grupo\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Table.cshtml",
+      "TargetPath": "Views\\Elemento\\_Table.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_Render2.cshtml",
+      "TargetPath": "Views\\Shared\\_Render2.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubStory\\Index.cshtml",
+      "TargetPath": "Views\\SubStory\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Musica.cshtml",
+      "TargetPath": "Views\\Elemento\\_Musica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Ferramenta\\ListaCores.cshtml",
+      "TargetPath": "Views\\Ferramenta\\ListaCores.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubStory\\Details.cshtml",
+      "TargetPath": "Views\\SubStory\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Delete.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Ferramenta\\CreatePasta.cshtml",
+      "TargetPath": "Views\\Ferramenta\\CreatePasta.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\Preview.cshtml",
+      "TargetPath": "Views\\Home\\Preview.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Roupa.cshtml",
+      "TargetPath": "Views\\Elemento\\_Roupa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\Renderizar.cshtml",
+      "TargetPath": "Views\\Pagina\\Renderizar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\Edit.cshtml",
+      "TargetPath": "Views\\Elemento\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Edit.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Erros\\Error500.cshtml",
+      "TargetPath": "Views\\Erros\\Error500.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\Perfil.cshtml",
+      "TargetPath": "Views\\Home\\Perfil.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Details.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Dropdown.cshtml",
+      "TargetPath": "Views\\Elemento\\_Dropdown.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocFormulario.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocFormulario.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Pages\\Error.cshtml",
+      "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubGrupo\\Delete.cshtml",
+      "TargetPath": "Views\\SubGrupo\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Imagem.cshtml",
+      "TargetPath": "Views\\Elemento\\_Imagem.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Requisicao\\Cadastro.cshtml",
+      "TargetPath": "Views\\Requisicao\\Cadastro.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2527,88 +2522,93 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Erros\\HandleErrorCode.cshtml",
-      "TargetPath": "Views\\Erros\\HandleErrorCode.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_CarouselImg.cshtml",
+      "TargetPath": "Views\\Elemento\\_CarouselImg.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Grupo\\Delete.cshtml",
-      "TargetPath": "Views\\Grupo\\Delete.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Campo.cshtml",
+      "TargetPath": "Views\\Elemento\\_Campo.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\GetView.cshtml",
-      "TargetPath": "Views\\Pagina\\GetView.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\EditarPagina.cshtml",
+      "TargetPath": "Views\\Pagina\\EditarPagina.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pedido\\Galeria.cshtml",
-      "TargetPath": "Views\\Pedido\\Galeria.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubStory\\Create.cshtml",
+      "TargetPath": "Views\\SubStory\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\Lista.cshtml",
-      "TargetPath": "Views\\Elemento\\Lista.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocLink.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocLink.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Ferramenta\\CreatePasta.cshtml",
-      "TargetPath": "Views\\Ferramenta\\CreatePasta.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pedido\\CreatePagina.cshtml",
+      "TargetPath": "Views\\Pedido\\CreatePagina.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Elemento\\_Show.cshtml",
-      "TargetPath": "Views\\Elemento\\_Show.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pedido\\Index.cshtml",
+      "TargetPath": "Views\\Pedido\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\PaginaCriada.cshtml",
-      "TargetPath": "Views\\Home\\PaginaCriada.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\CreatePaginaModelo.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\CreatePaginaModelo.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\ApagarElemento.cshtml",
-      "TargetPath": "Views\\Pagina\\ApagarElemento.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Requisicao\\BuscaProdutos.cshtml",
+      "TargetPath": "Views\\Requisicao\\BuscaProdutos.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Erros\\Error.cshtml",
-      "TargetPath": "Views\\Erros\\Error.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Shared\\_Render.cshtml",
+      "TargetPath": "Views\\Shared\\_Render.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\EmBranco.cshtml",
-      "TargetPath": "Views\\Pagina\\EmBranco.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubSubGrupo\\Delete.cshtml",
+      "TargetPath": "Views\\SubSubGrupo\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SuperAdmin\\Delete.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\Delete.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Pagina\\GaleriaLayout.cshtml",
+      "TargetPath": "Views\\Pagina\\GaleriaLayout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocCss2.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\DocCss2.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubStory\\Details.cshtml",
-      "TargetPath": "Views\\SubStory\\Details.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\wwwroot\\Arquivotxt\\html\\DocCarousel.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\html\\DocCarousel.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Grupo\\Index.cshtml",
-      "TargetPath": "Views\\Grupo\\Index.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Story\\Delete.cshtml",
+      "TargetPath": "Views\\Story\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Home\\Perfil.cshtml",
-      "TargetPath": "Views\\Home\\Perfil.cshtml",
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\Div\\ListaFixo.cshtml",
+      "TargetPath": "Views\\Div\\ListaFixo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\leandro\\Documents\\rede-social\\CMS\\Views\\SubSubGrupo\\Index.cshtml",
+      "TargetPath": "Views\\SubSubGrupo\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

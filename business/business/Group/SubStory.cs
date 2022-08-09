@@ -7,6 +7,7 @@ namespace business.business.Group
         public class SubStory : BaseModel
         {
 
+        public string Nome { get; set; }
         public virtual List<Pagina> Pagina { get; set; }
         public virtual List<Grupo> Grupo { get; set; }
 

@@ -122,4 +122,12 @@ $(document).ready(function() {
 
     setTimeout(function () { refreshData(); }, 300000);
 
+    $(".agrupamento").click(function () {
+
+        $(".group").css("display", "block");
+        $(".container1").css("display", "none");
+        $(".DivPagina").css("display", "none");
+    
+    });
+
 });

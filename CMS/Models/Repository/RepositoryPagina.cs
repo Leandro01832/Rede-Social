@@ -323,11 +323,39 @@ namespace CMS.Models.Repository
         {
             var include = dbSet
             .Include(p => p.Story)
+             .ThenInclude(b => b.Pagina)
+
+             .Include(p => p.Story)
+             .ThenInclude(b => b.SubStory)
+              .ThenInclude(b => b.Pagina)
+
+                .Include(p => p.Story)
+                .ThenInclude(b => b.SubStory)
+                .ThenInclude(b => b.Grupo)
+                .ThenInclude(b => b.Pagina)
+
+                .Include(p => p.Story)
+                .ThenInclude(b => b.SubStory)
+                .ThenInclude(b => b.Grupo)
+                .ThenInclude(b => b.SubGrupo)
+                .ThenInclude(b => b.Pagina)
+
+                .Include(p => p.Story)
+                .ThenInclude(b => b.SubStory)
+                .ThenInclude(b => b.Grupo)
+                .ThenInclude(b => b.SubGrupo)
+                .ThenInclude(b => b.SubSubGrupo)
+                .ThenInclude(b => b.Pagina)
+
+
+
             .Include(p => p.Div)
 
             .Include(p => p.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Imagem)
 
             .Include(p => p.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Cores)
+
+             .Include(p => p.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Video)
             
             .Include(p => p.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
 

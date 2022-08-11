@@ -67,26 +67,7 @@ namespace CMS.Controllers
 
         public async Task<JsonResult> GetStory(int Indice, string User)
         {
-            var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == User.Trim().ToLower());
-            if (user == null)
-            {
-                user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == User.Trim().ToLower());
-                UserHelper.Users.Add(user);
-            }
-            var paginas = new List<Pagina>();
-            foreach (var item in RepositoryPagina.paginas)
-            {
-                 if(item == null ||  item.FirstOrDefault(i => i.UserId == user.Id) == null)
-                    continue;
-             paginas.AddRange( item.Where(s => s.UserId == user.Id).ToList());
-            }
-            var stories = new List<Story>();
-
-            foreach (var item in paginas)
-            if(stories.FirstOrDefault(str => str.Nome == item.Story.Nome) == null)
-            stories.Add(item.Story);
-
-            stories = stories.OrderBy(s => s.PaginaPadraoLink).ToList();
+            List<Story> stories = await RetornarStories(User);
 
             try
             {
@@ -96,6 +77,81 @@ namespace CMS.Controllers
             catch (Exception)
             {
                 return Json(stories[1].PaginaPadraoLink);
+            }
+        }
+
+       
+
+        public async Task<JsonResult> GetSubStory(int Indice, string User, int IndiceSubStory)
+        {
+           var stories = await RetornarStories(User);
+
+            try
+            {
+                var story = stories[Indice + 1];
+                var substory = story.SubStory[IndiceSubStory + 1];
+                return Json(IndiceSubStory + 1);
+            }
+            catch (Exception)
+            {
+                return Json("");
+            }            
+        }
+
+        public async Task<JsonResult> GetGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo)
+        {
+            
+             var stories = await RetornarStories(User);
+
+            try
+            {
+                var story = stories[Indice + 1];
+                var substory = story.SubStory[IndiceSubStory + 1];
+                var grupo = substory.Grupo[IndiceGrupo + 1];
+                return Json(IndiceGrupo + 1);
+            }
+            catch (Exception)
+            {
+                return Json("");
+            }            
+        }
+
+        public async Task<JsonResult> GetSubGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo)
+        {
+            
+             var stories = await RetornarStories(User);
+
+            try
+            {
+                var story = stories[Indice + 1];
+                var substory = story.SubStory[IndiceSubStory + 1];
+                var grupo = substory.Grupo[IndiceGrupo + 1];
+                var subgrupo = grupo.SubGrupo[IndiceSubGrupo + 1];
+                return Json(IndiceSubGrupo + 1);
+            }
+            catch (Exception)
+            {
+                return Json("");
+            }            
+        }
+
+         public async Task<JsonResult> GetSubSubGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo, int IndiceSubSubGrupo)
+        {
+            
+             var stories = await RetornarStories(User);
+
+            try
+            {
+                var story = stories[Indice + 1];
+                var substory = story.SubStory[IndiceSubStory + 1];
+                var grupo = substory.Grupo[IndiceGrupo + 1];
+                var subgrupo = grupo.SubGrupo[IndiceSubGrupo + 1];
+                var subsubgrupo = subgrupo.SubSubGrupo[IndiceSubSubGrupo + 1];
+                return Json(IndiceSubSubGrupo + 1);
+            }
+            catch (Exception)
+            {
+                return Json("");
             }            
         }
 
@@ -176,6 +232,32 @@ namespace CMS.Controllers
         {
             var els = db.Elemento.Where(ele => ele.GetType().Name == Tipo && ele.Pagina_ == Pagina);
             return Json(els);
+        }
+
+
+         private async Task<List<Story>> RetornarStories(string User)
+        {
+            var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == User.Trim().ToLower());
+            if (user == null)
+            {
+                user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == User.Trim().ToLower());
+                UserHelper.Users.Add(user);
+            }
+            var paginas = new List<Pagina>();
+            foreach (var item in RepositoryPagina.paginas)
+            {
+                if (item == null || item.FirstOrDefault(i => i.UserId == user.Id) == null)
+                    continue;
+                paginas.AddRange(item.Where(s => s.UserId == user.Id).ToList());
+            }
+            var stories = new List<Story>();
+
+            foreach (var item in paginas)
+                if (stories.FirstOrDefault(str => str.Nome == item.Story.Nome) == null)
+                    stories.Add(item.Story);
+
+            stories = stories.OrderBy(s => s.PaginaPadraoLink).ToList();
+            return stories;
         }
     }
 }

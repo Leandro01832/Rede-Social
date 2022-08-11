@@ -110,20 +110,12 @@ namespace MeuProjetoAgora.Controllers
             var group = pag.Story.SubStory.Skip((int)substory - 1).First(); 
             Pagina pag2 = group.Pagina.Skip((int)indice - 1).First();
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
-             int vers = lista.IndexOf(pagina);
-             int indexgroup = pag.Story.SubStory.IndexOf(group);
-
-            if (pagina == null)
-            {
-                ViewBag.paginas = new SelectList(new List<Pagina>(), "Id", "Titulo");
-                ViewBag.numeroErro = indice;
-                return View("HttpNotFound");
-            }            
+             int vers = lista.IndexOf(pagina);          
 
                 ViewBag.quantidadePaginas = group.Pagina.Count();
                 ViewBag.group = group;
                 ViewBag.versiculo = vers;
-                ViewBag.grupoindex = indexgroup;
+                ViewBag.grupoindexsubstory = substory;
                 ViewBag.story = pagina.Story.Nome;
                 string html = await epositoryPagina.renderizarPagina(pagina);
                 ViewBag.Html = html;
@@ -141,20 +133,13 @@ namespace MeuProjetoAgora.Controllers
              var group2 = group.Grupo.Skip((int)grupo - 1).First(); 
             Pagina pag2 = group2.Pagina.Skip((int)indice - 1).First();
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
-             int vers = lista.IndexOf(pagina);
-             int indexgroup = group.Grupo.IndexOf(group2);
-
-            if (pagina == null)
-            {
-                ViewBag.paginas = new SelectList(new List<Pagina>(), "Id", "Titulo");
-                ViewBag.numeroErro = indice;
-                return View("HttpNotFound");
-            }            
+             int vers = lista.IndexOf(pagina);          
             
                 ViewBag.quantidadePaginas = group2.Pagina.Count();
                 ViewBag.group = group2;
                  ViewBag.versiculo = vers;
-                 ViewBag.grupoindex = indexgroup;
+                 ViewBag.grupoindexsubstory = substory;
+                 ViewBag.grupoindexgrupo = grupo;
                 ViewBag.story = pagina.Story.Nome;
                 string html = await epositoryPagina.renderizarPagina(pagina);
                 ViewBag.Html = html;
@@ -173,20 +158,14 @@ namespace MeuProjetoAgora.Controllers
              var group3 = group2.SubGrupo.Skip((int)subgrupo - 1).First(); 
             Pagina pag2 = group3.Pagina.Skip((int)indice - 1).First();
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
-             int vers = lista.IndexOf(pagina);
-             int indexgroup = group2.SubGrupo.IndexOf(group3);
-
-            if (pagina == null)
-            {
-                ViewBag.paginas = new SelectList(new List<Pagina>(), "Id", "Titulo");
-                ViewBag.numeroErro = indice;
-                return View("HttpNotFound");
-            }            
+             int vers = lista.IndexOf(pagina);                       
             
                 ViewBag.quantidadePaginas = group3.Pagina.Count();
                 ViewBag.group = group3;
                 ViewBag.versiculo = vers;
-                ViewBag.grupoindex = indexgroup;
+                ViewBag.grupoindexsubstory = substory;
+                 ViewBag.grupoindexgrupo = grupo;
+                ViewBag.grupoindexsubgrupo = subgrupo;
                 ViewBag.story = pagina.Story.Nome;
                 string html = await epositoryPagina.renderizarPagina(pagina);
                 ViewBag.Html = html;
@@ -206,20 +185,15 @@ namespace MeuProjetoAgora.Controllers
               var group4 = group3.SubSubGrupo.Skip((int)subsubgrupo - 1).First(); 
             Pagina pag2 = group4.Pagina.Skip((int)indice - 1).First();
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
-             int vers = lista.IndexOf(pagina);
-             int indexgroup = group3.SubSubGrupo.IndexOf(group4);
-
-            if (pagina == null)
-            {
-                ViewBag.paginas = new SelectList(new List<Pagina>(), "Id", "Titulo");
-                ViewBag.numeroErro = indice;
-                return View("HttpNotFound");
-            }            
+             int vers = lista.IndexOf(pagina);                    
             
                 ViewBag.quantidadePaginas = group4.Pagina.Count();
                 ViewBag.group = group4;
-                 ViewBag.versiculo = vers;
-                 ViewBag.grupoindex = indexgroup;
+                ViewBag.versiculo = vers;
+                ViewBag.grupoindexsubstory = substory;
+                ViewBag.grupoindexgrupo = grupo;
+                ViewBag.grupoindexsubgrupo = subgrupo;
+                ViewBag.grupoindexsubsubgrupo = subsubgrupo;
                 ViewBag.story = pagina.Story.Nome;
                 string html = await epositoryPagina.renderizarPagina(pagina);
                 ViewBag.Html = html;

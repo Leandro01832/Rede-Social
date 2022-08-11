@@ -3,8 +3,6 @@
 @{
     Layout = "~/Views/Shared/_Render.cshtml";
      business.business.Group.Grupo grupo = ViewBag.group;
-     var v1 = grupo.SubStory;
-    var indiceSubStory = Model.Story.SubStory.IndexOf(v1);
     var proximo = ViewBag.proximo;
     var anterior = proximo - 2;
     var atual = proximo - 1;
@@ -35,10 +33,6 @@
         font-size: 1rem !important;
     }
 
-     .DivPagina {
-        width: 14px !important;
-    }
-
     #voltar {
         display: none !important;
     }
@@ -54,6 +48,9 @@
    
 </style>
 
+    <input type="hidden" value="@ViewBag.grupoindexgrupo" id="indexgrupo" />
+    <input type="hidden" value="@ViewBag.grupoindexsubstory" id="indexsubstory" />
+
     <input type="hidden" value="@Model.Id" id="IdentificacaoPagina" />
     <input type="hidden" value="@ViewBag.user" id="ValorUser" />
     <input type="hidden" value="@atual" id="ValorAtual" />
@@ -64,12 +61,12 @@
     <input type="hidden" value="@Model.Story.Nome" id="ValorStoryNome" />   
 
     <link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
-    <a class="left carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(Model.Story.PaginaPadraoLink)/@(anterior)" style="display:none;">
+    <a class="left carousel-control blocoLoader2" href="/Grupo/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.grupoindexsubstory/@ViewBag.grupoindexgrupo/@(anterior)" style="display:none;">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
     </a>
 
-    <a class="right carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(Model.Story.PaginaPadraoLink)/@(proximo)" style="display:none;">
+    <a class="right carousel-control blocoLoader2" href="/Grupo/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.grupoindexsubstory/@ViewBag.grupoindexgrupo/@(proximo)" style="display:none;">
         <span class="glyphicon glyphicon-chevron-right"></span>
         <span class="sr-only">Next</span>
     </a>
@@ -92,17 +89,7 @@
         </div>
 
         <div class="right col-xs-8" id="Pesquisa">
-            @{
-                if (Model.Story.PaginaPadraoLink == 0)
-                {
-                    <span style="background-color:white;">Cap.</span>
-                }
-                else
-                {
-                    <span style="background-color:white;">Vers.</span>
-                }
-            }
-            
+                       
             <a href="/" class="glyphicon glyphicon-home" style="left: 3%;"></a>
             <br />
             <a id="voltar" href="#"
@@ -133,7 +120,7 @@
 
             <div class="DivPagina">
 
-                <h4>Grupo @ViewBag.grupoindex</h4>
+                <h4>Grupo @ViewBag.grupoindexgrupo</h4>
 
             </div>
         </center>
@@ -154,8 +141,8 @@
                 for(int i = 1; i <= grupo.SubGrupo.Count; i++)
                 {
                          <center>
-                        <a href="/SubGrupo/@ViewBag.user/@Model.Story.PaginaPadraoLink/@indiceSubStory/@ViewBag.grupoindex/@i/1" class="btn btn-primary" >
-                          Grupo @i - @grupo.SubGrupo[i - 1].Nome
+                        <a href="/SubGrupo/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.grupoindexsubstory/@ViewBag.grupoindexgrupo/@i/1" class="btn btn-primary" >
+                          Sub-Grupo @i - @grupo.SubGrupo[i - 1].Nome
                           </a>
                         </center>
                         <br />                   

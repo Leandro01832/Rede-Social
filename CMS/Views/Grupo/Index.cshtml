@@ -1,8 +1,6 @@
 @model IEnumerable<business.business.Group.Grupo>
 
-@{
-    Layout = null;
-}
+
 
 <!DOCTYPE html>
 
@@ -19,7 +17,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SubStory)
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayName("Sub-Story")
             </th>
             <th></th>
         </tr>
@@ -28,7 +29,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.SubStory.Id)
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubStory.Nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

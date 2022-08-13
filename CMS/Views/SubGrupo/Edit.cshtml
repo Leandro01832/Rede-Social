@@ -1,8 +1,5 @@
 @model business.business.Group.SubGrupo
 
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 
@@ -13,7 +10,7 @@
 </head>
 <body>
 
-<h4>SubGrupo</h4>
+<h4>Sub-Grupo</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -56,6 +53,9 @@
 </body>
 </html>
 
-<div>
-    <script type="text/javascript" src="~/js/AjaxGet.js"></script>
-</div>
+@section scripts{
+  
+    <script type="text/javascript" src="~/js/AjaxGetGroup.js"></script>
+      
+
+}

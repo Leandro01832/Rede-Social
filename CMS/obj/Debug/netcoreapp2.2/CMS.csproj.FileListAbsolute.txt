@@ -1054,3 +1054,7 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\S
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Details.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Edit.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Index.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Grupo.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\SubGrupo.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\SubStory.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\SubSubGrupo.cshtml.g.cs

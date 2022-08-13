@@ -9,9 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using CMS.Data;
 using business.business.Group;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMS.Controllers
 {
+    [Authorize]
     public class GrupoController : Controller
     {
         private readonly ApplicationDbContext _context;

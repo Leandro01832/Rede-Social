@@ -31,7 +31,7 @@ namespace CMS.Controllers
 
         public JsonResult GetStories2(string User)
         {
-            var stories = db.Story.Where(b => b.UserId == User);
+            var stories = db.Story.Where(b => b.UserId == User && b.Nome != "Padrao");
             return Json(stories);
         }
 
@@ -88,7 +88,7 @@ namespace CMS.Controllers
 
             try
             {
-                var story = stories[Indice + 1];
+                var story = stories[Indice];
                 var substory = story.SubStory[IndiceSubStory + 1];
                 return Json(IndiceSubStory + 1);
             }
@@ -99,14 +99,13 @@ namespace CMS.Controllers
         }
 
         public async Task<JsonResult> GetGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo)
-        {
-            
+        {            
              var stories = await RetornarStories(User);
 
             try
             {
-                var story = stories[Indice + 1];
-                var substory = story.SubStory[IndiceSubStory + 1];
+                var story = stories[Indice];
+                var substory = story.SubStory[IndiceSubStory ];
                 var grupo = substory.Grupo[IndiceGrupo + 1];
                 return Json(IndiceGrupo + 1);
             }
@@ -123,9 +122,9 @@ namespace CMS.Controllers
 
             try
             {
-                var story = stories[Indice + 1];
-                var substory = story.SubStory[IndiceSubStory + 1];
-                var grupo = substory.Grupo[IndiceGrupo + 1];
+                var story = stories[Indice];
+                var substory = story.SubStory[IndiceSubStory ];
+                var grupo = substory.Grupo[IndiceGrupo];
                 var subgrupo = grupo.SubGrupo[IndiceSubGrupo + 1];
                 return Json(IndiceSubGrupo + 1);
             }
@@ -142,10 +141,10 @@ namespace CMS.Controllers
 
             try
             {
-                var story = stories[Indice + 1];
-                var substory = story.SubStory[IndiceSubStory + 1];
-                var grupo = substory.Grupo[IndiceGrupo + 1];
-                var subgrupo = grupo.SubGrupo[IndiceSubGrupo + 1];
+                var story = stories[Indice ];
+                var substory = story.SubStory[IndiceSubStory ];
+                var grupo = substory.Grupo[IndiceGrupo ];
+                var subgrupo = grupo.SubGrupo[IndiceSubGrupo ];
                 var subsubgrupo = subgrupo.SubSubGrupo[IndiceSubSubGrupo + 1];
                 return Json(IndiceSubSubGrupo + 1);
             }
@@ -213,11 +212,15 @@ namespace CMS.Controllers
 
         public async Task<JsonResult> GetPaginas(Int64 Pagina)
         {
-            var pagina = await db.Pagina.FirstAsync(p => p.Id == Pagina);
-            var PedidoId = pagina.UserId;
-            var paginas = db.Pagina.Where(m => m.UserId == PedidoId);
-
-            return Json(paginas);
+           
+           
+             var pagina = await db.Pagina.FirstAsync(p => p.Id == Pagina);
+             var PedidoId = pagina.UserId;
+             var paginas = db.Pagina.Where(m => m.UserId == PedidoId);
+ 
+             return Json(paginas);
+           
+           
         }
 
         public JsonResult GetPaginasDoSite(string Pagina)

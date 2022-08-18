@@ -143,6 +143,28 @@ $(".backgroundGradiente").click(function () {
     return false;
 });
 
+$(".pastas").change(function () {
+
+    $.ajax({
+        type: 'POST',
+        url: '/AjaxGet/GetImagens',
+        dataType: 'json',
+        data: { PastaImagemId: $(this).val() },
+        success: function (data) {
+            $("#ImagemId").empty();
+            $.each(data, function (i, data) {                
+                $("#ImagemId").append('<option value="'
+                    + data.id + '">'
+                    +  ' Chave: '+ data.id +'</option>');
+            });
+        },
+        error: function (ex) {
+            alert('Falha ao buscar cores.' + ex);
+        }
+    });
+    return false;
+});
+
 
 
 

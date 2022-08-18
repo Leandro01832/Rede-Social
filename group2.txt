@@ -44,7 +44,7 @@ INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) 
 GO
 INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'fbbc7ed2-542d-4cd5-8a5a-4637bc2a4269', N'Create', N'CREATE', N'a1f3310f-4c1e-4964-954e-365266dbd2d5')
 GO
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Name], [Image], [Facebook], [Twitter], [Instagram]) VALUES (N'860839f3-6270-4270-8f2f-f66147461b87', N'leandroleanleo@gmail.com', N'LEANDROLEANLEO@GMAIL.COM', NULL, NULL, 0, N'AQAAAAEAACcQAAAAEIwBvu0ABIT6XRvqSqCgo6TOWEMqI9AM/Lm/yRp0tDvfR4fIu+CZjd+zQSYfvn344A==', N'3KHFWFG3D7WQL7QT6SD5SCY3PCMVNL5L', N'0e3c367d-fd88-45f0-ae1c-b8cc118303c5', NULL, 0, 0, NULL, 1, 0, N'leandro', N'/ImagensUsers/Leandro.jpg', NULL, NULL, NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Name], [Image], [Facebook], [Twitter], [Instagram]) VALUES (N'860839f3-6270-4270-8f2f-f66147461b87', N'leandroleanleo@gmail.com', N'LEANDROLEANLEO@GMAIL.COM', NULL, NULL, 0, N'AQAAAAEAACcQAAAAEIwBvu0ABIT6XRvqSqCgo6TOWEMqI9AM/Lm/yRp0tDvfR4fIu+CZjd+zQSYfvn344A==', N'3KHFWFG3D7WQL7QT6SD5SCY3PCMVNL5L', N'746979c8-0cae-42da-830d-40ddc5b316d9', NULL, 0, 0, NULL, 1, 0, N'leandro', N'/ImagensUsers/Leandro.jpg', NULL, NULL, NULL)
 GO
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'860839f3-6270-4270-8f2f-f66147461b87', N'11e32911-8c63-42f6-b2e0-1cf252c39ff7')
 GO
@@ -629,6 +629,80 @@ INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [Bo
 GO
 INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12096, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 0, N'DivComum', NULL, NULL, NULL, NULL, NULL)
 GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12097, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10032, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12098, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10032, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12099, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10032, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12100, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10032, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12101, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10032, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12102, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10032, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12103, N'bloco', 5, 200, N'auto auto', N'col-md-12', 0, 0, 10032, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12104, N'bloco', 5, 200, N'auto auto', N'col-md-12', 0, 0, 10032, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12105, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10033, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12106, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10033, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12107, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10033, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12108, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10033, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12109, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10033, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12110, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10033, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12111, N'bloco', 5, 200, N'auto auto', N'col-md-12', 0, 0, 10033, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12112, N'bloco', 5, 200, N'auto auto', N'col-md-12', 0, 0, 10033, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12113, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10034, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12114, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10034, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12115, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10034, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12116, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10034, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12117, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10034, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12118, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10034, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12119, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10034, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12120, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10035, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12121, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10035, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12122, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10035, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12123, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10035, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12124, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10035, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12125, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10035, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12126, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10035, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12127, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10036, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12128, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10036, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12129, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10036, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12130, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10036, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12131, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10036, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12132, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10036, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Nome], [Padding], [Height], [Colunas], [Divisao], [BorderRadius], [Ordem], [Pagina_], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12133, N'bloco', 5, 200, N'auto', N'col-md-12', 0, 0, 10036, N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
 SET IDENTITY_INSERT [dbo].[Div] OFF
 GO
 SET IDENTITY_INSERT [dbo].[PastaImagem] ON 
@@ -639,6 +713,8 @@ GO
 INSERT [dbo].[PastaImagem] ([Id], [Nome], [UserId]) VALUES (2, N'Frases', N'860839f3-6270-4270-8f2f-f66147461b87')
 GO
 INSERT [dbo].[PastaImagem] ([Id], [Nome], [UserId]) VALUES (1003, N'Sonhos', N'860839f3-6270-4270-8f2f-f66147461b87')
+GO
+INSERT [dbo].[PastaImagem] ([Id], [Nome], [UserId]) VALUES (1004, N'backgrounds', N'860839f3-6270-4270-8f2f-f66147461b87')
 GO
 SET IDENTITY_INSERT [dbo].[PastaImagem] OFF
 GO
@@ -871,6 +947,36 @@ GO
 INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14029, NULL, N'elemento', 0, 0, NULL, NULL, NULL, NULL, N'Texto', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'<h1> Story seres vivos</h1>', NULL, NULL, NULL, NULL)
 GO
 INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14030, NULL, N'elemento', 0, 0, 14029, NULL, NULL, NULL, N'LinkBody', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'#LinkPadrao')
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14031, NULL, N'Imagem', 0, 10032, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10032Paginabackgrounds/14031-1b96a368fe9531882e76d15d0562ce57.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14032, NULL, N'Imagem', 0, 10032, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10032Paginabackgrounds/14032-8895c7919dbc028eb20888d1970ebde2.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14033, NULL, N'Imagem', 0, 10032, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10032Paginabackgrounds/14033-Forest-in-autumn-red-leaves-trees-fog_1920x1200.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14034, NULL, N'Imagem', 0, 10032, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10032Paginabackgrounds/14034-fundo-de-folhas-verdes-desenhado-a-mao_23-2149133885.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14035, NULL, N'Imagem', 0, 10032, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10032Paginabackgrounds/14035-istockphoto-164399132-170667a.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14036, NULL, N'Imagem', 0, 10032, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10032Paginabackgrounds/14036-padrao-de-cogumelo-desenhado-a-mao_23-2148916189.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14037, NULL, N'Imagem', 0, 10032, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10032Paginabackgrounds/14037-pngtree-painted-cute-mushroom-background-design-backgroundfungusillustration-backgroundhaloplantadvertising-backgroundbackground-image_65719.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14038, NULL, N'Imagem', 0, 10032, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10032Paginabackgrounds/14038-pngtree-summer-green-plant-summer-background-leafhand-painted-green-image_52438.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14039, NULL, N'Imagem', 0, 10032, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10032Paginabackgrounds/14039-red-forest-autumn-red-nature-wallpaper-thumb.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14040, NULL, N'Imagem', 0, 10035, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10035Paginabackgrounds/14040-mar.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14041, NULL, N'Imagem', 0, 10036, NULL, NULL, NULL, NULL, N'Imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'/ImagensGaleria/10036Paginabackgrounds/14041-033CB.jpg', 100, 1004, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14042, 10037, N'elemento', 0, 10037, NULL, NULL, NULL, NULL, N'Texto', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'<p style="text-align: center;"><span style="background-color: #3598db;"><strong>Misticeto</strong><sup id="cite_ref-3" class="reference"></sup>&nbsp;(<em>Mysticeti</em>)<sup id="cite_ref-4" class="reference"></sup>&nbsp;&eacute; um grupo monofil&eacute;tico<sup id="cite_ref-5" class="reference"></sup>&nbsp;que pertence &agrave; ordem&nbsp;<a style="background-color: #3598db;" title="Cet&aacute;ceos" href="https://pt.wikipedia.org/wiki/Cet%C3%A1ceos">Cetacea</a>,<sup id="cite_ref-6" class="reference"></sup>&nbsp;a qual compreende animais terrestres que, ao longo da evolu&ccedil;&atilde;o,&nbsp;retornaram ao ambiente aqu&aacute;tico,<sup id="cite_ref-:0_2-1" class="reference"></sup>&nbsp;tendo esse retorno sido marcado pela mudan&ccedil;a gradual da posi&ccedil;&atilde;o das narinas. Nos primeiros cet&aacute;ceos,<sup id="cite_ref-7" class="reference"></sup>&nbsp;as narinas estavam localizadas pr&oacute;ximas &agrave; extremidade do focinho e, &agrave; medida que esses animais foram se adaptando cada vez ao ambiente aqu&aacute;tico, a sele&ccedil;&atilde;o natural favoreceu os organismos com ossos nasais mais retra&iacute;dos e aberturas nasais mais pr&oacute;ximas ao topo do cr&acirc;nio.<sup id="cite_ref-8" class="reference"></sup></span></p>
+<p style="text-align: center;"><span style="background-color: #3598db;">H&aacute; dois grupos de cet&aacute;ceos viventes: misticetos (cet&aacute;ceos com barbatanas) e&nbsp;<a class="mw-redirect" style="background-color: #3598db;" title="Odontoceti" href="https://pt.wikipedia.org/wiki/Odontoceti">odontocetos</a> (cet&aacute;ceos com dentes),<sup id="cite_ref-9" class="reference"></sup>&nbsp;tendo a diverg&ecirc;ncia entre eles ocorrido, a partir de um ancestral comum&nbsp;<a style="background-color: #3598db;" title="Archaeoceti" href="https://pt.wikipedia.org/wiki/Archaeoceti">arqueoceto</a>&nbsp;h&aacute; cerca de 35 Ma, segundo o registro f&oacute;ssil, e entre 30.5&ndash;35Ma, segundo dados moleculares.<sup id="cite_ref-:0_2-2" class="reference"></sup></span></p>
+<p style="text-align: center;"><span style="background-color: #3598db;">Os misticetos, apesar de serem caracterizados como portadores de barbatanas,<sup id="cite_ref-10" class="reference"></sup>&nbsp;incluem esp&eacute;cies f&oacute;sseis que possu&iacute;am dentes.</span><sup id="cite_ref-:0_2-3" class="reference"></sup></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="background-color: #3598db;"><img src="https://revistapesquisa.fapesp.br/wp-content/uploads/2022/01/SITE_BaleiasJubarte-0-1140.jpg" alt="" width="761" height="428" /></span></p>', NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14043, 10038, N'elemento', 0, 10038, NULL, NULL, NULL, NULL, N'Texto', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'<p style="text-align: center;"><img src="https://www.infoescola.com/wp-content/uploads/2017/07/jubarte-514076104.jpg" alt="" width="826" height="551" /></p>', NULL, NULL, NULL, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Elemento] OFF
 GO
@@ -1426,6 +1532,80 @@ INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], 
 GO
 INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12096, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
 GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12097, 14033, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'center')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12098, 2, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12099, 3, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12100, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12101, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12102, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12103, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12104, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12105, 14038, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'center')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12106, 2, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12107, 3, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12108, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12109, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12110, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12111, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12112, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12113, 14036, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'center')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12114, 2, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12115, 3, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12116, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12117, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12118, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12119, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12120, 14040, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'center')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12121, 2, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12122, 3, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12123, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12124, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12125, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12126, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12127, 14041, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'center')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12128, 2, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12129, 3, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'')
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12130, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12131, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12132, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12133, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
 INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (4, 9)
 GO
 INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (2004, 1015)
@@ -1654,6 +1834,10 @@ INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (14027, 12089)
 GO
 INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (14030, 12096)
 GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (14042, 12133)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (14043, 12126)
+GO
 SET IDENTITY_INSERT [dbo].[Story] ON 
 
 GO
@@ -1784,6 +1968,54 @@ INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (34, 9, N'monocotiledô
 GO
 INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (35, 9, N'Eudicotiledôneas')
 GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (36, 10, N'coniferophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (37, 10, N'cycadophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (38, 10, N'ginkgophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (39, 10, N'gnetophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (40, 11, N'lycopodiophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (41, 11, N'monilophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (42, 12, N'marchantiophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (43, 12, N'bryophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (44, 12, N'anthocerophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (45, 13, N'chrysophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (46, 13, N'dinophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (47, 13, N'euglenophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (48, 13, N'chlorophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (49, 13, N'phaeophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (50, 13, N'rhodophyta')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (51, 13, N'fitoplâncton')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (52, 14, N'crostoso')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (53, 14, N'fruticoso')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (54, 14, N'folioso')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (55, 15, N'quitrídios')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (56, 15, N'zigomicetos')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (57, 15, N'glomeromicetos')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (58, 15, N'ascomicetos')
+GO
+INSERT [dbo].[SubGrupo] ([Id], [GrupoId], [Nome]) VALUES (59, 15, N'basidiomicetos')
+GO
 SET IDENTITY_INSERT [dbo].[SubGrupo] OFF
 GO
 SET IDENTITY_INSERT [dbo].[SubSubGrupo] ON 
@@ -1802,6 +2034,84 @@ GO
 INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (6, 2, N'lampreias')
 GO
 INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (8, 1, N'peixes-bruxa')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (9, 4, N'aranhas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (10, 4, N'escorpiões')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (11, 4, N'carrapatos')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (12, 5, N'quilópodes')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (13, 5, N'diplópodes')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (14, 6, N'caranguejos')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (15, 6, N'lagostas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (16, 6, N'tatuzinho-de-jardim')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (17, 6, N'camarões')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (18, 7, N'besouros')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (19, 7, N'joaninhas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (20, 7, N'abelhas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (21, 7, N'vespas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (22, 7, N'cupins')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (23, 7, N'formigas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (24, 7, N'borboletas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (25, 7, N'mariposas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (26, 7, N'moscas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (27, 7, N'mosquitos')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (28, 7, N'percevejos')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (29, 7, N'cigarras')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (30, 7, N'pulgões')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (31, 7, N'gafanhotos')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (32, 7, N'grilos')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (33, 7, N'libélulas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (34, 7, N'traças-dos-livros')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (35, 34, N'orquídeas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (36, 34, N'lírios')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (37, 34, N'gramas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (38, 34, N'coqueiros')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (39, 34, N'bananeiras')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (40, 35, N'margaridas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (41, 35, N'rosáceas')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (42, 36, N'pinheiros')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (43, 36, N'ciprestes')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (44, 36, N'zimbros')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (45, 36, N'cedros')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (46, 36, N'laríceos')
+GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (47, 36, N'araucárias')
 GO
 SET IDENTITY_INSERT [dbo].[SubSubGrupo] OFF
 GO
@@ -1903,6 +2213,20 @@ GO
 INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10030, CAST(N'2022-04-16 19:45:05.2003809' AS DateTime2), 3, N'Faça', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 0, NULL, NULL, NULL, NULL)
 GO
 INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10031, CAST(N'2022-08-12 10:35:37.3450288' AS DateTime2), 1, N'Link Padrao', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 0, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10032, CAST(N'2022-08-16 18:51:01.4499906' AS DateTime2), 1004, N'layout animais', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10033, CAST(N'2022-08-16 20:28:20.9986564' AS DateTime2), 1004, N'layout plantas', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10034, CAST(N'2022-08-16 23:11:09.1449990' AS DateTime2), 1004, N'layout fungos', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10035, CAST(N'2022-08-17 07:43:16.0842486' AS DateTime2), 1004, N'layout mar', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10036, CAST(N'2022-08-17 10:19:57.3677310' AS DateTime2), 1004, N'layout mar 2', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 1, 1, 3, 1, 5)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10037, CAST(N'2022-08-18 08:06:15.8983907' AS DateTime2), 1004, N'baleias', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 0, 1, 3, 1, 5)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10038, CAST(N'2022-08-18 08:10:55.6335336' AS DateTime2), 1004, N'baleias - foto 2', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 0, 1, 3, 1, 5)
 GO
 SET IDENTITY_INSERT [dbo].[Pagina] OFF
 GO
@@ -2523,6 +2847,104 @@ GO
 INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10031, 12095)
 GO
 INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10031, 12096)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10032, 12097)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10032, 12098)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10032, 12099)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10032, 12100)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10032, 12101)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10032, 12102)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10032, 12104)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10033, 12105)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10033, 12106)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10033, 12107)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10033, 12108)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10033, 12109)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10033, 12110)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10033, 12112)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10034, 12113)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10034, 12114)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10034, 12115)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10034, 12116)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10034, 12117)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10034, 12118)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10034, 12119)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10035, 12120)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10035, 12121)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10035, 12122)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10035, 12123)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10035, 12124)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10035, 12125)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10035, 12126)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10036, 12127)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10036, 12128)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10036, 12129)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10036, 12130)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10036, 12131)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10036, 12132)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10036, 12133)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10037, 12127)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10037, 12128)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10037, 12129)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10037, 12130)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10037, 12131)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10037, 12132)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10037, 12133)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10038, 12120)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10038, 12121)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10038, 12122)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10038, 12123)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10038, 12124)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10038, 12125)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10038, 12126)
 GO
 SET IDENTITY_INSERT [dbo].[Cor] ON 
 

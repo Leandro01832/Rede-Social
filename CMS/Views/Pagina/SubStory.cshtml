@@ -102,7 +102,7 @@
             <a id="message" href="#" class="btn btn-warning">
                 <img src="~/imagem/blue-messager2.png" width="30" alt="messager" />
             </a>
-            <a class="agrupamento" href="#" class="btn btn-danger">
+            <a class="agrupamento" href="#" class="btn btn-primary">
                 Grupo 
             </a>
         </div>
@@ -121,7 +121,7 @@
 
             <div class="DivPagina">
 
-                <h4>Sub-Story @ViewBag.grupoindexsubstory</h4>
+                <h4>Sub-Story @grupo.Nome</h4>
 
             </div>
         </center>
@@ -139,7 +139,9 @@
      <div class="group" style="display:none; position:fixed; bottom:2%; left: 1%; width: 100%; background-color: rgba(239, 243, 11, 0.5); z-index: 2000;">
         
         @{
-                for(int i = 1; i <= grupo.Grupo.Count; i++)
+            if(grupo.Grupo.Where(str => str.Pagina.Count > 0).ToList().Count > 0){
+
+                for(int i = 1; i <= grupo.Grupo.Where(str => str.Pagina.Count > 0).ToList().Count; i++)
                 {
                          <center>
                         <a href="/Grupo/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.grupoindexsubstory/@i/1" class="btn btn-primary" >
@@ -148,6 +150,12 @@
                         </center>
                         <br />                   
                 }
+            }
+            else
+            {
+                <p>Não possui grupos</p>
+
+            }
 
         }
 

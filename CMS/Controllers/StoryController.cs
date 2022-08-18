@@ -36,10 +36,19 @@ namespace CMS.Controllers
         }
 
         // GET: Story
-        public async Task<IActionResult> Index()
+        [Route("Story/Index/{pagina?}")]
+        public async Task<IActionResult> Index(int? pagina)
         {
             var usuario = await UserManager.GetUserAsync(this.User);
-            var stories = await _context.Story.Where(str => str.UserId == usuario.Id).ToListAsync();
+            int numeroPagina = (pagina ?? 1);
+            const int TAMANHO_PAGINA = 5;
+            ViewBag.pagina = numeroPagina;
+
+            var stories = await _context.Story
+            .Where(str => str.UserId == usuario.Id)
+            .Skip((numeroPagina - 1) * TAMANHO_PAGINA)
+            .Take(TAMANHO_PAGINA)
+            .ToListAsync();
             return View(stories);
         }
         

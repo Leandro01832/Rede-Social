@@ -27,15 +27,23 @@ namespace CMS.Controllers
         }
 
         // GET: SubSubGrupo
-        public async Task<IActionResult> Index()
+        [Route("SubSubGrupo/Index/{pagina?}")]
+        public async Task<IActionResult> Index(int? pagina)
         {
             var usuario = await UserManager.GetUserAsync(this.User);
+            int numeroPagina = (pagina ?? 1);
+            const int TAMANHO_PAGINA = 5;
+            ViewBag.pagina = numeroPagina;
+
             var subsubgrupos = await _context.SubSubGrupo
             .Include(s => s.SubGrupo)
             .ThenInclude(s => s.Grupo)
             .ThenInclude(s => s.SubStory)
             .ThenInclude(s => s.Story)
-            .Where(str => str.SubGrupo.Grupo.SubStory.Story.UserId == usuario.Id).ToListAsync();
+            .Where(str => str.SubGrupo.Grupo.SubStory.Story.UserId == usuario.Id)
+            .Skip((numeroPagina - 1) * TAMANHO_PAGINA)
+            .Take(TAMANHO_PAGINA)
+            .ToListAsync();
             return View(subsubgrupos);
         }
 

@@ -68,15 +68,53 @@ namespace CMS.Controllers
         public async Task<JsonResult> GetStory(int Indice, string User)
         {
             List<Story> stories = await RetornarStories(User);
+            string[] result = new string[2];
 
             try
             {
                 var story = stories[Indice + 1];
-                return Json(story.PaginaPadraoLink);
+                bool subsubgroup = false;
+                bool subgroup = false;
+                bool grupo = false;
+                bool substory = false;
+
+                foreach (var item in story.SubStory.Where(str => str.Pagina.Count > 0).ToList())
+                {
+                    substory = true;
+                    foreach (var item2 in item.Grupo.Where(str => str.Pagina.Count > 0).ToList())
+                    {
+                        grupo = true;
+                        foreach (var item3 in item2.SubGrupo.Where(str => str.Pagina.Count > 0).ToList())
+                        {
+                            subgroup = true;
+                            foreach (var item4 in item3.SubSubGrupo.Where(str => str.Pagina.Count > 0).ToList())
+                            {
+                                subsubgroup = true;
+                                break;
+                            }
+                            if(subsubgroup) break;
+                        }
+                        if(subsubgroup) break;
+                    }
+                    if(subsubgroup) break;
+                }
+
+                result[1] = story.PaginaPadraoLink.ToString();
+
+                if(substory) result[0] = "SubStory";
+                if(grupo) result[0] = "Grupo";
+                if(subgroup) result[0] = "SubGrupo";
+                if(subsubgroup) result[0] = "SubSubGrupo";
+                if(!subsubgroup && !subgroup && !grupo && !substory)
+                    result[0] = "Story";               
+
+                return Json(result);
             }
             catch (Exception)
             {
-                return Json(stories[1].PaginaPadraoLink);
+                result[0] = "Story";  
+                result[1] = "1"; 
+                return Json(result);
             }
         }
 
@@ -89,8 +127,8 @@ namespace CMS.Controllers
             try
             {
                 var story = stories[Indice];
-                var substory = story.SubStory[IndiceSubStory + 1];
-                return Json(IndiceSubStory + 1);
+                var substory = story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubStory];
+                return Json(IndiceSubStory);
             }
             catch (Exception)
             {
@@ -105,9 +143,9 @@ namespace CMS.Controllers
             try
             {
                 var story = stories[Indice];
-                var substory = story.SubStory[IndiceSubStory ];
-                var grupo = substory.Grupo[IndiceGrupo + 1];
-                return Json(IndiceGrupo + 1);
+                var substory = story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubStory - 1];
+                var grupo = substory.Grupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceGrupo];
+                return Json(IndiceGrupo);
             }
             catch (Exception)
             {
@@ -123,10 +161,10 @@ namespace CMS.Controllers
             try
             {
                 var story = stories[Indice];
-                var substory = story.SubStory[IndiceSubStory ];
-                var grupo = substory.Grupo[IndiceGrupo];
-                var subgrupo = grupo.SubGrupo[IndiceSubGrupo + 1];
-                return Json(IndiceSubGrupo + 1);
+                var substory = story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubStory - 1];
+                var grupo = substory.Grupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceGrupo - 1];
+                var subgrupo = grupo.SubGrupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubGrupo];
+                return Json(IndiceSubGrupo);
             }
             catch (Exception)
             {
@@ -141,12 +179,12 @@ namespace CMS.Controllers
 
             try
             {
-                var story = stories[Indice ];
-                var substory = story.SubStory[IndiceSubStory ];
-                var grupo = substory.Grupo[IndiceGrupo ];
-                var subgrupo = grupo.SubGrupo[IndiceSubGrupo ];
-                var subsubgrupo = subgrupo.SubSubGrupo[IndiceSubSubGrupo + 1];
-                return Json(IndiceSubSubGrupo + 1);
+                var story = stories[Indice];
+                var substory = story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubStory - 1];
+                var grupo = substory.Grupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceGrupo - 1];
+                var subgrupo = grupo.SubGrupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubGrupo - 1];
+                var subsubgrupo = subgrupo.SubSubGrupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubSubGrupo];
+                return Json(IndiceSubSubGrupo);
             }
             catch (Exception)
             {
@@ -192,6 +230,13 @@ namespace CMS.Controllers
                 pastas = db.PastaImagem.Where(b => b.UserId == page.UserId);
             else
                 pastas = db.PastaImagem.Where(b => b.UserId == "");
+
+            return Json(pastas);
+        }
+
+        public JsonResult GetImagens(Int64 PastaImagemId)
+        {
+              var  pastas = db.Imagem.Where(b => b.PastaImagemId == PastaImagemId);
 
             return Json(pastas);
         }

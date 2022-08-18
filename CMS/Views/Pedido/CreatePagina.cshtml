@@ -16,6 +16,7 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+
     <div class="form-group">
         @Html.LabelFor(model => model.Titulo, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -25,6 +26,7 @@
     </div>
 
     <div class="form-group">
+        <input type="hidden" value="@ViewBag.UserId" id="IdentificacaoUser">
         <input type="hidden" asp-for="UserId" value="@ViewBag.UserId" />
     </div>
 
@@ -80,8 +82,7 @@
     @Html.ActionLink("Voltar para a lista", "Index")
 </div>
 
-<div>
-    <script type="text/javascript" src="~/js/AjaxGet.js"></script>
-</div>
-
-
+@section scripts{
+  
+    <script type="text/javascript" src="~/js/AjaxGetGroup.js"></script>
+}

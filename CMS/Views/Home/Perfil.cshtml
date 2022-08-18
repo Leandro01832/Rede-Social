@@ -43,9 +43,9 @@
         <input type="number" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
                placeholder="N° do capítulo. Ex: 2, 3, 4, 5, ..." max="@ViewBag.quantidade" />
         <center>
-            <a id="acessoPaginaComInput" href="#" target="_blank" class="btn btn-primary glyphicon glyphicon-search">
+            <button id="acessoPaginaComInput"  class="btn btn-primary glyphicon glyphicon-search">
                 Acessar
-            </a>
+            </button>
         </center>
     </div>
 
@@ -173,8 +173,32 @@
 </div>
 
 @section Scripts {
-<script>
+<script type="text/javascript">
         $(document).ready(function () {
+
+
+            function BuscarStory(valorPaginaPadraoLink) {
+        $.ajax({
+            type: 'POST',
+            url: '/AjaxGet/GetStory',
+            dataType: 'json',
+            data: { Indice: valorPaginaPadraoLink, User: "@Model.Name" }
+        })
+            .done(function(response) {
+
+                if(response[0] == "Story")
+                window.location.href = "/Renderizar/"+ "@Model.Name"  +  "/"  +  response[1] +  "/1";
+                else if(response[0] == "SubStory")
+                window.location.href = "/SubStory/"+ "@Model.Name"    +  "/"  +  response[1] +  "/1/1";
+                else if(response[0] == "Grupo")
+                window.location.href = "/Grupo/"+ "@Model.Name"       +  "/"  +  response[1] +  "/1/1/1";
+                else if(response[0] == "SubGrupo")
+                window.location.href = "/SubGrupo/"+ "@Model.Name"    +  "/"  +  response[1] +  "/1/1/1/1";
+                else if(response[0] == "SubSubGrupo")
+                window.location.href = "/SubSubGrupo/"+ "@Model.Name" +  "/"  +  response[1] +  "/1/1/1/1/1";
+            });
+            return false;
+    }
 
              function refreshData() 
              {
@@ -189,9 +213,22 @@
                     });
              }
 
-            $("#NumeroPaginaAcesso").change(function () {
-                document.getElementById('acessoPaginaComInput').href = '/Renderizar/@Model.Name/0/';
-                document.getElementById("acessoPaginaComInput").href +=  $(this).val();
+           // $("#NumeroPaginaAcesso").change(function () {
+               // document.getElementById('acessoPaginaComInput').href = '/Renderizar/@Model.Name/0/';
+               // document.getElementById("acessoPaginaComInput").href +=  $(this).val();
+
+          //  });
+
+            $("#acessoPaginaComInput").click(function(){
+
+                if($("#NumeroPaginaAcesso").val() != "")
+                {
+                    var num =  parseInt($("#NumeroPaginaAcesso").val());
+                    BuscarStory(num - 1);
+                }
+                else
+                alert("Informe o numero do capitulo!!!");
+
             });
 
             setTimeout(function () { refreshData(); }, 300000);

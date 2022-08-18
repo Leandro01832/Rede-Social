@@ -240,7 +240,8 @@ namespace CMS.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreatePagina(string Titulo, string UserId, Int64 StoryId, string Conteudo, Int64 Layout)
+        public async Task<IActionResult> CreatePagina(string Titulo, string UserId, Int64 StoryId, Int64 SubStoryId,
+         Int64 GrupoId, Int64 SubGrupoId, Int64 SubSubGrupoId, string Conteudo, Int64 Layout)
         {
             var user = await UserManager.GetUserAsync(this.User);            
             
@@ -261,7 +262,11 @@ namespace CMS.Controllers
                     Titulo = Titulo,
                     Layout = false,
                     UserId = UserId,
-                    StoryId = StoryId
+                    StoryId = StoryId,
+                    SubStoryId = SubStoryId,
+                    GrupoId = GrupoId,
+                    SubGrupoId = SubGrupoId,
+                    SubSubGrupoId = SubSubGrupoId
                 };
 
                 pagina.Div = new List<DivPagina>();

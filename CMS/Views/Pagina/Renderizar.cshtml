@@ -119,9 +119,9 @@
                class="btn btn-primary loader glyphicon glyphicon-chevron-right">
             </a>
             <a id="message" href="#" class="btn btn-warning">
-                <img src="~/imagem/blue-messager2.png" width="30" alt="messager" />
+                <img src="~/imagem/blue-messager2.png" width="30" alt="mensagem" />
             </a>
-            <a class="agrupamento" href="#" class="btn btn-danger">
+            <a class="agrupamento" href="#" class="btn btn-primary">
                 sub-story
             </a>
         </div>
@@ -186,13 +186,19 @@
      <div class="group" style="display:none; position:fixed; bottom:2%; left: 1%; width: 100%; background-color: rgba(239, 243, 11, 0.5); z-index: 2000;">
         
         @{
-                for(int i = 1; i <= Model.Story.SubStory.Count; i++)
+            if(Model.Story.SubStory.Where(str => str.Pagina.Count > 0).ToList().Count > 0){
+                for(int i = 1; i <= Model.Story.SubStory.Where(str => str.Pagina.Count > 0).ToList().Count; i++)
                 {
                     <center>
                         <a href="/SubStory/@ViewBag.user/@Model.Story.PaginaPadraoLink/@i/1" > Sub-Story @i - @Model.Story.SubStory[i - 1].Nome </a>
                     </center>
                     <br />
                 }
+
+            }
+            else{
+                <p>não possui sub-story</p>
+            }
 
         }
 

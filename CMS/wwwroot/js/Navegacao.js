@@ -71,7 +71,17 @@ $(document).ready(function() {
         })
             .done(function(response) {
                 $.cookie('automatico', '1');
-                window.location.href = "/Renderizar/"+ valorUser +"/" + response + "/1";
+
+                if(response[0] == "Story")
+                window.location.href = "/Renderizar/"+ valorUser +"/" + response[1] +  "/1";
+                else if(response[0] == "SubStory")
+                window.location.href = "/SubStory/"+ valorUser +"/" + response[1] +    "/1/1";
+                else if(response[0] == "Grupo")
+                window.location.href = "/Grupo/"+ valorUser +"/" + response[1] +       "/1/1/1";
+                else if(response[0] == "SubGrupo")
+                window.location.href = "/SubGrupo/"+ valorUser +"/" + response[1] +    "/1/1/1/1";
+                else if(response[0] == "SubSubGrupo")
+                window.location.href = "/SubSubGrupo/"+ valorUser +"/" + response[1] + "/1/1/1/1/1";
             });
     }
 

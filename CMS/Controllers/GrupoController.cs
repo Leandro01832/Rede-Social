@@ -27,13 +27,21 @@ namespace CMS.Controllers
         }
 
         // GET: Grupo
-        public async Task<IActionResult> Index()
+        [Route("Grupo/Index/{pagina?}")]
+        public async Task<IActionResult> Index(int? pagina)
         {
             var usuario = await UserManager.GetUserAsync(this.User);
+            int numeroPagina = (pagina ?? 1);
+            const int TAMANHO_PAGINA = 5;
+            ViewBag.pagina = numeroPagina;
+
             var grupos = await _context.Grupo
             .Include(s => s.SubStory)
             .ThenInclude(s => s.Story)
-            .Where(str => str.SubStory.Story.UserId == usuario.Id).ToListAsync();
+            .Where(str => str.SubStory.Story.UserId == usuario.Id)
+            .Skip((numeroPagina - 1) * TAMANHO_PAGINA)
+            .Take(TAMANHO_PAGINA)
+            .ToListAsync();
             return View(grupos);
         }
 

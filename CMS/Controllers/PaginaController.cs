@@ -107,12 +107,12 @@ namespace MeuProjetoAgora.Controllers
             List<Pagina> lista = await RetornarLista(Name, "", capitulo);
             Pagina pag = lista.First();
 
-            var group = pag.Story.SubStory.Skip((int)substory - 1).First(); 
-            Pagina pag2 = group.Pagina.Skip((int)indice - 1).First();
+            var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
+            Pagina pag2 = group.Pagina.Skip((int)indice - 1).First(p => ! p.Layout);
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
-             int vers = lista.IndexOf(pagina);          
+             int vers = lista.IndexOf(pagina) + 1;          
 
-                ViewBag.quantidadePaginas = group.Pagina.Count();
+                ViewBag.quantidadePaginas = group.Pagina.Count(p => ! p.Layout);
                 ViewBag.group = group;
                 ViewBag.versiculo = vers;
                 ViewBag.grupoindexsubstory = substory;
@@ -129,13 +129,13 @@ namespace MeuProjetoAgora.Controllers
             List<Pagina> lista = await RetornarLista(Name, "", capitulo);
             Pagina pag = lista.First();
 
-            var group = pag.Story.SubStory.Skip((int)substory - 1).First(); 
-             var group2 = group.Grupo.Skip((int)grupo - 1).First(); 
-            Pagina pag2 = group2.Pagina.Skip((int)indice - 1).First();
+            var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
+             var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
+            Pagina pag2 = group2.Pagina.Skip((int)indice - 1).First(p => ! p.Layout);
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
-             int vers = lista.IndexOf(pagina);          
+             int vers = lista.IndexOf(pagina) + 1;          
             
-                ViewBag.quantidadePaginas = group2.Pagina.Count();
+                ViewBag.quantidadePaginas = group2.Pagina.Count(p => ! p.Layout);
                 ViewBag.group = group2;
                  ViewBag.versiculo = vers;
                  ViewBag.grupoindexsubstory = substory;
@@ -153,14 +153,14 @@ namespace MeuProjetoAgora.Controllers
             List<Pagina> lista = await RetornarLista(Name, "", capitulo);
             Pagina pag = lista.First();
 
-            var group = pag.Story.SubStory.Skip((int)substory - 1).First(); 
-             var group2 = group.Grupo.Skip((int)grupo - 1).First(); 
-             var group3 = group2.SubGrupo.Skip((int)subgrupo - 1).First(); 
-            Pagina pag2 = group3.Pagina.Skip((int)indice - 1).First();
+            var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
+             var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
+             var group3 = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
+            Pagina pag2 = group3.Pagina.Skip((int)indice - 1).First(p => ! p.Layout);
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
-             int vers = lista.IndexOf(pagina);                       
+             int vers = lista.IndexOf(pagina) + 1;                       
             
-                ViewBag.quantidadePaginas = group3.Pagina.Count();
+                ViewBag.quantidadePaginas = group3.Pagina.Count(p => ! p.Layout);
                 ViewBag.group = group3;
                 ViewBag.versiculo = vers;
                 ViewBag.grupoindexsubstory = substory;
@@ -173,21 +173,21 @@ namespace MeuProjetoAgora.Controllers
                 return View(pagina);            
         }
 
-         [Route("SubSubGrupo/{Name}/{capitulo?}/{substory}/{grupo}/{subgrupo}/subsubgrupo/{indice}")]
+         [Route("SubSubGrupo/{Name}/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{indice}")]
          public async Task<IActionResult> SubSubGrupo(string Name, int indice, int? capitulo, int substory, int grupo, int subgrupo, int subsubgrupo)
         {
             List<Pagina> lista = await RetornarLista(Name, "", capitulo);
             Pagina pag = lista.First();
 
-            var group = pag.Story.SubStory.Skip((int)substory - 1).First(); 
-             var group2 = group.Grupo.Skip((int)grupo - 1).First(); 
-             var group3 = group2.SubGrupo.Skip((int)subgrupo - 1).First(); 
-              var group4 = group3.SubSubGrupo.Skip((int)subsubgrupo - 1).First(); 
-            Pagina pag2 = group4.Pagina.Skip((int)indice - 1).First();
+            var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
+             var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
+             var group3 = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
+              var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
+            Pagina pag2 = group4.Pagina.Skip((int)indice - 1).First(p => ! p.Layout);
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
-             int vers = lista.IndexOf(pagina);                    
+             int vers = lista.IndexOf(pagina) + 1;                    
             
-                ViewBag.quantidadePaginas = group4.Pagina.Count();
+                ViewBag.quantidadePaginas = group4.Pagina.Count(p => ! p.Layout);
                 ViewBag.group = group4;
                 ViewBag.versiculo = vers;
                 ViewBag.grupoindexsubstory = substory;
@@ -218,7 +218,7 @@ namespace MeuProjetoAgora.Controllers
                 {
                     if (item == null || item.FirstOrDefault(i => i.UserId == user.Id) == null)
                         continue;
-                    lista.AddRange(item.Where(p => p.Story.Nome == story && p.Story.UserId == user.Id).ToList());
+                    lista.AddRange(item.Where(p => p.Story.Nome == story && p.Story.UserId == user.Id && !p.Layout).ToList());
                 }
 
             else
@@ -226,7 +226,7 @@ namespace MeuProjetoAgora.Controllers
                 {
                     if (item == null || item.FirstOrDefault(i => i.UserId == user.Id) == null)
                         continue;
-                    lista.AddRange(item.Where(p => p.Story.PaginaPadraoLink == capitulo && p.Story.UserId == user.Id).ToList());
+                    lista.AddRange(item.Where(p => p.Story.PaginaPadraoLink == capitulo && p.Story.UserId == user.Id && !p.Layout).ToList());
                 }
 
             return lista;
@@ -250,6 +250,8 @@ namespace MeuProjetoAgora.Controllers
             {
                 ViewBag.IdPagina = id;
                 ViewBag.IdSite = pagina.UserId;
+                var usuario = await UserManager.GetUserAsync(this.User);
+                ViewBag.IdentificacaoUser = usuario.Id;
                 HttpHelper.SetPaginaId(pagina.Id);
                 string html = await epositoryPagina.renderizarPagina(pagina);
                 ViewBag.Html = html;
@@ -290,11 +292,7 @@ namespace MeuProjetoAgora.Controllers
             return Content("Salvo com sucesso");
         }
 
-        public async Task<List<Pagina>> BuscarPaginas(string userId)
-        {
-            var lista = await epositoryPagina.MostrarPageModels(userId);
-            return lista.ToList();
-        }
+        
 
         public string RemoveAccents(string text)
         {
@@ -346,7 +344,7 @@ namespace MeuProjetoAgora.Controllers
                 try
                 {
                     db.Update(pagina);
-                    await db.SaveChangesAsync();
+                    await db.SaveChangesAsync();                    
 
                     var Pagina = await db.Pagina
                         .Include(p => p.Div)

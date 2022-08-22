@@ -55,8 +55,9 @@ else{
 $("select").change(function () {          
 
     if($(this)[0].id == "StoryId" && ! $("#StoryId")[0].baseURI.includes('/Pedido/CreatePagina') &&
-   ! $(this)[0].id == "StoryId" && $("#StoryId")[0].baseURI.includes('/Editar/'))
+    $(this)[0].id == "StoryId" && ! $("#StoryId")[0].baseURI.includes('/Editar/'))
     {
+        
          $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -77,7 +78,7 @@ $("select").change(function () {
     }
 
     if($(this)[0].id == "SubStoryId" && ! $("#StoryId")[0].baseURI.includes('/Pedido/CreatePagina') &&
-   ! $(this)[0].id == "SubStoryId" && $("#StoryId")[0].baseURI.includes('/Editar/'))
+    $(this)[0].id == "SubStoryId" && ! $("#StoryId")[0].baseURI.includes('/Editar/'))
     {
          $.ajax({
         type: 'POST',
@@ -99,7 +100,7 @@ $("select").change(function () {
     }
 
     if($(this)[0].id == "GrupoId" && ! $("#StoryId")[0].baseURI.includes('/Pedido/CreatePagina') &&
-    ! $(this)[0].id == "GrupoId" && $("#StoryId")[0].baseURI.includes('/Editar/'))
+     $(this)[0].id == "GrupoId" && ! $("#StoryId")[0].baseURI.includes('/Editar/'))
     {
          $.ajax({
         type: 'POST',
@@ -121,7 +122,7 @@ $("select").change(function () {
     }
 
      if($(this)[0].id == "SubGrupoId" && ! $("#StoryId")[0].baseURI.includes('/Pedido/CreatePagina') &&
-     ! $(this)[0].id == "SubGrupoId" && $("#StoryId")[0].baseURI.includes('/Editar/'))
+      $(this)[0].id == "SubGrupoId" && ! $("#StoryId")[0].baseURI.includes('/Editar/'))
     {
          $.ajax({
         type: 'POST',

@@ -1,0 +1,219 @@
+﻿@model business.business.Pagina
+
+@{
+    Layout = "~/Views/Shared/_Render.cshtml";
+    var proximo = ViewBag.proximo;   
+    var anterior = proximo - 2;
+    var atual = proximo - 1;
+    var quant = ViewBag.quantidadePaginas;
+    ViewData["NomeStory"] = Model.Titulo;
+    ViewBag.Title = Model.Titulo;
+    string valor = ViewBag.html;
+}
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+
+<style media="screen and (max-width: 550px)">
+    .carousel-control {
+        display: block !important;
+        z-index: 40 !important;
+    }
+
+    #Livro
+     {
+        font-size: 1.5rem !important;
+    }
+
+    #record {
+        font-size: 1rem !important;
+    }
+
+    .indices {
+        font-size: 1rem !important;
+    }
+
+     .DivPag {
+        width: 14px !important;
+    }
+
+    #voltar {
+        display: none !important;
+    }
+
+    #avancar {
+        display: none !important;
+    }
+
+    .content {
+            width: 100%;
+        }
+   
+</style>
+
+
+
+
+    <input type="hidden" value="@Model.Id" id="IdentificacaoPagina" />
+    <input type="hidden" value="@ViewBag.user" id="ValorUser" />
+    <input type="hidden" value="@atual" id="ValorAtual" />
+    <input type="hidden" value="@quant" id="ValorQuant" />
+    <input type="hidden" value="@proximo" id="ValorProximo" />
+    <input type="hidden" value="@anterior" id="ValorAnterior" />
+    <input type="hidden" value="@Model.Story.PaginaPadraoLink" id="ValorPaginaPadraoLink" />
+    <input type="hidden" value="@Model.Story.Nome" id="ValorStoryNome" />   
+
+    <link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
+    <a class="left carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(Model.Story.PaginaPadraoLink)/@(anterior)" style="display:none;">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+
+    <a class="right carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(Model.Story.PaginaPadraoLink)/@(proximo)" style="display:none;">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+
+    <div style="position:fixed; top:5px; width:100%;" class="blocoLoader">
+        <div class="col-xs-4">
+            @{
+
+                if (Model.Story.PaginaPadraoLink != 0)
+                {
+                    <span style="background-color:white;">Story: @Model.Story.Nome</span>
+                    <br />
+                    <span style="font-size: 12px; background-color: white;">
+                        <a href="/Renderizar/@ViewBag.user/0/@Model.Story.PaginaPadraoLink" class="btn btn-primary">
+                            Capítulo @Model.Story.PaginaPadraoLink
+                        </a>
+                    </span>
+                }
+                else
+                {
+                    <span style="background-color:white;">Capítulos</span>
+                }
+            }
+        </div>
+
+        <div class="right col-xs-8" id="Pesquisa">
+            @{
+                if (Model.Story.PaginaPadraoLink == 0)
+                {
+                    <span style="background-color:white;">Cap.</span>
+                }
+                else
+                {
+                    <span style="background-color:white;">Vers.</span>
+                }
+            }
+            <input type="number" placeholder="N° pagina"
+                   id="NumeroPaginaAcesso2" value="@atual" style="width: 60px;" />
+            <a id="acessoPaginaComInput2" href="#"
+               class="btn btn-primary glyphicon glyphicon-search loader">
+            </a>
+            <a href="/" class="glyphicon glyphicon-home" style="left: 3%;"></a>
+            <br />
+            <a id="voltar" href="#"
+               class="btn btn-primary loader glyphicon glyphicon-chevron-left">
+            </a>
+            <a id="avancar" href="#"
+               class="btn btn-primary loader glyphicon glyphicon-chevron-right">
+            </a>
+            <a id="message" href="#" class="btn btn-warning">
+                <img src="~/imagem/blue-messager2.png" width="30" alt="mensagem" />
+            </a>
+            <a href="#" class="btn btn-primary agrupamento">
+                sub-story
+            </a>
+        </div>
+
+    </div>
+
+    @Html.Raw(ViewBag.Html)
+
+    <div style="position:fixed; bottom:4%; left: 1%; width: 100%; overflow-x:auto;" class="Paginacao">
+
+        <center>
+            <a href="/Perfil/@ViewBag.user"  style="font-size:1.5rem; background-color:white; opacity: 0.80;">
+               <span class="text-primary" style="font-size: 2.5rem;" id="Livro" >Livro: @ViewBag.user</span> 
+            </a>
+            <h3 style="background-color:darkgray; opacity: 0.80;">@Html.CheckBox("automatico") Automático </h3>
+
+            <div class="DivPagina">
+
+                @{
+                    if (quant <= 60)
+                    {
+
+                        for (var indice = 1; indice <= quant; indice++)
+                        {
+                            <div class="DivPag"
+                             style="width:22px; display:inline-grid; margin: 0px, 6px, 0px, 6px; background-color:darkgray; opacity: 0.80;"
+                             id="DivPagina@(indice)">
+
+                                <span style="font-size: 2rem;" class="indices"><b>@indice</b> </span>
+                                <span class="glyphicon glyphicon-minus"
+                              style="font-size: 2rem;" id="record" ></span>
+
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        if (Model.Story.Nome == "Padrao")
+                        {
+                            <p style="background-color:darkgray; opacity: 0.80;">Capitulo @atual de @quant</p>
+                        }
+                        else
+                        {
+                            <p style="background-color:darkgray; opacity: 0.80;">Versiculo @atual de @quant</p>
+                        }
+                    }
+                }
+
+            </div>
+        </center>
+
+    </div>
+
+    <div class="container1" style="display:none; position:fixed; bottom:2%; left: 1%; width: 100%; background-color: rgba(239, 243, 11, 0.5); z-index: 2000;">
+        <a class="btn btn-primary" href="#" id="fecharChat" > <span class="glyphicon glyphicon-remove-circle"></span> Fechar</a>
+    <input type="text" id="menssagemChat" placeholder="digite a mensagem aqui." />
+    <input type="button" id="sendmessage" value="Enviar mensagem" />
+    <input type="hidden" id="displayname" />
+    <ul id="discussion"></ul>
+    </div>
+
+     <div class="group" style="display:none; position:fixed; bottom:2%; left: 1%; width: 100%; background-color: rgba(239, 243, 11, 0.5); z-index: 2000;">
+        
+        @{
+            if( Model.Story.SubStory != null && Model.Story.SubStory.Where(str => str.Pagina.Count > 0).ToList().Count > 0){
+                for(int i = 1; i <= Model.Story.SubStory.Where(str => str.Pagina.Count > 0).ToList().Count; i++)
+                {
+                    <center>
+                        <a href="/SubStory/@ViewBag.user/@Model.Story.PaginaPadraoLink/@i/1" >
+                         Sub-Story @i - @Model.Story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[i - 1].Nome
+                          </a>
+                    </center>
+                    <br />
+                }
+
+            }
+            else{
+               <center> <p>não possui sub-story</p> </center>
+            }
+
+        }
+
+    </div>
+
+    <div id="loading" style="display:none; z-index:50;"><img src="~/imagem/loader.gif" /></div>
+
+@section scripts{
+  
+    <script src="~/lib/jquery/dist/jquery.cookie.js"></script>
+    <script src="~/lib/aspnet-signalr/signalr.min.js"></script>
+    <script type="text/javascript" src="~/js/Chat-Renderizar.js"></script>
+    <script src="~/js/loader.js"></script>
+    <script type="text/javascript" src="~/js/Navegacao.js"> </script>    
+
+}

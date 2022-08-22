@@ -68,22 +68,7 @@ namespace CMS.Controllers
             {
                 user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == Name);
                 UserHelper.Users.Add(user);
-            }
-
-          //  if (RepositoryPagina.paginas.FirstOrDefault(p => p.UserId == user.Id) == null)
-          //  {
-          //      RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
-          //      var lst = await epositoryPagina.MostrarPageModels(user.Id);
-          //      var quant = lst.Where(l => !l.Layout && !l.LayoutModelo).ToList().Count;
-          //      RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
-
-               // if (RepositoryPagina.paginas.Where(p => p.UserId == user.Id &&
-               // !p.Layout && !p.LayoutModelo).ToList().Count != quant)
-               // {
-               //     RepositoryPagina.paginas.RemoveAll(p => p.UserId == user.Id);
-               //     RepositoryPagina.paginas.AddRange(lst.Where(l => !l.Layout && !l.LayoutModelo).ToList());
-               // }
-          //  }
+            }          
 
             user.Seguidores = await _context.Seguidor.Where(u => u.User == user.Id).ToListAsync();
             user.Seguindo = await _context.Seguindo.Where(u => u.User == user.Id).ToListAsync();
@@ -306,14 +291,14 @@ namespace CMS.Controllers
                             }
                         };
                 }
-                await _context.AddAsync(pagina);
-                await _context.SaveChangesAsync();
+                 _context.Add(pagina);
+                 _context.SaveChanges();
 
                 pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento.PaginaEscolhida = pagina.Id;
                 pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento.Pagina_ = pagina.Id;
 
                 _context.Elemento.Update(pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
 
                 for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
                     {

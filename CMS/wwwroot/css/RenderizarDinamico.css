@@ -50,6 +50,13 @@
     overflow: scroll;
 }
 
+.group {
+    background-color: rgba(133, 207, 231, 0.5);    
+    width: 380px;
+    height: 255px;
+    overflow: scroll;
+}
+
 /*///////////////////////////////////////////////////////////(Codigo Renderizar)/////////////////////////////////////////////////////////////////////*/
 
 input[type=checkbox] {

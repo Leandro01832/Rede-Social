@@ -10,21 +10,14 @@ $(document).ready(function() {
     var valorProximo = parseInt($("#ValorProximo").val());
     var valorAnterior = parseInt($("#ValorAnterior").val());
     var valorPaginaPadraoLink = parseInt($("#ValorPaginaPadraoLink").val());
-    var valorStoryNome = $("#ValorStoryNome").val();
-
-    
+    var valorStoryNome = $("#ValorStoryNome").val();    
 
     var links = $(".LinksPagina");
 
     if (valorStoryNome != "Padrao")
         $("#NumeroPaginaAcesso2").attr('placeholder', 'Nº versiculo');
 
-
-
-
     $("#DivPagina" + valorAtual).addClass('minhaClasse3');
-
-
 
     $("#voltar").click(function() {
         window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + valorAnterior;
@@ -69,17 +62,17 @@ $(document).ready(function() {
     function BuscarStory() {
         $.ajax({
             type: 'POST',
-            url: '/AjaxGet/GetGrupo',
+            url: '/AjaxGet/GetSubGrupo',
             dataType: 'json',
             data: { Indice: valorPaginaPadraoLink, User: valorUser, IndiceSubStory : indexSubStory, IndiceGrupo : indexGrupo, IndiceSubGrupo : indexSubGrupo }
         })
             .done(function(response) {
                 $.cookie('automatico', '1');
 
-                if(response != "")
-                window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink  + "/" + indexSubStory + "/" + indexGrupo + "/" + response + "/1";
+                if(response[0] != 0)
+                window.location.href = "/SubGrupo/"+ valorUser +"/" + response[0]  + "/" + response[1] + "/" + response[2] + "/" + response[3] + "/1";
                 else
-                window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/1";
+                window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + 1 + "/" + 1 + "/1";
             });
     }
 

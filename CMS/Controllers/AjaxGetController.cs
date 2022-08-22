@@ -65,9 +65,9 @@ namespace CMS.Controllers
             return Json("");
         }
 
-        public async Task<JsonResult> GetStory(int Indice, string User)
+        public JsonResult GetStory(int Indice, string User)
         {
-            List<Story> stories = await RetornarStories(User);
+            List<Story> stories =  RetornarStories(User);
             string[] result = new string[2];
 
             try
@@ -120,76 +120,174 @@ namespace CMS.Controllers
 
        
 
-        public async Task<JsonResult> GetSubStory(int Indice, string User, int IndiceSubStory)
+        public JsonResult GetSubStory(int Indice, string User, int IndiceSubStory)
         {
-           var stories = await RetornarStories(User);
-
-            try
-            {
+                var stories =  RetornarStories(User);
+            
+                long num = long.Parse($"{Indice}{IndiceSubStory}");
+                bool condicao = false;
+                int[] result = new int[2];
                 var story = stories[Indice];
-                var substory = story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubStory];
-                return Json(IndiceSubStory);
-            }
-            catch (Exception)
-            {
-                return Json("");
-            }            
+
+                foreach (var item in story.SubStory.Where(str => str.Pagina.Count > 0).ToList())
+                {
+                    var var1 = story.SubStory.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item) + 1;
+                    long num2 = long.Parse($"{Indice}{var1}");
+                    if(num2 > num){
+                        condicao = true;
+                        result[0] = Indice;                    
+                        result[1] = var1;                    
+                        break;
+                    }
+                }
+
+                if(condicao)
+                return Json(result);
+                else
+                {
+                    result[0] = 0;
+                    result[1] = 0;
+                    return Json(result);     
+                }
+                       
         }
 
-        public async Task<JsonResult> GetGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo)
+        public JsonResult GetGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo)
         {            
-             var stories = await RetornarStories(User);
-
-            try
-            {
+             var stories =  RetornarStories(User);
+            
+                long num = long.Parse($"{Indice}{IndiceSubStory}{IndiceGrupo}");
+                bool condicao = false;
+                int[] result = new int[3];
                 var story = stories[Indice];
-                var substory = story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubStory - 1];
-                var grupo = substory.Grupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceGrupo];
-                return Json(IndiceGrupo);
-            }
-            catch (Exception)
-            {
-                return Json("");
-            }            
+
+                foreach (var item in story.SubStory.Where(str => str.Pagina.Count > 0).ToList())
+                {
+                    if(item.Grupo.FirstOrDefault() == null) continue;
+                    foreach (var item2 in item.Grupo.Where(str => str.Pagina.Count > 0).ToList())
+                    {
+                        var var1 = story.SubStory.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item) + 1;
+                        var var2 = item.Grupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item2) + 1;
+                        long num2 = long.Parse($"{Indice}{var1}{var2}");
+                        if(num2 > num){
+                            condicao = true;
+                            result[0] = Indice;                    
+                            result[1] = var1;                    
+                            result[2] = var2;                    
+                            break;
+                        }
+                    }
+                    if(condicao) break;
+                }
+
+                if(condicao)
+                return Json(result);
+                else
+                {
+                    result[0] = 0;
+                    result[1] = 0;
+                    result[2] = 0;
+                    return Json(result);     
+                }          
         }
 
-        public async Task<JsonResult> GetSubGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo)
-        {
-            
-             var stories = await RetornarStories(User);
-
-            try
-            {
+        public JsonResult GetSubGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo)
+        {            
+             var stories =  RetornarStories(User);
+            long num = long.Parse($"{Indice}{IndiceSubStory}{IndiceGrupo}{IndiceSubGrupo}");
+            bool condicao = false;
+                int[] result = new int[4];
                 var story = stories[Indice];
-                var substory = story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubStory - 1];
-                var grupo = substory.Grupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceGrupo - 1];
-                var subgrupo = grupo.SubGrupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubGrupo];
-                return Json(IndiceSubGrupo);
-            }
-            catch (Exception)
-            {
-                return Json("");
-            }            
+
+                foreach (var item in story.SubStory.Where(str => str.Pagina.Count > 0).ToList())
+                {
+                    foreach (var item2 in item.Grupo.Where(str => str.Pagina.Count > 0).ToList())
+                    {
+                        foreach (var item3 in item2.SubGrupo.Where(str => str.Pagina.Count > 0).ToList())
+                        {
+                            var var1 = story.SubStory.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item) + 1;
+                            var var2 = item.Grupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item2) + 1;
+                            var var3 = item2.SubGrupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item3) + 1;
+                            long num2 = long.Parse($"{Indice}{var1}{var2}{var3}");
+                            if(num2 > num){
+                                condicao = true;
+                                result[0] = Indice;                    
+                                result[1] = var1;                    
+                                result[2] = var2;                    
+                                result[3] = var3;                    
+                                break;
+                            }
+                        }
+                            if(condicao) break;
+
+                    }
+                    if(condicao) break;
+                }
+
+                if(condicao)
+                return Json(result);
+                else
+                {
+                    result[0] = 0;
+                    result[1] = 0;
+                    result[2] = 0;
+                    result[3] = 0;
+                    return Json(result);     
+                }         
         }
 
-         public async Task<JsonResult> GetSubSubGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo, int IndiceSubSubGrupo)
-        {
-            
-             var stories = await RetornarStories(User);
-
-            try
-            {
+         public JsonResult GetSubSubGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo, int IndiceSubSubGrupo)
+        {            
+            var stories =  RetornarStories(User);
+            long num = long.Parse($"{Indice}{IndiceSubStory}{IndiceGrupo}{IndiceSubGrupo}{IndiceSubSubGrupo}");
+            bool condicao = false;
+                int[] result = new int[5];
                 var story = stories[Indice];
-                var substory = story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubStory - 1];
-                var grupo = substory.Grupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceGrupo - 1];
-                var subgrupo = grupo.SubGrupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubGrupo - 1];
-                var subsubgrupo = subgrupo.SubSubGrupo.Where(str => str.Pagina.Count > 0).ToList()[IndiceSubSubGrupo];
-                return Json(IndiceSubSubGrupo);
-            }
-            catch (Exception)
-            {
-                return Json("");
-            }            
+
+                foreach (var item in story.SubStory.Where(str => str.Pagina.Count > 0).ToList())
+                {
+                    foreach (var item2 in item.Grupo.Where(str => str.Pagina.Count > 0).ToList())
+                    {
+                        foreach (var item3 in item2.SubGrupo.Where(str => str.Pagina.Count > 0).ToList())
+                        {
+                            foreach (var item4 in item3.SubSubGrupo.Where(str => str.Pagina.Count > 0).ToList())
+                            {
+                                var var1 = story.SubStory.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item) + 1;
+                                var var2 = item.Grupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item2) + 1;
+                                var var3 = item2.SubGrupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item3) + 1;
+                                var var4 = item3.SubSubGrupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item4) + 1;
+                                long num2 = long.Parse($"{Indice}{var1}{var2}{var3}{var4}");
+                                if(num2 > num){
+                                    condicao = true;
+                                    result[0] = Indice;                    
+                                    result[1] = var1;                    
+                                    result[2] = var2;                    
+                                    result[3] = var3;                    
+                                    result[4] = var4;                    
+                                    break;
+                                }
+                                
+                            }
+                            if(condicao) break;
+
+                        }
+                            if(condicao) break;
+
+                    }
+                    if(condicao) break;
+                }
+
+                if(condicao)
+                return Json(result);
+                else
+                {
+                    result[0] = 0;
+                    result[1] = 0;
+                    result[2] = 0;
+                    result[3] = 0;
+                    result[4] = 0;
+                    return Json(result);     
+                }        
         }
 
         public JsonResult GetStories(string valor)
@@ -283,12 +381,12 @@ namespace CMS.Controllers
         }
 
 
-         private async Task<List<Story>> RetornarStories(string User)
+         private  List<Story> RetornarStories(string User)
         {
             var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == User.Trim().ToLower());
             if (user == null)
             {
-                user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == User.Trim().ToLower());
+                user =  UserManager.Users.FirstOrDefault(u => u.Name.ToLower() == User.Trim().ToLower());
                 UserHelper.Users.Add(user);
             }
             var paginas = new List<Pagina>();

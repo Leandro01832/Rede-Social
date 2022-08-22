@@ -9,21 +9,14 @@ $(document).ready(function() {
     var valorProximo = parseInt($("#ValorProximo").val());
     var valorAnterior = parseInt($("#ValorAnterior").val());
     var valorPaginaPadraoLink = parseInt($("#ValorPaginaPadraoLink").val());
-    var valorStoryNome = $("#ValorStoryNome").val();
-
-    
+    var valorStoryNome = $("#ValorStoryNome").val();    
 
     var links = $(".LinksPagina");
 
     if (valorStoryNome != "Padrao")
         $("#NumeroPaginaAcesso2").attr('placeholder', 'Nº versiculo');
 
-
-
-
     $("#DivPagina" + valorAtual).addClass('minhaClasse3');
-
-
 
     $("#voltar").click(function() {
         window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + valorAnterior;
@@ -75,10 +68,10 @@ $(document).ready(function() {
             .done(function(response) {
                 $.cookie('automatico', '1');
 
-                if(response != "")
-                window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink  + "/" + indexSubStory + "/" + response + "/1";
+                if(response[0] != 0)
+                window.location.href = "/Grupo/"+ valorUser +"/" + response[0]  + "/" + response[1] + "/" + response[2]  + "/1";
                 else
-                window.location.href = "/SubStory/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/1";
+                window.location.href = "/SubStory/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + 1 + "/1";
             });
     }
 

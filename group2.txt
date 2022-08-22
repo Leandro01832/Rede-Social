@@ -44,7 +44,7 @@ INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) 
 GO
 INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'fbbc7ed2-542d-4cd5-8a5a-4637bc2a4269', N'Create', N'CREATE', N'a1f3310f-4c1e-4964-954e-365266dbd2d5')
 GO
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Name], [Image], [Facebook], [Twitter], [Instagram]) VALUES (N'860839f3-6270-4270-8f2f-f66147461b87', N'leandroleanleo@gmail.com', N'LEANDROLEANLEO@GMAIL.COM', NULL, NULL, 0, N'AQAAAAEAACcQAAAAEIwBvu0ABIT6XRvqSqCgo6TOWEMqI9AM/Lm/yRp0tDvfR4fIu+CZjd+zQSYfvn344A==', N'3KHFWFG3D7WQL7QT6SD5SCY3PCMVNL5L', N'746979c8-0cae-42da-830d-40ddc5b316d9', NULL, 0, 0, NULL, 1, 0, N'leandro', N'/ImagensUsers/Leandro.jpg', NULL, NULL, NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Name], [Image], [Facebook], [Twitter], [Instagram]) VALUES (N'860839f3-6270-4270-8f2f-f66147461b87', N'leandroleanleo@gmail.com', N'LEANDROLEANLEO@GMAIL.COM', NULL, NULL, 0, N'AQAAAAEAACcQAAAAEIwBvu0ABIT6XRvqSqCgo6TOWEMqI9AM/Lm/yRp0tDvfR4fIu+CZjd+zQSYfvn344A==', N'3KHFWFG3D7WQL7QT6SD5SCY3PCMVNL5L', N'e10124e0-fd2a-4916-a41f-5a627e6eaa3a', NULL, 0, 0, NULL, 1, 0, N'leandro', N'/ImagensUsers/Leandro.jpg', NULL, NULL, NULL)
 GO
 INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'860839f3-6270-4270-8f2f-f66147461b87', N'11e32911-8c63-42f6-b2e0-1cf252c39ff7')
 GO
@@ -978,6 +978,16 @@ INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [T
 GO
 INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14043, 10038, N'elemento', 0, 10038, NULL, NULL, NULL, NULL, N'Texto', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'<p style="text-align: center;"><img src="https://www.infoescola.com/wp-content/uploads/2017/07/jubarte-514076104.jpg" alt="" width="826" height="551" /></p>', NULL, NULL, NULL, NULL)
 GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14044, 10039, N'elemento', 0, 10039, NULL, NULL, NULL, NULL, N'Texto', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'<p style="text-align: center;"><iframe src="https://www.youtube.com/embed/tkFftSvSX7c?t=29s" width="280" height="157" allowfullscreen="allowfullscreen"></iframe>&nbsp;&nbsp;</p>
+<p style="text-align: center;"><span style="background-color: #ba372a;">O&nbsp;<strong>gavi&atilde;o-real</strong><sup id="cite_ref-Paix&atilde;o_3-0" class="reference"></sup><sup id="cite_ref-SiBBr_4-0" class="reference"></sup>&nbsp;(<a style="background-color: #ba372a;" title="Nomenclatura binomial" href="https://pt.wikipedia.org/wiki/Nomenclatura_binomial">nome cient&iacute;fico</a>:&nbsp;<em>Harpia harpyja</em>), tamb&eacute;m chamado&nbsp;<strong>cutucurim</strong>,&nbsp;<strong>gavi&atilde;o-de-penacho</strong>,&nbsp;<strong>harpia</strong>,&nbsp;<strong>uira&ccedil;u</strong>,&nbsp;<strong>uiracuir</strong>,&nbsp;<strong>uiruuet&ecirc;</strong>,&nbsp;<strong>ura&ccedil;u</strong>,<sup id="cite_ref-Ferreira_5-0" class="reference"></sup>&nbsp;<strong>&aacute;guia-brasileira</strong>&nbsp;ou&nbsp;<strong>uira&ccedil;u-verdadeiro</strong>,<sup id="cite_ref-Michaelis_6-0" class="reference"></sup>&nbsp;&eacute; uma&nbsp;<a style="background-color: #ba372a;" title="Aves" href="https://pt.wikipedia.org/wiki/Aves">ave</a>&nbsp;<a style="background-color: #ba372a;" title="Accipitriformes" href="https://pt.wikipedia.org/wiki/Accipitriformes">acipitriforme</a>&nbsp;da&nbsp;<a style="background-color: #ba372a;" title="Fam&iacute;lia (biologia)" href="https://pt.wikipedia.org/wiki/Fam%C3%ADlia_(biologia)">fam&iacute;lia</a>&nbsp;dos&nbsp;<a style="background-color: #ba372a;" title="Acipitr&iacute;deos" href="https://pt.wikipedia.org/wiki/Acipitr%C3%ADdeos">acipitr&iacute;deos</a>&nbsp;(<em>Accipitridae</em>). &Eacute; a maior e mais poderosa ave de rapina encontrada em toda a sua extens&atilde;o<sup id="cite_ref-IllustratedAtlas_7-0" class="reference"></sup>&nbsp;e est&aacute; entre as maiores esp&eacute;cies de &aacute;guias existentes no mundo. Geralmente habita florestas tropicais de baixa altitude na camada superior (emergente) do dossel. A destrui&ccedil;&atilde;o de seu habitat natural fez com que desaparecesse de muitas partes de seu antigo territ&oacute;rio e est&aacute; quase extirpado de grande parte da Am&eacute;rica Central.</span></p>', NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14045, 10040, N'elemento', 0, 10040, NULL, NULL, NULL, NULL, N'Texto', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'<p style="text-align: center;"><span style="background-color: #e67e23;">O&nbsp;<strong>tigre-de-bengala</strong>&nbsp;(<a class="mw-redirect" style="background-color: #e67e23;" title="Nome cient&iacute;fico" href="https://pt.wikipedia.org/wiki/Nome_cient%C3%ADfico">nome cient&iacute;fico</a>:&nbsp;<em>Panthera tigris tigris</em>), tamb&eacute;m conhecido como&nbsp;<strong>tigre-indiano</strong>, &eacute; um&nbsp;<a style="background-color: #e67e23;" title="Grande felino" href="https://pt.wikipedia.org/wiki/Grande_felino">grande felino</a>&nbsp;e uma das 6&nbsp;<a class="mw-redirect" style="background-color: #e67e23;" title="Subesp&eacute;cies" href="https://pt.wikipedia.org/wiki/Subesp%C3%A9cies">subesp&eacute;cies</a>&nbsp;de&nbsp;<a style="background-color: #e67e23;" title="Tigre" href="https://pt.wikipedia.org/wiki/Tigre">tigre</a>&nbsp;restantes, sendo atualmente a maior delas, devido ao fato do&nbsp;<a style="background-color: #e67e23;" title="Tigre-siberiano" href="https://pt.wikipedia.org/wiki/Tigre-siberiano">tigre-siberiano</a>&nbsp;haver diminu&iacute;do seu porte devido a ca&ccedil;a e destrui&ccedil;&atilde;o do seu habitat. Seu nome deve-se &agrave; sua presen&ccedil;a em&nbsp;<a style="background-color: #e67e23;" title="Bengala Ocidental" href="https://pt.wikipedia.org/wiki/Bengala_Ocidental">Bengala ocidental</a>, pr&oacute;xima ao&nbsp;<a style="background-color: #e67e23;" title="Golfo de Bengala" href="https://pt.wikipedia.org/wiki/Golfo_de_Bengala">Golfo de Bengala</a>.</span></p>
+<p style="text-align: center;"><span style="background-color: #e67e23;"><iframe src="https://www.youtube.com/embed/g7vtT6uLAoM?t=29s" width="280" height="157" allowfullscreen="allowfullscreen"></iframe>&nbsp;</span></p>', NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [Pagina_], [TextoId], [ImagemId], [TableId], [FormularioId], [Discriminator], [Placeholder], [TipoCampo], [EstiloTabela], [ArquivoVideo], [Descricao], [Preco], [estoque], [Codigo], [Segmento], [PalavrasTexto], [ArquivoImagem], [Width], [PastaImagemId], [TextoLink]) VALUES (14046, 10041, N'elemento', 0, 10041, NULL, NULL, NULL, NULL, N'Texto', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'<p style="text-align: center;"><span style="background-color: #3598db;"><em><strong>Bismarckia</strong></em>&nbsp;&eacute; um&nbsp;<a style="background-color: #3598db;" title="G&eacute;nero (biologia)" href="https://pt.wikipedia.org/wiki/G%C3%A9nero_(biologia)">g&eacute;nero</a>&nbsp;<a style="background-color: #3598db;" title="Bot&acirc;nica" href="https://pt.wikipedia.org/wiki/Bot%C3%A2nica">bot&acirc;nico</a>&nbsp;pertencente &agrave;&nbsp;<a style="background-color: #3598db;" title="Fam&iacute;lia (biologia)" href="https://pt.wikipedia.org/wiki/Fam%C3%ADlia_(biologia)">fam&iacute;lia</a>&nbsp;<a style="background-color: #3598db;" title="Arecaceae" href="https://pt.wikipedia.org/wiki/Arecaceae">Arecaceae</a>. Possui uma &uacute;nica esp&eacute;cie,&nbsp;<em><a class="mw-redirect" style="background-color: #3598db;" title="Bismarckia nobilis" href="https://pt.wikipedia.org/wiki/Bismarckia_nobilis">Bismarckia nobilis</a></em>. No Brasil tem o nome de&nbsp;<strong>palmeira-azul</strong>. &Eacute; uma planta originada de&nbsp;<a class="mw-redirect" style="background-color: #3598db;" title="Madagascar" href="https://pt.wikipedia.org/wiki/Madagascar">Madagascar</a>.</span></p>
+<p style="text-align: center;"><span style="background-color: #3598db;">Foi introduzida no&nbsp;<a style="background-color: #3598db;" title="Brasil" href="https://pt.wikipedia.org/wiki/Brasil">Brasil</a>&nbsp;no&nbsp;<a style="background-color: #3598db;" title="S&eacute;culo XX" href="https://pt.wikipedia.org/wiki/S%C3%A9culo_XX">s&eacute;culo XX</a>. &Eacute; considerada a rainha das palmeiras pela exuber&acirc;ncia de sua beleza.</span></p>
+<p style="text-align: center;"><img src="http://2.bp.blogspot.com/-JQuv7e2cQkU/Ux8abBv0KdI/AAAAAAAAAS4/TGDQtcVxeB4/s1600/Mudas-de-palmeira-azul-20131223021443.jpg" alt="" width="230" height="153" />&nbsp;</p>', NULL, NULL, NULL, NULL)
+GO
 SET IDENTITY_INSERT [dbo].[Elemento] OFF
 GO
 INSERT [dbo].[Background] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (1, 1, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'', N'')
@@ -1838,6 +1848,12 @@ INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (14042, 12133)
 GO
 INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (14043, 12126)
 GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (14044, 12104)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (14045, 12104)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (14046, 12112)
+GO
 SET IDENTITY_INSERT [dbo].[Story] ON 
 
 GO
@@ -2113,6 +2129,8 @@ INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (46, 36, N'laríc
 GO
 INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (47, 36, N'araucárias')
 GO
+INSERT [dbo].[SubSubGrupo] ([Id], [SubGrupoId], [Nome]) VALUES (48, 34, N'palmeiras')
+GO
 SET IDENTITY_INSERT [dbo].[SubSubGrupo] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Pagina] ON 
@@ -2227,6 +2245,12 @@ GO
 INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10037, CAST(N'2022-08-18 08:06:15.8983907' AS DateTime2), 1004, N'baleias', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 0, 1, 3, 1, 5)
 GO
 INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10038, CAST(N'2022-08-18 08:10:55.6335336' AS DateTime2), 1004, N'baleias - foto 2', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 0, 1, 3, 1, 5)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10039, CAST(N'2022-08-19 11:56:44.6447827' AS DateTime2), 1004, N'aves', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 0, 1, 3, 1, 4)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10040, CAST(N'2022-08-20 17:27:08.4411751' AS DateTime2), 1004, N'Tigre de bengala', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 0, 1, 3, 1, 5)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [Titulo], [ArquivoMusic], [Music], [Margem], [Topo], [Menu], [UserId], [Layout], [GrupoId], [SubGrupoId], [SubStoryId], [SubSubGrupoId]) VALUES (10041, CAST(N'2022-08-21 11:26:09.3846828' AS DateTime2), 1004, N'Palmeira Azul', N'', 0, 0, 0, 0, N'860839f3-6270-4270-8f2f-f66147461b87', 0, 9, 34, 2, 48)
 GO
 SET IDENTITY_INSERT [dbo].[Pagina] OFF
 GO
@@ -2945,6 +2969,48 @@ GO
 INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10038, 12125)
 GO
 INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10038, 12126)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10039, 12097)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10039, 12098)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10039, 12099)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10039, 12100)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10039, 12101)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10039, 12102)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10039, 12104)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10040, 12097)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10040, 12098)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10040, 12099)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10040, 12100)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10040, 12101)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10040, 12102)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10040, 12104)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10041, 12105)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10041, 12106)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10041, 12107)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10041, 12108)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10041, 12109)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10041, 12110)
+GO
+INSERT [dbo].[DivPagina] ([PaginaId], [DivId]) VALUES (10041, 12112)
 GO
 SET IDENTITY_INSERT [dbo].[Cor] ON 
 

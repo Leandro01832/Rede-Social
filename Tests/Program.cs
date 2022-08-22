@@ -32,6 +32,7 @@ namespace Tests
            Random rnd = new Random();
            int aleatorio = rnd.Next(1, 999999);
            string escolhidos = "";
+                
             
             for (int i = 0; i < RepositoryPagina.paginas.Length; i++)
              {

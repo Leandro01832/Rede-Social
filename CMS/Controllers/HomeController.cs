@@ -118,8 +118,20 @@ namespace CMS.Controllers
             user2.Facebook = user.Facebook;
             user2.Twitter = user.Twitter;
             user2.Instagram = user.Instagram;
+            user2.Capa = user.Capa;
 
             var result = await UserManager.UpdateAsync(user2);
+
+            var usuario = UserHelper.Users.FirstOrDefault(u => u.Id == user2.Id);
+            if (usuario == null)
+            {
+                usuario = await UserManager.Users.FirstOrDefaultAsync(u => u.Id == user2.Id);
+                UserHelper.Users.Add(usuario);
+            }
+            usuario.Capa = user2.Capa;
+            UserHelper.Users.Remove(UserManager.Users.First(u => u.Id == user2.Id));     
+            UserHelper.Users.Add(usuario);     
+                    
 
 
             if (result.Succeeded && Request.Form.Files.Count > 0)
@@ -144,7 +156,7 @@ namespace CMS.Controllers
                 return RedirectToAction("Perfil", new { Name = user2.Name });
             }
 
-            return View(user2);
+            return RedirectToAction("Perfil", new { Name = user2.Name });
         }
 
         [Authorize]

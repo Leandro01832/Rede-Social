@@ -26,6 +26,8 @@ namespace CMS.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
+                    b.Property<string>("Capa");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -467,6 +469,8 @@ namespace CMS.Migrations
                     b.Property<bool>("Menu");
 
                     b.Property<bool>("Music");
+
+                    b.Property<bool>("Pular");
 
                     b.Property<long>("StoryId");
 

@@ -155,12 +155,11 @@ namespace CMS
 
             var dataService = serviceProvider.GetRequiredService<IDataService>();
             CreateRoles(serviceProvider, userHelper).Wait();
-              dataService.InicializaDBAsync(serviceProvider).Wait();
+            dataService.InicializaDBAsync(serviceProvider).Wait();
         }
 
         private async Task CreateRoles(IServiceProvider serviceProvider, IUserHelper userHelper)
         {
-
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var userManager = serviceProvider.GetRequiredService<UserManager<UserModel>>();
             string[] rolesNames =

@@ -59,6 +59,108 @@ namespace CMS.Controllers
             return Json(subsubgrupos);
         }
 
+          public JsonResult GetStories(string valor)
+        {
+            var stories = db.Story.Where(s => s.Id >= 1);
+
+            return Json(stories);
+        }
+
+        public async Task<JsonResult> GetUsers(string valor)
+        {
+
+            IQueryable users;
+            var lista = new List<UserModel>();
+            if (valor != null)
+            {
+                lista = await UserManager.Users.Where(s => s.Name.ToLower().Contains(valor.ToLower())).ToListAsync();
+                foreach(var item in lista)
+                {
+                    var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == item.Name.Trim().ToLower());
+                    if (user == null)
+                    UserHelper.Users.Add(item);                    
+                }
+            }
+            else
+                lista = new List<UserModel>();
+
+            users = lista.AsQueryable();
+
+            return Json(users);
+        }
+        
+        public JsonResult GetUser(string valor)
+        {
+            var user = UserHelper.Users.FirstOrDefault(s => s.Name.ToLower() == valor.ToLower());
+            if (user == null)
+            {
+                user =  UserManager.Users.FirstOrDefault(s => s.Name.ToLower() == valor.ToLower());
+                UserHelper.Users.Add(user);
+            }          
+
+            return Json(user);
+        }
+
+        public JsonResult GetPastas(string Pagina)
+        {
+            IQueryable pastas;
+            var page = db.Pagina.FirstOrDefault(b => b.UserId == Pagina);
+            if (page != null)
+                pastas = db.PastaImagem.Where(b => b.UserId == page.UserId);
+            else
+                pastas = db.PastaImagem.Where(b => b.UserId == "");
+
+            return Json(pastas);
+        }
+
+        public JsonResult GetImagens(Int64 PastaImagemId)
+        {
+              var  pastas = db.Imagem.Where(b => b.PastaImagemId == PastaImagemId);
+
+            return Json(pastas);
+        }
+
+        public JsonResult GetCores(Int64 Background)
+        {
+            var cores = db.Cor.Where(b => b.BackgroundId == Background);
+
+            return Json(cores);
+        }
+
+        public JsonResult Mensagens(Int64 Pagina)
+        {
+            var pastas = db.MensagemChat.Where(b => b.Pagina == Pagina);
+
+            return Json(pastas);
+        }
+
+        public async Task<JsonResult> GetPaginas(Int64 Pagina)
+        {
+           
+           
+             var pagina = await db.Pagina.FirstAsync(p => p.Id == Pagina);
+             var PedidoId = pagina.UserId;
+             var paginas = db.Pagina.Where(m => m.UserId == PedidoId);
+ 
+             return Json(paginas);
+           
+           
+        }
+
+        public JsonResult GetPaginasDoSite(string Pagina)
+        {
+            var page = db.Pagina.First(b => b.UserId == Pagina);
+            var paginas = db.Pagina.Where(m => m.UserId == page.UserId);
+
+            return Json(paginas);
+        }
+
+        public JsonResult Elementos(Int64 Pagina, string Tipo)
+        {
+            var els = db.Elemento.Where(ele => ele.GetType().Name == Tipo && ele.Pagina_ == Pagina);
+            return Json(els);
+        }
+
         public JsonResult refresh()
         {
             var p = RepositoryPagina.paginas[0].FirstOrDefault();
@@ -289,98 +391,6 @@ namespace CMS.Controllers
                     return Json(result);     
                 }        
         }
-
-        public JsonResult GetStories(string valor)
-        {
-            var stories = db.Story.Where(s => s.Id >= 1);
-
-            return Json(stories);
-        }
-
-        public async Task<JsonResult> GetUser(string valor)
-        {
-
-            IQueryable users;
-            var lista = new List<UserModel>();
-            if (valor != null)
-            {
-                lista = await UserManager.Users.Where(s => s.Name.ToLower().Contains(valor.ToLower())).ToListAsync();
-                foreach(var item in lista)
-                {
-                    var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == item.Name.Trim().ToLower());
-                    if (user == null)
-                    UserHelper.Users.Add(item);                    
-                }
-            }
-            else
-                lista = new List<UserModel>();
-
-            users = lista.AsQueryable();
-
-            return Json(users);
-        }
-
-        public JsonResult GetPastas(string Pagina)
-        {
-            IQueryable pastas;
-            var page = db.Pagina.FirstOrDefault(b => b.UserId == Pagina);
-            if (page != null)
-                pastas = db.PastaImagem.Where(b => b.UserId == page.UserId);
-            else
-                pastas = db.PastaImagem.Where(b => b.UserId == "");
-
-            return Json(pastas);
-        }
-
-        public JsonResult GetImagens(Int64 PastaImagemId)
-        {
-              var  pastas = db.Imagem.Where(b => b.PastaImagemId == PastaImagemId);
-
-            return Json(pastas);
-        }
-
-        public JsonResult GetCores(Int64 Background)
-        {
-            var cores = db.Cor.Where(b => b.BackgroundId == Background);
-
-            return Json(cores);
-        }
-
-        public JsonResult Mensagens(Int64 Pagina)
-        {
-            var pastas = db.MensagemChat.Where(b => b.Pagina == Pagina);
-
-            return Json(pastas);
-        }
-
-        public async Task<JsonResult> GetPaginas(Int64 Pagina)
-        {
-           
-           
-             var pagina = await db.Pagina.FirstAsync(p => p.Id == Pagina);
-             var PedidoId = pagina.UserId;
-             var paginas = db.Pagina.Where(m => m.UserId == PedidoId);
- 
-             return Json(paginas);
-           
-           
-        }
-
-        public JsonResult GetPaginasDoSite(string Pagina)
-        {
-            var page = db.Pagina.First(b => b.UserId == Pagina);
-            var paginas = db.Pagina.Where(m => m.UserId == page.UserId);
-
-            return Json(paginas);
-        }
-
-        public JsonResult Elementos(Int64 Pagina, string Tipo)
-        {
-            var els = db.Elemento.Where(ele => ele.GetType().Name == Tipo && ele.Pagina_ == Pagina);
-            return Json(els);
-        }
-
-
          private  List<Story> RetornarStories(string User)
         {
             var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == User.Trim().ToLower());

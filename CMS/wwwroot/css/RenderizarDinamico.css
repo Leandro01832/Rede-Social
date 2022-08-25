@@ -16,6 +16,8 @@
     border-width: 5px;
     border-color: bisque;
     height: auto;
+    min-height: 930px;
+    max-height: 930px;
 }
 
 #conteudomodal {
@@ -45,6 +47,7 @@
 
 #discussion {
     background-color: rgba(133, 207, 231, 0.5);    
+    background-color: rgba(94, 188, 243, 0.534);    
     width: 380px;
     height: 255px;
     overflow: scroll;

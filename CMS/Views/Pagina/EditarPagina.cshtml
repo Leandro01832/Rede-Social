@@ -48,6 +48,13 @@
                     </label>
                 </div>
             </div>
+             <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Pular" /> @Html.DisplayNameFor(model => model.Pular)
+                    </label>
+                </div>
+            </div>
             <div class="form-group">
                 <input asp-for="UserId" type="hidden" />
                 <input type="hidden" id="StoryId" name="StoryId" value="@Model.StoryId" />
@@ -121,6 +128,7 @@
             Blocos: $("#Blocos").val(),
             Topo: $("#Topo").is(':checked'),
             Menu: $("#Menu").is(':checked'),
+            Pular: $("#Pular").is(':checked'),
             Layout: $("#Layout").is(':checked')
         };  
 

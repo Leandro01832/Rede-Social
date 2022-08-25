@@ -92,16 +92,20 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.numeroErro = id;
                 return View("HttpNotFound");
             }
-            else
-            {
+            
+            
                 ViewBag.IdPagina = id;
                 ViewBag.IdSite = pagina.UserId;
                 var usuario = await UserManager.GetUserAsync(this.User);
                 ViewBag.IdentificacaoUser = usuario.Id;
                 HttpHelper.SetPaginaId(pagina.Id);
-                string html = await epositoryPagina.renderizarPagina(pagina);
-                ViewBag.Html = html;
-            }
+                string html = "";
+
+                if(pagina.Div.Count > 0)
+                html = await epositoryPagina.renderizarPagina(pagina);
+                else
+                html = usuario.Capa;
+                ViewBag.Html = html;                            
 
             ViewBag.proximo = id + 1;
             return View(pagina);
@@ -111,12 +115,23 @@ namespace MeuProjetoAgora.Controllers
         public async Task<ActionResult> GetView(Int64? id)
         {
             Pagina pagina = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
+            var user = UserHelper.Users.FirstOrDefault(u => u.Id == pagina.UserId);
+            if (user == null)
+            {
+                user = await UserManager.Users.FirstOrDefaultAsync(u => u.Id == pagina.UserId);
+                UserHelper.Users.Add(user);
+            }
             if (pagina == null)
             {
                 ViewBag.numeroErro = id;
                 return View("HttpNotFound");
             }
-            ViewBag.html = await epositoryPagina.renderizarPagina(pagina);
+            string html = "";
+            if(pagina.Div.Count > 0)
+                html = await epositoryPagina.renderizarPagina(pagina);
+                else
+                html = user.Capa;
+            ViewBag.html = html;
             return PartialView("GetView");
         }
 
@@ -271,7 +286,7 @@ namespace MeuProjetoAgora.Controllers
                 }
                 await db.SaveChangesAsync();
 
-                    for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
+                    for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
                     {
                           if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
 
@@ -293,6 +308,52 @@ namespace MeuProjetoAgora.Controllers
             return PartialView();
         }
 
+        public async Task<IActionResult> Delete(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
+            if (pag == null)
+            {
+                return NotFound();
+            }
+
+            return View(pag);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(long id)
+        {
+            var pag = await epositoryPagina.includes().FirstAsync(p => p.Id == id);
+            pag.Div.Clear();
+            pag.Pular = true;
+            pag.Titulo = "Capa";
+            if(pag.SubStoryId != null) pag.SubStoryId = null;
+            if(pag.GrupoId != null) pag.GrupoId = null;
+            if(pag.SubGrupoId != null) pag.SubGrupoId = null;
+            if(pag.SubSubGrupoId != null) pag.SubSubGrupoId = null;
+            db.Update(pag);
+            await db.SaveChangesAsync();
+
+            for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
+                    {
+                          if(RepositoryPagina.paginas[indice] == null ||
+                           RepositoryPagina.paginas[indice].FirstOrDefault(i => i.UserId == pag.UserId) == null) continue;
+
+                        if(RepositoryPagina.paginas[indice].FirstOrDefault(i => i.Id == pag.Id) != null)
+                        {
+                            RepositoryPagina.paginas[indice].Remove(RepositoryPagina.paginas[indice].First(i => i.Id == pag.Id));
+                            RepositoryPagina.paginas[indice].Add(pag);
+                            break;
+                        }
+                    }
+
+            return RedirectToAction("Galeria", "Pedido");
+        }
 
     }
 }

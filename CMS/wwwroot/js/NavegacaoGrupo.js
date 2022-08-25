@@ -40,7 +40,7 @@ $(document).ready(function() {
         ativarCheckbox(checkbox);
     }
 
-    $("input").change(function() {
+    $("#automatico").change(function() {
 
         if ($("#automatico").is(':checked') == true) {
             $.cookie('automatico', '1');

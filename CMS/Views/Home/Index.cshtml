@@ -21,20 +21,20 @@
 <br />
 
 <input type="text" id="NameUser" style="width:90%; position:absolute; top:10%;" placeholder="Nome do livro" />
-<div id="listaUsers" style="position:absolute; top:15%; width:300px; display:none;" class="jumbotron">
+<div id="listaUsers" style="position:absolute; top:15%; width:300px; display:none; z-index:2000;" class="jumbotron">
 
 </div>
 
+        <div>
+            <img src="~/imagem/story.jpg" class="img-responsive img-circle" style="width: 100%;"   />
+        </div>
 
-<div>
-    <img src="~/imagem/story.jpg" class="img-responsive" width="1000" />
-</div>
 
 
-<div>
+@section scripts{
     <script type="text/javascript">
 
-        $(document).ready(function () {
+        $(document).ready(function () {            
 
             function refreshData() 
              {
@@ -53,7 +53,7 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: '/AjaxGet/GetUser',
+                    url: '/AjaxGet/GetUsers',
                     dataType: 'json',
                     data: { valor: $(this).val() },
                     success: function (data) {
@@ -65,11 +65,11 @@
 
                         $("#listaUsers").empty();
                         $.each(data, function (i) {
-                            $("#listaUsers").append('<p>' +
+                            $("#listaUsers").append("<p>" +
                                 "<a href='/Perfil/" + data[i].name +
-                                "/' target='_blank' class='Users' >" + data[i].name +
+                                "/' target='_blank'  >" + data[i].name +
                                 " <img class='img-circle img-responsive' src='" + data[i].image + "' width='50' /> </a>" +
-                                '</p>');
+                                "</p> <br>");
                         });
 
                     },
@@ -77,13 +77,17 @@
                         alert('Falha ao buscar users.' + ex);
                     }
                 });
-            });
+            });            
+
+             setTimeout(function () { refreshData(); }, 300000);
         });
 
-         setTimeout(function () { refreshData(); }, 300000);
 
     </script>
-</div>
+  
+    
+
+}
 
 
 

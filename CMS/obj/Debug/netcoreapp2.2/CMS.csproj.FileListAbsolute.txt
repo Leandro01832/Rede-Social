@@ -1058,3 +1058,4 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\V
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\SubGrupo.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\SubStory.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\SubSubGrupo.cshtml.g.cs
+C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Delete.cshtml.g.cs

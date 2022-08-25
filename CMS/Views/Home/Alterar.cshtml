@@ -2,15 +2,20 @@
 
 @{
     ViewData["Title"] = "Alterar";
+    
 }
-
+<link rel="stylesheet" href="~/css/site.css" />
 <h2>Alterar</h2>
 
 <h4>Perfil</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Alterar" enctype="multipart/form-data">
+
+            <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=m8nq39l31dv5y829ehcjsd0rciwei8crem0yubndhdgs72fd"></script>
+                <script src="~/js/Tynymce.js"></script>
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
@@ -31,19 +36,32 @@
                 <input asp-for="Instagram" class="form-control" />
             </div>
 
+            <div class="form-group">
+                <label asp-for="Capa" class="control-label"></label>
+                 <script type="text/javascript">Editar();</script>
+                <textarea id="textarea" name="ajax_text" class="form-control" >@Model.Capa</textarea>
+            </div>
+
             <input type="hidden" asp-for="Id" value="@ViewBag.UserId" />
             <input type="hidden" asp-for="Image"  />
+            <input type="hidden" asp-for="Name"  />
+            <input type="hidden" asp-for="Capa"  />
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-default" />
             </div>
+
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+      $(document).ready(function () {
+         $("form").submit(function () {
+              $("#Capa").val($("#textarea").val());
+        });
+    });
+    </script>                      
+
 }
+

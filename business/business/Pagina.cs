@@ -103,6 +103,8 @@ namespace business.business
         public bool Topo { get; set; }
 
         public bool Menu { get; set; }
+
+        public bool Pular { get; set; }
         
         
         [JsonIgnore]

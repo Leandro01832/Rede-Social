@@ -29,7 +29,13 @@ namespace MeuProjetoAgora.Controllers
         [Route("padrao/{Name}/{story}/{indice}")]
         public async Task<IActionResult> Renderizar(string Name, string story, int indice, int? capitulo)
         {
-            List<Pagina> lista = await RetornarLista(Name, story, capitulo);
+            var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == Name.Trim().ToLower());
+            if (user == null)
+            {
+                user = await UserManager.Users.FirstOrDefaultAsync(u => u.Name.ToLower() == Name.Trim().ToLower());
+                UserHelper.Users.Add(user);
+            }
+            List<Pagina> lista = await RetornarLista(user.Name, story, capitulo);
             Pagina pagina = lista.Skip((int)indice - 1).FirstOrDefault();
 
             if (pagina == null)
@@ -41,7 +47,11 @@ namespace MeuProjetoAgora.Controllers
             
             ViewBag.quantidadePaginas = lista.Count();
             ViewBag.story = pagina.Story.Nome;
-            string html = await epositoryPagina.renderizarPagina(pagina);
+            string html = "";
+            if(pagina.Div.Count > 0)
+                html = await epositoryPagina.renderizarPagina(pagina);
+            else
+            html = user.Capa;
             ViewBag.Html = html;
             ViewBag.proximo = indice + 1;
             return View(pagina);            

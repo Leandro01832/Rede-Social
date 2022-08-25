@@ -24,7 +24,6 @@ namespace CMS.Models.Repository
     public interface IRepositoryPagina
     {
         Task<List<Pagina>> MostrarPageModels(string userId);
-        Task<bool> verificaTable(Pagina pagina);
         int[] criarRows(Pagina pagina);
          Task<string> renderizarPagina(Pagina pagina);
         Task BlocosdaPagina(Pagina pagina);
@@ -107,24 +106,7 @@ namespace CMS.Models.Repository
             return  lista;
         }        
 
-        public async Task<bool> verificaTable(Pagina pagina)
-        {
-            bool verifica = false;
-            var paginas = await contexto.Pagina.Where(p => p.UserId == pagina.UserId).ToListAsync();
-            foreach (var pag in paginas)
-            {
-                var ele = await contexto.Elemento.Include(e => e.div)
-                    .ThenInclude(e => e.Div)
-                    .OfType<Table>()
-                .FirstOrDefaultAsync(e => e.Pagina_ == pag.Id);
-
-                if (ele != null)
-                {
-                    verifica = true;
-                }
-            }
-            return verifica;
-        }
+        
 
         public int[] criarRows(Pagina pagina)
         {
@@ -264,9 +246,7 @@ namespace CMS.Models.Repository
             }
 
 
-            int[] numero = criarRows(pagina);           
-
-            var condicao = await verificaTable(pagina);            
+            int[] numero = criarRows(pagina);                
 
             var condicaoLogin = SignInManager.IsSignedIn(ContextAccessor.HttpContext.User);
 
@@ -364,9 +344,6 @@ namespace CMS.Models.Repository
 
             .Include(p => p.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
             .ThenInclude(b => b.Texto)
-
-            .Include(p => p.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
-            .ThenInclude(b => b.Table)
 
             .Include(p => p.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
             .ThenInclude(b => b.Formulario)

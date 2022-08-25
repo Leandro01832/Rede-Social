@@ -316,8 +316,6 @@ namespace CMS.Migrations
 
                     b.Property<long>("Pagina_");
 
-                    b.Property<long?>("TableId");
-
                     b.Property<long?>("TextoId");
 
                     b.HasKey("Id");
@@ -325,8 +323,6 @@ namespace CMS.Migrations
                     b.HasIndex("FormularioId");
 
                     b.HasIndex("ImagemId");
-
-                    b.HasIndex("TableId");
 
                     b.HasIndex("TextoId");
 
@@ -644,174 +640,6 @@ namespace CMS.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("Div");
                 });
 
-            modelBuilder.Entity("business.ecommerce.Cadastro", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Bairro")
-                        .IsRequired();
-
-                    b.Property<string>("CEP")
-                        .IsRequired();
-
-                    b.Property<string>("Complemento")
-                        .IsRequired();
-
-                    b.Property<string>("Email")
-                        .IsRequired();
-
-                    b.Property<string>("Endereco")
-                        .IsRequired();
-
-                    b.Property<string>("Municipio")
-                        .IsRequired();
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Telefone")
-                        .IsRequired();
-
-                    b.Property<string>("UF")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cadastro");
-                });
-
-            modelBuilder.Entity("business.ecommerce.ContaBancaria", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Agencia");
-
-                    b.Property<string>("ClienteId")
-                        .IsRequired();
-
-                    b.Property<string>("CodigoBanco")
-                        .IsRequired();
-
-                    b.Property<string>("Conta");
-
-                    b.Property<string>("DVAgencia");
-
-                    b.Property<string>("DVConta");
-
-                    b.Property<string>("TipoConta")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ContaBancaria");
-                });
-
-            modelBuilder.Entity("business.ecommerce.InfoEntrega", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AlturaCaixa");
-
-                    b.Property<string>("ClienteId")
-                        .IsRequired();
-
-                    b.Property<int?>("ComprimentoCaixa");
-
-                    b.Property<int?>("LarguraCaixa");
-
-                    b.Property<int?>("PesoCaixa");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("InfoEntrega");
-                });
-
-            modelBuilder.Entity("business.ecommerce.InfoVenda", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Bairro")
-                        .IsRequired();
-
-                    b.Property<string>("Cep")
-                        .IsRequired();
-
-                    b.Property<string>("Cidade")
-                        .IsRequired();
-
-                    b.Property<string>("ClienteId")
-                        .IsRequired();
-
-                    b.Property<string>("Cpf")
-                        .IsRequired();
-
-                    b.Property<string>("Estado")
-                        .IsRequired();
-
-                    b.Property<long>("Numero");
-
-                    b.Property<string>("Rua")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("InfoVenda");
-                });
-
-            modelBuilder.Entity("business.ecommerce.ItemRequisicao", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("ElementoId");
-
-                    b.Property<long>("PrecoUnitario");
-
-                    b.Property<long?>("ProdutoId");
-
-                    b.Property<int>("Quantidade");
-
-                    b.Property<long>("RequisicaoId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ElementoId");
-
-                    b.HasIndex("ProdutoId");
-
-                    b.HasIndex("RequisicaoId");
-
-                    b.ToTable("ItemRequisicao");
-                });
-
-            modelBuilder.Entity("business.ecommerce.Requisicao", b =>
-                {
-                    b.Property<long>("Id");
-
-                    b.Property<string>("ClienteId")
-                        .IsRequired();
-
-                    b.Property<DateTime>("DataPedidoCompra");
-
-                    b.Property<string>("Status");
-
-                    b.Property<string>("ValorPedido");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Requisicao");
-                });
-
             modelBuilder.Entity("business.Back.BackgroundCor", b =>
                 {
                     b.HasBaseType("business.Back.Background");
@@ -880,17 +708,6 @@ namespace CMS.Migrations
                     b.HasDiscriminator().HasValue("Formulario");
                 });
 
-            modelBuilder.Entity("business.business.Elementos.Table", b =>
-                {
-                    b.HasBaseType("business.business.Elementos.element.Elemento");
-
-                    b.Property<string>("EstiloTabela");
-
-                    b.ToTable("Table");
-
-                    b.HasDiscriminator().HasValue("Table");
-                });
-
             modelBuilder.Entity("business.business.Elementos.Video", b =>
                 {
                     b.HasBaseType("business.business.Elementos.element.Elemento");
@@ -900,26 +717,6 @@ namespace CMS.Migrations
                     b.ToTable("Video");
 
                     b.HasDiscriminator().HasValue("Video");
-                });
-
-            modelBuilder.Entity("business.business.Elementos.produto.Produto", b =>
-                {
-                    b.HasBaseType("business.business.Elementos.element.Elemento");
-
-                    b.Property<string>("Codigo")
-                        .IsRequired();
-
-                    b.Property<string>("Descricao");
-
-                    b.Property<long>("Preco");
-
-                    b.Property<string>("Segmento");
-
-                    b.Property<long?>("estoque");
-
-                    b.ToTable("Produto");
-
-                    b.HasDiscriminator().HasValue("Produto");
                 });
 
             modelBuilder.Entity("business.business.Elementos.texto.Texto", b =>
@@ -997,51 +794,6 @@ namespace CMS.Migrations
                     b.ToTable("DivFixo");
 
                     b.HasDiscriminator().HasValue("DivFixo");
-                });
-
-            modelBuilder.Entity("business.business.Elementos.produto.Acessorio", b =>
-                {
-                    b.HasBaseType("business.business.Elementos.produto.Produto");
-
-                    b.ToTable("Acessorio");
-
-                    b.HasDiscriminator().HasValue("Acessorio");
-                });
-
-            modelBuilder.Entity("business.business.Elementos.produto.Alimenticio", b =>
-                {
-                    b.HasBaseType("business.business.Elementos.produto.Produto");
-
-                    b.ToTable("Alimenticio");
-
-                    b.HasDiscriminator().HasValue("Alimenticio");
-                });
-
-            modelBuilder.Entity("business.business.Elementos.produto.Calcado", b =>
-                {
-                    b.HasBaseType("business.business.Elementos.produto.Produto");
-
-                    b.ToTable("Calcado");
-
-                    b.HasDiscriminator().HasValue("Calcado");
-                });
-
-            modelBuilder.Entity("business.business.Elementos.produto.Roupa", b =>
-                {
-                    b.HasBaseType("business.business.Elementos.produto.Produto");
-
-                    b.ToTable("Roupa");
-
-                    b.HasDiscriminator().HasValue("Roupa");
-                });
-
-            modelBuilder.Entity("business.business.Elementos.produto.Show", b =>
-                {
-                    b.HasBaseType("business.business.Elementos.produto.Produto");
-
-                    b.ToTable("Show");
-
-                    b.HasDiscriminator().HasValue("Show");
                 });
 
             modelBuilder.Entity("business.business.Elementos.imagem.Imagem", b =>
@@ -1179,10 +931,6 @@ namespace CMS.Migrations
                         .WithMany("Elemento")
                         .HasForeignKey("ImagemId");
 
-                    b.HasOne("business.business.Elementos.Table", "Table")
-                        .WithMany("Elemento")
-                        .HasForeignKey("TableId");
-
                     b.HasOne("business.business.Elementos.texto.Texto", "Texto")
                         .WithMany("Elemento")
                         .HasForeignKey("TextoId");
@@ -1269,31 +1017,6 @@ namespace CMS.Migrations
                     b.HasOne("CMS.Models.UserModel")
                         .WithMany("Seguindo")
                         .HasForeignKey("UserModelId");
-                });
-
-            modelBuilder.Entity("business.ecommerce.ItemRequisicao", b =>
-                {
-                    b.HasOne("business.business.Elementos.element.Elemento", "Elemento")
-                        .WithMany()
-                        .HasForeignKey("ElementoId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("business.business.Elementos.produto.Produto")
-                        .WithMany("Itens")
-                        .HasForeignKey("ProdutoId");
-
-                    b.HasOne("business.ecommerce.Requisicao", "Requisicao")
-                        .WithMany("ItemRequisicao")
-                        .HasForeignKey("RequisicaoId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("business.ecommerce.Requisicao", b =>
-                {
-                    b.HasOne("business.ecommerce.Cadastro", "Cadastro")
-                        .WithOne("Requisicao")
-                        .HasForeignKey("business.ecommerce.Requisicao", "Id")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("business.business.Elementos.imagem.Imagem", b =>

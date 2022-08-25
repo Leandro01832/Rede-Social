@@ -93,9 +93,6 @@ namespace CMS
             services.AddTransient<IRepositoryPagina, RepositoryPagina>();
             services.AddTransient<IRepositoryDiv, RepositoryDiv>();
             services.AddTransient<IRepositoryElemento, RepositoryElemento>();
-            services.AddTransient<IRepositoryProduto, RepositoryProduto>();
-            services.AddTransient<IRepositoryRequisicao, RepositoryRequisicao>();
-            services.AddTransient<IRepositoryCadastro, RepositoryCadastro>();
             services.AddTransient<IUserHelper, UserHelper>();
 
             services.AddAuthentication()

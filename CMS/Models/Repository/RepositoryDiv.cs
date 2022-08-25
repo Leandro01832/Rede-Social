@@ -168,10 +168,7 @@ namespace CMS.Models.Repository
                 .ThenInclude(p => p.Texto)
                 
                 .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
-                .ThenInclude(p => p.Imagem)
-                
-                .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
-                .ThenInclude(p => p.Table)
+                .ThenInclude(p => p.Imagem)                
                 
                 .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
                 .ThenInclude(p => p.Formulario)
@@ -201,9 +198,6 @@ namespace CMS.Models.Repository
 
                 .Include(p => p.Elemento).ThenInclude(p => p.Elemento)
                 .ThenInclude(p => p.Imagem)
-
-                .Include(p => p.Elemento).ThenInclude(p => p.Elemento)
-                .ThenInclude(p => p.Table)
 
                 .Include(p => p.Elemento).ThenInclude(p => p.Elemento)
                 .ThenInclude(p => p.Formulario)

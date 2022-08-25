@@ -4,7 +4,6 @@ using business.business.carousel;
 using business.business.Elementos;
 using business.business.Elementos.element;
 using business.business.Elementos.imagem;
-using business.business.Elementos.produto;
 using business.business.Elementos.texto;
 using business.business.link;
 using business.div;
@@ -59,7 +58,6 @@ namespace CMS.Controllers
             List<Elemento> lista = await _context.Elemento
                 .Include(e => e.Imagem)
                 .Include(e => e.Texto)
-                .Include(e => e.Table)
                 .Include(e => e.Formulario)
                 .Include(e => e.Dependentes).ThenInclude(e => e.Elemento)
                 .Include(e => e.Dependentes).ThenInclude(e => e.ElementoDependente)
@@ -132,9 +130,6 @@ namespace CMS.Controllers
             var usuario = await UserManager.GetUserAsync(this.User);
             
             ViewBag.elemento = elemento;
-            ViewBag.condicao = _context.InfoVenda.FirstOrDefault(i => i.ClienteId == usuario.Id);
-            ViewBag.condicao2 = _context.InfoEntrega.FirstOrDefault(i => i.ClienteId == usuario.Id);
-            ViewBag.condicao3 = _context.ContaBancaria.FirstOrDefault(i => i.ClienteId == usuario.Id);
 
             var claims = User.Claims.ToList();
             var roles = "";
@@ -146,14 +141,8 @@ namespace CMS.Controllers
             Elemento ele = null;
 
             if (elemento == "Imagem") ele = new Imagem();
-            if (elemento == "Show") ele = new Show();
             if (elemento == "Video") ele = new Video();
             if (elemento == "Texto") ele = new Texto();
-            if (elemento == "Table") ele = new Table();
-            if (elemento == "Roupa") ele = new Roupa();
-            if (elemento == "Calcado") ele = new Calcado();
-            if (elemento == "Alimenticio") ele = new Alimenticio();
-            if (elemento == "Acessorio") ele = new Acessorio();
             if (elemento == "LinkBody") ele = new LinkBody();
             if (elemento == "Formulario") ele = new Formulario();
             if (elemento == "Dropdown") ele = new Dropdown();
@@ -187,9 +176,6 @@ namespace CMS.Controllers
             var elementos = new List<Elemento>();
 
             Elemento elemento;
-            ViewBag.condicao = _context.InfoVenda.FirstOrDefault(i => i.ClienteId == usuario.Id);
-            ViewBag.condicao2 = _context.InfoEntrega.FirstOrDefault(i => i.ClienteId == usuario.Id);
-            ViewBag.condicao3 = _context.ContaBancaria.FirstOrDefault(i => i.ClienteId == usuario.Id);
 
             var claims = User.Claims.ToList();
             var roles = "";
@@ -248,22 +234,7 @@ namespace CMS.Controllers
                     return await RepositoryElemento.Editar(elemento);
             }
             catch (Exception ex) { return ex.Message; }
-        }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<string> _Show([FromBody] Show elemento)
-        {
-            try
-            {
-                if (elemento.Id == 0)
-                    return await RepositoryElemento.salvar(elemento);
-                else
-                    return await RepositoryElemento.Editar(elemento);
-            }
-            catch (Exception ex) { return ex.Message; }
-        }
+        }        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -293,77 +264,7 @@ namespace CMS.Controllers
             catch (Exception ex) { return ex.Message; }
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<string> _Table([FromBody] Table elemento)
-        {
-            try
-            {
-                if (elemento.Id == 0)
-                    return await RepositoryElemento.salvar(elemento);
-                else
-                    return await RepositoryElemento.Editar(elemento);
-            }
-            catch (Exception ex) { return ex.Message; }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<string> _Roupa([FromBody] Roupa elemento)
-        {
-            try
-            {
-                if (elemento.Id == 0)
-                    return await RepositoryElemento.salvar(elemento);
-                else
-                    return await RepositoryElemento.Editar(elemento);
-            }
-            catch (Exception ex) { return ex.Message; }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<string> _Calcado([FromBody] Calcado elemento)
-        {
-            try
-            {
-                if (elemento.Id == 0)
-                    return await RepositoryElemento.salvar(elemento);
-                else
-                    return await RepositoryElemento.Editar(elemento);
-            }
-            catch (Exception ex) { return ex.Message; }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<string> _Alimenticio([FromBody] Alimenticio elemento)
-        {
-            try
-            {
-                if (elemento.Id == 0)
-                    return await RepositoryElemento.salvar(elemento);
-                else
-                    return await RepositoryElemento.Editar(elemento);
-            }
-            catch (Exception ex) { return ex.Message; }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<string> _Acessorio([FromBody] Acessorio elemento)
-        {
-            try
-            {
-                if (elemento.Id == 0)
-                    return await RepositoryElemento.salvar(elemento);
-                else
-                    return await RepositoryElemento.Editar(elemento);
-            }
-            catch (Exception ex) { return ex.Message; }
-        }
-
-
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -546,11 +447,6 @@ namespace CMS.Controllers
                 ViewBag.FormularioId = new SelectList(elementos.OfType<Formulario>().ToList(), "Id", "NomeComId", c.FormularioId);
             }
 
-            if (elemento is Produto)
-            {
-                var c = (Produto)elemento;
-                ViewBag.FormularioId = new SelectList(elementos.OfType<Table>().ToList(), "Id", "NomeComId", c.TableId);
-            }
         }
     }
 }

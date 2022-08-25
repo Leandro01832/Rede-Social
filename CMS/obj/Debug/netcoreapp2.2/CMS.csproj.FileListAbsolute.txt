@@ -927,9 +927,6 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\D
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Create.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Edit.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Lista.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Acessorio.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Alimenticio.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Calcado.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Campo.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselImg.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselPagina.cshtml.g.cs
@@ -938,9 +935,6 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\E
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Imagem.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkBody.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Musica.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Roupa.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Show.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Table.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Texto.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Video.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error.cshtml.g.cs
@@ -957,9 +951,6 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\H
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Perfil.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Preview.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarContaBancaria.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarCpf.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarInfoEntrega.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\ApagarElemento.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\BlocoFerramenta.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Chat.cshtml.g.cs
@@ -980,10 +971,6 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\P
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\ViewCreate.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Details.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\BuscaProdutos.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Cadastro.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Carrinho.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Resumo.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -1003,7 +990,6 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\S
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Edit.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Index.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\IndexUsers.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Rotas.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\Carousel.cshtml.g.cs
@@ -1011,7 +997,6 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBloco.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocHtml.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\modal.cshtml.g.cs
@@ -1023,16 +1008,6 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.Co
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.dll
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.pdb
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.genruntimeconfig.cache
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarousel.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarouselPagina.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocFormulario.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlFim.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlInicio.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocImagem.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocLink.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTable.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTexto.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocVideo.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Create.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Delete.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Details.cshtml.g.cs

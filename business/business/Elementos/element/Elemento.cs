@@ -16,7 +16,6 @@ namespace business.business.Elementos.element
         private string elementosDependentes = "";
         private Int64? textoId = null;
         private Int64? imagemId = null;
-        private Int64? tableId = null;
         private Int64? formularioId = null;
         private Int64? paginaEscolhida = null;
 
@@ -66,13 +65,7 @@ namespace business.business.Elementos.element
             
         }
 
-        [Display(Name = "Tabela do produto")]
-        public Int64? TableId
-        {
-            get { if (tableId == 0) return null; return tableId; }
-            set { tableId = value; }
-        }
-        public Table Table { get; set; }
+       
 
         [Display(Name = "Formulario do campo")]
         public Int64? FormularioId

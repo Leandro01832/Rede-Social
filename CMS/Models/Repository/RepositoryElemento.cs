@@ -116,7 +116,6 @@ namespace CMS.Models.Repository
                 .Include(e => e.Texto)
                 .Include(e => e.Formulario)
                 .Include(e => e.Imagem)
-                .Include(e => e.Table)
                 .Include(e => e.Dependentes)
                 .Include(e => e.Paginas)
                 .Include(e => e.div)

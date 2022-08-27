@@ -996,7 +996,6 @@ C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBackgroundGradiente.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBloco.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.cshtml.g.cs
 C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\modal.cshtml.g.cs

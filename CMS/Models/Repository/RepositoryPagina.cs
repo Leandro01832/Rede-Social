@@ -48,10 +48,7 @@ namespace CMS.Models.Repository
        static string path = Directory.GetCurrentDirectory();       
 
         //529
-        public string CodCss { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss.cshtml")); } }
-
-        //142 linhas
-        public string CodCss2 { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss2.cshtml")); } }      
+        public string CodCss { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss.cshtml")); } }  
 
         //119 linhas
         public string CodigoBloco { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocBloco.cshtml")); } }
@@ -152,7 +149,7 @@ namespace CMS.Models.Repository
 
         public async Task<string> renderizarPagina(Pagina pagina)
         {
-            var resultado = await renderizar(pagina, CodCss2 + CodigoBloco + CodCss +
+            var resultado = await renderizar(pagina, CodigoBloco + CodCss +
                 CodigoProducao + CodigoMusic
                 + CodigoCarousel + CodigoModal);
             return resultado;

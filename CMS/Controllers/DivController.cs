@@ -187,8 +187,17 @@ namespace CMS.Controllers
             {
                 if (div.Id == 0)                
                     return await RepositoryDiv.SalvarBloco(div);                
-                else
-                    return await RepositoryDiv.EditarBloco(div);
+                else{
+                    var d = await _context.DivComum
+                    .Include(di => di.Background)
+                    .Include(di => di.Elemento)
+                    .ThenInclude(di => di.Div)
+                    .Include(di => di.Elemento)
+                    .ThenInclude(di => di.Elemento)
+                    .FirstAsync(di => di.Id == div.Id);
+                    d.Elementos = div.Elementos;
+                    return await RepositoryDiv.EditarBloco(d);
+                }
             }
             catch (Exception ex) { return ex.Message; }
         }

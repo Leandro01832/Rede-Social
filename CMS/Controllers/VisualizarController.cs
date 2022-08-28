@@ -9,6 +9,7 @@ using CMS.Models.Repository;
 using CMS.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace MeuProjetoAgora.Controllers
 {
@@ -38,6 +39,9 @@ namespace MeuProjetoAgora.Controllers
             List<Pagina> lista = await RetornarLista(user.Name, story, capitulo);
             Pagina pagina = lista.Skip((int)indice - 1).FirstOrDefault();
 
+            while (pagina != null &&  pagina.Pular && pagina.Id != lista.Last().Id)
+            pagina = lista[lista.IndexOf(pagina) + 1];
+
             if (pagina == null)
             {
                 ViewBag.paginas = new SelectList(new List<Pagina>(), "Id", "Titulo");
@@ -57,7 +61,9 @@ namespace MeuProjetoAgora.Controllers
             return View(pagina);            
         }
 
-         [Route("SubStory/{Name}/{capitulo?}/{substory}/{indice}")]
+        
+
+        [Route("SubStory/{Name}/{capitulo?}/{substory}/{indice}")]
          public async Task<IActionResult> SubStory(string Name, int indice, int? capitulo, int substory)
         {
             List<Pagina> lista = await RetornarLista(Name, "", capitulo);
@@ -65,8 +71,14 @@ namespace MeuProjetoAgora.Controllers
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
             Pagina pag2 = group.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+
+             while (pag2.Pular && pag2.Id != group.Pagina.Where(p => ! p.Layout).ToList().Last().Id)
+            pag2 = group.Pagina.Where(p => ! p.Layout).ToList()[group.Pagina.Where(p => ! p.Layout).ToList().IndexOf(pag2) + 1];  
+
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
-             int vers = lista.IndexOf(pagina) + 1;          
+             int vers = lista.IndexOf(pagina) + 1; 
+
+                   
 
                 ViewBag.quantidadePaginas = group.Pagina.Count(p => ! p.Layout);
                 ViewBag.group = group;
@@ -88,6 +100,10 @@ namespace MeuProjetoAgora.Controllers
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
             Pagina pag2 = group2.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+
+            while (pag2.Pular && pag2.Id != group2.Pagina.Where(p => ! p.Layout).ToList().Last().Id)
+            pag2 = group2.Pagina.Where(p => ! p.Layout).ToList()[group2.Pagina.Where(p => ! p.Layout).ToList().IndexOf(pag2) + 1]; 
+
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
              int vers = lista.IndexOf(pagina) + 1;          
             
@@ -113,6 +129,10 @@ namespace MeuProjetoAgora.Controllers
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
              var group3 = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
             Pagina pag2 = group3.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+
+            while (pag2.Pular && pag2.Id != group3.Pagina.Where(p => ! p.Layout).ToList().Last().Id)
+            pag2 = group3.Pagina.Where(p => ! p.Layout).ToList()[group3.Pagina.Where(p => ! p.Layout).ToList().IndexOf(pag2) + 1]; 
+
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
              int vers = lista.IndexOf(pagina) + 1;                       
             
@@ -140,6 +160,10 @@ namespace MeuProjetoAgora.Controllers
              var group3 = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
               var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
             Pagina pag2 = group4.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+
+                while (pag2.Pular && pag2.Id != group4.Pagina.Where(p => ! p.Layout).ToList().Last().Id)
+            pag2 = group4.Pagina.Where(p => ! p.Layout).ToList()[group4.Pagina.Where(p => ! p.Layout).ToList().IndexOf(pag2) + 1];
+
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
              int vers = lista.IndexOf(pagina) + 1;                    
             
@@ -187,6 +211,8 @@ namespace MeuProjetoAgora.Controllers
 
             return lista;
         }
+
+        
 
     }
 

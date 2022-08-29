@@ -468,6 +468,8 @@ namespace CMS.Migrations
 
                     b.Property<bool>("Pular");
 
+                    b.Property<string>("Sobreescrita");
+
                     b.Property<long>("StoryId");
 
                     b.Property<long?>("SubGrupoId");

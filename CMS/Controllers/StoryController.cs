@@ -246,8 +246,31 @@ namespace CMS.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var story = await _context.Story.FindAsync(id);
-            _context.Story.Remove(story);
+            foreach (var item in story.Pagina)           
+            _context.Remove(await _context.Pagina.FirstAsync(p => p.Id == item.Id));
             await _context.SaveChangesAsync();
+            var pag = new Pagina();
+            pag.StoryId = story.Id;
+            pag.Div = new List<DivPagina>();
+            pag.Titulo = "Capa";
+            pag.UserId = story.UserId;
+            pag.Sobreescrita = "";
+            pag.CarouselPagina = new List<PaginaCarouselPagina>();
+            _context.Add(pag);
+            _context.SaveChanges();
+
+            for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
+                    {
+                        if(RepositoryPagina.paginas[indice] == null ||
+                         RepositoryPagina.paginas[indice].FirstOrDefault(i => i.StoryId == story.Id) == null) continue;
+
+                        if(RepositoryPagina.paginas[indice].FirstOrDefault(i => i.StoryId == story.Id) != null)
+                        {
+                            RepositoryPagina.paginas[indice].RemoveAll(i => i.StoryId == story.Id);
+                            RepositoryPagina.paginas[indice].Add(pag);
+                            break;
+                        }
+                    }
             return RedirectToAction(nameof(Index));
         }
 

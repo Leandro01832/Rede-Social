@@ -330,6 +330,7 @@ namespace CMS.Controllers
                     var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == pagina.StoryId);
                     var versiculos = story.Pagina.Where(p => !p.Layout).ToList().Count;
 
+                    epositoryPagina.AtualizarPaginaStory(cap);
                     return RedirectToAction(nameof(PaginaCriada),
                         new { user = user.Name, capitulo = cap.PaginaPadraoLink, versiculo = cap.Pagina.Count });
                 }
@@ -377,13 +378,28 @@ namespace CMS.Controllers
                             
                     }
 
-                        _context.Update(pagina);
+                        _context.Update(pagi);
                              _context.SaveChanges();
 
+                    for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
+                    {
+                          if(RepositoryPagina.paginas[indice] == null ||
+                           RepositoryPagina.paginas[indice].FirstOrDefault(i => i.UserId == pagi.UserId) == null) continue;
+
+                        if(RepositoryPagina.paginas[indice].FirstOrDefault(i => i.Id == pagi.Id) != null)
+                        {
+                            RepositoryPagina.paginas[indice].Remove(RepositoryPagina.paginas[indice].First(i => i.Id == pagi.Id));
+                            RepositoryPagina.paginas[indice].Add(pagi);
+                            break;
+                        }
+                    }
+
+                            epositoryPagina.AtualizarPaginaStory(cap);
                             return RedirectToAction(nameof(PaginaCriada),
                                 new { user = user.Name, capitulo = cap.PaginaPadraoLink, versiculo = cap.Pagina.Count });
 
                 }
+
 
 
             

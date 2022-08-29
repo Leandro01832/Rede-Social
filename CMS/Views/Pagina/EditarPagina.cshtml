@@ -55,6 +55,12 @@
                     </label>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label asp-for="Sobreescrita" class="control-label">Sobreescrita</label><br>
+                <textarea asp-for="Sobreescrita" cols="30" rows="10" style="height: 300px; width: 350px;" ></textarea>
+            </div>
+
             <div class="form-group">
                 <input asp-for="UserId" type="hidden" />
                 <input type="hidden" id="StoryId" name="StoryId" value="@Model.StoryId" />
@@ -96,6 +102,8 @@
                 <label class="control-label">Blocos da pagina</label>
                 <input asp-for="Blocos" type="text" value="@ViewBag.elementos" />
             </div>
+
+
         </form>
     </div>
 </div>
@@ -115,6 +123,7 @@
             Titulo: $("#Titulo").val(),
                 UserId: $("#UserId").val(),
             Facebook: $("#Facebook").val(),
+            Sobreescrita: $("#Sobreescrita").val(),
             Twiter: $("#Twiter").val(),
             ArquivoMusic: $("#ArquivoMusic").val(),            
             Music: $("#Music").is(':checked'),

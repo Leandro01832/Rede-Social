@@ -53,7 +53,12 @@ namespace MeuProjetoAgora.Controllers
             ViewBag.story = pagina.Story.Nome;
             string html = "";
             if(pagina.Div.Count > 0)
+            {
+                if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                html = pagina.Sobreescrita;
+                else
                 html = await epositoryPagina.renderizarPagina(pagina);
+            }
             else
             html = user.Capa;
             ViewBag.Html = html;
@@ -85,7 +90,11 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.versiculo = vers;
                 ViewBag.grupoindexsubstory = substory;
                 ViewBag.story = pagina.Story.Nome;
-                string html = await epositoryPagina.renderizarPagina(pagina);
+                string html = "";
+               if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                html = pagina.Sobreescrita;
+                else
+                html = await epositoryPagina.renderizarPagina(pagina);
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 return View(pagina);             
@@ -113,7 +122,11 @@ namespace MeuProjetoAgora.Controllers
                  ViewBag.grupoindexsubstory = substory;
                  ViewBag.grupoindexgrupo = grupo;
                 ViewBag.story = pagina.Story.Nome;
-                string html = await epositoryPagina.renderizarPagina(pagina);
+                string html = "";
+                if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                html = pagina.Sobreescrita;
+                else
+                html = await epositoryPagina.renderizarPagina(pagina);
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 return View(pagina);            
@@ -143,7 +156,11 @@ namespace MeuProjetoAgora.Controllers
                  ViewBag.grupoindexgrupo = grupo;
                 ViewBag.grupoindexsubgrupo = subgrupo;
                 ViewBag.story = pagina.Story.Nome;
-                string html = await epositoryPagina.renderizarPagina(pagina);
+                string html = "";
+                if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                html = pagina.Sobreescrita;
+                else
+                html = await epositoryPagina.renderizarPagina(pagina);
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 return View(pagina);            
@@ -175,7 +192,11 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.grupoindexsubgrupo = subgrupo;
                 ViewBag.grupoindexsubsubgrupo = subsubgrupo;
                 ViewBag.story = pagina.Story.Nome;
-                string html = await epositoryPagina.renderizarPagina(pagina);
+                string html = "";
+                if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                html = pagina.Sobreescrita;
+                else
+                html = await epositoryPagina.renderizarPagina(pagina);
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 return View(pagina);            

@@ -101,8 +101,13 @@ namespace MeuProjetoAgora.Controllers
                 HttpHelper.SetPaginaId(pagina.Id);
                 string html = "";
 
-                if(pagina.Div.Count > 0)
-                html = await epositoryPagina.renderizarPagina(pagina);
+                 if(pagina.Div.Count > 0)
+                {
+                    if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                    html = pagina.Sobreescrita;
+                    else
+                    html = await epositoryPagina.renderizarPagina(pagina);
+                }
                 else
                 html = usuario.Capa;
                 ViewBag.Html = html;                            
@@ -128,9 +133,14 @@ namespace MeuProjetoAgora.Controllers
             }
             string html = "";
             if(pagina.Div.Count > 0)
-                html = await epositoryPagina.renderizarPagina(pagina);
-                else
-                html = user.Capa;
+            {
+                 if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                 html = pagina.Sobreescrita;
+                 else
+                 html = await epositoryPagina.renderizarPagina(pagina);
+            }
+             else
+            html = user.Capa;
             ViewBag.html = html;
             return PartialView("GetView");
         }
@@ -351,6 +361,8 @@ namespace MeuProjetoAgora.Controllers
                             break;
                         }
                     }
+
+            epositoryPagina.AtualizarPaginaStory(await db.Story.FirstAsync(st => st.Id == pag.StoryId));
 
             return RedirectToAction("Galeria", "Pedido");
         }

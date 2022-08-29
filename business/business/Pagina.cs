@@ -90,7 +90,9 @@ namespace business.business
 
         [Required(ErrorMessage = "O titulo é necessário")]
         [Display(Name = "Titulo da pagina")]
-        public string Titulo { get; set; }        
+        public string Titulo { get; set; }      
+
+        public string Sobreescrita { get; set; }      
 
         [Display(Name = "Arquivo")]
         public string ArquivoMusic { get; set; }       

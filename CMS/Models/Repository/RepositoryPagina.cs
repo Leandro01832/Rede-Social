@@ -1,6 +1,7 @@
 ﻿using business.business;
 using business.business.carousel;
 using business.business.Elementos;
+using business.business.Group;
 using business.div;
 using business.Join;
 using CMS.Data;
@@ -28,6 +29,8 @@ namespace CMS.Models.Repository
          Task<string> renderizarPagina(Pagina pagina);
         Task BlocosdaPagina(Pagina pagina);
         IIncludableQueryable<Pagina, Div> includes();
+
+        void AtualizarPaginaStory(Story story);
         
     }
 
@@ -55,8 +58,6 @@ namespace CMS.Models.Repository
         
         //711 linhas
         public string CodigoProducao { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocProducao.cshtml")); } }
-              
-        public string CodigoModal { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/modal.cshtml")); } }
         
         public string CodigoMusic { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/music.cshtml")); } }
 
@@ -151,7 +152,7 @@ namespace CMS.Models.Repository
         {
             var resultado = await renderizar(pagina, CodigoBloco + CodCss +
                 CodigoProducao + CodigoMusic
-                + CodigoCarousel + CodigoModal);
+                + CodigoCarousel);
             return resultado;
         }
         
@@ -362,6 +363,25 @@ namespace CMS.Models.Repository
             return include;
         }
 
-       
+        public async void AtualizarPaginaStory(Story story)
+        {
+            var str = await contexto.Story.Include(s => s.Pagina).FirstAsync(s => s.Id == story.Id);
+            var pag = str.Pagina.First();
+
+            var pagina = await includes().FirstAsync(p => p.Id == pag.Id);
+
+              for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
+                    {
+                          if(RepositoryPagina.paginas[indice] == null ||
+                           RepositoryPagina.paginas[indice].FirstOrDefault(i => i.UserId == pagina.UserId) == null) continue;
+
+                        if(RepositoryPagina.paginas[indice].FirstOrDefault(i => i.Id == pagina.Id) != null)
+                        {
+                            RepositoryPagina.paginas[indice].Remove(RepositoryPagina.paginas[indice].First(i => i.Id == pagina.Id));
+                            RepositoryPagina.paginas[indice].Add(pagina);
+                            break;
+                        }
+                    }
+        }
     }
 }

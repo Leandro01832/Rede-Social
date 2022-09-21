@@ -1,0 +1,52 @@
+@model business.Back.BackgroundCorContainer
+
+<h4>BackgroundCorContainer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_BackgroundCorContainer" id="formulario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CorContainer" class="control-label"></label>
+                <input asp-for="CorContainer" class="form-control" />
+                <span asp-validation-for="CorContainer" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="backgroundTransparenteContainer" /> @Html.DisplayNameFor(model => model.backgroundTransparenteContainer)
+                </label>
+            </div>            
+
+             <input type="hidden" asp-for="Id" value="@ViewBag.id" />
+            @{
+                if (Model.Id == 0)
+                {
+                    <div class="form-group">
+                        <input type="button" value="Save" onclick="ScriptBackground.Create()" class="btn btn-primary" />
+                    </div>
+                }
+            }
+
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <script src="~/js/Background/backgroundContainer.js"></script>
+    <script src="~/js/AjaxGet.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input, select").change(function () {
+                
+                ScriptBackground.Update();
+            });
+        });
+    </script>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

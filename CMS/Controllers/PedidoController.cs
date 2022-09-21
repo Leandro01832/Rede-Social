@@ -1,5 +1,6 @@
 ﻿using business.Back;
 using business.business;
+using business.business.div;
 using business.div;
 using business.Join;
 using CMS.Data;
@@ -78,6 +79,7 @@ namespace MeuProjetoAgora.Controllers
 
             ViewBag.UserId = user.Id;
             ViewBag.StoryId = new SelectList(stories, "Id", "CapituloComNome");
+
             return View();
         }
 
@@ -88,41 +90,24 @@ namespace MeuProjetoAgora.Controllers
         [Route("CreatePage")]
         [Route("Criar-Pagina")]
         [Route("CriarPagina")]
-        public async Task<ActionResult> CreatePagina(Pagina pagina)
+        public async Task<ActionResult> CreatePagina(Pagina pagina, int QuantidadeDiv, int QuantContainers)
         {
             var user = await UserManager.GetUserAsync(this.User);
             var stories = await Context.Story.Where(str => str.UserId == user.Id).ToListAsync();
 
             if (ModelState.IsValid)
             {
-                await Context.Pagina.AddAsync(pagina);
-                await Context.SaveChangesAsync();
-                HttpHelper.SetPaginaId(pagina.Id);
+                pagina.Div = null;
+                Context.Pagina.Add(pagina);
+                Context.SaveChanges();
+                HttpHelper.SetPaginaId(pagina.Id);                
 
-                for (int i = 0; i <= 5; i++)
-                {
-                    DivComum div = new DivComum();
-                    div.Pagina_ = pagina.Id;
-                    if (i < 3)
-                        div.Background = new BackgroundImagem
-                        {
-                            Background_Position = "",
-                            Background_Repeat = "repeat",
-                            Imagem = Context.Imagem.ToList()[i]
-                        };
-                    else
-                        div.Background = new BackgroundCor
-                        {
-                            backgroundTransparente = true,
-                            Cor = "transparent"
-                        };
+                var p = new Pagina(QuantidadeDiv, QuantContainers);
 
-                    await Context.Div.AddAsync(div);
-                    await Context.SaveChangesAsync();
-
-                    Context.DivPagina.Add(new DivPagina { DivId = div.Id, PaginaId = pagina.Id });
-                    await Context.SaveChangesAsync();
-                }
+                pagina.Div = new List<PaginaContainer>();                
+                foreach (var item in p.Div)            
+                pagina.IncluiDiv(item.Container);             
+                await  Context.SaveChangesAsync(); 
 
                 for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
                     {

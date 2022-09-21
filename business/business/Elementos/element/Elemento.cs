@@ -31,7 +31,9 @@ namespace business.business.Elementos.element
             get { if (PaginaEscolhida == null) return 0; else return 1; }
         }
         public string Nome { get { return nome; } set { nome = value; } }
+
         public int Ordem { get; set; }
+       
 
         [JsonIgnore]
         public virtual List<DivElemento> div { get; set; }

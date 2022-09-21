@@ -49,8 +49,8 @@ namespace CMS
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-              //  options.UseSqlServer( Configuration.GetConnectionString("DefaultConnection")));
-                options.UseSqlServer(conecta1));
+                options.UseSqlServer( Configuration.GetConnectionString("DefaultConnection")));
+               // options.UseSqlServer(conecta1));
             services.AddDefaultIdentity<UserModel>()
                 .AddRoles<IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap3)

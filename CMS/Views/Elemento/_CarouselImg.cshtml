@@ -29,7 +29,12 @@
                 <span asp-validation-for="ElementosDependentes" class="text-danger"></span>
             </div>
 
-            <input asp-for="Ordem" type="hidden" />
+             <div class="form-group">
+                <label asp-for="Ordem" class="control-label"></label>
+                <input asp-for="Ordem" type="number" class="form-control" />
+                <span asp-validation-for="Ordem" class="text-danger"></span>
+            </div>
+
             <input type="hidden" asp-for="Id" />
 
             @{

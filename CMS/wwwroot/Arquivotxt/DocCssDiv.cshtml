@@ -1,0 +1,69 @@
+#set($site = '')
+
+<style>
+    .bloco 
+    {
+        display: flex;    
+        flex-direction: ${model.Pagina.FlexDirection};    
+        align-items: ${model.Pagina.AlignItems};
+        width: 100%;
+        min-height: 950px;
+        height: auto;
+        background-size: contain;
+    } 
+
+</style>
+
+#foreach($container in $divs)
+
+<style>
+
+#Container${container.Container.Id}Pagina${model.Pagina.Id}
+    {
+        width: ${container.Container.Width}%;
+        min-height: ${container.Container.Height}px;
+        height: auto;
+        border-radius: ${container.Container.BorderRadius}px;
+        padding: ${container.Container.Padding}%;
+        order: ${container.Container.Ordem};
+        flex-wrap: ${container.Container.FlexWrap};
+        justify-content: ${container.Container.JustifyContent};
+        flex-direction: ${container.Container.FlexDirection};    
+        align-items: ${container.Container.AlignItems};
+    }
+</style>
+
+#foreach($bl in $container.Container.Div)
+
+<style>
+    #DIV${bl.Div.Id}Pagina${model.Pagina.Id} 
+    {
+        order: ${bl.Div.Ordem};
+        width: ${bl.Div.Width}%;
+        min-height: ${bl.Div.Height}px;
+        height: auto;
+        border-radius: ${bloco.Container.BorderRadius}px;
+        flex-wrap: ${bl.Div.FlexWrap};
+        justify-content: ${bl.Div.JustifyContent};
+        flex-direction: ${bl.Div.FlexDirection};    
+        align-items: ${bl.Div.AlignItems};
+    }
+</style>
+
+#foreach($elemento in $bl.Div.Elemento)
+
+    <style>
+    #elemento${elemento.Elemento.Id}Pagina${model.Pagina.Id}
+    {
+        order: ${elemento.Elemento.Ordem};
+        flex-wrap: ${elemento.Elemento.FlexWrap};
+        justify-content: ${elemento.Elemento.JustifyContent};
+        flex-direction: ${elemento.Elemento.FlexDirection};    
+        align-items: ${elemento.Elemento.AlignItems};
+    }
+</style>
+
+#end
+#end
+#end
+    

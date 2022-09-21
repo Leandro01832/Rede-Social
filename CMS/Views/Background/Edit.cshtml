@@ -3,88 +3,26 @@
 @{
     ViewData["Title"] = "EditBackground";
 }
-
 <h1>Editar Background</h1>
-
-<h4>Background</h4>
-
 @{
-    if (ViewBag.back == "BackgroundGradiente" && ViewBag.condicao == false)
-    { <partial name="_BackgroundGradiente" model="Model" /> }
-    else if (ViewBag.back == "BackgroundImagem" && ViewBag.condicao == false)
-    { <partial name="_BackgroundImagem" model="Model" /> }
-    else if (ViewBag.back == "BackgroundCor" && ViewBag.condicao == false)
-    { <partial name="_BackgroundCor" model="Model" /> }
-}
-
-@{
-    if (ViewBag.condicao == false)
+    if(Model is business.Back.BackgroundDiv)
     {
-        <div id="links-back" style="display:none;">
-            <input type="hidden" id="numero-back" name="numero-back" />
-            <a href="#" id="blocoGradiente" class="btn btn-warning">Plano gradiente</a><br />
-            <a href="#" id="blocoImagem" class="btn btn-primary">Plano imagem</a><br />
-            <a href="#" id="blocoCor" class="btn btn-danger">Plano de uma cor</a><br />
-
-        </div>
+        if (Model.GetType().Name == "BackgroundGradiente")
+        { <partial name="_BackgroundGradiente" model="Model" /> }
+        else if (Model.GetType().Name == "BackgroundImagem")
+        { <partial name="_BackgroundImagem" model="Model" /> }
+        else if (Model.GetType().Name == "BackgroundCor")
+        { <partial name="_BackgroundCor" model="Model" /> }
     }
     else
     {
-        <div id="links-back">
-            <input type="hidden" id="numero-back" name="numero-back" />
-            <a href="#" id="blocoGradiente" class="btn btn-warning">Plano gradiente</a><br />
-            <a href="#" id="blocoImagem" class="btn btn-primary">Plano imagem</a><br />
-            <a href="#" id="blocoCor" class="btn btn-danger">Plano de uma cor</a><br />
-
-        </div>
+        if (Model.GetType().Name == "BackgroundCorContainer")
+        { <partial name="_BackgroundCorContainer" model="Model" /> }
+        else if (Model.GetType().Name == "BackgroundImagemContainer")
+        { <partial name="_BackgroundImagemContainer" model="Model" /> }
+        else if (Model.GetType().Name == "BackgroundGradienteContainer")
+        { <partial name="_BackgroundGradienteContainer" model="Model" /> }
     }
-
-    if (ViewBag.condicao == false)
-    {
-        <div>
-            <script type="text/javascript">
-
-                $("#blocoImagem").click(function () {
-                    var numero = $("#numero-back").val();
-                    $("#conteudomodal").load("/Background/Edit/BackgroundImagem/" + numero);
-                });
-
-                $("#blocoGradiente").click(function () {
-                    var numero = $("#numero-back").val();
-                    $("#conteudomodal").load("/Background/Edit/BackgroundGradiente/" + numero);
-                });
-
-                $("#blocoCor").click(function () {
-
-                    var numero = $("#numero-back").val();
-                    $("#conteudomodal").load("/Background/Edit/BackgroundCor/" + numero);
-                });
-
-            </script>
-        </div>
-    }
-    else
-    {
-        <div>
-            <script type="text/javascript">
-
-                $("#blocoImagem").click(function () {
-                    $("#conteudomodal").load("/Background/Edit/BackgroundImagem/@(Model.Id)" );
-                });
-
-                $("#blocoGradiente").click(function () {
-                    $("#conteudomodal").load("/Background/Edit/BackgroundGradiente/@(Model.Id)");
-                });
-
-                $("#blocoCor").click(function () {
-                    $("#conteudomodal").load("/Background/Edit/BackgroundCor/@(Model.Id)");
-                });
-
-            </script>
-        </div>
-    }
-
-
 }
 
 @section Scripts {

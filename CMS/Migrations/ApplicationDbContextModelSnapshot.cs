@@ -198,7 +198,9 @@ namespace CMS.Migrations
 
             modelBuilder.Entity("business.Back.Background", b =>
                 {
-                    b.Property<long>("Id");
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Discriminator")
                         .IsRequired();
@@ -239,6 +241,19 @@ namespace CMS.Migrations
                     b.ToTable("Cor");
                 });
 
+            modelBuilder.Entity("business.Join.DivContainer", b =>
+                {
+                    b.Property<long?>("DivId");
+
+                    b.Property<long?>("ContainerId");
+
+                    b.HasKey("DivId", "ContainerId");
+
+                    b.HasIndex("ContainerId");
+
+                    b.ToTable("DivContainer");
+                });
+
             modelBuilder.Entity("business.Join.DivElemento", b =>
                 {
                     b.Property<long?>("DivId");
@@ -252,19 +267,6 @@ namespace CMS.Migrations
                     b.ToTable("DivElemento");
                 });
 
-            modelBuilder.Entity("business.Join.DivPagina", b =>
-                {
-                    b.Property<long?>("DivId");
-
-                    b.Property<long?>("PaginaId");
-
-                    b.HasKey("DivId", "PaginaId");
-
-                    b.HasIndex("PaginaId");
-
-                    b.ToTable("DivPagina");
-                });
-
             modelBuilder.Entity("business.Join.PaginaCarouselPagina", b =>
                 {
                     b.Property<long?>("ElementoId");
@@ -276,6 +278,50 @@ namespace CMS.Migrations
                     b.HasIndex("PaginaId");
 
                     b.ToTable("PaginaCarouselPagina");
+                });
+
+            modelBuilder.Entity("business.Join.PaginaContainer", b =>
+                {
+                    b.Property<long?>("ContainerId");
+
+                    b.Property<long?>("PaginaId");
+
+                    b.HasKey("ContainerId", "PaginaId");
+
+                    b.HasIndex("PaginaId");
+
+                    b.ToTable("PaginaContainer");
+                });
+
+            modelBuilder.Entity("business.business.Container", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AlignItems");
+
+                    b.Property<int>("BorderRadius");
+
+                    b.Property<bool>("Content");
+
+                    b.Property<string>("FlexDirection");
+
+                    b.Property<string>("FlexWrap");
+
+                    b.Property<int>("Height");
+
+                    b.Property<string>("JustifyContent");
+
+                    b.Property<int>("Ordem");
+
+                    b.Property<int>("Padding");
+
+                    b.Property<int>("Width");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Container");
                 });
 
             modelBuilder.Entity("business.business.DadoFormulario", b =>
@@ -452,17 +498,17 @@ namespace CMS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AlignItems");
+
                     b.Property<string>("ArquivoMusic");
 
                     b.Property<DateTime>("Data");
 
+                    b.Property<string>("FlexDirection");
+
                     b.Property<long?>("GrupoId");
 
                     b.Property<bool>("Layout");
-
-                    b.Property<bool>("Margem");
-
-                    b.Property<bool>("Menu");
 
                     b.Property<bool>("Music");
 
@@ -480,8 +526,6 @@ namespace CMS.Migrations
 
                     b.Property<string>("Titulo")
                         .IsRequired();
-
-                    b.Property<bool>("Topo");
 
                     b.Property<string>("UserId");
 
@@ -615,16 +659,22 @@ namespace CMS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AlignItems");
+
                     b.Property<int>("BorderRadius");
 
-                    b.Property<string>("Colunas");
+                    b.Property<bool>("Content");
 
                     b.Property<string>("Discriminator")
                         .IsRequired();
 
-                    b.Property<string>("Divisao");
+                    b.Property<string>("FlexDirection");
+
+                    b.Property<string>("FlexWrap");
 
                     b.Property<int>("Height");
+
+                    b.Property<string>("JustifyContent");
 
                     b.Property<string>("Nome")
                         .IsRequired();
@@ -635,6 +685,8 @@ namespace CMS.Migrations
 
                     b.Property<long>("Pagina_");
 
+                    b.Property<int>("Width");
+
                     b.HasKey("Id");
 
                     b.ToTable("Div");
@@ -642,41 +694,30 @@ namespace CMS.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("Div");
                 });
 
-            modelBuilder.Entity("business.Back.BackgroundCor", b =>
+            modelBuilder.Entity("business.Back.BackgroundContainer", b =>
                 {
                     b.HasBaseType("business.Back.Background");
 
-                    b.Property<string>("Cor");
+                    b.Property<long?>("ContainerId");
 
-                    b.Property<bool>("backgroundTransparente");
+                    b.HasIndex("ContainerId")
+                        .IsUnique()
+                        .HasFilter("[ContainerId] IS NOT NULL");
 
-                    b.ToTable("BackgroundCor");
-
-                    b.HasDiscriminator().HasValue("BackgroundCor");
+                    b.HasDiscriminator().HasValue("BackgroundContainer");
                 });
 
-            modelBuilder.Entity("business.Back.BackgroundGradiente", b =>
+            modelBuilder.Entity("business.Back.BackgroundDiv", b =>
                 {
                     b.HasBaseType("business.Back.Background");
 
-                    b.Property<int>("Grau");
+                    b.Property<long?>("DivId");
 
-                    b.ToTable("BackgroundGradiente");
+                    b.HasIndex("DivId")
+                        .IsUnique()
+                        .HasFilter("[DivId] IS NOT NULL");
 
-                    b.HasDiscriminator().HasValue("BackgroundGradiente");
-                });
-
-            modelBuilder.Entity("business.Back.BackgroundImagem", b =>
-                {
-                    b.HasBaseType("business.Back.Background");
-
-                    b.Property<string>("Background_Position");
-
-                    b.Property<string>("Background_Repeat");
-
-                    b.ToTable("BackgroundImagem");
-
-                    b.HasDiscriminator().HasValue("BackgroundImagem");
+                    b.HasDiscriminator().HasValue("BackgroundDiv");
                 });
 
             modelBuilder.Entity("business.business.Elementos.Campo", b =>
@@ -770,7 +811,7 @@ namespace CMS.Migrations
                     b.HasDiscriminator().HasValue("LinkBody");
                 });
 
-            modelBuilder.Entity("business.div.DivComum", b =>
+            modelBuilder.Entity("business.business.div.DivComum", b =>
                 {
                     b.HasBaseType("business.div.Div");
 
@@ -796,6 +837,74 @@ namespace CMS.Migrations
                     b.ToTable("DivFixo");
 
                     b.HasDiscriminator().HasValue("DivFixo");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundCorContainer", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundContainer");
+
+                    b.Property<string>("CorContainer");
+
+                    b.Property<bool>("backgroundTransparenteContainer");
+
+                    b.HasDiscriminator().HasValue("BackgroundCorContainer");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundGradienteContainer", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundContainer");
+
+                    b.Property<int>("GrauContainer");
+
+                    b.HasDiscriminator().HasValue("BackgroundGradienteContainer");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundImagemContainer", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundContainer");
+
+                    b.Property<string>("Background_PositionContainer");
+
+                    b.Property<string>("Background_RepeatContainer");
+
+                    b.HasDiscriminator().HasValue("BackgroundImagemContainer");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundCor", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundDiv");
+
+                    b.Property<string>("Cor");
+
+                    b.Property<bool>("backgroundTransparente");
+
+                    b.ToTable("BackgroundCor");
+
+                    b.HasDiscriminator().HasValue("BackgroundCor");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundGradiente", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundDiv");
+
+                    b.Property<int>("Grau");
+
+                    b.ToTable("BackgroundGradiente");
+
+                    b.HasDiscriminator().HasValue("BackgroundGradiente");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundImagem", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundDiv");
+
+                    b.Property<string>("Background_Position");
+
+                    b.Property<string>("Background_Repeat");
+
+                    b.ToTable("BackgroundImagem");
+
+                    b.HasDiscriminator().HasValue("BackgroundImagem");
                 });
 
             modelBuilder.Entity("business.business.Elementos.imagem.Imagem", b =>
@@ -862,11 +971,6 @@ namespace CMS.Migrations
 
             modelBuilder.Entity("business.Back.Background", b =>
                 {
-                    b.HasOne("business.div.Div", "Div")
-                        .WithOne("Background")
-                        .HasForeignKey("business.Back.Background", "Id")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("business.business.Elementos.imagem.Imagem", "Imagem")
                         .WithMany("Background")
                         .HasForeignKey("ImagemId");
@@ -884,6 +988,19 @@ namespace CMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("business.Join.DivContainer", b =>
+                {
+                    b.HasOne("business.business.Container", "Container")
+                        .WithMany("Div")
+                        .HasForeignKey("ContainerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("business.div.Div", "Div")
+                        .WithMany("Container")
+                        .HasForeignKey("DivId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("business.Join.DivElemento", b =>
                 {
                     b.HasOne("business.div.Div", "Div")
@@ -897,19 +1014,6 @@ namespace CMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("business.Join.DivPagina", b =>
-                {
-                    b.HasOne("business.div.Div", "Div")
-                        .WithMany("Pagina")
-                        .HasForeignKey("DivId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("business.business.Pagina", "Pagina")
-                        .WithMany("Div")
-                        .HasForeignKey("PaginaId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("business.Join.PaginaCarouselPagina", b =>
                 {
                     b.HasOne("business.business.Elementos.element.Elemento", "Elemento")
@@ -919,6 +1023,19 @@ namespace CMS.Migrations
 
                     b.HasOne("business.business.Pagina", "Pagina")
                         .WithMany("CarouselPagina")
+                        .HasForeignKey("PaginaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.Join.PaginaContainer", b =>
+                {
+                    b.HasOne("business.business.Container", "Container")
+                        .WithMany("PaginaContainer")
+                        .HasForeignKey("ContainerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("business.business.Pagina", "Pagina")
+                        .WithMany("Div")
                         .HasForeignKey("PaginaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -1019,6 +1136,20 @@ namespace CMS.Migrations
                     b.HasOne("CMS.Models.UserModel")
                         .WithMany("Seguindo")
                         .HasForeignKey("UserModelId");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundContainer", b =>
+                {
+                    b.HasOne("business.business.Container", "Container")
+                        .WithOne("Background")
+                        .HasForeignKey("business.Back.BackgroundContainer", "ContainerId");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundDiv", b =>
+                {
+                    b.HasOne("business.div.Div", "Div")
+                        .WithOne("Background")
+                        .HasForeignKey("business.Back.BackgroundDiv", "DivId");
                 });
 
             modelBuilder.Entity("business.business.Elementos.imagem.Imagem", b =>

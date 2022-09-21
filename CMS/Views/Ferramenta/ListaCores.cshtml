@@ -8,9 +8,7 @@
             </th> <th>
                 @Html.DisplayNameFor(model => model.CorBackground)
             </th>             
-            <th>
-                @Html.DisplayName("Background")
-            </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -23,9 +21,7 @@
             <td>
                 <input type="color" value="@item.CorBackground" />
             </td>             
-            <td>
-                @Html.DisplayFor(modelItem => item.Background.Div.Nome)
-            </td>
+            
             <td>
                 <a class="EditarCor" data-value="@item.Id">Editar</a> |
                 <a class="ApagarCor" data-value="@item.Id">Apagar</a>

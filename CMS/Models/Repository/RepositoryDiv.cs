@@ -38,18 +38,20 @@ namespace CMS.Models.Repository
 
         public async Task<string> EditarBloco(Div div)
         {
+            div.Background = null;
             contexto.Update(div);
             await contexto.SaveChangesAsync();
 
-            var Div = await contexto.Div
-                .Include(d => d.Elemento)
-                .ThenInclude(d => d.Div)
-                .Include(d => d.Elemento)
-                .ThenInclude(d => d.Elemento)
-                .FirstAsync(d => d.Id == div.Id);
-            Div.Elementos = div.Elementos;
+            var d = await contexto.DivComum
+                    .Include(di => di.Background)
+                    .Include(di => di.Elemento)
+                    .ThenInclude(di => di.Div)
+                    .Include(di => di.Elemento)
+                    .ThenInclude(di => di.Elemento)
+                    .FirstAsync(di => di.Id == div.Id);
+                    d.Elementos = div.Elementos;
 
-            await ElementosBloco(Div);
+            await ElementosBloco(d);
 
             return "";
 
@@ -148,7 +150,7 @@ namespace CMS.Models.Repository
 
         private async Task<bool> VerificaVariosBlocoComTable(Div div, Elemento ele)
         {
-            var blocos = await contexto.DivPagina.Include(d => d.Div).Where(d => d.DivId == div.Id).ToListAsync();
+            var blocos = await contexto.Div.Where(d => d.Id == div.Id).ToListAsync();
 
             if (blocos.Count > 1 && ele.GetType().Name == "Table") return true;
             else
@@ -160,29 +162,29 @@ namespace CMS.Models.Repository
             var divs = contexto.Pagina
                 .Include(p => p.Story)
                 .ThenInclude(p => p.Pagina)
-                .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Background).ThenInclude(p => p.Cores)
+                .Include(p => p.Div).ThenInclude(p => p.Container).ThenInclude(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Background).ThenInclude(p => p.Cores)
                 
-                .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Background).ThenInclude(p => p.Imagem)
+                .Include(p => p.Div).ThenInclude(p => p.Container).ThenInclude(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Background).ThenInclude(p => p.Imagem)
                 
-                .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
+                .Include(p => p.Div).ThenInclude(p => p.Container).ThenInclude(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
                 .ThenInclude(p => p.Texto)
                 
-                .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
+                .Include(p => p.Div).ThenInclude(p => p.Container).ThenInclude(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
                 .ThenInclude(p => p.Imagem)                
                 
-                .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
+                .Include(p => p.Div).ThenInclude(p => p.Container).ThenInclude(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
                 .ThenInclude(p => p.Formulario)
                 
-                .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
+                .Include(p => p.Div).ThenInclude(p => p.Container).ThenInclude(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
                 .ThenInclude(p => p.Dependentes).ThenInclude(p => p.Elemento)
                 
-                .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
+                .Include(p => p.Div).ThenInclude(p => p.Container).ThenInclude(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
                 .ThenInclude(p => p.Dependentes).ThenInclude(p => p.ElementoDependente)
                 
-                .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
+                .Include(p => p.Div).ThenInclude(p => p.Container).ThenInclude(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
                 .ThenInclude(p => p.Paginas).ThenInclude(p => p.Elemento)
                
-                .Include(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
+                .Include(p => p.Div).ThenInclude(p => p.Container).ThenInclude(p => p.Div).ThenInclude(p => p.Div).ThenInclude(p => p.Elemento).ThenInclude(p => p.Elemento)
                 .ThenInclude(p => p.Paginas).ThenInclude(p => p.Pagina);
             return divs;
         }

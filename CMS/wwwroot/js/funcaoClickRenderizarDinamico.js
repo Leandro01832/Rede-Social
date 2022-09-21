@@ -1,31 +1,31 @@
-﻿$(".GaleriaBackground").click(function () {
-
-    var numero = $("#IdentificaPagina").val();
-    $("#conteudomodal").load("/Ferramenta/ListaBackground/" + numero);
-});
-
+﻿// $(".GaleriaBackground").click(function () {
+//     var numero = $("#IdentificaPagina").val();
+//     $("#conteudomodal").load("/Ferramenta/ListaBackground/" + numero);
+// });
 
 $("#GaleriaBlocoFixo").click(function () {
-
     $("#FormTexto, #estrutura, #Permissao, #Galeria, #GaleriaBlocos").fadeOut("slow");
     $("#GaleriaBlocos").fadeIn("slow");
     $("#GaleriaBlocos").load("/Div/ListaFixo/");
-
 });
-
-$(".GaleriaLayout").click(function () {
-    var numero = $("#IdentificaPagina").val();
-    
-    $("#conteudomodal").load("/Pagina/GaleriaLayout/" + numero);
-});
-
 
 $("#GaleriaBloco").click(function () {    
-
     $("#FormTexto, #estrutura, #Permissao, #Galeria, #GaleriaBlocos").fadeOut("slow");
     $("#GaleriaBlocos").fadeIn("slow");
     $("#GaleriaBlocos").load("/Div/Lista/");
 
+});
+
+$("#GaleriaConteiners").click(function () {    
+    $("#FormTexto, #estrutura, #Permissao, #Galeria, #GaleriaBlocos").fadeOut("slow");
+    $("#GaleriaBlocos").fadeIn("slow");
+    $("#GaleriaBlocos").load("/Container/Index/");
+
+});
+
+$(".GaleriaLayout").click(function () {
+    var numero = $("#IdentificaPagina").val();    
+    $("#conteudomodal").load("/Pagina/GaleriaLayout/" + numero);
 });
 
 function ElementoGaleria(Elemento) {
@@ -46,21 +46,20 @@ $("#CreatePath").click(function () {
 
 $("#EditarCores").click(function () {  
     var numero = $("#IdentificaPagina").val();
-
     $("#conteudomodal").load("/Ferramenta/ListaCores/" + numero);
 });
 
-$("#BlocoCriarBackgroundImagem").click(function () {
-    $("#conteudomodal").load("/Background/Create/BackgroundImagem");
-});
+    // $("#BlocoCriarBackgroundImagem").click(function () {
+    //     $("#conteudomodal").load("/Background/Create/BackgroundImagem");
+    // });
 
-$("#BlocoCriarBackgroundGradiente").click(function () {
-    $("#conteudomodal").load("/Background/Create/BackgroundGradiente");
-});
+    // $("#BlocoCriarBackgroundGradiente").click(function () {
+    //     $("#conteudomodal").load("/Background/Create/BackgroundGradiente");
+    // });
 
-$("#BlocoCriarBackgroundCor").click(function () {
-    $("#conteudomodal").load("/Background/Create/BackgroundCor");
-});
+    // $("#BlocoCriarBackgroundCor").click(function () {
+    //     $("#conteudomodal").load("/Background/Create/BackgroundCor");
+    // });
 
 $(".CoresBack").click(function () {
     var numero = $("#IdentificaPagina").val();
@@ -87,26 +86,17 @@ $("#EditToolsForm").click(function () {
 });
 
 $("#EditToolsTable").click(function () {
-
     var id = $(this).data("value");
-   
-
     $("#conteudomodal").load("/Elemento/Edit/" + id);
 });
 
-
-
 $("#EditToolsImagem").click(function () {
-
     var id = $(this).data("value");
-
     $("#conteudomodal").load("/Elemento/Edit/" + id);
 });
 
 $("#EditToolsVideo").click(function () {
-
     var id = $(this).data("value");
-
     $("#conteudomodal").load("/Elemento/Edit/" + id);
 });
 
@@ -142,33 +132,31 @@ $(".Configuracao").click(function () {
     $("#conteudomodal").load("/Pagina/EditarPagina/" + numero);
     });
 
-
-
 $("#Atualizar").click(function () {
     $(".content").load("/Pagina/GetView/" + numero);
 });
 
-$("#SalvarBlocos").click(function () {
+// $("#SalvarBlocos").click(function () {
 
-    if (condicaoBloco) {
-        condicaoBloco = false;
-        AlterarPosicaoBloco();
+//     if (condicaoBloco) {
+//         condicaoBloco = false;
+//         AlterarPosicaoBloco();
 
-    }
-});
+//     }
+// });
 
-$("#SalvarElementos").click(function () {
+// $("#SalvarElementos").click(function () {
 
-    if (condicaoElemento) {
-        condicaoElemento = false;
-        AlterarPosicaoElemento();
+//     if (condicaoElemento) {
+//         condicaoElemento = false;
+//         AlterarPosicaoElemento();
 
-    }
-});
+//     }
+// });
 
-$("#AlterarPosicao").click(function () {
-    location.reload();
-});
+// $("#AlterarPosicao").click(function () {
+//     location.reload();
+// });
 
 $("#Ocultar").click(function () {
 
@@ -187,24 +175,24 @@ $(".Ferramenta").click(function () {
     
 });
 
-$("#BlocoCriarBlocoComum").click(function () {
+// $("#BlocoCriarContainer").click(function () {
 
-    $("#conteudomodal").load("/Div/Create/DivComum");
-});
+//     $("#conteudomodal").load("/Container/Create");
+// });
 
-$("#BlocoCriarBlocoFixo").click(function () {
+// $("#BlocoCriarBlocoComum").click(function () {
 
-    $("#conteudomodal").load("/Div/Create/DivFixo");
-});
+//     $("#conteudomodal").load("/Div/Create/DivComum");
+// });
+
+// $("#BlocoCriarBlocoFixo").click(function () {
+
+//     $("#conteudomodal").load("/Div/Create/DivFixo");
+// });
 
 $("#BlocoCriarTexto").click(function () {
     var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Texto/" + numero);
-});
-
-$("#BlocoCriarTextoDependente").click(function () {
-    var numero = $("#IdentificaPagina").val();
-    $("#conteudomodal").load("/Elemento/Create/TextoDependente/" + numero);
 });
 
 $("#BlocoCriarVideo").click(function () {
@@ -215,16 +203,6 @@ $("#BlocoCriarVideo").click(function () {
 $("#BlocoCriarLink").click(function () {
     var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/LinkBody/" + numero);
-});
-
-$("#BlocoCriarLinkMenu").click(function () {
-    var numero = $("#IdentificaPagina").val();
-    $("#conteudomodal").load("/Elemento/Create/LinkMenu/" + numero);
-});
-
-$("#BlocoCriarTable").click(function () {
-    var numero = $("#IdentificaPagina").val();
-    $("#conteudomodal").load("/Elemento/Create/Table/" + numero);
 });
 
 $("#BlocoCriarImagem").click(function () {
@@ -245,31 +223,6 @@ $("#BlocoCriarCarouselPagina").click(function () {
 $("#BlocoCriarDropdown").click(function () {
     var numero = $("#IdentificaPagina").val();
     $("#conteudomodal").load("/Elemento/Create/Dropdown/" + numero);
-});
-
-$("#BlocoCriarProdutoAcessorio").click(function () {
-    var numero = $("#IdentificaPagina").val();
-    $("#conteudomodal").load("/Elemento/Create/Acessorio/" + numero);
-});
-
-$("#BlocoCriarProdutoCalcado").click(function () {
-    var numero = $("#IdentificaPagina").val();
-    $("#conteudomodal").load("/Elemento/Create/Calcado/" + numero);
-});
-
-$("#BlocoCriarProdutoAlimenticio").click(function () {
-    var numero = $("#IdentificaPagina").val();
-    $("#conteudomodal").load("/Elemento/Create/Alimenticio/" + numero);
-});
-
-$("#BlocoCriarProdutoRoupa").click(function () {
-    var numero = $("#IdentificaPagina").val();
-    $("#conteudomodal").load("/Elemento/Create/Roupa/" + numero);
-});
-
-$("#BlocoCriarProdutoShow").click(function () {
-    var numero = $("#IdentificaPagina").val();
-    $("#conteudomodal").load("/Elemento/Create/Show/" + numero);
 });
 
 $("#BlocoCriarFormulario").click(function () {

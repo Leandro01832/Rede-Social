@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leandro\\Documents\\rede-social\\Tests\\Tests.csproj": {}
+    "C:\\Users\\leandro\\Documents\\rede-social-box\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leandro\\Documents\\rede-social\\business\\business.csproj": {
+    "C:\\Users\\leandro\\Documents\\rede-social-box\\business\\business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leandro\\Documents\\rede-social\\business\\business.csproj",
+        "projectUniqueName": "C:\\Users\\leandro\\Documents\\rede-social-box\\business\\business.csproj",
         "projectName": "business",
-        "projectPath": "C:\\Users\\leandro\\Documents\\rede-social\\business\\business.csproj",
+        "projectPath": "C:\\Users\\leandro\\Documents\\rede-social-box\\business\\business.csproj",
         "packagesPath": "C:\\Users\\leandro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leandro\\Documents\\rede-social\\business\\obj\\",
+        "outputPath": "C:\\Users\\leandro\\Documents\\rede-social-box\\business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -74,18 +74,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\leandro\\Documents\\rede-social\\CMS\\CMS.csproj": {
+    "C:\\Users\\leandro\\Documents\\rede-social-box\\CMS\\CMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leandro\\Documents\\rede-social\\CMS\\CMS.csproj",
+        "projectUniqueName": "C:\\Users\\leandro\\Documents\\rede-social-box\\CMS\\CMS.csproj",
         "projectName": "CMS",
-        "projectPath": "C:\\Users\\leandro\\Documents\\rede-social\\CMS\\CMS.csproj",
+        "projectPath": "C:\\Users\\leandro\\Documents\\rede-social-box\\CMS\\CMS.csproj",
         "packagesPath": "C:\\Users\\leandro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leandro\\Documents\\rede-social\\CMS\\obj\\",
+        "outputPath": "C:\\Users\\leandro\\Documents\\rede-social-box\\CMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -103,8 +103,8 @@
           "netcoreapp2.2": {
             "targetAlias": "netcoreapp2.2",
             "projectReferences": {
-              "C:\\Users\\leandro\\Documents\\rede-social\\business\\business.csproj": {
-                "projectPath": "C:\\Users\\leandro\\Documents\\rede-social\\business\\business.csproj"
+              "C:\\Users\\leandro\\Documents\\rede-social-box\\business\\business.csproj": {
+                "projectPath": "C:\\Users\\leandro\\Documents\\rede-social-box\\business\\business.csproj"
               }
             }
           }
@@ -171,18 +171,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\leandro\\Documents\\rede-social\\Tests\\Tests.csproj": {
+    "C:\\Users\\leandro\\Documents\\rede-social-box\\Tests\\Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leandro\\Documents\\rede-social\\Tests\\Tests.csproj",
+        "projectUniqueName": "C:\\Users\\leandro\\Documents\\rede-social-box\\Tests\\Tests.csproj",
         "projectName": "Tests",
-        "projectPath": "C:\\Users\\leandro\\Documents\\rede-social\\Tests\\Tests.csproj",
+        "projectPath": "C:\\Users\\leandro\\Documents\\rede-social-box\\Tests\\Tests.csproj",
         "packagesPath": "C:\\Users\\leandro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leandro\\Documents\\rede-social\\Tests\\obj\\",
+        "outputPath": "C:\\Users\\leandro\\Documents\\rede-social-box\\Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -200,11 +200,11 @@
           "netcoreapp2.2": {
             "targetAlias": "netcoreapp2.2",
             "projectReferences": {
-              "C:\\Users\\leandro\\Documents\\rede-social\\business\\business.csproj": {
-                "projectPath": "C:\\Users\\leandro\\Documents\\rede-social\\business\\business.csproj"
+              "C:\\Users\\leandro\\Documents\\rede-social-box\\business\\business.csproj": {
+                "projectPath": "C:\\Users\\leandro\\Documents\\rede-social-box\\business\\business.csproj"
               },
-              "C:\\Users\\leandro\\Documents\\rede-social\\CMS\\CMS.csproj": {
-                "projectPath": "C:\\Users\\leandro\\Documents\\rede-social\\CMS\\CMS.csproj"
+              "C:\\Users\\leandro\\Documents\\rede-social-box\\CMS\\CMS.csproj": {
+                "projectPath": "C:\\Users\\leandro\\Documents\\rede-social-box\\CMS\\CMS.csproj"
               }
             }
           }
@@ -252,7 +252,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

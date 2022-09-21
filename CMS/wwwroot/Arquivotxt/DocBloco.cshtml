@@ -1,5 +1,7 @@
 
-#foreach($bloco in $divs)
+#foreach($container in $divs)
+
+#foreach($bloco in $container.Container.Div)
 
 #if($bloco.Div.Tipo == "DivFixo" && $bloco.Div.EscolherPosicao == false)
 
@@ -22,35 +24,16 @@
     }
 </style>
 
-#else
-
-<style>
-    #DIV${bloco.Div.Id}Pagina${model.Pagina.Id} 
-    {
-       position: relative;
-       display: grid;
-    }
-</style>
-
 #end
 
 #if($bloco.Div.Background.Tipo == "BackgroundImagem")
 <style>
     #DIV${bloco.Div.Id}Pagina${model.Pagina.Id} {
 
-      background-repeat: ${bloco.Div.Background.Background_Repeat};
-        
-        grid-template-columns: ${bloco.Div.Colunas};
+      background-repeat: ${bloco.Div.Background.Background_Repeat};       
 
-    padding: ${bloco.Div.Padding}%;
     background-image: url($site$bloco.Div.Background.Imagem.ArquivoImagem);
-
-    border-radius: ${bloco.Div.BorderRadius}px;
-
-    min-height: ${bloco.Div.Height}px;
-    height: auto;
-    
-    
+       
     }
 </style>
 
@@ -110,16 +93,6 @@
         #end  
 
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09e718',endColorstr='#1c8ea5',GradientType=1);
-
-
-        
-        grid-template-columns: ${bloco.Div.Colunas};
-
-    padding: ${bloco.Div.Padding}%;    
-    border-radius: ${bloco.Div.BorderRadius}px; 
-    min-height: ${bloco.Div.Height}px;
-    height: auto;
-     
     
     }
 </style>
@@ -127,21 +100,14 @@
 #else
 
 <style>
-    #DIV${bloco.Div.Id}Pagina${model.Pagina.Id} {
-        
-        grid-template-columns: ${bloco.Div.Colunas};
+    #DIV${bloco.Div.Id}Pagina${model.Pagina.Id} {       
 
-    padding: ${bloco.Div.Padding}%;
-    background-color: $bloco.Div.Background.Cor;
-
-    border-radius: ${bloco.Div.BorderRadius}px;
-
-    min-height: ${bloco.Div.Height}px;
-    height: auto;
-    
+    background-color: $bloco.Div.Background.Cor;    
     
     }
 </style>
+#end
+
 #end
 
 #end
@@ -193,22 +159,104 @@
 
 
 #foreach($bloco in $divs)
+#foreach($bl in $bloco.Container.Div)
 
-#if($bloco.Div.Fixado && $bloco.Div.EscolherPosicao)
+#if($bl.Div.Tipo == 'DivFixo' && $bl.Div.Fixado && $bloco.Div.EscolherPosicao)
 
 <style>
-    .stickyDIV${bloco.Div.Id}Pagina${model.Pagina.Id} {
+    .stickyDIV${bl.Div.Id}Pagina${model.Pagina.Id} {
         position: fixed;
         top: ${bloco.Div.PosicaoFixacao}%;
         
     }
 </style>
-
 #end
 #end
+#end
 
 
+#foreach($bloco in $divs)
+
+#if($bloco.Container.Background.Tipo == "BackgroundImagemContainer")
+<style>
+    #${bloco.Container.Id}Pagina${model.Pagina.Id} {
+
+      background-repeat: ${bloco.Container.Background.Background_RepeatContainer};       
+
+    background-image: url($site$bloco.Container.Background.Imagem.ArquivoImagem);
+
+    }
+</style>
+
+#elseif($bloco.Container.Background.Tipo == "BackgroundGradienteContainer")
+
+  <style>
+    #${bloco.Container.Id}Pagina${model.Pagina.Id} {
+
+        #set($um = 1)
+         #foreach($Cores in $bloco.Container.Background.Cores)
+         #if($um == 1)
+        #set($back = $Cores.HexToColor($Cores.CorBackground))
+        background: rgb($back); 
+        #end
+        #set($um = $um + 1)        
+         #end
 
 
+         #set($quantidade = $bloco.Container.Background.Cores.Count())
+        background: -moz-linear-gradient(${bloco.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $bloco.Container.Background.Cores)
+         #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
 
+            #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
 
+        #end  
+
+        background: -webkit-linear-gradient(${bloco.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $bloco.Container.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+        #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: linear-gradient(${bloco.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $bloco.Container.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+             ,
+            #end
+
+        #end  
+
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09e718',endColorstr='#1c8ea5',GradientType=1);
+           
+    }
+</style>
+
+#else
+
+<style>
+    #${bloco.Container.Id}Pagina${model.Pagina.Id} {     
+    
+    background-color: $bloco.Container.Background.CorContainer;
+    
+    }
+</style>
+#end
+
+#end

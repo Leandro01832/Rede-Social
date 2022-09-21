@@ -1,0 +1,179 @@
+@model business.business.Container
+
+@{
+    Layout = null;
+}
+
+<h4>Container</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit" id="formulario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ordem" class="control-label"></label>
+                <input asp-for="Ordem" class="form-control" />
+                <span asp-validation-for="Ordem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorderRadius" class="control-label"></label>
+                 <input asp-for="BorderRadius" type="range" max="200" min="0" value="0" class="form-control" />
+                <span asp-validation-for="BorderRadius" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                 <input asp-for="Height" type="range" max="2000" min="0" value="200" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Width" class="control-label"></label>
+                <input asp-for="Width" type="range" max="100" min="10" class="form-control" />
+                <span asp-validation-for="Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlexWrap" class="control-label"></label>
+                <select asp-for="FlexWrap" class="form-control">
+                    <option value="nowrap">nowrap</option>
+                    <option value="wrap">wrap</option>
+                    <option value="wrap-reverse">wrap-reverse</option>
+                </select>
+                <span asp-validation-for="FlexWrap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JustifyContent" class="control-label"></label>
+                <select asp-for="JustifyContent" class="form-control">
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                    <option value="space-evenly">space-evenly</option>
+                    <option value="center">center</option>
+                    <option value="start">start</option>
+                    <option value="end">end</option>
+                    <option value="left">left</option>
+                    <option value="right">right</option>
+                    <option value="safe">safe</option>
+                    <option value="unsafe">unsafe</option>
+                </select>
+                <span asp-validation-for="JustifyContent" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AlignItems" class="control-label"></label>
+                <select asp-for="AlignItems" class="form-control">
+                    <option value="stretch">stretch</option>
+                    <option value="baseline">baseline</option>
+                    <option value="first baseline">first baseline</option>
+                    <option value="last baseline">last baseline</option>
+                    <option value="center">center</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="self-start">self-start</option>
+                    <option value="self-end">self-end</option>
+                    <option value="start">start</option>
+                    <option value="end">end</option>
+                    <option value="safe">safe</option>
+                    <option value="unsafe">unsafe</option>
+                </select>
+                <span asp-validation-for="AlignItems" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FlexDirection" class="control-label"></label>
+                <select asp-for="FlexDirection" class="form-control">
+                    <option value="row">row</option>
+                    <option value="row-reverse">row-reverse</option>
+                    <option value="column">column</option>
+                    <option value="column-reverse">column-reverse</option>
+                </select>
+                <span asp-validation-for="FlexDirection" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Padding" class="control-label"></label>
+                <input asp-for="Padding" class="form-control" />
+                <span asp-validation-for="Padding" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Content" /> @Html.DisplayNameFor(model => model.Content)
+                </label>
+            </div>
+            <input type="hidden" asp-for="Id" />
+
+            <div id="links-back" >
+            <a href="#" id="blocoGradiente" class="btn btn-warning">Plano gradiente</a><br />
+            <a href="#" id="blocoImagem" class="btn btn-primary">Plano imagem</a><br />
+            <a href="#" id="blocoCor" class="btn btn-danger">Plano de uma cor</a><br />
+            </div>       
+
+        <a  href="#" id="Adicionar"  class="btn btn-warning">
+            Adicionar novo bloco
+        </a>
+            
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <script src="~/js/div/Container.js"></script>
+
+    <script src="~/js/AjaxGet.js"></script>
+
+       <script type="text/javascript">
+
+       let token = $('[name=__RequestVerificationToken]').val();
+        let headers = {};
+        headers['RequestVerificationToken'] = token;
+
+        $("#Adicionar").click(function () {
+
+                    var formData = new FormData();
+                    formData.append("id", @(Model.Id));
+
+                    $.ajax({
+                        url: '/Container/Adicionar',
+                        data: formData,
+                        processData: !1,
+                        contentType: !1,
+                        type: "POST",
+                        headers: headers,
+                        success: function (data) {
+                        var numero = $("#IdentificaPagina").val();
+                        $(".content").load("/Pagina/getview", { id: numero });
+                        if (data !== "")
+                        {
+                            alert("Erro ao adicionar. " + data);
+                        }
+                    }
+                });
+            });       
+
+                $("#blocoImagem").click(function () {
+                    
+                    $("#conteudomodal").load("/Background/Edit/BackgroundImagemContainer/" + @(Model.Id));
+                });
+
+                $("#blocoGradiente").click(function () {
+                    
+                    $("#conteudomodal").load("/Background/Edit/BackgroundGradienteContainer/" + @(Model.Id));
+                });
+
+                $("#blocoCor").click(function () {
+                    
+                    $("#conteudomodal").load("/Background/Edit/BackgroundCorContainer/" + @(Model.Id));
+                });
+
+            </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input, select").change(function () {                
+                div.Update();
+            });
+        });
+    </script>   
+</div>
+
+

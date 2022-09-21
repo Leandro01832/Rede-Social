@@ -1,7 +1,6 @@
-#foreach($bloco in $divs)
-
+#foreach($bl in $divs)
+#foreach($bloco in $bl.Container.Div)
 #foreach($element in $bloco.Div.Elemento)
-
 #if ($element.Elemento.tipo == "Carousel")
 
 <script type='text/javascript'>
@@ -25,10 +24,6 @@
 </script>
 
 #end
-
-
-
 #end
-
-
+#end
 #end

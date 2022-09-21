@@ -7,9 +7,15 @@
 
         <div class="form-group">
             <label asp-for="PastaImagemId" class="control-label"></label>
-            <select asp-for="PastaImagemId" class="form-control pastas" />
+            <select asp-for="PastaImagemId" class="form-control pastas"></select> 
             <span asp-validation-for="PastaImagemId" class="text-danger"></span>
         </div>
+
+         <div class="form-group">
+                <label asp-for="Ordem" class="control-label"></label>
+                <input asp-for="Ordem" type="number" class="form-control" />
+                <span asp-validation-for="Ordem" class="text-danger"></span>
+            </div>
 
         @{
             if (ViewBag.condicao)

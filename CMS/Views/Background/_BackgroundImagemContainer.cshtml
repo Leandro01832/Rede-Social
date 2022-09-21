@@ -1,0 +1,64 @@
+@model business.Back.BackgroundImagemContainer
+
+<h4>BackgroundImagemContainer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_BackgroundImagemContainer" id="formulario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Background_RepeatContainer" class="control-label"></label>
+                <input asp-for="Background_RepeatContainer" class="form-control" />
+                <span asp-validation-for="Background_RepeatContainer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Background_PositionContainer" class="control-label"></label>
+                <input asp-for="Background_PositionContainer" class="form-control" />
+                <span asp-validation-for="Background_PositionContainer" class="text-danger"></span>
+            </div>            
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Pastas</label>
+                <div class="col-md-10">
+                    <select id="pastasBackground" name="pastasBackground" class="form-control pastas"></select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ImagemId" class="control-label"></label>
+                <select asp-for="ImagemId" class="form-control Imagem"></select>
+                <span asp-validation-for="ImagemId" class="text-danger"></span>
+            </div>
+
+           <input type="hidden" asp-for="Id" value="@ViewBag.id" />
+
+            @{
+                if (Model.Id == 0)
+                {
+                    <div class="form-group">
+                        <input type="button" value="Save" onclick="ScriptBackground.Create()" class="btn btn-primary" />
+                    </div>
+                }
+            }
+        </form>
+    </div>
+</div>
+
+<div>
+    <script src="~/js/Background/backgroundImagemContainer.js"></script>
+    <script src="~/js/AjaxGet.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input, select").change(function () {
+                
+                ScriptBackground.Update();
+            });
+        });
+    </script>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

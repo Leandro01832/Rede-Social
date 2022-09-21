@@ -33,16 +33,18 @@ namespace CMS.Controllers
 
             var pagina = await _context.Pagina
                 .Include(p => p.Div)
+                .ThenInclude(p => p.Container)
                 .ThenInclude(p => p.Div)
-                .ThenInclude(p => p.Background)
+                .ThenInclude(p => p.Div)
                 .FirstAsync(p => p.Id == id);
 
                 foreach(var item in pagina.Div)
+                foreach(var item2 in item.Container.Div)
                 {
-                    if(item.Div.Background is BackgroundGradiente)
+                    if(item2.Div.Background is BackgroundGradiente)
                     {
                         var backcolor = await _context.BackgroundGradiente.Include(b => b.Cores)
-                        .FirstAsync(b => b.Id == item.Div.Background.Id);
+                        .FirstAsync(b => b.Id == item2.Div.Background.Id);
                         lista.AddRange(backcolor.Cores);
                     }
                 }                
@@ -82,16 +84,19 @@ namespace CMS.Controllers
 
             var pagina = await _context.Pagina
                 .Include(p => p.Div)
+                .ThenInclude(p => p.Container)
+                .ThenInclude(p => p.Div)
                 .ThenInclude(p => p.Div)
                 .ThenInclude(p => p.Background)
                 .ThenInclude(p => p.Cores)
                 .FirstAsync(p => p.Id == id);
 
             foreach (var item in pagina.Div)
+            foreach (var item2 in item.Container.Div)
             {
-                if (item.Div.Background is BackgroundGradiente)
+                if (item2.Div.Background is BackgroundGradiente)
                 {
-                    lista.Add(item.Div.Background);
+                    lista.Add(item2.Div.Background);
                 }
             }
 
@@ -123,19 +128,22 @@ namespace CMS.Controllers
             {
                 return NotFound();
             }
-            List<Background> lista = new List<Background>();
-            var black = _context.Background.Include(b => b.Div).First(b => b.Id == cor.BackgroundId);
+            List<BackgroundDiv> lista = new List<BackgroundDiv>();
+            var black = _context.Background.OfType<BackgroundDiv>().Include(b => b.Div).First(b => b.Id == cor.BackgroundId);
             var pagina = await _context.Pagina
                 .Include(p => p.Div)
+                .ThenInclude(p => p.Container)
+                .ThenInclude(p => p.Div)
                 .ThenInclude(p => p.Div)
                 .ThenInclude(p => p.Background)
                 .FirstAsync(p => p.Id == black.Div.Pagina_);
 
             foreach (var item in pagina.Div)
+            foreach (var item2 in item.Container.Div)
             {
-                if (item.Div.Background is BackgroundGradiente)
+                if (item2.Div.Background is BackgroundGradiente)
                 {
-                    lista.Add(item.Div.Background);
+                    lista.Add(item2.Div.Background);
                 }
             }
 

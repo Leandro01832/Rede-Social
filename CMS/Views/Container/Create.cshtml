@@ -1,0 +1,106 @@
+@model business.business.Container
+
+<h4>Container</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" id="formulario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ordem" class="control-label"></label>
+                <input asp-for="Ordem" class="form-control" />
+                <span asp-validation-for="Ordem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorderRadius" class="control-label"></label>
+                <input asp-for="BorderRadius" class="form-control" />
+                <span asp-validation-for="BorderRadius" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Width" class="control-label"></label>
+                <input asp-for="Width" class="form-control" />
+                <span asp-validation-for="Width" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="FlexWrap" class="control-label"></label>
+                <select asp-for="FlexWrap" class="form-control">
+                    <option value="nowrap">nowrap</option>
+                    <option value="wrap">wrap</option>
+                    <option value="wrap-reverse">wrap-reverse</option>
+                </select>
+                <span asp-validation-for="FlexWrap" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="JustifyContent" class="control-label"></label>
+                <select asp-for="JustifyContent" class="form-control">
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                    <option value="space-evenly">space-evenly</option>
+                    <option value="center">center</option>
+                    <option value="start">start</option>
+                    <option value="end">end</option>
+                    <option value="left">left</option>
+                    <option value="right">right</option>
+                    <option value="safe">safe</option>
+                    <option value="unsafe">unsafe</option>
+                </select>
+                <span asp-validation-for="JustifyContent" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="FlexDirection" class="control-label"></label>
+                <select asp-for="FlexDirection" class="form-control">
+                    <option value="row">row</option>
+                    <option value="row-reverse">row-reverse</option>
+                    <option value="column">column</option>
+                    <option value="column-reverse">column-reverse</option>
+                </select>
+                <span asp-validation-for="FlexDirection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlignItems" class="control-label"></label>
+                <select asp-for="AlignItems" class="form-control">
+                    <option value="stretch">stretch</option>
+                    <option value="baseline">baseline</option>
+                    <option value="first baseline">first baseline</option>
+                    <option value="last baseline">last baseline</option>
+                    <option value="center">center</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="self-start">self-start</option>
+                    <option value="self-end">self-end</option>
+                    <option value="start">start</option>
+                    <option value="end">end</option>
+                    <option value="safe">safe</option>
+                    <option value="unsafe">unsafe</option>
+                </select>
+                <span asp-validation-for="AlignItems" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Padding" class="control-label"></label>
+                <input asp-for="Padding" class="form-control" />
+                <span asp-validation-for="Padding" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Content" /> @Html.DisplayNameFor(model => model.Content)
+                </label>
+            </div>
+            <div class="form-group">
+                        <input type="button" value="Save" onclick="div.Create()" class="btn btn-primary" />
+                    </div>
+        </form>
+    </div>
+</div>
+
+<div>
+         <script src="~/js/div/Container.js"></script>
+</div>
+
+

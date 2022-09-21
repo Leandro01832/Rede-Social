@@ -2,7 +2,7 @@
 
 namespace business.Back
 {
-    public class BackgroundCor : Background
+    public class BackgroundCor : BackgroundDiv
     {
         public string Cor { get; set; }
         [Display(Name = "Plano de fundo é transparente?")]

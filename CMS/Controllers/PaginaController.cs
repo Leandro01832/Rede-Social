@@ -81,7 +81,7 @@ namespace MeuProjetoAgora.Controllers
         [Route("Editar/{id?}")]
         public async Task<IActionResult> Editar(Int64? id)
         {
-            if (id == 1) id = 2;
+           
 
             Pagina pagina = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
 
@@ -163,7 +163,33 @@ namespace MeuProjetoAgora.Controllers
             return Content("Salvo com sucesso");
         }
 
-        
+         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<string> Adicionar(long? id)
+        {
+            if (id == null)
+            {
+                return "Error1";
+            }
+
+            var pagina = await db.Pagina.Include(p => p.Div).FirstAsync(p => p.Id == id);
+            if (pagina == null)
+            {
+                return "Error2";
+            }
+
+           try
+            {
+                pagina.IncluiDiv(new Container(1){Content = true});
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return "Error3" + ex.Message;
+            }
+
+            return "";
+        }
 
         public string RemoveAccents(string text)
         {
@@ -188,19 +214,12 @@ namespace MeuProjetoAgora.Controllers
 
             var pagina = db.Pagina
             .Include(p => p.Div)
+            .ThenInclude(p => p.Container)
+            .ThenInclude(p => p.Div)
             .ThenInclude(p => p.Div)
             .First(p => p.Id == id);
             ViewBag.StoryId = new SelectList(db.Story.ToList(), "Id", "Nome", pagina.StoryId);
-
-
-            var elements = "";
-
-            foreach (var ele in pagina.Div.Skip(6))
-            {
-                elements += ele.Div.Id.ToString() + ", ";
-            }
-
-            ViewBag.elementos = elements;
+            
             return PartialView(pagina);
         }
 
@@ -215,14 +234,7 @@ namespace MeuProjetoAgora.Controllers
                 try
                 {
                     db.Update(pagina);
-                    await db.SaveChangesAsync();                    
-
-                    var Pagina = await db.Pagina
-                        .Include(p => p.Div)
-                        .ThenInclude(p => p.Div)
-                        .FirstAsync(p => p.Id == pagina.Id);
-
-                    await epositoryPagina.BlocosdaPagina(Pagina);
+                    await db.SaveChangesAsync();           
 
                 }
                 catch (Exception ex)
@@ -280,7 +292,7 @@ namespace MeuProjetoAgora.Controllers
                 pag.Id = 0;
                 pag.Titulo += " - " + i;
                 pag.CarouselPagina = new List<PaginaCarouselPagina>();
-                pag.Div = new List<DivPagina>();
+                pag.Div = new List<PaginaContainer>();
                 pag.UserId = pag2.UserId;
                 pag.Story = null;
                 pag.Layout = false;
@@ -289,10 +301,10 @@ namespace MeuProjetoAgora.Controllers
 
                 await db.SaveChangesAsync();                 
 
-                pag.Div = new List<DivPagina>();
+                pag.Div = new List<PaginaContainer>();
                 foreach (var item in pag2.Div)
                 {
-                    pag.Div.Add(new DivPagina { DivId = item.DivId, PaginaId = pag.Id });
+                    pag.Div.Add(new PaginaContainer { ContainerId = item.ContainerId, PaginaId = pag.Id });
                 }
                 await db.SaveChangesAsync();
 

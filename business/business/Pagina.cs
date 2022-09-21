@@ -1,5 +1,5 @@
 ﻿using business.Back;
-using business.div;
+using business.business.div;
 using business.Join;
 using business.business.Group;
 using Newtonsoft.Json;
@@ -12,13 +12,58 @@ namespace business.business
 {
     public class Pagina : BaseModel
     {
-        private bool margem = true;
+
+        public Pagina()
+        {
+            if(Pagina.entity)
+            Div = new List<PaginaContainer>
+            {
+                new PaginaContainer{Container = new Container()},              
+                new PaginaContainer
+                {
+                     Container = new Container(){Content = true}
+                }
+
+            };
+        }
+        
+        public Pagina(int quant)
+        {
+            Div = new List<PaginaContainer>
+            {
+                new PaginaContainer{Container = new Container()}, 
+                new PaginaContainer
+                {
+                     Container = new Container(quant){Content = true}
+                }
+
+            };
+        }
+       
+        public Pagina(int quant, int quantContainers)
+        {
+            Div = new List<PaginaContainer>
+            {
+                new PaginaContainer{Container = new Container()},
+                new PaginaContainer
+                {
+                     Container = new Container(quant){Content = true}
+                }
+
+            };
+            for (int i = 0; i < quantContainers; i++)
+            Div.Add(new PaginaContainer());
+
+        }
+
         private int mostrarDados = 0;
         private DateTime data = DateTime.Now;
         private Int64? subSubGrupoId = 0;
         private Int64? subGrupoId = 0;
         private Int64? grupoId = 0;
          private Int64? subStoryId = 0;
+         private string flexDirection = "flex-start";
+         private string alignItems = "row";
 
         public DateTime Data { get { return data; } set { data = value; } }
 
@@ -99,25 +144,14 @@ namespace business.business
 
         public bool Music { get; set; }
 
-        [Display(Name ="Manter a margem Direita e esquerda")]
-        public bool Margem { get { return margem; } set { margem = value; } }
-
-        public bool Topo { get; set; }
-
-        public bool Menu { get; set; }
-
-        public bool Pular { get; set; }
-        
+        public bool Pular { get; set; }        
         
         [JsonIgnore]
-        public virtual List<DivPagina> Div { get; set; }
+        public virtual List<PaginaContainer> Div { get; set; }
         [JsonIgnore]
         public virtual List<PaginaCarouselPagina> CarouselPagina { get; set; }
                        
-        public string UserId { get; set; }        
-
-        [NotMapped]
-        public string Blocos { get; set; }
+        public string UserId { get; set; } 
 
         [NotMapped]
         public int MostrarDados { get { return mostrarDados; } set { mostrarDados = value; } }
@@ -127,14 +161,17 @@ namespace business.business
 
         //Para Programador
         public bool Layout { get; set; }
+
+        public string FlexDirection { get { return flexDirection; } set { flexDirection = value; } }
         
+        public string AlignItems { get { return alignItems; } set { alignItems = value; } }        
 
         [NotMapped]
         public string Html { get; set; }
 
-        public void IncluiDiv(Div div)
+        public void IncluiDiv(Container container)
         {
-            this.Div.Add(new DivPagina { Div = div });
+            this.Div.Add(new PaginaContainer { Container = container });
         }
     }
 }

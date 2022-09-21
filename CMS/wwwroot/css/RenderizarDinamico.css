@@ -12,17 +12,17 @@
 }
 
 .content {
+    margin: 0;
+    padding: 0;
     border: ridge;
     border-width: 5px;
     border-color: bisque;
     height: auto;
-    min-height: 930px;
-    max-height: 930px;
+    min-height: 950px;
+    max-height: 950px;
 }
 
-#conteudomodal {
-    height: auto;
-}
+
 
 #conteudoImagem {
     height: auto;
@@ -60,7 +60,10 @@
     overflow: scroll;
 }
 
-/*///////////////////////////////////////////////////////////(Codigo Renderizar)/////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
 
 input[type=checkbox] {
     /* Double-sized Checkboxes */

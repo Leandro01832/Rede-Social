@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5XU+fMCLWOG1uP5QH0YnIHRavPdRgqZYU2J3ptnH5ePvryJjbjpgc9r0Bw0nUaR99LcNvY00jFCwzSuccmLdrQ==",
+  "dgSpecHash": "aZZ4AeU0bI+u8a2gdImcc4dflsMSieK6z+Ql8zvaABOE6jWqaH4DMq6yFLbH2kBeljoluQebelP9UvMRSHkNzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leandro\\Documents\\rede-social\\Tests\\Tests.csproj",
+  "projectFilePath": "C:\\Users\\leandro\\Documents\\rede-social-box\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\libuv\\1.10.0\\libuv.1.10.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\messagepack\\1.7.3.4\\messagepack.1.7.3.4.nupkg.sha512",

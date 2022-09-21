@@ -14,6 +14,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using business.business.div;
 
 namespace CMS
 {
@@ -59,8 +60,6 @@ namespace CMS
         {
             var contexto = provider.GetService<ApplicationDbContext>();
 
-          var user =  await UserManager.Users.FirstAsync();  
-
             var listaImagens = new List<Imagem>()
             {
                 new Imagem
@@ -83,63 +82,9 @@ namespace CMS
                 }
             };            
 
-            var Background = new BackgroundImagem
-            {
-                Background_Position = "",
-                Background_Repeat = "",
-                 Imagem = listaImagens[0],
-                  Div = new DivComum
-                  {
-                      Background = null,
-                      BorderRadius = 0,
-                      Colunas = "auto",
-                      Desenhado = 1,
-                      Divisao = "",
-                      Height = 200,
-                      Nome = "Default",
-                      Ordem = 0,
-                      Padding = 5
-                  }
-            };
+                      
 
-            await contexto.Background.AddAsync(Background);
-            await contexto.SaveChangesAsync();
-
-
-            var Div = new DivComum
-            {
-                Background = new BackgroundImagem
-                {
-                    Background_Position = "",
-                    Background_Repeat = "",
-                    Imagem = listaImagens[0],
-                    Div = new DivComum
-                    {
-                        Background = null,
-                        BorderRadius = 0,
-                        Colunas = "auto",
-                        Desenhado = 1,
-                        Divisao = "",
-                        Height = 200,
-                        Nome = "Default",
-                        Ordem = 0,
-                        Padding = 5
-                    }
-
-                },
-            BorderRadius = 0,
-                Colunas = "auto",
-                Desenhado = 1,
-                Divisao = "",
-                Height = 200,
-                Nome = "Default",
-                Ordem = 0,
-                Padding = 5
-            };
-
-            await contexto.Div.AddAsync(Div);
-            await contexto.SaveChangesAsync();            
-
+            await contexto.Imagem.AddAsync(listaImagens[0]);
             await contexto.Imagem.AddAsync(listaImagens[1]);
             await contexto.Imagem.AddAsync(listaImagens[2]);
             await contexto.SaveChangesAsync();

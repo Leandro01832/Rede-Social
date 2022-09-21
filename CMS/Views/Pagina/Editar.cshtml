@@ -8,7 +8,7 @@
 }
 
 <script src="/lib/jquery/dist/jquery.js"></script>
-<script src="~/js/jquery-ui.min.js"></script>
+
 
 <style>
     .glyphicon {
@@ -54,7 +54,8 @@
     }
 </style>
 
-<br />  <br />    <br /><br /><br />
+<br />  <br />   
+ 
 
 @if (Model == null)
 {
@@ -85,60 +86,22 @@ else
 
 
     <div id="estrutura">
+       
 
-        <div class="row" id="LinhaImaginaria">
-
-            <div style="position: fixed;  margin-left:20px;" class="blocoLoader">
-                <a id="voltar" href="/Editar/@anterior"
-                   class="btn btn-primary loader glyphicon glyphicon-chevron-left">
-                </a>
-            </div>
-            <div style="position: fixed;  margin-left:70px; top:80px;" class="blocoLoader">
-                <input type="number" placeholder="N° pagina" id="NumeroPaginaAcesso" value="@atual" min="2" style="width: 80px;" />
-                <a id="acessoPaginaComInput" href="/Editar/@atual" class="glyphicon glyphicon-search loader">
-                </a>
-            </div>
-            <div style="position: fixed;  margin-left:20px; top:50px;" class="blocoLoader">
-                <a id="avancar" href="/Editar/@proximo"
-                   class="btn btn-primary loader glyphicon glyphicon-chevron-right">
-                </a>
-            </div>
-            
+        <div class="row" id="LinhaImaginaria">           
 
             <div id="Chat" class="col-md-4" style="background-color: white; display:none;">
                 <partial name="BlocoFerramenta" />
             </div>
+            <br>
+             <input id="margem" name="margem" type="checkbox" style="margin-left: 80px;" checked />
+                         <label style="margin-left: 10px;">Margem</label>
+                         <label style="margin-left: 50px;">Container com margin 15px</label>
+                         <label style="margin-left: 50px;">Bloco com margin 8px</label>
 
             <div class="content col-md-12" id="ConteudoPagina" data-id="">
                 @Html.Raw(ViewBag.Html)
-            </div>
-
-            <script type="text/javascript">
-                $('.linha').sortable({
-                    connectWith: '.linha'
-                });
-
-                $('.ClassDiv').sortable();
-
-                var axis = $('.linha').sortable('option', 'connectWith');
-                let condicaoBloco = false;
-                let condicaoElemento = false;
-
-                // Setter
-                $('.linha').sortable('option', 'connectWith', '.linha');
-
-                $('.linha').sortable({
-                    update: function (event, ui) {
-                        condicaoBloco = true;
-                    }
-                });
-
-                $('.ClassDiv').sortable({
-                    update: function (event, ui) {
-                        condicaoElemento = true;
-                    }
-                });
-            </script>
+            </div>           
 
         </div>
 
@@ -160,6 +123,8 @@ else
 
     </div>
 
+    
+
     <div id="loading" style="display:none; z-index:50;"><img src="~/imagem/loader.gif"  /></div>
 
 }
@@ -174,13 +139,12 @@ else
     <script src="~/js/loader.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function () {              
 
             $("#NumeroPaginaAcesso").change(function () {
                 document.getElementById('acessoPaginaComInput').href = '/Editar/';
                 document.getElementById("acessoPaginaComInput").href +=  $(this).val();
-            });
-            
+            });            
 
             $("button").click(function () {
 
@@ -228,12 +192,13 @@ else
                 $("#conteudomodal").load("/Elemento/Edit/" + $(this).val());
             });
 
+            var numero = $("#IdentificaPagina").val();
+                        $(".content").load("/Pagina/getview", { id: numero });
+
         });
     </script>
 
     <script type="text/javascript" src="~/js/Variaveis.js"></script>
-
-    <script src="~/js/AlterarPosicaoBloco.js"></script>
 
     <script type="text/javascript" src="~/js/funcaoClickRenderizarDinamico.js"></script>
 

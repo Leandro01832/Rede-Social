@@ -14,27 +14,30 @@ namespace business.div
 {
     public abstract class Div : BaseModel, IMudancaEstado
     {
+        private bool content;
         private string nome = "bloco";
         private string elementos = "";
-        private string colunas = "auto";
-        private string divisao = "col-md-12";
-        private int padding = 5;
+        private string flexWrap = "wrap";
+        private string justifyContent = "center";
+        private string alignItems = "flex-start";
+        private string flexDirection = "row";
+        private int padding = 0;
         private int height = 200;
-        private int ordem = 0;
-        private int desenhado = 0;
+        private int width = 100;
         private int borderRadius = 0;
-        private Background background =  new BackgroundCor
-        {
-            backgroundTransparente = true,
-            Cor = "transparent"
-        };
+        
         private MudancaEstado mudanca;
 
         public Div()
         {
             mudanca = new MudancaEstado();
             Elemento = new List<DivElemento>();
+            Content = true;
+            Background = 
+            new BackgroundCor{ backgroundTransparente = true, Cor = "transparent"};
         }
+
+        public int Ordem { get; set; }
 
         [Required(ErrorMessage = "O nome do bloco é necessário")]
         [Display(Name ="Nome do bloco")]
@@ -46,31 +49,38 @@ namespace business.div
         [Display(Name = "Altura")]
         public int Height { get { return height; } set { height = value; } }
 
-        [Display(Name = "Quantidade de colunas")]
-        public string Colunas { get { return colunas; } set { colunas = value; } }
+        [Display(Name = "Largura")]
+        public int Width { get { return width; } set { width = value; } }
 
-        [NotMapped]
-        public int Desenhado { get { return desenhado; } set { desenhado = value; } }
-
-        [Display(Name = "Espaçamento")]
-        public string Divisao { get { return divisao; } set { divisao = value; } }
+        public bool Content 
+        { 
+          get { return content; } 
+          set 
+          { 
+            content = value;
+          } 
+        }     
+       
 
         [Display(Name = "Borda arredondada")]
-        public int BorderRadius { get { return borderRadius; } set { borderRadius = value; } }          
-
-        public int Ordem { get { return ordem; } set { ordem = value; } }
+        public int BorderRadius { get { return borderRadius; } set { borderRadius = value; } }    
         
         [JsonIgnore]
-        public virtual Background Background{ get { return background; } set { background = value; } }
+        public virtual BackgroundDiv Background{ get; set; }
         [JsonIgnore]
         public virtual List<DivElemento> Elemento { get; set; }
         [JsonIgnore]
-        public virtual List<DivPagina> Pagina { get; set; }
+        public virtual List<DivContainer> Container { get; set; }
 
         public Int64 Pagina_ { get; set; }
 
         [NotMapped]
         public string Elementos { get { return elementos; } set { elementos = value; } }
+        public string FlexWrap { get { return flexWrap; } set { flexWrap = value; } }
+        public string JustifyContent { get { return justifyContent; } set { justifyContent = value; } }
+         public string FlexDirection { get { return flexDirection; } set { flexDirection = value; } }
+        
+        public string AlignItems { get { return alignItems; } set { alignItems = value; } }
 
         public void IncluiElemento(Elemento elemento)
         {

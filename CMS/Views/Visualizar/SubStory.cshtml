@@ -76,7 +76,7 @@
         <div class="col-xs-4">
             @{
                     <span style="font-size: 12px; background-color: white;">
-                        <strong style=" border: ridge; border-width: 5px;">
+                        <strong style=" border: ridge; border-width: 5px; font-size: large;">
                             Capítulo @Model.Story.PaginaPadraoLink
                         </strong>
                         <a href="/Renderizar/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.versiculo" class="btn btn-primary">
@@ -115,6 +115,23 @@
             <div class="DivPagina">
 
                 <h4 style="background-color: yellow;">Sub-Story @grupo.Nome</h4>
+                @{
+                    if (quant <= 60)
+                    {
+
+                        for (var indice = 1; indice <= quant; indice++)
+                        {
+                            <div class="DivPag"
+                             style="width:22px; display:inline-grid; margin: 0px, 6px, 0px, 6px; background-color:darkgray; opacity: 0.80;"
+                             id="DivPagina@(indice)">
+
+                                <span class="glyphicon glyphicon-minus"
+                              style="font-size: 2rem;" id="record" ></span>
+
+                            </div>
+                        }
+                    }
+                }
 
             </div>
         </center>

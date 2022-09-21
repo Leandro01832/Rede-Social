@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace business.Back
 {
-    public class BackgroundImagem : Background
+    public class BackgroundImagem : BackgroundDiv
     {
         [Display(Name = "Tipo de repetição do plano de fundo")]
         public string Background_Repeat { get; set; }

@@ -2,7 +2,7 @@
 
 namespace business.business.Back
 {
-    class BackgroundVideo : Background
+    class BackgroundVideo : BackgroundDiv
     {
     }
 }

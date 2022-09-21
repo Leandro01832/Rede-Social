@@ -52,7 +52,6 @@ namespace CMS.Controllers
         {
             var arr = dados.Split('-');
             var numero = Int64.Parse(arr[1]);
-            var page = await _context.Pagina.FirstAsync(p => p.Id == numero);
 
             var tipo = arr[0].Replace("GaleriaElemento", "");
             List<Elemento> lista = await _context.Elemento
@@ -65,57 +64,22 @@ namespace CMS.Controllers
                 .Include(e => e.Paginas).ThenInclude(e => e.Elemento)
                 .Where(e => e.Pagina_ == numero && e.GetType().Name == tipo).ToListAsync();
 
-            Pagina pagina = new Pagina();
-            pagina.Id = numero;
-            pagina.UserId = page.UserId;
-            pagina.Margem = false;
+            Pagina pagina = new Pagina(1); 
             pagina.MostrarDados = 1;
-            pagina.Div = new List<DivPagina>();
+            pagina.Div.First(d => d.Container.Content).Container.Div
+                      .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
 
-            pagina.Div.AddRange(new List<DivPagina> {
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }
-            });
-
-            for (int i = 0; i <= 6; i++)
-            {
-                if (i <= 6)
-                    pagina.Div[i].Div = new DivComum
-                    {
-                        Background = new BackgroundCor
-                        {
-                            backgroundTransparente = true,
-                            Cor = "transparent"
-                        }
-                    };
-            }
-
-            
-
-            foreach (var div in pagina.Div)
-            {
-                foreach (var item in div.Div.Elemento)
-                {
-                    if (item.Elemento is CarouselPagina)
-                    {
-                        foreach (var item2 in item.Elemento.Paginas)
-                            foreach (var item3 in RepositoryPagina.paginas){
-                                 if(item3 == null ||  item3.FirstOrDefault(i => i.UserId == page.UserId) == null)
-                                 continue;
-                            item2.Pagina =item3.First(p => p.Id == item2.PaginaId);
-                            }
-                    }
-                }
-            }
-
-            List<DivElemento> listaDivElemento = new List<DivElemento>();
             foreach (var item in lista)
-                listaDivElemento.Add(new DivElemento { Div = pagina.Div[6].Div, Elemento = item });
+            pagina.Div.First(d => d.Container.Content).Container.Div
+                      .First(d => d.Div.Content).Div.Elemento.Add
+                      (new DivElemento
+                        {
+                            Div = pagina.Div.First(d => d.Container.Content).Container.Div
+                            .First(d => d.Div.Content).Div,
+                            Elemento = item
 
-            pagina.Div[6].Div.Elemento = listaDivElemento;
-            pagina.Div[6].Div.Colunas = "auto auto auto";
+                        }
+                      );
 
             string html = await epositoryPagina.renderizarPagina(pagina);
             ViewBag.Html = html;
@@ -349,75 +313,7 @@ namespace CMS.Controllers
             }
             catch (Exception ex) { return ex.Message; }
         }
-        #endregion
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Div")]
-        
-        public async Task<JsonResult> AlterarPosicaoBloco(IList<Int64> numeros, Int64? id)
-        {
-            //  db.Configuration.ProxyCreationEnabled = false;
-            try
-            {
-                var pagina = await _context.Pagina.FirstAsync(p => p.Id == id);
-                var site = pagina.UserId;
-                var usuario = await UserManager.GetUserAsync(this.User);
-                if (await _context.Permissao.FirstOrDefaultAsync(p => p.UserId == site
-                && p.UserName == usuario.UserName && p.NomePermissao == "Div") == null)
-                {
-                    return Json("");
-                }
-            }
-            catch (Exception)
-            {
-                return Json("");
-            }
-
-            for (Int64 i = 0; i < (Int64)numeros.Count; i++)
-            {
-                var bloco = await _context.Div.FirstAsync(d => d.Id == numeros[(int)i]);
-                bloco.Ordem = (int)i;
-                _context.Entry(bloco).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-
-            }
-            return Json("valor");
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Elemento")]
-        
-        public async Task<JsonResult> AlterarPosicaoElemento(IList<Int64> numeros, Int64? id)
-        {
-            //  db.Configuration.ProxyCreationEnabled = false;
-            try
-            {
-                var pagina = await _context.Pagina.FirstAsync(p => p.Id == id);
-                var site = pagina.UserId;
-                var usuario = await UserManager.GetUserAsync(this.User);
-                if (await _context.Permissao.FirstOrDefaultAsync(p => p.UserId == site
-                && p.UserName == usuario.UserName && p.NomePermissao == "Elemento") == null)
-                {
-                    return Json("");
-                }
-            }
-            catch (Exception)
-            {
-                return Json("");
-            }
-
-            for (int i = 0; i < numeros.Count; i++)
-            {
-                var elemento = await _context.Elemento.FirstAsync(d => d.Id == numeros[i]);
-                elemento.Ordem = i;
-                _context.Entry(elemento).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
-
-            }
-            return Json("valor");
-        }
+        #endregion        
 
         public IActionResult NoPermission()
         {

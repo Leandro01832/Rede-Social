@@ -27,33 +27,44 @@
                     </label>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Margem" /> @Html.DisplayNameFor(model => model.Margem)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Topo" /> @Html.DisplayNameFor(model => model.Topo)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Menu" /> @Html.DisplayNameFor(model => model.Menu)
-                    </label>
-                </div>
-            </div>
+           
              <div class="form-group">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Pular" /> @Html.DisplayNameFor(model => model.Pular)
                     </label>
                 </div>
+            </div>
+
+             <div class="form-group">
+                <label asp-for="FlexDirection" class="control-label"></label>
+                <select asp-for="FlexDirection" class="form-control">
+                    <option value="row">row</option>
+                    <option value="row-reverse">row-reverse</option>
+                    <option value="column">column</option>
+                    <option value="column-reverse">column-reverse</option>
+                </select>
+                <span asp-validation-for="FlexDirection" class="text-danger"></span>
+            </div>
+
+             <div class="form-group">
+                <label asp-for="AlignItems" class="control-label"></label>
+                <select asp-for="AlignItems" class="form-control">
+                    <option value="stretch">stretch</option>
+                    <option value="baseline">baseline</option>
+                    <option value="first baseline">first baseline</option>
+                    <option value="last baseline">last baseline</option>
+                    <option value="center">center</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="self-start">self-start</option>
+                    <option value="self-end">self-end</option>
+                    <option value="start">start</option>
+                    <option value="end">end</option>
+                    <option value="safe">safe</option>
+                    <option value="unsafe">unsafe</option>
+                </select>
+                <span asp-validation-for="AlignItems" class="text-danger"></span>
             </div>
 
             <div class="form-group">
@@ -98,13 +109,14 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="control-label">Blocos da pagina</label>
-                <input asp-for="Blocos" type="text" value="@ViewBag.elementos" />
-            </div>
+            
+        <a  href="#" id="Adicionar"  class="btn btn-warning">
+            Adicionar novo Container
+        </a>
 
 
         </form>
+
     </div>
 </div>
 
@@ -116,6 +128,29 @@
         let headers = {};
         headers['RequestVerificationToken'] = token;  
 
+                $("#Adicionar").click(function () {
+
+                    var formData = new FormData();
+                    formData.append("id", $("#IdentificaPagina").val());
+
+                    $.ajax({
+                        url: '/Pagina/Adicionar',
+                        data: formData,
+                        processData: !1,
+                        contentType: !1,
+                        type: "POST",
+                        headers: headers,
+                        success: function (data) {
+                        var numero = $("#IdentificaPagina").val();
+                        $(".content").load("/Pagina/getview", { id: numero });
+                        if (data !== "")
+                        {
+                            alert("Erro ao adicionar. " + data);
+                        }
+                    }
+                });
+            });
+
         $("input, select").change(function () {
 
             var data = {
@@ -124,10 +159,11 @@
                 UserId: $("#UserId").val(),
             Facebook: $("#Facebook").val(),
             Sobreescrita: $("#Sobreescrita").val(),
+            AlignItems: $("#AlignItems").val(),
+            FlexDirection: $("#FlexDirection").val(),
             Twiter: $("#Twiter").val(),
             ArquivoMusic: $("#ArquivoMusic").val(),            
             Music: $("#Music").is(':checked'),
-            Margem: $("#Margem").is(':checked'),
             PedidoId: $("#PedidoId").val(),
             StoryId: $("#StoryId").val(),
             SubStoryId: $("#SubStoryId").val(),
@@ -135,8 +171,6 @@
             SubGrupoId: $("#SubGrupoId").val(),
             SubSubGrupoId: $("#SubSubGrupoId").val(),
             Blocos: $("#Blocos").val(),
-            Topo: $("#Topo").is(':checked'),
-            Menu: $("#Menu").is(':checked'),
             Pular: $("#Pular").is(':checked'),
             Layout: $("#Layout").is(':checked')
         };  

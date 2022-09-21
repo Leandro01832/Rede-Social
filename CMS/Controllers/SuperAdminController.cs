@@ -1,5 +1,6 @@
 ﻿using business.Back;
 using business.business;
+using business.business.div;
 using business.div;
 using business.Join;
 using CMS.Data;
@@ -129,17 +130,18 @@ namespace CMS.Controllers
             var user = await UserManager.GetUserAsync(this.User);
             var stories = await _context.Story.Where(str => str.UserId == user.Id).ToListAsync();
 
-            pagina.Div = new List<DivPagina>();
+            pagina.Div = new List<PaginaContainer>();
 
-            pagina.Div.AddRange(new List<DivPagina> {
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() }
+            pagina.Div.AddRange(new List<PaginaContainer> {
+                new PaginaContainer{ Container = new Container() }, new PaginaContainer{ Container = new Container() },
+                new PaginaContainer{ Container = new Container() }, new PaginaContainer{ Container = new Container() },
+                new PaginaContainer{ Container = new Container() }, new PaginaContainer{ Container = new Container() }
             });
 
             for (int i = 0; i <= 5; i++)
             {
-                pagina.Div[i].Div = new DivComum
+                 foreach(var item in pagina.Div[i].Container.Div)
+                item.Div = new DivComum
                 {
                     Background = new BackgroundCor
                     {

@@ -120,8 +120,6 @@ namespace CMS.Models.Repository
                 .Include(e => e.Paginas)
                 .Include(e => e.div)
                 .ThenInclude(e => e.Div)
-                .ThenInclude(e => e.Pagina)
-                .ThenInclude(e => e.Pagina)
                 .Include(e => e.div)
                 .ThenInclude(e => e.Elemento);
             return l;

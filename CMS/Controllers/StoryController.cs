@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using business.business.div;
 
 namespace CMS.Controllers
 {
@@ -101,44 +102,37 @@ namespace CMS.Controllers
 
             var Story = await _context.Story.FirstAsync(st => st.Nome == "Padrao" && st.UserId == user.Id);
 
-            var pagina = new Pagina
+            var pagina = new Pagina()
             {
-                ArquivoMusic = "",
-                Margem = false,
-                Music = false,
-                Titulo = "Link Padrao",
-                Layout = false,
-                UserId = user.Id,
-                StoryId = Story.Id
-            };
+                 Data = DateTime.Now,
+                    ArquivoMusic = "",
+                    UserId = user.Id,
+                    Html = "",
+                    Titulo = "Story - " + story.Nome,
+                    CarouselPagina = new List<PaginaCarouselPagina>(),
+                    StoryId = Story.Id,
+                    Sobreescrita = null,
+                    SubStoryId = null,
+                    GrupoId = null,
+                    SubGrupoId = null,
+                    SubSubGrupoId = null,
+                    Layout = false,
+                    Music = false,
+                    Pular = false
+            };  
+            pagina.Div = null;              
 
-            pagina.Div = new List<DivPagina>();
-            pagina.Div.AddRange(new List<DivPagina> {
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }
-
-
-            });
-
-            for (int i = 0; i <= 6; i++)
+             _context.Add(pagina);
+             _context.SaveChanges(); 
+            
+           var  pagin = new Pagina(1);  
+            pagin.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
+            pagin.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
             {
-                if (i <= 6)
-                    pagina.Div[i].Div = new DivComum
-                    {
-                        Background = new BackgroundCor
-                        {
-                            backgroundTransparente = true,
-                            Cor = "transparent"
-                        }
-                    };
-            }
-
-            pagina.Div[6].Div.Elemento = new List<DivElemento>();
-            pagina.Div[6].Div.Elemento.Add(new DivElemento
-            {
-                Div = pagina.Div[6].Div,
+                Div = pagin.Div.First(d => d.Container.Content).Container.Div
+                .First(d => d.Div.Content).Div,
                 Elemento = new LinkBody
                 {
                     TextoLink = "#LinkPadrao",
@@ -149,8 +143,12 @@ namespace CMS.Controllers
                 }
             });
 
-            await _context.AddAsync(pagina);
-            await _context.SaveChangesAsync();          
+                pagina.Div = new List<PaginaContainer>();                
+            foreach (var item in pagin.Div)
+            
+                pagina.IncluiDiv(item.Container);
+             
+                _context.SaveChanges();   
             
 
              Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == pagina.Id);
@@ -251,7 +249,7 @@ namespace CMS.Controllers
             await _context.SaveChangesAsync();
             var pag = new Pagina();
             pag.StoryId = story.Id;
-            pag.Div = new List<DivPagina>();
+            pag.Div = new List<PaginaContainer>();
             pag.Titulo = "Capa";
             pag.UserId = story.UserId;
             pag.Sobreescrita = "";

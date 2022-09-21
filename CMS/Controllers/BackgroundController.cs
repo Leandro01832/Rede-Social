@@ -32,45 +32,35 @@ namespace CMS.Controllers
             foreach (var item in paginas)
             {
                 Pagina pag = await _context.Pagina.Include(p => p.Div)
-                    .ThenInclude(p => p.Div).ThenInclude(p => p.Background).FirstAsync(p => p.Id == item.Id);
+                    .ThenInclude(p => p.Container)
+                    .ThenInclude(p => p.Div)
+                    .ThenInclude(p => p.Div)
+                    .ThenInclude(p => p.Background)
+                    .FirstAsync(p => p.Id == item.Id);
 
                 foreach (var item2 in pag.Div)
-                    lista.Add(item2.Div.Background);
+                foreach (var item3 in item2.Container.Div)
+                    lista.Add(item3.Div.Background);
             }
             return PartialView(lista);
         }
 
-        [Authorize(Roles = "Background")]
-        [Route("Background/Create/{back}/{Id}")]
-        public IActionResult Create(string back, Int64? Id)
-        {
-            Background background = null;
-
-            if (back == "BackgroundCor") background = new BackgroundCor();
-            if (back == "BackgroundGradiente") background = new BackgroundGradiente();
-            if (back == "BackgroundImagem") background = new BackgroundImagem();
-
-            ViewBag.id = Id;
-            return PartialView(background);
-        }
+        
 
         [Authorize(Roles = "Background")]
         [Route("Background/Edit/{back}/{Id}")]
-        public async Task<IActionResult> Edit(string back, Int64? Id)
+        public IActionResult Edit(string back, Int64? Id)
         {
-            Background background = null;
-
-            if (back == "BackgroundCor") background = new BackgroundCor();
+            Background background = null;       
+             if (back == "BackgroundCor") background = new BackgroundCor();
             if (back == "BackgroundGradiente") background = new BackgroundGradiente();
             if (back == "BackgroundImagem") background = new BackgroundImagem();
-            if (back == "Padrao")
-            {
-                background = await _context.Background.FirstOrDefaultAsync(b => b.Id == Id);                
-                ViewBag.condicao = true;
-            }
-            else ViewBag.condicao = false;
 
-            ViewBag.back = back;
+             if (back == "BackgroundCorContainer") background = new BackgroundCorContainer();
+            if (back == "BackgroundGradienteContainer") background = new BackgroundGradienteContainer();
+            if (back == "BackgroundImagemContainer") background = new BackgroundImagemContainer();
+
+
             ViewBag.id = Id;
             return PartialView(background);
         }
@@ -84,19 +74,28 @@ namespace CMS.Controllers
             if (background.backgroundTransparente)
                 background.Cor = "transparent";
 
-            var teste = await _context.Background.FirstOrDefaultAsync(b => b.Id == background.Id);
+            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
 
-            if (teste == null)
-            {
-                _context.Add(background); await _context.SaveChangesAsync();
-                return $"Chave do plano de fundo {background.Id}";
-            }
-            else
-            {
-                _context.Remove(teste); await _context.SaveChangesAsync();
-                _context.Add(background); await _context.SaveChangesAsync();
+             _context.Remove(teste); await _context.SaveChangesAsync();
+             _context.Add(background); await _context.SaveChangesAsync();
                 return "";
-            }
+            
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Background")]
+        public async Task<string> _BackgroundCorContainer([FromBody]BackgroundCorContainer background)
+        {
+            if (background.backgroundTransparenteContainer)
+                background.CorContainer = "transparent";
+
+            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
+
+             _context.Remove(teste); await _context.SaveChangesAsync();
+             _context.Add(background); await _context.SaveChangesAsync();
+                return "";
+            
         }
 
         [HttpPost]
@@ -104,16 +103,9 @@ namespace CMS.Controllers
         [Authorize(Roles = "Background")]
         public async Task<string> _BackgroundGradiente([FromBody]BackgroundGradiente background)
         {
-            var teste = await _context.Background.FirstOrDefaultAsync(b => b.Id == background.Id);
+            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
 
-            if (teste == null)
-            {
-                _context.Add(background); await _context.SaveChangesAsync();
-                return $"Chave do plano de fundo {background.Id}";
-            }
-            else
-            {
-                if (!(teste is BackgroundGradiente))
+            if (!(teste is BackgroundGradiente))
                 {
                     _context.Remove(teste); await _context.SaveChangesAsync();
                     _context.Add(background); await _context.SaveChangesAsync();
@@ -125,7 +117,27 @@ namespace CMS.Controllers
                     _context.Update(back); await _context.SaveChangesAsync();
                 }
                 return "";
-            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Background")]
+        public async Task<string> _BackgroundGradienteContainer([FromBody]BackgroundGradienteContainer background)
+        {
+            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
+
+             if (!(teste is BackgroundGradienteContainer))
+                {
+                    _context.Remove(teste); await _context.SaveChangesAsync();
+                    _context.Add(background); await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    var back = (BackgroundGradienteContainer)teste;
+                    back.GrauContainer = background.GrauContainer;
+                    _context.Update(back); await _context.SaveChangesAsync();
+                }
+                return "";
         }
 
         [HttpPost]
@@ -133,19 +145,22 @@ namespace CMS.Controllers
         [Authorize(Roles = "Background")]
         public async Task<string> _BackgroundImagem([FromBody]BackgroundImagem background)
         {
-            var teste = await _context.Background.FirstOrDefaultAsync(b => b.Id == background.Id);
-
-            if (teste == null)
-            {
-                _context.Add(background); await _context.SaveChangesAsync();
-                return $"Chave do plano de fundo {background.Id}";
-            }
-            else
-            {
+            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
                 _context.Remove(teste); await _context.SaveChangesAsync();
                 _context.Add(background); await _context.SaveChangesAsync();
                 return "";
-            }
+            
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Background")]
+        public async Task<string> _BackgroundImagemContainer([FromBody]BackgroundImagemContainer background)
+        {
+            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
+                _context.Remove(teste); await _context.SaveChangesAsync();
+                _context.Add(background); await _context.SaveChangesAsync();
+                return "";
+            
         }
         #endregion
 

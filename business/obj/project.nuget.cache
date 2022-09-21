@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "54y2m+5IadZ0ikSIBmAxyRF7RNUpJJgQDIAbo1Td04ANCzWbEejs1dy+zQuPIZjSSMcZO1za3yjx3AqQdoqa7Q==",
+  "dgSpecHash": "hFYYSsFhhp8PaX60EEBCMKyFN+6RHJF6pQKQ8N+ltBF4h7px/xcHeLJUwNeTNg1MV0Cr+45XynEbjzNVQVgHNg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leandro\\Documents\\rede-social\\business\\business.csproj",
+  "projectFilePath": "C:\\Users\\leandro\\Documents\\rede-social-box\\business\\business.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",

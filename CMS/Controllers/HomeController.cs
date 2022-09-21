@@ -232,89 +232,60 @@ namespace CMS.Controllers
             ViewBag.UserId = user.Id;
             ViewBag.StoryId = new SelectList(lista, "Id", "Nome");
             ViewBag.Layout = new SelectList(layouts, "Id", "NomeComId");
-            return View();
+
+            var page = new Pagina();
+            return View(page);
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreatePagina(string Titulo, string UserId, Int64 StoryId, Int64 SubStoryId,
-         Int64 GrupoId, Int64 SubGrupoId, Int64 SubSubGrupoId, string Conteudo, Int64 Layout)
+        public async Task<IActionResult> CreatePagina(Pagina pag, string Conteudo, Int64 Layout)
         {
-            var user = await UserManager.GetUserAsync(this.User);            
+            var user = await UserManager.GetUserAsync(this.User);   
             
                 var page = await _context.Pagina.
                     Include(p => p.Div).
+                    ThenInclude(p => p.Container).
+                    ThenInclude(p => p.Div).
                     ThenInclude(p => p.Div).
                     ThenInclude(p => p.Elemento).
                     Include(p => p.Div).
+                    ThenInclude(p => p.Container).
+                     ThenInclude(p => p.Div).
                     ThenInclude(p => p.Div).
                     ThenInclude(p => p.Background).
-                    FirstAsync(p => p.Id == Layout);
+                    FirstAsync(p => p.Id == Layout);    
 
-                Pagina pagina = new Pagina
-                {
-                    ArquivoMusic = "",
-                    Margem = false,
-                    Music = false,                    
-                    Titulo = Titulo,
-                    Layout = false,
-                    UserId = UserId,
-                    StoryId = StoryId,
-                    SubStoryId = SubStoryId,
-                    GrupoId = GrupoId,
-                    SubGrupoId = SubGrupoId,
-                    SubSubGrupoId = SubSubGrupoId
-                };
-
-                pagina.Div = new List<DivPagina>();
-
-                var cap = _context.Story.Include(s => s.Pagina).ThenInclude(s => s.Div).First(s => s.Id == StoryId);
+                var cap = _context.Story.Include(s => s.Pagina).ThenInclude(s => s.Div).First(s => s.Id == pag.StoryId);
 
                 if(cap.Pagina.FirstOrDefault(p => p.Div.Count == 0) == null)
                 {
-                    foreach (var item in page.Div)
-                        pagina.Div.Add(new DivPagina { Div = item.Div, Pagina = pagina });
 
-                    if (pagina.Div.Count > 6)
-                    {
-                        pagina.Div[6].Div.Elemento.Add(new DivElemento
-                        {
-                            Div = pagina.Div[6].Div,
+                    pag.ArquivoMusic = "";
+                    pag.Pular = false;
+                    pag.Layout = false;
+                    pag.Div = null;
+
+                    _context.Add(pag);
+                    _context.SaveChanges();
+
+                    pag.Div = new List<PaginaContainer>();
+                    foreach (var item in page.Div)
+                        pag.IncluiDiv(item.Container);                        
+                         _context.SaveChanges();
+
+                         pag.Div.First(d => d.Container.Content).Container.Div
+                         .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
+                         pag.Div.First(d => d.Container.Content).Container.Div
+                         .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+                         {
+                            Div = pag.Div[6].Container.Div[0].Div,
                             Elemento = new Texto
                             {
-                                PalavrasTexto = Conteudo
+                              PalavrasTexto = Conteudo
                             }
-                        });
-                    }
-                    else
-                    {
-                        var div = new DivPagina
-                        {
-                            Div = new DivComum(),
-                            Pagina = pagina
-
-                        };
-                        pagina.Div.Add(div);
-                        pagina.Div[6].Div.Elemento = new List<DivElemento>
-                            {
-                                new DivElemento
-                                {
-                                    Div = pagina.Div[6].Div,
-                                    Elemento = new Texto
-                                    {
-                                        PalavrasTexto = Conteudo
-                                    }
-                                }
-                            };
-                    }
-                    _context.Add(pagina);
-                    _context.SaveChanges();
-
-                    pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento.PaginaEscolhida = pagina.Id;
-                    pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento.Pagina_ = pagina.Id;
-
-                    _context.Elemento.Update(pagina.Div[6].Div.Elemento.OrderBy(e => e.Elemento.Id).Last().Elemento);
-                    _context.SaveChanges();
+                         });
+                        _context.SaveChanges();                    
 
                     for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
                         {
@@ -323,11 +294,11 @@ namespace CMS.Controllers
                             if(RepositoryPagina.paginas[indice] == null) {RepositoryPagina.paginas[indice]  = new List<Pagina>();}
                             if(RepositoryPagina.paginas[indice] .Count < 1000000000)
                             {
-                                RepositoryPagina.paginas[indice].Add(pagina);
+                                RepositoryPagina.paginas[indice].Add(pag);
                                 break;
                             }
                         }                      
-                    var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == pagina.StoryId);
+                    var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == pag.StoryId);
                     var versiculos = story.Pagina.Where(p => !p.Layout).ToList().Count;
 
                     epositoryPagina.AtualizarPaginaStory(cap);
@@ -337,49 +308,26 @@ namespace CMS.Controllers
 
                 else{
 
-                    var pag = cap.Pagina.FirstOrDefault(p => p.Div.Count == 0);
-                    var pagi = _context.Pagina.Include(s => s.Story).Include(s => s.Div).First(p => p.Id == pag.Id);
+                    var p = cap.Pagina.FirstOrDefault(pa => pa.Div.Count == 0);
+                    var pagi = _context.Pagina.Include(s => s.Story).Include(s => s.Div).First(pa => pa.Id == p.Id);
 
                     foreach (var item in page.Div)
-                        pagi.Div.Add(new DivPagina { Div = item.Div, Pagina = pagi });
+                        pagi.IncluiDiv(item.Container);                        
+                         _context.SaveChanges();
 
-                      if (pagi.Div.Count > 6)
-                    {
-                        pagi.Div[6].Div.Elemento.Add(new DivElemento
-                        {
-                            Div = pagi.Div[6].Div,
+                      pagi.Div.First(d => d.Container.Content).Container.Div
+                      .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
+                        pagi.Div.First(d => d.Container.Content).Container.Div
+                         .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+                         {
+                            Div = pagi.Div[6].Container.Div[0].Div,
                             Elemento = new Texto
                             {
-                                PalavrasTexto = Conteudo
+                              PalavrasTexto = Conteudo
                             }
-                        });
-                    }
-                    else
-                    {
-                        var div = new DivPagina
-                        {
-                            Div = new DivComum(),
-                            Pagina = pagi
+                         });
 
-                        };
-                        pagi.Div.Add(div);
-                        pagi.Div[6].Div.Elemento = new List<DivElemento>
-                            {
-                                new DivElemento
-                                {
-                                    Div = pagi.Div[6].Div,
-                                    Elemento = new Texto
-                                    {
-                                        PalavrasTexto = Conteudo
-                                    }
-                                }
-                            };
-
-                            
-                    }
-
-                        _context.Update(pagi);
-                             _context.SaveChanges();
+                         _context.SaveChanges();
 
                     for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
                     {
@@ -396,13 +344,9 @@ namespace CMS.Controllers
 
                             epositoryPagina.AtualizarPaginaStory(cap);
                             return RedirectToAction(nameof(PaginaCriada),
-                                new { user = user.Name, capitulo = cap.PaginaPadraoLink, versiculo = cap.Pagina.Count });
+                                new { user = user.Name, capitulo = cap.PaginaPadraoLink, versiculo = cap.Pagina.IndexOf(pagi) + 1 });
 
-                }
-
-
-
-            
+                }            
         }
         
         public async Task<ActionResult> Preview(Int64 Layout, string Conteudo, string UserId)
@@ -410,7 +354,6 @@ namespace CMS.Controllers
             Pagina pagina = new Pagina
             {
                 ArquivoMusic = "",
-                Margem = false,
                 Music = false,
                 Titulo = "Default",
                 Layout = false,
@@ -422,9 +365,10 @@ namespace CMS.Controllers
             pagina.Div = page.Div;
             if (pagina.Div.Count > 6)
             {
-                pagina.Div[6].Div.Elemento.Add(new DivElemento
+                foreach(var item in pagina.Div[6].Container.Div)
+                item.Div.Elemento.Add(new DivElemento
                 {
-                    Div = pagina.Div[6].Div,
+                    Div = item.Div,
                     Elemento = new Texto
                     {
                         PalavrasTexto = Conteudo
@@ -433,25 +377,27 @@ namespace CMS.Controllers
             }
             else
             {
-                var div = new DivPagina
+                var div = new PaginaContainer
                 {
-                    Div = new DivComum(),
+                    Container = new Container(),
                     Pagina = pagina
 
                 };
                 pagina.Div.Add(div);
-                pagina.Div[6].Div.Elemento = new List<DivElemento>
+                foreach(var item in pagina.Div[6].Container.Div)
+              {  item.Div.Elemento = new List<DivElemento>
                         {
                             new DivElemento
                             {
-                                 Div = pagina.Div[6].Div,
+                                 Div = item.Div,
                                  Elemento = new Texto
                                  {
                                      PalavrasTexto = Conteudo
                                  }
                             }
                         };
-                pagina.Div[6].Div.Id = 1;
+                item.Div.Id = 1;
+              }
             }
 
 
@@ -467,7 +413,6 @@ namespace CMS.Controllers
             ViewBag.user = user;            
             ViewBag.capitulo = capitulo;
             ViewBag.versiculo = versiculo;
-
             return View();
         }
         

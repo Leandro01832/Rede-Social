@@ -1,15 +1,19 @@
 ﻿using business.Back;
 using business.div;
 using business.Join;
+using business.business;
 using CMS.Data;
 using CMS.Models.Repository;
+using CMS.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using business.business.div;
 
 namespace CMS.Controllers
 {
@@ -21,11 +25,12 @@ namespace CMS.Controllers
         public IRepositoryDiv RepositoryDiv { get; }
         public IHttpHelper HttpHelper { get; }
         public IUserHelper UserHelper { get; }
+        public UserManager<UserModel> UserManager { get; }
         public IRepositoryPagina RepositoryPagina { get; }
 
         public DivController(ApplicationDbContext context, IRepositoryElemento repositoryElemento,
             IRepositoryDiv repositoryDiv, IHttpHelper httpHelper, IUserHelper userHelper,
-            IRepositoryPagina repositoryPagina)
+            IRepositoryPagina repositoryPagina, UserManager<UserModel> userManager)
         {
             _context = context;
             RepositoryElemento = repositoryElemento;
@@ -33,67 +38,36 @@ namespace CMS.Controllers
             HttpHelper = httpHelper;
             UserHelper = userHelper;
             RepositoryPagina = repositoryPagina;
+            UserManager = userManager;
         }
 
         [Route("Div/ListaFixo/{id?}")]
         public async Task<IActionResult> ListaFixo(Int64? id)
         {
             List<Div> lista = new List<Div>();
+            var user = await UserManager.GetUserAsync(this.User);
 
-            var pagina = await _context.Pagina
-            .FirstAsync(p => p.Id == HttpHelper.GetPaginaId());
+            var paginas = await RepositoryPagina.includes()
+            .Where(p => p.UserId == user.Id).ToListAsync();     
 
-            var paginas = await RepositoryPagina.includes().Where(p => p.UserId == pagina.UserId).ToListAsync();
-
-            pagina.Margem = false;
-            pagina.Div = new List<DivPagina>();
-
-            pagina.Div.AddRange(new List<DivPagina> {
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() }
-            });
+            Pagina pagina = new Pagina(1);
+            pagina.Div.First(d => d.Container.Content).Container.Div
+                      .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();  
 
 
             foreach (var page in paginas)
-            {
-                foreach (var div in _context.Div.Where(d => d.Pagina_ == page.Id && d is DivFixo).ToList())
-                {
-                    pagina.Div.Add(new DivPagina { Pagina = pagina, Div = div });
-                    break;
-                }
-                if (pagina.Div.Count == 7)
-                    break;
-            }
+            foreach (var item in page.Div)
+            foreach (var item2 in item.Container.Div.Where(d => d.Div is DivFixo))
+            lista.Add(item2.Div);
 
             if (id != null)
             {
                 var d1 = RepositoryDiv.includesBloco().ToList().First(d => d.Id == id);
-                pagina.Div.Add(new DivPagina { Div = d1, DivId = d1.Id });
-                        
-            }
+                pagina.Div.First(d => d.Container.Content).Container.Div
+                .First(d => d.Div.Content).Div = d1;                        
+            }                           
 
-                List<Div> divs = new List<Div>();
-            
-            foreach (var page in paginas)
-            {
-                 divs.AddRange( _context.Div.ToList().Where(d => d.Pagina_ == page.Id && d is DivFixo).ToList());
-            }
-
-            for (int i = 0; i <= 5; i++)
-            {
-                if (i <= 6)
-                    pagina.Div[i].Div = new DivComum
-                    {
-                        Background = new BackgroundCor
-                        {
-                            backgroundTransparente = true,
-                            Cor = "transparent"
-                        }
-                    };
-            }
-
-            ViewBag.divs = divs;
+            ViewBag.divs = lista;
             string html = await RepositoryPagina.renderizarPagina(pagina);
             ViewBag.Html = html;
 
@@ -104,38 +78,32 @@ namespace CMS.Controllers
         public async Task<IActionResult> Lista()
         {
             List<Div> lista = new List<Div>();
+            var user = await UserManager.GetUserAsync(this.User);
 
-            var pagina = await _context.Pagina
-            .FirstAsync(p => p.Id == HttpHelper.GetPaginaId());
+            var pagina = new Pagina(1);
+            pagina.Div.First(d => d.Container.Content).Container.Div = new List<DivContainer>();
+            pagina.Div.First(d => d.Container.Content).Container.Div
+                      .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>(); 
 
-            var paginas = await RepositoryPagina.includes().Where(p => p.UserId == pagina.UserId).ToListAsync();
-            
-            pagina.Margem = false;
-            pagina.Div = new List<DivPagina>();
-
-            pagina.Div.AddRange(new List<DivPagina> {
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() },
-                new DivPagina{ Div = new DivComum() }, new DivPagina{ Div = new DivComum() }
-            });
+            var paginas = await RepositoryPagina.includes()
+            .Where(p => p.UserId == user.Id).ToListAsync();            
             
 
-            foreach (var page in paginas)
-            foreach (var div in _context.Div.Where(d => d.Pagina_ == page.Id && d is DivComum).ToList())
-                    pagina.Div.Add(new DivPagina { Pagina = pagina, Div = div  });
+             foreach (var page in paginas)
+             foreach (var div in page.Div)
+             foreach(var div2 in div.Container.Div.Where(d => d.Div is DivComum))
+                     lista.Add(div2.Div);
 
-            for (int i = 0; i <= 5; i++)
-            {
-                if (i <= 6)
-                    pagina.Div[i].Div = new DivComum
+                foreach (var item in lista)
+                pagina.Div.First(d => d.Container.Content).Container.Div.Add
+                (
+                    new DivContainer
                     {
-                        Background = new BackgroundCor
-                        {
-                            backgroundTransparente = true,
-                            Cor = "transparent"
-                        }
-                    };
-            }
+                        Container = pagina.Div.First(d => d.Container.Content).Container,
+                        Div = item
+                    }
+                ); 
+            
 
             string html = await RepositoryPagina.renderizarPagina(pagina);
             ViewBag.Html = html;
@@ -188,15 +156,8 @@ namespace CMS.Controllers
                 if (div.Id == 0)                
                     return await RepositoryDiv.SalvarBloco(div);                
                 else{
-                    var d = await _context.DivComum
-                    .Include(di => di.Background)
-                    .Include(di => di.Elemento)
-                    .ThenInclude(di => di.Div)
-                    .Include(di => di.Elemento)
-                    .ThenInclude(di => di.Elemento)
-                    .FirstAsync(di => di.Id == div.Id);
-                    d.Elementos = div.Elementos;
-                    return await RepositoryDiv.EditarBloco(d);
+                    
+                    return await RepositoryDiv.EditarBloco(div);
                 }
             }
             catch (Exception ex) { return ex.Message; }

@@ -27,7 +27,17 @@ namespace Tests
 
         static void Main(string[] args)
         {
-           Random rnd = new Random();
+
+            RetornarDados();
+            DropTable();
+           
+
+            Console.Read();
+        }
+
+        public static void metodo1(){
+
+             Random rnd = new Random();
            int aleatorio = rnd.Next(1, 999999);
            string escolhidos = "";
                 
@@ -57,9 +67,58 @@ namespace Tests
 
             Console.WriteLine(escolhidos); 
             Console.WriteLine(RepositoryPagina.paginas.Length); 
-            Console.WriteLine("Executado!!!");  
-            Console.Read();
+            Console.WriteLine("Executado!!!"); 
+
         }
+
+        public static void RetornarDados()
+        {
+            var lista = BaseModel.listTypesSon(typeof(BaseModel));
+
+            foreach (var item in lista)
+                foreach (var item2 in item.GetProperties())
+                    if (item2.PropertyType == typeof(DateTime) || item2.PropertyType == typeof(DateTime?))
+                    {
+                        Console.WriteLine("------------------------ || Dados de data || -------------------------------");
+                        Console.WriteLine(item2.Name);
+                        Console.WriteLine(item2.ReflectedType.Name);
+                    }
+                    else
+                    if (item2.PropertyType == typeof(TimeSpan) || item2.PropertyType == typeof(TimeSpan?))
+                    {
+                        Console.WriteLine("------------------------ || Dados de hora || -------------------------------");
+                        Console.WriteLine(item2.Name);
+                        Console.WriteLine(item2.ReflectedType.Name);
+                    }
+                    else
+                    if (item2.PropertyType == typeof(decimal) || item2.PropertyType == typeof(decimal?))
+                    {
+                        Console.WriteLine("------------------------ || Dados monetários || -------------------------------");
+                        Console.WriteLine(item2.Name);
+                        Console.WriteLine(item2.ReflectedType.Name);
+                    }
+        }
+        
+        public static void RetornarClasses()
+        {
+            var lista = BaseModel.listTypesSon(typeof(BaseModel));
+
+            foreach (var item in lista)
+                        Console.WriteLine(item.Name);
+                
+        }
+
+        public static void DropTable()
+        {
+            var lista = BaseModel.listTypesSon(typeof(BaseModel));
+
+            foreach (var item in lista)
+                        Console.WriteLine("Drop table " + item.Name + "\n");
+                
+        }
+
+
+        
 
         
     }

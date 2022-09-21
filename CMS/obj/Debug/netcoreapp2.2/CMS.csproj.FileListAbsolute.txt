@@ -1,1034 +1,157 @@
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.csprojAssemblyReference.cache
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CoreCompileInputs.cache
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cache
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfoInputs.cache
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfo.cs
-D:\cms-clean\CMS\CMS\bin\Debug\netcoreapp2.2\CMS.deps.json
-D:\cms-clean\CMS\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.json
-D:\cms-clean\CMS\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.dev.json
-D:\cms-clean\CMS\CMS\bin\Debug\netcoreapp2.2\CMS.dll
-D:\cms-clean\CMS\CMS\bin\Debug\netcoreapp2.2\CMS.pdb
-D:\cms-clean\CMS\CMS\bin\Debug\netcoreapp2.2\CMS.Views.dll
-D:\cms-clean\CMS\CMS\bin\Debug\netcoreapp2.2\CMS.Views.pdb
-D:\cms-clean\CMS\CMS\bin\Debug\netcoreapp2.2\business.dll
-D:\cms-clean\CMS\CMS\bin\Debug\netcoreapp2.2\business.pdb
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.input.cache
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.output.cache
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.RazorCoreGenerate.cache
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cache
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.Views.pdb
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CopyComplete
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.dll
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\CMS.pdb
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Create.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Imagem.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Texto.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Table.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Campo.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Dropdown.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Formulario.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Video.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Acessorio.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Alimenticio.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Calcado.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Roupa.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkBody.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkMenu.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselImg.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselPagina.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Edit.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Show.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\CreateDiv.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\EditDiv.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_DivComum.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_DivFixo.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\ApagarElemento.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\BlocoFerramenta.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Chat.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EditarPagina.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EmBranco.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GetView.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoBloco.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoElemento.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\NoPermission.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\QuantidadeBloco.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\RenderizarDinamico.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Site.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\Carousel.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBackgroundGradiente.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBloco.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2MenuDropDown.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocHtml.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarousel.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarouselPagina.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocFormulario.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlFim.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlInicio.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocImagem.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocLink.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTable.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTexto.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocVideo.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\modal.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateBackground.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditBackground.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\_BackgroundGradiente.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\_BackgroundImagem.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\_BackgroundCor.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCor.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreatePasta.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCor.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\ListaBackground.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\ListaCores.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Admin.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\EditPermissao.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error500.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\HandleErrorCode.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarContaBancaria.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarCpf.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarInfoEntrega.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Create.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\CreatePagina.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Delete.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Details.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Edit.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Galeria.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GaleriaSite.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GetView.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\ViewCreate.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Details.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\BuscaProdutos.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Cadastro.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Carrinho.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Resumo.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Create.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Delete.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Details.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Edit.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Index.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\IndexUsers.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Rotas.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_ImagemDependente.g.cshtml.cs
-D:\cms-clean\CMS\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_TextoDependente.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.csprojAssemblyReference.cache
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CoreCompileInputs.cache
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cache
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfoInputs.cache
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfo.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.dll
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.pdb
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.input.cache
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.output.cache
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.RazorCoreGenerate.cache
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Admin.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\EditPermissao.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Acessorio.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Alimenticio.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Calcado.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Campo.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselImg.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselPagina.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Dropdown.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Formulario.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Imagem.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_ImagemDependente.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkBody.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkMenu.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Roupa.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Show.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Table.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Texto.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_TextoDependente.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Video.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error500.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\HandleErrorCode.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCor.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreatePasta.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCor.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarContaBancaria.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarCpf.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarInfoEntrega.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\ApagarElemento.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\BlocoFerramenta.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Chat.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EditarPagina.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EmBranco.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GetView.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoBloco.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoElemento.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\NoPermission.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\QuantidadeBloco.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\RenderizarDinamico.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Site.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\CreatePagina.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Delete.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Details.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Galeria.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GaleriaSite.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GetView.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\ViewCreate.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Details.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\BuscaProdutos.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Cadastro.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Carrinho.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Resumo.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Delete.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Details.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Index.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\IndexUsers.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Rotas.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\Carousel.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBackgroundGradiente.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBloco.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2MenuDropDown.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocHtml.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarousel.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarouselPagina.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocFormulario.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlFim.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlInicio.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocImagem.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocLink.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTable.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTexto.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocVideo.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\modal.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cache
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\bin\Debug\netcoreapp2.2\CMS.deps.json
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.json
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.dev.json
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\bin\Debug\netcoreapp2.2\CMS.dll
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\bin\Debug\netcoreapp2.2\CMS.pdb
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\bin\Debug\netcoreapp2.2\CMS.Views.dll
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\bin\Debug\netcoreapp2.2\CMS.Views.pdb
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\bin\Debug\netcoreapp2.2\business.dll
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\bin\Debug\netcoreapp2.2\business.pdb
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.Views.pdb
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CopyComplete
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Editar.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\HttpNotFound.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render2.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivComum.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivFixo.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaBackground.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaCores.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundCor.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundGradiente.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundImagem.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Musica.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Lista.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Lista.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\ListaFixo.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\CriadorSites\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\ListaCores.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\bin\Debug\netcoreapp2.2\CMS.deps.json
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.json
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.dev.json
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\bin\Debug\netcoreapp2.2\CMS.dll
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\bin\Debug\netcoreapp2.2\CMS.pdb
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\bin\Debug\netcoreapp2.2\CMS.Views.dll
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\bin\Debug\netcoreapp2.2\CMS.Views.pdb
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\bin\Debug\netcoreapp2.2\business.dll
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\bin\Debug\netcoreapp2.2\business.pdb
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.csprojAssemblyReference.cache
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CoreCompileInputs.cache
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cache
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfoInputs.cache
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfo.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.input.cache
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.output.cache
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.RazorCoreGenerate.cache
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Admin.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\EditPermissao.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaBackground.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaCores.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundCor.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundGradiente.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundImagem.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Lista.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\ListaFixo.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivComum.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivFixo.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Lista.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Acessorio.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Alimenticio.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Calcado.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Campo.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselImg.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselPagina.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Dropdown.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Formulario.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Imagem.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkBody.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Musica.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Roupa.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Show.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Table.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Texto.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Video.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error500.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\HandleErrorCode.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCor.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreatePasta.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCor.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\ListaCores.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarContaBancaria.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarCpf.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarInfoEntrega.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\ApagarElemento.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\BlocoFerramenta.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Chat.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Editar.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EditarPagina.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EmBranco.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GetView.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\HttpNotFound.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoBloco.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoElemento.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\NoPermission.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\QuantidadeBloco.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\RenderizarDinamico.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Site.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\CreatePagina.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Delete.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Details.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Galeria.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GaleriaSite.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GetView.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\ViewCreate.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Details.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\BuscaProdutos.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Cadastro.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Carrinho.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Resumo.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render2.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Delete.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Details.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Index.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\IndexUsers.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Rotas.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\Carousel.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBackgroundGradiente.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBloco.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2MenuDropDown.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocHtml.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarousel.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarouselPagina.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocFormulario.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlFim.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlInicio.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocImagem.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocLink.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTable.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTexto.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocVideo.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\modal.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cache
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.Views.pdb
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CopyComplete
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.dll
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\CMS.pdb
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Create.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Delete.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Details.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Edit.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Index.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\CreatePaginaComLayout.g.cshtml.cs
-C:\Users\leand\Documents\cms-aspnetcore\copia\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GaleriaLayout.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.deps.json
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.json
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.dev.json
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.dll
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.pdb
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.Views.dll
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.Views.pdb
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\bin\Debug\netcoreapp2.2\business.dll
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\bin\Debug\netcoreapp2.2\business.pdb
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csprojAssemblyReference.cache
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CoreCompileInputs.cache
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cache
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfoInputs.cache
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfo.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.input.cache
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.output.cache
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorCoreGenerate.cache
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cache
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.Views.pdb
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CopyComplete
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.dll
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.pdb
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\Error.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_Layout.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Admin.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\EditPermissao.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Create.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Edit.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaBackground.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaCores.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundCor.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundGradiente.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundImagem.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Create.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Edit.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Lista.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\ListaFixo.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivComum.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivFixo.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Create.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Edit.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Lista.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Acessorio.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Alimenticio.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Calcado.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Campo.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselImg.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselPagina.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Dropdown.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Formulario.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Imagem.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkBody.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Musica.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Roupa.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Show.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Table.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Texto.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Video.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error500.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\HandleErrorCode.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCor.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreatePasta.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCor.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\ListaCores.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Alterar.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Perfil.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarContaBancaria.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarCpf.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarInfoEntrega.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\ApagarElemento.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\BlocoFerramenta.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Chat.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\CreatePaginaComLayout.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Editar.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EditarPagina.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EmBranco.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GaleriaLayout.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GetView.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\HttpNotFound.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoBloco.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoElemento.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\NoPermission.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\QuantidadeBloco.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\RenderizarDinamico.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\CreatePagina.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Galeria.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GetView.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Details.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\BuscaProdutos.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Cadastro.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Carrinho.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Resumo.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render2.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Create.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Delete.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Details.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Edit.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Index.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Create.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Delete.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Details.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Edit.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Index.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\IndexUsers.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\Carousel.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBackgroundGradiente.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBloco.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2MenuDropDown.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocHtml.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarousel.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarouselPagina.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocFormulario.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlFim.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlInicio.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocImagem.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocLink.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTable.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTexto.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocVideo.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\modal.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreatePagina.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Preview.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\CreatePaginaModelo.g.cshtml.cs
-C:\Users\leand\Documents\Visual Studio 2017\C#\cms-rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\PaginaCriada.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csprojAssemblyReference.cache
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CoreCompileInputs.cache
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cache
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfoInputs.cache
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfo.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.dll
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.pdb
-C:\Users\simon\source\repos\C#\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.deps.json
-C:\Users\simon\source\repos\C#\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.json
-C:\Users\simon\source\repos\C#\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.dev.json
-C:\Users\simon\source\repos\C#\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.dll
-C:\Users\simon\source\repos\C#\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.pdb
-C:\Users\simon\source\repos\C#\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.Views.dll
-C:\Users\simon\source\repos\C#\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.Views.pdb
-C:\Users\simon\source\repos\C#\rede-social\CMS\bin\Debug\netcoreapp2.2\business.dll
-C:\Users\simon\source\repos\C#\rede-social\CMS\bin\Debug\netcoreapp2.2\business.pdb
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.input.cache
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.output.cache
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorCoreGenerate.cache
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\Error.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_Layout.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Admin.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\EditPermissao.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Create.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Edit.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaBackground.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaCores.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundCor.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundGradiente.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundImagem.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Create.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Edit.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Lista.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\ListaFixo.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivComum.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivFixo.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Create.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Edit.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Lista.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Acessorio.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Alimenticio.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Calcado.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Campo.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselImg.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselPagina.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Dropdown.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Formulario.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Imagem.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkBody.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Musica.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Roupa.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Show.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Table.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Texto.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Video.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error500.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\HandleErrorCode.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCor.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreatePasta.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCor.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\ListaCores.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Alterar.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreatePagina.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\PaginaCriada.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Perfil.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Preview.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarContaBancaria.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarCpf.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarInfoEntrega.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\ApagarElemento.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\BlocoFerramenta.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Chat.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\CreatePaginaComLayout.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Editar.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EditarPagina.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EmBranco.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GaleriaLayout.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GetView.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\HttpNotFound.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoBloco.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoElemento.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\NoPermission.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\QuantidadeBloco.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\CreatePagina.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Galeria.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GetView.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\ViewCreate.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Details.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\BuscaProdutos.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Cadastro.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Carrinho.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Resumo.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render2.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Create.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Delete.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Details.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Edit.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Index.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Create.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\CreatePaginaModelo.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Delete.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Details.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Edit.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Index.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\IndexUsers.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Rotas.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\Carousel.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBackgroundGradiente.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBloco.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2MenuDropDown.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocHtml.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarousel.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarouselPagina.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocFormulario.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlFim.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlInicio.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocImagem.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocLink.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTable.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTexto.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocVideo.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\modal.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.g.cshtml.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cache
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cs
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.Views.pdb
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CopyComplete
-C:\Users\simon\source\repos\C#\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Renderizar.g.cshtml.cs
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\appsettings.Development.json
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\appsettings.json
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\bower.json
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\bundleconfig.json
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.deps.json
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.json
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.dev.json
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.dll
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.pdb
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.Views.dll
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.Views.pdb
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\business.dll
-D:\Simone\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\business.pdb
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.AssemblyReference.cache
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.GeneratedMSBuildEditorConfig.editorconfig
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfoInputs.cache
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfo.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CoreCompileInputs.cache
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cache
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.input.cache
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.output.cache
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorCoreGenerate.cache
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\Error.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_Layout.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Admin.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\EditPermissao.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Create.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Edit.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaBackground.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaCores.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundCor.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundGradiente.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundImagem.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Create.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Edit.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Lista.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\ListaFixo.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivComum.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivFixo.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Create.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Edit.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Lista.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Acessorio.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Alimenticio.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Calcado.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Campo.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselImg.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselPagina.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Dropdown.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Formulario.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Imagem.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkBody.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Musica.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Roupa.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Show.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Table.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Texto.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Video.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error500.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\HandleErrorCode.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCor.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreatePasta.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCor.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\ListaCores.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Alterar.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreatePagina.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\PaginaCriada.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Perfil.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Preview.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarContaBancaria.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarCpf.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\InfoVenda\CadastrarInfoEntrega.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\ApagarElemento.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\BlocoFerramenta.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Chat.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\CreatePaginaComLayout.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Editar.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EditarPagina.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EmBranco.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GaleriaLayout.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GetView.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\HttpNotFound.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoBloco.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoElemento.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\NoPermission.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\QuantidadeBloco.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Renderizar.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\CreatePagina.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Galeria.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GetView.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\ViewCreate.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Details.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\BuscaProdutos.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Cadastro.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Carrinho.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Requisicao\Resumo.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render2.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Create.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Delete.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Details.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Edit.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Index.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Create.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\CreatePaginaModelo.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Delete.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Details.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Edit.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Index.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\IndexUsers.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Rotas.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\Carousel.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBackgroundGradiente.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBloco.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss2MenuDropDown.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocHtml.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarousel.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocCarouselPagina.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocFormulario.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlFim.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocHtmlInicio.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocImagem.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocLink.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTable.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocTexto.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\html\DocVideo.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\modal.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.cshtml.g.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cache
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cs
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.Views.pdb
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CopyComplete
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.dll
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.pdb
-D:\Simone\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.genruntimeconfig.cache
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\appsettings.Development.json
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\appsettings.json
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\bower.json
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\bundleconfig.json
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.deps.json
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.json
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.dev.json
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.dll
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.pdb
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.Views.dll
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\CMS.Views.pdb
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\business.dll
-C:\Users\leandro\Documents\rede-social\CMS\bin\Debug\netcoreapp2.2\business.pdb
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.AssemblyReference.cache
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfoInputs.cache
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfo.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CoreCompileInputs.cache
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cache
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.input.cache
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.output.cache
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorCoreGenerate.cache
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\Error.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_Layout.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Admin.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\EditPermissao.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Create.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Edit.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaBackground.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaCores.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundCor.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundGradiente.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundImagem.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Create.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Edit.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Lista.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\ListaFixo.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivComum.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivFixo.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Create.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Edit.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Lista.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Campo.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselImg.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselPagina.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Dropdown.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Formulario.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Imagem.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkBody.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Musica.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Texto.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Video.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error500.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\HandleErrorCode.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCor.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreatePasta.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCor.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\ListaCores.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Alterar.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreatePagina.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\PaginaCriada.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Perfil.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Preview.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\ApagarElemento.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\BlocoFerramenta.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Chat.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\CreatePaginaComLayout.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Editar.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EditarPagina.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EmBranco.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GaleriaLayout.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GetView.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\HttpNotFound.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoBloco.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoElemento.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\NoPermission.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\QuantidadeBloco.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\CreatePagina.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Galeria.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GetView.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\ViewCreate.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Details.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render2.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Create.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Delete.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Details.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Edit.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Index.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Create.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\CreatePaginaModelo.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Delete.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Details.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Edit.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Index.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\IndexUsers.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\Carousel.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBackgroundGradiente.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBloco.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\MenuDropDown.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cache
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.Views.pdb
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CopyComplete
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.dll
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.pdb
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.genruntimeconfig.cache
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Create.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Delete.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Details.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Edit.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Index.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Create.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Delete.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Details.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Edit.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Index.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubGrupo\Create.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubGrupo\Delete.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubGrupo\Details.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubGrupo\Edit.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubGrupo\Index.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Create.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Delete.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Details.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Edit.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Index.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\Grupo.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\Renderizar.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\SubGrupo.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\SubStory.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\SubSubGrupo.cshtml.g.cs
-C:\Users\leandro\Documents\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Delete.cshtml.g.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\bin\Debug\netcoreapp2.2\CMS.deps.json
+C:\Users\leand\Downloads\rede-social-box\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.json
+C:\Users\leand\Downloads\rede-social-box\CMS\bin\Debug\netcoreapp2.2\CMS.runtimeconfig.dev.json
+C:\Users\leand\Downloads\rede-social-box\CMS\bin\Debug\netcoreapp2.2\CMS.dll
+C:\Users\leand\Downloads\rede-social-box\CMS\bin\Debug\netcoreapp2.2\CMS.pdb
+C:\Users\leand\Downloads\rede-social-box\CMS\bin\Debug\netcoreapp2.2\CMS.Views.dll
+C:\Users\leand\Downloads\rede-social-box\CMS\bin\Debug\netcoreapp2.2\CMS.Views.pdb
+C:\Users\leand\Downloads\rede-social-box\CMS\bin\Debug\netcoreapp2.2\business.dll
+C:\Users\leand\Downloads\rede-social-box\CMS\bin\Debug\netcoreapp2.2\business.pdb
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.csprojAssemblyReference.cache
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CoreCompileInputs.cache
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cache
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.RazorAssemblyInfo.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfoInputs.cache
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.AssemblyInfo.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.input.cache
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.TagHelpers.output.cache
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.RazorCoreGenerate.cache
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\Error.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_Layout.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Admin.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Admin\EditPermissao.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Create.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\Edit.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaBackground.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\ListaCores.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundCor.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundCorContainer.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundGradiente.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundGradienteContainer.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundImagem.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundImagemContainer.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Container\Create.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Container\Delete.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Container\Details.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Container\Edit.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Container\Index.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Create.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Edit.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\Lista.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\ListaFixo.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivComum.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Div\_DivFixo.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Create.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Edit.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\Lista.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Campo.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselImg.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_CarouselPagina.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Dropdown.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Formulario.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Imagem.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_LinkBody.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Musica.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Texto.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Elemento\_Video.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\Error500.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Erros\HandleErrorCode.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCor.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreatePasta.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCor.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\ListaCores.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Create.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Delete.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Details.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Edit.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Index.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Alterar.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreatePagina.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\PaginaCriada.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Perfil.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Preview.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\ApagarElemento.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\BlocoFerramenta.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Chat.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\CreatePaginaComLayout.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Delete.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Editar.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EditarPagina.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\EmBranco.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GaleriaLayout.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\GetView.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\HttpNotFound.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoBloco.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\IdentificacaoElemento.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\NoPermission.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\QuantidadeBloco.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\CreatePagina.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Galeria.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\GetView.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\ViewCreate.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Produto\Details.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Render2.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Create.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Delete.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Details.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Edit.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Story\Index.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubGrupo\Create.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubGrupo\Delete.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubGrupo\Details.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubGrupo\Edit.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubGrupo\Index.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Create.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Delete.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Details.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Edit.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubStory\Index.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Create.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Delete.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Details.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Edit.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SubSubGrupo\Index.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Create.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\CreatePaginaModelo.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Delete.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Details.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Edit.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Index.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\IndexUsers.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\Grupo.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\Renderizar.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\SubGrupo.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\SubStory.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\SubSubGrupo.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\Carousel.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocBloco.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCss.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocCssDiv.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\DocProducao.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.g.cshtml.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cache
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.RazorTargetAssemblyInfo.cs
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.Views.pdb
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CopyComplete
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.dll
+C:\Users\leand\Downloads\rede-social-box\CMS\obj\Debug\netcoreapp2.2\CMS.pdb

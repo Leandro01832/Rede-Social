@@ -19,7 +19,7 @@ namespace business.Back
         }
         
 
-        [Key, ForeignKey("Div")]
+        [Key]
         public new Int64 Id { get; set; }
 
         public Int64? ImagemId { get; set; }
@@ -30,7 +30,6 @@ namespace business.Back
 
         public virtual List<Cor> Cores { get; set; }
 
-        public virtual Div Div { get; set; }
 
         private MudancaEstado mudanca;
 

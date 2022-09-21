@@ -9,7 +9,7 @@
 <h4>bloco</h4>
 
 @{ 
-    if (Model is business.div.DivComum) { <partial name="_DivComum" model="Model" /> }
+    if (Model is business.business.div.DivComum) { <partial name="_DivComum" model="Model" /> }
    else if (Model is business.div.DivFixo) { <partial name="_DivFixo" model="Model" /> }
 }
 

@@ -1,4 +1,4 @@
-﻿using business.Back;
+using business.Back;
 using business.business;
 using business.business.Group;
 using business.business.carousel;
@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
+using business.business.div;
 
 namespace CMS.Data
 {
@@ -40,13 +41,14 @@ namespace CMS.Data
         public DbSet<PaginaCarouselPagina> PaginaCarouselPagina { get; set; }
         public DbSet<CarouselPagina> CarouselPagina { get; set; }
         public DbSet<DivElemento> DivElemento { get; set; }
-        public DbSet<DivPagina> DivPagina { get; set; }
+        public DbSet<PaginaContainer> PaginaContainer { get; set; }
         public DbSet<ElementoDependenteElemento> ElementoDependenteElemento { get; set; }
         public DbSet<Cor> Cor { get; set; }
         public DbSet<Telefone> Telefone { get; set; }
         public DbSet<Imagem> Imagem { get; set; }
         public DbSet<Pagina> Pagina { get; set; }
         public DbSet<Div> Div { get; set; }
+        public DbSet<Container> Container { get; set; }
         public DbSet<Texto> Texto { get; set; }
         public DbSet<Background> Background { get; set; }
         public DbSet<Video> Video { get; set; }
@@ -70,15 +72,20 @@ namespace CMS.Data
             builder.Entity<PaginaCarouselPagina>()
             .HasKey(p => new { p.ElementoId, p.PaginaId });
             
-            builder.Entity<DivPagina>()
-            .HasKey(p => new { p.DivId, p.PaginaId });
+            builder.Entity<PaginaContainer>()
+            .HasKey(p => new { p.ContainerId, p.PaginaId });
             
             builder.Entity<DivElemento>()
             .HasKey(p => new { p.DivId, p.ElementoId });
             
+            builder.Entity<DivContainer>()
+            .HasKey(p => new { p.DivId, p.ContainerId });
+            
             builder.Entity<Elemento>().ToTable("Elemento");
             builder.Entity<ElementoDependente>().ToTable("ElementoDependente");
             builder.Entity<Div>().ToTable("Div");
+
+            
             
 
             builder.Entity<Background>().ToTable("Background");
@@ -128,5 +135,11 @@ namespace CMS.Data
         public DbSet<BackgroundImagem> BackgroundImagem { get; set; }
                      
         public DbSet<BackgroundCor> BackgroundCor { get; set; }
+                     
+        public DbSet<business.Back.BackgroundCorContainer> BackgroundCorContainer { get; set; }
+                     
+        public DbSet<business.Back.BackgroundImagemContainer> BackgroundImagemContainer { get; set; }
+                     
+        public DbSet<business.Back.BackgroundGradienteContainer> BackgroundGradienteContainer { get; set; }
     }
 }

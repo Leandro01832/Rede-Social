@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace business.Back
 {
-    public class BackgroundGradiente : Background
+    public class BackgroundGradiente : BackgroundDiv
     {
         [Display(Name = "Grau do Background Gradiente.")]
         public int Grau { get; set; }

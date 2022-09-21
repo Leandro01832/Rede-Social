@@ -1,6 +1,8 @@
 ﻿$(document).ready(function () {
 
     var numero = $("#IdentificaPagina").val();
+
+  
     
     el.click(function () {
 
@@ -40,15 +42,16 @@
                 $(".Elemento").css("border", "none");
 
             }
+            
 
             while (y !== null && x !== "content col-md-8") {
 
-                if (y.className === "Elemento grid-item ui-sortable-handle") {
+                if (y.className === "Elemento") {
                     $(".Elemento").css("border", "none");
                     var valor = y.id.replace("elemento", "").replace("Pagina" + numero, "");
-                    $(".Elemento" + valor).css("display", "block");
+                   
                     $(".Elemento" + valor).css("border", "ridge");
-                    $(".Elemento" + valor).css("border-width", "2px");
+                    $(".Elemento" + valor).css("border-width", "5px");
                     
                     $("#ElementoId").load("/Pagina/IdentificacaoElemento?elemento=" + valor);
                     break;
@@ -59,12 +62,7 @@
                     var arr = x.split(" ");
 
                     for (var i = 0; i <= arr.length; i++) {
-                        if (arr[i] === "ClassDiv") {
-                            $(".ClassDiv").css("border", "none");
-                            valor = y.id.replace("DIV", "").replace("Pagina" + numero, "");
-                            $("#" + y.id).css("display", "block");
-                            $("#" + y.id).css("border", "ridge");
-                            $("#" + y.id).css("border-width", "10px");
+                        if (arr[i] === "ClassDiv") {                          
                             $("#Bloco").load("/Pagina/IdentificacaoBloco?div=" + valor);
                             $("#QuantidadeElementos").load("/Pagina/QuantidadeBloco?div=" + valor);
                         }
@@ -88,14 +86,13 @@
         x = event.target.className;
 
 
-        if (y.className === "content col-md-8" ||
-            y.className === "bloco" ||
-            y.className === "Conteudo") {
-            condicao = 4;
-            $(".remover").fadeOut("slow");
-            $(".ClassDiv").css("border", "none");
-            $(".grid-item").css("border", "none");
-        }
+        // if (y.className === "content col-md-8" ||
+        //     y.className === "bloco") {
+        //     condicao = 4;
+        //     $(".remover").fadeOut("slow");
+        //     $(".ClassDiv").css("border", "none");
+        //     $(".ContainerDiv").css("border", "none");
+        // }
 
     });
 
@@ -111,9 +108,7 @@
 
         if (condicao !== 0) {
 
-            if (condicao === 1) {
-
-                
+            if (condicao === 1) {                
 
                 if (y.tagName === "DIV" && x.includes(substring)) {
                     var id = $("#" + y.id).data("value");
@@ -121,22 +116,35 @@
                     condicao = 0;
                     $("#conteudomodal").load("/Div/Edit/" + id);
                 }
+                else if (y.tagName === "DIV" && x.includes(substring2)) {
+                    var id = $("#" + y.id).data("value");
 
-                if (x === "Topo" || x === "Menu" || x === "bloco" || x === "bordaEsquerda" || x === "bordaDireita" ||
-                x === "Corpo") {
-                     id = $("#" + y.id).data("value");
-                    $("#" + y.id).css("border-style", "solid");
-                    $("#" + y.id).css("border-width", "5px");
-                    $("#" + y.parentElement.id).css("border-style", "solid");
-                    $("#" + y.parentElement.id).css("border-width", "5px");
                     condicao = 0;
-
-                    $("#conteudomodal").load("/Background/Edit/Padrao/" + id);
+                    $("#conteudomodal").load("/Container/Edit/" + id);
+    
                 }
+                else if (y.tagName === "DIV" && x.includes(substring3)) {
+                    var id = $("#" + y.id).data("value");
+
+                    condicao = 0;
+                    $("#conteudomodal").load("/Container/Edit/" + id);
+    
+                }
+
+                // if ( x === "bloco" || x === "Corpo" || x === "ContainerDiv") {
+                //      id = $("#" + y.id).data("value");
+                //     $("#" + y.id).css("border-style", "solid");
+                //     $("#" + y.id).css("border-width", "5px");
+                //     $("#" + y.parentElement.id).css("border-style", "solid");
+                //     $("#" + y.parentElement.id).css("border-width", "5px");
+                //     condicao = 0;
+
+                //     $("#conteudomodal").load("/Background/Edit/" + id);
+                // }              
 
                 if (x === ""
                     || x !== ""
-                    || x === "Elemento grid-item"
+                    || x === "Elemento"
                     || x === "carousel-inner"
                     || x === "img-responsive"
                     || x === "carousel-item ativo"
@@ -153,7 +161,7 @@
                             break;
                         }
 
-                        if (y.className === "Elemento grid-item ui-sortable-handle") {
+                        if (y.className === "Elemento") {
 
                             let id = $("#" + y.id).data("value");
                             EditModalBorda(id);

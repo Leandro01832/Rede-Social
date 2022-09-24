@@ -115,6 +115,24 @@
                 <span asp-validation-for="FlexWrap" class="text-danger"></span>
             </div>
 
+            <div class="form-group">
+                <label asp-for="AlignSelf" class="control-label"></label>
+                <select asp-for="AlignSelf" class="form-control">
+                    <option value="auto">auto</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="center">center</option>
+                    <option value="baseline">baseline</option>
+                    <option value="stretch">stretch</option>
+                </select>
+                <span asp-validation-for="AlignSelf" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ClassesModificadoras" class="control-label"></label>
+                <input asp-for="ClassesModificadoras" class="form-control" />
+                <span asp-validation-for="ClassesModificadoras" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
                 <label class="control-label">Elementos do bloco</label>

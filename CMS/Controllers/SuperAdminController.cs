@@ -47,11 +47,7 @@ namespace CMS.Controllers
             var usuarios = UserManager.Users.ToList();
             return View(usuarios);
         }
-        public async Task<IActionResult> IndexBackground()
-        {
-            var applicationDbContext = _context.Background;
-            return View(await applicationDbContext.ToListAsync());
-        }
+        
         public async Task<IActionResult> IndexElementoDependente()
         {
             var elementos = _context.ElementoDependente;
@@ -62,22 +58,7 @@ namespace CMS.Controllers
         
         //Região Detalhes
         #region
-        public async Task<IActionResult> DetailsBackground(Int64? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var background = await _context.Background
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (background == null)
-            {
-                return NotFound();
-            }
-
-            return View(background);
-        }
+        
         public async Task<IActionResult> DetailsElementoDependente(Int64? id)
         {
             if (id == null)

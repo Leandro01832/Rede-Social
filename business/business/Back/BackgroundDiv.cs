@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace business.Back
 {
-    public abstract class BackgroundDiv : Background
+    public  class BackgroundDiv : BaseModel
     {
         public BackgroundDiv()
         {
@@ -22,6 +22,14 @@ namespace business.Back
         public new Int64 Id { get; set; }        
 
         public virtual Div Div { get; set; }
+
+        public Int64? ImagemId { get; set; }
+        public virtual Imagem Imagem { get; set; }
+
+        public Int64? VideoId { get; set; }
+        public virtual Video Video { get; set; }
+
+        public virtual List<Cor> Cores { get; set; }
 
 
         

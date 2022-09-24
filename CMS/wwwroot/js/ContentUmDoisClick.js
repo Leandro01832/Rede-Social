@@ -1,16 +1,12 @@
 ﻿$(document).ready(function () {
 
-    var numero = $("#IdentificaPagina").val();
-
-  
+    var numero = $("#IdentificaPagina").val();  
     
     el.click(function () {
 
         z = event.target;
         y = event.target;
-        x = event.target.className;
-
-        
+        x = event.target.className;        
 
         if (timer) clearTimeout(timer);
         timer = setTimeout(function () {
@@ -40,9 +36,7 @@
             
             if (y.tagName === "DIV" && x.includes(substring)) {
                 $(".Elemento").css("border", "none");
-
-            }
-            
+            }            
 
             while (y !== null && x !== "content col-md-8") {
 
@@ -72,11 +66,8 @@
                 }
 
                 y = y.parentElement;
-
             }
-
         }
-
     });
 
     el.mouseout(function () {
@@ -86,13 +77,13 @@
         x = event.target.className;
 
 
-        // if (y.className === "content col-md-8" ||
-        //     y.className === "bloco") {
-        //     condicao = 4;
-        //     $(".remover").fadeOut("slow");
-        //     $(".ClassDiv").css("border", "none");
-        //     $(".ContainerDiv").css("border", "none");
-        // }
+        if (y.className === "content col-md-8" ||
+            y.className === "bloco") {
+            condicao = 4;
+            $(".Elemento").css("border", "none");
+            $(".ClassDiv").css("border", "none");
+            $(".ContainerDiv").css("border", "none");
+        }
 
     });
 
@@ -112,23 +103,23 @@
 
                 if (y.tagName === "DIV" && x.includes(substring)) {
                     var id = $("#" + y.id).data("value");
-
                     condicao = 0;
                     $("#conteudomodal").load("/Div/Edit/" + id);
                 }
                 else if (y.tagName === "DIV" && x.includes(substring2)) {
                     var id = $("#" + y.id).data("value");
-
                     condicao = 0;
-                    $("#conteudomodal").load("/Container/Edit/" + id);
-    
+                    $("#conteudomodal").load("/Container/Edit/" + id);    
                 }
                 else if (y.tagName === "DIV" && x.includes(substring3)) {
                     var id = $("#" + y.id).data("value");
-
                     condicao = 0;
-                    $("#conteudomodal").load("/Container/Edit/" + id);
-    
+                    $("#conteudomodal").load("/Container/Edit/" + id);    
+                }
+                else if (y.tagName === "DIV" && x.includes(substring4)) {
+                    var id = $("#" + y.id).data("value");
+                    condicao = 0;
+                    $("#conteudomodal").load("/Elemento/Edit/" + id);    
                 }
 
                 // if ( x === "bloco" || x === "Corpo" || x === "ContainerDiv") {
@@ -152,9 +143,7 @@
                     
                     y = z;
 
-
                     while (y.className !== "content col-md-8") {
-
 
                         if (y.className === "content col-md-8") {
                             condicao = 0;
@@ -167,29 +156,24 @@
                             EditModalBorda(id);
                             condicao = 0;
                             break;
-                        }                        
-
+                        }   
                         y = y.parentElement;
-
                     }
 
                 }
 
             }
 
-            if (condicao === 2) {
-
-                alert("condicao igual a 2");
+            if (condicao === 2) {                
+                        $(".Elemento").css("border", "ridge");
+                        $(".Elemento").css("border-width", "3px");
+                        $(".ClassDiv").css("border", "ridge");
+                        $(".ClassDiv").css("border-width", "8px");
+                        $(".ContainerDiv").css("border", "ridge");
+                        $(".ContainerDiv").css("border-width", "15px");             
+                    
                 condicao = 0;
-
             }
-
-
         }
-
-
     }
-
-
-
 });

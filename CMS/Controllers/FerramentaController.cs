@@ -80,7 +80,7 @@ namespace CMS.Controllers
         [Authorize(Roles = "Background")]
         public async Task<IActionResult> CreateCor(Int64? id)
         {
-            List<Background> lista = new List<Background>();
+            List<BackgroundDiv> lista = new List<BackgroundDiv>();
 
             var pagina = await _context.Pagina
                 .Include(p => p.Div)
@@ -129,7 +129,8 @@ namespace CMS.Controllers
                 return NotFound();
             }
             List<BackgroundDiv> lista = new List<BackgroundDiv>();
-            var black = _context.Background.OfType<BackgroundDiv>().Include(b => b.Div).First(b => b.Id == cor.BackgroundId);
+            var black = _context.BackgroundDiv
+            .Include(b => b.Div).First(b => b.Id == cor.BackgroundDivId);
             var pagina = await _context.Pagina
                 .Include(p => p.Div)
                 .ThenInclude(p => p.Container)
@@ -147,7 +148,7 @@ namespace CMS.Controllers
                 }
             }
 
-            ViewBag.BackgroundId = new SelectList(lista, "Id", "Id", cor.BackgroundId);
+            ViewBag.BackgroundId = new SelectList(lista, "Id", "Id", cor.BackgroundDivId);
             return PartialView(cor);
         }
 
@@ -160,10 +161,6 @@ namespace CMS.Controllers
             {
                 try
                 {
-                    var b = await _context.BackgroundGradiente
-                        .FirstAsync(bg => bg.Id == cor.BackgroundId);
-                    b.Grau = cor.Grau;
-                    _context.Update(b);
                     _context.Update(cor);
                     await _context.SaveChangesAsync();
                 }
@@ -180,7 +177,9 @@ namespace CMS.Controllers
         public async Task<IActionResult> DeleteCor(Int64? id)
         {
             var cor = await _context.Cor
-                .Include(b => b.Background)
+                .Include(b => b.BackgroundDiv)
+                .Include(b => b.BackgroundContainer)
+                .Include(b => b.BackgroundElemento)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (cor == null)
             {
@@ -202,7 +201,7 @@ namespace CMS.Controllers
 
         private bool BackgroundExists(Int64 id)
         {
-            return _context.Background.Any(e => e.Id == id);
+            return _context.BackgroundDiv.Any(e => e.Id == id);
         }
     }
 }

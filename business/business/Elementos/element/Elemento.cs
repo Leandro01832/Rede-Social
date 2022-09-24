@@ -2,6 +2,7 @@
 using business.business.Elementos.imagem;
 using business.business.Elementos.texto;
 using business.Join;
+using business.Back;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,14 @@ namespace business.business.Elementos.element
         private Int64? imagemId = null;
         private Int64? formularioId = null;
         private Int64? paginaEscolhida = null;
+        private string alignSelf = "auto";
+        private string classesModificadoras = "";
+
+        public Elemento()
+        {
+            Background = 
+            new BackgroundCorElemento{ backgroundTransparenteElemento = true, CorElemento = "transparent"};
+        }
 
         public Int64? PaginaEscolhida
         {
@@ -33,10 +42,14 @@ namespace business.business.Elementos.element
         public string Nome { get { return nome; } set { nome = value; } }
 
         public int Ordem { get; set; }
+
+        public string AlignSelf { get { return alignSelf; } set { alignSelf = value; } }
        
 
         [JsonIgnore]
         public virtual List<DivElemento> div { get; set; }
+        [JsonIgnore]
+        public virtual BackgroundElemento Background { get; set; }
 
         public Int64 Pagina_ { get; set; }
         
@@ -76,6 +89,18 @@ namespace business.business.Elementos.element
             set { formularioId = value; }
         }
         public virtual Formulario Formulario { get; set; }
+
+        public string ClassesModificadoras 
+        { 
+            get { return classesModificadoras; } 
+            set 
+            { 
+              if(value != "")
+              classesModificadoras = " " + value;
+              else
+              classesModificadoras = value;
+            } 
+        }
 
         public virtual List<ElementoDependenteElemento> Dependentes { get; set; }
         [NotMapped]

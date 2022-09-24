@@ -122,7 +122,7 @@ namespace CMS.Controllers
 
         public JsonResult GetCores(Int64 Background)
         {
-            var cores = db.Cor.Where(b => b.BackgroundId == Background);
+            var cores = db.Cor.Where(b => b.BackgroundDivId == Background);
 
             return Json(cores);
         }

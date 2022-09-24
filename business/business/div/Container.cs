@@ -15,6 +15,16 @@ public class Container : BaseModel
         {
 
           private bool content;
+          private int borderRadius = 0;
+            private int height = 200;
+            private int width = 100;
+            private int padding = 0;
+            private string flexWrap = "wrap";
+          private string justifyContent = "center";
+          private string alignItems = "flex-start";
+          private string alignSelf = "auto";
+          private string flexDirection = "row";
+          private string classesModificadoras = "";
 
           public Container()
           {
@@ -42,18 +52,6 @@ public class Container : BaseModel
             
           }
 
-           
-            private int borderRadius = 0;
-            private int height = 200;
-            private int width = 100;
-            private int desenhado = 0;
-            private int padding = 0;
-            private string flexWrap = "wrap";
-          private string justifyContent = "center";
-          private string alignItems = "flex-start";
-          private string flexDirection = "row";
-            
-
              [JsonIgnore]
              public virtual List<DivContainer> Div { get; set; }
 
@@ -78,8 +76,18 @@ public class Container : BaseModel
         
         public string AlignItems { get { return alignItems; } set { alignItems = value; } }
 
-        [NotMapped]
-        public int Desenhado { get { return desenhado; } set { desenhado = value; } }
+        public string AlignSelf { get { return alignSelf; } set { alignSelf = value; } }
+        public string ClassesModificadoras 
+        { 
+            get { return classesModificadoras; } 
+            set 
+            { 
+              if(value != "")
+              classesModificadoras = " " + value;
+              else
+              classesModificadoras = value;
+            } 
+        }
 
         [Display(Name = "Conteudo centralizado")]
         public int Padding { get { return padding; } set { padding = value; } }

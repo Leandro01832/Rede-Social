@@ -18,6 +18,30 @@
                 <span asp-validation-for="Ordem" class="text-danger"></span>
             </div>
 
+            <div class="form-group">
+                <label asp-for="AlignSelf" class="control-label"></label>
+                <select asp-for="AlignSelf" class="form-control">
+                    <option value="auto">auto</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="center">center</option>
+                    <option value="baseline">baseline</option>
+                    <option value="stretch">stretch</option>
+                </select>
+                <span asp-validation-for="AlignSelf" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ClassesModificadoras" class="control-label"></label>
+                <input asp-for="ClassesModificadoras" class="form-control" />
+                <span asp-validation-for="ClassesModificadoras" class="text-danger"></span>
+            </div>
+
+        <div class="form-group">
+            <input id="elemento" name="elemento" type="hidden" value="Video" />
+            <input asp-for="ArquivoVideo" type="hidden" />
+        </div>
+
         @{
             if (ViewBag.condicao)
             {
@@ -28,16 +52,6 @@
                 </div>
             }
         }
-
-
-
-        <div class="form-group">
-            <input id="elemento" name="elemento" type="hidden" value="Video" />
-        </div>
-
-        <div class="form-group">
-            <input asp-for="ArquivoVideo" type="hidden" />
-        </div>
 
         @if (Model.Id == 0)
         {
@@ -53,11 +67,37 @@
             <div class="form-group">
                 <input type="button" value="Copiar" onclick="ScriptElemento.Create()" class="btn btn-default" />
             </div>
+            <a href="#" class="btn btn-warning blocoGradiente">Plano gradiente</a><br />
+                        <a href="#" class="btn btn-primary blocoImagem">Plano imagem</a><br />
+                        <a href="#" class="btn btn-danger blocoCor">Plano de uma cor</a><br />
+
+             <script type="text/javascript">
+                            $(document).ready(function () {
+                                $("input, select").change(function () {
+
+                                    ScriptElemento.Update();
+                                });
+
+                    $(".blocoImagem").click(function () {
+           
+                     $("#conteudomodal").load("/Background/Edit/BackgroundImagemElemento/" + @(Model.Id));
+                    });
+
+                    $(".blocoGradiente").click(function () {
+                        
+                            $("#conteudomodal").load("/Background/Edit/BackgroundGradienteElemento/"+ @(Model.Id));
+
+                    });
+
+                    $(".blocoCor").click(function () {
+                        
+                            $("#conteudomodal").load("/Background/Edit/BackgroundCorElemento/"+ @(Model.Id));
+                    });
+
+                            });
+                        </script>
         }
 
         <img id="arquivoVideo" src="~/imagem/LoadingBasketContents.gif" style="display:none;" />
-
-
-
     </div>
 </div>

@@ -29,7 +29,9 @@
         flex-wrap: ${container.Container.FlexWrap};
         justify-content: ${container.Container.JustifyContent};
         flex-direction: ${container.Container.FlexDirection};    
-        align-items: ${container.Container.AlignItems};
+        align-items: ${container.Container.AlignItems};          
+        align-self: ${container.Container.AlignSelf};
+        
     }
 </style>
 
@@ -42,11 +44,13 @@
         width: ${bl.Div.Width}%;
         min-height: ${bl.Div.Height}px;
         height: auto;
-        border-radius: ${bloco.Container.BorderRadius}px;
+        border-radius: ${bl.Container.BorderRadius}px;
         flex-wrap: ${bl.Div.FlexWrap};
         justify-content: ${bl.Div.JustifyContent};
         flex-direction: ${bl.Div.FlexDirection};    
-        align-items: ${bl.Div.AlignItems};
+        align-items: ${bl.Div.AlignItems};        
+        align-self: ${bl.Div.AlignSelf};
+        
     }
 </style>
 
@@ -55,11 +59,9 @@
     <style>
     #elemento${elemento.Elemento.Id}Pagina${model.Pagina.Id}
     {
-        order: ${elemento.Elemento.Ordem};
-        flex-wrap: ${elemento.Elemento.FlexWrap};
-        justify-content: ${elemento.Elemento.JustifyContent};
-        flex-direction: ${elemento.Elemento.FlexDirection};    
-        align-items: ${elemento.Elemento.AlignItems};
+        order: ${elemento.Elemento.Ordem};        
+        align-self: ${elemento.Elemento.AlignSelf};
+        
     }
 </style>
 

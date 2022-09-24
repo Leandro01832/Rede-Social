@@ -1,0 +1,44 @@
+@model business.Back.BackgroundGradienteElemento
+
+<h4>BackgroundGradienteElemento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_BackgroundGradienteElemento" id="formulario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GrauElemento" class="control-label"></label>
+                <input asp-for="GrauElemento" class="form-control" />
+                <span asp-validation-for="GrauElemento" class="text-danger"></span>
+            </div>
+              <input type="hidden" asp-for="Id" value="@ViewBag.id" />
+            @{
+                if (Model.Id == 0)
+                {
+                    <div class="form-group">
+                        <input type="button" value="Save" onclick="ScriptBackground.Create()" class="btn btn-primary" />
+                    </div>
+                }
+            }
+        </form>
+    </div>
+</div>
+
+<div>
+    <script src="~/js/Background/backgroundGradienteElemento.js"></script>
+    <script src="~/js/AjaxGet.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input, select").change(function () {
+                
+                ScriptBackground.Update();
+            });
+        });
+    </script>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

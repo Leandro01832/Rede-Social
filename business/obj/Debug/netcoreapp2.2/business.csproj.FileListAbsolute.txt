@@ -1,0 +1,9 @@
+C:\Users\leand\Downloads\teste\cms\business\bin\Debug\netcoreapp2.2\business.deps.json
+C:\Users\leand\Downloads\teste\cms\business\bin\Debug\netcoreapp2.2\business.dll
+C:\Users\leand\Downloads\teste\cms\business\bin\Debug\netcoreapp2.2\business.pdb
+C:\Users\leand\Downloads\teste\cms\business\obj\Debug\netcoreapp2.2\business.csprojAssemblyReference.cache
+C:\Users\leand\Downloads\teste\cms\business\obj\Debug\netcoreapp2.2\business.csproj.CoreCompileInputs.cache
+C:\Users\leand\Downloads\teste\cms\business\obj\Debug\netcoreapp2.2\business.AssemblyInfoInputs.cache
+C:\Users\leand\Downloads\teste\cms\business\obj\Debug\netcoreapp2.2\business.AssemblyInfo.cs
+C:\Users\leand\Downloads\teste\cms\business\obj\Debug\netcoreapp2.2\business.dll
+C:\Users\leand\Downloads\teste\cms\business\obj\Debug\netcoreapp2.2\business.pdb

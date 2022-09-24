@@ -109,7 +109,6 @@ namespace CMS.Controllers
             if (elemento == "Texto") ele = new Texto();
             if (elemento == "LinkBody") ele = new LinkBody();
             if (elemento == "Formulario") ele = new Formulario();
-            if (elemento == "Dropdown") ele = new Dropdown();
             if (elemento == "CarouselPagina") ele = new CarouselPagina();
             if (elemento == "CarouselImg") ele = new CarouselImg();
             if (elemento == "Campo") ele = new Campo();
@@ -168,12 +167,10 @@ namespace CMS.Controllers
 
             elementos.AddRange(els);
 
-
-
             List<Pagina> lista = new List<Pagina>();
             lista.Add(new Pagina { Id = 0, Titulo = "[[ Escolha uma pagina ]]" });
             var page = await _context.Pagina.Include(p => p.Story)
-            .ThenInclude(p => p.Pagina).FirstAsync(p => p.Id == elemento.Pagina_);
+            .ThenInclude(p => p.Pagina).FirstAsync(p => p.UserId == usuario.Id);
             lista.AddRange(page.Story.Pagina);
             if (elemento.PaginaEscolhida == null) elemento.PaginaEscolhida = 0;
             ViewBag.PaginaEscolhida = new SelectList(lista, "Id", "Titulo", elemento.PaginaEscolhida);
@@ -256,21 +253,7 @@ namespace CMS.Controllers
                     return await RepositoryElemento.Editar(elemento);
             }
             catch (Exception ex) { return ex.Message; }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<string> _Dropdown([FromBody] Dropdown elemento)
-        {
-            try
-            {
-                if (elemento.Id == 0)
-                    return await RepositoryElemento.salvar(elemento);
-                else
-                    return await RepositoryElemento.Editar(elemento);
-            }
-            catch (Exception ex) { return ex.Message; }
-        }
+        }        
 
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -24,7 +24,7 @@ namespace CMS.Controllers
       
         public async Task<IActionResult> ListaBackground(Int64? id)
         {
-            List<Background> lista = new List<Background>();
+            List<BackgroundDiv> lista = new List<BackgroundDiv>();
             Pagina pagina = await _context.Pagina.FirstAsync(p => p.Id == id);
             var paginas = await _context.Pagina.Where(p => p.Id == id).ToListAsync();
             
@@ -51,18 +51,30 @@ namespace CMS.Controllers
         [Route("Background/Edit/{back}/{Id}")]
         public IActionResult Edit(string back, Int64? Id)
         {
-            Background background = null;       
-             if (back == "BackgroundCor") background = new BackgroundCor();
-            if (back == "BackgroundGradiente") background = new BackgroundGradiente();
-            if (back == "BackgroundImagem") background = new BackgroundImagem();
+            ViewBag.id = Id;   
+           
+             if (back == "BackgroundCor") 
+            return PartialView("_BackgroundCor", new BackgroundCor());
+            if (back == "BackgroundGradiente")
+            return PartialView("_BackgroundGradiente", new BackgroundGradiente());
+            if (back == "BackgroundImagem") 
+            return PartialView("_BackgroundImagem", new BackgroundImagem());
 
-             if (back == "BackgroundCorContainer") background = new BackgroundCorContainer();
-            if (back == "BackgroundGradienteContainer") background = new BackgroundGradienteContainer();
-            if (back == "BackgroundImagemContainer") background = new BackgroundImagemContainer();
+             if (back == "BackgroundCorContainer") 
+             return PartialView("_BackgroundCorContainer", new BackgroundCorContainer());
+             if (back == "BackgroundGradienteContainer")
+             return PartialView("_BackgroundGradienteContainer", new BackgroundGradienteContainer());
+             if (back == "BackgroundImagemContainer") 
+             return PartialView("_BackgroundImagemContainer", new BackgroundImagemContainer());
 
-
-            ViewBag.id = Id;
-            return PartialView(background);
+             if (back == "BackgroundCorElemento") 
+             return PartialView("_BackgroundCorElemento", new BackgroundCorElemento());
+             if (back == "BackgroundGradienteElemento")
+             return PartialView("_BackgroundGradienteElemento", new BackgroundGradienteElemento());
+             if (back == "BackgroundImagemElemento") 
+             return PartialView("_BackgroundImagemElemento", new BackgroundImagemElemento());
+            
+            return PartialView();
         }
 
         #region Create-Edit-Background
@@ -74,13 +86,71 @@ namespace CMS.Controllers
             if (background.backgroundTransparente)
                 background.Cor = "transparent";
 
-            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
+            var teste = await _context.BackgroundCor.Include(b => b.Div)
+                .FirstAsync(b => b.Div.Id == background.Id);
+            background.Div = teste.Div;
+            _context.Remove(teste); await _context.SaveChangesAsync();          
+                _context.Add(background); await _context.SaveChangesAsync();
 
-             _context.Remove(teste); await _context.SaveChangesAsync();
-             _context.Add(background); await _context.SaveChangesAsync();
+            
+            return "";
+            
+        }      
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Background")]
+        public async Task<string> _BackgroundGradiente([FromBody]BackgroundGradiente background)
+        {
+            var teste = await _context.BackgroundGradiente.Include(b => b.Div)
+                .FirstAsync(b => b.Div.Id == background.Id);
+            background.Div = teste.Div;
+            _context.Remove(teste); await _context.SaveChangesAsync();
+            _context.Add(background); await _context.SaveChangesAsync();
+            return "";
+        }
+
+       [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Background")]
+        public async Task<string> _BackgroundImagem([FromBody]BackgroundImagem background)
+        {
+            var teste = await _context.BackgroundImagem.Include(b => b.Div)
+                .FirstAsync(b => b.Div.Id == background.Id);
+            background.Div = teste.Div;
+            _context.Remove(teste); await _context.SaveChangesAsync();
+                _context.Add(background); await _context.SaveChangesAsync();
                 return "";
             
         }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Background")]
+        public async Task<string> _BackgroundImagemContainer([FromBody]BackgroundImagemContainer background)
+        {
+            var teste = await _context.BackgroundImagemContainer.Include(b => b.Container)
+               .FirstOrDefaultAsync(b => b.Container.Id == background.Id);
+            background.Container = teste.Container;
+            _context.Remove(teste); await _context.SaveChangesAsync();
+                _context.Add(background); await _context.SaveChangesAsync();
+                return "";
+            
+        }
+
+         [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Background")]
+        public async Task<string> _BackgroundGradienteContainer([FromBody]BackgroundGradienteContainer background)
+        {
+            var teste = await _context.BackgroundGradienteContainer.Include(b => b.Container)
+                .FirstAsync(b => b.Container.Id == background.Id);
+            background.Container = teste.Container;
+            _context.Remove(teste); await _context.SaveChangesAsync();
+            _context.Add(background); await _context.SaveChangesAsync();
+            return "";
+        }
+        
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -90,80 +160,59 @@ namespace CMS.Controllers
             if (background.backgroundTransparenteContainer)
                 background.CorContainer = "transparent";
 
-            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
-
-             _context.Remove(teste); await _context.SaveChangesAsync();
-             _context.Add(background); await _context.SaveChangesAsync();
-                return "";
+            var teste = await  _context.BackgroundCorContainer.Include(b => b.Container)
+            .FirstAsync(b => b.Container.Id == background.Id);
+            background.Container = teste.Container;
+            _context.Remove(teste); await _context.SaveChangesAsync();
+            _context.Add(background); await _context.SaveChangesAsync();
+            return "";
             
         }
 
-        [HttpPost]
+         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Background")]
-        public async Task<string> _BackgroundGradiente([FromBody]BackgroundGradiente background)
+        public async Task<string> _BackgroundImagemElemento([FromBody]BackgroundImagemElemento background)
         {
-            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
-
-            if (!(teste is BackgroundGradiente))
-                {
-                    _context.Remove(teste); await _context.SaveChangesAsync();
-                    _context.Add(background); await _context.SaveChangesAsync();
-                }
-                else
-                {
-                    var back = (BackgroundGradiente)teste;
-                    back.Grau = background.Grau;
-                    _context.Update(back); await _context.SaveChangesAsync();
-                }
-                return "";
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Background")]
-        public async Task<string> _BackgroundGradienteContainer([FromBody]BackgroundGradienteContainer background)
-        {
-            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
-
-             if (!(teste is BackgroundGradienteContainer))
-                {
-                    _context.Remove(teste); await _context.SaveChangesAsync();
-                    _context.Add(background); await _context.SaveChangesAsync();
-                }
-                else
-                {
-                    var back = (BackgroundGradienteContainer)teste;
-                    back.GrauContainer = background.GrauContainer;
-                    _context.Update(back); await _context.SaveChangesAsync();
-                }
-                return "";
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Background")]
-        public async Task<string> _BackgroundImagem([FromBody]BackgroundImagem background)
-        {
-            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
-                _context.Remove(teste); await _context.SaveChangesAsync();
+            var teste = await _context.BackgroundImagemElemento.Include(b => b.Elemento)
+               .FirstOrDefaultAsync(b => b.Elemento.Id == background.Id);
+            background.Elemento = teste.Elemento;
+            _context.Remove(teste); await _context.SaveChangesAsync();
                 _context.Add(background); await _context.SaveChangesAsync();
                 return "";
             
         }
-        [HttpPost]
+
+         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Background")]
-        public async Task<string> _BackgroundImagemContainer([FromBody]BackgroundImagemContainer background)
+        public async Task<string> _BackgroundGradienteElemento([FromBody]BackgroundGradienteElemento background)
         {
-            var teste = await _context.Background.FirstAsync(b => b.Id == background.Id);
-                _context.Remove(teste); await _context.SaveChangesAsync();
-                _context.Add(background); await _context.SaveChangesAsync();
-                return "";
-            
+            var teste = await _context.BackgroundGradienteElemento.Include(b => b.Elemento)
+                .FirstAsync(b => b.Elemento.Id == background.Id);
+            background.Elemento = teste.Elemento;
+            _context.Remove(teste); await _context.SaveChangesAsync();
+            _context.Add(background); await _context.SaveChangesAsync();
+            return "";
         }
         #endregion
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Background")]
+        public async Task<string> _BackgroundCorElemento([FromBody]BackgroundCorElemento background)
+        {
+            if (background.backgroundTransparenteElemento)
+                background.CorElemento = "transparent";
+
+            var teste = await  _context.BackgroundCorElemento.Include(b => b.Elemento)
+            .FirstAsync(b => b.Elemento.Id == background.Id);
+            background.Elemento = teste.Elemento;
+            _context.Remove(teste); await _context.SaveChangesAsync();
+            _context.Add(background); await _context.SaveChangesAsync();
+            return "";
+            
+        }
         
         public async Task<IActionResult> DeleteBackground(Int64? id)
         {
@@ -172,7 +221,7 @@ namespace CMS.Controllers
                 return NotFound();
             }
 
-            var background = await _context.Background
+             var background = await _context.BackgroundDiv
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (background == null)
             {
@@ -186,8 +235,13 @@ namespace CMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<string> DeleteBackgroundConfirmed(Int64 id)
         {
-            var background = await _context.Background.FindAsync(id);
-            _context.Background.Remove(background);
+            var background = await _context.BackgroundDiv
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (background == null)
+            {
+                return "";
+            }
+            _context.BackgroundDiv.Remove(background);
             await _context.SaveChangesAsync();
             return "";
         }

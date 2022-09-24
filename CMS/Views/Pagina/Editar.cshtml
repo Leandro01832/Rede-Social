@@ -54,7 +54,8 @@
     }
 </style>
 
-<br />  <br />   
+<br />  <br />   <br /> 
+<br />  <br />  
  
 
 @if (Model == null)
@@ -93,11 +94,7 @@ else
             <div id="Chat" class="col-md-4" style="background-color: white; display:none;">
                 <partial name="BlocoFerramenta" />
             </div>
-            <br>
-             <input id="margem" name="margem" type="checkbox" style="margin-left: 80px;" checked />
-                         <label style="margin-left: 10px;">Margem</label>
-                         <label style="margin-left: 50px;">Container com margin 15px</label>
-                         <label style="margin-left: 50px;">Bloco com margin 8px</label>
+                       
 
             <div class="content col-md-12" id="ConteudoPagina" data-id="">
                 @Html.Raw(ViewBag.Html)
@@ -140,26 +137,6 @@ else
 
     <script>
         $(document).ready(function () {              
-
-            $("#NumeroPaginaAcesso").change(function () {
-                document.getElementById('acessoPaginaComInput').href = '/Editar/';
-                document.getElementById("acessoPaginaComInput").href +=  $(this).val();
-            });            
-
-            $("button").click(function () {
-
-                if ($(".collapse")[0].ariaExpanded == "true") {
-                    $(".blocoLoader").removeClass('minhaClasse');
-                    $(".blocoLoader").addClass('minhaClasse2');
-                }
-                else
-                {
-                    $(".blocoLoader").removeClass('minhaClasse2');
-                    $(".blocoLoader").addClass('minhaClasse');
-                }
-
-
-            }).before(function () { });
 
             $(".site").click(function () {
 

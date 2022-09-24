@@ -9,22 +9,22 @@
         
             #foreach($bloco in $divs)
 
-           <div id='Container${bloco.Container.Id}Pagina${model.Pagina.Id}' class='ContainerDiv' data-value='$bloco.Container.Id' >                
+           <div id='Container${bloco.Container.Id}Pagina${model.Pagina.Id}' class='ContainerDiv${bloco.Container.ClassesModificadoras}' data-value='$bloco.Container.Id' >                
 
                 #if ($model.Pagina.Id == 0 && $bloco.Container.Id != 0 && $model.Pagina.MostrarDados == 1)
                 <p>Identificação do bloco: $bloco.Container.Id </p>
                 #end
 
               #foreach($bl in $bloco.Container.Div)  
-            <div id='DIV${bl.Div.Id}Pagina${model.Pagina.Id}' class='ClassDiv' data-value='$bl.Div.Id'>
+            <div id='DIV${bl.Div.Id}Pagina${model.Pagina.Id}' class='ClassDiv${bl.Div.ClassesModificadoras}' data-value='$bl.Div.Id'>
 
                
                 #foreach($element in $bl.Div.Elemento)
 
                 #if ($element.Elemento.VerificarPagina == 0)
                              
-                <div id='elemento${element.Elemento.Id}Pagina${model.Pagina.Id}' class='Elemento' data-value='$element.Elemento.Id'>
-                    <div id='element${element.Elemento.Id}Pagina${model.Pagina.Id}' class='Elemento$element.Elemento.Id ' data-value='$element.Elemento.Id' data-id='$element.Elemento.Id'>
+                <div id='elemento${element.Elemento.Id}Pagina${model.Pagina.Id}' class='Elemento${element.Elemento.ClassesModificadoras}' data-value='$element.Elemento.Id'>
+                   
 
                         #if($model.Pagina.MostrarDados == 1)
                         <p>Identificação do elemento: $element.Elemento.Id</p>
@@ -251,14 +251,14 @@
                             </video>
                         #end
 
-                    </div>
+                    
 
                 </div>
                    
                 #elseif($element.Elemento.PaginaEscolhida == $model.Pagina.Id)
 
-                <div id='elemento${element.Elemento.Id}Pagina${model.Pagina.Id}' class='Elemento' data-value='$element.Elemento.Id'>
-                    <div id='element${element.Elemento.Id}Pagina${model.Pagina.Id}' class='Elemento$element.Elemento.Id ' data-value='$element.Elemento.Id' data-id='$element.Elemento.Id'>
+                <div id='elemento${element.Elemento.Id}Pagina${model.Pagina.Id}' class='Elemento${element.Elemento.ClassesModificadoras}' data-value='$element.Elemento.Id'>
+                   
 
                         #if($model.Pagina.MostrarDados == 1)
                         <p>Identificação do elemento: $element.Elemento.Id</p>
@@ -480,7 +480,7 @@
                             </video>
                         #end
 
-                    </div>
+                    
 
                 </div>
 

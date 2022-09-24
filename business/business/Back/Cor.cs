@@ -12,11 +12,15 @@ namespace business.Back
         public int Position { get; set; }
         public double Transparencia { get; set; }
         [Display(Name="Para qual plano de fundo?")]
-        public Int64 BackgroundId { get; set; }        
-        public virtual Background Background { get; set; }
+        public Int64? BackgroundContainerId { get; set; }        
+        public virtual BackgroundContainer BackgroundContainer { get; set; }
+        [Display(Name="Para qual plano de fundo?")]
+        public Int64? BackgroundDivId { get; set; }        
+        public virtual BackgroundDiv BackgroundDiv { get; set; }
+        [Display(Name="Para qual plano de fundo?")]
+        public Int64? BackgroundElementoId { get; set; }        
+        public virtual BackgroundElemento BackgroundElemento { get; set; }
 
-        [NotMapped]
-        public int Grau { get; set; }
 
 
         public static string HexToColor(string hexString)

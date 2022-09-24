@@ -36,8 +36,10 @@ namespace CMS.Data
         public DbSet<Seguidor> Seguidor { get; set; }
         public DbSet<Story> Story { get; set; }
         public DbSet<BackgroundGradiente> BackgroundGradiente { get; set; }
+        public DbSet<BackgroundDiv> BackgroundDiv { get; set; }
+        public DbSet<BackgroundElemento> BackgroundElemento { get; set; }
+        public DbSet<BackgroundContainer> BackgroundContainer { get; set; }
         public DbSet<DadoFormulario> DadoFormulario { get; set; }
-        public DbSet<Dropdown> Dropdown { get; set; }
         public DbSet<PaginaCarouselPagina> PaginaCarouselPagina { get; set; }
         public DbSet<CarouselPagina> CarouselPagina { get; set; }
         public DbSet<DivElemento> DivElemento { get; set; }
@@ -50,7 +52,6 @@ namespace CMS.Data
         public DbSet<Div> Div { get; set; }
         public DbSet<Container> Container { get; set; }
         public DbSet<Texto> Texto { get; set; }
-        public DbSet<Background> Background { get; set; }
         public DbSet<Video> Video { get; set; }
         public DbSet<Elemento> Elemento { get; set; }
         public DbSet<ElementoDependente> ElementoDependente { get; set; }
@@ -85,10 +86,6 @@ namespace CMS.Data
             builder.Entity<ElementoDependente>().ToTable("ElementoDependente");
             builder.Entity<Div>().ToTable("Div");
 
-            
-            
-
-            builder.Entity<Background>().ToTable("Background");
             builder.Entity<BackgroundCor>().ToTable("BackgroundCor");
             builder.Entity<BackgroundImagem>().ToTable("BackgroundImagem");
             builder.Entity<BackgroundGradiente>().ToTable("BackgroundGradiente");
@@ -108,7 +105,6 @@ namespace CMS.Data
             builder.Entity<Formulario>().ToTable("Formulario");
             builder.Entity<Campo>().ToTable("Campo");
             builder.Entity<Video>().ToTable("Video");
-            builder.Entity<Dropdown>().ToTable("Dropdown");
 
            // var converter = new ValueConverter<Int64, Int64>(
            //v => v,
@@ -141,5 +137,11 @@ namespace CMS.Data
         public DbSet<business.Back.BackgroundImagemContainer> BackgroundImagemContainer { get; set; }
                      
         public DbSet<business.Back.BackgroundGradienteContainer> BackgroundGradienteContainer { get; set; }
+
+        public DbSet<business.Back.BackgroundCorElemento> BackgroundCorElemento { get; set; }
+                     
+        public DbSet<business.Back.BackgroundImagemElemento> BackgroundImagemElemento { get; set; }
+                     
+        public DbSet<business.Back.BackgroundGradienteElemento> BackgroundGradienteElemento { get; set; }
     }
 }

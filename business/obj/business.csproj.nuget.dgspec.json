@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leand\\Downloads\\rede-social-box\\business\\business.csproj": {}
+    "C:\\Users\\leand\\Downloads\\teste\\cms\\business\\business.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leand\\Downloads\\rede-social-box\\business\\business.csproj": {
+    "C:\\Users\\leand\\Downloads\\teste\\cms\\business\\business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leand\\Downloads\\rede-social-box\\business\\business.csproj",
+        "projectUniqueName": "C:\\Users\\leand\\Downloads\\teste\\cms\\business\\business.csproj",
         "projectName": "business",
-        "projectPath": "C:\\Users\\leand\\Downloads\\rede-social-box\\business\\business.csproj",
+        "projectPath": "C:\\Users\\leand\\Downloads\\teste\\cms\\business\\business.csproj",
         "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leand\\Downloads\\rede-social-box\\business\\obj\\",
+        "outputPath": "C:\\Users\\leand\\Downloads\\teste\\cms\\business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

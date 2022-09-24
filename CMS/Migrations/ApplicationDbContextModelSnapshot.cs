@@ -196,11 +196,9 @@ namespace CMS.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("business.Back.Background", b =>
+            modelBuilder.Entity("business.Back.BackgroundContainer", b =>
                 {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<long>("Id");
 
                     b.Property<string>("Discriminator")
                         .IsRequired();
@@ -215,9 +213,53 @@ namespace CMS.Migrations
 
                     b.HasIndex("VideoId");
 
-                    b.ToTable("Background");
+                    b.ToTable("BackgroundContainer");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Background");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("BackgroundContainer");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundDiv", b =>
+                {
+                    b.Property<long>("Id");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
+                    b.Property<long?>("ImagemId");
+
+                    b.Property<long?>("VideoId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ImagemId");
+
+                    b.HasIndex("VideoId");
+
+                    b.ToTable("BackgroundDiv");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("BackgroundDiv");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundElemento", b =>
+                {
+                    b.Property<long>("Id");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
+                    b.Property<long?>("ImagemId");
+
+                    b.Property<long?>("VideoId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ImagemId");
+
+                    b.HasIndex("VideoId");
+
+                    b.ToTable("BackgroundElemento");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("BackgroundElemento");
                 });
 
             modelBuilder.Entity("business.Back.Cor", b =>
@@ -226,7 +268,11 @@ namespace CMS.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("BackgroundId");
+                    b.Property<long?>("BackgroundContainerId");
+
+                    b.Property<long?>("BackgroundDivId");
+
+                    b.Property<long?>("BackgroundElementoId");
 
                     b.Property<string>("CorBackground");
 
@@ -236,7 +282,11 @@ namespace CMS.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BackgroundId");
+                    b.HasIndex("BackgroundContainerId");
+
+                    b.HasIndex("BackgroundDivId");
+
+                    b.HasIndex("BackgroundElementoId");
 
                     b.ToTable("Cor");
                 });
@@ -301,7 +351,11 @@ namespace CMS.Migrations
 
                     b.Property<string>("AlignItems");
 
+                    b.Property<string>("AlignSelf");
+
                     b.Property<int>("BorderRadius");
+
+                    b.Property<string>("ClassesModificadoras");
 
                     b.Property<bool>("Content");
 
@@ -346,6 +400,10 @@ namespace CMS.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AlignSelf");
+
+                    b.Property<string>("ClassesModificadoras");
 
                     b.Property<string>("Discriminator")
                         .IsRequired();
@@ -661,7 +719,11 @@ namespace CMS.Migrations
 
                     b.Property<string>("AlignItems");
 
+                    b.Property<string>("AlignSelf");
+
                     b.Property<int>("BorderRadius");
+
+                    b.Property<string>("ClassesModificadoras");
 
                     b.Property<bool>("Content");
 
@@ -694,30 +756,103 @@ namespace CMS.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("Div");
                 });
 
-            modelBuilder.Entity("business.Back.BackgroundContainer", b =>
+            modelBuilder.Entity("business.Back.BackgroundCorContainer", b =>
                 {
-                    b.HasBaseType("business.Back.Background");
+                    b.HasBaseType("business.Back.BackgroundContainer");
 
-                    b.Property<long?>("ContainerId");
+                    b.Property<string>("CorContainer");
 
-                    b.HasIndex("ContainerId")
-                        .IsUnique()
-                        .HasFilter("[ContainerId] IS NOT NULL");
+                    b.Property<bool>("backgroundTransparenteContainer");
 
-                    b.HasDiscriminator().HasValue("BackgroundContainer");
+                    b.HasDiscriminator().HasValue("BackgroundCorContainer");
                 });
 
-            modelBuilder.Entity("business.Back.BackgroundDiv", b =>
+            modelBuilder.Entity("business.Back.BackgroundGradienteContainer", b =>
                 {
-                    b.HasBaseType("business.Back.Background");
+                    b.HasBaseType("business.Back.BackgroundContainer");
 
-                    b.Property<long?>("DivId");
+                    b.Property<int>("GrauContainer");
 
-                    b.HasIndex("DivId")
-                        .IsUnique()
-                        .HasFilter("[DivId] IS NOT NULL");
+                    b.HasDiscriminator().HasValue("BackgroundGradienteContainer");
+                });
 
-                    b.HasDiscriminator().HasValue("BackgroundDiv");
+            modelBuilder.Entity("business.Back.BackgroundImagemContainer", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundContainer");
+
+                    b.Property<string>("Background_PositionContainer");
+
+                    b.Property<string>("Background_RepeatContainer");
+
+                    b.HasDiscriminator().HasValue("BackgroundImagemContainer");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundCor", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundDiv");
+
+                    b.Property<string>("Cor");
+
+                    b.Property<bool>("backgroundTransparente");
+
+                    b.ToTable("BackgroundCor");
+
+                    b.HasDiscriminator().HasValue("BackgroundCor");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundGradiente", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundDiv");
+
+                    b.Property<int>("Grau");
+
+                    b.ToTable("BackgroundGradiente");
+
+                    b.HasDiscriminator().HasValue("BackgroundGradiente");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundImagem", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundDiv");
+
+                    b.Property<string>("Background_Position");
+
+                    b.Property<string>("Background_Repeat");
+
+                    b.ToTable("BackgroundImagem");
+
+                    b.HasDiscriminator().HasValue("BackgroundImagem");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundCorElemento", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundElemento");
+
+                    b.Property<string>("CorElemento");
+
+                    b.Property<bool>("backgroundTransparenteElemento");
+
+                    b.HasDiscriminator().HasValue("BackgroundCorElemento");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundGradienteElemento", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundElemento");
+
+                    b.Property<int>("GrauElemento");
+
+                    b.HasDiscriminator().HasValue("BackgroundGradienteElemento");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundImagemElemento", b =>
+                {
+                    b.HasBaseType("business.Back.BackgroundElemento");
+
+                    b.Property<string>("Background_PositionElemento");
+
+                    b.Property<string>("Background_RepeatElemento");
+
+                    b.HasDiscriminator().HasValue("BackgroundImagemElemento");
                 });
 
             modelBuilder.Entity("business.business.Elementos.Campo", b =>
@@ -731,15 +866,6 @@ namespace CMS.Migrations
                     b.ToTable("Campo");
 
                     b.HasDiscriminator().HasValue("Campo");
-                });
-
-            modelBuilder.Entity("business.business.Elementos.Dropdown", b =>
-                {
-                    b.HasBaseType("business.business.Elementos.element.Elemento");
-
-                    b.ToTable("Dropdown");
-
-                    b.HasDiscriminator().HasValue("Dropdown");
                 });
 
             modelBuilder.Entity("business.business.Elementos.Formulario", b =>
@@ -839,74 +965,6 @@ namespace CMS.Migrations
                     b.HasDiscriminator().HasValue("DivFixo");
                 });
 
-            modelBuilder.Entity("business.Back.BackgroundCorContainer", b =>
-                {
-                    b.HasBaseType("business.Back.BackgroundContainer");
-
-                    b.Property<string>("CorContainer");
-
-                    b.Property<bool>("backgroundTransparenteContainer");
-
-                    b.HasDiscriminator().HasValue("BackgroundCorContainer");
-                });
-
-            modelBuilder.Entity("business.Back.BackgroundGradienteContainer", b =>
-                {
-                    b.HasBaseType("business.Back.BackgroundContainer");
-
-                    b.Property<int>("GrauContainer");
-
-                    b.HasDiscriminator().HasValue("BackgroundGradienteContainer");
-                });
-
-            modelBuilder.Entity("business.Back.BackgroundImagemContainer", b =>
-                {
-                    b.HasBaseType("business.Back.BackgroundContainer");
-
-                    b.Property<string>("Background_PositionContainer");
-
-                    b.Property<string>("Background_RepeatContainer");
-
-                    b.HasDiscriminator().HasValue("BackgroundImagemContainer");
-                });
-
-            modelBuilder.Entity("business.Back.BackgroundCor", b =>
-                {
-                    b.HasBaseType("business.Back.BackgroundDiv");
-
-                    b.Property<string>("Cor");
-
-                    b.Property<bool>("backgroundTransparente");
-
-                    b.ToTable("BackgroundCor");
-
-                    b.HasDiscriminator().HasValue("BackgroundCor");
-                });
-
-            modelBuilder.Entity("business.Back.BackgroundGradiente", b =>
-                {
-                    b.HasBaseType("business.Back.BackgroundDiv");
-
-                    b.Property<int>("Grau");
-
-                    b.ToTable("BackgroundGradiente");
-
-                    b.HasDiscriminator().HasValue("BackgroundGradiente");
-                });
-
-            modelBuilder.Entity("business.Back.BackgroundImagem", b =>
-                {
-                    b.HasBaseType("business.Back.BackgroundDiv");
-
-                    b.Property<string>("Background_Position");
-
-                    b.Property<string>("Background_Repeat");
-
-                    b.ToTable("BackgroundImagem");
-
-                    b.HasDiscriminator().HasValue("BackgroundImagem");
-                });
-
             modelBuilder.Entity("business.business.Elementos.imagem.Imagem", b =>
                 {
                     b.HasBaseType("business.business.element.ElementoDependente");
@@ -969,23 +1027,67 @@ namespace CMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("business.Back.Background", b =>
+            modelBuilder.Entity("business.Back.BackgroundContainer", b =>
                 {
+                    b.HasOne("business.business.Container", "Container")
+                        .WithOne("Background")
+                        .HasForeignKey("business.Back.BackgroundContainer", "Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("business.business.Elementos.imagem.Imagem", "Imagem")
-                        .WithMany("Background")
+                        .WithMany("BackgroundContainer")
                         .HasForeignKey("ImagemId");
 
                     b.HasOne("business.business.Elementos.Video", "Video")
-                        .WithMany("Background")
+                        .WithMany("BackgroundContainer")
+                        .HasForeignKey("VideoId");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundDiv", b =>
+                {
+                    b.HasOne("business.div.Div", "Div")
+                        .WithOne("Background")
+                        .HasForeignKey("business.Back.BackgroundDiv", "Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("business.business.Elementos.imagem.Imagem", "Imagem")
+                        .WithMany("BackgroundDiv")
+                        .HasForeignKey("ImagemId");
+
+                    b.HasOne("business.business.Elementos.Video", "Video")
+                        .WithMany("BackgroundDiv")
+                        .HasForeignKey("VideoId");
+                });
+
+            modelBuilder.Entity("business.Back.BackgroundElemento", b =>
+                {
+                    b.HasOne("business.business.Elementos.element.Elemento", "Elemento")
+                        .WithOne("Background")
+                        .HasForeignKey("business.Back.BackgroundElemento", "Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("business.business.Elementos.imagem.Imagem", "Imagem")
+                        .WithMany("BackgroundElemento")
+                        .HasForeignKey("ImagemId");
+
+                    b.HasOne("business.business.Elementos.Video", "Video")
+                        .WithMany("BackgroundElemento")
                         .HasForeignKey("VideoId");
                 });
 
             modelBuilder.Entity("business.Back.Cor", b =>
                 {
-                    b.HasOne("business.Back.Background", "Background")
+                    b.HasOne("business.Back.BackgroundContainer", "BackgroundContainer")
                         .WithMany("Cores")
-                        .HasForeignKey("BackgroundId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("BackgroundContainerId");
+
+                    b.HasOne("business.Back.BackgroundDiv", "BackgroundDiv")
+                        .WithMany("Cores")
+                        .HasForeignKey("BackgroundDivId");
+
+                    b.HasOne("business.Back.BackgroundElemento", "BackgroundElemento")
+                        .WithMany("Cores")
+                        .HasForeignKey("BackgroundElementoId");
                 });
 
             modelBuilder.Entity("business.Join.DivContainer", b =>
@@ -1136,20 +1238,6 @@ namespace CMS.Migrations
                     b.HasOne("CMS.Models.UserModel")
                         .WithMany("Seguindo")
                         .HasForeignKey("UserModelId");
-                });
-
-            modelBuilder.Entity("business.Back.BackgroundContainer", b =>
-                {
-                    b.HasOne("business.business.Container", "Container")
-                        .WithOne("Background")
-                        .HasForeignKey("business.Back.BackgroundContainer", "ContainerId");
-                });
-
-            modelBuilder.Entity("business.Back.BackgroundDiv", b =>
-                {
-                    b.HasOne("business.div.Div", "Div")
-                        .WithOne("Background")
-                        .HasForeignKey("business.Back.BackgroundDiv", "DivId");
                 });
 
             modelBuilder.Entity("business.business.Elementos.imagem.Imagem", b =>

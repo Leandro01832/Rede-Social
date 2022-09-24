@@ -9,6 +9,10 @@ namespace business.business.Elementos
     {
         public string ArquivoVideo { get; set; }
         [JsonIgnore]
-        public virtual List<Background> Background { get; set; }
+        public virtual List<BackgroundDiv> BackgroundDiv { get; set; }
+        [JsonIgnore]
+        public virtual List<BackgroundContainer> BackgroundContainer { get; set; }
+        [JsonIgnore]
+        public virtual List<BackgroundElemento> BackgroundElemento { get; set; }
     }
 }

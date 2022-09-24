@@ -108,6 +108,92 @@
 </style>
 #end
 
+#foreach($elemento in $bloco.Div.Elemento)
+
+    #if($elemento.Elemento.Background.Tipo == "BackgroundImagemElemento")
+<style>
+    #DIV${elemento.Elemento.Id}Pagina${model.Pagina.Id} {
+
+      background-repeat: ${elemento.Elemento.Background.Background_RepeatElemento};       
+
+    background-image: url($site$elemento.Elemento.Background.Imagem.ArquivoImagem);
+       
+    }
+</style>
+
+#elseif($elemento.Elemento.Background.Tipo == "BackgroundGradienteElemento")
+
+  <style>
+    #DIV${elemento.Elemento.Id}Pagina${model.Pagina.Id} {
+
+        #set($um = 1)
+         #foreach($Cores in $elemento.Elemento.Background.Cores)
+         #if($um == 1)
+        #set($back = $Cores.HexToColor($Cores.CorBackground))
+        background: rgb($back); 
+        #end
+        #set($um = $um + 1)        
+         #end
+
+
+         #set($quantidade = $elemento.Elemento.Background.Cores.Count())
+        background: -moz-linear-gradient(${elemento.Elemento.Background.GrauElemento}deg,
+        #foreach($Cor in $elemento.Elemento.Background.Cores)
+         #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: -webkit-linear-gradient(${elemento.Elemento.Background.GrauElemento}deg,
+        #foreach($Cor in $elemento.Elemento.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+        #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: linear-gradient(${elemento.Elemento.Background.GrauElemento}deg,
+        #foreach($Cor in $elemento.Elemento.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+             ,
+            #end
+
+        #end  
+
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09e718',endColorstr='#1c8ea5',GradientType=1);
+    
+    }
+</style>
+
+#else
+
+<style>
+    #DIV${elemento.Elemento.Id}Pagina${model.Pagina.Id} {       
+
+    background-color: $elemento.Elemento.Background.CorElemento;    
+    
+    }
+</style>
+#end
+
+#end
+
 #end
 
 #end
@@ -177,9 +263,9 @@
 
 #foreach($bloco in $divs)
 
-#if($bloco.Container.Background.Tipo == "BackgroundImagemContainer")
+#if($bloco.Container.Background.Tipo == "ElementoContainer")
 <style>
-    #${bloco.Container.Id}Pagina${model.Pagina.Id} {
+    #Container${bloco.Container.Id}Pagina${model.Pagina.Id} {
 
       background-repeat: ${bloco.Container.Background.Background_RepeatContainer};       
 
@@ -191,7 +277,7 @@
 #elseif($bloco.Container.Background.Tipo == "BackgroundGradienteContainer")
 
   <style>
-    #${bloco.Container.Id}Pagina${model.Pagina.Id} {
+    #Container${bloco.Container.Id}Pagina${model.Pagina.Id} {
 
         #set($um = 1)
          #foreach($Cores in $bloco.Container.Background.Cores)
@@ -251,7 +337,7 @@
 #else
 
 <style>
-    #${bloco.Container.Id}Pagina${model.Pagina.Id} {     
+    #Container${bloco.Container.Id}Pagina${model.Pagina.Id} {     
     
     background-color: $bloco.Container.Background.CorContainer;
     

@@ -20,7 +20,9 @@ namespace business.div
         private string flexWrap = "wrap";
         private string justifyContent = "center";
         private string alignItems = "flex-start";
+        private string alignSelf = "auto";
         private string flexDirection = "row";
+        private string classesModificadoras = "";
         private int padding = 0;
         private int height = 200;
         private int width = 100;
@@ -81,6 +83,18 @@ namespace business.div
          public string FlexDirection { get { return flexDirection; } set { flexDirection = value; } }
         
         public string AlignItems { get { return alignItems; } set { alignItems = value; } }
+        public string AlignSelf { get { return alignSelf; } set { alignSelf = value; } }
+        public string ClassesModificadoras 
+        { 
+            get { return classesModificadoras; } 
+            set 
+            { 
+              if(value != "")
+              classesModificadoras = " " + value;
+              else
+              classesModificadoras = value;
+            } 
+        }
 
         public void IncluiElemento(Elemento elemento)
         {

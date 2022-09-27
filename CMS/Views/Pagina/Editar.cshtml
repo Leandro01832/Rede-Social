@@ -95,6 +95,12 @@ else
                 <partial name="BlocoFerramenta" />
             </div>
                        
+            <center>
+                <input id="modo" type="checkbox" />  
+                <label>Desktop || Mobile</label>
+                <input id="margem" type="checkbox" style="margin-left:50px;" />  
+                <label style="margin-left:10px;">Margem</label>
+            </center>
 
             <div class="content col-md-12" id="ConteudoPagina" data-id="">
                 @Html.Raw(ViewBag.Html)
@@ -135,8 +141,30 @@ else
     <script src="~/js/Chat.js"></script>
     <script src="~/js/loader.js"></script>
 
-    <script>
-        $(document).ready(function () {              
+    <script type="text/javascript">
+        $(document).ready(function () {          
+
+              
+
+            $("#margem").change(function () {
+
+                if ($(this).is(':checked'))
+                {
+                    $(".Elemento").css("border", "ridge");
+                    $(".Elemento").css("border-width", "3px");
+                    $(".ClassDiv").css("border", "ridge");
+                    $(".ClassDiv").css("border-width", "8px");
+                    $(".ContainerDiv").css("border", "ridge");
+                    $(".ContainerDiv").css("border-width", "15px"); 
+                }
+                else
+                {
+                    $(".Elemento").css("border", "none");
+                    $(".ClassDiv").css("border", "none");
+                    $(".ContainerDiv").css("border", "none");
+                }
+
+            });
 
             $(".site").click(function () {
 

@@ -314,3 +314,7 @@ C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CopyCo
 C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundGradienteElemento.g.cshtml.cs
 C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundImagemElemento.g.cshtml.cs
 C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Background\_BackgroundCorElemento.g.cshtml.cs
+C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCorContainer.g.cshtml.cs
+C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCorElemento.g.cshtml.cs
+C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCorContainer.g.cshtml.cs
+C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCorElemento.g.cshtml.cs

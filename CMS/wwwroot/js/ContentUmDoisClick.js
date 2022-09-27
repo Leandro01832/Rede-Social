@@ -34,19 +34,12 @@
         if (x !== "" && condicao === 4) {
             y = z;
             
-            if (y.tagName === "DIV" && x.includes(substring)) {
-                $(".Elemento").css("border", "none");
-            }            
+                       
 
             while (y !== null && x !== "content col-md-8") {
 
                 if (y.className === "Elemento") {
-                    $(".Elemento").css("border", "none");
-                    var valor = y.id.replace("elemento", "").replace("Pagina" + numero, "");
-                   
-                    $(".Elemento" + valor).css("border", "ridge");
-                    $(".Elemento" + valor).css("border-width", "5px");
-                    
+                    var valor = y.id.replace("elemento", "").replace("Pagina" + numero, "");                   
                     $("#ElementoId").load("/Pagina/IdentificacaoElemento?elemento=" + valor);
                     break;
                 }
@@ -80,9 +73,7 @@
         if (y.className === "content col-md-8" ||
             y.className === "bloco") {
             condicao = 4;
-            $(".Elemento").css("border", "none");
-            $(".ClassDiv").css("border", "none");
-            $(".ContainerDiv").css("border", "none");
+            
         }
 
     });
@@ -120,18 +111,7 @@
                     var id = $("#" + y.id).data("value");
                     condicao = 0;
                     $("#conteudomodal").load("/Elemento/Edit/" + id);    
-                }
-
-                // if ( x === "bloco" || x === "Corpo" || x === "ContainerDiv") {
-                //      id = $("#" + y.id).data("value");
-                //     $("#" + y.id).css("border-style", "solid");
-                //     $("#" + y.id).css("border-width", "5px");
-                //     $("#" + y.parentElement.id).css("border-style", "solid");
-                //     $("#" + y.parentElement.id).css("border-width", "5px");
-                //     condicao = 0;
-
-                //     $("#conteudomodal").load("/Background/Edit/" + id);
-                // }              
+                }                             
 
                 if (x === ""
                     || x !== ""
@@ -165,12 +145,7 @@
             }
 
             if (condicao === 2) {                
-                        $(".Elemento").css("border", "ridge");
-                        $(".Elemento").css("border-width", "3px");
-                        $(".ClassDiv").css("border", "ridge");
-                        $(".ClassDiv").css("border-width", "8px");
-                        $(".ContainerDiv").css("border", "ridge");
-                        $(".ContainerDiv").css("border-width", "15px");             
+                                  
                     
                 condicao = 0;
             }

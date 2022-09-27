@@ -8,7 +8,19 @@ $(document).ready(function() {
     var valorPaginaPadraoLink = parseInt($("#ValorPaginaPadraoLink").val());
     var valorStoryNome = $("#ValorStoryNome").val();
 
-    
+    var redirecionamento = "";
+
+    function redirecionar(pagina)
+    {
+        if(pagina >= 65){
+            redirecionamento =  "/#redireciona-" + pagina;
+        }
+        else{
+            redirecionamento =  "/#redireciona-1";        
+        }
+
+    }
+
 
     var links = $(".LinksPagina");
 
@@ -23,11 +35,13 @@ $(document).ready(function() {
 
 
     $("#voltar").click(function() {
-        window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorAnterior;
+        redirecionar(valorAnterior);
+        window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorAnterior + redirecionamento;
     });
 
     $("#avancar").click(function() {
-        window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorProximo;
+        redirecionar(valorProximo);
+        window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorProximo + redirecionamento;
     });
 
     var checkbox = document.querySelector("#automatico");
@@ -51,9 +65,11 @@ $(document).ready(function() {
             alert("As paginas serão mostradas automaticamente.");
             setTimeout(function() {
                 $("#loading").show();
-
-                if (valorAtual < valorQuant)
-                    window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorProximo;
+                
+                if (valorAtual < valorQuant){
+                    redirecionar(valorProximo);
+                    window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorProximo + redirecionamento;
+                }
                 else
                     window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/1";
             }, 10000);
@@ -105,8 +121,10 @@ $(document).ready(function() {
 
             if ($.cookie('automatico') == '1')
                 $("#loading").show();
-            if (valorAtual < valorQuant && $.cookie('automatico') == '1')
-                window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorProximo;
+            if (valorAtual < valorQuant && $.cookie('automatico') == '1')   {
+                redirecionar(valorProximo);
+                window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorProximo + redirecionamento;            
+            }           
             else if ($.cookie('automatico') == '1') {
 
                 if (valorStoryNome != "Padrao")
@@ -122,8 +140,9 @@ $(document).ready(function() {
     $(".carousel-control").click(function() { $("#loading").show(); });
 
     $("#NumeroPaginaAcesso2").change(function() {
+        redirecionar(parseInt($(this).val()));
         document.getElementById("acessoPaginaComInput2").href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/";
-        document.getElementById("acessoPaginaComInput2").href += $(this).val();
+        document.getElementById("acessoPaginaComInput2").href += $(this).val() + redirecionamento;
     });
 
     $("#LinkPadrao").click(function() {  

@@ -33,7 +33,7 @@
     }
 
      .DivPag {
-        width: 14px !important;
+        width: 16px !important;
     }
 
     #voltar {
@@ -139,16 +139,13 @@
             </a>
             <h3 style="background-color:darkgray; opacity: 0.80;">@Html.CheckBox("automatico") Automático </h3>
 
-            <div class="DivPagina">
-
-                @{
-                    if (quant <= 60)
+            <div class="DivPagina" style=" height:100px; overflow: hidden;">
+                    <span id="redireciona-1"></span>
+                @{             
+                    for (var indice = 1; indice <= quant; indice++)
                     {
-
-                        for (var indice = 1; indice <= quant; indice++)
-                        {
-                            <div class="DivPag"
-                             style="width:22px; display:inline-grid; margin: 0px, 6px, 0px, 6px; background-color:darkgray; opacity: 0.80;"
+                         <div class="DivPag"
+                             style="width:35px; display:inline-grid; margin: 3px, 6px, 3px, 6px; background-color:darkgray; opacity: 0.80;"
                              id="DivPagina@(indice)">
 
                                 <span style="font-size: 2rem;" class="indices"><b>@indice</b> </span>
@@ -156,19 +153,10 @@
                               style="font-size: 2rem;" id="record" ></span>
 
                             </div>
-                        }
-                    }
-                    else
-                    {
-                        if (Model.Story.Nome == "Padrao")
-                        {
-                            <p style="background-color:darkgray; opacity: 0.80;">Capitulo @atual de @quant</p>
-                        }
-                        else
-                        {
-                            <p style="background-color:darkgray; opacity: 0.80;">Versiculo @atual de @quant</p>
-                        }
-                    }
+                            if(indice >= 65){
+                                <span id="redireciona-@(indice)"></span>
+                            }          
+                    }                
                 }
 
             </div>

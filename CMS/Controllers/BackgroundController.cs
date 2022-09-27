@@ -86,7 +86,7 @@ namespace CMS.Controllers
             if (background.backgroundTransparente)
                 background.Cor = "transparent";
 
-            var teste = await _context.BackgroundCor.Include(b => b.Div)
+            var teste = await _context.BackgroundDiv.Include(b => b.Div)
                 .FirstAsync(b => b.Div.Id == background.Id);
             background.Div = teste.Div;
             _context.Remove(teste); await _context.SaveChangesAsync();          
@@ -102,7 +102,7 @@ namespace CMS.Controllers
         [Authorize(Roles = "Background")]
         public async Task<string> _BackgroundGradiente([FromBody]BackgroundGradiente background)
         {
-            var teste = await _context.BackgroundGradiente.Include(b => b.Div)
+            var teste = await _context.BackgroundDiv.Include(b => b.Div)
                 .FirstAsync(b => b.Div.Id == background.Id);
             background.Div = teste.Div;
             _context.Remove(teste); await _context.SaveChangesAsync();
@@ -115,7 +115,7 @@ namespace CMS.Controllers
         [Authorize(Roles = "Background")]
         public async Task<string> _BackgroundImagem([FromBody]BackgroundImagem background)
         {
-            var teste = await _context.BackgroundImagem.Include(b => b.Div)
+            var teste = await _context.BackgroundDiv.Include(b => b.Div)
                 .FirstAsync(b => b.Div.Id == background.Id);
             background.Div = teste.Div;
             _context.Remove(teste); await _context.SaveChangesAsync();
@@ -129,7 +129,7 @@ namespace CMS.Controllers
         [Authorize(Roles = "Background")]
         public async Task<string> _BackgroundImagemContainer([FromBody]BackgroundImagemContainer background)
         {
-            var teste = await _context.BackgroundImagemContainer.Include(b => b.Container)
+            var teste = await _context.BackgroundContainer.Include(b => b.Container)
                .FirstOrDefaultAsync(b => b.Container.Id == background.Id);
             background.Container = teste.Container;
             _context.Remove(teste); await _context.SaveChangesAsync();
@@ -143,7 +143,7 @@ namespace CMS.Controllers
         [Authorize(Roles = "Background")]
         public async Task<string> _BackgroundGradienteContainer([FromBody]BackgroundGradienteContainer background)
         {
-            var teste = await _context.BackgroundGradienteContainer.Include(b => b.Container)
+            var teste = await _context.BackgroundContainer.Include(b => b.Container)
                 .FirstAsync(b => b.Container.Id == background.Id);
             background.Container = teste.Container;
             _context.Remove(teste); await _context.SaveChangesAsync();
@@ -160,7 +160,7 @@ namespace CMS.Controllers
             if (background.backgroundTransparenteContainer)
                 background.CorContainer = "transparent";
 
-            var teste = await  _context.BackgroundCorContainer.Include(b => b.Container)
+            var teste = await  _context.BackgroundContainer.Include(b => b.Container)
             .FirstAsync(b => b.Container.Id == background.Id);
             background.Container = teste.Container;
             _context.Remove(teste); await _context.SaveChangesAsync();
@@ -174,7 +174,7 @@ namespace CMS.Controllers
         [Authorize(Roles = "Background")]
         public async Task<string> _BackgroundImagemElemento([FromBody]BackgroundImagemElemento background)
         {
-            var teste = await _context.BackgroundImagemElemento.Include(b => b.Elemento)
+            var teste = await _context.BackgroundElemento.Include(b => b.Elemento)
                .FirstOrDefaultAsync(b => b.Elemento.Id == background.Id);
             background.Elemento = teste.Elemento;
             _context.Remove(teste); await _context.SaveChangesAsync();
@@ -188,7 +188,7 @@ namespace CMS.Controllers
         [Authorize(Roles = "Background")]
         public async Task<string> _BackgroundGradienteElemento([FromBody]BackgroundGradienteElemento background)
         {
-            var teste = await _context.BackgroundGradienteElemento.Include(b => b.Elemento)
+            var teste = await _context.BackgroundElemento.Include(b => b.Elemento)
                 .FirstAsync(b => b.Elemento.Id == background.Id);
             background.Elemento = teste.Elemento;
             _context.Remove(teste); await _context.SaveChangesAsync();
@@ -205,7 +205,7 @@ namespace CMS.Controllers
             if (background.backgroundTransparenteElemento)
                 background.CorElemento = "transparent";
 
-            var teste = await  _context.BackgroundCorElemento.Include(b => b.Elemento)
+            var teste = await  _context.BackgroundElemento.Include(b => b.Elemento)
             .FirstAsync(b => b.Elemento.Id == background.Id);
             background.Elemento = teste.Elemento;
             _context.Remove(teste); await _context.SaveChangesAsync();

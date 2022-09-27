@@ -83,7 +83,7 @@ public class Container : BaseModel
             set 
             { 
               if(value != "")
-              classesModificadoras = " " + value;
+              classesModificadoras = value + " ";
               else
               classesModificadoras = value;
             } 

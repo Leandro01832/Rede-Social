@@ -135,9 +135,11 @@ namespace CMS.Controllers
                 .First(d => d.Div.Content).Div,
                 Elemento = new LinkBody
                 {
+                    Pagina_ = pagina.Id,
                     TextoLink = "#LinkPadrao",
                     Texto = new Texto
                     {
+                        Pagina_ = pagina.Id,
                         PalavrasTexto = "<h1> Story " + story.Nome + "</h1>"
                     },
                 }

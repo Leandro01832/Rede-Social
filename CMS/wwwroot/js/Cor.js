@@ -29,7 +29,9 @@ class cor {
             CorBackground: $("#CorBackground").val(),
             Position: $("#Position").val(),
             Transparencia: $("#Transparencia").val(),
-            BackgroundId: $("#BackgroundId").val(),
+            BackgroundDivId: $("#BackgroundDivId").val(),
+            BackgroundContainerId: $("#BackgroundContainerId").val(),
+            BackgroundElementoId: $("#BackgroundElementoId").val(),
             Grau: $("#Grau").val()
         };
     }

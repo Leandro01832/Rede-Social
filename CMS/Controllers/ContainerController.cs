@@ -40,6 +40,10 @@ namespace CMS.Controllers
 
             Pagina pagina = new Pagina(1);
             pagina.Div = new List<PaginaContainer>();
+            pagina.UserId = user.Id;
+            pagina.FlexDirection = "column";
+            pagina.AlignItems = "stretch";
+            pagina.MostrarDados = 1;
 
 
             foreach (var page in paginas)

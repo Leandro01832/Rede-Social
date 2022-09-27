@@ -52,6 +52,7 @@ namespace CMS.Controllers
         {
             var arr = dados.Split('-');
             var numero = Int64.Parse(arr[1]);
+            var user = await UserManager.GetUserAsync(this.User);
 
             var tipo = arr[0].Replace("GaleriaElemento", "");
             List<Elemento> lista = await _context.Elemento
@@ -64,10 +65,21 @@ namespace CMS.Controllers
                 .Include(e => e.Paginas).ThenInclude(e => e.Elemento)
                 .Where(e => e.Pagina_ == numero && e.GetType().Name == tipo).ToListAsync();
 
-            Pagina pagina = new Pagina(1); 
+            Pagina pagina = new Pagina(1);
+            pagina.UserId = user.Id;
+            pagina.FlexDirection = "column";
+            pagina.AlignItems = "stretch";
             pagina.MostrarDados = 1;
             pagina.Div.First(d => d.Container.Content).Container.Div
                       .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
+            pagina.Div.First(d => d.Container.Content).Container.Div
+                      .First(d => d.Div.Content).Div.FlexDirection = "row";
+            pagina.Div.First(d => d.Container.Content).Container.Div
+                      .First(d => d.Div.Content).Div.JustifyContent = "space-between";
+            pagina.Div.First(d => d.Container.Content).Container.Div
+                     .First(d => d.Div.Content).Div.Width = 100;
+            pagina.Div.First(d => d.Container.Content).Container.Div
+                    .First(d => d.Div.Content).Div.AlignItems = "center";
 
             foreach (var item in lista)
             pagina.Div.First(d => d.Container.Content).Container.Div
@@ -77,7 +89,6 @@ namespace CMS.Controllers
                             Div = pagina.Div.First(d => d.Container.Content).Container.Div
                             .First(d => d.Div.Content).Div,
                             Elemento = item
-
                         }
                       );
 

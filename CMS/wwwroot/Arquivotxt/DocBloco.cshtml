@@ -112,7 +112,7 @@
 
     #if($elemento.Elemento.Background.Tipo == "BackgroundImagemElemento")
 <style>
-    #DIV${elemento.Elemento.Id}Pagina${model.Pagina.Id} {
+    #elemento${elemento.Elemento.Id}Pagina${model.Pagina.Id} {
 
       background-repeat: ${elemento.Elemento.Background.Background_RepeatElemento};       
 
@@ -124,7 +124,7 @@
 #elseif($elemento.Elemento.Background.Tipo == "BackgroundGradienteElemento")
 
   <style>
-    #DIV${elemento.Elemento.Id}Pagina${model.Pagina.Id} {
+    #elemento${elemento.Elemento.Id}Pagina${model.Pagina.Id} {
 
         #set($um = 1)
          #foreach($Cores in $elemento.Elemento.Background.Cores)
@@ -184,7 +184,7 @@
 #else
 
 <style>
-    #DIV${elemento.Elemento.Id}Pagina${model.Pagina.Id} {       
+    #elemento${elemento.Elemento.Id}Pagina${model.Pagina.Id} {       
 
     background-color: $elemento.Elemento.Background.CorElemento;    
     

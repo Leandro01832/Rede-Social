@@ -96,7 +96,7 @@ namespace business.business.Elementos.element
             set 
             { 
               if(value != "")
-              classesModificadoras = " " + value;
+              classesModificadoras = value + " ";
               else
               classesModificadoras = value;
             } 

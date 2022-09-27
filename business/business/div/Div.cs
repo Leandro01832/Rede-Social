@@ -90,7 +90,7 @@ namespace business.div
             set 
             { 
               if(value != "")
-              classesModificadoras = " " + value;
+              classesModificadoras = value + " ";
               else
               classesModificadoras = value;
             } 

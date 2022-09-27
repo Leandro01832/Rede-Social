@@ -82,8 +82,10 @@ namespace CMS.Controllers
 
             var pagina = new Pagina(1);
             pagina.Div.First(d => d.Container.Content).Container.Div = new List<DivContainer>();
-            pagina.Div.First(d => d.Container.Content).Container.Div
-                      .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>(); 
+            pagina.UserId = user.Id;
+            pagina.FlexDirection = "column";
+            pagina.AlignItems = "stretch";
+            pagina.MostrarDados = 1;
 
             var paginas = await RepositoryPagina.includes()
             .Where(p => p.UserId == user.Id).ToListAsync();            
@@ -95,6 +97,10 @@ namespace CMS.Controllers
                      lista.Add(div2.Div);
 
                 foreach (var item in lista)
+            {
+                item.FlexDirection = "row";
+                item.JustifyContent = "center";
+                item.Width = 25;
                 pagina.Div.First(d => d.Container.Content).Container.Div.Add
                 (
                     new DivContainer
@@ -103,6 +109,7 @@ namespace CMS.Controllers
                         Div = item
                     }
                 ); 
+            }
             
 
             string html = await RepositoryPagina.renderizarPagina(pagina);

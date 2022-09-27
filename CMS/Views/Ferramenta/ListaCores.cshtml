@@ -4,8 +4,12 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayName("Tipo")
+            </th>
+            <th>
                 @Html.DisplayName("Id")
-            </th> <th>
+            </th>
+             <th>
                 @Html.DisplayNameFor(model => model.CorBackground)
             </th>             
             
@@ -13,8 +17,47 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Where(c => c.BackgroundDivId != null)) {
         <tr>
+            <td>
+                <label>Cor para bloco</label>
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.BackgroundDiv.Id)
+            </td> 
+            <td>
+                <input type="color" value="@item.CorBackground" />
+            </td>             
+            
+            <td>
+                <a class="EditarCor" data-value="@item.Id">Editar</a> |
+                <a class="ApagarCor" data-value="@item.Id">Apagar</a>
+            </td>
+        </tr>
+}
+@foreach (var item in Model.Where(c => c.BackgroundContainerId != null)) {
+        <tr>
+            <td>
+                <label>Cor para container</label>
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.BackgroundDiv.Id)
+            </td> 
+            <td>
+                <input type="color" value="@item.CorBackground" />
+            </td>             
+            
+            <td>
+                <a class="EditarCor" data-value="@item.Id">Editar</a> |
+                <a class="ApagarCor" data-value="@item.Id">Apagar</a>
+            </td>
+        </tr>
+}
+@foreach (var item in Model.Where(c => c.BackgroundElementoId != null)) {
+        <tr>
+            <td>
+                <label>Cor para elemento</label>
+            </td> 
             <td>
                 @Html.DisplayFor(modelItem => item.BackgroundDiv.Id)
             </td> 

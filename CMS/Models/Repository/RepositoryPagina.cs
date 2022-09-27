@@ -48,12 +48,12 @@ namespace CMS.Models.Repository
 
        static string path = Directory.GetCurrentDirectory();       
 
-        //218 linhas
+        //140 linhas
         public string CodCss { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss.cshtml")); } }  
-        //186 linhas
+        //93 linhas
         public string CodCss2 { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCssDiv.cshtml")); } }  
 
-        //333 linhas
+        //350 linhas
         public string CodigoBloco { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocBloco.cshtml")); } }
         
         //515 linhas
@@ -196,17 +196,19 @@ namespace CMS.Models.Repository
                 .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Background).ThenInclude(b => b.Cores)
                 .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Background).ThenInclude(b => b.Video)
 
+                 .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Imagem)
+                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Cores)
+                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Video)
+
+                 .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div)
+                 .ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento).ThenInclude(b => b.Background).ThenInclude(b => b.Imagem)
+                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div)
+                .ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento).ThenInclude(b => b.Background).ThenInclude(b => b.Cores)
+                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div)
+                 .ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento).ThenInclude(b => b.Background).ThenInclude(b => b.Video)
 
 
             .Include(p => p.Div)
-
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Imagem)
-
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Cores)
-
-             .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Video)
-            
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
 
             .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
             .ThenInclude(b => b.Imagem)

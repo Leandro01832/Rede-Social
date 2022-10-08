@@ -1,4 +1,8 @@
-﻿
+﻿*{
+    padding: 0;
+    margin: 0;
+}
+
 #CriaTexto {
     font-size: 22px;
 }
@@ -42,3 +46,4 @@
 .content {
     overflow: auto;
 }
+

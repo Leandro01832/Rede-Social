@@ -6,13 +6,14 @@ $(document).ready(function() {
     var valorProximo = parseInt($("#ValorProximo").val());
     var valorAnterior = parseInt($("#ValorAnterior").val());
     var valorPaginaPadraoLink = parseInt($("#ValorPaginaPadraoLink").val());
+    var tempo = parseInt($("#Tempo").val());
     var valorStoryNome = $("#ValorStoryNome").val();
 
     var redirecionamento = "";
 
     function redirecionar(pagina)
     {
-        if(pagina >= 65){
+        if(pagina >= 55){
             redirecionamento =  "/#redireciona-" + pagina;
         }
         else{
@@ -72,7 +73,7 @@ $(document).ready(function() {
                 }
                 else
                     window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/1";
-            }, 10000);
+            }, tempo);
         }
         else
             $.cookie('automatico', '0');
@@ -132,7 +133,7 @@ $(document).ready(function() {
                 else
                     window.location.href = "/Renderizar/"+ valorUser +"/0/1";
             }
-        }, 10000);
+        }, tempo);
     }
     else
         desativarCheckbox(checkbox);

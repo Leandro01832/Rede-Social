@@ -318,3 +318,4 @@ C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferra
 C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\CreateCorElemento.g.cshtml.cs
 C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCorContainer.g.cshtml.cs
 C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Ferramenta\EditCorElemento.g.cshtml.cs
+C:\Users\leand\Downloads\teste\cms\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\PaginasCriadas.g.cshtml.cs

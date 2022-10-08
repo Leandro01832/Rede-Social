@@ -66,19 +66,19 @@ namespace CMS
                 {
                      ArquivoImagem = "/ImagensGaleria/1.jpg",
                        Nome = "Default",
-                        Width = 100
+                        WidthImagem = 100
                 },
                 new Imagem
                 {
                      ArquivoImagem = "/ImagensGaleria/2.jpg",
                        Nome = "Default",
-                        Width = 100
+                        WidthImagem = 100
                 },
                 new Imagem
                 {
                      ArquivoImagem = "/ImagensGaleria/3.jpg",
                        Nome = "Default",
-                        Width = 100
+                        WidthImagem = 100
                 }
             };            
 

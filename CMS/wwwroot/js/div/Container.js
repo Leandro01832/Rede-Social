@@ -23,6 +23,7 @@
         });
         
         formdata["Pagina_"] = numero;
+        formdata["Content"] = $("#Content").is(':checked');
         
         return formdata;
     }

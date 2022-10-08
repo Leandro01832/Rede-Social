@@ -18,7 +18,7 @@
 
             </div>
 
-           
+
 
             <div class="form-group">
                 <div class="checkbox">
@@ -27,8 +27,8 @@
                     </label>
                 </div>
             </div>
-           
-             <div class="form-group">
+
+            <div class="form-group">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Pular" /> @Html.DisplayNameFor(model => model.Pular)
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label asp-for="FlexDirection" class="control-label"></label>
                 <select asp-for="FlexDirection" class="form-control">
                     <option value="row">row</option>
@@ -47,7 +47,7 @@
                 <span asp-validation-for="FlexDirection" class="text-danger"></span>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label asp-for="AlignItems" class="control-label"></label>
                 <select asp-for="AlignItems" class="form-control">
                     <option value="stretch">stretch</option>
@@ -69,7 +69,7 @@
 
             <div class="form-group">
                 <label asp-for="Sobreescrita" class="control-label">Sobreescrita</label><br>
-                <textarea asp-for="Sobreescrita" cols="30" rows="10" style="height: 300px; width: 350px;" ></textarea>
+                <textarea asp-for="Sobreescrita" cols="30" rows="10" style="height: 300px; width: 350px;"></textarea>
             </div>
 
             <div class="form-group">
@@ -79,25 +79,25 @@
 
             <div class="form-group">
                 <label asp-for="SubStoryId" class="control-label"></label>
-                <select asp-for="SubStoryId" class="form-control" ></select>
+                <select asp-for="SubStoryId" class="form-control"></select>
                 <span asp-validation-for="SubStoryId" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="GrupoId" class="control-label"></label>
-                <select asp-for="GrupoId" class="form-control" ></select>
+                <select asp-for="GrupoId" class="form-control"></select>
                 <span asp-validation-for="GrupoId" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="SubGrupoId" class="control-label"></label>
-                <select asp-for="SubGrupoId" class="form-control" ></select>
+                <select asp-for="SubGrupoId" class="form-control"></select>
                 <span asp-validation-for="SubGrupoId" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="SubSubGrupoId" class="control-label"></label>
-                <select asp-for="SubSubGrupoId" class="form-control" ></select>
+                <select asp-for="SubSubGrupoId" class="form-control"></select>
                 <span asp-validation-for="SubSubGrupoId" class="text-danger"></span>
             </div>
 
@@ -109,18 +109,24 @@
                 </div>
             </div>
 
-            
-        <a  href="#" id="Adicionar"  class="btn btn-warning">
-            Adicionar novo Container
-        </a>
+            <div class="form-group">
+                <label asp-for="Tempo" class="control-label"></label>
+                <input asp-for="Tempo" type="range" max="500000" min="15000" class="form-control" />
+                <span asp-validation-for="Tempo" class="text-danger"></span>
+                <input id="Pagina_Tempo_Retorno" name="Pagina_Tempo_Retorno" type="number"  class="form-control" />
+            </div>
 
-
+            <input id="id-container" name="id-container" type="number" class="form-control" placeholder="Informe o ID (Opcional)" />
+            <a href="#" id="Adicionar" class="btn btn-warning">
+                Adicionar novo Container
+            </a>
         </form>
 
     </div>
 </div>
 
 <div>
+    <script type="text/javascript" src="~/js/retorno.js"></script>
     <script type="text/javascript" src="~/js/AjaxGetGroup.js"></script>
     <script type="text/javascript">
 
@@ -132,6 +138,7 @@
 
                     var formData = new FormData();
                     formData.append("id", $("#IdentificaPagina").val());
+                    formData.append("container", $("#id-container").val());
 
                     $.ajax({
                         url: '/Pagina/Adicionar',
@@ -157,6 +164,7 @@
             Id: @Model.Id,
             Titulo: $("#Titulo").val(),
                 UserId: $("#UserId").val(),
+                Tempo: $("#Tempo").val(),
             Facebook: $("#Facebook").val(),
             Sobreescrita: $("#Sobreescrita").val(),
             AlignItems: $("#AlignItems").val(),

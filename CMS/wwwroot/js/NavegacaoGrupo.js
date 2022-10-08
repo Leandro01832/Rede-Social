@@ -9,6 +9,7 @@ $(document).ready(function() {
     var valorProximo = parseInt($("#ValorProximo").val());
     var valorAnterior = parseInt($("#ValorAnterior").val());
     var valorPaginaPadraoLink = parseInt($("#ValorPaginaPadraoLink").val());
+    var tempo = parseInt($("#Tempo").val());
     var valorStoryNome = $("#ValorStoryNome").val();    
 
     var links = $(".LinksPagina");
@@ -52,7 +53,7 @@ $(document).ready(function() {
                     window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + valorProximo;
                 else
                     window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo  + "/1";
-            }, 10000);
+            }, tempo);
         }
         else
             $.cookie('automatico', '0');
@@ -99,7 +100,7 @@ $(document).ready(function() {
             else if ($.cookie('automatico') == '1')             
              BuscarStory();          
             
-        }, 10000);
+        }, tempo);
     }
     else
         desativarCheckbox(checkbox);

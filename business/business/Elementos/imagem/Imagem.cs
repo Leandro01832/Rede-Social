@@ -14,7 +14,7 @@ namespace business.business.Elementos.imagem
         [Display(Name = "Arquivo")]
         public string ArquivoImagem { get; set; }
 
-        public int Width { get; set; }
+        public int WidthImagem { get; set; }
 
         [JsonIgnore]
         public virtual List<BackgroundDiv> BackgroundDiv { get; set; }

@@ -5,13 +5,14 @@
 <div class="row">
     <div class="col-md-12">
 
-        <div class="form-group">
-            <label asp-for="PastaImagemId" class="control-label"></label>
-            <select asp-for="PastaImagemId" class="form-control pastas"></select> 
-            <span asp-validation-for="PastaImagemId" class="text-danger"></span>
-        </div>
+        <form id="formulario">
+            <div class="form-group">
+                <label asp-for="PastaImagemId" class="control-label"></label>
+                <select asp-for="PastaImagemId" class="form-control pastas"></select>
+                <span asp-validation-for="PastaImagemId" class="text-danger"></span>
+            </div>
 
-         <div class="form-group">
+            <div class="form-group">
                 <label asp-for="Ordem" class="control-label"></label>
                 <input asp-for="Ordem" type="number" class="form-control" />
                 <span asp-validation-for="Ordem" class="text-danger"></span>
@@ -36,47 +37,55 @@
                 <span asp-validation-for="ClassesModificadoras" class="text-danger"></span>
             </div>
 
-        <div class="form-group">
-            <input asp-for="ArquivoImagem" type="hidden" />
-            <input asp-for="Id" type="hidden" />
-        </div>
+            <div class="form-group">
+                <input asp-for="ArquivoImagem" type="hidden" />
+                <input asp-for="Id" type="hidden" />
+            </div>
 
-         <img id="arquivoImagem" src="~/imagem/LoadingBasketContents.gif" style="display:none;" />
+            <img id="arquivoImagem" src="~/imagem/LoadingBasketContents.gif" style="display:none;" />
 
-          @{
-            if (ViewBag.condicao)
+            @{
+                if (ViewBag.condicao)
+                {
+                    <div class="form-group">
+                        <label asp-for="PaginaEscolhida" class="control-label"></label>
+                        <select asp-for="PaginaEscolhida" class="form-control" asp-items="ViewBag.PaginaEscolhida"></select>
+                        <span asp-validation-for="PaginaEscolhida" class="text-danger"></span>
+                    </div>
+                }
+            }
+
+            @if (Model.Id == 0)
             {
-                <div class="form-group">
-                    <label asp-for="PaginaEscolhida" class="control-label"></label>
-                    <select asp-for="PaginaEscolhida" class="form-control" asp-items="ViewBag.PaginaEscolhida"></select>
-                    <span asp-validation-for="PaginaEscolhida" class="text-danger"></span>
+                <div class="buttons">
+                    <div class="upload-button">
+                        <input id="files" name="files" type="file" multiple onchange="uploadFilesImagem('files');" />
+                    </div>
                 </div>
             }
-        }
 
-        @if (Model.Id == 0)
-        {
-            <div class="buttons">
-                <div class="upload-button">
-                    <input id="files" name="files" type="file" multiple onchange="uploadFilesImagem('files');" />
+            @if (Model.Id != 0)
+            {
+                <div class="form-group">
+                    <label asp-for="WidthImagem" class="control-label"></label>
+                    <input asp-for="WidthImagem" type="range" max="100" min="5" value="@Model.WidthImagem" class="form-control" />
+                    <span asp-validation-for="WidthImagem" class="text-danger"></span>
+                     <input id="Imagem_Width" name="Div_Width" type="number" value="@Model.WidthImagem" class="form-control" />
                 </div>
-            </div>
-        }       
-
-        @if (Model.Id != 0)
-        {
-            <div class="form-group">
-                <label asp-for="Width" class="control-label"></label>
-                <input asp-for="Width" type="range" max="100" min="5" class="form-control" />
-                <span asp-validation-for="Width" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="button" value="Copiar" onclick="ScriptElemento.Create()" class="btn btn-default" />
-            </div>
+                <div class="form-group">
+                    <label asp-for="Width" class="control-label"></label>
+                    <input asp-for="Width" type="range" max="10" min="0" value="@Model.Width" class="form-control" />
+                    <span asp-validation-for="Width" class="text-danger"></span>
+                     <input id="Elemento_Width" name="Div_Width" type="number" value="@Model.Width" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="button" value="Copiar" onclick="ScriptElemento.Create()" class="btn btn-default" />
+                </div>
                 <a href="#" class="btn btn-warning blocoGradiente">Plano gradiente</a><br />
                 <a href="#" class="btn btn-primary blocoImagem">Plano imagem</a><br />
                 <a href="#" class="btn btn-danger blocoCor">Plano de uma cor</a><br />
-
+                <script type="text/javascript" src="~/js/Elemento/imagem/ElementoImagem.js"></script>
+                <script type="text/javascript" src="~/js/retorno.js"></script>
                 <script type="text/javascript">
                             $(document).ready(function () {
                                 $("input, select").change(function () {
@@ -84,24 +93,28 @@
                                     ScriptElemento.Update();
                                 });
 
-                      $(".blocoImagem").click(function () {           
+                      $(".blocoImagem").click(function () {
                      $("#conteudomodal").load("/Background/Edit/BackgroundImagemElemento/" + @(Model.Id));
                     });
 
                     $(".blocoGradiente").click(function () {
-                        
+
                             $("#conteudomodal").load("/Background/Edit/BackgroundGradienteElemento/"+ @(Model.Id));
 
                     });
 
                     $(".blocoCor").click(function () {
-                        
+
                             $("#conteudomodal").load("/Background/Edit/BackgroundCorElemento/"+ @(Model.Id));
                     });
 
                             });
-                        </script>
-        }
+                </script>
+            }
+
+        </form>
+
+       
 
     </div>
 </div>

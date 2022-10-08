@@ -6,16 +6,28 @@
     <div class="col-md-12">
         <form asp-action="_BackgroundImagemContainer" id="formulario">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+             <div class="form-group">
                 <label asp-for="Background_RepeatContainer" class="control-label"></label>
-                <input asp-for="Background_RepeatContainer" class="form-control" />
+                <select asp-for="Background_RepeatContainer">
+                    <option value="repeat">Repetido</option>
+                    <option value="no-repeat">Não repetido</option>
+                    <option value="repeat-x">Repetido horizontalmente</option>
+                    <option value="repeat-y">Repetido verticalmente</option>
+                </select>
                 <span asp-validation-for="Background_RepeatContainer" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Background_PositionContainer" class="control-label"></label>
-                <input asp-for="Background_PositionContainer" class="form-control" />
+                <select asp-for="Background_PositionContainer">
+                    <option Value="center">Posição no centro</option>
+                    <option Value="left botton">Posição para baixo e esquerda</option>
+                    <option Value="right botton">Posição para baixo e direita</option>
+                    <option Value="left top">Posição para cima e esquerda</option>
+                    <option Value="right top">Posição para cima e direita</option>
+                </select>
                 <span asp-validation-for="Background_PositionContainer" class="text-danger"></span>
-            </div>            
+            </div>
+                       
 
             <div class="form-group">
                 <label class="control-label col-md-2">Pastas</label>

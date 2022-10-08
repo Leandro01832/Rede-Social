@@ -15,24 +15,29 @@
             </div>
             <div class="form-group">
                 <label asp-for="Padding" class="control-label"></label>
-                <input asp-for="Padding" type="range" max="95" min="0" value="0" class="form-control" />
+                <input asp-for="Padding" type="range" max="95" min="0" value="@Model.Padding" class="form-control" />
                 <span asp-validation-for="Padding" class="text-danger"></span>
+                <input id="Div_Padding" name="Div_Padding" type="number" value="@Model.Padding" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="Height" class="control-label"></label>
-                <input asp-for="Height" type="range" max="2000" min="0" value="200" class="form-control" />
+                <input asp-for="Height" type="range" max="2000" min="0" value="@Model.Height" class="form-control" />
                 <span asp-validation-for="Height" class="text-danger"></span>
-            </div>           
+                <input id="Div_Height" name="Div_Height" type="number" value="@Model.Height" class="form-control" />
+            </div>
+
             <div class="form-group">
                 <label asp-for="Width" class="control-label"></label>
-                <input asp-for="Width" type="range" max="100" min="10" class="form-control" />
+                <input asp-for="Width" type="range" max="100" min="10" value="@Model.Width" class="form-control" />
                 <span asp-validation-for="Width" class="text-danger"></span>
-            </div>           
+                <input id="Div_Width" name="Div_Width" type="number" value="@Model.Width" class="form-control" />
+            </div>
 
             <div class="form-group">
                 <label asp-for="BorderRadius" class="control-label"></label>
-                <input asp-for="BorderRadius" type="range" max="200" min="0" value="0" class="form-control" />
+                <input asp-for="BorderRadius" type="range" max="200" min="0" value="@Model.BorderRadius" class="form-control" />
                 <span asp-validation-for="BorderRadius" class="text-danger"></span>
+                <input id="Div_BorderRadius" name="Div_BorderRadius" type="number" value="@Model.BorderRadius" class="form-control" />
             </div>
 
             <div class="form-group">
@@ -41,7 +46,7 @@
                 <span asp-validation-for="Ordem" class="text-danger"></span>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label asp-for="JustifyContent" class="control-label"></label>
                 <select asp-for="JustifyContent" class="form-control">
                     <option value="flex-start">flex-start</option>
@@ -60,7 +65,7 @@
                 <span asp-validation-for="JustifyContent" class="text-danger"></span>
             </div>
 
-                <div class="form-group">
+            <div class="form-group">
                 <label asp-for="AlignSelf" class="control-label"></label>
                 <select asp-for="AlignSelf" class="form-control">
                     <option value="auto">auto</option>
@@ -73,7 +78,7 @@
                 <span asp-validation-for="AlignSelf" class="text-danger"></span>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label asp-for="AlignItems" class="control-label"></label>
                 <select asp-for="AlignItems" class="form-control">
                     <option value="stretch">stretch</option>
@@ -93,7 +98,7 @@
                 <span asp-validation-for="AlignItems" class="text-danger"></span>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label asp-for="FlexWrap" class="control-label"></label>
                 <select asp-for="FlexWrap" class="form-control">
                     <option value="nowrap">nowrap</option>
@@ -109,12 +114,22 @@
                 <span asp-validation-for="ClassesModificadoras" class="text-danger"></span>
             </div>
 
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Content" /> @Html.DisplayNameFor(model => model.Content)
+                </label>
+            </div>
+
             <div class="form-group">
                 <label class="control-label">Elementos do bloco</label>
                 <input asp-for="Elementos" type="text" />
             </div>
 
             <input type="hidden" asp-for="Id" />
+
+            <a href="#" id="Remover" class="btn btn-warning">
+                Remover este bloco
+            </a>
 
 
             @{
@@ -141,7 +156,7 @@
                         });
                     </script>
                     <div id="links-back">
-                        
+
                         <a href="#" class="btn btn-warning blocoGradiente">Plano gradiente</a><br />
                         <a href="#" class="btn btn-primary blocoImagem">Plano imagem</a><br />
                         <a href="#" class="btn btn-danger blocoCor">Plano de uma cor</a><br />
@@ -156,11 +171,41 @@
 
 
 <div>
+    <script src="~/js/retorno.js"></script>
     <script src="~/js/div/DivComum.js"></script>
 
     <script src="~/js/AjaxGet.js"></script>
 
     <script type="text/javascript">
+
+        $("#Remover").click(function () {
+
+            let token = $('[name=__RequestVerificationToken]').val();
+            let headers = {};
+            headers['RequestVerificationToken'] = token;  
+
+                    var formData = new FormData();
+             formData.append("id", @(Model.Id));
+             formData.append("container", $("#DIV" + @(Model.Id) + "Pagina" + $("#IdentificaPagina").val())
+                 .parent()[0].id.toString().replace('Container', '').replace('Pagina' + $("#IdentificaPagina").val(), ''));
+
+                    $.ajax({
+                        url: '/Div/Remover',
+                        data: formData,
+                        processData: !1,
+                        contentType: !1,
+                        type: "POST",
+                        headers: headers,
+                        success: function (data) {
+                        var numero = $("#IdentificaPagina").val();
+                        $(".content").load("/Pagina/getview", { id: numero });
+                        if (data !== "")
+                        {
+                            alert("Erro ao adicionar. " + data);
+                        }
+                    }
+                });
+            });  
 
         $(".blocoImagem").click(function () {
            

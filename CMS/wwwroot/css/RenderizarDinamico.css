@@ -1,4 +1,9 @@
-﻿
+﻿*{
+    padding: 0;
+    margin: 0;
+}
+
+
 #CriaTexto {
     font-size: 22px;
 }
@@ -37,12 +42,12 @@
 }
 
 #Chat {
-    height: 625px;
+    height: 825px;
     overflow: auto;
 }
 
 .content {
-    overflow: auto;
+    overflow: hidden;
 }
 
 #discussion {
@@ -121,3 +126,5 @@ input[type=checkbox] {
     filter: alpha(opacity=75);
     opacity: 0.75;
 }
+
+

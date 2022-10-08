@@ -37,6 +37,13 @@
                 <span asp-validation-for="ClassesModificadoras" class="text-danger"></span>
             </div>
 
+             <div class="form-group">
+                    <label asp-for="Width" class="control-label"></label>
+                    <input asp-for="Width" type="range" max="100" min="5" value="@Model.Width" class="form-control" />
+                    <span asp-validation-for="Width" class="text-danger"></span>
+                    <input id="Elemento_Width" name="Div_Width" type="number" value="@Model.Width" class="form-control" />
+                </div>
+
         <div class="form-group">
             <input id="elemento" name="elemento" type="hidden" value="Video" />
             <input asp-for="ArquivoVideo" type="hidden" />
@@ -71,6 +78,7 @@
                         <a href="#" class="btn btn-primary blocoImagem">Plano imagem</a><br />
                         <a href="#" class="btn btn-danger blocoCor">Plano de uma cor</a><br />
 
+             <script type="text/javascript" src="~/js/retorno.js"></script>
              <script type="text/javascript">
                             $(document).ready(function () {
                                 $("input, select").change(function () {

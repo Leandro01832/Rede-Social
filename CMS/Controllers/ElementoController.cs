@@ -63,7 +63,7 @@ namespace CMS.Controllers
                 .Include(e => e.Dependentes).ThenInclude(e => e.ElementoDependente)
                 .Include(e => e.Paginas).ThenInclude(e => e.Pagina)
                 .Include(e => e.Paginas).ThenInclude(e => e.Elemento)
-                .Where(e => e.Pagina_ == numero && e.GetType().Name == tipo).ToListAsync();
+                .Where(e => e.GetType().Name == tipo).ToListAsync();
 
             Pagina pagina = new Pagina(1);
             pagina.UserId = user.Id;

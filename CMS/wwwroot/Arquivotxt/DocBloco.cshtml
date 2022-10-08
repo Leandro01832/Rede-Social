@@ -32,7 +32,7 @@
 
       background-repeat: ${bloco.Div.Background.Background_Repeat};       
 
-    background-image: url($site$bloco.Div.Background.Imagem.ArquivoImagem);
+    background-image: url($bloco.Div.Background.Imagem.ArquivoImagem);
        
     }
 </style>
@@ -116,7 +116,7 @@
 
       background-repeat: ${elemento.Elemento.Background.Background_RepeatElemento};       
 
-    background-image: url($site$elemento.Elemento.Background.Imagem.ArquivoImagem);
+    background-image: url($elemento.Elemento.Background.Imagem.ArquivoImagem);
        
     }
 </style>
@@ -263,13 +263,13 @@
 
 #foreach($bloco in $divs)
 
-#if($bloco.Container.Background.Tipo == "ElementoContainer")
+#if($bloco.Container.Background.Tipo == "BackgroundImagemContainer")
 <style>
     #Container${bloco.Container.Id}Pagina${model.Pagina.Id} {
 
       background-repeat: ${bloco.Container.Background.Background_RepeatContainer};       
 
-    background-image: url($site$bloco.Container.Background.Imagem.ArquivoImagem);
+    background-image: url($bloco.Container.Background.Imagem.ArquivoImagem);
 
     }
 </style>

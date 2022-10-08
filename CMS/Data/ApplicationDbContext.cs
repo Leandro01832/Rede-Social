@@ -127,7 +127,9 @@ namespace CMS.Data
         public DbSet<DivComum> DivComum { get; set; }
                      
         public DbSet<DivFixo> DivFixo { get; set; }
-                     
+
+        public DbSet<DivContainer> DivContainer { get; set; }
+
         public DbSet<BackgroundImagem> BackgroundImagem { get; set; }
                      
         public DbSet<BackgroundCor> BackgroundCor { get; set; }

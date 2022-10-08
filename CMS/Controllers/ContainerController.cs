@@ -150,22 +150,35 @@ namespace CMS.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<string> Adicionar(long? id)
+        public async Task<string> Adicionar(long? id, long? div)
         {
-            if (id == null)
-            {
-                return "Error1";
-            }
-
             var container = await _context.Container.Include(p => p.Div).FirstAsync(p => p.Id == id);
-            if (container == null)
-            {
-                return "Error2";
-            }
+            var bl = await _context.DivComum.FirstOrDefaultAsync(p => p.Id == div);            
 
            try
             {
+                if(bl == null)
                 container.IncluiDiv(new DivComum());
+                else
+                    container.IncluiDiv(bl);
+                _context.SaveChanges();
+            }
+            catch (System.Exception)
+            {
+                return "Error3";
+            }
+
+            return "";
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<string> Remover(long? id, long? pagina)
+        {            
+           try
+            {
+                _context.Remove(await _context.PaginaContainer
+                .FirstAsync(p => p.PaginaId == pagina && p.ContainerId == id));
                 _context.SaveChanges();
             }
             catch (System.Exception)

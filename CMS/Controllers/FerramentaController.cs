@@ -2,6 +2,7 @@
 using business.business;
 using CMS.Data;
 using CMS.Models;
+using CMS.Models.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +20,14 @@ namespace CMS.Controllers
         private readonly ApplicationDbContext _context;
 
         public UserManager<UserModel> UserManager { get; }
+        public IRepositoryPagina RepositoryPagina { get; }
 
-        public FerramentaController(ApplicationDbContext context, UserManager<UserModel> userManager)
+        public FerramentaController(ApplicationDbContext context, UserManager<UserModel> userManager,
+		IRepositoryPagina repositoryPagina)
         {
             _context = context;
             UserManager = userManager;
+			RepositoryPagina = repositoryPagina;
         }
 
         [Authorize(Roles = "Background")]
@@ -31,11 +35,8 @@ namespace CMS.Controllers
         {
             List<Cor> lista = new List<Cor>();
 
-            var pagina = await _context.Pagina
-                .Include(p => p.Div)
-                .ThenInclude(p => p.Container)
-                .ThenInclude(p => p.Div)
-                .ThenInclude(p => p.Div)
+            var pagina = await RepositoryPagina
+                .includes()
                 .FirstAsync(p => p.Id == id);
 
                 foreach(var item in pagina.Div)
@@ -203,14 +204,9 @@ namespace CMS.Controllers
 	            List<BackgroundDiv> lista = new List<BackgroundDiv>();
 	            var black = _context.BackgroundDiv
 	            .Include(b => b.Div).First(b => b.Id == cor.BackgroundDivId);
-	            var pagina = await _context.Pagina
-	                .Include(p => p.Div)
-	                .ThenInclude(p => p.Container)
-	                .ThenInclude(p => p.Div)
-	                .ThenInclude(p => p.Div)
-	                .ThenInclude(p => p.Background)
-	                .FirstAsync(p => p.Id == black.Div.Pagina_);
+	            var paginas = await RepositoryPagina.includes().Where(p => p.Layout).ToListAsync();
 	
+	            foreach (var pagina in paginas)
 	            foreach (var item in pagina.Div)
 	            foreach (var item2 in item.Container.Div)
 	            {
@@ -233,14 +229,11 @@ namespace CMS.Controllers
 	                return NotFound();
 	            }
 	            List<BackgroundContainer> lista = new List<BackgroundContainer>();
-	            var black = _context.BackgroundDiv
-	            .Include(b => b.Div).First(b => b.Id == cor.BackgroundDivId);
-	            var pagina = await _context.Pagina
-	                .Include(p => p.Div)
-	                .ThenInclude(p => p.Container)                
-	                .ThenInclude(p => p.Background)
-	                .FirstAsync(p => p.Id == black.Div.Pagina_);
+	            var black = _context.BackgroundContainer
+	            .Include(b => b.Container).First(b => b.Id == cor.BackgroundContainerId);
+	            var paginas = await RepositoryPagina.includes().Where(p => p.Layout).ToListAsync();
 	
+	            foreach (var pagina in paginas)
 	            foreach (var item in pagina.Div)
 	            {
 	                if (item.Container.Background is BackgroundGradienteContainer)
@@ -261,18 +254,11 @@ namespace CMS.Controllers
 	                return NotFound();
 	            }
 	            List<BackgroundElemento> lista = new List<BackgroundElemento>();
-	            var black = _context.BackgroundDiv
-	            .Include(b => b.Div).First(b => b.Id == cor.BackgroundDivId);
-	            var pagina = await _context.Pagina
-	                .Include(p => p.Div)
-	                .ThenInclude(p => p.Container) 
-	                .ThenInclude(p => p.Div)
-	                .ThenInclude(p => p.Div)               
-	                .ThenInclude(p => p.Elemento)               
-	                .ThenInclude(p => p.Elemento)               
-	                .ThenInclude(p => p.Background)
-	                .FirstAsync(p => p.Id == black.Div.Pagina_);
+	            var black = _context.BackgroundElemento
+	            .Include(b => b.Elemento).First(b => b.Id == cor.BackgroundElementoId);
+	            var paginas = await RepositoryPagina.includes().Where(p => p.Layout).ToListAsync();
 	
+	            foreach (var pagina in paginas)
 	            foreach (var item in pagina.Div)
 	            foreach (var item2 in item.Container.Div)
 	            foreach (var item3 in item2.Div.Elemento)

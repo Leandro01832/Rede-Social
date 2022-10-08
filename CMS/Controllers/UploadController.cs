@@ -178,7 +178,7 @@ namespace CMS.Controllers
                     ArquivoImagem = "",
                     Pagina_ = Id,
                     Nome = "Imagem",
-                    Width = 100,
+                    WidthImagem = 100,
                     PaginaEscolhida = PaginaEscolhida
                 };
 

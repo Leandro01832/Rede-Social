@@ -17,19 +17,30 @@
             </div>
             <div class="form-group">
                 <label asp-for="BorderRadius" class="control-label"></label>
-                 <input asp-for="BorderRadius" type="range" max="200" min="0" value="0" class="form-control" />
+                <input asp-for="BorderRadius" type="range" max="200" min="0" value="@Model.BorderRadius" class="form-control" />
                 <span asp-validation-for="BorderRadius" class="text-danger"></span>
+                <input id="Container_BorderRadius" name="Container_BorderRadius" type="number" value="@Model.BorderRadius" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="Height" class="control-label"></label>
-                 <input asp-for="Height" type="range" max="2000" min="0" value="200" class="form-control" />
+                <input asp-for="Height" type="range" max="2000" min="0" value="@Model.Height" class="form-control" />
                 <span asp-validation-for="Height" class="text-danger"></span>
+                <input id="Container_Height" name="Container_Height" type="number" value="@Model.Height" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="Width" class="control-label"></label>
-                <input asp-for="Width" type="range" max="100" min="10" class="form-control" />
+                <input asp-for="Width" type="range" max="100" min="10" value="@Model.Width" class="form-control" />
                 <span asp-validation-for="Width" class="text-danger"></span>
+                <input id="Container_Width" name="Container_Width" type="number" value="@Model.Width" class="form-control" />
             </div>
+
+            <div class="form-group">
+                <label asp-for="Padding" class="control-label"></label>
+                <input asp-for="Padding" type="range" max="95" min="0" value="@Model.Padding" class="form-control" />
+                <span asp-validation-for="Padding" class="text-danger"></span>
+                <input id="Container_Padding" name="Container_Padding" type="number" value="@Model.Padding" class="form-control" />
+            </div>
+            
             <div class="form-group">
                 <label asp-for="FlexWrap" class="control-label"></label>
                 <select asp-for="FlexWrap" class="form-control">
@@ -100,19 +111,14 @@
                 </select>
                 <span asp-validation-for="FlexDirection" class="text-danger"></span>
             </div>
-            
-            <div class="form-group">
-                <label asp-for="Padding" class="control-label"></label>
-                <input asp-for="Padding" class="form-control" />
-                <span asp-validation-for="Padding" class="text-danger"></span>
-            </div>
+
 
             <div class="form-group">
                 <label asp-for="ClassesModificadoras" class="control-label"></label>
                 <input asp-for="ClassesModificadoras" class="form-control" />
                 <span asp-validation-for="ClassesModificadoras" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Content" /> @Html.DisplayNameFor(model => model.Content)
@@ -120,22 +126,28 @@
             </div>
             <input type="hidden" asp-for="Id" />
 
-            <div id="links-back" >
-            <a href="#" id="blocoGradiente" class="btn btn-warning">Plano gradiente</a><br />
-            <a href="#" id="blocoImagem" class="btn btn-primary">Plano imagem</a><br />
-            <a href="#" id="blocoCor" class="btn btn-danger">Plano de uma cor</a><br />
-            </div>       
+            <div id="links-back">
+                <a href="#" id="blocoGradiente" class="btn btn-warning">Plano gradiente</a><br />
+                <a href="#" id="blocoImagem" class="btn btn-primary">Plano imagem</a><br />
+                <a href="#" id="blocoCor" class="btn btn-danger">Plano de uma cor</a><br />
+            </div>
 
-        <a  href="#" id="Adicionar"  class="btn btn-warning">
-            Adicionar novo bloco
-        </a>
-            
+            <input id="id-bloco" name="id-bloco" type="number" class="form-control" placeholder="Informe o ID (Opcional)" />
+            <a href="#" id="Adicionar" class="btn btn-warning">
+                Adicionar novo bloco
+            </a>
+
+            <a href="#" id="Remover" class="btn btn-warning">
+                Remover este Container
+            </a>
+
         </form>
 
     </div>
 </div>
 
 <div>
+    <script src="~/js/retorno.js"></script>
     <script src="~/js/div/Container.js"></script>
 
     <script src="~/js/AjaxGet.js"></script>
@@ -149,10 +161,35 @@
         $("#Adicionar").click(function () {
 
                     var formData = new FormData();
-                    formData.append("id", @(Model.Id));
+            formData.append("id", @(Model.Id));
+            formData.append("div", $("#id-bloco").val());
 
                     $.ajax({
                         url: '/Container/Adicionar',
+                        data: formData,
+                        processData: !1,
+                        contentType: !1,
+                        type: "POST",
+                        headers: headers,
+                        success: function (data) {
+                        var numero = $("#IdentificaPagina").val();
+                        $(".content").load("/Pagina/getview", { id: numero });
+                        if (data !== "")
+                        {
+                            alert("Erro ao adicionar. " + data);
+                        }
+                    }
+                });
+            });
+
+        $("#Remover").click(function () {
+
+                    var formData = new FormData();
+                    formData.append("id", @(Model.Id));
+                    formData.append("pagina", $("#IdentificaPagina").val());
+
+                    $.ajax({
+                        url: '/Container/Remover',
                         data: formData,
                         processData: !1,
                         contentType: !1,

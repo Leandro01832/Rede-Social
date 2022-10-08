@@ -98,6 +98,7 @@ namespace business.div
 
         public void IncluiElemento(Elemento elemento)
         {
+            if(this.Elemento == null) this.Elemento = new List<DivElemento>();
             this.Elemento.Add(new DivElemento { Elemento = elemento });
         }
 

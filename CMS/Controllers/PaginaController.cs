@@ -165,22 +165,17 @@ namespace MeuProjetoAgora.Controllers
 
          [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<string> Adicionar(long? id)
+        public async Task<string> Adicionar(long? id, long? container)
         {
-            if (id == null)
-            {
-                return "Error1";
-            }
-
             var pagina = await db.Pagina.Include(p => p.Div).FirstAsync(p => p.Id == id);
-            if (pagina == null)
-            {
-                return "Error2";
-            }
+            var Container = await db.Container.FirstOrDefaultAsync(p => p.Id == container);           
 
            try
             {
+                if(Container == null)
                 pagina.IncluiDiv(new Container(1){Content = true});
+                else
+                    pagina.IncluiDiv(Container);
                 db.SaveChanges();
             }
             catch (Exception ex)

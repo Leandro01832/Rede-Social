@@ -422,6 +422,8 @@ namespace CMS.Migrations
 
                     b.Property<long?>("TextoId");
 
+                    b.Property<int>("Width");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FormularioId");
@@ -581,6 +583,8 @@ namespace CMS.Migrations
                     b.Property<long?>("SubStoryId");
 
                     b.Property<long?>("SubSubGrupoId");
+
+                    b.Property<int>("Tempo");
 
                     b.Property<string>("Titulo")
                         .IsRequired();
@@ -973,7 +977,7 @@ namespace CMS.Migrations
 
                     b.Property<long?>("PastaImagemId");
 
-                    b.Property<int>("Width");
+                    b.Property<int>("WidthImagem");
 
                     b.HasIndex("PastaImagemId");
 

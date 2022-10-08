@@ -15,16 +15,18 @@ namespace business.business
 
         public Pagina()
         {
-            if(Pagina.entity)
-            Div = new List<PaginaContainer>
-            {
-                new PaginaContainer{Container = new Container()},              
-                new PaginaContainer
+            if(Pagina.entity){
+                Div = new List<PaginaContainer>
                 {
-                     Container = new Container(){Content = true}
-                }
+                    new PaginaContainer{Container = new Container()},              
+                    new PaginaContainer
+                    {
+                        Container = new Container(){Content = true}
+                    }
 
-            };
+                };
+                Tempo = 15000;
+            }
         }
         
         public Pagina(int quant)
@@ -38,6 +40,7 @@ namespace business.business
                 }
 
             };
+            Tempo = 15000;
         }
        
         public Pagina(int quant, int quantContainers)
@@ -53,7 +56,7 @@ namespace business.business
             };
             for (int i = 0; i < quantContainers; i++)
             Div.Add(new PaginaContainer());
-
+            Tempo = 15000;
         }
 
         private int mostrarDados = 0;
@@ -164,7 +167,9 @@ namespace business.business
 
         public string FlexDirection { get { return flexDirection; } set { flexDirection = value; } }
         
-        public string AlignItems { get { return alignItems; } set { alignItems = value; } }        
+        public string AlignItems { get { return alignItems; } set { alignItems = value; } }
+
+        public int Tempo { get; set; }
 
         [NotMapped]
         public string Html { get; set; }

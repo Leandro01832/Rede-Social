@@ -25,6 +25,13 @@
                 <span asp-validation-for="AlignSelf" class="text-danger"></span>
             </div>
 
+             <div class="form-group">
+                    <label asp-for="Width" class="control-label"></label>
+                    <input asp-for="Width" type="range" max="100" min="5" value="@Model.Width" class="form-control" />
+                    <span asp-validation-for="Width" class="text-danger"></span>
+                    <input id="Elemento_Width" name="Div_Width" type="number" value="@Model.Width" class="form-control" />
+                </div>
+
             <div class="form-group">
                 <label asp-for="ClassesModificadoras" class="control-label"></label>
                 <input asp-for="ClassesModificadoras" class="form-control" />

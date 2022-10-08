@@ -185,5 +185,24 @@ namespace CMS.Controllers
             catch (Exception ex) { return ex.Message; }
         }
         #endregion
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<string> Remover(long? id, long? container)
+        {
+            try
+            {
+                _context.Remove(await _context.DivContainer
+                .FirstAsync(p => p.DivId == id && p.ContainerId == container));
+                _context.SaveChanges();
+            }
+            catch (System.Exception)
+            {
+                return "Error3";
+            }
+
+            return "";
+        }
+
     }
 }

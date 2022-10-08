@@ -105,8 +105,16 @@ namespace CMS.Controllers
             var teste = await _context.BackgroundDiv.Include(b => b.Div)
                 .FirstAsync(b => b.Div.Id == background.Id);
             background.Div = teste.Div;
-            _context.Remove(teste); await _context.SaveChangesAsync();
-            _context.Add(background); await _context.SaveChangesAsync();
+            if (teste is BackgroundGradiente)
+            {
+                var t = (BackgroundGradiente)teste; t.Grau = background.Grau;
+                _context.Update(t); await _context.SaveChangesAsync();
+            }
+            else
+            {
+                _context.Remove(teste); await _context.SaveChangesAsync();
+                _context.Add(background); await _context.SaveChangesAsync();
+            }
             return "";
         }
 
@@ -134,8 +142,7 @@ namespace CMS.Controllers
             background.Container = teste.Container;
             _context.Remove(teste); await _context.SaveChangesAsync();
                 _context.Add(background); await _context.SaveChangesAsync();
-                return "";
-            
+                return "";            
         }
 
          [HttpPost]
@@ -146,8 +153,16 @@ namespace CMS.Controllers
             var teste = await _context.BackgroundContainer.Include(b => b.Container)
                 .FirstAsync(b => b.Container.Id == background.Id);
             background.Container = teste.Container;
-            _context.Remove(teste); await _context.SaveChangesAsync();
-            _context.Add(background); await _context.SaveChangesAsync();
+            if (teste is BackgroundGradienteContainer)
+            {
+                var t = (BackgroundGradienteContainer)teste; t.GrauContainer = background.GrauContainer;
+                _context.Update(t); await _context.SaveChangesAsync();
+            }
+            else
+            {
+                _context.Remove(teste); await _context.SaveChangesAsync();
+                _context.Add(background); await _context.SaveChangesAsync();
+            }
             return "";
         }
         
@@ -191,8 +206,16 @@ namespace CMS.Controllers
             var teste = await _context.BackgroundElemento.Include(b => b.Elemento)
                 .FirstAsync(b => b.Elemento.Id == background.Id);
             background.Elemento = teste.Elemento;
-            _context.Remove(teste); await _context.SaveChangesAsync();
-            _context.Add(background); await _context.SaveChangesAsync();
+            if (teste is BackgroundGradienteElemento)
+            {
+                var t = (BackgroundGradienteElemento)teste; t.GrauElemento = background.GrauElemento;
+                _context.Update(t); await _context.SaveChangesAsync();
+            }
+            else
+            {
+                _context.Remove(teste); await _context.SaveChangesAsync();
+                _context.Add(background); await _context.SaveChangesAsync();
+            }
             return "";
         }
         #endregion

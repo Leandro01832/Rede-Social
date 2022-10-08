@@ -61,6 +61,7 @@
     {
         order: ${elemento.Elemento.Ordem};        
         align-self: ${elemento.Elemento.AlignSelf};
+        flex-grow: ${elemento.Elemento.Width};
         
     }
 </style>
@@ -90,3 +91,25 @@
             });
     </script>
             #end
+
+            <script type="text/javascript">
+        $(document).ready(function () {      
+            
+                if ($("#margem").is(':checked'))
+                {
+                    $(".Elemento").css("border", "ridge");
+                    $(".Elemento").css("border-width", "3px");
+                    $(".ClassDiv").css("border", "ridge");
+                    $(".ClassDiv").css("border-width", "8px");
+                    $(".ContainerDiv").css("border", "ridge");
+                    $(".ContainerDiv").css("border-width", "15px"); 
+                }
+                else
+                {
+                    $(".Elemento").css("border", "none");
+                    $(".ClassDiv").css("border", "none");
+                    $(".ContainerDiv").css("border", "none");
+                }      
+
+        });
+    </script>

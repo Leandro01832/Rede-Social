@@ -19,6 +19,7 @@ namespace business.business.Elementos.element
         private Int64? imagemId = null;
         private Int64? formularioId = null;
         private Int64? paginaEscolhida = null;
+        private int width = 0;
         private string alignSelf = "auto";
         private string classesModificadoras = "";
 
@@ -101,6 +102,12 @@ namespace business.business.Elementos.element
               classesModificadoras = value;
             } 
         }
+
+         public int Width
+          {
+             get{ return width; }
+              set{ width = value; }
+          }
 
         public virtual List<ElementoDependenteElemento> Dependentes { get; set; }
         [NotMapped]

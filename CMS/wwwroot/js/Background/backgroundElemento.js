@@ -29,7 +29,7 @@
             formdata[obj.name] = obj.value;
         });
 
-        formdata["backgroundTransparente"] = $("#backgroundTransparente").is(':checked');
+        formdata["backgroundTransparenteElemento"] = $("#backgroundTransparenteElemento").is(':checked');
 
         return formdata;
 

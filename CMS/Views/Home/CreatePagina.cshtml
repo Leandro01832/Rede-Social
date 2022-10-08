@@ -5,6 +5,8 @@
 }
 
 <h2>Criar</h2>
+<link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
+<link rel="stylesheet" href="~/css/RenderizarDinamico2.css" />
 
 
 @using (Html.BeginForm())
@@ -40,30 +42,44 @@
             </div>
         </div>
 
-         <div class="form-group">
-                <label class="control-label">Sub-Story</label>
-                <select id="SubStoryId" name="SubStoryId"  class="form-control"></select>
-            </div>
+        <div class="form-group">
+            <label class="control-label">Sub-Story</label>
+            <select id="SubStoryId" name="SubStoryId" class="form-control"></select>
+        </div>
 
-            <div class="form-group">
-                <label  class="control-label">Grupo</label>
-                <select id="GrupoId" name="GrupoId" class="form-control" ></select>
-            </div>
+        <div class="form-group">
+            <label class="control-label">Grupo</label>
+            <select id="GrupoId" name="GrupoId" class="form-control"></select>
+        </div>
 
-            <div class="form-group">
-                <label class="control-label">Sub-Grupo</label>
-                <select id="SubGrupoId" name="SubGrupoId" class="form-control" ></select>
-            </div>
+        <div class="form-group">
+            <label class="control-label">Sub-Grupo</label>
+            <select id="SubGrupoId" name="SubGrupoId" class="form-control"></select>
+        </div>
 
-            <div class="form-group">
-                <label class="control-label">Sub-Sub-Grupo</label>
-                <select id="SubSubGrupoId" name="SubSubGrupoId" class="form-control" ></select>
-            </div>
+        <div class="form-group">
+            <label class="control-label">Sub-Sub-Grupo</label>
+            <select id="SubSubGrupoId" name="SubSubGrupoId" class="form-control"></select>
+        </div>
 
         <div class="form-group">
             @Html.Label("", "Layout", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("Layout", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("", "Pasta", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Pasta", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("", "Elemento", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Elemento", null, htmlAttributes: new { @class = "form-control" })
             </div>
         </div>
 
@@ -85,32 +101,37 @@
         </div>
     </div>
 
-    <div id="Visualizacao" class="content">
-        @Html.Raw(ViewBag.html)
-    </div>
 }
 
+<div id="ConteudoPagina" class="content" style="display:none;">
+    @Html.Raw(ViewBag.html)
+</div>
 
 
 @section scripts{
 
-     <script type="text/javascript" src="~/js/AjaxGetGroup.js"></script>
+    <script type="text/javascript" src="~/js/AjaxGetGroup.js"></script>
+    <script type="text/javascript" src="~/js/FullScreen.js"></script>
+   
     <script type="text/javascript">
         $(document).ready(function () {
-            
+
             $("#Preview").click(function () {
-                $("#Visualizacao").css("display", "block");
+                $("#ConteudoPagina").css("display", "block");
                 $("#Fechar").css("display", "block");
                 $("#Formulario").css("display", "none");
-                $('#Visualizacao').load('/Home/Preview/', // url 
-                    { Layout: $("#Layout").val(), Conteudo: $("#textarea").val(), UserId: $("#UserId").val() },
-                    function (data, status, jqXGR) {  // callback function 
-                        alert('dados carregados');
-                    }); 
+                $('#ConteudoPagina').load('/Home/Preview/', // url
+                    {
+                        Layout: $("#Layout").val(), Conteudo: $("#textarea").val(),
+                        UserId: $("#UserId").val(), Pasta: $("#Pasta").val(), Elemento: $("#Elemento").val()
+                    },
+                    function (data, status, jqXGR) {  // callback function
+                        openFullscreen2();
+                    });
             });
 
             $("#Fechar").click(function () {
-                $("#Visualizacao").css("display", "none");
+                $("#ConteudoPagina").css("display", "none");
                 $("#Fechar").css("display", "none");
                 $("#Formulario").css("display", "block");
             });

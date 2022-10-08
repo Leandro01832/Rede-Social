@@ -1,0 +1,1034 @@
+USE [sites]
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'0089b7d8-88da-4e98-a956-4a988a2597b9', N'Music', N'MUSIC', N'b1cf6431-0acc-434e-99ac-97d80543efc4')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'0437440f-1c2b-448d-9219-ec6d735d1bec', N'Admin', N'ADMIN', N'98cef1da-b488-4c34-83ce-f35c9f23ecd7')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'081dd0e0-7c11-47f7-8993-9bd96da31795', N'Delete', N'DELETE', N'b50c3cd2-a4d5-469a-ba3c-61412b41ebc1')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'0c97b888-d22d-440e-82f8-7e9a49005cf4', N'Link', N'LINK', N'bb303011-606d-4e27-88c4-cc87598d8cf9')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'46bc06c3-e029-4416-8d75-19d154e5e5e4', N'Div', N'DIV', N'f745ecbf-9e28-45fa-8204-12d114dff107')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'5467536e-e05a-4202-bb9a-38f6541ae1f3', N'Video', N'VIDEO', N'9099a378-3253-4d05-b415-9bdd48200bdd')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'5a2e4b61-0cbf-4fec-b7e2-b8ab170614fb', N'Ecommerce', N'ECOMMERCE', N'dad7bce8-25e4-46ca-b25f-a5496cc48561')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'64b6aa93-f477-4d5c-bd80-82d04335558d', N'Elemento', N'ELEMENTO', N'e3975ffc-f594-4562-be14-cd25d34d78d6')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'687a8ea2-f4b1-4650-b0be-c0b788d9972c', N'Carousel', N'CAROUSEL', N'911c9cac-56d6-4162-b087-5ea727d2ec0c')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'778bc613-439d-4e8b-8a25-7345bc5c30d7', N'Imagem', N'IMAGEM', N'130674ae-f1f5-449a-9d9a-24d2f1f544a8')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'7b22a413-9351-4003-a1f5-737e6405e5e7', N'Pagina', N'PAGINA', N'9150b8b6-7817-4ac8-a336-ad20391bdda0')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'7dac8ec2-6568-4ac5-a68f-2b3f411764a3', N'Index', N'INDEX', N'6a4ed281-ba8a-4ec1-bd93-5ec89e4113b3')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'81e5fb2c-1f21-4dfa-89e5-938cd3465f2d', N'Transacao', N'TRANSACAO', N'4ed50f00-4355-44e8-aa11-6d7ca0e263bc')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'8d2c0be8-2060-411b-93e9-8222d7f74b58', N'Background', N'BACKGROUND', N'a20e6d9f-6b15-45f1-8e6f-da08bb2bbc89')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'97cdb6ab-896a-41fd-9b2c-cb0af081a18f', N'User', N'USER', N'b1db0881-63fd-4f9b-9cba-6397f7f957a1')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'bf7944f1-ee6d-44c0-9b13-db48787e130d', N'SuperAdmin', N'SUPERADMIN', N'45273c1e-df82-4d9e-97a8-68bc1b3c47d7')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'd2849dda-a949-499b-9520-32d4fcb504dc', N'Texto', N'TEXTO', N'fc16feed-14ab-4117-bad3-ffbe9b92f383')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'dadc5a09-f1ca-4fe3-8143-f9b0cd8f2399', N'Create', N'CREATE', N'c058069d-6b73-48ab-b515-29274f0fcc10')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'e4b73c02-a92d-4643-9c58-062e903bba5a', N'Formulario', N'FORMULARIO', N'bbd65d0a-cc73-4c15-b0bf-e92ce3cdc5b9')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'e8049b61-0858-4832-ad79-a27684373a08', N'AlteraPagina', N'ALTERAPAGINA', N'9ec688bf-1dcc-4573-88e8-55c832bef24b')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'f08d9310-df49-459a-85ac-3823b32bc66a', N'Edit', N'EDIT', N'11bd98d0-c6da-4f84-aa43-b005a56935a0')
+GO
+INSERT [dbo].[AspNetRoles] ([Id], [Name], [NormalizedName], [ConcurrencyStamp]) VALUES (N'ff725907-73fd-4ba5-9e05-6ec10718e4c5', N'Consultor', N'CONSULTOR', N'e8e2e21b-57a0-4975-8b33-596dff3b16d6')
+GO
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Capa], [Name], [Image], [Facebook], [Twitter], [Instagram]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com', N'LEANDROLEANLEO@GMAIL.COM', NULL, NULL, 0, N'AQAAAAEAACcQAAAAEJLwhEw/6cY2QQoIMfbN8QO3E0gtTL1jvTqRzokXnQmlfcarhKm9+DULgLuJ45uprg==', N'GCF7QIZGLKP2PD7I73AVTSEKEYL3F24T', N'8c51b095-7ef7-4dbb-8290-2b8a7dfc3d3c', NULL, 0, 0, NULL, 1, 0, N'<br /> <br /> <br />  <center> <h1> leandro</h1> <br /> <img src=''/ImagensGaleria/Padrao.jpg'' width=''300'' class=''img-circle img-responsive'' /> </center> <br />  <br /> <br /> ', N'leandro', N'/ImagensGaleria/Padrao.jpg', NULL, NULL, NULL)
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'0089b7d8-88da-4e98-a956-4a988a2597b9')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'0437440f-1c2b-448d-9219-ec6d735d1bec')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'0c97b888-d22d-440e-82f8-7e9a49005cf4')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'46bc06c3-e029-4416-8d75-19d154e5e5e4')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'5467536e-e05a-4202-bb9a-38f6541ae1f3')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'5a2e4b61-0cbf-4fec-b7e2-b8ab170614fb')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'64b6aa93-f477-4d5c-bd80-82d04335558d')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'687a8ea2-f4b1-4650-b0be-c0b788d9972c')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'778bc613-439d-4e8b-8a25-7345bc5c30d7')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'7b22a413-9351-4003-a1f5-737e6405e5e7')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'8d2c0be8-2060-411b-93e9-8222d7f74b58')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'bf7944f1-ee6d-44c0-9b13-db48787e130d')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'd2849dda-a949-499b-9520-32d4fcb504dc')
+GO
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'f389a9a3-019f-4e10-954a-487b90040210', N'e4b73c02-a92d-4643-9c58-062e903bba5a')
+GO
+SET IDENTITY_INSERT [dbo].[Container] ON 
+
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (1, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (2, 0, 0, 429, 93, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (3, -1, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (4, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 1)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (5, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (6, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (7, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (8, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (9, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'flex-start', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (10, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (11, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (12, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (13, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (14, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (15, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (16, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (17, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (18, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (19, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (20, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (21, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (22, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 1)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (23, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (24, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 1)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (25, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (26, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 1)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (27, 0, 0, 200, 85, N'wrap', N'center', N'row', N'start', N'auto', N'border border-primary ', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (28, 0, 0, 950, 100, N'wrap', N'space-around', N'column', N'flex-start', N'auto', N'', 0, 1)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (29, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (30, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (31, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (32, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (33, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (34, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (35, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (36, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (37, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (38, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (39, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (40, 0, 0, 200, 100, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (41, -1, 0, 750, 25, N'wrap', N'flex-start', N'row', N'flex-end', N'auto', N'', 0, 0)
+GO
+INSERT [dbo].[Container] ([Id], [Ordem], [BorderRadius], [Height], [Width], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Padding], [Content]) VALUES (42, 0, 0, 750, 25, N'wrap', N'space-around', N'row', N'flex-end', N'auto', N'', 0, 0)
+GO
+SET IDENTITY_INSERT [dbo].[Container] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Div] ON 
+
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (1, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'end', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (2, 0, N'bloco', 0, 61, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (3, 0, N'bloco', 0, 200, 77, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (4, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (5, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (6, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (7, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (8, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (9, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (10, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (11, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (12, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (13, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (14, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (15, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (16, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (17, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (18, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (19, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (20, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (21, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (22, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (23, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (24, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (25, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (26, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (27, 0, N'bloco', 0, 200, 100, 1, 0, 1, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (28, 0, N'bloco', 0, 460, 50, 1, 0, 2, N'wrap', N'center', N'row', N'center', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (29, 0, N'bloco', 0, 200, 100, 1, 0, 0, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (30, 0, N'bloco', 0, 200, 100, 1, 0, 0, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (31, 0, N'bloco', 0, 200, 100, 1, 0, 0, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (32, 0, N'bloco', 0, 42, 100, 0, 0, 6, N'nowrap', N'center', N'row', N'center', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (33, 0, N'bloco', 0, 550, 100, 1, 0, 6, N'wrap', N'flex-start', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (34, 0, N'bloco', 0, 200, 100, 1, 0, 0, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (35, 0, N'bloco', 0, 67, 100, 1, 0, 6, N'wrap', N'center', N'row', N'flex-start', N'auto', N'border border-dark  ', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (36, 0, N'bloco', 0, 67, 100, 1, 0, 6, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Div] ([Id], [Ordem], [Nome], [Padding], [Height], [Width], [Content], [BorderRadius], [Pagina_], [FlexWrap], [JustifyContent], [FlexDirection], [AlignItems], [AlignSelf], [ClassesModificadoras], [Discriminator], [EscolherPosicao], [PosicaoFixacao], [InicioFixacao], [EixoYBlocoFixado], [EixoXBlocoFixado]) VALUES (37, 0, N'bloco', 0, 50, 100, 0, 0, 6, N'wrap', N'center', N'row', N'flex-start', N'auto', N'', N'DivComum', NULL, NULL, NULL, NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Div] OFF
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (2, 1)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (3, 2)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (4, 3)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (12, 28)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (22, 29)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (24, 30)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (26, 31)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (28, 32)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (28, 33)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (28, 37)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (41, 35)
+GO
+INSERT [dbo].[DivContainer] ([ContainerId], [DivId]) VALUES (42, 36)
+GO
+SET IDENTITY_INSERT [dbo].[PastaImagem] ON 
+
+GO
+INSERT [dbo].[PastaImagem] ([Id], [Nome], [UserId]) VALUES (1, N'oculos', N'f389a9a3-019f-4e10-954a-487b90040210')
+GO
+INSERT [dbo].[PastaImagem] ([Id], [Nome], [UserId]) VALUES (2, N'bones', N'f389a9a3-019f-4e10-954a-487b90040210')
+GO
+INSERT [dbo].[PastaImagem] ([Id], [Nome], [UserId]) VALUES (3, N'calçados', N'f389a9a3-019f-4e10-954a-487b90040210')
+GO
+INSERT [dbo].[PastaImagem] ([Id], [Nome], [UserId]) VALUES (4, N'calças', N'f389a9a3-019f-4e10-954a-487b90040210')
+GO
+INSERT [dbo].[PastaImagem] ([Id], [Nome], [UserId]) VALUES (5, N'camisas', N'f389a9a3-019f-4e10-954a-487b90040210')
+GO
+INSERT [dbo].[PastaImagem] ([Id], [Nome], [UserId]) VALUES (6, N'conjuntos', N'f389a9a3-019f-4e10-954a-487b90040210')
+GO
+INSERT [dbo].[PastaImagem] ([Id], [Nome], [UserId]) VALUES (7, N'logos', N'f389a9a3-019f-4e10-954a-487b90040210')
+GO
+SET IDENTITY_INSERT [dbo].[PastaImagem] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Elemento] ON 
+
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (1, NULL, N'elemento', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1.jpg', 100, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (2, NULL, N'bloco', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/2.jpg', 100, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (3, NULL, N'Default', 0, N'auto', 0, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/3.jpg', 100, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (4, NULL, N'elemento', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Texto', NULL, NULL, NULL, N'<h1> Story camisas</h1>', NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (5, NULL, N'elemento', 0, N'auto', 1, 4, NULL, NULL, N'jumbotron ', N'LinkBody', NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'#LinkPadrao', 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (6, NULL, N'elemento', 0, N'auto', 1, NULL, NULL, NULL, N'', N'LinkBody', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (7, NULL, N'elemento', 0, N'auto', 1, NULL, NULL, NULL, N'', N'LinkBody', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (8, NULL, N'elemento', 0, N'auto', 2, NULL, NULL, NULL, N'', N'Texto', NULL, NULL, NULL, N'<h1> Story oculos</h1>', NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (9, NULL, N'elemento', 0, N'flex-start', 2, 8, NULL, NULL, N'jumbotron ', N'LinkBody', NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'#LinkPadrao', 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (10, NULL, N'Imagem', 0, N'auto', 2, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/2Paginaoculos/10-images2.jpg', 100, 1, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (11, NULL, N'elemento', 0, N'auto', 3, NULL, NULL, NULL, N'', N'Texto', NULL, NULL, NULL, N'<h1> Story calças</h1>', NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (12, NULL, N'elemento', 0, N'auto', 3, 11, NULL, NULL, N'jumbotron ', N'LinkBody', NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'#LinkPadrao', 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (13, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaoculos/13-1594699713e45955a6a6cfc8f082175717da81ac83_thumbnail_600x.jpg', 100, 1, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (14, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaoculos/14-1635993373aef24c112efc98856139e2456cfb202a_thumbnail_600x.jpg', 100, 1, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (15, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaoculos/15-16487046519d0af501ec08aea4878a1b73e9021b2f_thumbnail_600x.jpg', 100, 1, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (16, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaoculos/16-Captura de tela 2022-10-05 125431.jpg', 100, 1, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (17, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaoculos/17-Captura de tela 2022-10-05 125534.jpg', 100, 1, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (18, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaoculos/18-Captura de tela 2022-10-05 125643.jpg', 100, 1, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (19, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginabones/19-1627391766fc4aab532e03ad3520c876cba6559ccb_thumbnail_600x.jpg', 100, 2, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (20, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginabones/20-1652932840b7fdb17f80ca832194ddd8c08f365fce_thumbnail_600x.jpg', 100, 2, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (21, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginabones/21-Captura de tela 2022-10-05 132152.jpg', 100, 2, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (22, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginabones/22-Captura de tela 2022-10-05 132256.jpg', 100, 2, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (23, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginabones/23-Captura de tela 2022-10-05 132346.jpg', 100, 2, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (24, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginabones/24-Captura de tela 2022-10-05 132429.jpg', 100, 2, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (25, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginabones/25-Captura de tela 2022-10-05 132506.jpg', 100, 2, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (26, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginabones/26-Captura de tela 2022-10-05 132537.jpg', 100, 2, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (27, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginabones/27-Captura de tela 2022-10-05 132618.jpg', 100, 2, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (28, NULL, N'elemento', 0, N'auto', 6, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 100)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (29, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacalçados/29-Captura de tela 2022-10-05 133509.jpg', 100, 3, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (30, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacalçados/30-Captura de tela 2022-10-05 133628.jpg', 100, 3, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (31, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacalçados/31-Captura de tela 2022-10-05 133836.jpg', 100, 3, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (32, NULL, N'bloco', 0, N'auto', 6, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 74)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (33, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacalçados/33-S434eda9af92848529876a3c34f73421cJ.jpg', 100, 3, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (34, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacalçados/34-T-nis-dos-homens-moda-casual-t-nis-de-corrida-amante-sapatos-gin-sio-leve-respirar.jpg', 100, 3, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (35, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacalças/35-1617_thumbnail_600x.jpg', 100, 4, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (36, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacalças/36-thumbnail_600x.jpg', 100, 4, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (37, 10102, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/37-61cfbcf016eda8dac9f5a7ce7d1b69c9.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (38, 10103, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/38-camisas.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (39, 10104, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/39-camisas2.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (40, 10105, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/40-camisas3.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (41, 10106, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/41-camisas4.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (42, 10107, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/42-camisas5.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (43, 10108, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/43-camisas6.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (44, 10109, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/44-camisas7.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (45, 10110, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/45-camisas8.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (46, 10111, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/46-camisas9.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (47, 10112, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/47-camisas10.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (48, 10113, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/48-camisas11.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (49, 10114, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/49-camisas12.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (50, 10115, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginacamisas/50-camisas13.jpg', 100, 5, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (51, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/51-2e704c1281cf1dea5c6d23023ca7a8a8.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (52, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/52-39a3b1e08091b83c526e7e604aa28869.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (53, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/53-2022-terno-de-treino-masculino-3d-impress-o-camiseta-f-rmula-1-esportes-2-conjuntos-roupas.jpg_Q90.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (54, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/54-1640310712e637bf0e40de7f9d1c6623574282a5e8.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (55, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/55-1653614278f41f564bc2cf42059b6d996937d366c2_thumbnail_600x.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (56, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/56-16560436500daf3ce6f6f3cd8233d80b2231a3984d_thumbnail_600x.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (57, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/57-16581320512a8517724cb847e4152a0c41b195c88d_thumbnail_600x.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (58, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/58-1659670355225ed7d734bdaa862e45c6fd095518a1_thumbnail_600x.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (59, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/59-Captura de tela 2022-10-05 130114.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (60, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/60-Captura de tela 2022-10-05 130944.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (61, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginaconjuntos/61-images.jpg', 100, 6, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (62, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginalogos/62-848x477.jpg', 100, 7, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (63, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginalogos/63-1158819.png', 100, 7, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (64, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginalogos/64-image-28-1024x576.jpg', 100, 7, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (65, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginalogos/65-images.jpg', 100, 7, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (66, NULL, N'elemento', 0, N'stretch', 6, NULL, NULL, NULL, N'border border-dark ', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginalogos/66-Is-Shein-legit-750x430.jpg', 100, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (67, NULL, N'Imagem', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginalogos/67-Shein7f6d.jpg', 100, 7, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (68, NULL, N'elemento', 0, N'auto', 6, NULL, NULL, NULL, N'border border-3 border-primary ', N'Imagem', NULL, NULL, NULL, NULL, N'/ImagensGaleria/1Paginalogos/68-shein-700x394.jpg', 100, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (69, NULL, N'undefined', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Video', NULL, NULL, N'/VideosGaleria/69-848x477.jpg', NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (70, NULL, N'undefined', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Video', NULL, NULL, N'/VideosGaleria/70-933c1c242fc94444838671a365f1b6b8_296136053_168458322373568_8495701194826342994_n.mp4', NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (71, NULL, N'undefined', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Video', NULL, NULL, N'/VideosGaleria/71-bab88bba67e046cfa8e113ab76f86b54_299792289_341626724755658_2062636928759918548_n.mp4', NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (72, NULL, N'undefined', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Video', NULL, NULL, N'/VideosGaleria/72-e041e8f79828437bafc4761f9d377583_297164001_1337682190372238_8593288691676408449_n.mp4', NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (73, NULL, N'undefined', 0, N'auto', 1, NULL, NULL, NULL, N'', N'Video', NULL, NULL, N'/VideosGaleria/73-X2Download.app-SHEIN _ Kimberly×SHEIN.mp4', NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (74, NULL, N'elemento', 0, N'auto', 4, NULL, NULL, NULL, N'', N'Texto', NULL, NULL, NULL, N'<h1> Story calçados</h1>', NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (75, NULL, N'elemento', 0, N'auto', 4, 74, NULL, NULL, N'', N'LinkBody', NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'#LinkPadrao', 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (76, NULL, N'elemento', 0, N'auto', 5, NULL, NULL, NULL, N'', N'Texto', NULL, NULL, NULL, N'<h1> Story bones</h1>', NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (77, NULL, N'elemento', 0, N'auto', 5, 76, NULL, NULL, N'', N'LinkBody', NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'#LinkPadrao', 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (78, NULL, N'elemento', 0, N'auto', 6, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (79, NULL, N'elemento', 0, N'auto', 6, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (80, NULL, N'elemento', 0, N'auto', 6, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (81, NULL, N'elemento', 0, N'auto', 6, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (82, NULL, N'elemento', 0, N'auto', 6, NULL, NULL, NULL, N'', N'Imagem', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0)
+GO
+INSERT [dbo].[Elemento] ([Id], [PaginaEscolhida], [Nome], [Ordem], [AlignSelf], [Pagina_], [TextoId], [ImagemId], [FormularioId], [ClassesModificadoras], [Discriminator], [Placeholder], [TipoCampo], [ArquivoVideo], [PalavrasTexto], [ArquivoImagem], [WidthImagem], [PastaImagemId], [TextoLink], [Width]) VALUES (83, NULL, N'elemento', 0, N'auto', 0, NULL, NULL, NULL, N'', N'Texto', NULL, NULL, NULL, N'<p style="text-align: center;"><span style="text-decoration: underline;"><strong><em><span style="color: #ffffff; background-color: #000000; font-size: 36pt; font-family: ''comic sans ms'', sans-serif; text-decoration: underline;">😍Shein😍</span></em></strong></span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="text-decoration: underline;"><strong><em><span style="color: #ffffff; background-color: #000000; font-size: 36pt; font-family: ''comic sans ms'', sans-serif; text-decoration: underline;">&nbsp;O seu produto&nbsp;</span></em></strong></span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="text-decoration: underline;"><strong><em><span style="color: #ffffff; background-color: #000000; font-size: 36pt; font-family: ''comic sans ms'', sans-serif; text-decoration: underline;">somente aqui</span></em></strong></span></p>', NULL, NULL, NULL, NULL, 0)
+GO
+SET IDENTITY_INSERT [dbo].[Elemento] OFF
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (1, NULL, NULL, N'BackgroundCorContainer', N'#9dcbe2', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (2, 68, NULL, N'BackgroundImagemContainer', NULL, NULL, NULL, N'no-repeat', N'center')
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (3, NULL, NULL, N'BackgroundCorContainer', N'transparent', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (4, NULL, NULL, N'BackgroundCorContainer', N'transparent', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (11, NULL, NULL, N'BackgroundCorContainer', N'#0f0f0f', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (12, NULL, NULL, N'BackgroundCorContainer', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (21, NULL, NULL, N'BackgroundCorContainer', N'transparent', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (22, NULL, NULL, N'BackgroundCorContainer', N'transparent', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (23, NULL, NULL, N'BackgroundCorContainer', N'transparent', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (24, NULL, NULL, N'BackgroundCorContainer', N'transparent', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (25, NULL, NULL, N'BackgroundCorContainer', N'transparent', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (26, NULL, NULL, N'BackgroundCorContainer', N'transparent', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (27, NULL, NULL, N'BackgroundGradienteContainer', NULL, NULL, 90, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (28, NULL, NULL, N'BackgroundCorContainer', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (41, NULL, NULL, N'BackgroundCorContainer', N'transparent', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundContainer] ([Id], [ImagemId], [VideoId], [Discriminator], [CorContainer], [backgroundTransparenteContainer], [GrauContainer], [Background_RepeatContainer], [Background_PositionContainer]) VALUES (42, NULL, NULL, N'BackgroundCorContainer', N'transparent', 0, NULL, NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Story] ON 
+
+GO
+INSERT [dbo].[Story] ([Id], [Nome], [UserId], [PaginaPadraoLink]) VALUES (1, N'Padrao', N'f389a9a3-019f-4e10-954a-487b90040210', 0)
+GO
+INSERT [dbo].[Story] ([Id], [Nome], [UserId], [PaginaPadraoLink]) VALUES (2, N'camisas', N'f389a9a3-019f-4e10-954a-487b90040210', 1)
+GO
+INSERT [dbo].[Story] ([Id], [Nome], [UserId], [PaginaPadraoLink]) VALUES (3, N'oculos', N'f389a9a3-019f-4e10-954a-487b90040210', 2)
+GO
+INSERT [dbo].[Story] ([Id], [Nome], [UserId], [PaginaPadraoLink]) VALUES (4, N'calças', N'f389a9a3-019f-4e10-954a-487b90040210', 3)
+GO
+INSERT [dbo].[Story] ([Id], [Nome], [UserId], [PaginaPadraoLink]) VALUES (5, N'calçados', N'f389a9a3-019f-4e10-954a-487b90040210', 4)
+GO
+INSERT [dbo].[Story] ([Id], [Nome], [UserId], [PaginaPadraoLink]) VALUES (6, N'bones', N'f389a9a3-019f-4e10-954a-487b90040210', 5)
+GO
+SET IDENTITY_INSERT [dbo].[Story] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Pagina] ON 
+
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (1, CAST(N'2022-10-04 19:40:53.3914778' AS DateTime2), 1, NULL, NULL, NULL, NULL, N'Story - camisas', N'', N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'column', N'stretch', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (2, CAST(N'2022-10-04 21:17:10.2072989' AS DateTime2), 1, NULL, NULL, NULL, NULL, N'Story - oculos', N'', N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'row', N'center', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (3, CAST(N'2022-10-05 11:49:35.5408129' AS DateTime2), 1, NULL, NULL, NULL, NULL, N'Story - calças', N'', N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'row', N'center', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (4, CAST(N'2022-10-05 17:35:32.7886631' AS DateTime2), 1, NULL, NULL, NULL, NULL, N'Story - calçados', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 0)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (5, CAST(N'2022-10-05 17:35:50.1626282' AS DateTime2), 1, NULL, NULL, NULL, NULL, N'Story - bones', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 0)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (6, CAST(N'2022-10-06 19:31:49.7560732' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'layout', N'', N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 1, N'row', N'flex-start', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10102, CAST(N'2022-10-08 07:37:48.5564299' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 37', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10103, CAST(N'2022-10-08 07:37:49.0770718' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 38', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10104, CAST(N'2022-10-08 07:37:49.5917718' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 39', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10105, CAST(N'2022-10-08 07:37:50.1143420' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 40', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10106, CAST(N'2022-10-08 07:37:50.6216297' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 41', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10107, CAST(N'2022-10-08 07:37:51.1290113' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 42', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10108, CAST(N'2022-10-08 07:37:51.6557930' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 43', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10109, CAST(N'2022-10-08 07:37:52.2330297' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 44', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10110, CAST(N'2022-10-08 07:37:52.7352921' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 45', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10111, CAST(N'2022-10-08 07:37:53.2421223' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 46', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10112, CAST(N'2022-10-08 07:37:53.7501500' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 47', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10113, CAST(N'2022-10-08 07:37:54.2569744' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 48', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10114, CAST(N'2022-10-08 07:37:54.7633052' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 49', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+INSERT [dbo].[Pagina] ([Id], [Data], [StoryId], [SubStoryId], [GrupoId], [SubGrupoId], [SubSubGrupoId], [Titulo], [Sobreescrita], [ArquivoMusic], [Music], [Pular], [UserId], [Layout], [FlexDirection], [AlignItems], [Tempo]) VALUES (10115, CAST(N'2022-10-08 07:37:55.2715601' AS DateTime2), 2, NULL, NULL, NULL, NULL, N'Imagem - 50', NULL, N'', 0, 0, N'f389a9a3-019f-4e10-954a-487b90040210', 0, N'flex-start', N'row', 15000)
+GO
+SET IDENTITY_INSERT [dbo].[Pagina] OFF
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (1, 1)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (2, 1)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (3, 1)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (4, 1)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (11, 2)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (12, 2)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (21, 3)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (22, 3)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (23, 4)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (24, 4)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (25, 5)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (26, 5)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 6)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 6)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 6)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 6)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10102)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10102)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10102)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10102)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10103)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10103)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10103)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10103)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10104)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10104)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10104)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10104)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10105)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10105)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10105)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10105)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10106)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10106)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10106)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10106)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10107)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10107)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10107)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10107)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10108)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10108)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10108)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10108)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10109)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10109)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10109)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10109)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10110)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10110)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10110)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10110)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10111)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10111)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10111)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10111)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10112)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10112)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10112)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10112)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10113)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10113)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10113)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10113)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10114)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10114)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10114)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10114)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (27, 10115)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (28, 10115)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (41, 10115)
+GO
+INSERT [dbo].[PaginaContainer] ([ContainerId], [PaginaId]) VALUES (42, 10115)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (1, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (2, NULL, NULL, N'BackgroundGradiente', NULL, NULL, 90, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (3, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (4, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (5, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (6, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (7, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (8, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (9, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (10, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (11, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (12, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (13, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (14, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (15, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (16, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (17, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (18, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (19, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (20, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (21, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (22, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (23, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (24, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (25, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (26, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (27, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (28, 10, NULL, N'BackgroundImagem', NULL, NULL, NULL, N'repeat', N'center')
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (29, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (30, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (31, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (32, NULL, NULL, N'BackgroundCor', N'#757575', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (33, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (34, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (35, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (36, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundDiv] ([Id], [ImagemId], [VideoId], [Discriminator], [Cor], [backgroundTransparente], [Grau], [Background_Repeat], [Background_Position]) VALUES (37, NULL, NULL, N'BackgroundCor', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (5, 1)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (9, 28)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (12, 29)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (37, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (38, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (39, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (40, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (41, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (42, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (43, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (44, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (45, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (46, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (47, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (48, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (49, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (50, 33)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (65, 32)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (66, 32)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (67, 32)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (68, 32)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (75, 30)
+GO
+INSERT [dbo].[DivElemento] ([ElementoId], [DivId]) VALUES (77, 31)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (1, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (2, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (3, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (4, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (5, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (6, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (7, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (8, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (9, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (10, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (11, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (12, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (13, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (14, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (15, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (16, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (17, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (18, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (19, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (20, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (21, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (22, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (23, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (24, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (25, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (26, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (27, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (28, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (29, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (30, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (31, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (32, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (33, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (34, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (35, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (36, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (37, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (38, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (39, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (40, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (41, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (42, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (43, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (44, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (45, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (46, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (47, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (48, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (49, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (50, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (51, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (52, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (53, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (54, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (55, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (56, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (57, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (58, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (59, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (60, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (61, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (62, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (63, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (64, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (65, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (66, NULL, NULL, N'BackgroundCorElemento', N'#b8b7b7', 0, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (67, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (68, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (69, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (70, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (71, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (72, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (73, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (74, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (75, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (76, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (77, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (78, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (79, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (80, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (81, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (82, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+INSERT [dbo].[BackgroundElemento] ([Id], [ImagemId], [VideoId], [Discriminator], [CorElemento], [backgroundTransparenteElemento], [GrauElemento], [Background_RepeatElemento], [Background_PositionElemento]) VALUES (83, NULL, NULL, N'BackgroundCorElemento', N'transparent', 1, NULL, NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Cor] ON 
+
+GO
+INSERT [dbo].[Cor] ([Id], [CorBackground], [Position], [Transparencia], [BackgroundContainerId], [BackgroundDivId], [BackgroundElementoId]) VALUES (1, N'#000000', 0, 5, NULL, 2, NULL)
+GO
+INSERT [dbo].[Cor] ([Id], [CorBackground], [Position], [Transparencia], [BackgroundContainerId], [BackgroundDivId], [BackgroundElementoId]) VALUES (2, N'#67f48a', 51, 10, NULL, 2, NULL)
+GO
+INSERT [dbo].[Cor] ([Id], [CorBackground], [Position], [Transparencia], [BackgroundContainerId], [BackgroundDivId], [BackgroundElementoId]) VALUES (3, N'#000000', 38, 8, 27, NULL, NULL)
+GO
+INSERT [dbo].[Cor] ([Id], [CorBackground], [Position], [Transparencia], [BackgroundContainerId], [BackgroundDivId], [BackgroundElementoId]) VALUES (4, N'#b7b3b3', 100, 10, 27, NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Cor] OFF
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220930180819_Inicio', N'2.2.6-servicing-10079')
+GO
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20221006142501_width-elemento', N'2.2.6-servicing-10079')
+GO
+SET IDENTITY_INSERT [dbo].[Permissao] ON 
+
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (1, N'Video', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (2, N'Texto', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (3, N'Imagem', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (4, N'Carousel', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (5, N'Background', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (6, N'Music', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (7, N'Link', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (8, N'Div', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (9, N'Elemento', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (10, N'Pagina', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (11, N'Ecommerce', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (12, N'Formulario', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+INSERT [dbo].[Permissao] ([Id], [NomePermissao], [UserId], [UserName]) VALUES (13, N'Admin', N'f389a9a3-019f-4e10-954a-487b90040210', N'leandroleanleo@gmail.com')
+GO
+SET IDENTITY_INSERT [dbo].[Permissao] OFF
+GO

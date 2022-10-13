@@ -13,40 +13,9 @@
 }
 
 <script src="/lib/jquery/dist/jquery.js"></script>
-
-<style media="screen and (max-width: 550px)">
-    .carousel-control {
-        display: block !important;
-        z-index: 40 !important;
-    }
-
-    #Livro
-     {
-        font-size: 1.5rem !important;
-    }
-
-    #record {
-        font-size: 1rem !important;
-    }
-
-    .indices {
-        font-size: 1rem !important;
-    }
-
-    #voltar {
-        display: none !important;
-    }
-
-    #avancar {
-        display: none !important;
-    }
-
-    .content
-        {
-            width: 100%;
-        }
-   
-</style>
+    <link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
+    <link rel="stylesheet" href="~/css/RenderizarDinamico2.css" />
+    <link rel="stylesheet" href="~/css/mobile.css" />
 
     <input type="hidden" value="@ViewBag.grupoindexsubstory" id="indexsubstory" />
 
@@ -60,8 +29,6 @@
     <input type="hidden" value="@Model.Story.PaginaPadraoLink" id="ValorPaginaPadraoLink" />
     <input type="hidden" value="@Model.Story.Nome" id="ValorStoryNome" />   
 
-    <link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
-    <link rel="stylesheet" href="~/css/RenderizarDinamico2.css" />
     <a class="left carousel-control blocoLoader2" href="/SubStory/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.grupoindexsubstory/@(anterior)" style="display:none;">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
@@ -104,7 +71,7 @@
 
     @Html.Raw(ViewBag.Html)
 
-    <div style="position:fixed; bottom:4%; left: 1%; width: 100%; overflow-x:auto;" class="Paginacao">
+    <div style="position:fixed; bottom:4%; width: 100%; overflow-x:auto;" class="Paginacao">
 
         <center>
             <a href="/Perfil/@ViewBag.user"  style="font-size:1.5rem; background-color:white; opacity: 0.80;">
@@ -112,13 +79,10 @@
             </a>
             <h3 style="background-color:darkgray; opacity: 0.80;">@Html.CheckBox("automatico") Automático </h3>
 
-            <div class="DivPagina">
-
+            <div class="DivPagina" style=" height:50px; overflow: hidden;">
                 <h4 style="background-color: yellow;">Sub-Story @grupo.Nome</h4>
+                <span id="redireciona-1"></span> 
                 @{
-                    if (quant <= 60)
-                    {
-
                         for (var indice = 1; indice <= quant; indice++)
                         {
                             <div class="DivPag"
@@ -129,8 +93,10 @@
                               style="font-size: 2rem;" id="record" ></span>
 
                             </div>
-                        }
-                    }
+                            if(indice >= 20){
+                                <span id="redireciona-@(indice)"></span>
+                            }
+                        }                    
                 }
 
             </div>
@@ -177,8 +143,6 @@
   
     <script src="~/lib/jquery/dist/jquery.cookie.js"></script>
     <script src="~/lib/aspnet-signalr/signalr.min.js"></script>
-    <script type="text/javascript" src="~/js/FullScreen.js"></script>
-    <script type="text/javascript"> openFullscreen(); </script>
     <script type="text/javascript" src="~/js/Chat-Renderizar.js"></script>
     <script src="~/js/loader.js"></script>
     <script type="text/javascript" src="~/js/NavegacaoSubStory.js"> </script>    

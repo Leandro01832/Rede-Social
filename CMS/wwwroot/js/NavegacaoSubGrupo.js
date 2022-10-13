@@ -13,6 +13,19 @@ $(document).ready(function() {
     var tempo = parseInt($("#Tempo").val());
     var valorStoryNome = $("#ValorStoryNome").val();    
 
+    var redirecionamento = "";
+
+    function redirecionar(pagina)
+    {
+        if(pagina >= 20){
+            redirecionamento =  "/#redireciona-" + pagina;
+        }
+        else{
+            redirecionamento =  "/#redireciona-1";        
+        }
+
+    }
+
     var links = $(".LinksPagina");
 
     if (valorStoryNome != "Padrao")
@@ -21,10 +34,12 @@ $(document).ready(function() {
     $("#DivPagina" + valorAtual).addClass('minhaClasse3');
 
     $("#voltar").click(function() {
+        redirecionar(valorAnterior);
         window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + valorAnterior;
     });
 
     $("#avancar").click(function() {
+        redirecionar(valorProximo);
         window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + valorProximo;
     });
 
@@ -50,8 +65,10 @@ $(document).ready(function() {
             setTimeout(function() {
                 $("#loading").show();
 
-                if (valorAtual < valorQuant)
+                if (valorAtual < valorQuant){
+                    redirecionar(valorProximo);
                     window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + valorProximo;
+                }
                 else
                     window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/1";
             }, tempo);
@@ -96,8 +113,10 @@ $(document).ready(function() {
 
             if ($.cookie('automatico') == '1')
                 $("#loading").show();
-            if (valorAtual < valorQuant && $.cookie('automatico') == '1')
+            if (valorAtual < valorQuant && $.cookie('automatico') == '1'){
+                redirecionar(valorProximo);
                 window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink  + "/" + indexSubStory +  "/" + indexGrupo  + "/" + indexSubGrupo + "/" + valorProximo;
+            }
             else if ($.cookie('automatico') == '1')             
              BuscarStory();          
             

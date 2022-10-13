@@ -312,15 +312,14 @@ namespace CMS.Controllers
 
                         for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
                         {
-                            if(RepositoryPagina.paginas[indice] == null ||
-                            RepositoryPagina.paginas[indice].FirstOrDefault(i => i.UserId == p.UserId) == null) continue;
+                            if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
 
-                            if(RepositoryPagina.paginas[indice].FirstOrDefault(i => i.Id == p.Id) != null)
+                            if(RepositoryPagina.paginas[indice] == null) RepositoryPagina.paginas[indice] = new List<Pagina>();
+                            if(RepositoryPagina.paginas[indice].Count < 1000000000)
                             {
-                                RepositoryPagina.paginas[indice].Remove(RepositoryPagina.paginas[indice].First(i => i.Id == p.Id));
                                 RepositoryPagina.paginas[indice].Add(p);
                                 break;
-                            }
+                            }                            
                         }       
                 }
                 return RedirectToAction(nameof(PaginasCriadas),
@@ -361,13 +360,12 @@ namespace CMS.Controllers
                             for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
                                 {
                                     if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
-
-                                    if(RepositoryPagina.paginas[indice] == null) {RepositoryPagina.paginas[indice]  = new List<Pagina>();}
-                                    if(RepositoryPagina.paginas[indice] .Count < 1000000000)
+                                    if(RepositoryPagina.paginas[indice] == null) RepositoryPagina.paginas[indice] = new List<Pagina>();
+                                    if(RepositoryPagina.paginas[indice].Count < 1000000000)
                                     {
                                         RepositoryPagina.paginas[indice].Add(pag);
                                         break;
-                                    }
+                                    }  
                                 }                      
                             var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == pag.StoryId);
                             var versiculos = story.Pagina.Where(p => !p.Layout).ToList().Count;
@@ -409,14 +407,13 @@ namespace CMS.Controllers
 
                             for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
                                 {
-                                    if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
-
-                                    if(RepositoryPagina.paginas[indice] == null) {RepositoryPagina.paginas[indice]  = new List<Pagina>();}
-                                    if(RepositoryPagina.paginas[indice] .Count < 1000000000)
+                                   if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
+                                    if(RepositoryPagina.paginas[indice] == null) RepositoryPagina.paginas[indice] = new List<Pagina>();
+                                    if(RepositoryPagina.paginas[indice].Count < 1000000000)
                                     {
                                         RepositoryPagina.paginas[indice].Add(pag);
                                         break;
-                                    }
+                                    } 
                                 }                      
                             var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == pag.StoryId);
                             var versiculos = story.Pagina.Where(p => !p.Layout).ToList().Count;

@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     function redirecionar(pagina)
     {
-        if(pagina >= 55){
+        if(pagina >= 20){
             redirecionamento =  "/#redireciona-" + pagina;
         }
         else{

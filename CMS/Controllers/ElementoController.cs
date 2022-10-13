@@ -180,13 +180,14 @@ namespace CMS.Controllers
 
             List<Pagina> lista = new List<Pagina>();
             lista.Add(new Pagina { Id = 0, Titulo = "[[ Escolha uma pagina ]]" });
-            var page = await _context.Pagina.Include(p => p.Story)
-            .ThenInclude(p => p.Pagina).FirstAsync(p => p.UserId == usuario.Id);
-            lista.AddRange(page.Story.Pagina);
+            var paginas = await _context.Pagina.Where(p => !p.Layout).ToListAsync();
+            lista.AddRange(paginas);
             if (elemento.PaginaEscolhida == null) elemento.PaginaEscolhida = 0;
             ViewBag.PaginaEscolhida = new SelectList(lista, "Id", "Titulo", elemento.PaginaEscolhida);
 
-            ViewBag.condicao = !page.Layout;
+            bool condicao = false;
+            if(elemento.PaginaEscolhida != null) condicao = true;
+            ViewBag.condicao = condicao;
 
             PreencherCombo(elemento, pedido.Id, elementos);
 

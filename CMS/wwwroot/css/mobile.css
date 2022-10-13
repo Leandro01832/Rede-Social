@@ -1,0 +1,65 @@
+
+@media (max-width: 550px) {
+
+    .carousel-control {
+        display: block;
+        z-index: 40;
+    }
+
+    #Livro
+     {
+        font-size: 1.5rem;
+    }
+
+    #record {
+        font-size: 1rem;
+    }
+
+    .indices {
+        font-size: 1rem;
+    }
+
+     .DivPag {
+        width: 16px;
+        margin: 0px;
+    }
+
+    #voltar {
+        display: none;
+    }
+
+    #avancar {
+        display: none;
+    }
+
+    .content {
+            width: 100%;
+        }
+
+    img {
+            width: 100%;
+        }
+
+}
+
+@media only print {
+
+    h1{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 20px;
+    }
+} 
+
+
+@media (orientation: landscape){
+    body{
+        
+        flex-direction: row;
+    }
+}
+@media (orientation: portrait){
+    body{
+        
+        flex-direction: column;
+    }
+}

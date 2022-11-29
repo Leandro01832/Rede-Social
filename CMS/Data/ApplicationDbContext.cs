@@ -27,6 +27,10 @@ namespace CMS.Data
 
         }
 
+        public DbSet<Produto> Produto { get; set; }
+        public DbSet<Pedido> Pedido { get; set; }
+        public DbSet<PaginaProduto> PaginaProduto { get; set; }
+        public DbSet<ItemPedido> ItemPedido { get; set; }
         public DbSet<SubSubGrupo> SubSubGrupo { get; set; }
         public DbSet<SubGrupo> SubGrupo { get; set; }
         public DbSet<Grupo> Grupo { get; set; }
@@ -81,6 +85,9 @@ namespace CMS.Data
             
             builder.Entity<DivContainer>()
             .HasKey(p => new { p.DivId, p.ContainerId });
+
+            builder.Entity<PaginaProduto>()
+            .HasKey(p => new { p.PaginaId, p.ProdutoId });
             
             builder.Entity<Elemento>().ToTable("Elemento");
             builder.Entity<ElementoDependente>().ToTable("ElementoDependente");

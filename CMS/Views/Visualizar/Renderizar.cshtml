@@ -83,18 +83,30 @@
                class="btn btn-primary loader glyphicon glyphicon-chevron-right">
             </a>
             <a id="message" href="#" class="btn btn-warning">
-                <img src="~/imagem/blue-messager2.png" width="30" alt="mensagem" />
+                <img src="~/imagem/blue-messager2.png" width="30" alt="mensagem" id="msg" />
             </a>
             <a href="#" class="btn btn-primary agrupamento">
                 sub-story
+            </a>
+            <a href="/paginacao" class="btn btn-primary glyphicon glyphicon-list-alt">
+                Listas
             </a>
         </div>
 
     </div>
 
-    @Html.Raw(ViewBag.Html)
+     @Html.Raw(ViewBag.Html) 
+    @* <br><br>
 
-    <div style="position:fixed; bottom:1%; width: 100%; overflow-x:auto;" class="Paginacao">
+    @{
+
+        for (int i = 1; i <= atual; i++)
+        {
+            <img src="/imagem/banana-320x320.png" width="10" class="banana" />
+        }
+    } *@
+
+    <div style="position:fixed; bottom:1%; width: 100%; " class="Paginacao">
 
         <center>
             <a href="/Perfil/@ViewBag.user"  style="font-size:1.5rem; background-color:white; opacity: 0.80;">
@@ -115,7 +127,7 @@
   <div class="progress-bar progress-bar-striped progress-bar-animated"
    role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
 </div> *@
-            <div class="DivPagina" style=" height:50px; overflow: hidden;">
+            <div class="DivPagina" style=" height:50px; overflow: hidden; background-color: darkgrey;  opacity: 0.90;">
                     <span id="redireciona-1"></span>                        
                 @{                               
                     for (var indice = 1; indice <= quant; indice++)
@@ -124,10 +136,11 @@
                              style="width:35px; height: 30px; border-radius: 30px; display:inline-grid; margin: 6px; background-color:darkgray; opacity: 0.80;"
                              id="DivPagina@(indice)">  
                                 <span style="font-size: 2rem;" class="indices"><b>@indice</b> </span>
-                                <span class="glyphicon glyphicon-minus"
+                                <span class="barra glyphicon glyphicon-minus"
                               style="font-size: 2rem;"  ></span>
 
                             </div>
+                                     
                             if(indice >= 20){
                                 <span id="redireciona-@(indice)"></span>
                             }          

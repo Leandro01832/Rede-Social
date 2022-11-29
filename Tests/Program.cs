@@ -28,8 +28,8 @@ namespace Tests
         static void Main(string[] args)
         {
 
-            RetornarDados();
-            DropTable();
+            //RetornarDados();
+            //DropTable();
            
 
             Console.Read();
@@ -115,6 +115,11 @@ namespace Tests
             foreach (var item in lista)
                         Console.WriteLine("Drop table " + item.Name + "\n");
                 
+        }
+
+        public static void ConsumirApi(){
+
+            
         }
 
 

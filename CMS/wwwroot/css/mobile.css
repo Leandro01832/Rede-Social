@@ -8,20 +8,28 @@
 
     #Livro
      {
-        font-size: 1.5rem;
+        font-size: 1.5rem !important;
     }
 
     #record {
-        font-size: 1rem;
+        font-size: 1rem !important;
+    }
+
+    .barra {
+        font-size: 1rem !important;
+    }
+
+    .banana {
+        width: 10px !important;
     }
 
     .indices {
-        font-size: 1rem;
+        font-size: 1rem !important;
     }
 
      .DivPag {
-        width: 16px;
-        margin: 0px;
+        width: 16px !important;
+        margin: 0px !important;
     }
 
     #voltar {
@@ -33,11 +41,18 @@
     }
 
     .content {
-            width: 100%;
+            width: 100% !important;
         }
 
     img {
-            width: 100%;
+            width: 100% !important;
+        }
+
+       
+        
+        #message{
+            width: 20%;
+            
         }
 
 }

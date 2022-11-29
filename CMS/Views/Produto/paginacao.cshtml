@@ -1,0 +1,67 @@
+@model IEnumerable<business.business.Produto>
+    @{
+        Layout = null;
+    }
+  
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <style>
+        body{
+
+    display: flex; 
+    flex-direction: row;   
+    flex-wrap: wrap; 
+
+}
+
+        .container{
+
+    display: flex; 
+    flex-direction: row;  
+    flex-wrap: wrap; 
+    align-content: center;
+
+}
+  .produto{
+    width: 160px;
+    height: 350px;
+    margin-left: 5px;
+    border: solid 2px;
+}
+
+ .caps{
+    background-color: aquamarine;
+    font-size: large;
+ }
+
+    </style>
+
+</head>
+<body>
+
+@foreach (var item in Model) {
+    var identifica = item.Pagina.First(p => p.Pagina.ListaGrupo == null).Pagina.Id;
+    List<business.business.Pagina> lista = item.Pagina.First(p => p.Pagina.ListaGrupo == null).Pagina.Story.Pagina;
+    var Capitulo = item.Pagina.First(p => p.Pagina.ListaGrupo == null).Pagina.Story.PaginaPadraoLink;
+    var Versiculo = lista.IndexOf(lista.First(l => l.Id == identifica)) + 1;
+<div class="produto">        
+            <p>
+               Nome: @item.Nome -
+               Descrição: @item.Descricao -
+               Preço: @item.Preco -
+               Estoque: @item.QuantEstoque
+            </p>  
+            <p class="caps">
+               Capitulo: @Capitulo -
+               Versiculo: @Versiculo
+            </p> 
+       
+</div>
+}
+
+</body>
+</html>

@@ -3973,24 +3973,22 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leand\\Downloads\\teste\\cms\\business\\business.csproj",
+      "projectUniqueName": "C:\\Rede-Social-master\\Rede-Social\\business\\business.csproj",
       "projectName": "business",
-      "projectPath": "C:\\Users\\leand\\Downloads\\teste\\cms\\business\\business.csproj",
+      "projectPath": "C:\\Rede-Social-master\\Rede-Social\\business\\business.csproj",
       "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leand\\Downloads\\teste\\cms\\business\\obj\\",
+      "outputPath": "C:\\Rede-Social-master\\Rede-Social\\business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

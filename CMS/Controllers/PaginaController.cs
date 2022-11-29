@@ -16,7 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MeuProjetoAgora.Controllers
+namespace CMS.Controllers
 {
     public class PaginaController : Controller
     {

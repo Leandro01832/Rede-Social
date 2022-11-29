@@ -65,8 +65,8 @@ namespace business.business
         private Int64? subGrupoId = 0;
         private Int64? grupoId = 0;
          private Int64? subStoryId = 0;
-         private string flexDirection = "flex-start";
-         private string alignItems = "row";
+         private string flexDirection = "row";
+         private string alignItems = "flex-start";
 
         public DateTime Data { get { return data; } set { data = value; } }
 
@@ -153,6 +153,10 @@ namespace business.business
         public virtual List<PaginaContainer> Div { get; set; }
         [JsonIgnore]
         public virtual List<PaginaCarouselPagina> CarouselPagina { get; set; }
+
+        // propriedade count == 1 -->>view detail
+        // propriedade count > 1 -->>view index ou lista
+        public virtual List<PaginaProduto> Produto { get; set; }  
                        
         public string UserId { get; set; } 
 
@@ -171,12 +175,19 @@ namespace business.business
 
         public int Tempo { get; set; }
 
+        public Int64? ListaGrupo{ get; set; } 
+
         [NotMapped]
         public string Html { get; set; }
 
         public void IncluiDiv(Container container)
         {
             this.Div.Add(new PaginaContainer { Container = container });
+        }
+        
+        public void IncluiProduto(Produto produto)
+        {
+            this.Produto.Add(new PaginaProduto { Produto = produto });
         }
     }
 }

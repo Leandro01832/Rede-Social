@@ -11,5 +11,6 @@ namespace business.business
             public int QuantEstoque { get; set; }
              public virtual List<ItemPedido> Itens { get; set; }   
              public virtual List<PaginaProduto> Pagina { get; set; }   
+             public virtual List<ImagemProduto> Imagem { get; set; }   
     }
 }

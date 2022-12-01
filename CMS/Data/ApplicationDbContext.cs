@@ -27,6 +27,7 @@ namespace CMS.Data
 
         }
 
+        public DbSet<ImagemProduto> ImagemProduto { get; set; }
         public DbSet<Produto> Produto { get; set; }
         public DbSet<Pedido> Pedido { get; set; }
         public DbSet<PaginaProduto> PaginaProduto { get; set; }

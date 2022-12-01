@@ -188,6 +188,7 @@ namespace CMS.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Descricao = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(nullable: true),
                     Preco = table.Column<decimal>(nullable: false),
                     QuantEstoque = table.Column<int>(nullable: false)
                 },
@@ -465,6 +466,28 @@ namespace CMS.Migrations
                         name: "FK_Elemento_PastaImagem_PastaImagemId",
                         column: x => x.PastaImagemId,
                         principalTable: "PastaImagem",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ImagemProduto",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ProdutoId = table.Column<int>(nullable: false),
+                    ProdutoId1 = table.Column<long>(nullable: true),
+                    ArquivoImagem = table.Column<string>(nullable: true),
+                    WidthImagem = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ImagemProduto", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ImagemProduto_Produto_ProdutoId1",
+                        column: x => x.ProdutoId1,
+                        principalTable: "Produto",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -795,7 +818,8 @@ namespace CMS.Migrations
                     Layout = table.Column<bool>(nullable: false),
                     FlexDirection = table.Column<string>(nullable: true),
                     AlignItems = table.Column<string>(nullable: true),
-                    Tempo = table.Column<int>(nullable: false)
+                    Tempo = table.Column<int>(nullable: false),
+                    ListaGrupo = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -1029,6 +1053,11 @@ namespace CMS.Migrations
                 column: "SubStoryId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ImagemProduto_ProdutoId1",
+                table: "ImagemProduto",
+                column: "ProdutoId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ItemPedido_PedidoId1",
                 table: "ItemPedido",
                 column: "PedidoId1");
@@ -1135,6 +1164,9 @@ namespace CMS.Migrations
 
             migrationBuilder.DropTable(
                 name: "ElementoDependenteElemento");
+
+            migrationBuilder.DropTable(
+                name: "ImagemProduto");
 
             migrationBuilder.DropTable(
                 name: "ItemPedido");

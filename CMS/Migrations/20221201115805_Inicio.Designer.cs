@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221127112958_Inicio")]
+    [Migration("20221201115805_Inicio")]
     partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -550,6 +550,27 @@ namespace CMS.Migrations
                     b.ToTable("SubSubGrupo");
                 });
 
+            modelBuilder.Entity("business.business.ImagemProduto", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArquivoImagem");
+
+                    b.Property<int>("ProdutoId");
+
+                    b.Property<long?>("ProdutoId1");
+
+                    b.Property<int>("WidthImagem");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId1");
+
+                    b.ToTable("ImagemProduto");
+                });
+
             modelBuilder.Entity("business.business.ItemPedido", b =>
                 {
                     b.Property<long>("Id")
@@ -611,6 +632,8 @@ namespace CMS.Migrations
                     b.Property<long?>("GrupoId");
 
                     b.Property<bool>("Layout");
+
+                    b.Property<long?>("ListaGrupo");
 
                     b.Property<bool>("Music");
 
@@ -701,6 +724,8 @@ namespace CMS.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Descricao");
+
+                    b.Property<string>("Nome");
 
                     b.Property<decimal>("Preco");
 
@@ -1290,6 +1315,13 @@ namespace CMS.Migrations
                         .WithMany("SubSubGrupo")
                         .HasForeignKey("SubGrupoId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.business.ImagemProduto", b =>
+                {
+                    b.HasOne("business.business.Produto", "Produto")
+                        .WithMany("Imagem")
+                        .HasForeignKey("ProdutoId1");
                 });
 
             modelBuilder.Entity("business.business.ItemPedido", b =>

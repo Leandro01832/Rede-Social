@@ -548,29 +548,44 @@ namespace CMS.Migrations
                     b.ToTable("SubSubGrupo");
                 });
 
+            modelBuilder.Entity("business.business.ImagemProduto", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArquivoImagem");
+
+                    b.Property<long>("ProdutoId");
+
+                    b.Property<int>("WidthImagem");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("ImagemProduto");
+                });
+
             modelBuilder.Entity("business.business.ItemPedido", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("PedidoId");
-
-                    b.Property<long?>("PedidoId1");
+                    b.Property<long>("PedidoId");
 
                     b.Property<decimal>("PrecoUnitario");
 
-                    b.Property<int>("ProdutoId");
-
-                    b.Property<long?>("ProdutoId1");
+                    b.Property<long>("ProdutoId");
 
                     b.Property<int>("Quantidade");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PedidoId1");
+                    b.HasIndex("PedidoId");
 
-                    b.HasIndex("ProdutoId1");
+                    b.HasIndex("ProdutoId");
 
                     b.ToTable("ItemPedido");
                 });
@@ -1294,15 +1309,25 @@ namespace CMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("business.business.ImagemProduto", b =>
+                {
+                    b.HasOne("business.business.Produto", "Produto")
+                        .WithMany("Imagem")
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("business.business.ItemPedido", b =>
                 {
                     b.HasOne("business.business.Pedido", "Pedido")
                         .WithMany("ItensPedido")
-                        .HasForeignKey("PedidoId1");
+                        .HasForeignKey("PedidoId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("business.business.Produto", "Produto")
                         .WithMany("Itens")
-                        .HasForeignKey("ProdutoId1");
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("business.business.Pagina", b =>

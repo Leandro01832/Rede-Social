@@ -16,3 +16,12 @@ C:\Rede-Social-master\Rede-Social\business\obj\Debug\netstandard2.0\business.Ass
 C:\Rede-Social-master\Rede-Social\business\obj\Debug\netstandard2.0\business.AssemblyInfo.cs
 C:\Rede-Social-master\Rede-Social\business\obj\Debug\netstandard2.0\business.dll
 C:\Rede-Social-master\Rede-Social\business\obj\Debug\netstandard2.0\business.pdb
+C:\Rede-Social-master\clone\Rede-Social\business\obj\Debug\netstandard2.0\business.csprojAssemblyReference.cache
+C:\Rede-Social-master\clone\Rede-Social\business\obj\Debug\netstandard2.0\business.csproj.CoreCompileInputs.cache
+C:\Rede-Social-master\clone\Rede-Social\business\obj\Debug\netstandard2.0\business.AssemblyInfoInputs.cache
+C:\Rede-Social-master\clone\Rede-Social\business\obj\Debug\netstandard2.0\business.AssemblyInfo.cs
+C:\Rede-Social-master\clone\Rede-Social\business\obj\Debug\netstandard2.0\business.dll
+C:\Rede-Social-master\clone\Rede-Social\business\obj\Debug\netstandard2.0\business.pdb
+C:\Rede-Social-master\clone\Rede-Social\business\bin\Debug\netstandard2.0\business.deps.json
+C:\Rede-Social-master\clone\Rede-Social\business\bin\Debug\netstandard2.0\business.dll
+C:\Rede-Social-master\clone\Rede-Social\business\bin\Debug\netstandard2.0\business.pdb

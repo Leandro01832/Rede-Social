@@ -4,86 +4,99 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Criar</title>
 </head>
+
 <body>
 
-<h4>Produto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-12">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nome" class="control-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Preco" class="control-label"></label>
-                <input asp-for="Preco" class="form-control" />
-                <span asp-validation-for="Preco" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="QuantEstoque" class="control-label"></label>
-                <input asp-for="QuantEstoque" class="form-control" />
-                <span asp-validation-for="QuantEstoque" class="text-danger"></span>
-            </div>
+    <h4>Produto</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Descricao" class="control-label"></label>
+                    <input asp-for="Descricao" class="form-control" />
+                    <span asp-validation-for="Descricao" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Preco" class="control-label"></label>
+                    <input asp-for="Preco" class="form-control" />
+                    <span asp-validation-for="Preco" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="QuantEstoque" class="control-label"></label>
+                    <input asp-for="QuantEstoque" class="form-control" />
+                    <span asp-validation-for="QuantEstoque" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label id="label-imagem" name="label-imagem" class="control-label">Imagem do produto:</label>
+                    <input id="Imagem" name="Imagem" class="form-control" type="file" required />
+                </div>
+
+                <div class="upload-button">
+                    <label id="label-imagem" name="label-imagem" class="control-label">Imagens de descrição:</label>
+                    <input id="files" name="files" class="form-control" type="file" multiple />
+                </div>
 
 
-             <div class="form-group">
-        <label class="control-label">Story</label>
-       <select id="StoryId" name="StoryId"class="form-control" asp-items="@ViewBag.StoryId" ></select>
-       
-             </div>
-            
-            <div class="form-group">
+                <div class="form-group">
+                    <label class="control-label">Story</label>
+                    <select id="StoryId" name="StoryId" class="form-control" asp-items="@ViewBag.StoryId"></select>
+
+                </div>
+
+                <div class="form-group">
                     <label class="control-label">Sub-Story</label>
-                    <select id="SubStoryId" name="SubStoryId"class="form-control"></select>
+                    <select id="SubStoryId" name="SubStoryId" class="form-control"></select>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Grupo</label>
-                    <select id="GrupoId" name="GrupoId" class="form-control" ></select>
+                    <select id="GrupoId" name="GrupoId" class="form-control"></select>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Sub-Grupo</label>
-                    <select id="SubGrupoId" name="SubGrupoId" class="form-control" ></select>
-                    
+                    <select id="SubGrupoId" name="SubGrupoId" class="form-control"></select>
+
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Sub-Sub-Grupo</label>
-                    <select id="SubSubGrupoId" name="SubSubGrupoId" class="form-control" ></select>
-                    
-                </div>          
+                    <select id="SubSubGrupoId" name="SubSubGrupoId" class="form-control"></select>
+
+                </div>
 
                 <div class="form-group">
                     <input type="submit" value="Create" class="btn btn-primary" />
                 </div>
-        
-    </div>
-
         </form>
+
+     </div>
+
     </div>
-</div>
+    
 
-<div>
-    <a asp-action="Index">Voltar para lista de produtos</a>
-</div>
+    <div>
+        <a asp-action="Index">Voltar para lista de produtos</a>
+    </div>
 
-@section scripts{
-  
+    @section scripts{
+
     @* <script type="text/javascript" src="~/js/AjaxGetGroup.js"></script> *@
-}
+    }
 
 </body>
+
 </html>

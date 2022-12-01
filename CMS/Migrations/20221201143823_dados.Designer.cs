@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221006142501_width-elemento")]
-    partial class widthelemento
+    [Migration("20221201143823_dados")]
+    partial class dados
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -345,6 +345,19 @@ namespace CMS.Migrations
                     b.ToTable("PaginaContainer");
                 });
 
+            modelBuilder.Entity("business.Join.PaginaProduto", b =>
+                {
+                    b.Property<long?>("PaginaId");
+
+                    b.Property<long?>("ProdutoId");
+
+                    b.HasKey("PaginaId", "ProdutoId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("PaginaProduto");
+                });
+
             modelBuilder.Entity("business.business.Container", b =>
                 {
                     b.Property<long>("Id")
@@ -537,6 +550,48 @@ namespace CMS.Migrations
                     b.ToTable("SubSubGrupo");
                 });
 
+            modelBuilder.Entity("business.business.ImagemProduto", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArquivoImagem");
+
+                    b.Property<long>("ProdutoId");
+
+                    b.Property<int>("WidthImagem");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("ImagemProduto");
+                });
+
+            modelBuilder.Entity("business.business.ItemPedido", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("PedidoId");
+
+                    b.Property<decimal>("PrecoUnitario");
+
+                    b.Property<long>("ProdutoId");
+
+                    b.Property<int>("Quantidade");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PedidoId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("ItemPedido");
+                });
+
             modelBuilder.Entity("business.business.MensagemChat", b =>
                 {
                     b.Property<long>("Id")
@@ -571,6 +626,8 @@ namespace CMS.Migrations
                     b.Property<long?>("GrupoId");
 
                     b.Property<bool>("Layout");
+
+                    b.Property<long?>("ListaGrupo");
 
                     b.Property<bool>("Music");
 
@@ -623,6 +680,20 @@ namespace CMS.Migrations
                     b.ToTable("PastaImagem");
                 });
 
+            modelBuilder.Entity("business.business.Pedido", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClienteId")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pedido");
+                });
+
             modelBuilder.Entity("business.business.Permissao", b =>
                 {
                     b.Property<long>("Id")
@@ -638,6 +709,25 @@ namespace CMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Permissao");
+                });
+
+            modelBuilder.Entity("business.business.Produto", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Descricao");
+
+                    b.Property<string>("Nome");
+
+                    b.Property<decimal>("Preco");
+
+                    b.Property<int>("QuantEstoque");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Produto");
                 });
 
             modelBuilder.Entity("business.business.Seguidor", b =>
@@ -1148,6 +1238,19 @@ namespace CMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("business.Join.PaginaProduto", b =>
+                {
+                    b.HasOne("business.business.Pagina", "Pagina")
+                        .WithMany("Produto")
+                        .HasForeignKey("PaginaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("business.business.Produto", "Produto")
+                        .WithMany("Pagina")
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("business.business.Elementos.element.Elemento", b =>
                 {
                     b.HasOne("business.business.Elementos.Formulario", "Formulario")
@@ -1205,6 +1308,27 @@ namespace CMS.Migrations
                     b.HasOne("business.business.Group.SubGrupo", "SubGrupo")
                         .WithMany("SubSubGrupo")
                         .HasForeignKey("SubGrupoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.business.ImagemProduto", b =>
+                {
+                    b.HasOne("business.business.Produto", "Produto")
+                        .WithMany("Imagem")
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.business.ItemPedido", b =>
+                {
+                    b.HasOne("business.business.Pedido", "Pedido")
+                        .WithMany("ItensPedido")
+                        .HasForeignKey("PedidoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("business.business.Produto", "Produto")
+                        .WithMany("Itens")
+                        .HasForeignKey("ProdutoId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Rede-Social-master\\Rede-Social\\CMS\\CMS.csproj": {}
+    "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\CMS.csproj": {}
   },
   "projects": {
-    "C:\\Rede-Social-master\\Rede-Social\\business\\business.csproj": {
+    "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Rede-Social-master\\Rede-Social\\business\\business.csproj",
+        "projectUniqueName": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj",
         "projectName": "business",
-        "projectPath": "C:\\Rede-Social-master\\Rede-Social\\business\\business.csproj",
+        "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj",
         "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-        "outputPath": "C:\\Rede-Social-master\\Rede-Social\\business\\obj\\",
+        "outputPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -70,14 +70,14 @@
         }
       }
     },
-    "C:\\Rede-Social-master\\Rede-Social\\CMS\\CMS.csproj": {
+    "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\CMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Rede-Social-master\\Rede-Social\\CMS\\CMS.csproj",
+        "projectUniqueName": "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\CMS.csproj",
         "projectName": "CMS",
-        "projectPath": "C:\\Rede-Social-master\\Rede-Social\\CMS\\CMS.csproj",
+        "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\CMS.csproj",
         "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-        "outputPath": "C:\\Rede-Social-master\\Rede-Social\\CMS\\obj\\",
+        "outputPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -94,8 +94,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Rede-Social-master\\Rede-Social\\business\\business.csproj": {
-                "projectPath": "C:\\Rede-Social-master\\Rede-Social\\business\\business.csproj"
+              "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj": {
+                "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj"
               }
             }
           }

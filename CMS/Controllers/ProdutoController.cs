@@ -12,6 +12,10 @@ using CMS.Models;
 using CMS.Models.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace CMS.Controllers
 {
@@ -21,13 +25,15 @@ namespace CMS.Controllers
         private readonly ApplicationDbContext _context;
         public UserManager<UserModel> UserManager { get; }
          public IRepositoryPagina epositoryPagina { get; }
+         public IHostingEnvironment HostingEnvironment { get; }
 
         public ProdutoController(ApplicationDbContext context, UserManager<UserModel> userManager,
-        IRepositoryPagina repositoryPagina)
+        IRepositoryPagina repositoryPagina, IHostingEnvironment hostingEnvironment)
         {
             _context = context;
             UserManager = userManager;
              epositoryPagina = repositoryPagina;
+             HostingEnvironment = hostingEnvironment;
         }
 
         // GET: Produto
@@ -58,6 +64,7 @@ namespace CMS.Controllers
 
             ViewBag.pagina = numeroPagina;
             var applicationDbContext = await _context.Produto
+                .Include(l => l.Imagem)
                 .Include(l => l.Pagina)
                 .ThenInclude(l => l.Pagina)
                 .ThenInclude(l => l.Story)
@@ -113,7 +120,7 @@ namespace CMS.Controllers
         public async Task<IActionResult> Create(Produto produto, long StoryId,
          long SubStoryId, long GrupoId, long SubGrupoId, int SubSubGrupoId)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid  && Request.Form.Files.Count > 0)
             {
                 var user = await UserManager.GetUserAsync(this.User);
                 Pagina pagina = new Pagina();
@@ -141,6 +148,38 @@ namespace CMS.Controllers
                 pagina.IncluiProduto(produto);
                 await  _context.SaveChangesAsync(); 
 
+                 foreach (IFormFile source in Request.Form.Files)
+            {                
+                ImagemProduto img = new ImagemProduto
+                {
+                    ArquivoImagem = "/ImagensProduto/" + produto.Id + "-Produto.jpg",
+                    WidthImagem = 160,
+                    ProdutoId = produto.Id
+                };
+
+                await _context.ImagemProduto.AddAsync(img);
+                await _context.SaveChangesAsync();               
+
+                byte[] buffer = new byte[16 * 1024];
+
+                using (FileStream output = System.IO.File.Create(this.HostingEnvironment.WebRootPath
+                 + "\\ImagensProduto\\" + produto.Id + "-Produto.jpg"))
+                {
+                    using (Stream input = source.OpenReadStream())
+                    {
+                        long totalReadBytes = 0;
+                        int readBytes;
+
+                        while ((readBytes = input.Read(buffer, 0, buffer.Length)) > 0)
+                        {
+                            await output.WriteAsync(buffer, 0, readBytes);
+                            totalReadBytes += readBytes;
+                            // await Task.Delay(10); // It is only to make the process slower
+                        }
+                    }
+                }
+            }
+
                 for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
                     {
                           if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
@@ -154,8 +193,9 @@ namespace CMS.Controllers
                     }
                 return RedirectToAction(nameof(Index));
             }
-            return View(produto);
-        }
+                ModelState.AddModelError("", "Informe a imagem do produto!!!");
+                return View(produto);
+        }        
 
         // GET: Produto/Edit/5
         public async Task<IActionResult> Edit(long? id)

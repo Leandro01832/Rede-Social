@@ -3973,11 +3973,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Rede-Social-master\\Rede-Social\\business\\business.csproj",
+      "projectUniqueName": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj",
       "projectName": "business",
-      "projectPath": "C:\\Rede-Social-master\\Rede-Social\\business\\business.csproj",
+      "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj",
       "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-      "outputPath": "C:\\Rede-Social-master\\Rede-Social\\business\\obj\\",
+      "outputPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

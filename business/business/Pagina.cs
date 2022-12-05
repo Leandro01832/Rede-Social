@@ -153,10 +153,8 @@ namespace business.business
         public virtual List<PaginaContainer> Div { get; set; }
         [JsonIgnore]
         public virtual List<PaginaCarouselPagina> CarouselPagina { get; set; }
-
-        // propriedade count == 1 -->>view detail
-        // propriedade count > 1 -->>view index ou lista
-        public virtual List<PaginaProduto> Produto { get; set; }  
+      
+        public virtual Produto Produto { get; set; }  
                        
         public string UserId { get; set; } 
 
@@ -175,8 +173,6 @@ namespace business.business
 
         public int Tempo { get; set; }
 
-        public Int64? ListaGrupo{ get; set; } 
-
         [NotMapped]
         public string Html { get; set; }
 
@@ -185,9 +181,6 @@ namespace business.business
             this.Div.Add(new PaginaContainer { Container = container });
         }
         
-        public void IncluiProduto(Produto produto)
-        {
-            this.Produto.Add(new PaginaProduto { Produto = produto });
-        }
+       
     }
 }

@@ -44,38 +44,24 @@ namespace CMS.Controllers
             const int TAMANHO_PAGINA = 5;
 
             ViewBag.pagina = numeroPagina;
-            var applicationDbContext = await _context.Produto
-                .Include(l => l.Pagina)
-                .ThenInclude(l => l.Pagina)
-                .ThenInclude(l => l.Story)
-                .Include(l => l.Itens)
-                .Where(l => l.Pagina.FirstOrDefault(p => p.Pagina.ListaGrupo == null) != null)
-                .Skip((numeroPagina - 1) * TAMANHO_PAGINA)
-                .Take(TAMANHO_PAGINA).ToListAsync();
+            var applicationDbContext = await RetornarLista(numeroPagina, TAMANHO_PAGINA, "");
             
             return View(applicationDbContext);
         }
 
-        [Route("paginacao/{pagina?}")]
-        public async Task<IActionResult> paginacao(int? pagina)
+       [Route("paginacao/{pagina?}/{ordenar}")]
+        public async Task<IActionResult> paginacao(int? pagina, string ordenar)
         {
             int numeroPagina = (pagina ?? 1);
-            const int TAMANHO_PAGINA = 15;
+            const int TAMANHO_PAGINA = 20;
 
             ViewBag.pagina = numeroPagina;
-            var applicationDbContext = await _context.Produto
-                .Include(l => l.Imagem)
-                .Include(l => l.Pagina)
-                .ThenInclude(l => l.Pagina)
-                .ThenInclude(l => l.Story)
-                .ThenInclude(l => l.Pagina)
-                .Include(l => l.Itens)
-                .Where(l => l.Pagina.FirstOrDefault(p => p.Pagina.ListaGrupo == null) != null)
-                .Skip((numeroPagina - 1) * TAMANHO_PAGINA)
-                .Take(TAMANHO_PAGINA).OrderBy(p => p.Nome).ToListAsync();
-            
+            ViewBag.ordenar = ordenar;
+            List<Produto> applicationDbContext = await RetornarLista(numeroPagina, TAMANHO_PAGINA, ordenar);            
             return View(applicationDbContext);
         }
+
+
 
         // GET: Produto/Details/5
         public async Task<IActionResult> Details(long? id)
@@ -125,7 +111,7 @@ namespace CMS.Controllers
                 var user = await UserManager.GetUserAsync(this.User);
                 Pagina pagina = new Pagina();
                 pagina.Div = null;
-                pagina.Produto = null;
+                pagina.Produto = produto;
                 pagina.UserId = user.Id;
                 pagina.Tempo = 15000;
                 pagina.Titulo = produto.Nome;
@@ -144,9 +130,7 @@ namespace CMS.Controllers
                 pagina.IncluiDiv(item.Container);             
                 await  _context.SaveChangesAsync(); 
 
-                pagina.Produto = new List<PaginaProduto>();
-                pagina.IncluiProduto(produto);
-                await  _context.SaveChangesAsync(); 
+                
 
                  foreach (IFormFile source in Request.Form.Files)
             {                
@@ -280,6 +264,55 @@ namespace CMS.Controllers
         private bool ProdutoExists(long id)
         {
             return _context.Produto.Any(e => e.Id == id);
+        }
+
+        private async Task<List<Produto>> RetornarLista(int numeroPagina, int tamanho, string ordenar)
+        {
+            List<Produto> applicationDbContext = null;
+            if(ordenar == "nome")
+             applicationDbContext = await _context.Produto
+                .Include(l => l.Imagem)
+                .Include(l => l.Itens)
+                .Include(l => l.Pagina)
+                .ThenInclude(l => l.Story)
+                .ThenInclude(l => l.Pagina)
+                .OrderBy(p => p.Nome)
+                .Skip((numeroPagina - 1) * tamanho)
+                .Take(tamanho).ToListAsync();
+           else
+            if(ordenar == "preco")
+             applicationDbContext = await _context.Produto
+               .Include(l => l.Imagem)
+                .Include(l => l.Itens)
+                .Include(l => l.Pagina)
+                .ThenInclude(l => l.Story)
+                .ThenInclude(l => l.Pagina)
+                .OrderBy(p => p.Preco)
+                .Skip((numeroPagina - 1) * tamanho)
+                .Take(tamanho).ToListAsync();
+            else
+            if(ordenar == "capitulo")
+             applicationDbContext = await _context.Produto
+                .Include(l => l.Imagem)
+                .Include(l => l.Itens)
+                .Include(l => l.Pagina)
+                .ThenInclude(l => l.Story)
+                .ThenInclude(l => l.Pagina)
+                .OrderBy(p => p.Pagina.Story.PaginaPadraoLink)
+                .Skip((numeroPagina - 1) * tamanho)
+                .Take(tamanho).ToListAsync();
+            else
+             applicationDbContext = await _context.Produto
+               .Include(l => l.Imagem)
+                .Include(l => l.Itens)
+                .Include(l => l.Pagina)
+                .ThenInclude(l => l.Story)
+                .ThenInclude(l => l.Pagina)
+                .OrderBy(p => p.Nome)
+                .Skip((numeroPagina - 1) * tamanho)
+                .Take(tamanho).ToListAsync();
+
+                return applicationDbContext;
         }
     }
 }

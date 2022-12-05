@@ -343,19 +343,6 @@ namespace CMS.Migrations
                     b.ToTable("PaginaContainer");
                 });
 
-            modelBuilder.Entity("business.Join.PaginaProduto", b =>
-                {
-                    b.Property<long?>("PaginaId");
-
-                    b.Property<long?>("ProdutoId");
-
-                    b.HasKey("PaginaId", "ProdutoId");
-
-                    b.HasIndex("ProdutoId");
-
-                    b.ToTable("PaginaProduto");
-                });
-
             modelBuilder.Entity("business.business.Container", b =>
                 {
                     b.Property<long>("Id")
@@ -625,8 +612,6 @@ namespace CMS.Migrations
 
                     b.Property<bool>("Layout");
 
-                    b.Property<long?>("ListaGrupo");
-
                     b.Property<bool>("Music");
 
                     b.Property<bool>("Pular");
@@ -711,9 +696,7 @@ namespace CMS.Migrations
 
             modelBuilder.Entity("business.business.Produto", b =>
                 {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<long>("Id");
 
                     b.Property<string>("Descricao");
 
@@ -1236,19 +1219,6 @@ namespace CMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("business.Join.PaginaProduto", b =>
-                {
-                    b.HasOne("business.business.Pagina", "Pagina")
-                        .WithMany("Produto")
-                        .HasForeignKey("PaginaId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("business.business.Produto", "Produto")
-                        .WithMany("Pagina")
-                        .HasForeignKey("ProdutoId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("business.business.Elementos.element.Elemento", b =>
                 {
                     b.HasOne("business.business.Elementos.Formulario", "Formulario")
@@ -1352,6 +1322,14 @@ namespace CMS.Migrations
                     b.HasOne("business.business.Group.SubSubGrupo", "SubSubGrupo")
                         .WithMany("Pagina")
                         .HasForeignKey("SubSubGrupoId");
+                });
+
+            modelBuilder.Entity("business.business.Produto", b =>
+                {
+                    b.HasOne("business.business.Pagina", "Pagina")
+                        .WithOne("Produto")
+                        .HasForeignKey("business.business.Produto", "Id")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("business.business.Seguidor", b =>

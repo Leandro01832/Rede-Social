@@ -182,22 +182,6 @@ namespace CMS.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Produto",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Descricao = table.Column<string>(nullable: true),
-                    Nome = table.Column<string>(nullable: true),
-                    Preco = table.Column<decimal>(nullable: false),
-                    QuantEstoque = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Produto", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Solicitacao",
                 columns: table => new
                 {
@@ -466,58 +450,6 @@ namespace CMS.Migrations
                         name: "FK_Elemento_PastaImagem_PastaImagemId",
                         column: x => x.PastaImagemId,
                         principalTable: "PastaImagem",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ImagemProduto",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ProdutoId = table.Column<int>(nullable: false),
-                    ProdutoId1 = table.Column<long>(nullable: true),
-                    ArquivoImagem = table.Column<string>(nullable: true),
-                    WidthImagem = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ImagemProduto", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ImagemProduto_Produto_ProdutoId1",
-                        column: x => x.ProdutoId1,
-                        principalTable: "Produto",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ItemPedido",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Quantidade = table.Column<int>(nullable: false),
-                    ProdutoId = table.Column<int>(nullable: false),
-                    ProdutoId1 = table.Column<long>(nullable: true),
-                    PedidoId = table.Column<int>(nullable: false),
-                    PedidoId1 = table.Column<long>(nullable: true),
-                    PrecoUnitario = table.Column<decimal>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ItemPedido", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ItemPedido_Pedido_PedidoId1",
-                        column: x => x.PedidoId1,
-                        principalTable: "Pedido",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_ItemPedido_Produto_ProdutoId1",
-                        column: x => x.ProdutoId1,
-                        principalTable: "Produto",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -818,8 +750,7 @@ namespace CMS.Migrations
                     Layout = table.Column<bool>(nullable: false),
                     FlexDirection = table.Column<string>(nullable: true),
                     AlignItems = table.Column<string>(nullable: true),
-                    Tempo = table.Column<int>(nullable: false),
-                    ListaGrupo = table.Column<long>(nullable: true)
+                    Tempo = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -905,23 +836,69 @@ namespace CMS.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PaginaProduto",
+                name: "Produto",
                 columns: table => new
                 {
-                    PaginaId = table.Column<long>(nullable: false),
-                    ProdutoId = table.Column<long>(nullable: false)
+                    Id = table.Column<long>(nullable: false),
+                    Descricao = table.Column<string>(nullable: true),
+                    Nome = table.Column<string>(nullable: true),
+                    Preco = table.Column<decimal>(nullable: false),
+                    QuantEstoque = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PaginaProduto", x => new { x.PaginaId, x.ProdutoId });
+                    table.PrimaryKey("PK_Produto", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PaginaProduto_Pagina_PaginaId",
-                        column: x => x.PaginaId,
+                        name: "FK_Produto_Pagina_Id",
+                        column: x => x.Id,
                         principalTable: "Pagina",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ImagemProduto",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ProdutoId = table.Column<long>(nullable: false),
+                    ArquivoImagem = table.Column<string>(nullable: true),
+                    WidthImagem = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ImagemProduto", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PaginaProduto_Produto_ProdutoId",
+                        name: "FK_ImagemProduto_Produto_ProdutoId",
+                        column: x => x.ProdutoId,
+                        principalTable: "Produto",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ItemPedido",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Quantidade = table.Column<int>(nullable: false),
+                    ProdutoId = table.Column<long>(nullable: false),
+                    PedidoId = table.Column<long>(nullable: false),
+                    PrecoUnitario = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ItemPedido", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ItemPedido_Pedido_PedidoId",
+                        column: x => x.PedidoId,
+                        principalTable: "Pedido",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ItemPedido_Produto_ProdutoId",
                         column: x => x.ProdutoId,
                         principalTable: "Produto",
                         principalColumn: "Id",
@@ -1053,19 +1030,19 @@ namespace CMS.Migrations
                 column: "SubStoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ImagemProduto_ProdutoId1",
+                name: "IX_ImagemProduto_ProdutoId",
                 table: "ImagemProduto",
-                column: "ProdutoId1");
+                column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ItemPedido_PedidoId1",
+                name: "IX_ItemPedido_PedidoId",
                 table: "ItemPedido",
-                column: "PedidoId1");
+                column: "PedidoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ItemPedido_ProdutoId1",
+                name: "IX_ItemPedido_ProdutoId",
                 table: "ItemPedido",
-                column: "ProdutoId1");
+                column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Pagina_GrupoId",
@@ -1101,11 +1078,6 @@ namespace CMS.Migrations
                 name: "IX_PaginaContainer_PaginaId",
                 table: "PaginaContainer",
                 column: "PaginaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PaginaProduto_ProdutoId",
-                table: "PaginaProduto",
-                column: "ProdutoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Seguidor_UserModelId",
@@ -1181,9 +1153,6 @@ namespace CMS.Migrations
                 name: "PaginaContainer");
 
             migrationBuilder.DropTable(
-                name: "PaginaProduto");
-
-            migrationBuilder.DropTable(
                 name: "Permissao");
 
             migrationBuilder.DropTable(
@@ -1214,9 +1183,6 @@ namespace CMS.Migrations
                 name: "Pedido");
 
             migrationBuilder.DropTable(
-                name: "Pagina");
-
-            migrationBuilder.DropTable(
                 name: "Produto");
 
             migrationBuilder.DropTable(
@@ -1232,10 +1198,13 @@ namespace CMS.Migrations
                 name: "Elemento");
 
             migrationBuilder.DropTable(
-                name: "SubSubGrupo");
+                name: "Pagina");
 
             migrationBuilder.DropTable(
                 name: "PastaImagem");
+
+            migrationBuilder.DropTable(
+                name: "SubSubGrupo");
 
             migrationBuilder.DropTable(
                 name: "SubGrupo");

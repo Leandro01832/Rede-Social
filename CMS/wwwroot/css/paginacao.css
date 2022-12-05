@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    border: solid 4px coral;
+    min-height: 950px;
+    height: auto;
+}
+
+.container{  display: flex; }
+.cabecalho
+{ 
+     display: flex;
+     justify-content: space-between;
+    border: 3px solid chocolate;
+}   
+
+.container{
+
+display: flex; 
+flex-direction: row;  
+flex-wrap: wrap; 
+align-content: center; 
+
+}
+.produto{
+width: 172px;
+height: 310px;
+margin-left: 5px;
+margin-top: 4px;
+border: solid 4px coral;
+}
+
+.caps{
+background-color: rgb(232, 255, 127);
+font-size: 1.5em;
+}
+
+.caps strong a{
+text-align: center;
+text-decoration: none;
+border: 3px solid rgb(255, 255, 255);
+color: rgb(164, 52, 11);
+}
+
+.info
+{
+overflow: auto;
+max-height: 90px;
+}
+
+
+#proxima-lista{
+align-self: center;
+text-align: start;
+margin-right: 10px;
+}
+
+#proxima-lista strong a{
+    text-decoration: none;
+    border: 2px solid ;
+    color: black;
+}
+
+#ordenacao a{
+    text-decoration: none;
+    border: 2px solid ;
+    color: black;
+}
+
+@media (max-width: 500px) and (min-width: 50px){
+
+    .produto{
+        width: 160px;
+        margin-left: 3px;
+        margin-top: 2px;
+        }
+    
+    }

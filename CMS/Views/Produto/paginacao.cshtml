@@ -1,131 +1,103 @@
 @model IEnumerable<business.business.Produto>
-    @{
-        Layout = null;
-    }
-  
+@{
+    Layout = null;
+    int atual = ViewBag.pagina;
+    int proximo = atual + 1;
+    int anterior = atual - 1;
+    bool nome = ViewBag.ordenar == "nome";
+    bool preco = ViewBag.ordenar == "preco";
+    bool capitulo = ViewBag.ordenar == "capitulo";
+    var quant = Model.ToList().Count;
+}
+
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
-
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-        }
-
-        body{
-            border: solid 4px coral;
-            height: 950px;;
-        }
-
-        .container{  display: flex; }
-        .cabecalho
-        { 
-             display: flex;
-             justify-content: space-between;
-            border: 3px solid chocolate;
-        }   
-
-        a{
-            text-decoration: none;
-            border: 2px solid ;
-        } 
-
-.container{
-
-    display: flex; 
-    flex-direction: row;  
-    flex-wrap: wrap; 
-    align-content: center;
-
-}
-  .produto{
-    width: 160px;
-    height: 310px;
-    margin-left: 5px;
-    margin-top: 4px;
-    border: solid 4px coral;
-}
-
- .caps{
-    background-color: aquamarine;
-    font-size: 1.5em;
- }
-
- .info
- {
-    overflow: auto;
-    max-height: 90px;
- }
-
- 
- #proxima-lista{
-  align-self: center;
-  text-align: start;
-  margin-right: 10px;
- }
-
-    </style>
+    <link rel="stylesheet" href="~/css/paginacao.css" />
 
 </head>
+
 <body>
     <div class="cabecalho">
         <div>
-        <h4>Logo</h4>
-            
+            <h4>Logo</h4>
+
         </div>
-        <div>
-        <h4>Ordenar</h4>
-        <input type="radio" /><label>Ordenar por nome</label><br>
-        <input type="radio" /><label>Ordenar por capitulo</label><br>
-        <input type="radio" /><label>Ordenar por preço</label><br>
+        <div id="ordenacao">
+            <h4>Ordenar</h4>
+            <input type="hidden" value="@quant" id="quantidade" name="quantidade" > 
+            <a href="/paginacao/1/nome" >Ordenar por nome</a>
+            <a href="/paginacao/1/preco" >Ordenar por preço</a>
+            <a href="/paginacao/1/capitulo" >Ordenar por capitulo</a>
         </div>
         <div id="proxima-lista">
-        
-        <h4>Lista Anterior</h4>
-        <strong>
-            <a href="#"><<<</a>
-        </strong>
-        <h4>Proxima lista</h4>
-        <strong>
-            <a href="#">>>></a>
-        </strong>
+            <h3>Lista @ViewBag.pagina</h3>
+            <h4>Lista Anterior</h4>
+            <strong>
+                <a href="/paginacao/@anterior/@ViewBag.ordenar">
+                    <<< </a>
+            </strong>
+            <h4>Proxima lista</h4>
+            <strong>
+                <a href="/paginacao/@proximo/@ViewBag.ordenar">>>></a>
+            </strong>
 
-        
+
         </div>
 
     </div>
 
     <div class="container">
 
-@foreach (var item in Model) {
-    var path = item.Imagem.First().ArquivoImagem;
-    var largura = item.Imagem.First().WidthImagem;
-    var identifica = item.Pagina.First(p => p.Pagina.ListaGrupo == null).Pagina.Id;
-    List<business.business.Pagina> lista = item.Pagina.First(p => p.Pagina.ListaGrupo == null).Pagina.Story.Pagina;
-    var Capitulo = item.Pagina.First(p => p.Pagina.ListaGrupo == null).Pagina.Story.PaginaPadraoLink;
-    var Versiculo = lista.IndexOf(lista.First(l => l.Id == identifica)) + 1;
-<div class="produto">     
-            <div class="info">
-                <p>  Nome: @item.Nome </p> 
-                <p>  Descrição: @item.Descricao </p>
-                <p>  Preço: @item.Preco </p>
-                <p>  Estoque: @item.QuantEstoque </p>  
-            </div>   
+        @foreach (var item in Model)
+        {
+            var path = item.Imagem.First().ArquivoImagem;
+            var largura = item.Imagem.First().WidthImagem;
+            var identifica = item.Pagina.Id;
+            List<business.business.Pagina> lista = item.Pagina.Story.Pagina;
+            var Capitulo = item.Pagina.Story.PaginaPadraoLink;
+            var Versiculo = lista.IndexOf(lista.First(l => l.Id == identifica)) + 1;
+            <div class="produto">
+                <div class="info">
+                    <p> Nome: @item.Nome </p>
+                    <p> Descrição: @item.Descricao </p>
+                    <p> Preço: @item.Preco </p>
+                    <p> Estoque: @item.QuantEstoque </p>
+                </div>
                 <div class="caps">
                     <strong>
-                    Capitulo: @Capitulo -
-                    Versiculo: @Versiculo
+                        <a href="/Renderizar/@Capitulo/@Versiculo" >
+                        Capitulo @Capitulo                        
+                        </a> <br>
+                        <a href="/Renderizar/@Capitulo/@Versiculo" >                        
+                        Versiculo @Versiculo
+                        </a>
                     </strong>
-                </div> 
-            <img src="@path" alt="Imagem do produto" width="@largura" />
-       
-</div>
-}
+                </div>
+                <a href="/Renderizar/@Capitulo/@Versiculo" >
+                <img src="@path" alt="Imagem do produto" width="@largura" />
+
+                </a>
+
+            </div>
+        }
     </div>
 
+   <script type="text/javascript">
 
+        setTimeout(function() {
+        if(parseInt(document.getElementById("quantidade").value) == 20)
+        window.location.href = "/paginacao/" + @proximo + "/" + "@ViewBag.ordenar";
+        else
+        window.location.href = "/paginacao/1/" + "@ViewBag.ordenar";
+
+        }, 20000);  
+
+          
+    </script> 
 </body>
+
 </html>

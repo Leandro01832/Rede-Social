@@ -49,14 +49,16 @@ namespace CMS.Controllers
             return View(applicationDbContext);
         }
 
-       [Route("paginacao/{pagina?}/{ordenar}")]
-        public async Task<IActionResult> paginacao(int? pagina, string ordenar)
+       [Route("paginacao/{pagina?}/{ordenar}/{automatico}/{tempo}")]
+        public async Task<IActionResult> paginacao(int? pagina, string ordenar, int automatico , int tempo)
         {
             int numeroPagina = (pagina ?? 1);
-            const int TAMANHO_PAGINA = 20;
+            const int TAMANHO_PAGINA = 40;
 
             ViewBag.pagina = numeroPagina;
             ViewBag.ordenar = ordenar;
+            ViewBag.automatico = automatico;
+            ViewBag.tempo = tempo;
             List<Produto> applicationDbContext = await RetornarLista(numeroPagina, TAMANHO_PAGINA, ordenar);            
             return View(applicationDbContext);
         }

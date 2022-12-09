@@ -4,9 +4,6 @@
     int atual = ViewBag.pagina;
     int proximo = atual + 1;
     int anterior = atual - 1;
-    bool nome = ViewBag.ordenar == "nome";
-    bool preco = ViewBag.ordenar == "preco";
-    bool capitulo = ViewBag.ordenar == "capitulo";
     var quant = Model.ToList().Count;
 }
 
@@ -21,7 +18,7 @@
 </head>
 
 <body>
-    <div class="cabecalho">
+    <div id="cabecalho">
         <div>
             <h4>Logo</h4>
 
@@ -29,26 +26,60 @@
         <div id="ordenacao">
             <h4>Ordenar</h4>
             <input type="hidden" value="@quant" id="quantidade" name="quantidade" > 
-            <a href="/paginacao/1/nome" >Ordenar por nome</a>
-            <a href="/paginacao/1/preco" >Ordenar por preço</a>
-            <a href="/paginacao/1/capitulo" >Ordenar por capitulo</a>
+            <input type="hidden" value="@ViewBag.automatico" id="auto" name="auto" > 
+            <a href="/paginacao/1/nome/1/@ViewBag.tempo" >Ordenar por nome</a>
+            <a href="/paginacao/1/preco/1/@ViewBag.tempo" >Ordenar por preço</a>
+            <a href="/paginacao/1/capitulo/1/@ViewBag.tempo" >Ordenar por capitulo</a>
         </div>
         <div id="proxima-lista">
             <h3>Lista @ViewBag.pagina</h3>
-            <h4>Lista Anterior</h4>
-            <strong>
-                <a href="/paginacao/@anterior/@ViewBag.ordenar">
-                    <<< </a>
-            </strong>
-            <h4>Proxima lista</h4>
-            <strong>
-                <a href="/paginacao/@proximo/@ViewBag.ordenar">>>></a>
-            </strong>
-
-
+        </div>
+        <div>
+            <label for="tempo" > <strong>Time em segundos (s):</strong> </label>
+            <input type="number" value="@ViewBag.tempo" id="tempo" name="tempo" max="600" min="15" >
+            <a href="#" onclick="alterou()">Alterar time</a>
         </div>
 
     </div>
+    <div id="configuracao">
+    <p id="livro"><strong>Livro: Leandro</strong></p>
+    <p id="config">
+        <strong>
+        <a  href="#" id="configurar" onclick="clicou()" >Info e Config</a>
+        </strong>
+    </p>
+    <p id="automatico" >
+        <strong>
+            @{
+                if(ViewBag.automatico == 1)
+                {
+                    <a  href="/paginacao/@atual/@ViewBag.ordenar/0/@ViewBag.tempo" >Desabilitar automático</a>
+                }
+                else
+                {
+                    <a  href="/paginacao/@atual/@ViewBag.ordenar/1/@ViewBag.tempo" >Habilitar automático</a>
+                }
+            }
+        
+        </strong>
+    </p>
+
+    <p id="lista">
+        <strong>
+            @{
+                if(atual > 1)
+                {
+                    <a href="/paginacao/@anterior/@ViewBag.ordenar/@ViewBag.automatico/@ViewBag.tempo"> Lista Anterior ||</a> 
+                }
+
+            }
+                          
+                <a href="/paginacao/@proximo/@ViewBag.ordenar/@ViewBag.automatico/@ViewBag.tempo"> Proxima lista >>></a>
+
+        </strong>
+            </p>
+    </div>
+    
 
     <div class="container">
 
@@ -85,16 +116,41 @@
             </div>
         }
     </div>
+    
 
    <script type="text/javascript">
 
-        setTimeout(function() {
-        if(parseInt(document.getElementById("quantidade").value) == 20)
-        window.location.href = "/paginacao/" + @proximo + "/" + "@ViewBag.ordenar";
-        else
-        window.location.href = "/paginacao/1/" + "@ViewBag.ordenar";
+        var elements1 = document.getElementsByClassName("info");
+        var element = document.getElementById("cabecalho");
+        var element2 = document.getElementById("auto");
+        var time = parseInt(document.getElementById("tempo").value) * 1000;
 
-        }, 20000);  
+        function clicou()
+        {
+                for(var i = 0; i < elements1.length; i++){
+                elements1[i].style.display = "block";
+            }
+            element.style.display = "flex";
+        }
+        
+        function alterou()
+        {
+            window.location.href = "/paginacao/@atual/@ViewBag.ordenar/1/" +
+            document.getElementById("tempo").value;
+        }
+       
+        if(parseInt(element2.value) == 1)
+        {
+            setTimeout(function() {
+            if(parseInt(document.getElementById("quantidade").value) == 40)
+            window.location.href = "/paginacao/" + @proximo + "/" + "@ViewBag.ordenar/1/@ViewBag.tempo";
+            else
+            window.location.href = "/paginacao/1/" + "@ViewBag.ordenar/1/@ViewBag.tempo";
+
+            }, time);  
+
+        }
+
 
           
     </script> 

@@ -10,11 +10,53 @@ body{
 }
 
 .container{  display: flex; }
-.cabecalho
+#cabecalho
+{ 
+     display: none;
+     justify-content: space-around;
+    border: 3px solid chocolate;
+}   
+
+#configuracao
 { 
      display: flex;
-     justify-content: space-between;
+     justify-content: space-around;
     border: 3px solid chocolate;
+}   
+
+#configuracao p
+{ 
+    border: 3px solid black;
+}   
+
+#livro
+{ 
+     background-color: chocolate;
+     font-size: large;
+}   
+
+#automatico a
+{ 
+     background-color: rgb(255, 255, 255);
+     color: chocolate;
+     font-size: large;
+     text-decoration: none;
+}   
+
+#lista a
+{ 
+     background-color: rgb(255, 255, 255);
+     color: chocolate;
+     font-size: large;
+     text-decoration: none;
+}   
+
+#config a
+{ 
+     background-color: rgb(255, 255, 255);
+     color: chocolate;
+     font-size: large;
+     text-decoration: none;
 }   
 
 .container{
@@ -27,7 +69,8 @@ align-content: center;
 }
 .produto{
 width: 172px;
-height: 310px;
+min-height: 215px;
+height: auto;
 margin-left: 5px;
 margin-top: 4px;
 border: solid 4px coral;
@@ -47,10 +90,10 @@ color: rgb(164, 52, 11);
 
 .info
 {
+    display: none;
 overflow: auto;
 max-height: 90px;
 }
-
 
 #proxima-lista{
 align-self: center;

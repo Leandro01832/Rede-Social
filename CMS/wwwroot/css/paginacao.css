@@ -9,6 +9,11 @@ body{
     height: auto;
 }
 
+img
+{
+    width: 100%;
+}
+
 .container{  display: flex; }
 #cabecalho
 { 
@@ -67,18 +72,17 @@ flex-wrap: wrap;
 align-content: center; 
 
 }
+
 .produto{
-width: 172px;
-min-height: 215px;
-height: auto;
 margin-left: 5px;
 margin-top: 4px;
 border: solid 4px coral;
+
 }
 
 .caps{
 background-color: rgb(232, 255, 127);
-font-size: 1.5em;
+font-size: 1.0em;
 }
 
 .caps strong a{

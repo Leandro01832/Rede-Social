@@ -18,29 +18,7 @@
 </head>
 
 <body>
-    <div id="cabecalho">
-        <div>
-            <h4>Logo</h4>
-
-        </div>
-        <div id="ordenacao">
-            <h4>Ordenar</h4>
-            <input type="hidden" value="@quant" id="quantidade" name="quantidade" > 
-            <input type="hidden" value="@ViewBag.automatico" id="auto" name="auto" > 
-            <a href="/paginacao/1/nome/1/@ViewBag.tempo" >Ordenar por nome</a>
-            <a href="/paginacao/1/preco/1/@ViewBag.tempo" >Ordenar por preço</a>
-            <a href="/paginacao/1/capitulo/1/@ViewBag.tempo" >Ordenar por capitulo</a>
-        </div>
-        <div id="proxima-lista">
-            <h3>Lista @ViewBag.pagina</h3>
-        </div>
-        <div>
-            <label for="tempo" > <strong>Time em segundos (s):</strong> </label>
-            <input type="number" value="@ViewBag.tempo" id="tempo" name="tempo" max="600" min="15" >
-            <a href="#" onclick="alterou()">Alterar time</a>
-        </div>
-
-    </div>
+   
     <div id="configuracao">
     <p id="livro"><strong>Livro: Leandro</strong></p>
     <p id="config">
@@ -53,11 +31,15 @@
             @{
                 if(ViewBag.automatico == 1)
                 {
-                    <a  href="/paginacao/@atual/@ViewBag.ordenar/0/@ViewBag.tempo" >Desabilitar automático</a>
+                    <a  href="/paginacao/@atual/@ViewBag.ordenar/0/@ViewBag.tempo/@ViewBag.tamanho" >
+                    Desabilitar automático
+                    </a>
                 }
                 else
                 {
-                    <a  href="/paginacao/@atual/@ViewBag.ordenar/1/@ViewBag.tempo" >Habilitar automático</a>
+                    <a  href="/paginacao/@atual/@ViewBag.ordenar/1/@ViewBag.tempo/@ViewBag.tamanho" >
+                    Habilitar automático
+                    </a>
                 }
             }
         
@@ -69,15 +51,56 @@
             @{
                 if(atual > 1)
                 {
-                    <a href="/paginacao/@anterior/@ViewBag.ordenar/@ViewBag.automatico/@ViewBag.tempo"> Lista Anterior ||</a> 
+                    <a href="/paginacao/@anterior/@ViewBag.ordenar/@ViewBag.automatico/@ViewBag.tempo/@ViewBag.tamanho">
+                     Lista Anterior ||
+                     </a> 
                 }
 
             }
                           
-                <a href="/paginacao/@proximo/@ViewBag.ordenar/@ViewBag.automatico/@ViewBag.tempo"> Proxima lista >>></a>
+                <a href="/paginacao/@proximo/@ViewBag.ordenar/@ViewBag.automatico/@ViewBag.tempo/@ViewBag.tamanho">
+                 Proxima lista >>>
+                 </a>
 
         </strong>
             </p>
+    </div>
+
+     <div id="cabecalho">
+        <div>
+            <h4>Logo</h4>
+
+        </div>
+        <div id="ordenacao">
+            <h4>Ordenar</h4>
+            <input type="hidden" value="@quant" id="quantidade" name="quantidade" > 
+            <input type="hidden" value="@ViewBag.automatico" id="auto" name="auto" > 
+            <a href="/paginacao/1/nome/1/@ViewBag.tempo/@ViewBag.tamanho" >Ordenar por nome</a>
+            <a href="/paginacao/1/preco/1/@ViewBag.tempo/@ViewBag.tamanho" >Ordenar por preço</a>
+            <a href="/paginacao/1/capitulo/1/@ViewBag.tempo/@ViewBag.tamanho" >Ordenar por capitulo</a>
+        </div>
+        <div id="proxima-lista">
+            <h3>Tamanho da lista</h3>
+            <strong>
+            <a href="/paginacao/1/nome/1/@ViewBag.tempo/10" >10 itens</a>
+
+            </strong>
+            <strong>
+            <a href="/paginacao/1/preco/1/@ViewBag.tempo/40" >40 itens</a>
+
+            </strong>
+            <strong>
+            <a href="/paginacao/1/capitulo/1/@ViewBag.tempo/80" >80 itens</a>
+
+            </strong>
+            <input type="hidden" value="@ViewBag.tamanho" id="tamanho" name="tamanho" >
+        </div>
+        <div>
+            <label for="tempo" > <strong>Time em segundos (s):</strong> </label>
+            <input type="number" value="@ViewBag.tempo" id="tempo" name="tempo" max="600" min="15" >
+            <a href="#" onclick="alterou()">Alterar time</a>
+        </div>
+
     </div>
     
 
@@ -109,7 +132,7 @@
                     </strong>
                 </div>
                 <a href="/Renderizar/@Capitulo/@Versiculo" >
-                <img src="@path" alt="Imagem do produto" width="@largura" />
+                <img src="@path" alt="Imagem do produto"  />
 
                 </a>
 
@@ -121,9 +144,53 @@
    <script type="text/javascript">
 
         var elements1 = document.getElementsByClassName("info");
+        var elements2 = document.getElementsByClassName("produto");
+        var elements3 = document.getElementsByClassName("caps");
         var element = document.getElementById("cabecalho");
         var element2 = document.getElementById("auto");
+        var element3 = document.getElementById("tamanho");
         var time = parseInt(document.getElementById("tempo").value) * 1000;
+
+        for(var i = 0; i < elements2.length; i++){
+                if(parseInt(element3.value) == 80)
+                {
+                    elements2[i].style.width = "90px";
+                    elements2[i].style.minHeight = "108px";
+                    elements2[i].style.height = "auto";
+                }
+                else
+                if(parseInt(element3.value) == 40)
+                {
+                    elements2[i].style.width = "172px";
+                    elements2[i].style.minHeight = "210px";
+                    elements2[i].style.height = "auto";
+                }
+                else
+                if(parseInt(element3.value) == 10)
+                {
+                    elements2[i].style.width = "344px";
+                    elements2[i].style.minHeight = "430px";
+                    elements2[i].style.height = "auto";
+                }
+            }
+
+            if(parseInt(element3.value) == 80)
+                {
+                    for(var i = 0; i < elements3.length; i++)
+                    elements3[i].style.fontSize = "0.8em";
+                }
+                else
+                if(parseInt(element3.value) == 40)
+                {
+                    for(var i = 0; i < elements3.length; i++)
+                    elements3[i].style.fontSize = "1.2em";
+                }
+                else
+                if(parseInt(element3.value) == 10)
+                {
+                     for(var i = 0; i < elements3.length; i++)
+                    elements3[i].style.fontSize = "1.8em";
+                }
 
         function clicou()
         {
@@ -136,16 +203,16 @@
         function alterou()
         {
             window.location.href = "/paginacao/@atual/@ViewBag.ordenar/1/" +
-            document.getElementById("tempo").value;
+            document.getElementById("tempo").value + "/@ViewBag.tamanho";
         }
        
         if(parseInt(element2.value) == 1)
         {
             setTimeout(function() {
-            if(parseInt(document.getElementById("quantidade").value) == 40)
-            window.location.href = "/paginacao/" + @proximo + "/" + "@ViewBag.ordenar/1/@ViewBag.tempo";
+            if(parseInt(document.getElementById("quantidade").value) == parseInt(element3.value))
+            window.location.href = "/paginacao/" + @proximo + "/" + "@ViewBag.ordenar/1/@ViewBag.tempo/@ViewBag.tamanho";
             else
-            window.location.href = "/paginacao/1/" + "@ViewBag.ordenar/1/@ViewBag.tempo";
+            window.location.href = "/paginacao/1/" + "@ViewBag.ordenar/1/@ViewBag.tempo/@ViewBag.tamanho";
 
             }, time);  
 

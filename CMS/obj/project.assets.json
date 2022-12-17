@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
+      "google-search-results-dotnet/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netcoreapp2.2/serpapi.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.2/serpapi.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -3561,7 +3573,7 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/12.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -5857,6 +5869,20 @@
     }
   },
   "libraries": {
+    "google-search-results-dotnet/1.2.0": {
+      "sha512": "1i7srzDp+MbwiqHSrvMWbxWQJfechfCAhvtgzeaVUxXQZ4Xzr1PK/TEpgPkCPvDd/sbzGtC/ZqDsGsgdvysWYQ==",
+      "type": "package",
+      "path": "google-search-results-dotnet/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "MIT-LICENSE.txt",
+        "google-search-results-dotnet.1.2.0.nupkg.sha512",
+        "google-search-results-dotnet.nuspec",
+        "lib/netcoreapp2.2/serpapi.dll",
+        "lib/netcoreapp2.2/serpapi.runtimeconfig.json"
+      ]
+    },
     "Libuv/1.10.0": {
       "sha512": "GsCf4q+eyaI49rCPlgYxdxa1SQCysXFFdSJWdstrwxytg4+VPYLYrXD4AT2rjHVJ+UF7SSWX9CapWEYaU4ejVQ==",
       "type": "package",
@@ -9789,10 +9815,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/11.0.2": {
-      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+    "Newtonsoft.Json/12.0.2": {
+      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
       "type": "package",
-      "path": "newtonsoft.json/11.0.2",
+      "path": "newtonsoft.json/12.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -9815,7 +9841,7 @@
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.12.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
       ]
     },
@@ -15371,11 +15397,14 @@
       "NVelocity >= 1.2.0",
       "RestSharp >= 106.12.0",
       "SharpZipLib >= 1.2.0",
-      "business >= 1.0.0"
+      "business >= 1.0.0",
+      "google-search-results-dotnet >= 1.0.0"
     ]
   },
   "packageFolders": {
     "C:\\Users\\leand\\.nuget\\packages\\": {},
+    "C:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -15388,19 +15417,26 @@
       "outputPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
       ],
       "sources": {
+        "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.2": {
+          "targetAlias": "netcoreapp2.2",
           "projectReferences": {
             "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj": {
               "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj"
@@ -15416,6 +15452,7 @@
     },
     "frameworks": {
       "netcoreapp2.2": {
+        "targetAlias": "netcoreapp2.2",
         "dependencies": {
           "Microsoft.AspNetCore.All": {
             "target": "Package",
@@ -15457,14 +15494,36 @@
           "SharpZipLib": {
             "target": "Package",
             "version": "[1.2.0, )"
+          },
+          "google-search-results-dotnet": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.415\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "CMS depende de google-search-results-dotnet (>= 1.0.0), mas google-search-results-dotnet 1.0.0 não foi encontrado. A melhor correspondência aproximada de google-search-results-dotnet 1.2.0 foi resolvida.",
+      "libraryId": "google-search-results-dotnet",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.2"
+      ]
+    }
+  ]
 }

@@ -15,6 +15,11 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 using System.IO;
+using System.Net.Http;
+using System.Collections;
+using SerpApi;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace CMS
 {
@@ -174,6 +179,26 @@ namespace CMS
                     result = await roleManager.CreateAsync(new IdentityRole(namesRole));
                 }
             }
+
+            //String apiKey = "d0ebdc40d5e725ce2764208d4153772f10f531519c3952b626ce2f3a73191dd3";
+            //Hashtable ht = new Hashtable();
+            //ht.Add("q", "iphone 12");
+            //ht.Add("tbm", "shop");
+            //ht.Add("location", "Austin, Texas, United States");
+            //ht.Add("hl", "en");
+            //ht.Add("gl", "us");
+
+            //try
+            //{
+            //    GoogleSearchResultsClient search = new GoogleSearchResultsClient(ht, apiKey);
+            //    JObject data = search.GetJson();
+            //    var inline_shopping_results = data["inline_shopping_results"];
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("Exception:");
+            //    Console.WriteLine(ex.ToString());
+            //}
             await userHelper.CheckSuperUserAsync();
         }
     }

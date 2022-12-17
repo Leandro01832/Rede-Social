@@ -167,6 +167,8 @@ namespace CMS.Models.Repository
         public IIncludableQueryable<Pagina, Div> includes()
         {
             var include = dbSet
+            .Include(p => p.Produto)
+            .ThenInclude(p => p.Imagem)
             .Include(p => p.Story)
              .ThenInclude(b => b.Pagina)
 

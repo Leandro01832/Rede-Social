@@ -230,7 +230,7 @@ namespace MeuProjetoAgora.Controllers
                     lista.AddRange(item.Where(p => p.Story.PaginaPadraoLink == capitulo && p.Story.UserId == user.Id && !p.Layout).ToList());
                 }
 
-            return lista;
+            return lista.OrderBy(p => p.Id).ToList();
         }
 
         

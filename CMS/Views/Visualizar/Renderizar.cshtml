@@ -27,6 +27,7 @@
     <input type="hidden" value="@Model.Story.PaginaPadraoLink" id="ValorPaginaPadraoLink" />
     <input type="hidden" value="@Model.Story.Nome" id="ValorStoryNome" />   
 
+    <div style="width:100%;" class="blocoLoader">
     <a class="left carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(Model.Story.PaginaPadraoLink)/@(anterior)" style="display:none;">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
@@ -37,7 +38,6 @@
         <span class="sr-only">Next</span>
     </a>
 
-    <div style="position:fixed; top:5px; width:100%;" class="blocoLoader">
         <div class="col-xs-4">
             @{
 
@@ -88,23 +88,49 @@
             <a href="#" class="btn btn-primary agrupamento">
                 sub-story
             </a>
-            <a href="/paginacao" class="btn btn-primary glyphicon glyphicon-list-alt">
+            <a href="/paginacao/1/capitulo/1/20/11" class="btn btn-primary">
                 Listas
             </a>
         </div>
 
     </div>
 
-     @Html.Raw(ViewBag.Html) 
-    @* <br><br>
-
     @{
-
-        for (int i = 1; i <= atual; i++)
+        if(Model.Produto != null)
         {
-            <img src="/imagem/banana-320x320.png" width="10" class="banana" />
+            <div class="row container" >
+                <div class="col-md-6 info">
+                    <p> Categoria: @Model.Produto.Nome </p>
+                            <p> Descrição: @Model.Produto.Descricao </p>
+                            <p> Preço: @Model.Produto.Preco </p>
+                            <p> Estoque: @Model.Produto.QuantEstoque </p>
+                            <div class="col-md-12 imagens">
+                                @{
+                                    @foreach (var item in Model.Produto.Imagem.ToList())
+                                    {
+                                        if (Model.Produto.Imagem.ToList().IndexOf(item) != 0)
+                                        {
+                                            <img src="@item.ArquivoImagem" style="width: 100%;" />
+                                        }
+                                    }
+                                }
+                            </div>
+                </div>
+                <div class="col-md-6 imagem">
+                    <img src="@Model.Produto.Imagem.First().ArquivoImagem" style="width: 100%;"  />
+                </div>
+                
+            </div>
+
         }
-    } *@
+        else
+        {
+            @Html.Raw(ViewBag.Html) 
+        }
+    }
+
+     
+    
 
     <div style="position:fixed; bottom:1%; width: 100%; " class="Paginacao">
 
@@ -123,10 +149,7 @@
                             <span style="background-color:white; opacity: 0.80;">Versiculo @atual de @quant</span>
                         } 
             }
-            @* <div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated"
-   role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-</div> *@
+            
             <div class="DivPagina" style=" height:50px; overflow: hidden; background-color: darkgrey;  opacity: 0.90;">
                     <span id="redireciona-1"></span>                        
                 @{                               
@@ -150,7 +173,13 @@
             </div>
         </center>
 
+        <div class="progressbar">
+                <div></div>
+            </div>
+
     </div>
+
+      
 
     <div class="container1" style="display:none; position:fixed; bottom:2%; left: 1%; width: 100%; background-color: rgba(239, 243, 11, 0.5); z-index: 2000;">
         <a class="btn btn-primary" href="#" id="fecharChat" > <span class="glyphicon glyphicon-remove-circle"></span> Fechar</a>
@@ -192,5 +221,26 @@
     <script type="text/javascript" src="~/js/Chat-Renderizar.js"></script>
     <script src="~/js/loader.js"></script>
     <script type="text/javascript" src="~/js/Navegacao.js"> </script>    
+    <script type="text/javascript">
+
+    var ss = 0;
+    var tempo = parseInt($("#Tempo").val());
+    var porcentagem = 0;
+    const progresso = document.querySelector(".progressbar div")
+
+    if ($.cookie('automatico') == '1') 
+    {
+
+        setInterval(function() {           
+
+         ss += 1000;
+         porcentagem = parseInt((ss / tempo) * 100); 
+         progresso.setAttribute("style", "width: " +porcentagem+ "%");               
+         }, 1000);     
+
+    }
+    
+         
+     </script>    
 
 }

@@ -15,6 +15,11 @@ using System.Linq;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using business.business.div;
+using System.Net.Http.Headers;
+using System.Net.Http;
+using Newtonsoft.Json;
+using business.business;
+using business.business.Group;
 
 namespace CMS
 {
@@ -34,7 +39,72 @@ namespace CMS
 
         public async Task InicializaDBAsync(IServiceProvider provider)
         {
-            var contexto = provider.GetService<ApplicationDbContext>();   
+            var user = await UserManager.Users.
+            FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
+            var contexto = provider.GetService<ApplicationDbContext>();
+
+            //Random randNum = new Random();
+
+            //var client = new HttpClient();
+            //var request = new HttpRequestMessage
+            //{
+            //    Method = HttpMethod.Get,
+            //    RequestUri =
+            //    new Uri("https://serpapi.com/search.json?q=car" +
+            //    "&tbm=shop&location=Dallas&hl=pt&gl=us&key=d0ebdc40d5e725ce2764208d4153772f10f531519c3952b626ce2f3a73191dd3"),
+            //    Headers =
+            //    {
+            //        { "accept", "application/json" },
+            //    },
+            //};
+
+            //using (var response = await client.SendAsync(request))
+            //{
+            //    response.EnsureSuccessStatusCode();
+            //    var body = await response.Content.ReadAsStringAsync();
+            //    // Console.WriteLine(body);
+            //    Welcome livro = JsonConvert.DeserializeObject<Welcome>(body);
+
+            //    var indice = 0;
+
+            //    for(var i = 0; i < livro.ShoppingResults.Length; i++)
+            //    {
+            //        Pagina pagina = new Pagina();
+            //        pagina.Div = null;
+            //        pagina.Produto = new Produto
+            //        {
+            //            Descricao = livro.ShoppingResults[i].Title,
+            //            Nome = "carro",
+            //            Imagem = new List<ImagemProduto>
+            //            { new ImagemProduto { ArquivoImagem = livro.ShoppingResults[i].Thumbnail.ToString() } },
+            //            Preco = decimal.Parse(randNum.Next(550, 3000).ToString()),
+            //            QuantEstoque = 10                              
+            //        };
+            //        pagina.StoryId = 5;
+            //        pagina.UserId = user.Id;
+            //        pagina.Tempo = 15000;
+            //        pagina.Titulo = "carro";
+            //        contexto.Pagina.Add(pagina);
+            //        contexto.SaveChanges();
+
+            //        indice++;
+
+            //        if (indice == 5)
+            //        {
+            //            Pagina pag = new Pagina();
+            //            pag.StoryId = 5;
+            //            pag.Div = null;
+            //            pag.UserId = user.Id;
+            //            pag.Tempo = 15000;
+            //            pag.Titulo = "carro";
+            //            contexto.Pagina.Add(pag);
+            //            contexto.SaveChanges();
+            //            indice = 0;
+            //        }
+
+                    
+            //    }
+            //}
 
             if (RepositoryPagina.paginas[0] == null)     
               RepositoryPagina.paginas[0] = new List<business.business.Pagina>();
@@ -42,7 +112,6 @@ namespace CMS
 
             if (RepositoryPagina.paginas[0].FirstOrDefault() == null)
             {
-                 var user = await UserManager.Users.FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
                 var lst = await epositoryPagina.MostrarPageModels(user.Id);
                 RepositoryPagina.paginas[0].AddRange(lst);
             }             

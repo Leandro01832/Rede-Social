@@ -134,19 +134,7 @@ namespace CMS.Controllers
 
             pagina.Layout = true;
             await _context.Pagina.AddAsync(pagina);
-            await _context.SaveChangesAsync();
-
-            for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
-                    {
-                         if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
-
-                        if(RepositoryPagina.paginas[indice] == null) RepositoryPagina.paginas[indice] = new List<Pagina>();
-                        if(RepositoryPagina.paginas[indice].Count < 1000000000)
-                        {
-                            RepositoryPagina.paginas[indice].Add(pagina);
-                            break;
-                        }
-                    }
+            await _context.SaveChangesAsync();            
 
             return RedirectToAction("Index", "Home");
         }

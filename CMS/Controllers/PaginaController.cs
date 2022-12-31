@@ -81,18 +81,14 @@ namespace CMS.Controllers
         [Route("Editar/{id?}")]
         public async Task<IActionResult> Editar(Int64? id)
         {
-           
-
             Pagina pagina = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
-
 
             if (pagina == null)
             {
                 ViewBag.paginas = new SelectList(new List<Pagina>(), "Id", "Nome");
                 ViewBag.numeroErro = id;
                 return View("HttpNotFound");
-            }
-            
+            }            
             
                 ViewBag.IdPagina = id;
                 ViewBag.IdSite = pagina.UserId;
@@ -109,7 +105,7 @@ namespace CMS.Controllers
                     html = await epositoryPagina.renderizarPagina(pagina);
                 }
                 else
-                html = usuario.Capa;
+                html = "<p>Instagleo</p>";
                 ViewBag.Html = html;                            
 
             ViewBag.proximo = id + 1;
@@ -120,12 +116,8 @@ namespace CMS.Controllers
         public async Task<ActionResult> GetView(Int64? id)
         {
             Pagina pagina = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
-            var user = UserHelper.Users.FirstOrDefault(u => u.Id == pagina.UserId);
-            if (user == null)
-            {
-                user = await UserManager.Users.FirstOrDefaultAsync(u => u.Id == pagina.UserId);
-                UserHelper.Users.Add(user);
-            }
+            
+            
             if (pagina == null)
             {
                 ViewBag.numeroErro = id;
@@ -140,7 +132,7 @@ namespace CMS.Controllers
                  html = await epositoryPagina.renderizarPagina(pagina);
             }
              else
-            html = user.Capa;
+            html = "<p>Instagleo</p>";
             ViewBag.html = html;
             return PartialView("GetView");
         }
@@ -149,17 +141,8 @@ namespace CMS.Controllers
         public async Task<IActionResult> Salvar(Int64 id)
         {
             Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
-             foreach (var item in RepositoryPagina.paginas)  
-             {
-                if(item == null ||  item.FirstOrDefault(i => i.UserId == pag.UserId) == null)
-                    continue;
-             if(item.FirstOrDefault(p => p.Id == id) != null)
-             {
-                item.Remove(item.First(p => p.Id == id));
-                item.Add(pag);
-                break;
-             }
-             }
+            
+             
             return Content("Salvo com sucesso");
         }
 
@@ -303,17 +286,7 @@ namespace CMS.Controllers
                 }
                 await db.SaveChangesAsync();
 
-                    for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
-                    {
-                          if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
-
-                        if(RepositoryPagina.paginas[indice] == null) RepositoryPagina.paginas[indice] = new List<Pagina>();
-                        if(RepositoryPagina.paginas[indice].Count < 1000000000)
-                        {
-                            RepositoryPagina.paginas[indice].Add(pag);
-                            break;
-                        }
-                    }
+                    
             }
             ViewBag.condicao = true;
             ViewBag.pagina = IdPagina;
@@ -354,20 +327,7 @@ namespace CMS.Controllers
             if(pag.SubGrupoId != null) pag.SubGrupoId = null;
             if(pag.SubSubGrupoId != null) pag.SubSubGrupoId = null;
             db.Update(pag);
-            await db.SaveChangesAsync();
-
-            for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
-                    {
-                          if(RepositoryPagina.paginas[indice] == null ||
-                           RepositoryPagina.paginas[indice].FirstOrDefault(i => i.UserId == pag.UserId) == null) continue;
-
-                        if(RepositoryPagina.paginas[indice].FirstOrDefault(i => i.Id == pag.Id) != null)
-                        {
-                            RepositoryPagina.paginas[indice].Remove(RepositoryPagina.paginas[indice].First(i => i.Id == pag.Id));
-                            RepositoryPagina.paginas[indice].Add(pag);
-                            break;
-                        }
-                    }
+            await db.SaveChangesAsync();           
 
             epositoryPagina.AtualizarPaginaStory(await db.Story.FirstAsync(st => st.Id == pag.StoryId));
 

@@ -41,6 +41,38 @@ textarea {
     border-color: white;
 }
 
+@media (max-width: 500px) and (min-width: 50px){
+
+    #listaUrls{
+        width: 100%;
+        }
+    
+    }
+    
+    @media (max-width: 800px) and (min-width: 501px){
+
+    #listaUrls{
+        width: 80%;
+        }
+    
+    }
+
+    @media (max-width: 1100px) and (min-width: 801px){
+        
+        #listaUrls{
+            width: 60%;
+        }
+        
+    }
+
+    @media (min-width: 1101px){
+        
+        #listaUrls{
+            width: 40%;
+        }
+        
+    }
+    
 
 
 

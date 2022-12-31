@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     var indexSubStory = $("#indexsubstory").val();
 
-    var valorUser = $("#ValorUser").val();
+    var compartilhante = $("#compartilhante").val();
     var valorAtual = parseInt( $("#ValorAtual").val());
     var valorQuant = parseInt($("#ValorQuant").val()) ;
     var valorProximo = parseInt($("#ValorProximo").val());
@@ -33,12 +33,12 @@ $(document).ready(function() {
 
     $("#voltar").click(function() {
         redirecionar(valorAnterior);
-        window.location.href = "/SubStory/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorAnterior;
+        window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorAnterior + "/" + compartilhante;
     });
 
     $("#avancar").click(function() {
         redirecionar(valorProximo);
-        window.location.href = "/SubStory/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorProximo;
+        window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorProximo + "/" + compartilhante;
     });
 
     var checkbox = document.querySelector("#automatico");
@@ -65,10 +65,10 @@ $(document).ready(function() {
 
                 if (valorAtual < valorQuant){
                     redirecionar(valorProximo);
-                    window.location.href = "/SubStory/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorProximo;
+                    window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorProximo + "/" + compartilhante;
                 }
                 else
-                    window.location.href = "/SubStory/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory  + "/1";
+                    window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory  + "/1" + "/" + compartilhante;
             }, tempo);
         }
         else
@@ -80,15 +80,15 @@ $(document).ready(function() {
             type: 'POST',
             url: '/AjaxGet/GetSubStory',
             dataType: 'json',
-            data: { Indice: valorPaginaPadraoLink, User: valorUser, IndiceSubStory : indexSubStory }
+            data: { Indice: valorPaginaPadraoLink, IndiceSubStory : indexSubStory }
         })
             .done(function(response) {
                 $.cookie('automatico', '1');
 
                 if(response[0] != 0)
-                window.location.href = "/SubStory/"+ valorUser +"/" + response[0] + "/" + response[1] + "/1";
+                window.location.href = "/SubStory/" + response[0] + "/" + response[1] + "/1" + "/" + compartilhante;
                 else
-                window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/1";
+                window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/1" + "/" + compartilhante;
             });
     }
 
@@ -113,7 +113,7 @@ $(document).ready(function() {
                 $("#loading").show();
             if (valorAtual < valorQuant && $.cookie('automatico') == '1'){
                 redirecionar(valorProximo);
-                window.location.href = "/SubStory/"+ valorUser +"/" + valorPaginaPadraoLink  + "/" + indexSubStory + "/" + valorProximo;
+                window.location.href = "/SubStory/" + valorPaginaPadraoLink  + "/" + indexSubStory + "/" + valorProximo + "/" + compartilhante;
             }
             else if ($.cookie('automatico') == '1')             
              BuscarStory();          

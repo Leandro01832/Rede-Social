@@ -43,29 +43,38 @@ namespace CMS
             FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
             var contexto = provider.GetService<ApplicationDbContext>();
 
-            //Random randNum = new Random();
+            // Random randNum = new Random();
 
-            //var client = new HttpClient();
-            //var request = new HttpRequestMessage
-            //{
+            // var client = new HttpClient();
+            // var request = new HttpRequestMessage
+            // {
             //    Method = HttpMethod.Get,
             //    RequestUri =
-            //    new Uri("https://serpapi.com/search.json?q=car" +
+            //    new Uri("https://serpapi.com/search.json?q=notbook" +
             //    "&tbm=shop&location=Dallas&hl=pt&gl=us&key=d0ebdc40d5e725ce2764208d4153772f10f531519c3952b626ce2f3a73191dd3"),
             //    Headers =
             //    {
             //        { "accept", "application/json" },
             //    },
-            //};
+            // };
 
-            //using (var response = await client.SendAsync(request))
-            //{
+            // using (var response = await client.SendAsync(request))
+            // {
             //    response.EnsureSuccessStatusCode();
             //    var body = await response.Content.ReadAsStringAsync();
             //    // Console.WriteLine(body);
             //    Welcome livro = JsonConvert.DeserializeObject<Welcome>(body);
 
             //    var indice = 0;
+            //   var lst = await contexto.Story.Where(st => st.Nome != "Padrao" && st.UserId == user.Id).ToListAsync();
+
+            //    var str = new Story();
+               
+            //      str.PaginaPadraoLink = lst.Count + 1;
+            //      str.Nome = "notbooks";
+            //      str.UserId = user.Id;
+
+               
 
             //    for(var i = 0; i < livro.ShoppingResults.Length; i++)
             //    {
@@ -74,16 +83,16 @@ namespace CMS
             //        pagina.Produto = new Produto
             //        {
             //            Descricao = livro.ShoppingResults[i].Title,
-            //            Nome = "carro",
+            //            Nome = "notbooks",
             //            Imagem = new List<ImagemProduto>
             //            { new ImagemProduto { ArquivoImagem = livro.ShoppingResults[i].Thumbnail.ToString() } },
             //            Preco = decimal.Parse(randNum.Next(550, 3000).ToString()),
             //            QuantEstoque = 10                              
             //        };
-            //        pagina.StoryId = 5;
+            //        pagina.Story = str;
             //        pagina.UserId = user.Id;
             //        pagina.Tempo = 15000;
-            //        pagina.Titulo = "carro";
+            //        pagina.Titulo = "notbooks";
             //        contexto.Pagina.Add(pagina);
             //        contexto.SaveChanges();
 
@@ -92,11 +101,11 @@ namespace CMS
             //        if (indice == 5)
             //        {
             //            Pagina pag = new Pagina();
-            //            pag.StoryId = 5;
+            //            pag.Story = str;
             //            pag.Div = null;
             //            pag.UserId = user.Id;
             //            pag.Tempo = 15000;
-            //            pag.Titulo = "carro";
+            //            pag.Titulo = "notbooks";
             //            contexto.Pagina.Add(pag);
             //            contexto.SaveChanges();
             //            indice = 0;
@@ -104,17 +113,17 @@ namespace CMS
 
                     
             //    }
-            //}
+            // }
 
-            if (RepositoryPagina.paginas[0] == null)     
-              RepositoryPagina.paginas[0] = new List<business.business.Pagina>();
+            // if (RepositoryPagina.paginas[0] == null)     
+            //   RepositoryPagina.paginas[0] = new List<business.business.Pagina>();
              
 
-            if (RepositoryPagina.paginas[0].FirstOrDefault() == null)
-            {
-                var lst = await epositoryPagina.MostrarPageModels(user.Id);
-                RepositoryPagina.paginas[0].AddRange(lst);
-            }             
+            // if (RepositoryPagina.paginas[0].FirstOrDefault() == null)
+            // {
+            //     var lst = await epositoryPagina.MostrarPageModels(user.Id);
+            //     RepositoryPagina.paginas[0].AddRange(lst);
+            // }             
 
             if (await contexto.Set<Imagem>().AnyAsync())
             {

@@ -1,92 +1,220 @@
-﻿
+﻿@model business.business.Pagina
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+     List<business.business.Group.Story> stories = ViewBag.stories;
 }
 
 <style>
     #esquerda {
         left: 1%;
     }
-
     #direita {
         right: 1%;
     }
+
+   
+
 </style>
 
-<script src="/lib/jquery/dist/jquery.js"></script>
+<input type="hidden" value="@ViewBag.compartilhante" id="compartilhante" />
+
+<script type="text/javascript">
+
+            function acessarStory(url)
+            {
+                window.location.href =  url;
+            }           
+
+</script>
+
 <br />
 <br />
 <br />
 
-<input type="text" id="NameUser" style="width:90%; position:absolute; top:10%;" placeholder="Nome do livro" />
-<div id="listaUsers" style="position:absolute; top:15%; width:300px; display:none; z-index:2000;" class="jumbotron">
+<h1>Instagleo</h1>
+<div style="z-index: 2;">
+        <center>
+        <input type="text" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
+               placeholder="N° do capítulo ou o nome"  />
+            <a id="acessoPaginaComInput"  class="btn btn-primary glyphicon glyphicon-search">
+                Acessar
+            </a>
+        </center>
+    </div>
+    <center>
+
+<div id="listaUrls" style="position:absolute; display:none; z-index:2000;" class="jumbotron">
 
 </div>
+    </center>
 
-        <div>
-            <img src="~/imagem/story.jpg" class="img-responsive img-circle" style="width: 100%;"   />
+        <div class="row">
+            <div class="col-md-12">
+            <img src="~/imagem/story.jpg" class="img-responsive" style="width: 100%;"   />
+            </div>
+         @{
+        if (stories.Count > 0)
+        {
+            @* <div class="col-md-2 text-center bg-warning" style="display:grid">
+                <p>Sumário</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Stories")
+                            </th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @{
+
+                        foreach (var item in stories)
+                        {
+                            <tr>
+                                <td>
+                                    Story @item.Nome
+                                </td>
+                                <td>
+                                    .......................................
+                                </td>
+                                <td>
+                                    <a href="/Renderizar/@item.PaginaPadraoLink/1">Cap. @item.PaginaPadraoLink</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div> *@
+        }
+    }
         </div>
 
+    
 
 
-@section scripts{
-    <script type="text/javascript">
 
-        $(document).ready(function () {            
+@section Scripts {
+    
+<script type="text/javascript">
+        $(document).ready(function () {
 
-            function refreshData() 
-             {
-                $.ajax({
+            var compartilhante = $("#compartilhante").val();
+
+
+            function BuscarStory(valorPaginaPadraoLink) {
+        $.ajax({
+            type: 'POST',
+            url: '/AjaxGet/GetStory',
+            dataType: 'json',
+            data: { Indice: valorPaginaPadraoLink }
+        })
+            .done(function(response) {                
+
+                if(response[0] == "Story")
+                window.location.href = "/Renderizar/"   +  response[1] +  "/1/" + compartilhante;
+                else if(response[0] == "SubStory")
+                window.location.href = "/SubStory/"     +  response[1] +  "/1/1/" + compartilhante;
+                else if(response[0] == "Grupo")
+                window.location.href = "/Grupo/"        +  response[1] +  "/1/1/1/" + compartilhante;
+                else if(response[0] == "SubGrupo")
+                window.location.href = "/SubGrupo/"     +  response[1] +  "/1/1/1/1/" + compartilhante;
+                else if(response[0] == "SubSubGrupo")
+                window.location.href = "/SubSubGrupo/"  +  response[1] +  "/1/1/1/1/1/" + compartilhante;
+            });
+            return false;
+    }
+             
+
+            $("#acessoPaginaComInput").click(function(){                
+
+                if($("#NumeroPaginaAcesso").val() != "")
+                {
+                    var num =  parseInt($("#NumeroPaginaAcesso").val());
+                    BuscarStory(num - 1);
+                }
+                else
+                alert("Informe o numero do capitulo!!!");
+
+            });
+
+           
+
+            $("#NumeroPaginaAcesso").keyup(function(){   
+         
+
+                var valor = parseInt( $(this).val());
+
+               if (isNaN(valor))
+                {
+
+                      $.ajax({
                     type: 'POST',
-                    url: '/AjaxGet/refresh',
-                    dataType: 'json',
-                    data: { }
-                    })
-                    .done(function(response) {
-                        
-                    });
-             }
-
-            $("#NameUser").keyup(function () {
-
-                $.ajax({
-                    type: 'POST',
-                    url: '/AjaxGet/GetUsers',
+                    url: '/AjaxGet/BuscarStories',
                     dataType: 'json',
                     data: { valor: $(this).val() },
                     success: function (data) {
 
-                        if (data.length == 0)
-                            $("#listaUsers").css("display", "none");
+                        if (data == null)
+                            $("#listaUrls").css("display", "none");
                         else
-                            $("#listaUsers").css("display", "block");
-
-                        $("#listaUsers").empty();
-                        $.each(data, function (i) {
-                            $("#listaUsers").append("<p>" +
-                                "<a href='/Perfil/" + data[i].name +
-                                "/' target='_blank'  >" + data[i].name +
-                                " <img class='img-circle img-responsive' src='" + data[i].image + "' width='50' /> </a>" +
-                                "</p> <br>");
+                            $("#listaUrls").css("display", "block");
+                        $("#listaUrls").empty();
+                        $.each(data.story, function (i) {
+                            var url = "/Renderizar/"+data.story[i].paginaPadraoLink+"/1/"+compartilhante;
+                            $("#listaUrls").append("<p>" +
+                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                " Capitulo " +data.story[i].paginaPadraoLink+ " - "  + data.story[i].nome +
+                                "</a></p> <br>");
                         });
 
+                        $.each(data.substory, function (i) {
+                            var url = data.substory[i].url+"/"+compartilhante;
+                            $("#listaUrls").append("<p>" +
+                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                " Capitulo " +data.substory[i].capitulo+ " - Sub-Story "  + data.substory[i].nome +
+                                "</a></p> <br>");
+                        });
+
+                        $.each(data.grupo, function (i) {
+                            var url = data.grupo[i].url+"/"+compartilhante;
+                            $("#listaUrls").append("<p>" +
+                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                " Capitulo " +data.grupo[i].capitulo+ " - Grupo "  + data.grupo[i].nome +
+                                "</a></p> <br>");
+                        });
+                        
+                        $.each(data.subgrupo, function (i) {
+                            var url = data.subgrupo[i].url+"/"+compartilhante;
+                            $("#listaUrls").append("<p>" +
+                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                " Capitulo " +data.subgrupo[i].capitulo+ " - Sub-Grupo "  + data.subgrupo[i].nome +
+                                "</a></p> <br>");
+                        });
+
+                        $.each(data.subsubgrupo, function (i) {
+                             var url = data.subsubgrupo[i].url+"/"+compartilhante;
+                            $("#listaUrls").append("<p>" +
+                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                " Capitulo " +data.subsubgrupo[i].capitulo+ " - Sub-Sub-Grupo "  + data.subsubgrupo[i].nome +
+                                "</a></p> <br>");
+                        });
                     },
                     error: function (ex) {
-                        alert('Falha ao buscar users.' + ex);
+                        alert('Falha ao buscar urls.' + ex);
                     }
                 });
-            });            
 
-             setTimeout(function () { refreshData(); }, 300000);
+                }
+
+            });
+
+
+
         });
-
-
-    </script>
-  
-    
-
+</script>
 }
 
 

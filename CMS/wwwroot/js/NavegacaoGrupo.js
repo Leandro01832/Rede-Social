@@ -3,7 +3,7 @@ $(document).ready(function() {
     var indexSubStory = $("#indexsubstory").val();
     var indexGrupo = $("#indexgrupo").val();
 
-    var valorUser = $("#ValorUser").val();
+    var compartilhante = $("#compartilhante").val();
     var valorAtual = parseInt( $("#ValorAtual").val());
     var valorQuant = parseInt($("#ValorQuant").val()) ;
     var valorProximo = parseInt($("#ValorProximo").val());
@@ -34,12 +34,12 @@ $(document).ready(function() {
 
     $("#voltar").click(function() {
         redirecionar(valorAnterior);
-        window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + valorAnterior;
+        window.location.href = "/Grupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + valorAnterior + "/" + compartilhante;
     });
 
     $("#avancar").click(function() {
         redirecionar(valorProximo);
-        window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + valorProximo;
+        window.location.href = "/Grupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + valorProximo + "/" + compartilhante;
     });
 
     var checkbox = document.querySelector("#automatico");
@@ -66,10 +66,10 @@ $(document).ready(function() {
 
                 if (valorAtual < valorQuant){
                     redirecionar(valorProximo);
-                    window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + valorProximo;
+                    window.location.href = "/Grupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + valorProximo + "/" + compartilhante;
                 }
                 else
-                    window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo  + "/1";
+                    window.location.href = "/Grupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo  + "/1" + "/" + compartilhante;
             }, tempo);
         }
         else
@@ -81,15 +81,15 @@ $(document).ready(function() {
             type: 'POST',
             url: '/AjaxGet/GetGrupo',
             dataType: 'json',
-            data: { Indice: valorPaginaPadraoLink, User: valorUser, IndiceSubStory : indexSubStory, IndiceGrupo : indexGrupo }
+            data: { Indice: valorPaginaPadraoLink, IndiceSubStory : indexSubStory, IndiceGrupo : indexGrupo }
         })
             .done(function(response) {
                 $.cookie('automatico', '1');
 
                 if(response[0] != 0)
-                window.location.href = "/Grupo/"+ valorUser +"/" + response[0]  + "/" + response[1] + "/" + response[2]  + "/1";
+                window.location.href = "/Grupo/" + response[0]  + "/" + response[1] + "/" + response[2]  + "/1" + "/" + compartilhante;
                 else
-                window.location.href = "/SubStory/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + 1 + "/1";
+                window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + 1 + "/1" + "/" + compartilhante;
             });
     }
 
@@ -114,7 +114,7 @@ $(document).ready(function() {
                 $("#loading").show();
             if (valorAtual < valorQuant && $.cookie('automatico') == '1'){
                 redirecionar(valorProximo);
-                window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink  + "/" + indexSubStory +  "/" + indexGrupo  + "/" + valorProximo;
+                window.location.href = "/Grupo/" + valorPaginaPadraoLink  + "/" + indexSubStory +  "/" + indexGrupo  + "/" + valorProximo + "/" + compartilhante;
             }
             else if ($.cookie('automatico') == '1')             
              BuscarStory();          

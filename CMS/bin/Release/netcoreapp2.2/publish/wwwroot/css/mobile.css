@@ -1,0 +1,80 @@
+
+@media (max-width: 550px) {
+
+    .carousel-control {
+        display: block;
+        z-index: 40;
+    }
+
+    #Livro
+     {
+        font-size: 1.5rem !important;
+    }
+
+    #record {
+        font-size: 1rem !important;
+    }
+
+    .barra {
+        font-size: 1rem !important;
+    }
+
+    .banana {
+        width: 10px !important;
+    }
+
+    .indices {
+        font-size: 1rem !important;
+    }
+
+     .DivPag {
+        width: 16px !important;
+        margin: 0px !important;
+    }
+
+    #voltar {
+        display: none;
+    }
+
+    #avancar {
+        display: none;
+    }
+
+    .content {
+            width: 100% !important;
+        }
+
+    img {
+            width: 100% !important;
+        }
+
+       
+        
+        #message{
+            width: 20%;
+            
+        }
+
+}
+
+@media only print {
+
+    h1{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 20px;
+    }
+} 
+
+
+@media (orientation: landscape){
+    body{
+        
+        flex-direction: row;
+    }
+}
+@media (orientation: portrait){
+    body{
+        
+        flex-direction: column;
+    }
+}

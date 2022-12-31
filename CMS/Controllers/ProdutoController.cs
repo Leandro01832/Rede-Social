@@ -166,18 +166,7 @@ namespace CMS.Controllers
                     }
                 }
             }
-
-                for (int indice = 0; indice <= RepositoryPagina.paginas.Length; indice++)
-                    {
-                          if(RepositoryPagina.paginas[indice] != null && RepositoryPagina.paginas[indice].Count >= 1000000000) continue;
-
-                        if(RepositoryPagina.paginas[indice] == null) RepositoryPagina.paginas[indice] = new List<Pagina>();
-                        if(RepositoryPagina.paginas[indice].Count < 1000000000)
-                        {
-                            RepositoryPagina.paginas[indice].Add(pagina);
-                            break;
-                        }
-                    }
+                
                 return RedirectToAction(nameof(Index));
             }
                 ModelState.AddModelError("", "Informe a imagem do produto!!!");

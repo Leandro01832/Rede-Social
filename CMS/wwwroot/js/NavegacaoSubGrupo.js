@@ -4,7 +4,7 @@ $(document).ready(function() {
     var indexGrupo = $("#indexgrupo").val();
     var indexSubGrupo = $("#indexsubgrupo").val();
 
-    var valorUser = $("#ValorUser").val();
+    var compartilhante = $("#compartilhante").val();
     var valorAtual = parseInt( $("#ValorAtual").val());
     var valorQuant = parseInt($("#ValorQuant").val()) ;
     var valorProximo = parseInt($("#ValorProximo").val());
@@ -35,12 +35,12 @@ $(document).ready(function() {
 
     $("#voltar").click(function() {
         redirecionar(valorAnterior);
-        window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + valorAnterior;
+        window.location.href = "/SubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + valorAnterior + "/" + compartilhante;
     });
 
     $("#avancar").click(function() {
         redirecionar(valorProximo);
-        window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + valorProximo;
+        window.location.href = "/SubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + valorProximo + "/" + compartilhante;
     });
 
     var checkbox = document.querySelector("#automatico");
@@ -67,10 +67,10 @@ $(document).ready(function() {
 
                 if (valorAtual < valorQuant){
                     redirecionar(valorProximo);
-                    window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + valorProximo;
+                    window.location.href = "/SubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + valorProximo + "/" + compartilhante;
                 }
                 else
-                    window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/1";
+                    window.location.href = "/SubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/1" + "/" + compartilhante;
             }, tempo);
         }
         else
@@ -82,15 +82,15 @@ $(document).ready(function() {
             type: 'POST',
             url: '/AjaxGet/GetSubGrupo',
             dataType: 'json',
-            data: { Indice: valorPaginaPadraoLink, User: valorUser, IndiceSubStory : indexSubStory, IndiceGrupo : indexGrupo, IndiceSubGrupo : indexSubGrupo }
+            data: { Indice: valorPaginaPadraoLink, IndiceSubStory : indexSubStory, IndiceGrupo : indexGrupo, IndiceSubGrupo : indexSubGrupo }
         })
             .done(function(response) {
                 $.cookie('automatico', '1');
 
                 if(response[0] != 0)
-                window.location.href = "/SubGrupo/"+ valorUser +"/" + response[0]  + "/" + response[1] + "/" + response[2] + "/" + response[3] + "/1";
+                window.location.href = "/SubGrupo/" + response[0]  + "/" + response[1] + "/" + response[2] + "/" + response[3] + "/1" + "/" + compartilhante;
                 else
-                window.location.href = "/Grupo/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + 1 + "/" + 1 + "/1";
+                window.location.href = "/Grupo/" + valorPaginaPadraoLink + "/" + 1 + "/" + 1 + "/1" + "/" + compartilhante;
             });
     }
 
@@ -115,7 +115,7 @@ $(document).ready(function() {
                 $("#loading").show();
             if (valorAtual < valorQuant && $.cookie('automatico') == '1'){
                 redirecionar(valorProximo);
-                window.location.href = "/SubGrupo/"+ valorUser +"/" + valorPaginaPadraoLink  + "/" + indexSubStory +  "/" + indexGrupo  + "/" + indexSubGrupo + "/" + valorProximo;
+                window.location.href = "/SubGrupo/" + valorPaginaPadraoLink  + "/" + indexSubStory +  "/" + indexGrupo  + "/" + indexSubGrupo + "/" + valorProximo + "/" + compartilhante;
             }
             else if ($.cookie('automatico') == '1')             
              BuscarStory();          

@@ -5,10 +5,6 @@
 
 @{
     ViewData["Title"] = "Perfil";
-    List<UserModel> seguidores = ViewBag.seguidores;
-    List<UserModel> seguindo = ViewBag.seguindo;
-    List<business.business.Group.Story> stories = ViewBag.stories;
-    List<UserModel> solicitacoes = ViewBag.solicitacoes;
     var user = await UserManager.GetUserAsync(this.User);
 }
 
@@ -21,34 +17,9 @@
     <a href="/Home/Alterar" class="btn btn-primary">Alterar dados</a>
 }
 
-@if (SignInManager.IsSignedIn(User) && user.Id != Model.Id)
-{
-    if (seguidores.FirstOrDefault() == null)
-    {
-        <a href="/Home/Seguir/@Model.Name" class="btn btn-primary">Seguir Perfil</a>
-    }
-    else
-    {
-        <p>seguindo</p>
-    }
-}
-
-
 
 <div class="jumbotron">
     <h4>@Model.Name</h4>
-    <hr />
-
-    <div style="z-index: 2;">
-        <input type="number" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
-               placeholder="N° do capítulo. Ex: 2, 3, 4, 5, ..." max="@ViewBag.quantidade" />
-        <center>
-            <button id="acessoPaginaComInput"  class="btn btn-primary glyphicon glyphicon-search">
-                Acessar
-            </button>
-        </center>
-    </div>
-
     <hr />
 
     <dl class="dl-horizontal">
@@ -87,153 +58,5 @@
 
 <div class="row">
 
-    <div class="col-md-6 text-center bg-warning" style="display:grid">
-        <p>Solicitações</p>
-        @{
-            foreach (var item in solicitacoes)
-            {
-                <img class="img-circle img-responsive" src="@item.Image" width="100" />
-                <a href="/Perfil/@item.Name">Perfil</a>
-                <form action="/Home/Aceitar" method="post">
-                    <input type="hidden" value="@item.Name" name="Seguidor" id="Seguidor" />
-                    <input type="hidden" value="@Model.Name" name="Seguindo" id="Seguindo" />
-                    <input type='submit' value='Aceitar' class='btn btn-default' />
-                </form>
-                <hr />
-            }
-        }
-    </div>
-
-    <div class="col-md-6 text-center" style="display:grid">
-        <p>Seguidores</p>
-        @{
-            foreach (var item in seguidores)
-            {
-                <div>
-                    <img class="img-circle img-responsive" src="@item.Image" width="100" />
-                    <span>@item.Name</span>
-                </div>
-            }
-        }
-    </div>
-
-    <div class="col-md-6 text-center" style="display:grid">
-        <p>Seguindo</p>
-        @{
-            foreach (var item in seguindo)
-            {
-                <div>
-                    <img class="img-circle img-responsive" src="@item.Image" width="100" />
-                    <span>@item.Name</span>
-                </div>
-            }
-        }
-    </div>
-
-    @{
-        if (stories.Count > 0)
-        {
-            <div class="col-md-6 text-center bg-warning" style="display:grid">
-                <p>Sumário</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>
-                                @Html.DisplayName("Stories")
-                            </th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    @{
-
-                        foreach (var item in stories)
-                        {
-                            <tr>
-                                <td>
-                                    Story @item.Nome
-                                </td>
-                                <td>
-                                    .......................................
-                                </td>
-                                <td>
-                                    <a href="/Renderizar/@Model.Name/Padrao/@item.PaginaPadraoLink">Cap. @item.PaginaPadraoLink</a>
-                                </td>
-                            </tr>
-                        }
-                    }
-                </table>
-            </div>
-        }
-    }
-
-
-
-
 </div>
 
-@section Scripts {
-<script type="text/javascript">
-        $(document).ready(function () {
-
-
-            function BuscarStory(valorPaginaPadraoLink) {
-        $.ajax({
-            type: 'POST',
-            url: '/AjaxGet/GetStory',
-            dataType: 'json',
-            data: { Indice: valorPaginaPadraoLink, User: "@Model.Name" }
-        })
-            .done(function(response) {
-
-                if(response[0] == "Story")
-                window.location.href = "/Renderizar/"+ "@Model.Name"  +  "/"  +  response[1] +  "/1";
-                else if(response[0] == "SubStory")
-                window.location.href = "/SubStory/"+ "@Model.Name"    +  "/"  +  response[1] +  "/1/1";
-                else if(response[0] == "Grupo")
-                window.location.href = "/Grupo/"+ "@Model.Name"       +  "/"  +  response[1] +  "/1/1/1";
-                else if(response[0] == "SubGrupo")
-                window.location.href = "/SubGrupo/"+ "@Model.Name"    +  "/"  +  response[1] +  "/1/1/1/1";
-                else if(response[0] == "SubSubGrupo")
-                window.location.href = "/SubSubGrupo/"+ "@Model.Name" +  "/"  +  response[1] +  "/1/1/1/1/1";
-            });
-            return false;
-    }
-
-             function refreshData() 
-             {
-                $.ajax({
-                    type: 'POST',
-                    url: '/AjaxGet/refresh',
-                    dataType: 'json',
-                    data: {  }
-                    })
-                    .done(function(response) {
-                       
-                    });
-             }
-
-           // $("#NumeroPaginaAcesso").change(function () {
-               // document.getElementById('acessoPaginaComInput').href = '/Renderizar/@Model.Name/0/';
-               // document.getElementById("acessoPaginaComInput").href +=  $(this).val();
-
-          //  });
-
-            $("#acessoPaginaComInput").click(function(){
-
-                if($("#NumeroPaginaAcesso").val() != "")
-                {
-                    var num =  parseInt($("#NumeroPaginaAcesso").val());
-                    BuscarStory(num - 1);
-                }
-                else
-                alert("Informe o numero do capitulo!!!");
-
-            });
-
-            setTimeout(function () { refreshData(); }, 300000);
-
-
-        });
-</script>
-}

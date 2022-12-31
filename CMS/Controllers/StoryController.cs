@@ -8,11 +8,13 @@ using business.Join;
 using CMS.Data;
 using CMS.Models;
 using CMS.Models.Repository;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -27,13 +29,15 @@ namespace CMS.Controllers
 
         public UserManager<UserModel> UserManager { get; }
         public IRepositoryPagina epositoryPagina { get; }
+        public IHostingEnvironment HostingEnvironment { get; }
 
         public StoryController(ApplicationDbContext context, UserManager<UserModel> userManager,
-            IRepositoryPagina repositoryPagina)
+            IRepositoryPagina repositoryPagina, IHostingEnvironment hostingEnvironment)
         {
             _context = context;
             UserManager = userManager;
             epositoryPagina = repositoryPagina;
+            HostingEnvironment = hostingEnvironment;
         }
 
         // GET: Story
@@ -151,22 +155,11 @@ namespace CMS.Controllers
                 pagina.IncluiDiv(item.Container);
              
                 _context.SaveChanges();   
-            
 
-             Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == pagina.Id);
+                 string path = this.HostingEnvironment.WebRootPath + "\\Stories\\" + story.Id + "\\";
 
-             foreach (var item in RepositoryPagina.paginas)  
-             {
-                if(item == null || item.FirstOrDefault(i => i.UserId == user.Id) == null)
-                    continue;
-
-                if(item.FirstOrDefault(p => p.Id == pag.Id) != null)
-                {
-                    item.Remove(item.First(p => p.Id == pag.Id));
-                    item.Add(pag);
-                    break;
-                }
-             }
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);             
 
             return RedirectToAction(nameof(Index));
         }
@@ -258,19 +251,7 @@ namespace CMS.Controllers
             pag.CarouselPagina = new List<PaginaCarouselPagina>();
             _context.Add(pag);
             _context.SaveChanges();
-
-            for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
-                    {
-                        if(RepositoryPagina.paginas[indice] == null ||
-                         RepositoryPagina.paginas[indice].FirstOrDefault(i => i.StoryId == story.Id) == null) continue;
-
-                        if(RepositoryPagina.paginas[indice].FirstOrDefault(i => i.StoryId == story.Id) != null)
-                        {
-                            RepositoryPagina.paginas[indice].RemoveAll(i => i.StoryId == story.Id);
-                            RepositoryPagina.paginas[indice].Add(pag);
-                            break;
-                        }
-                    }
+            
             return RedirectToAction(nameof(Index));
         }
 

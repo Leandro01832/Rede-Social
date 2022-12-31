@@ -24,7 +24,7 @@ namespace CMS.Models.Repository
 {
     public interface IRepositoryPagina
     {
-        Task<List<Pagina>> MostrarPageModels(string userId);
+        Task<List<Pagina>> MostrarPageModels();
          Task<string> renderizarPagina(Pagina pagina);
         IIncludableQueryable<Pagina, Div> includes();
 
@@ -71,14 +71,14 @@ namespace CMS.Models.Repository
         public IHttpContextAccessor ContextAccessor { get; }
         public IRepositoryDiv RepositoryDiv { get; }
 
-        public static List<Pagina>[] paginas = new List<Pagina>[99999999];
+      //  public static List<Pagina>[] paginas = new List<Pagina>[99999999];
+        public static List<Pagina> paginas = new List<Pagina>();
      
 
-        public async Task<List<Pagina>> MostrarPageModels(string userId)
+        public async Task<List<Pagina>> MostrarPageModels()
         {         
 
-            var lista = await  includes().Where(p => p.UserId == userId)
-            .ToListAsync();            
+            var lista = await  includes().ToListAsync();            
 
             foreach (var pag in lista)
             {
@@ -110,28 +110,8 @@ namespace CMS.Models.Repository
 
         public async Task<string> renderizar(Pagina pagina, string TextoHtml)
         {
-            var site1 = UserHelper.Users.FirstOrDefault(p => p.Id == pagina.UserId);
-            if (site1 == null)
-            {
-                site1 = await UserManager.Users.FirstOrDefaultAsync(p => p.Id == pagina.UserId);
-                UserHelper.Users.Add(site1);
-            }
-
-                
-
             var condicaoLogin = SignInManager.IsSignedIn(ContextAccessor.HttpContext.User);
-
-            var username = UserManager.GetUserName(ContextAccessor.HttpContext.User);
-
-            var redeFacebook = "";
-            var redeTwiter = "";
-            var redeInstagram = "";
-
-            
-                redeFacebook = site1.Facebook;
-                redeTwiter = site1.Twitter;
-                redeInstagram = site1.Instagram;
-            
+            var username = UserManager.GetUserName(ContextAccessor.HttpContext.User);             
 
             Velocity.Init();
             var Modelo = new
@@ -142,9 +122,6 @@ namespace CMS.Models.Repository
                 arquivoMusic = pagina.ArquivoMusic,
                 Pagina = pagina,
                 titulo = pagina.Titulo,
-                facebook = redeFacebook,
-                twiter = redeTwiter,
-                instagram = redeInstagram,
                 Div1 = pagina.Div.OrderBy(d => d.Container.Id).ToList().First(),
                 divs = pagina.Div.OrderBy(d => d.Container.Id).Skip(1).ToList(),
                 espacamento = 0,
@@ -245,18 +222,7 @@ namespace CMS.Models.Repository
 
             var pagina = await includes().FirstAsync(p => p.Id == pag.Id);
 
-              for (int indice = 0; indice < RepositoryPagina.paginas.Length; indice++)
-                    {
-                          if(RepositoryPagina.paginas[indice] == null ||
-                           RepositoryPagina.paginas[indice].FirstOrDefault(i => i.UserId == pagina.UserId) == null) continue;
-
-                        if(RepositoryPagina.paginas[indice].FirstOrDefault(i => i.Id == pagina.Id) != null)
-                        {
-                            RepositoryPagina.paginas[indice].Remove(RepositoryPagina.paginas[indice].First(i => i.Id == pagina.Id));
-                            RepositoryPagina.paginas[indice].Add(pagina);
-                            break;
-                        }
-                    }
+              
         }
     }
 }

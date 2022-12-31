@@ -19,6 +19,7 @@ namespace CMS.Controllers
         public IRepositoryPagina epositoryPagina { get; }
         public IHttpHelper HttpHelper { get; }
         public UserManager<UserModel> UserManager { get; }
+        public ObjectArray Arr;
 
         public AjaxGetController(ApplicationDbContext context, IRepositoryPagina repositoryPagina,
             IHttpHelper httpHelper, UserManager<UserModel> userManager)
@@ -27,6 +28,7 @@ namespace CMS.Controllers
             epositoryPagina = repositoryPagina;
             HttpHelper = httpHelper;
             UserManager = userManager;
+            Arr = new ObjectArray();
         }
 
         public JsonResult GetStories2(string User)
@@ -65,41 +67,125 @@ namespace CMS.Controllers
 
             return Json(stories);
         }
-
-        public async Task<JsonResult> GetUsers(string valor)
+          
+          public JsonResult BuscarStories(string valor)
         {
-
-            IQueryable users;
-            var lista = new List<UserModel>();
             if (valor != null)
             {
-                lista = await UserManager.Users.Where(s => s.Name.ToLower().Contains(valor.ToLower())).ToListAsync();
-                foreach(var item in lista)
-                {
-                    var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == item.Name.Trim().ToLower());
-                    if (user == null)
-                    UserHelper.Users.Add(item);                    
-                }
+                    var stories =  RetornarStories();
+                    var lista =  stories.Where(s => s.Nome.ToLower().Contains(valor.ToLower())).OrderBy(p => p.Nome).ToList(); 
+                    var listaSubStory = new List<Grup>();
+                    var listaGrupo = new List<Grup>();
+                    var listaSubGrupo = new List<Grup>();
+                    var listaSubSubGrupo = new List<Grup>();
+
+                        int[] resultSubSubGrupo = new int[5];
+                        for (int i = 0; i < resultSubSubGrupo.Length; i++)
+                        resultSubSubGrupo[i] = 1;
+                        int[] resultSubGrupo = new int[4];
+                        for (int i = 0; i < resultSubGrupo.Length; i++)
+                        resultSubGrupo[i] = 1;
+                        int[] resultGrupo = new int[3];
+                        for (int i = 0; i < resultGrupo.Length; i++)
+                        resultGrupo[i] = 1;
+                        int[] resultSubStory = new int[2];
+                        for (int i = 0; i < resultSubStory.Length; i++)
+                        resultSubStory[i] = 1;
+
+                    foreach (var item in stories)
+                    {                       
+                         while (resultSubSubGrupo != null)
+                         {
+                            resultSubSubGrupo = Arr.RetornarArray(item, resultSubSubGrupo[0], resultSubSubGrupo[1], resultSubSubGrupo[2], resultSubSubGrupo[3], resultSubSubGrupo[4]);
+                            if(resultSubSubGrupo != null)
+                            {
+                                var story = stories[resultSubSubGrupo[0]];
+                                var name =  story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[resultSubSubGrupo[1]]
+                                .Grupo.Where(str => str.Pagina.Count > 0).ToList()[resultSubSubGrupo[2]]
+                                .SubGrupo.Where(str => str.Pagina.Count > 0).ToList()[resultSubSubGrupo[3]]
+                                .SubSubGrupo.Where(str => str.Pagina.Count > 0).ToList()[resultSubSubGrupo[4]].Nome;
+                                if(name.ToLower().Contains(valor.ToLower()))
+                                listaSubSubGrupo.Add(new Grup()
+                                {
+                                capitulo = resultSubSubGrupo[0],
+                                url = $"/SubSubGrupo/{resultSubSubGrupo[0]}/{resultSubSubGrupo[1]}/{resultSubSubGrupo[2]}/{resultSubSubGrupo[3]}/{resultSubSubGrupo[4]}/1",
+                                nome = name
+                                });
+                            }                            
+                         }
+                        
+                         while (resultSubGrupo != null)
+                         {
+                         resultSubGrupo = Arr.RetornarArray(item, resultSubGrupo[0], resultSubGrupo[1], resultSubGrupo[2], resultSubGrupo[3], null);
+                          if(resultSubGrupo != null)
+                            {
+                                var story = stories[resultSubGrupo[0]];
+                                var name =  story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[resultSubGrupo[1]]
+                                .Grupo.Where(str => str.Pagina.Count > 0).ToList()[resultSubGrupo[2]]
+                                .SubGrupo.Where(str => str.Pagina.Count > 0).ToList()[resultSubGrupo[3]].Nome;
+                                 if(name.ToLower().Contains(valor.ToLower()))
+                                listaSubGrupo.Add(new Grup()
+                                {
+                                capitulo = resultSubGrupo[0],
+                                url = $"/SubGrupo/{resultSubGrupo[0]}/{resultSubGrupo[1]}/{resultSubGrupo[2]}/{resultSubGrupo[3]}/1",
+                                nome = name
+                                });
+                            } 
+                            
+                         }
+
+                         while (resultGrupo != null)
+                         {
+                         resultGrupo = Arr.RetornarArray(item, resultGrupo[0], resultGrupo[1], resultGrupo[2], null, null);
+                         if(resultGrupo != null)
+                            {
+                                var story = stories[resultGrupo[0]];
+                                var name =  story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[resultGrupo[1]]
+                                .Grupo.Where(str => str.Pagina.Count > 0).ToList()[resultGrupo[2]].Nome;
+                                 if(name.ToLower().Contains(valor.ToLower()))
+                                listaGrupo.Add(new Grup()
+                                {
+                                capitulo = resultGrupo[0],
+                                url = $"/Grupo/{resultGrupo[0]}/{resultGrupo[1]}/{resultGrupo[2]}/1",
+                                nome = name
+                                });
+                            } 
+                            
+                         }
+
+                         while (resultSubStory != null)
+                         {
+                         resultSubStory = Arr.RetornarArray(item, resultSubStory[0], resultSubStory[1], null, null, null);
+                            if(resultSubStory != null)
+                            {
+                                var story = stories[resultSubStory[0]];
+                                var name =  story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[resultSubStory[1]].Nome;
+                                 if(name.ToLower().Contains(valor.ToLower()))
+                                listaSubStory.Add(new Grup()
+                                {
+                                capitulo = resultSubStory[0],
+                                url = $"/SubStory/{resultSubStory[0]}/{resultSubStory[1]}/1",
+                                nome = name
+                                });
+                            }                             
+                         }                         
+                    }
+
+                    var Modelo = new
+                    {
+                        story = lista,
+                        substory = listaSubStory,
+                        grupo = listaGrupo,
+                        subgrupo = listaSubGrupo,
+                        subsubgrupo = listaSubSubGrupo
+                    };
+
+                return Json(Modelo);              
             }
             else
-                lista = new List<UserModel>();
-
-            users = lista.AsQueryable();
-
-            return Json(users);
+            return Json(null);
         }
-        
-        public JsonResult GetUser(string valor)
-        {
-            var user = UserHelper.Users.FirstOrDefault(s => s.Name.ToLower() == valor.ToLower());
-            if (user == null)
-            {
-                user =  UserManager.Users.FirstOrDefault(s => s.Name.ToLower() == valor.ToLower());
-                UserHelper.Users.Add(user);
-            }          
 
-            return Json(user);
-        }
 
         public JsonResult GetPastas(string Pagina)
         {
@@ -161,20 +247,16 @@ namespace CMS.Controllers
             return Json(els);
         }
 
-        public JsonResult refresh()
-        {
-            var p = RepositoryPagina.paginas[0].FirstOrDefault();
-            return Json("");
-        }
+        
 
-        public JsonResult GetStory(int Indice, string User)
+        public JsonResult GetStory(int Indice)
         {
-            List<Story> stories =  RetornarStories(User);
+            List<Story> stories =  RetornarStories();
             string[] result = new string[2];
 
             try
             {
-                var story = stories[Indice + 1];
+                var story = stories[Indice];
                 bool subsubgroup = false;
                 bool subgroup = false;
                 bool grupo = false;
@@ -203,6 +285,10 @@ namespace CMS.Controllers
 
                 result[1] = story.PaginaPadraoLink.ToString();
 
+                RepositoryPagina.paginas.Clear();
+                RepositoryPagina.paginas.AddRange(epositoryPagina.includes()
+                .Where(p => p.Story.PaginaPadraoLink == story.PaginaPadraoLink).OrderBy(p => p.Id).ToList());
+
                 if(substory) result[0] = "SubStory";
                 if(grupo) result[0] = "Grupo";
                 if(subgroup) result[0] = "SubGrupo";
@@ -222,198 +308,91 @@ namespace CMS.Controllers
 
        
 
-        public JsonResult GetSubStory(int Indice, string User, int IndiceSubStory)
+        public JsonResult GetSubStory(int Indice, int IndiceSubStory)
         {
-                var stories =  RetornarStories(User);
-            
-                long num = long.Parse($"{Indice}{IndiceSubStory}");
-                bool condicao = false;
+                var stories =  RetornarStories();                            
                 int[] result = new int[2];
                 var story = stories[Indice];
 
-                foreach (var item in story.SubStory.Where(str => str.Pagina.Count > 0).ToList())
-                {
-                    var var1 = story.SubStory.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item) + 1;
-                    long num2 = long.Parse($"{Indice}{var1}");
-                    if(num2 > num){
-                        condicao = true;
-                        result[0] = Indice;                    
-                        result[1] = var1;                    
-                        break;
-                    }
-                }
+                result = Arr.RetornarArray(story, Indice, IndiceSubStory, null, null, null);
 
-                if(condicao)
+                
+                if(result != null)
                 return Json(result);
                 else
                 {
-                    result[0] = 0;
-                    result[1] = 0;
+                    for(var i = 0; i < result.Length; i++)
+                    result[i] = 0;
                     return Json(result);     
                 }
                        
         }
 
-        public JsonResult GetGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo)
+        public JsonResult GetGrupo(int Indice, int IndiceSubStory, int IndiceGrupo)
         {            
-             var stories =  RetornarStories(User);
-            
-                long num = long.Parse($"{Indice}{IndiceSubStory}{IndiceGrupo}");
-                bool condicao = false;
-                int[] result = new int[3];
+                var stories =  RetornarStories();                               
                 var story = stories[Indice];
-
-                foreach (var item in story.SubStory.Where(str => str.Pagina.Count > 0).ToList())
-                {
-                    if(item.Grupo.FirstOrDefault() == null) continue;
-                    foreach (var item2 in item.Grupo.Where(str => str.Pagina.Count > 0).ToList())
-                    {
-                        var var1 = story.SubStory.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item) + 1;
-                        var var2 = item.Grupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item2) + 1;
-                        long num2 = long.Parse($"{Indice}{var1}{var2}");
-                        if(num2 > num){
-                            condicao = true;
-                            result[0] = Indice;                    
-                            result[1] = var1;                    
-                            result[2] = var2;                    
-                            break;
-                        }
-                    }
-                    if(condicao) break;
-                }
-
-                if(condicao)
+                int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory, IndiceGrupo, null, null);
+                
+                if(result != null)
                 return Json(result);
                 else
                 {
-                    result[0] = 0;
-                    result[1] = 0;
-                    result[2] = 0;
+                    for(var i = 0; i < result.Length; i++)
+                    result[i] = 0;
                     return Json(result);     
                 }          
         }
 
-        public JsonResult GetSubGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo)
+        public JsonResult GetSubGrupo(int Indice, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo)
         {            
-             var stories =  RetornarStories(User);
-            long num = long.Parse($"{Indice}{IndiceSubStory}{IndiceGrupo}{IndiceSubGrupo}");
-            bool condicao = false;
-                int[] result = new int[4];
-                var story = stories[Indice];
+            var stories =  RetornarStories();            
+            var story = stories[Indice];
+            int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory, IndiceGrupo, IndiceSubGrupo, null);
 
-                foreach (var item in story.SubStory.Where(str => str.Pagina.Count > 0).ToList())
-                {
-                    foreach (var item2 in item.Grupo.Where(str => str.Pagina.Count > 0).ToList())
-                    {
-                        foreach (var item3 in item2.SubGrupo.Where(str => str.Pagina.Count > 0).ToList())
-                        {
-                            var var1 = story.SubStory.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item) + 1;
-                            var var2 = item.Grupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item2) + 1;
-                            var var3 = item2.SubGrupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item3) + 1;
-                            long num2 = long.Parse($"{Indice}{var1}{var2}{var3}");
-                            if(num2 > num){
-                                condicao = true;
-                                result[0] = Indice;                    
-                                result[1] = var1;                    
-                                result[2] = var2;                    
-                                result[3] = var3;                    
-                                break;
-                            }
-                        }
-                            if(condicao) break;
-
-                    }
-                    if(condicao) break;
-                }
-
-                if(condicao)
+                if(result != null)
                 return Json(result);
                 else
                 {
-                    result[0] = 0;
-                    result[1] = 0;
-                    result[2] = 0;
-                    result[3] = 0;
+                    for(var i = 0; i < result.Length; i++)
+                    result[i] = 0;
                     return Json(result);     
                 }         
         }
 
-         public JsonResult GetSubSubGrupo(int Indice, string User, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo, int IndiceSubSubGrupo)
+         public JsonResult GetSubSubGrupo(int Indice, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo, int IndiceSubSubGrupo)
         {            
-            var stories =  RetornarStories(User);
-            long num = long.Parse($"{Indice}{IndiceSubStory}{IndiceGrupo}{IndiceSubGrupo}{IndiceSubSubGrupo}");
-            bool condicao = false;
-                int[] result = new int[5];
-                var story = stories[Indice];
-
-                foreach (var item in story.SubStory.Where(str => str.Pagina.Count > 0).ToList())
-                {
-                    foreach (var item2 in item.Grupo.Where(str => str.Pagina.Count > 0).ToList())
-                    {
-                        foreach (var item3 in item2.SubGrupo.Where(str => str.Pagina.Count > 0).ToList())
-                        {
-                            foreach (var item4 in item3.SubSubGrupo.Where(str => str.Pagina.Count > 0).ToList())
-                            {
-                                var var1 = story.SubStory.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item) + 1;
-                                var var2 = item.Grupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item2) + 1;
-                                var var3 = item2.SubGrupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item3) + 1;
-                                var var4 = item3.SubSubGrupo.Where(str => str.Pagina.Count > 0).ToList().IndexOf(item4) + 1;
-                                long num2 = long.Parse($"{Indice}{var1}{var2}{var3}{var4}");
-                                if(num2 > num){
-                                    condicao = true;
-                                    result[0] = Indice;                    
-                                    result[1] = var1;                    
-                                    result[2] = var2;                    
-                                    result[3] = var3;                    
-                                    result[4] = var4;                    
-                                    break;
-                                }
-                                
-                            }
-                            if(condicao) break;
-
-                        }
-                            if(condicao) break;
-
-                    }
-                    if(condicao) break;
-                }
-
-                if(condicao)
+            var stories =  RetornarStories();            
+            var story = stories[Indice];
+            int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory, IndiceGrupo, IndiceSubGrupo, IndiceSubSubGrupo); 
+                
+                if(result != null)
                 return Json(result);
                 else
                 {
-                    result[0] = 0;
-                    result[1] = 0;
-                    result[2] = 0;
-                    result[3] = 0;
-                    result[4] = 0;
+                    for(var i = 0; i < result.Length; i++)
+                    result[i] = 0;
                     return Json(result);     
                 }        
         }
-         private  List<Story> RetornarStories(string User)
-        {
-            var user = UserHelper.Users.FirstOrDefault(u => u.Name.ToLower() == User.Trim().ToLower());
-            if (user == null)
-            {
-                user =  UserManager.Users.FirstOrDefault(u => u.Name.ToLower() == User.Trim().ToLower());
-                UserHelper.Users.Add(user);
-            }
-            var paginas = new List<Pagina>();
-            foreach (var item in RepositoryPagina.paginas)
-            {
-                if (item == null || item.FirstOrDefault(i => i.UserId == user.Id) == null)
-                    continue;
-                paginas.AddRange(item.Where(s => s.UserId == user.Id).ToList());
-            }
-            var stories = new List<Story>();
 
-            foreach (var item in paginas)
-                if (stories.FirstOrDefault(str => str.Nome == item.Story.Nome) == null)
-                    stories.Add(item.Story);
-
+         private  List<Story> RetornarStories()
+        {                        
+            var stories = db.Story
+            .Include(str => str.SubStory).ThenInclude(l => l.Pagina)
+            .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(l => l.Pagina)
+            .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(str => str.SubGrupo).ThenInclude(l => l.Pagina)
+            .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(str => str.SubGrupo).ThenInclude(str => str.SubSubGrupo).ThenInclude(l => l.Pagina)
+            .Where(b => b.Nome != "Padrao").ToList();
             stories = stories.OrderBy(s => s.PaginaPadraoLink).ToList();
             return stories;
         }
+    }
+
+    public class Grup
+    {
+        public string nome { get; set; }
+        public string url { get; set; }
+        public int capitulo { get; set; }
     }
 }

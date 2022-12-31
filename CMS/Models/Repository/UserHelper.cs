@@ -28,7 +28,6 @@ namespace CMS.Models.Repository
         public RoleManager<IdentityRole> RoleManager { get; }
         public IConfiguration Configuration { get; }
 
-        public static List<UserModel> Users = new List<UserModel>();
 
         public UserHelper(ApplicationDbContext contexto, UserManager<UserModel> userManager,
             RoleManager<IdentityRole> roleManager, IConfiguration configuration)

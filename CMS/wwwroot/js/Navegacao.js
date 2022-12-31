@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var valorUser = $("#ValorUser").val();
+    var compartilhante = $("#compartilhante").val();
     var valorAtual = parseInt( $("#ValorAtual").val());
     var valorQuant = parseInt($("#ValorQuant").val()) ;
     var valorProximo = parseInt($("#ValorProximo").val());
@@ -37,12 +37,12 @@ $(document).ready(function() {
 
     $("#voltar").click(function() {
         redirecionar(valorAnterior);
-        window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorAnterior + redirecionamento;
+        window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/" + valorAnterior + "/" + compartilhante + redirecionamento;
     });
 
     $("#avancar").click(function() {
         redirecionar(valorProximo);
-        window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorProximo + redirecionamento;
+        window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/" + valorProximo + "/" + compartilhante + redirecionamento;
     });
 
     var checkbox = document.querySelector("#automatico");
@@ -69,10 +69,10 @@ $(document).ready(function() {
                 
                 if (valorAtual < valorQuant){
                     redirecionar(valorProximo);
-                    window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorProximo + redirecionamento;
+                    window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/" + valorProximo + "/" + compartilhante + redirecionamento;
                 }
                 else
-                    window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/1";
+                    window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/1" + "/" + compartilhante;
             }, tempo);
         }
         else
@@ -84,21 +84,21 @@ $(document).ready(function() {
             type: 'POST',
             url: '/AjaxGet/GetStory',
             dataType: 'json',
-            data: { Indice: valorPaginaPadraoLink, User: valorUser }
+            data: { Indice: valorPaginaPadraoLink }
         })
             .done(function(response) {
                 $.cookie('automatico', '1');
 
                 if(response[0] == "Story")
-                window.location.href = "/Renderizar/"+ valorUser +"/" + response[1] +  "/1";
+                window.location.href = "/Renderizar/" + response[1] +  "/1" + "/" + compartilhante;
                 else if(response[0] == "SubStory")
-                window.location.href = "/SubStory/"+ valorUser +"/" + response[1] +    "/1/1";
+                window.location.href = "/SubStory/" + response[1] +    "/1/1" + "/" + compartilhante;
                 else if(response[0] == "Grupo")
-                window.location.href = "/Grupo/"+ valorUser +"/" + response[1] +       "/1/1/1";
+                window.location.href = "/Grupo/" + response[1] +       "/1/1/1" + "/" + compartilhante;
                 else if(response[0] == "SubGrupo")
-                window.location.href = "/SubGrupo/"+ valorUser +"/" + response[1] +    "/1/1/1/1";
+                window.location.href = "/SubGrupo/" + response[1] +    "/1/1/1/1" + "/" + compartilhante;
                 else if(response[0] == "SubSubGrupo")
-                window.location.href = "/SubSubGrupo/"+ valorUser +"/" + response[1] + "/1/1/1/1/1";
+                window.location.href = "/SubSubGrupo/" + response[1] + "/1/1/1/1/1" + "/" + compartilhante;
             });
     }
 
@@ -124,14 +124,16 @@ $(document).ready(function() {
                 $("#loading").show();
             if (valorAtual < valorQuant && $.cookie('automatico') == '1')   {
                 redirecionar(valorProximo);
-                window.location.href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/" + valorProximo + redirecionamento;            
+                window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/" + valorProximo + "/" + compartilhante + redirecionamento;            
             }           
             else if ($.cookie('automatico') == '1') {
+
+                debugger;
 
                 if (valorStoryNome != "Padrao")
                     BuscarStory();
                 else
-                    window.location.href = "/Renderizar/"+ valorUser +"/0/1";
+                    window.location.href = "/Renderizar/0/1" + "/" + compartilhante;
             }
         }, tempo);
     }
@@ -142,12 +144,12 @@ $(document).ready(function() {
 
     $("#NumeroPaginaAcesso2").change(function() {
         redirecionar(parseInt($(this).val()));
-        document.getElementById("acessoPaginaComInput2").href = "/Renderizar/"+ valorUser +"/" + valorPaginaPadraoLink + "/";
-        document.getElementById("acessoPaginaComInput2").href += $(this).val() + redirecionamento;
+        document.getElementById("acessoPaginaComInput2").href = "/Renderizar/" + valorPaginaPadraoLink + "/";
+        document.getElementById("acessoPaginaComInput2").href += $(this).val() + "/" + compartilhante + redirecionamento;
     });
 
     $("#LinkPadrao").click(function() {  
-        window.location.href = "/Renderizar/"+ valorUser +"/" + valorAtual + "/1";
+        window.location.href = "/Renderizar/" + valorAtual + "/1" + "/" + compartilhante;
     });
 
     setTimeout(function () { refreshData(); }, 300000);

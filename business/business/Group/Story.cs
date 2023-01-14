@@ -9,7 +9,9 @@ namespace business.business.Group
     {
         private int paginaPadraoLink = 0;
 
-        public virtual List<SubStory> SubStory { get; set; }         
+        public virtual List<SubStory> SubStory { get; set; }
+
+        public bool Comentario { get; set; }
 
         public string Nome { get; set; }
         public virtual List<Pagina> Pagina { get; set; }

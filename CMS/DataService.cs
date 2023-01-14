@@ -69,12 +69,12 @@ namespace CMS
             //   var lst = await contexto.Story.Where(st => st.Nome != "Padrao" && st.UserId == user.Id).ToListAsync();
 
             //    var str = new Story();
-               
+
             //      str.PaginaPadraoLink = lst.Count + 1;
             //      str.Nome = "notbooks";
             //      str.UserId = user.Id;
 
-               
+
 
             //    for(var i = 0; i < livro.ShoppingResults.Length; i++)
             //    {
@@ -98,26 +98,29 @@ namespace CMS
 
             //        indice++;
 
-            //        if (indice == 5)
+            //        if (indice == 2)
             //        {
-            //            Pagina pag = new Pagina();
-            //            pag.Story = str;
-            //            pag.Div = null;
-            //            pag.UserId = user.Id;
-            //            pag.Tempo = 15000;
-            //            pag.Titulo = "notbooks";
-            //            contexto.Pagina.Add(pag);
-            //            contexto.SaveChanges();
-            //            indice = 0;
+            //              for(var i = 0; i < 2; i++)
+                    //        {
+                    //            Pagina pag = new Pagina();
+                    //            pag.Story = str;
+                    //            pag.Div = null;
+                    //            pag.UserId = user.Id;
+                    //            pag.Tempo = 15000;
+                    //            pag.Titulo = "notbooks";
+                    //            contexto.Pagina.Add(pag);
+                    //            contexto.SaveChanges();
+                    //        }
+                    //            indice = 0;
             //        }
 
-                    
+
             //    }
             // }
 
             // if (RepositoryPagina.paginas[0] == null)     
             //   RepositoryPagina.paginas[0] = new List<business.business.Pagina>();
-             
+
 
             // if (RepositoryPagina.paginas[0].FirstOrDefault() == null)
             // {

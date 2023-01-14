@@ -35,3 +35,12 @@ C:\Users\leand\Downloads\Rede-Social-master\Rede-Social\business\obj\Debug\netst
 C:\Users\leand\Downloads\Rede-Social-master\Rede-Social\business\obj\Debug\netstandard2.0\business.AssemblyInfo.cs
 C:\Users\leand\Downloads\Rede-Social-master\Rede-Social\business\obj\Debug\netstandard2.0\business.dll
 C:\Users\leand\Downloads\Rede-Social-master\Rede-Social\business\obj\Debug\netstandard2.0\business.pdb
+C:\Users\leandro\rede-social\business\bin\Debug\netstandard2.0\business.deps.json
+C:\Users\leandro\rede-social\business\bin\Debug\netstandard2.0\business.dll
+C:\Users\leandro\rede-social\business\bin\Debug\netstandard2.0\business.pdb
+C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.AssemblyInfoInputs.cache
+C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.AssemblyInfo.cs
+C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.csproj.CoreCompileInputs.cache
+C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.dll
+C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.pdb
+C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.csprojAssemblyReference.cache

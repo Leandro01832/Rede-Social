@@ -1,5 +1,6 @@
 ﻿using business.Back;
 using business.business;
+using business.business.Group;
 using business.business.Elementos.texto;
 using business.div;
 using business.Join;
@@ -70,6 +71,7 @@ namespace CMS.Controllers
             return View();
         }
 
+        [Authorize]
         [Route("Perfil")]
         public async Task<IActionResult> Perfil()
         {
@@ -124,295 +126,100 @@ namespace CMS.Controllers
         }       
 
         [Authorize]
-        public async Task<IActionResult> CreatePagina()
-        {
-            var user = await UserManager.GetUserAsync(this.User);
-            var lista = await _context.Story.Where(st => st.UserId == user.Id && st.Nome != "Padrao").ToListAsync();
-            var layouts = await _context.Pagina.Where(p => p.UserId == user.Id && p.Layout).ToListAsync();
-            var pastas = new List<PastaImagem>(){new PastaImagem(){Nome = "Informe a pasta.", Id = 0}};
-            var listaPastas = await _context.PastaImagem.Where(p => p.UserId == user.Id).ToListAsync();
-            var elementos = new List<Elemento>(){new Texto(){Nome = "Informe o elemento.", Id = 0}};
-            var listaElementos = await _context.Elemento.ToListAsync();
-            pastas.AddRange(listaPastas);
-            elementos.AddRange(listaElementos);
-            
-
-             if (lista.Count == 0)
-            {
-                ViewBag.Error = "Crie seu story primeiro!!!";
-                RedirectToAction("Create", "Story");
-            }
-
-             if (layouts.Count == 0)
-            {
-                ViewBag.Error = "Crie seu primeiro layout!!!";
-                RedirectToAction("CreatePagina", "Pedido");
-            }           
-
-            ViewBag.UserId = user.Id;
-            ViewBag.StoryId = new SelectList(lista, "Id", "Nome");
-            ViewBag.Layout = new SelectList(layouts, "Id", "NomeComId");
-            ViewBag.Pasta = new SelectList(pastas, "Id", "Identifica");
-            ViewBag.Elemento = new SelectList(elementos, "Id", "NomeComId");
-
-            var page = new Pagina();
-            return View(page);
+        public IActionResult Comentar()
+        {    
+            return View();
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreatePagina(Pagina pag, string Conteudo, 
-        Int64 Layout, Int64 Pasta, Int64 Elemento)
+        public async Task<IActionResult> Comentar(string Conteudo)
         {
-            var user = await UserManager.GetUserAsync(this.User);   
-            
-                var page = await _context.Pagina.
-                    Include(p => p.Div).
-                    ThenInclude(p => p.Container).
-                    ThenInclude(p => p.Div).
-                    ThenInclude(p => p.Div).
-                    ThenInclude(p => p.Elemento).
-                    Include(p => p.Div).
-                    ThenInclude(p => p.Container).
-                     ThenInclude(p => p.Div).
-                    ThenInclude(p => p.Div).
-                    ThenInclude(p => p.Background).
-                    FirstAsync(p => p.Id == Layout);    
+            var user = await UserManager.GetUserAsync(this.User);
+            var Quant = await _context.Story.Where(st => st.Nome != "Padrao").ToListAsync();
+            var story = await _context.Story.Include(st => st.Pagina).Where(st => st.Comentario).ToListAsync();
+            var Story = story.LastOrDefault();
 
-                var cap = _context.Story.Include(s => s.Pagina).ThenInclude(s => s.Div).First(s => s.Id == pag.StoryId);
-
-                if(Pasta != 0)
+            if (Story == null || Story.Pagina.Where(p => !p.Layout).ToList().Count > 499) 
+            {
+                Story = new Story
                 {
-                var pasta = _context.PastaImagem.Include(s => s.Imagens).First(s => s.Id == Pasta);
-                foreach (var item in pasta.Imagens)
-                {
-                    var p = new Pagina(1);
-                      p.ArquivoMusic = "";
-                      p.Titulo =  "Imagem - " + item.Id;
-                      p.UserId = user.Id;
-                        p.Pular = false;
-                        p.Layout = false;
-                        p.StoryId = pag.StoryId;
-                        p.SubStoryId = null;
-                        p.GrupoId = null;
-                        p.SubGrupoId = null;
-                        p.SubSubGrupoId = null;
-                        p.Div = null;
+                    Nome = "Comentario " + (story.Count + 1),
+                    Comentario = true,
+                    PaginaPadraoLink = Quant.Count + 1,
+                     UserId = ""
+                      
+                };
+                _context.Add(Story);
+                _context.SaveChanges();
+            }
 
-                        _context.Add(p);
-                        _context.SaveChanges();
+            var pagina = new Pagina()
+            {
+                Data = DateTime.Now,
+                ArquivoMusic = "",
+                UserId = user.Id,
+                Html = "",
+                Titulo = "Story - " + Story.Nome,
+                CarouselPagina = new List<PaginaCarouselPagina>(),
+                StoryId = Story.Id,
+                Sobreescrita = null,
+                SubStoryId = null,
+                GrupoId = null,
+                SubGrupoId = null,
+                SubSubGrupoId = null,
+                Layout = false,
+                Music = false,
+                Pular = false
+            };
+            pagina.Div = null;
 
-                        p.Div = new List<PaginaContainer>();
-                        foreach (var item2 in page.Div)
-                            p.IncluiDiv(item2.Container);                        
-                            _context.SaveChanges();
+            _context.Add(pagina);
+            _context.SaveChanges();
 
-                    try
+            var pagin = new Pagina(1);
+            pagin.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
+            pagin.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+            {
+                Div = pagin.Div.First(d => d.Container.Content).Container.Div
+                .First(d => d.Div.Content).Div,
+                Elemento =  new Texto
                     {
-                    _context.Add(new DivElemento
-                    {
-                        DivId = p.Div.First(d => d.Container.Content).Container.Div
-                        .First(d => d.Div.Content).Div.Id,
-                        ElementoId = item.Id
-                    });
-                            _context.SaveChanges(); 
+                        Pagina_ = pagina.Id,
+                        PalavrasTexto = $"<img src='{user.Image}' width='50' >" +
+                        $"<p> {user.UserName} </p>" +
+                        Conteudo
                     }
-                    catch(Exception ex){}
-                    item.PaginaEscolhida = p.Id;
-                    _context.Update(item);
-                            _context.SaveChanges(); 
-                            
-                }
-                return RedirectToAction(nameof(PaginasCriadas),
-                new { user = user.Name, capitulo = cap.PaginaPadraoLink });
+                
+            });
 
-                }
-                else
-                {
+            pagina.Div = new List<PaginaContainer>();
+            foreach (var item in pagin.Div)
 
-                    if(Elemento != 0)
-                    {
-                         var elemento = _context.Elemento.First(s => s.Id == Elemento);
+                pagina.IncluiDiv(item.Container);
 
-                          pag.ArquivoMusic = "";
-                            pag.Pular = false;
-                            pag.Layout = false;
-                            pag.Div = null;
+            _context.SaveChanges();
 
-                            _context.Add(pag);
-                            _context.SaveChanges();
-
-                            pag.Div = new List<PaginaContainer>();
-                            foreach (var item in page.Div)
-                                pag.IncluiDiv(item.Container);                        
-                                _context.SaveChanges();
-
-                                pag.Div.First(d => d.Container.Content).Container.Div
-                                .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-                                pag.Div.First(d => d.Container.Content).Container.Div
-                                .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
-                                {
-                                    Div = pag.Div.First(d => d.Container.Content).Container.Div
-                                    .First(d => d.Div.Content).Div,
-                                    Elemento = elemento
-                                });
-                                _context.SaveChanges();     
-                                                
-                            var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == pag.StoryId);
-                            var versiculos = story.Pagina.Where(p => !p.Layout).ToList().Count;
-
-                            epositoryPagina.AtualizarPaginaStory(cap);
-                            return RedirectToAction(nameof(PaginaCriada),
-                                new { user = user.Name, capitulo = cap.PaginaPadraoLink, versiculo = cap.Pagina.Where(p => !p.Layout).ToList().Count });
-                    }
-                    else
-                    {
-                        if(cap.Pagina.FirstOrDefault(p => p.Div.Count == 0) == null)
-                        {
-                            pag.ArquivoMusic = "";
-                            pag.Pular = false;
-                            pag.Layout = false;
-                            pag.Div = null;
-
-                            _context.Add(pag);
-                            _context.SaveChanges();
-
-                            pag.Div = new List<PaginaContainer>();
-                            foreach (var item in page.Div)
-                                pag.IncluiDiv(item.Container);                        
-                                _context.SaveChanges();
-
-                                pag.Div.First(d => d.Container.Content).Container.Div
-                                .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-                                pag.Div.First(d => d.Container.Content).Container.Div
-                                .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
-                                {
-                                    Div = pag.Div.First(d => d.Container.Content).Container.Div
-                                    .First(d => d.Div.Content).Div,
-                                    Elemento = new Texto
-                                    {
-                                    PalavrasTexto = Conteudo
-                                    }
-                                });
-                                _context.SaveChanges();   
-                                                     
-                            var story = await _context.Story.Include(st => st.Pagina).FirstAsync(st => st.Id == pag.StoryId);
-                            var versiculos = story.Pagina.Where(p => !p.Layout).ToList().Count;
-
-                           // epositoryPagina.AtualizarPaginaStory(cap);
-                            return RedirectToAction(nameof(PaginaCriada),
-                                new { user = user.Name, capitulo = cap.PaginaPadraoLink, versiculo = cap.Pagina.Where(p => !p.Layout).ToList().Count });
-                        }
-
-                        else{
-
-                            var p = cap.Pagina.FirstOrDefault(pa => pa.Div.Count == 0);
-                            var pagi = _context.Pagina.Include(s => s.Story).Include(s => s.Div).First(pa => pa.Id == p.Id);
-
-                            foreach (var item in page.Div)
-                                pagi.IncluiDiv(item.Container);                        
-                                _context.SaveChanges();
-
-                            pagi.Div.First(d => d.Container.Content).Container.Div
-                            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-                                pagi.Div.First(d => d.Container.Content).Container.Div
-                                .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
-                                {
-                                    Div = p.Div.First(d => d.Container.Content).Container.Div
-                                    .First(d => d.Div.Content).Div,
-                                    Elemento = new Texto
-                                    {
-                                    PalavrasTexto = Conteudo
-                                    }
-                                });
-
-                                _context.SaveChanges();                            
-
-                                    epositoryPagina.AtualizarPaginaStory(cap);
-                                    return RedirectToAction(nameof(PaginaCriada),
-                                        new { user = user.Name, capitulo = cap.PaginaPadraoLink, versiculo = cap.Pagina.IndexOf(pagi) + 1 });
-
-                        }            
-
-                    }
-
-
-                }
+            return RedirectToAction(nameof(PaginaCriada),
+            new { capitulo = Story.PaginaPadraoLink, versiculo = Story.Pagina.Where(p => !p.Layout).ToList().Count });
 
         }
         
-        public async Task<ActionResult> Preview(Int64 Layout, string Conteudo,
-         string UserId, Int64 Pasta, Int64 Elemento)
-        {
-            var page = await epositoryPagina.includes().FirstAsync(p => p.Id == Layout);
-            Pagina pagina = new Pagina(1)
-            {
-                ArquivoMusic = "",
-                Music = false,
-                Titulo = "Default",
-                Layout = false,
-                UserId = UserId,
-                StoryId = 0,
-                FlexDirection = page.FlexDirection,
-                AlignItems = page.AlignItems
-            };
-
-        
-             pagina.Div = new List<PaginaContainer>();
-                        foreach (var item2 in page.Div)
-                            pagina.IncluiDiv(item2.Container);                        
-                        
-            if(Elemento != 0)
-            {
-                var elemento = _context.Elemento.First(s => s.Id == Elemento);
-                 pagina.Div.First(d => d.Container.Content).Container.Div
-                                .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-                                pagina.Div.First(d => d.Container.Content).Container.Div
-                                .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
-                                {
-                                    Div = pagina.Div.First(d => d.Container.Content).Container.Div
-                                    .First(d => d.Div.Content).Div,
-                                    Elemento = elemento
-                                });
-            }
-            else
-            {
-                pagina.Div.First(d => d.Container.Content).Container.Div
-                            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-                                pagina.Div.First(d => d.Container.Content).Container.Div
-                                .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
-                                {
-                                    Div = pagina.Div.First(d => d.Container.Content).Container.Div
-                                    .First(d => d.Div.Content).Div,
-                                    Elemento = new Texto
-                                    {
-                                    PalavrasTexto = Conteudo
-                                    }
-                                });
-            }
-
-
-            string html = await epositoryPagina.renderizarPagina(pagina);
-            ViewBag.html = html;
-
+        public ActionResult Preview(string Conteudo)
+        {          
+            ViewBag.html = Conteudo;
             //return Json(html);
             return PartialView("Preview");
         }
         
-        public ActionResult PaginaCriada(string user, int capitulo, int versiculo)
-        {
-            ViewBag.user = user;            
+        public ActionResult PaginaCriada( int capitulo, int versiculo)
+        {            
             ViewBag.capitulo = capitulo;
             ViewBag.versiculo = versiculo;
             return View();
-        }
-
-        public ActionResult PaginasCriadas(string user, int capitulo)
-        {
-            ViewBag.user = user;            
-            ViewBag.capitulo = capitulo;
-            return View();
-        }
+        }       
         
         public IActionResult Privacy()
         {

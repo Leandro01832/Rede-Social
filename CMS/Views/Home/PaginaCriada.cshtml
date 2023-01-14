@@ -1,25 +1,14 @@
-﻿
-
-@{
-    ViewData["Title"] = "PaginaCriada";
-    string user = ViewBag.user;
+﻿@{
+    ViewData["Title"] = "PaginaCriada";   
     int versiculo = ViewBag.versiculo;
     int capitulo = ViewBag.capitulo;
 }
 
-<h2>Pagina Criada!!!</h2>
-
+<h2>Comentário realizado com sucesso!!!</h2>
 <div>
-    <h4>Compartilhar <span class="glyphicon glyphicon-send"></span></h4>
-    
+    <h4>Compartilhar <span class="glyphicon glyphicon-send"></span></h4>    
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayName("Nome do livro")
-        </dt>
-        <dd>
-            @user
-        </dd>
+    <dl class="dl-horizontal">        
         <dt>
             @Html.DisplayName("Capitulo")
         </dt>
@@ -32,6 +21,5 @@
         <dd>
             @versiculo
         </dd>
-
     </dl>
 </div>

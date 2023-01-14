@@ -383,7 +383,7 @@ namespace CMS.Controllers
             .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(l => l.Pagina)
             .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(str => str.SubGrupo).ThenInclude(l => l.Pagina)
             .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(str => str.SubGrupo).ThenInclude(str => str.SubSubGrupo).ThenInclude(l => l.Pagina)
-            .Where(b => b.Nome != "Padrao").ToList();
+            .Where(b => b.Nome != "Padrao" && !b.Comentario).ToList();
             stories = stories.OrderBy(s => s.PaginaPadraoLink).ToList();
             return stories;
         }

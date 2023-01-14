@@ -1,0 +1,100 @@
+﻿
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Criar</h2>
+<link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
+<link rel="stylesheet" href="~/css/RenderizarDinamico2.css" />
+
+<p class="text-danger">
+    Atenção!!! Não é aceito comentários racistas, homofóbicos, pornográficos e de carater preconceituoso. Dependendo do comentário,
+    pode ser excluido pelo admin do site. Se persistir o usuario será removido.
+</p>
+<p class="text-info">
+    Os comentários  podem ser feitos a vontade. Somente o admin é que classificará os comentários em tipos e são eles:
+    <ul>
+        <li>comentários sobre um produto(Informe nº do capitulo e nº do verso ).</li>
+        <li>comentários fakes</li>
+        <li>comentários sobre comentários(Informe nº do capitulo e nº do verso ).</li>
+        <li>comentários ruins (estão dentro das diretrizes mas o admin não gostou ).</li>
+        <li>comentários posts (Um conteudo qualquer ).</li>
+        <li>comentários legais</li>
+        <li>comentários inteligentes</li>
+    </ul>
+</p>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=m8nq39l31dv5y829ehcjsd0rciwei8crem0yubndhdgs72fd"></script>
+    <script src="~/js/Tynymce.js"></script>
+
+    <a href='#' id='Fechar' class='btn btn-primary' style="display:none;">Fechar Preview</a>
+    <div class="form-horizontal" id="Formulario">
+        <h4>Pagina</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label id="PalavrasTexto" name="PalavrasTexto" class="control-label">Conteudo:</label>
+            <script type="text/javascript">Editar();</script>
+            <textarea id="textarea" name="Conteudo" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-offset-2 col-md-10">
+                <a href="#" id="Preview" class="btn btn-default">Preview</a>
+            </div>
+
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Criar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+}
+
+<div id="ConteudoPagina" class="content" style="display:none;">
+    @Html.Raw(ViewBag.html)
+</div>
+
+
+@section scripts{
+
+    <script type="text/javascript" src="~/js/AjaxGetGroup.js"></script>
+    <script type="text/javascript" src="~/js/FullScreen.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#Preview").click(function () {
+                $("#ConteudoPagina").css("display", "block");
+                $("#Fechar").css("display", "block");
+                $("#Formulario").css("display", "none");
+                $('#ConteudoPagina').load('/Home/Preview/', // url
+                    {
+                        Conteudo: $("#textarea").val()
+                    },
+                    function (data, status, jqXGR) {  // callback function
+                        openFullscreen2();
+                    });
+            });
+
+            $("#Fechar").click(function () {
+                $("#ConteudoPagina").css("display", "none");
+                $("#Fechar").css("display", "none");
+                $("#Formulario").css("display", "block");
+            });
+
+        });
+    </script>
+
+}
+
+
+

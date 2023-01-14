@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Rede-Social-master\\clone\\Rede-Social\\Tests\\Tests.csproj": {}
+    "C:\\Users\\leandro\\rede-social\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj": {
+    "C:\\Users\\leandro\\rede-social\\business\\business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj",
+        "projectUniqueName": "C:\\Users\\leandro\\rede-social\\business\\business.csproj",
         "projectName": "business",
-        "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj",
-        "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-        "outputPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\obj\\",
+        "projectPath": "C:\\Users\\leandro\\rede-social\\business\\business.csproj",
+        "packagesPath": "C:\\Users\\leandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\leandro\\rede-social\\business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -19,7 +19,7 @@
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files\\NuGet\\Config\\Xamarin.Offline.config"
@@ -84,14 +84,14 @@
         }
       }
     },
-    "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\CMS.csproj": {
+    "C:\\Users\\leandro\\rede-social\\CMS\\CMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\CMS.csproj",
+        "projectUniqueName": "C:\\Users\\leandro\\rede-social\\CMS\\CMS.csproj",
         "projectName": "CMS",
-        "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\CMS.csproj",
-        "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-        "outputPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\obj\\",
+        "projectPath": "C:\\Users\\leandro\\rede-social\\CMS\\CMS.csproj",
+        "packagesPath": "C:\\Users\\leandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\leandro\\rede-social\\CMS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -99,7 +99,7 @@
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files\\NuGet\\Config\\Xamarin.Offline.config"
@@ -115,8 +115,8 @@
           "netcoreapp2.2": {
             "targetAlias": "netcoreapp2.2",
             "projectReferences": {
-              "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj": {
-                "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj"
+              "C:\\Users\\leandro\\rede-social\\business\\business.csproj": {
+                "projectPath": "C:\\Users\\leandro\\rede-social\\business\\business.csproj"
               }
             }
           }
@@ -191,14 +191,14 @@
         }
       }
     },
-    "C:\\Rede-Social-master\\clone\\Rede-Social\\Tests\\Tests.csproj": {
+    "C:\\Users\\leandro\\rede-social\\Tests\\Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Rede-Social-master\\clone\\Rede-Social\\Tests\\Tests.csproj",
+        "projectUniqueName": "C:\\Users\\leandro\\rede-social\\Tests\\Tests.csproj",
         "projectName": "Tests",
-        "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\Tests\\Tests.csproj",
-        "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-        "outputPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\Tests\\obj\\",
+        "projectPath": "C:\\Users\\leandro\\rede-social\\Tests\\Tests.csproj",
+        "packagesPath": "C:\\Users\\leandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\leandro\\rede-social\\Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -206,7 +206,7 @@
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files\\NuGet\\Config\\Xamarin.Offline.config"
@@ -222,11 +222,11 @@
           "netcoreapp2.2": {
             "targetAlias": "netcoreapp2.2",
             "projectReferences": {
-              "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj": {
-                "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\business\\business.csproj"
+              "C:\\Users\\leandro\\rede-social\\business\\business.csproj": {
+                "projectPath": "C:\\Users\\leandro\\rede-social\\business\\business.csproj"
               },
-              "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\CMS.csproj": {
-                "projectPath": "C:\\Rede-Social-master\\clone\\Rede-Social\\CMS\\CMS.csproj"
+              "C:\\Users\\leandro\\rede-social\\CMS\\CMS.csproj": {
+                "projectPath": "C:\\Users\\leandro\\rede-social\\CMS\\CMS.csproj"
               }
             }
           }

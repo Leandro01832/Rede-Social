@@ -52,13 +52,7 @@ namespace CMS.Controllers
         [Route("{compartilhante}")]
         [Route("")]
         public async Task<IActionResult> Index(string compartilhante)
-        {
-            var option = Request.Cookies["automatico"];
-            var option2 = Request.Cookies["story"];
-            if (option == null)
-                Set("automatico", "0", 12);
-            if (option2 == null)
-                Set("story", "0", 12);
+        {       
 
                  var stories = await _context.Story.Where(str => str.Nome != "Padrao")
                 .OrderBy(st => st.Nome)
@@ -232,20 +226,7 @@ namespace CMS.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        private void Set(string key, string value, int? expireTime)
-        {
-            CookieOptions option = new CookieOptions();
-
-            if (expireTime.HasValue)
-                option.Expires = DateTime.Now.AddHours(expireTime.Value);
-            else
-                option.Expires = DateTime.Now.AddHours(10);
-
-            option.HttpOnly = false;
-            option.Path = "/";
-
-            Response.Cookies.Append(key, value, option);
-        }
+       
         
     }
 }

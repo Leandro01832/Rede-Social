@@ -123,15 +123,15 @@
             .done(function(response) {                
 
                 if(response[0] == "Story")
-                window.location.href = "/Renderizar/"   +  response[1] +  "/1/" + compartilhante;
+                window.location.href = "/Renderizar/"   +  response[1] +  "/1/1/" + compartilhante;
                 else if(response[0] == "SubStory")
-                window.location.href = "/SubStory/"     +  response[1] +  "/1/1/" + compartilhante;
+                window.location.href = "/SubStory/"     +  response[1] +  "/1/1/1/" + compartilhante;
                 else if(response[0] == "Grupo")
-                window.location.href = "/Grupo/"        +  response[1] +  "/1/1/1/" + compartilhante;
+                window.location.href = "/Grupo/"        +  response[1] +  "/1/1/1/1/" + compartilhante;
                 else if(response[0] == "SubGrupo")
-                window.location.href = "/SubGrupo/"     +  response[1] +  "/1/1/1/1/" + compartilhante;
+                window.location.href = "/SubGrupo/"     +  response[1] +  "/1/1/1/1/1/" + compartilhante;
                 else if(response[0] == "SubSubGrupo")
-                window.location.href = "/SubSubGrupo/"  +  response[1] +  "/1/1/1/1/1/" + compartilhante;
+                window.location.href = "/SubSubGrupo/"  +  response[1] +  "/1/1/1/1/1/1/" + compartilhante;
             });
             return false;
     }
@@ -172,7 +172,7 @@
                             $("#listaUrls").css("display", "block");
                         $("#listaUrls").empty();
                         $.each(data.story, function (i) {
-                            var url = "/Renderizar/"+data.story[i].paginaPadraoLink+"/1/"+compartilhante;
+                            var url = "/Renderizar/"+data.story[i].paginaPadraoLink+"/1/1/"+compartilhante;
                             $("#listaUrls").append("<p>" +
                              "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.story[i].paginaPadraoLink+ " - "  + data.story[i].nome +
@@ -180,7 +180,7 @@
                         });
 
                         $.each(data.substory, function (i) {
-                            var url = data.substory[i].url+"/"+compartilhante;
+                            var url = data.substory[i].url+"/1/"+compartilhante;
                             $("#listaUrls").append("<p>" +
                              "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.substory[i].capitulo+ " - Sub-Story "  + data.substory[i].nome +
@@ -188,7 +188,7 @@
                         });
 
                         $.each(data.grupo, function (i) {
-                            var url = data.grupo[i].url+"/"+compartilhante;
+                            var url = data.grupo[i].url+"/1/"+compartilhante;
                             $("#listaUrls").append("<p>" +
                              "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.grupo[i].capitulo+ " - Grupo "  + data.grupo[i].nome +
@@ -196,7 +196,7 @@
                         });
                         
                         $.each(data.subgrupo, function (i) {
-                            var url = data.subgrupo[i].url+"/"+compartilhante;
+                            var url = data.subgrupo[i].url+"/1/"+compartilhante;
                             $("#listaUrls").append("<p>" +
                              "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.subgrupo[i].capitulo+ " - Sub-Grupo "  + data.subgrupo[i].nome +
@@ -204,7 +204,7 @@
                         });
 
                         $.each(data.subsubgrupo, function (i) {
-                             var url = data.subsubgrupo[i].url+"/"+compartilhante;
+                             var url = data.subsubgrupo[i].url+"/1/"+compartilhante;
                             $("#listaUrls").append("<p>" +
                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.subsubgrupo[i].capitulo+ " - Sub-Sub-Grupo "  + data.subsubgrupo[i].nome +

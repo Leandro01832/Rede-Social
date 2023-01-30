@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="~/css/mobile.css" />
 
     <input type="hidden" value="@ViewBag.compartilhante" id="compartilhante" />
+    <input type="hidden" value="@ViewBag.auto" id="auto" />
     <input type="hidden" value="@Model.Tempo" id="Tempo" />
     <input type="hidden" value="@Model.Id" id="IdentificacaoPagina" />
     <input type="hidden" value="@ViewBag.user" id="ValorUser" />
@@ -217,31 +218,11 @@
 
 @section scripts{
   
-    <script src="~/lib/jquery/dist/jquery.cookie.js"></script>
+    
     <script src="~/lib/aspnet-signalr/signalr.min.js"></script>
     <script type="text/javascript" src="~/js/Chat-Renderizar.js"></script>
     <script src="~/js/loader.js"></script>
     <script type="text/javascript" src="~/js/Navegacao.js"> </script>    
-    <script type="text/javascript">
-
-    var ss = 0;
-    var tempo = parseInt($("#Tempo").val());
-    var porcentagem = 0;
-    const progresso = document.querySelector(".progressbar div")
-
-    if ($.cookie('automatico') == '1') 
-    {
-
-        setInterval(function() {           
-
-         ss += 1000;
-         porcentagem = parseInt((ss / tempo) * 100); 
-         progresso.setAttribute("style", "width: " +porcentagem+ "%");               
-         }, 1000);     
-
-    }
-    
-         
-     </script>    
+    <script type="text/javascript" src="~/js/progressbar.js" >  </script>    
 
 }

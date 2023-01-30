@@ -24,8 +24,8 @@ namespace MeuProjetoAgora.Controllers
         }
         
 
-         [Route("Renderizar/{capitulo?}/{indice}/{compartilhante}")]
-        public async Task<IActionResult> Renderizar( int indice, int? capitulo, string compartilhante)
+         [Route("Renderizar/{capitulo?}/{indice}/{auto}/{compartilhante}")]
+        public async Task<IActionResult> Renderizar( int indice, int? capitulo, int auto, string compartilhante)
         {           
              if(RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList().Count == 0)
             RepositoryPagina.paginas.AddRange(await epositoryPagina.includes().Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToListAsync());
@@ -57,13 +57,14 @@ namespace MeuProjetoAgora.Controllers
             ViewBag.Html = html;
             ViewBag.proximo = indice + 1;
             ViewBag.compartilhante = compartilhante;
+            ViewBag.auto = auto;
             return View(pagina);            
         }
 
         
 
-        [Route("SubStory/{capitulo?}/{substory}/{indice}/{compartilhante}")]
-         public async Task<IActionResult> SubStory( int indice, int? capitulo, int substory, string compartilhante)
+        [Route("SubStory/{capitulo?}/{substory}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> SubStory( int indice, int? capitulo, int substory, int auto, string compartilhante)
         {
               if(RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList().Count == 0)
             RepositoryPagina.paginas.AddRange(await epositoryPagina.includes().Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToListAsync());
@@ -94,11 +95,12 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
+                ViewBag.auto = auto;
                 return View(pagina);             
         }
 
-        [Route("Grupo/{capitulo?}/{substory}/{grupo}/{indice}/{compartilhante}")]
-         public async Task<IActionResult> Grupo( int indice, int? capitulo, int substory, int grupo, string compartilhante)
+        [Route("Grupo/{capitulo?}/{substory}/{grupo}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> Grupo( int indice, int? capitulo, int substory, int grupo, int auto, string compartilhante)
         {             
              if(RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList().Count == 0)
             RepositoryPagina.paginas.AddRange(await epositoryPagina.includes().Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToListAsync());
@@ -129,11 +131,12 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
+                ViewBag.auto = auto;
                 return View(pagina);            
         }
 
-         [Route("SubGrupo/{capitulo?}/{substory}/{grupo}/{subgrupo}/{indice}/{compartilhante}")]
-         public async Task<IActionResult> SubGrupo(int indice, int? capitulo, int substory, int grupo, int subgrupo, string compartilhante)
+         [Route("SubGrupo/{capitulo?}/{substory}/{grupo}/{subgrupo}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> SubGrupo(int indice, int? capitulo, int substory, int grupo, int subgrupo, int auto, string compartilhante)
         {
              if(RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList().Count == 0)
             RepositoryPagina.paginas.AddRange(await epositoryPagina.includes().Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToListAsync());
@@ -166,11 +169,12 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
+                ViewBag.auto = auto;
                 return View(pagina);            
         }
 
-         [Route("SubSubGrupo/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{indice}/{compartilhante}")]
-         public async Task<IActionResult> SubSubGrupo(string Name, int indice, int? capitulo, int substory, int grupo, int subgrupo, int subsubgrupo, string compartilhante)
+         [Route("SubSubGrupo/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> SubSubGrupo(string Name, int indice, int? capitulo, int substory, int grupo, int subgrupo, int subsubgrupo, int auto, string compartilhante)
         {
              if(RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList().Count == 0)
             RepositoryPagina.paginas.AddRange(await epositoryPagina.includes().Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToListAsync());

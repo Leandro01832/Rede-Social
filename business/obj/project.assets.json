@@ -3967,36 +3967,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\leandro\\.nuget\\packages\\": {},
-    "C:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\leand\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leandro\\rede-social\\business\\business.csproj",
+      "projectUniqueName": "C:\\rede-social\\business\\business.csproj",
       "projectName": "business",
-      "projectPath": "C:\\Users\\leandro\\rede-social\\business\\business.csproj",
-      "packagesPath": "C:\\Users\\leandro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leandro\\rede-social\\business\\obj\\",
+      "projectPath": "C:\\rede-social\\business\\business.csproj",
+      "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
+      "outputPath": "C:\\rede-social\\business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

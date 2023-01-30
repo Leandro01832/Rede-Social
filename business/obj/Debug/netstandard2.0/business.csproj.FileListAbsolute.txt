@@ -44,3 +44,12 @@ C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.csproj.C
 C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.dll
 C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.pdb
 C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.csprojAssemblyReference.cache
+C:\rede-social\business\bin\Debug\netstandard2.0\business.deps.json
+C:\rede-social\business\bin\Debug\netstandard2.0\business.dll
+C:\rede-social\business\bin\Debug\netstandard2.0\business.pdb
+C:\rede-social\business\obj\Debug\netstandard2.0\business.csprojAssemblyReference.cache
+C:\rede-social\business\obj\Debug\netstandard2.0\business.csproj.CoreCompileInputs.cache
+C:\rede-social\business\obj\Debug\netstandard2.0\business.AssemblyInfoInputs.cache
+C:\rede-social\business\obj\Debug\netstandard2.0\business.AssemblyInfo.cs
+C:\rede-social\business\obj\Debug\netstandard2.0\business.dll
+C:\rede-social\business\obj\Debug\netstandard2.0\business.pdb

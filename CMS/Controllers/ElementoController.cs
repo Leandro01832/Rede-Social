@@ -92,7 +92,7 @@ namespace CMS.Controllers
                         }
                       );
 
-            string html = await epositoryPagina.renderizarPagina(pagina);
+            string html =  epositoryPagina.renderizarPagina(pagina);
             ViewBag.Html = html;
             return PartialView(pagina);
         }

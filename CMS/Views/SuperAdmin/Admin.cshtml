@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Admin";
+
+    List<business.business.DadoFormulario> dados = ViewBag.dados;
+}
+
+<h1>Administrador</h1>
+
+
+@Html.ActionLink("Importar pagina de livro", "BaixarHtmlLivro", "SuperAdmin")
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btn-Formulario").click(function () {
+                $(".dados").fadeOut("slow");
+                $("#Formulario").fadeIn("slow");
+            });
+
+            $("#btn-Venda").click(function () {
+                $(".dados").fadeOut("slow");
+                $("#Venda").fadeIn("slow");
+            });
+
+        });
+    </script>
+}
+

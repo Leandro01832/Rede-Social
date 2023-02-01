@@ -102,7 +102,7 @@ namespace CMS.Controllers
                     if(!string.IsNullOrEmpty(pagina.Sobreescrita))
                     html = pagina.Sobreescrita;
                     else
-                    html = await epositoryPagina.renderizarPagina(pagina);
+                    html =  epositoryPagina.renderizarPagina(pagina);
                 }
                 else
                 html = "<p>Instagleo</p>";
@@ -129,7 +129,7 @@ namespace CMS.Controllers
                  if(!string.IsNullOrEmpty(pagina.Sobreescrita))
                  html = pagina.Sobreescrita;
                  else
-                 html = await epositoryPagina.renderizarPagina(pagina);
+                 html =  epositoryPagina.renderizarPagina(pagina);
             }
              else
             html = "<p>Instagleo</p>";

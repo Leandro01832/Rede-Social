@@ -69,7 +69,7 @@ namespace MeuProjetoAgora.Controllers
         public async Task<ActionResult> CreatePagina()
         {
             var user = await UserManager.GetUserAsync(this.User);
-            var stories = await Context.Story.Where(str => str.UserId == user.Id && str.Nome != "Padrao").ToListAsync();
+            var stories = await Context.Story.Where(str =>  str.Nome != "Padrao" && !str.Comentario).ToListAsync();
 
             if(stories.Count == 0)
             {

@@ -25,7 +25,7 @@ namespace CMS.Models.Repository
     public interface IRepositoryPagina
     {
         Task<List<Pagina>> MostrarPageModels();
-         Task<string> renderizarPagina(Pagina pagina);
+         string renderizarPagina(Pagina pagina);
         IIncludableQueryable<Pagina, Div> includes();
 
         void AtualizarPaginaStory(Story story);
@@ -99,16 +99,16 @@ namespace CMS.Models.Repository
             return  lista;
         }         
 
-        public async Task<string> renderizarPagina(Pagina pagina)
+        public string renderizarPagina(Pagina pagina)
         {
-            var resultado = await renderizar(pagina, CodigoBloco + CodCss + CodCss2 +
+            var resultado =  renderizar(pagina, CodigoBloco + CodCss + CodCss2 +
                 CodigoProducao + CodigoMusic
                 + CodigoCarousel);
             return resultado;
         }       
        
 
-        public async Task<string> renderizar(Pagina pagina, string TextoHtml)
+        public string renderizar(Pagina pagina, string TextoHtml)
         {
             var condicaoLogin = SignInManager.IsSignedIn(ContextAccessor.HttpContext.User);
             var username = UserManager.GetUserName(ContextAccessor.HttpContext.User);             

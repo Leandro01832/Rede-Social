@@ -12,13 +12,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Net;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using business.business.Elementos.texto;
 
 namespace CMS.Controllers
 {
-    [Authorize(Roles = "SuperAdmin")]
+    [Authorize(Roles = "Admin")]
     public class SuperAdminController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -35,7 +37,116 @@ namespace CMS.Controllers
         }
 
         //Região Index
-        #region
+        #region        
+         public async Task<ActionResult> Admin()
+        {
+            var user = await UserManager.GetUserAsync(this.User);
+            var stories = await _context.Story.Where(str =>  str.Nome != "Padrao" && !str.Comentario).ToListAsync();
+
+            if(stories.Count == 0)
+            {
+                ViewBag.Error = "Crie seu story primeiro!!!";
+                RedirectToAction("Create", "Story");
+            }
+
+            ViewBag.UserId = user.Id;
+            ViewBag.cap = new SelectList(stories, "Id", "CapituloComNome");
+
+            return View();
+        }
+         
+         public async Task<ActionResult> BaixarHtmlLivro()
+        {
+            var user = await UserManager.GetUserAsync(this.User);
+            var stories = await _context.Story.Where(str =>  str.Nome != "Padrao" && !str.Comentario).ToListAsync();
+
+            if(stories.Count == 0)
+            {
+                ViewBag.Error = "Crie seu story primeiro!!!";
+                RedirectToAction("Create", "Story");
+            }
+
+            ViewBag.UserId = user.Id;
+            ViewBag.cap = new SelectList(stories, "Id", "CapituloComNome");
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> BaixarHtmlLivro(string livro, int capitulo, int versiculo, int cap)
+        {
+            var url = livro + "/" + capitulo + "/" + versiculo + "/1/user";
+            
+            WebClient client = new WebClient();
+            var html = client.DownloadString(url);
+
+            var story = await _context.Story
+            .Include(str => str.Pagina)
+            .ThenInclude(str => str.Produto)
+            .Include(str => str.Pagina)
+            .ThenInclude(str => str.Div)
+            .FirstAsync(str => str.Id == cap);
+
+            var pag = story.Pagina.FirstOrDefault(p => p.Div.Count == 0);
+
+            if(pag != null)
+            {
+                var p = new Pagina(1, 1);
+
+                pag.Div = new List<PaginaContainer>();                
+                foreach (var item in p.Div)            
+                pag.IncluiDiv(item.Container);             
+                await  _context.SaveChangesAsync();  
+
+                  
+            pag.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
+            pag.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+            {
+                Div = pag.Div.First(d => d.Container.Content).Container.Div
+                .First(d => d.Div.Content).Div,
+                Elemento =  new Texto
+                    {
+                        Pagina_ = pag.Id,
+                        PalavrasTexto = html
+                    },
+                
+            }); 
+                await  _context.SaveChangesAsync();  
+            return RedirectToAction("Index", "Home");
+            }
+            else if(story.Pagina
+                .FirstOrDefault(p => p.Data > DateTime.Now.AddDays(-2) && p.Produto == null) != null)
+            {
+                pag = story.Pagina
+                .First(p => p.Data > DateTime.Now.AddDays(-2) && p.Produto == null);
+
+                 _context.Remove(pag.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento.First());
+                await  _context.SaveChangesAsync();  
+                 pag.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+            {
+                Div = pag.Div.First(d => d.Container.Content).Container.Div
+                .First(d => d.Div.Content).Div,
+                Elemento =  new Texto
+                    {
+                        Pagina_ = pag.Id,
+                        PalavrasTexto = html
+                    },
+                
+            }); 
+                await  _context.SaveChangesAsync();  
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            return View();
+
+            
+        }
+
+        
         [Route("Mensagens")]
         public async Task<IActionResult> Index()
         {

@@ -126,7 +126,6 @@ namespace CMS.Models.Repository
                 var str = new Story
                 {
                     Nome = "Padrao",
-                    UserId = user.Id,
                      PaginaPadraoLink = 0
                 };
                 await userContext.AddAsync(str);

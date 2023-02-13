@@ -77,7 +77,7 @@ namespace CMS.Models.Repository
         public async Task ElementosBloco(Div div)
         {
             var pagina1 = await contexto.Pagina.FirstAsync(p => p.Id == div.Pagina_);
-           var cli = await UserManager.Users.FirstAsync(p => p.Id == pagina1.UserId);
+           var cli = await UserManager.Users.FirstAsync(p => p.Id == "");
             var cliente = cli.Id;
 
             string elementosGravados = "";
@@ -125,7 +125,7 @@ namespace CMS.Models.Repository
                     if (ele != null)
                     {
                         var paginaElementoDepe = contexto.Pagina.First(p => p.Id == ele.Pagina_);
-                        var site = UserManager.Users.First(p => p.Id == paginaElementoDepe.UserId);
+                        var site = UserManager.Users.First(p => p.Id == "");
                         if (site.Id == cliente)
                         {
                             MesmoCliente = true;

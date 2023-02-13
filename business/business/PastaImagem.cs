@@ -8,7 +8,6 @@ namespace business.business
     public class PastaImagem : BaseModel
     {
         public string Nome { get; set; }
-        public string UserId { get; set; }
         public List<Imagem> Imagens { get; set; }
 
         [NotMapped]

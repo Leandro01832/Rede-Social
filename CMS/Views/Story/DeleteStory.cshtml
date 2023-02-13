@@ -1,0 +1,28 @@
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+
+<h3>Deseja realmente apagar o conteudo desta story?</h3>
+<div>    
+    <form asp-action="DeleteStory">
+        <div class="form-group">
+        <label class="form-control" >Story:</label>
+        <div class="col-md-10">
+            @Html.DropDownList("id", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Galeria" asp-controller="Pedido" >Voltar para a lista</a>
+    </form>
+</div>
+</body>
+</html>

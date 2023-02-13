@@ -49,9 +49,9 @@ namespace CMS.Controllers
             return View(applicationDbContext);
         }
 
-       [Route("paginacao/{pagina?}/{ordenar}/{automatico}/{tempo}/{tamanho}")]
+       [Route("paginacao/{pagina?}/{ordenar}/{automatico}/{tempo}/{tamanho}/{compartilhante}")]
         public async Task<IActionResult> paginacao(int? pagina, string ordenar,
-         int automatico , int tempo, int tamanho)
+         int automatico , int tempo, int tamanho, string compartilhante)
         {
             int numeroPagina = (pagina ?? 1);
 
@@ -60,6 +60,7 @@ namespace CMS.Controllers
             ViewBag.automatico = automatico;
             ViewBag.tempo = tempo;
             ViewBag.tamanho = tamanho;
+            ViewBag.compartilhante = compartilhante;
             List<Produto> applicationDbContext = await RetornarLista(numeroPagina, tamanho, ordenar);            
             return View(applicationDbContext);
         }
@@ -89,7 +90,7 @@ namespace CMS.Controllers
         {
             var user = await UserManager.GetUserAsync(this.User);
             var stories = await _context.Story
-            .Where(str => str.UserId == user.Id && str.Nome != "Padrao").ToListAsync();
+            .Where(str => str.Nome != "Padrao" && !str.Comentario).ToListAsync();
 
             if(stories.Count == 0)
             {
@@ -115,8 +116,7 @@ namespace CMS.Controllers
                 Pagina pagina = new Pagina();
                 pagina.Div = null;
                 pagina.Produto = produto;
-                pagina.UserId = user.Id;
-                pagina.Tempo = 15000;
+                pagina.Tempo = 11000;
                 pagina.Titulo = produto.Nome;
                 pagina.StoryId = StoryId;
                 pagina.SubStoryId = SubStoryId;
@@ -262,9 +262,9 @@ namespace CMS.Controllers
         {
             List<Produto> applicationDbContext = null;
             if(ordenar == "nome")
-             applicationDbContext = await _context.Produto
-                .Include(l => l.Imagem)
-                .Include(l => l.Itens)
+             applicationDbContext = await _context.Produto               
+                .Include(l => l.Imagem)                
+                .Include(l => l.Itens)  
                 .Include(l => l.Pagina)
                 .ThenInclude(l => l.Story)
                 .ThenInclude(l => l.Pagina)
@@ -273,9 +273,9 @@ namespace CMS.Controllers
                 .Take(tamanho).ToListAsync();
            else
             if(ordenar == "preco")
-             applicationDbContext = await _context.Produto
-               .Include(l => l.Imagem)
-                .Include(l => l.Itens)
+             applicationDbContext = await _context.Produto               
+                .Include(l => l.Imagem)                
+                .Include(l => l.Itens)  
                 .Include(l => l.Pagina)
                 .ThenInclude(l => l.Story)
                 .ThenInclude(l => l.Pagina)
@@ -284,8 +284,8 @@ namespace CMS.Controllers
                 .Take(tamanho).ToListAsync();
             else
             if(ordenar == "capitulo")
-             applicationDbContext = await _context.Produto
-                .Include(l => l.Imagem)
+             applicationDbContext = await _context.Produto               
+                .Include(l => l.Imagem)                
                 .Include(l => l.Itens)
                 .Include(l => l.Pagina)
                 .ThenInclude(l => l.Story)
@@ -294,15 +294,17 @@ namespace CMS.Controllers
                 .Skip((numeroPagina - 1) * tamanho)
                 .Take(tamanho).ToListAsync();
             else
-             applicationDbContext = await _context.Produto
-               .Include(l => l.Imagem)
-                .Include(l => l.Itens)
+             applicationDbContext = await _context.Produto               
+                .Include(l => l.Imagem)                
+                .Include(l => l.Itens)  
                 .Include(l => l.Pagina)
                 .ThenInclude(l => l.Story)
                 .ThenInclude(l => l.Pagina)
                 .OrderBy(p => p.Nome)
                 .Skip((numeroPagina - 1) * tamanho)
                 .Take(tamanho).ToListAsync();
+
+               
 
                 return applicationDbContext;
         }

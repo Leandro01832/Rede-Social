@@ -47,8 +47,7 @@ namespace CMS.Controllers
             List<Div> lista = new List<Div>();
             var user = await UserManager.GetUserAsync(this.User);
 
-            var paginas = await RepositoryPagina.includes()
-            .Where(p => p.UserId == user.Id).ToListAsync();     
+            var paginas = await RepositoryPagina.includes().ToListAsync();     
 
             Pagina pagina = new Pagina(1);
             pagina.Div.First(d => d.Container.Content).Container.Div
@@ -82,13 +81,11 @@ namespace CMS.Controllers
 
             var pagina = new Pagina(1);
             pagina.Div.First(d => d.Container.Content).Container.Div = new List<DivContainer>();
-            pagina.UserId = user.Id;
             pagina.FlexDirection = "column";
             pagina.AlignItems = "stretch";
             pagina.MostrarDados = 1;
 
-            var paginas = await RepositoryPagina.includes()
-            .Where(p => p.UserId == user.Id).ToListAsync();            
+            var paginas = await RepositoryPagina.includes().ToListAsync();            
             
 
              foreach (var page in paginas)

@@ -26,8 +26,6 @@ namespace CMS.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
-                    b.Property<string>("Capa");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
@@ -36,11 +34,7 @@ namespace CMS.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<string>("Facebook");
-
                     b.Property<string>("Image");
-
-                    b.Property<string>("Instagram");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -61,8 +55,6 @@ namespace CMS.Migrations
                     b.Property<bool>("PhoneNumberConfirmed");
 
                     b.Property<string>("SecurityStamp");
-
-                    b.Property<string>("Twitter");
 
                     b.Property<bool>("TwoFactorEnabled");
 
@@ -475,11 +467,11 @@ namespace CMS.Migrations
 
                     b.Property<bool>("Comentario");
 
+                    b.Property<bool>("Inportado");
+
                     b.Property<string>("Nome");
 
                     b.Property<int>("PaginaPadraoLink");
-
-                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
@@ -616,8 +608,6 @@ namespace CMS.Migrations
 
                     b.Property<bool>("Music");
 
-                    b.Property<bool>("Pular");
-
                     b.Property<string>("Sobreescrita");
 
                     b.Property<long>("StoryId");
@@ -632,8 +622,6 @@ namespace CMS.Migrations
 
                     b.Property<string>("Titulo")
                         .IsRequired();
-
-                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
@@ -657,8 +645,6 @@ namespace CMS.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Nome");
-
-                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
@@ -723,11 +709,7 @@ namespace CMS.Migrations
 
                     b.Property<string>("UserIdSeguidor");
 
-                    b.Property<string>("UserModelId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserModelId");
 
                     b.ToTable("Seguidor");
                 });
@@ -742,11 +724,7 @@ namespace CMS.Migrations
 
                     b.Property<string>("UserIdSeguindo");
 
-                    b.Property<string>("UserModelId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserModelId");
 
                     b.ToTable("Seguindo");
                 });
@@ -788,6 +766,21 @@ namespace CMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Telefone");
+                });
+
+            modelBuilder.Entity("business.business.VideoIncorporado", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArquivoVideoIncorporado");
+
+                    b.Property<int?>("Tamanho");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VideoIncorporado");
                 });
 
             modelBuilder.Entity("business.div.Div", b =>
@@ -1332,20 +1325,6 @@ namespace CMS.Migrations
                         .WithOne("Produto")
                         .HasForeignKey("business.business.Produto", "Id")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("business.business.Seguidor", b =>
-                {
-                    b.HasOne("CMS.Models.UserModel")
-                        .WithMany("Seguidores")
-                        .HasForeignKey("UserModelId");
-                });
-
-            modelBuilder.Entity("business.business.Seguindo", b =>
-                {
-                    b.HasOne("CMS.Models.UserModel")
-                        .WithMany("Seguindo")
-                        .HasForeignKey("UserModelId");
                 });
 
             modelBuilder.Entity("business.business.Elementos.imagem.Imagem", b =>

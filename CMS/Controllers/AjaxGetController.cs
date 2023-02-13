@@ -33,7 +33,7 @@ namespace CMS.Controllers
 
         public JsonResult GetStories2(string User)
         {
-            var stories = db.Story.Where(b => b.UserId == User && b.Nome != "Padrao");
+            var stories = db.Story.Where(b => b.Nome != "Padrao" && !b.Comentario);
             return Json(stories);
         }
 
@@ -189,12 +189,7 @@ namespace CMS.Controllers
 
         public JsonResult GetPastas(string Pagina)
         {
-            IQueryable pastas;
-            var page = db.Pagina.FirstOrDefault(b => b.UserId == Pagina);
-            if (page != null)
-                pastas = db.PastaImagem.Where(b => b.UserId == page.UserId);
-            else
-                pastas = db.PastaImagem.Where(b => b.UserId == "");
+              var  pastas = db.PastaImagem.Where(b => b.Id > 0);
 
             return Json(pastas);
         }
@@ -220,25 +215,18 @@ namespace CMS.Controllers
             return Json(pastas);
         }
 
-        public async Task<JsonResult> GetPaginas(Int64 Pagina)
+        public JsonResult GetPaginas(Int64 Pagina)
         {
            
-           
-             var pagina = await db.Pagina.FirstAsync(p => p.Id == Pagina);
-             var PedidoId = pagina.UserId;
-             var paginas = db.Pagina.Where(m => m.UserId == PedidoId);
- 
-             return Json(paginas);
-           
+             var paginas = db.Pagina.Where(m => m.Id > 0); 
+             return Json(paginas);         
            
         }
 
         public JsonResult GetPaginasDoSite(string Pagina)
         {
-            var page = db.Pagina.First(b => b.UserId == Pagina);
-            var paginas = db.Pagina.Where(m => m.UserId == page.UserId);
-
-            return Json(paginas);
+            var paginas = db.Pagina.Where(m => m.Id > 0); 
+             return Json(paginas);    
         }
 
         public JsonResult Elementos(Int64 Pagina, string Tipo)

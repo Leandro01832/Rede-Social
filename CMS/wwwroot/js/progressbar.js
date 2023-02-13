@@ -3,6 +3,15 @@ var tempo = parseInt($("#Tempo").val());
 var porcentagem = 0;
 const progresso = document.querySelector(".progressbar div")
 
+setInterval(function() {           
+    if(duracaoVideo != 0)
+    {
+        tempo = duracaoVideo * 1000;
+    }              
+    }, 1000);
+
+
+
 if (parseInt( $("#auto").val()) == 1) 
 {
 

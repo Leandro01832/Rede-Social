@@ -28,13 +28,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Pular" /> @Html.DisplayNameFor(model => model.Pular)
-                    </label>
-                </div>
-            </div>
+           
 
             <div class="form-group">
                 <label asp-for="FlexDirection" class="control-label"></label>
@@ -73,7 +67,7 @@
             </div>
 
             <div class="form-group">
-                <input asp-for="UserId" type="hidden" />
+               
                 <input type="hidden" id="StoryId" name="StoryId" value="@Model.StoryId" />
             </div>
 
@@ -111,9 +105,9 @@
 
             <div class="form-group">
                 <label asp-for="Tempo" class="control-label"></label>
-                <input asp-for="Tempo" type="range" max="500000" min="15000" class="form-control" />
+                <input asp-for="Tempo" type="range" max="1200000" min="15000" class="form-control" />
                 <span asp-validation-for="Tempo" class="text-danger"></span>
-                <input id="Pagina_Tempo_Retorno" name="Pagina_Tempo_Retorno" type="number"  class="form-control" />
+                <input id="Pagina_Tempo" name="Pagina_Tempo" type="number"  class="form-control" />
             </div>
 
             <input id="id-container" name="id-container" type="number" class="form-control" placeholder="Informe o ID (Opcional)" />
@@ -179,7 +173,6 @@
             SubGrupoId: $("#SubGrupoId").val(),
             SubSubGrupoId: $("#SubSubGrupoId").val(),
             Blocos: $("#Blocos").val(),
-            Pular: $("#Pular").is(':checked'),
             Layout: $("#Layout").is(':checked')
         };  
 

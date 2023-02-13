@@ -54,7 +54,6 @@ namespace MeuProjetoAgora.Controllers
 
             ViewBag.pagina = numeroPagina;
             var applicationDbContext = await Context.Pagina.Include(l => l.Story)
-                .Where(l => l.UserId == user.Id)
                 .Skip((numeroPagina - 1) * TAMANHO_PAGINA)
                 .Take(TAMANHO_PAGINA).ToListAsync();
             
@@ -93,7 +92,7 @@ namespace MeuProjetoAgora.Controllers
         public async Task<ActionResult> CreatePagina(Pagina pagina, int QuantidadeDiv, int QuantContainers)
         {
             var user = await UserManager.GetUserAsync(this.User);
-            var stories = await Context.Story.Where(str => str.UserId == user.Id).ToListAsync();
+            var stories = await Context.Story.ToListAsync();
 
             if (ModelState.IsValid)
             {
@@ -109,7 +108,7 @@ namespace MeuProjetoAgora.Controllers
                 pagina.IncluiDiv(item.Container);             
                 await  Context.SaveChangesAsync();                 
 
-                return RedirectToAction("Galeria", new { id = pagina.UserId });
+                return RedirectToAction("Galeria", "Pedido");
             }
             
             ViewBag.StoryId = new SelectList(stories, "Id", "CapituloComNome", pagina.StoryId);

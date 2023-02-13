@@ -66,7 +66,6 @@ namespace CMS.Controllers
                 .Where(e => e.GetType().Name == tipo).ToListAsync();
 
             Pagina pagina = new Pagina(1);
-            pagina.UserId = user.Id;
             pagina.FlexDirection = "column";
             pagina.AlignItems = "stretch";
             pagina.MostrarDados = 1;
@@ -124,7 +123,7 @@ namespace CMS.Controllers
             if (elemento == "CarouselImg") ele = new CarouselImg();
             if (elemento == "Campo") ele = new Campo();
 
-            var pedido = await UserManager.Users.FirstAsync(p => p.Id == page.UserId);
+           // var pedido = await UserManager.Users.FirstAsync(p => p.Id == page.UserId);
             var elementos = new List<Elemento>();
             var els = await _context.Elemento.Where(elem => elem.Pagina_ == pagina).ToListAsync();
 
@@ -138,7 +137,7 @@ namespace CMS.Controllers
 
             ViewBag.condicao = !page.Layout;
 
-            PreencherCombo(ele, page.UserId, elementos);
+            PreencherCombo(ele, elementos);
 
             return PartialView(ele);
         }
@@ -189,7 +188,7 @@ namespace CMS.Controllers
             if(elemento.PaginaEscolhida != null) condicao = true;
             ViewBag.condicao = condicao;
 
-            PreencherCombo(elemento, pedido.Id, elementos);
+            PreencherCombo(elemento, elementos);
 
             return PartialView(elemento);
         }
@@ -320,7 +319,7 @@ namespace CMS.Controllers
             return PartialView();
         }
 
-        private void PreencherCombo(Elemento elemento, string userId, List<Elemento> elementos)
+        private void PreencherCombo(Elemento elemento, List<Elemento> elementos)
         {
             if (elemento is LinkBody)
             {

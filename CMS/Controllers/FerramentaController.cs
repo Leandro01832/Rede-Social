@@ -78,7 +78,6 @@ namespace CMS.Controllers
         {
             var usuario = await UserManager.GetUserAsync(this.User);
             PastaImagem pasta = new PastaImagem();
-            pasta.UserId = usuario.Id;
             return PartialView(pasta);
         }
 

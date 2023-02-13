@@ -35,12 +35,10 @@ namespace CMS.Controllers
             List<Container> lista = new List<Container>();
             var user = await UserManager.GetUserAsync(this.User);
 
-            var paginas = await RepositoryPagina.includes()
-            .Where(p => p.UserId == user.Id).ToListAsync();     
+            var paginas = await RepositoryPagina.includes().ToListAsync();     
 
             Pagina pagina = new Pagina(1);
             pagina.Div = new List<PaginaContainer>();
-            pagina.UserId = user.Id;
             pagina.FlexDirection = "column";
             pagina.AlignItems = "stretch";
             pagina.MostrarDados = 1;

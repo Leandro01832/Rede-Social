@@ -40,7 +40,6 @@ namespace CMS.Controllers
             .ThenInclude(s => s.Grupo)
             .ThenInclude(s => s.SubStory)
             .ThenInclude(s => s.Story)
-            .Where(str => str.SubGrupo.Grupo.SubStory.Story.UserId == usuario.Id)
             .Skip((numeroPagina - 1) * TAMANHO_PAGINA)
             .Take(TAMANHO_PAGINA)
             .ToListAsync();

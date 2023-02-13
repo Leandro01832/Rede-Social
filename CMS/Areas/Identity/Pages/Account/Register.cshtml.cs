@@ -103,17 +103,13 @@ namespace CMS.Areas.Identity.Pages.Account
                     Email = Input.Email,
                     Name = Input.Name.Trim().ToLower().Replace(" ", "-"),
                     Image = "/ImagensGaleria/Padrao.jpg",
-                    Twitter = Input.Twiter,
-                    Instagram = Input.Instagram,
-                    Facebook = Input.Facebook
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     var story = new Story
                     {
-                        Nome = "Padrao",
-                        UserId = user.Id
+                        Nome = "Padrao"
                     };
                     await Context.AddAsync(story);
 

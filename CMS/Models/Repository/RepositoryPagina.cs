@@ -28,7 +28,8 @@ namespace CMS.Models.Repository
          string renderizarPagina(Pagina pagina);
         IIncludableQueryable<Pagina, Div> includes();
 
-        void AtualizarPaginaStory(Story story);
+        string retornarVideos(long lista);
+
         
     }
 
@@ -64,6 +65,10 @@ namespace CMS.Models.Repository
 
         // 30 linhas
         public string CodigoCarousel { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/Carousel.cshtml")); } }
+
+        public string CodigoVideos { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/videos.txt")); } }
+        
+        
         
         public IHostingEnvironment HostingEnvironment { get; }
         public SignInManager<UserModel> SignInManager { get; }
@@ -73,6 +78,11 @@ namespace CMS.Models.Repository
 
       //  public static List<Pagina>[] paginas = new List<Pagina>[99999999];
         public static List<Pagina> paginas = new List<Pagina>();
+
+        public static string Capa = "<br /> <br /> <br />  <center> <h1> "+ 
+                 "Instagleo</h1> <br /> <img src='" + "/" +
+                 "' width='300' class='img-circle img-responsive' /> </center> <br />  <br /> <br /> ";
+        
      
 
         public async Task<List<Pagina>> MostrarPageModels()
@@ -136,7 +146,7 @@ namespace CMS.Models.Repository
             bool result = Velocity.Evaluate(velocitycontext, new StringWriter(html), "NomeParaCapturarLogError",
             new StringReader(TextoHtml));
 
-            pagina.Html = html.ToString();
+           
 
             return html.ToString();
         }       
@@ -146,6 +156,8 @@ namespace CMS.Models.Repository
             var include = dbSet
             .Include(p => p.Produto)
             .ThenInclude(p => p.Imagem)
+            .Include(p => p.Produto)
+            .ThenInclude(p => p.Itens)
             .Include(p => p.Story)
              .ThenInclude(b => b.Pagina)
 
@@ -215,14 +227,10 @@ namespace CMS.Models.Repository
             return include;
         }
 
-        public async void AtualizarPaginaStory(Story story)
+        public async Task<string> retornarVideos(long lista)
         {
-            var str = await contexto.Story.Include(s => s.Pagina).FirstAsync(s => s.Id == story.Id);
-            var pag = str.Pagina.First();
-
-            var pagina = await includes().FirstAsync(p => p.Id == pag.Id);
-
-              
+            var end = await contexto.VideoIncorporado.FirstAsync(vi => vi.Id == lista);
+            return File.ReadAllText(Path.Combine(path + $"/wwwroot/Arquivotxt{end.ArquivoVideoIncorporado}.txt"));
         }
     }
 }

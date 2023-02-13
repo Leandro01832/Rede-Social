@@ -12,10 +12,10 @@ namespace business.business.Group
         public virtual List<SubStory> SubStory { get; set; }
 
         public bool Comentario { get; set; }
+        public bool Inportado { get; set; }
 
         public string Nome { get; set; }
         public virtual List<Pagina> Pagina { get; set; }
-        public string UserId { get; set; }
         public int PaginaPadraoLink
         {
             get

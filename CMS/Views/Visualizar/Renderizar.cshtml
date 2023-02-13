@@ -27,7 +27,11 @@
     <input type="hidden" value="@proximo" id="ValorProximo" />
     <input type="hidden" value="@anterior" id="ValorAnterior" />
     <input type="hidden" value="@Model.Story.PaginaPadraoLink" id="ValorPaginaPadraoLink" />
-    <input type="hidden" value="@Model.Story.Nome" id="ValorStoryNome" />   
+    <input type="hidden" value="@Model.Story.Nome" id="ValorStoryNome" /> 
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+
+     
 
     <div style="width:100%;" class="blocoLoader">
     <a class="left carousel-control blocoLoader2" href="/Renderizar/@ViewBag.user/@(Model.Story.PaginaPadraoLink)/@(anterior)" style="display:none;">
@@ -48,7 +52,7 @@
                     <span style="background-color:white;">Story: @Model.Story.Nome</span>
                     <br />
                     <span style="font-size: 12px; background-color: white;">
-                        <a href="/Renderizar/0/@Model.Story.PaginaPadraoLink" class="btn btn-primary">
+                        <a href="/Renderizar/0/@Model.Story.PaginaPadraoLink/1/@ViewBag.compartilhante" class="btn btn-primary">
                             Capítulo @Model.Story.PaginaPadraoLink
                         </a>
                     </span>
@@ -90,13 +94,17 @@
             <a href="#" class="btn btn-primary agrupamento">
                 sub-story
             </a>
-            <a href="/paginacao/1/capitulo/1/20/11" class="btn btn-primary">
+            <a href="/paginacao/1/capitulo/1/20/11/@ViewBag.compartilhante" class="btn btn-primary">
                 Listas
             </a>
         </div>
 
     </div>
 
+     </div> 
+     
+
+     <!-- ProdutoContent -->
     @{
         if(Model.Produto != null)
         {
@@ -126,20 +134,23 @@
 
         }
         else
-        {
-            @Html.Raw(ViewBag.Html) 
+        {           
+            @Html.Raw(ViewBag.Html)      
+
+            <div id="player" ></div>      
         }
     }
 
-     
     
 
-    <div style="position:fixed; bottom:1%; width: 100%; " class="Paginacao">
+    <!-- ProdutoContent -->   
+
+    <div id="PaginacaoConteudo" style="position:fixed; bottom:1%; width: 100%; " class="Paginacao">
 
         <center>
-            <a href="/Perfil/@ViewBag.user"  style="font-size:1.5rem; background-color:white; opacity: 0.80;">
+            @* <a href="/Perfil/@ViewBag.user"  style="font-size:1.5rem; background-color:white; opacity: 0.80;">
                <span class="text-primary" style="font-size: 2.5rem;" id="Livro" >Livro: @ViewBag.user</span> 
-            </a>
+            </a> *@
             <h3 style="background-color:darkgray; opacity: 0.80;">@Html.CheckBox("automatico") Automático </h3>
             @{
                  if (Model.Story.Nome == "Padrao")
@@ -148,7 +159,7 @@
                         }
                         else
                         {
-                            <span style="background-color:white; opacity: 0.80;">Versiculo @atual de @quant</span>
+                            <span style="background-color:white; opacity: 0.80;">Verso @atual de @quant</span>
                         } 
             }
             
@@ -219,9 +230,10 @@
 @section scripts{
   
     
-    <script src="~/lib/aspnet-signalr/signalr.min.js"></script>
-    <script type="text/javascript" src="~/js/Chat-Renderizar.js"></script>
+    @* <script src="~/lib/aspnet-signalr/signalr.min.js"></script>
+    <script type="text/javascript" src="~/js/Chat-Renderizar.js"></script> *@
     <script src="~/js/loader.js"></script>
+    <script src="~/js/DuracaoVideo.js"></script>
     <script type="text/javascript" src="~/js/Navegacao.js"> </script>    
     <script type="text/javascript" src="~/js/progressbar.js" >  </script>    
 

@@ -9,8 +9,16 @@ $(document).ready(function() {
     var valorPaginaPadraoLink = parseInt($("#ValorPaginaPadraoLink").val());
     var tempo = parseInt($("#Tempo").val());
     var valorStoryNome = $("#ValorStoryNome").val();
-
     var redirecionamento = "";
+    var proximoCapitulo = valorPaginaPadraoLink + 1;
+
+    setInterval(function() {           
+        if(duracaoVideo != 0)
+        {
+            tempo = duracaoVideo * 1000;
+        }              
+        }, 1000);
+    
 
     function redirecionar(pagina)
     {
@@ -61,8 +69,7 @@ $(document).ready(function() {
 
     $("#automatico").change(function() {
 
-        if ($("#automatico").is(':checked') == true) {
-          //  $.cookie('automatico', '1');
+        if (auto == 0) {          
             auto = 1;
             alert("As paginas serão mostradas automaticamente.");
             setTimeout(function() {
@@ -77,66 +84,38 @@ $(document).ready(function() {
             }, tempo);
         }
         else
-           // $.cookie('automatico', '0');
            window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/" + valorAtual + "/" + 0 + "/" + compartilhante;
+           
     });
 
-    function BuscarStory() {
-        $.ajax({
-            type: 'POST',
-            url: '/AjaxGet/GetStory',
-            dataType: 'json',
-            data: { Indice: valorPaginaPadraoLink }
-        })
-            .done(function(response) {
-                $.cookie('automatico', '1');
-
-                if(response[0] == "Story")
-                window.location.href = "/Renderizar/" + response[1] +  "/1" + "/" + auto + "/" + compartilhante;
-                else if(response[0] == "SubStory")
-                window.location.href = "/SubStory/" + response[1] +    "/1/1" + "/" + auto + "/" + compartilhante;
-                else if(response[0] == "Grupo")
-                window.location.href = "/Grupo/" + response[1] +       "/1/1/1" + "/" + auto + "/" + compartilhante;
-                else if(response[0] == "SubGrupo")
-                window.location.href = "/SubGrupo/" + response[1] +    "/1/1/1/1" + "/" + auto + "/" + compartilhante;
-                else if(response[0] == "SubSubGrupo")
-                window.location.href = "/SubSubGrupo/" + response[1] + "/1/1/1/1/1" + "/" + auto + "/" + compartilhante;
-            });
-    }
-
-    function refreshData() 
-             {
-                $.ajax({
-                    type: 'POST',
-                    url: '/AjaxGet/refresh',
-                    dataType: 'json',
-                    data: { }
-                    })
-                    .done(function(response) {
-                       
-                    });
-             }
+       
 
     if (auto == 1) {
         
         ativarCheckbox(checkbox);
         setTimeout(function() {
 
+            setTimeout(function() {
+    
+    
+                if (auto == 1)
+                    $("#loading").show();
+                if (valorAtual < valorQuant && auto == 1)   {
+                    redirecionar(valorProximo);
+                    window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/" + valorProximo + "/" + auto + "/" + compartilhante + redirecionamento;            
+                }           
+                else if (auto == 1) {
+    
+                    if (valorStoryNome != "Padrao")
+                    window.location.href = "/Renderizar/" + proximoCapitulo + "/1/" + auto + "/" + compartilhante;
+                        //BuscarStory();
+                    else
+                        window.location.href = "/Renderizar/0/1" + "/" + auto + "/" + compartilhante;
+                }
+            }, tempo);
 
-            if (auto == 1)
-                $("#loading").show();
-            if (valorAtual < valorQuant && auto == 1)   {
-                redirecionar(valorProximo);
-                window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/" + valorProximo + "/" + auto + "/" + compartilhante + redirecionamento;            
-            }           
-            else if (auto == 1) {
+        }, 3000);
 
-                if (valorStoryNome != "Padrao")
-                    BuscarStory();
-                else
-                    window.location.href = "/Renderizar/0/1" + "/" + auto + "/" + compartilhante;
-            }
-        }, tempo);
     }
     else
         desativarCheckbox(checkbox);
@@ -153,7 +132,7 @@ $(document).ready(function() {
         window.location.href = "/Renderizar/" + valorAtual + "/1" + "/" + auto + "/" + compartilhante;
     });
 
-    setTimeout(function () { refreshData(); }, 300000);
+    
 
     $(".agrupamento").click(function () {
 

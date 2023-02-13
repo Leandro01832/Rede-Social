@@ -20,6 +20,9 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using business.business;
 using business.business.Group;
+using business.Join;
+using business.business.link;
+using business.business.Elementos.texto;
 
 namespace CMS
 {
@@ -43,80 +46,131 @@ namespace CMS
             FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
             var contexto = provider.GetService<ApplicationDbContext>();
 
-            // Random randNum = new Random();
+        //     Random randNum = new Random();
+        //     var name = "notbooks";
+        //     var client = new HttpClient();
+        //     var request = new HttpRequestMessage
+        //     {
+        //        Method = HttpMethod.Get,
+        //        RequestUri =
+        //        new Uri("https://serpapi.com/search.json?q=notbook" +
+        //        "&tbm=shop&location=Dallas&hl=pt&gl=us&key=d0ebdc40d5e725ce2764208d4153772f10f531519c3952b626ce2f3a73191dd3"),
+        //        Headers =
+        //        {
+        //            { "accept", "application/json" },
+        //        },
+        //     };
 
-            // var client = new HttpClient();
-            // var request = new HttpRequestMessage
-            // {
-            //    Method = HttpMethod.Get,
-            //    RequestUri =
-            //    new Uri("https://serpapi.com/search.json?q=notbook" +
-            //    "&tbm=shop&location=Dallas&hl=pt&gl=us&key=d0ebdc40d5e725ce2764208d4153772f10f531519c3952b626ce2f3a73191dd3"),
-            //    Headers =
-            //    {
-            //        { "accept", "application/json" },
-            //    },
-            // };
+        //     using (var response = await client.SendAsync(request))
+        //     {
+        //        response.EnsureSuccessStatusCode();
+        //        var body = await response.Content.ReadAsStringAsync();
+        //        // Console.WriteLine(body);
+        //        Welcome livro = JsonConvert.DeserializeObject<Welcome>(body);
 
-            // using (var response = await client.SendAsync(request))
-            // {
-            //    response.EnsureSuccessStatusCode();
-            //    var body = await response.Content.ReadAsStringAsync();
-            //    // Console.WriteLine(body);
-            //    Welcome livro = JsonConvert.DeserializeObject<Welcome>(body);
+        //        var indice = 0;
+        //       var lst = await contexto.Story.Where(st => st.Nome != "Padrao").ToListAsync();
 
-            //    var indice = 0;
-            //   var lst = await contexto.Story.Where(st => st.Nome != "Padrao" && st.UserId == user.Id).ToListAsync();
+        //        var str = new Story();
 
-            //    var str = new Story();
-
-            //      str.PaginaPadraoLink = lst.Count + 1;
-            //      str.Nome = "notbooks";
-            //      str.UserId = user.Id;
-
+        //          str.PaginaPadraoLink = lst.Count + 1;
+        //          str.Nome = name;
 
 
-            //    for(var i = 0; i < livro.ShoppingResults.Length; i++)
-            //    {
-            //        Pagina pagina = new Pagina();
-            //        pagina.Div = null;
-            //        pagina.Produto = new Produto
-            //        {
-            //            Descricao = livro.ShoppingResults[i].Title,
-            //            Nome = "notbooks",
-            //            Imagem = new List<ImagemProduto>
-            //            { new ImagemProduto { ArquivoImagem = livro.ShoppingResults[i].Thumbnail.ToString() } },
-            //            Preco = decimal.Parse(randNum.Next(550, 3000).ToString()),
-            //            QuantEstoque = 10                              
-            //        };
-            //        pagina.Story = str;
-            //        pagina.UserId = user.Id;
-            //        pagina.Tempo = 15000;
-            //        pagina.Titulo = "notbooks";
-            //        contexto.Pagina.Add(pagina);
-            //        contexto.SaveChanges();
+        //           contexto.Add(str);
+        //     await contexto.SaveChangesAsync();
 
-            //        indice++;
+        //     var Story = await contexto.Story.FirstAsync(st => st.Nome == "Padrao");
 
-            //        if (indice == 2)
-            //        {
-            //              for(var i = 0; i < 2; i++)
-                    //        {
-                    //            Pagina pag = new Pagina();
-                    //            pag.Story = str;
-                    //            pag.Div = null;
-                    //            pag.UserId = user.Id;
-                    //            pag.Tempo = 15000;
-                    //            pag.Titulo = "notbooks";
-                    //            contexto.Pagina.Add(pag);
-                    //            contexto.SaveChanges();
-                    //        }
-                    //            indice = 0;
-            //        }
+        //     var pag = new Pagina()
+        //     {
+        //             Data = DateTime.Now,
+        //             ArquivoMusic = "",
+        //             Titulo = "Story - " + str.Nome,
+        //             CarouselPagina = new List<PaginaCarouselPagina>(),
+        //             StoryId = Story.Id,
+        //             Sobreescrita = null,
+        //             SubStoryId = null,
+        //             GrupoId = null,
+        //             SubGrupoId = null,
+        //             SubSubGrupoId = null,
+        //             Layout = false,
+        //             Music = false,
+        //             pagina.Tempo = 11000
+        //     };  
+        //     pag.Div = null;              
+
+        //      contexto.Add(pag);
+        //      contexto.SaveChanges(); 
+            
+        //    var  pagin = new Pagina(1);  
+        //     pagin.Div.First(d => d.Container.Content).Container.Div
+        //     .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
+        //     pagin.Div.First(d => d.Container.Content).Container.Div
+        //     .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+        //     {
+        //         Div = pagin.Div.First(d => d.Container.Content).Container.Div
+        //         .First(d => d.Div.Content).Div,
+        //         Elemento = new LinkBody
+        //         {
+        //             Pagina_ = pag.Id,
+        //             TextoLink = "#LinkPadrao",
+        //             Texto = new Texto
+        //             {
+        //                 Pagina_ = pag.Id,
+        //                 PalavrasTexto = "<h1> Story " + str.Nome + "</h1>"
+        //             },
+        //         }
+        //     });
+
+        //         pag.Div = new List<PaginaContainer>();                
+        //     foreach (var item in pagin.Div)
+            
+        //         pag.IncluiDiv(item.Container);
+                
+        //         contexto.SaveChanges();   
 
 
-            //    }
-            // }
+
+        //        for(var i = 0; i < livro.ShoppingResults.Length; i++)
+        //        {
+        //            Pagina pagina = new Pagina();
+        //            pagina.Div = null;
+        //            pagina.Produto = new Produto
+        //            {
+        //                Descricao = livro.ShoppingResults[i].Title,
+        //                Nome = name,
+        //                Imagem = new List<ImagemProduto>
+        //                { new ImagemProduto { ArquivoImagem = livro.ShoppingResults[i].Thumbnail.ToString() } },
+        //                Preco = decimal.Parse(randNum.Next(50, 3000).ToString()),
+        //                QuantEstoque = 10                              
+        //            };
+        //            pagina.Story = str;
+        //            pagina.Tempo = 11000;
+        //            pagina.Titulo = name;
+        //            contexto.Pagina.Add(pagina);
+        //            contexto.SaveChanges();
+
+        //            indice++;
+
+        //            if (indice == 2)
+        //            {
+        //                  for(var j = 0; j <= 2; j++)
+        //                    {
+        //                        Pagina pagi = new Pagina();
+        //                        pagi.Story = str;
+        //                        pagi.Div = null;
+        //                        pagi.Tempo = 11000;
+        //                        pagi.Titulo = name;
+        //                        contexto.Pagina.Add(pagi);
+        //                        contexto.SaveChanges();
+        //                    }
+        //                        indice = 0;
+        //            }
+
+
+        //        }
+        //     }
 
             // if (RepositoryPagina.paginas[0] == null)     
             //   RepositoryPagina.paginas[0] = new List<business.business.Pagina>();

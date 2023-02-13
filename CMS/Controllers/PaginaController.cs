@@ -76,7 +76,22 @@ namespace CMS.Controllers
         {
             ViewBag.id = elemento;
             return PartialView();
-        }       
+        }  
+
+        [Route("listas/{pagina?}/{ordenar}/{automatico}/{tempo}/{tamanho}")]
+        public async Task<IActionResult> Index(int? pagina, string ordenar,
+         int automatico , int tempo, int tamanho)
+        {
+            int numeroPagina = (pagina ?? 1);
+
+            ViewBag.pagina = numeroPagina;
+            ViewBag.ordenar = ordenar;
+            ViewBag.automatico = automatico;
+            ViewBag.tempo = tempo;
+            ViewBag.tamanho = tamanho;
+            List<Pagina> applicationDbContext = await RetornarLista(numeroPagina, tamanho, ordenar);            
+            return View(applicationDbContext);
+        }     
 
         [Route("Editar/{id?}")]
         public async Task<IActionResult> Editar(Int64? id)
@@ -91,7 +106,6 @@ namespace CMS.Controllers
             }            
             
                 ViewBag.IdPagina = id;
-                ViewBag.IdSite = pagina.UserId;
                 var usuario = await UserManager.GetUserAsync(this.User);
                 ViewBag.IdentificacaoUser = usuario.Id;
                 HttpHelper.SetPaginaId(pagina.Id);
@@ -105,7 +119,7 @@ namespace CMS.Controllers
                     html =  epositoryPagina.renderizarPagina(pagina);
                 }
                 else
-                html = "<p>Instagleo</p>";
+                html = Pagina.Capa;
                 ViewBag.Html = html;                            
 
             ViewBag.proximo = id + 1;
@@ -138,11 +152,9 @@ namespace CMS.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Salvar(Int64 id)
+        public IActionResult Salvar(Int64 id)
         {
-            Pagina pag = await epositoryPagina.includes().FirstOrDefaultAsync(p => p.Id == id);
-            
-             
+            RepositoryPagina.paginas.Clear();            
             return Content("Salvo com sucesso");
         }
 
@@ -236,7 +248,7 @@ namespace CMS.Controllers
 
             ViewBag.pagina = numeroPagina;
             var applicationDbContext = await db.Pagina
-                .Where(l => l.UserId == user.Id && l.Layout)
+                .Where(l =>  l.Layout)
                 .Skip((numeroPagina - 1) * TAMANHO_PAGINA)
                 .Take(TAMANHO_PAGINA).ToListAsync();
 
@@ -271,7 +283,6 @@ namespace CMS.Controllers
                 pag.Titulo += " - " + i;
                 pag.CarouselPagina = new List<PaginaCarouselPagina>();
                 pag.Div = new List<PaginaContainer>();
-                pag.UserId = pag2.UserId;
                 pag.Story = null;
                 pag.Layout = false;
 
@@ -319,8 +330,10 @@ namespace CMS.Controllers
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
             var pag = await epositoryPagina.includes().FirstAsync(p => p.Id == id);
-            pag.Div.Clear();
-            pag.Pular = true;
+            foreach(var item in pag.Div)
+            db.Remove(item);
+            await db.SaveChangesAsync();           
+            
             pag.Titulo = "Capa";
             if(pag.SubStoryId != null) pag.SubStoryId = null;
             if(pag.GrupoId != null) pag.GrupoId = null;
@@ -328,10 +341,24 @@ namespace CMS.Controllers
             if(pag.SubSubGrupoId != null) pag.SubSubGrupoId = null;
             db.Update(pag);
             await db.SaveChangesAsync();           
-
-            epositoryPagina.AtualizarPaginaStory(await db.Story.FirstAsync(st => st.Id == pag.StoryId));
+            RepositoryPagina.paginas.Clear();
 
             return RedirectToAction("Galeria", "Pedido");
+        }
+
+        
+
+        private async Task<List<Pagina>> RetornarLista(int numeroPagina, int tamanho, string ordenar)
+        {
+            List<Pagina> applicationDbContext = null;
+           
+             applicationDbContext = await epositoryPagina.includes()
+                .Where(p => p.Story.Nome != "Padrao" && !p.Layout)
+                .OrderBy(p => p.Id)
+                .Skip((numeroPagina - 1) * tamanho)
+                .Take(tamanho).ToListAsync();                       
+
+                return applicationDbContext;
         }
 
     }

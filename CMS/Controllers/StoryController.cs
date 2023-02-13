@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using business.business.div;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CMS.Controllers
 {
@@ -50,7 +51,6 @@ namespace CMS.Controllers
             ViewBag.pagina = numeroPagina;
 
             var stories = await _context.Story
-            .Where(str => str.UserId == usuario.Id)
             .Skip((numeroPagina - 1) * TAMANHO_PAGINA)
             .Take(TAMANHO_PAGINA)
             .ToListAsync();
@@ -78,7 +78,7 @@ namespace CMS.Controllers
         {
             var user = await UserManager.GetUserAsync(this.User);
             ViewBag.UserId = user.Id;
-            var lst = await _context.Story.Where(st => st.Nome != "Padrao" && st.UserId == user.Id).ToListAsync();
+            var lst = await _context.Story.Where(st => st.Nome != "Padrao").ToListAsync();
             Story story = new Story
             {
                 PaginaPadraoLink = lst.Count + 1
@@ -94,7 +94,7 @@ namespace CMS.Controllers
             var user = await UserManager.GetUserAsync(this.User);
             ViewBag.UserId = user.Id;
             var str = await _context.Story.
-            FirstOrDefaultAsync(st => st.Nome.ToLower() == story.Nome.ToLower() && st.UserId == user.Id);
+            FirstOrDefaultAsync(st => st.Nome.ToLower() == story.Nome.ToLower());
             if (str != null)
             {
                 ModelState.AddModelError("", "Este story ja existe!!!");
@@ -104,14 +104,12 @@ namespace CMS.Controllers
             _context.Add(story);
             await _context.SaveChangesAsync();
 
-            var Story = await _context.Story.FirstAsync(st => st.Nome == "Padrao" && st.UserId == user.Id);
+            var Story = await _context.Story.FirstAsync(st => st.Nome == "Padrao");
 
             var pagina = new Pagina()
             {
                  Data = DateTime.Now,
                     ArquivoMusic = "",
-                    UserId = user.Id,
-                    Html = "",
                     Titulo = "Story - " + story.Nome,
                     CarouselPagina = new List<PaginaCarouselPagina>(),
                     StoryId = Story.Id,
@@ -121,8 +119,7 @@ namespace CMS.Controllers
                     SubGrupoId = null,
                     SubSubGrupoId = null,
                     Layout = false,
-                    Music = false,
-                    Pular = false
+                    Music = false
             };  
             pagina.Div = null;              
 
@@ -188,7 +185,7 @@ namespace CMS.Controllers
             var user = await UserManager.GetUserAsync(this.User);
             ViewBag.UserId = user.Id;
             var str = await _context.Story.
-            FirstOrDefaultAsync(st => st.Nome.ToLower() == story.Nome.ToLower() && st.UserId == user.Id);
+            FirstOrDefaultAsync(st => st.Nome.ToLower() == story.Nome.ToLower());
             if (str != null)
             {
                 ModelState.AddModelError("", "Este story já existe!!!");
@@ -246,7 +243,6 @@ namespace CMS.Controllers
             pag.StoryId = story.Id;
             pag.Div = new List<PaginaContainer>();
             pag.Titulo = "Capa";
-            pag.UserId = story.UserId;
             pag.Sobreescrita = "";
             pag.CarouselPagina = new List<PaginaCarouselPagina>();
             _context.Add(pag);
@@ -258,6 +254,42 @@ namespace CMS.Controllers
         private bool StoryExists(Int64 id)
         {
             return _context.Story.Any(e => e.Id == id);
+        }
+
+        
+        public async Task<IActionResult> DeleteStory()
+        {
+            var stories = await _context.Story.Where(st => st.Nome != "Padrao").ToListAsync();            
+            ViewBag.id = new SelectList(stories, "Id", "CapituloComNome");
+            return View();
+        }
+
+        [HttpPost, ActionName("DeleteStory")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmedStory(long id)
+        {
+            var str = await _context.Story
+            .Include(p => p.Pagina)
+            .ThenInclude(p => p.Div)
+            .FirstAsync(p => p.Id == id);
+            foreach(var item in str.Pagina.Where(p => p.Div.Count > 0)) 
+             {
+
+                foreach(var item2 in item.Div)
+                _context.Remove(item2);            
+                await _context.SaveChangesAsync();           
+                item.Titulo = "Capa";
+                if(item.SubStoryId != null) item.SubStoryId = null;
+                if(item.GrupoId != null) item.GrupoId = null;
+                if(item.SubGrupoId != null) item.SubGrupoId = null;
+                if(item.SubSubGrupoId != null) item.SubSubGrupoId = null;
+                _context.Update(item);
+                await _context.SaveChangesAsync();           
+             }
+            
+            RepositoryPagina.paginas.Clear();
+
+            return RedirectToAction("Galeria", "Pedido");
         }
     }
 }

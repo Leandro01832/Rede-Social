@@ -7,11 +7,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
 
 namespace business.business
 {
     public class Pagina : BaseModel
     {
+
+
 
         public Pagina()
         {
@@ -145,18 +148,14 @@ namespace business.business
         [Display(Name = "Arquivo")]
         public string ArquivoMusic { get; set; }       
 
-        public bool Music { get; set; }
-
-        public bool Pular { get; set; }        
+        public bool Music { get; set; }      
         
         [JsonIgnore]
         public virtual List<PaginaContainer> Div { get; set; }
         [JsonIgnore]
         public virtual List<PaginaCarouselPagina> CarouselPagina { get; set; }
       
-        public virtual Produto Produto { get; set; }  
-                       
-        public string UserId { get; set; } 
+        public virtual Produto Produto { get; set; }                         
 
         [NotMapped]
         public int MostrarDados { get { return mostrarDados; } set { mostrarDados = value; } }
@@ -173,13 +172,15 @@ namespace business.business
 
         public int Tempo { get; set; }
 
-        [NotMapped]
-        public string Html { get; set; }
+       // [NotMapped]
+      //  public string Html { get; set; }
 
         public void IncluiDiv(Container container)
         {
-            this.Div.Add(new PaginaContainer { Container = container });
-        }
+            this.Div.Add(new PaginaContainer { Container = container, Pagina = this });
+        }         
+
+        public static string Capa { get { return File.ReadAllText(Path.Combine( Directory.GetCurrentDirectory() + "/../CMS/wwwroot/Arquivotxt/Capa.html")); } }
         
        
     }

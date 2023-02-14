@@ -46,9 +46,17 @@
 
 <div style="z-index: 2;">
         <center>
+            
         <input type="text" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
                placeholder="N° do capítulo ou o nome"  />
             <a id="acessoPaginaComInput"  class="btn btn-primary glyphicon glyphicon-search">
+                Acessar
+            </a>
+
+            <label> capitulo @ViewBag.capitulo</label>
+        <input type="text" id="NumeroVersoAcesso" style="width:80%; margin-left: 60px;"
+               placeholder="N° do verso"  />
+            <a id="acessoPaginaComVerso"  class="btn btn-primary glyphicon glyphicon-search">
                 Acessar
             </a>
         </center>
@@ -147,6 +155,19 @@
                 }
                 else
                 alert("Informe o numero do capitulo!!!");
+
+            });
+
+            $("#acessoPaginaComVerso").click(function(){                
+
+                if($("#NumeroVersoAcesso").val() != "")
+                {
+                    var num =  parseInt($("#NumeroVersoAcesso").val());
+                    window.location.href = "@ViewBag.livro" + "/Renderizar/"   + @ViewBag.capitulo +
+                      "/" + num + "/1/" + compartilhante;
+                }
+                else
+                alert("Informe o numero do verso!!!");
 
             });
 

@@ -13,7 +13,7 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": 150736399,
+        "HashCode": -726119480,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -212,7 +212,7 @@
         }
       },
       {
-        "HashCode": -1844554348,
+        "HashCode": -291357534,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.CacheTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -341,7 +341,7 @@
         }
       },
       {
-        "HashCode": -574264433,
+        "HashCode": -296360228,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.DistributedCacheTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -475,7 +475,7 @@
         }
       },
       {
-        "HashCode": 312458979,
+        "HashCode": -2091824576,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.EnvironmentTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -523,7 +523,7 @@
         }
       },
       {
-        "HashCode": -1205776486,
+        "HashCode": -1217002647,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -942,7 +942,7 @@
         }
       },
       {
-        "HashCode": -1426102880,
+        "HashCode": 2106880387,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1046,7 +1046,7 @@
         }
       },
       {
-        "HashCode": 1404821060,
+        "HashCode": -1921719504,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ImageTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1094,7 +1094,7 @@
         }
       },
       {
-        "HashCode": 1140641317,
+        "HashCode": -1749526001,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1166,7 +1166,7 @@
         }
       },
       {
-        "HashCode": 1414580035,
+        "HashCode": -1453165936,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1201,7 +1201,7 @@
         }
       },
       {
-        "HashCode": -1776020945,
+        "HashCode": 1407382360,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1399,7 +1399,7 @@
         }
       },
       {
-        "HashCode": 2080701305,
+        "HashCode": 1243054653,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1429,7 +1429,7 @@
         }
       },
       {
-        "HashCode": 1794486088,
+        "HashCode": -1247922059,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1512,7 +1512,7 @@
         }
       },
       {
-        "HashCode": -2101372792,
+        "HashCode": -1806910380,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1667,7 +1667,7 @@
         }
       },
       {
-        "HashCode": 683962810,
+        "HashCode": -511995630,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1728,7 +1728,7 @@
         }
       },
       {
-        "HashCode": 744526864,
+        "HashCode": -2051000544,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1772,7 +1772,7 @@
         }
       },
       {
-        "HashCode": 1946462216,
+        "HashCode": 200583435,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1806,7 +1806,7 @@
         }
       },
       {
-        "HashCode": -241928892,
+        "HashCode": -1682202518,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1842,7 +1842,7 @@
         }
       },
       {
-        "HashCode": 1231913304,
+        "HashCode": 1417223674,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.SpaServices.Prerendering.PrerenderTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.SpaServices",
@@ -1909,8 +1909,558 @@
   "RootNamespace": "CMS",
   "Documents": [
     {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Produto\\Details.cshtml",
+      "TargetPath": "Views\\Produto\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundImagemElemento.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundImagemElemento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\Details.cshtml",
+      "TargetPath": "Views\\Story\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pedido\\ViewCreate.cshtml",
+      "TargetPath": "Views\\Pedido\\ViewCreate.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Pages\\Error.cshtml",
+      "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\EditCor.cshtml",
+      "TargetPath": "Views\\Ferramenta\\EditCor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\VideoIncorporado\\Index.cshtml",
+      "TargetPath": "Views\\VideoIncorporado\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\Edit.cshtml",
+      "TargetPath": "Views\\Story\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\Create.cshtml",
+      "TargetPath": "Views\\Elemento\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\ListaBackground.cshtml",
+      "TargetPath": "Views\\Background\\ListaBackground.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubGrupo\\Index.cshtml",
+      "TargetPath": "Views\\SubGrupo\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocCss.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\DocCss.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubGrupo\\Edit.cshtml",
+      "TargetPath": "Views\\SubGrupo\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\CreateCorElemento.cshtml",
+      "TargetPath": "Views\\Ferramenta\\CreateCorElemento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pedido\\GetView.cshtml",
+      "TargetPath": "Views\\Pedido\\GetView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\BlocoFerramenta.cshtml",
+      "TargetPath": "Views\\Pagina\\BlocoFerramenta.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\Index.cshtml",
+      "TargetPath": "Views\\Pagina\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pedido\\CreatePagina.cshtml",
+      "TargetPath": "Views\\Pedido\\CreatePagina.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubStory\\Index.cshtml",
+      "TargetPath": "Views\\SubStory\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\MenuDropDown.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\MenuDropDown.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Container\\Index.cshtml",
+      "TargetPath": "Views\\Container\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\Delete.cshtml",
+      "TargetPath": "Views\\Story\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Erros\\HandleErrorCode.cshtml",
+      "TargetPath": "Views\\Erros\\HandleErrorCode.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubSubGrupo\\Index.cshtml",
+      "TargetPath": "Views\\SubSubGrupo\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\_DivComum.cshtml",
+      "TargetPath": "Views\\Div\\_DivComum.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\QuantidadeBloco.cshtml",
+      "TargetPath": "Views\\Pagina\\QuantidadeBloco.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\PaginaCriada.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\PaginaCriada.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\Delete.cshtml",
+      "TargetPath": "Views\\Pagina\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_Render2.cshtml",
+      "TargetPath": "Views\\Shared\\_Render2.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pedido\\Index.cshtml",
+      "TargetPath": "Views\\Pedido\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Home\\Comentar.cshtml",
+      "TargetPath": "Views\\Home\\Comentar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\Edit.cshtml",
+      "TargetPath": "Views\\Background\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\Carousel.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\Carousel.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\IdentificacaoElemento.cshtml",
+      "TargetPath": "Views\\Pagina\\IdentificacaoElemento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\music.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\music.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Produto\\Index.cshtml",
+      "TargetPath": "Views\\Produto\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Grupo\\Details.cshtml",
+      "TargetPath": "Views\\Grupo\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\CompartilhaVerso.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\CompartilhaVerso.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\VideoIncorporado\\Create.cshtml",
+      "TargetPath": "Views\\VideoIncorporado\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\IdentificacaoBloco.cshtml",
+      "TargetPath": "Views\\Pagina\\IdentificacaoBloco.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocBackgroundGradiente.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\DocBackgroundGradiente.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\CreateCorContainer.cshtml",
+      "TargetPath": "Views\\Ferramenta\\CreateCorContainer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\BaixarHtmlLivroCapitulo.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\BaixarHtmlLivroCapitulo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundImagemContainer.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundImagemContainer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\VideoIncorporado\\Details.cshtml",
+      "TargetPath": "Views\\VideoIncorporado\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundCor.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundCor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\Editar.cshtml",
+      "TargetPath": "Views\\Pagina\\Editar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\Chat.cshtml",
+      "TargetPath": "Views\\Pagina\\Chat.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Musica.cshtml",
+      "TargetPath": "Views\\Elemento\\_Musica.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\Lista.cshtml",
+      "TargetPath": "Views\\Elemento\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\HttpNotFound.cshtml",
+      "TargetPath": "Views\\Pagina\\HttpNotFound.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Grupo\\Delete.cshtml",
+      "TargetPath": "Views\\Grupo\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundGradienteElemento.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundGradienteElemento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\CreatePaginaComLayout.cshtml",
+      "TargetPath": "Views\\Pagina\\CreatePaginaComLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubGrupo\\Delete.cshtml",
+      "TargetPath": "Views\\SubGrupo\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundCorElemento.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundCorElemento.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Visualizar\\SubSubGrupo.cshtml",
+      "TargetPath": "Views\\Visualizar\\SubSubGrupo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_CarouselPagina.cshtml",
+      "TargetPath": "Views\\Elemento\\_CarouselPagina.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\Lista.cshtml",
+      "TargetPath": "Views\\Div\\Lista.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_LinkBody.cshtml",
+      "TargetPath": "Views\\Elemento\\_LinkBody.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Erros\\Error500.cshtml",
+      "TargetPath": "Views\\Erros\\Error500.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundImagem.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundImagem.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocBloco.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\DocBloco.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\Incorporar.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\Incorporar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\Create.cshtml",
+      "TargetPath": "Views\\Div\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Texto.cshtml",
+      "TargetPath": "Views\\Elemento\\_Texto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubStory\\Edit.cshtml",
+      "TargetPath": "Views\\SubStory\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Grupo\\Edit.cshtml",
+      "TargetPath": "Views\\Grupo\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Erros\\Error.cshtml",
+      "TargetPath": "Views\\Erros\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Container\\Create.cshtml",
+      "TargetPath": "Views\\Container\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubSubGrupo\\Edit.cshtml",
+      "TargetPath": "Views\\SubSubGrupo\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pedido\\Galeria.cshtml",
+      "TargetPath": "Views\\Pedido\\Galeria.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\CreateCor.cshtml",
+      "TargetPath": "Views\\Ferramenta\\CreateCor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_Render.cshtml",
+      "TargetPath": "Views\\Shared\\_Render.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\DeleteStory.cshtml",
+      "TargetPath": "Views\\Story\\DeleteStory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Admin\\EditPermissao.cshtml",
+      "TargetPath": "Views\\Admin\\EditPermissao.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Container\\Details.cshtml",
+      "TargetPath": "Views\\Container\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Grupo\\Index.cshtml",
+      "TargetPath": "Views\\Grupo\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Pages\\_Layout.cshtml",
+      "TargetPath": "Pages\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Container\\Delete.cshtml",
+      "TargetPath": "Views\\Container\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\GaleriaLayout.cshtml",
+      "TargetPath": "Views\\Pagina\\GaleriaLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\NoPermission.cshtml",
+      "TargetPath": "Views\\Pagina\\NoPermission.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\EditCorContainer.cshtml",
+      "TargetPath": "Views\\Ferramenta\\EditCorContainer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_CarouselImg.cshtml",
+      "TargetPath": "Views\\Elemento\\_CarouselImg.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Produto\\Create.cshtml",
+      "TargetPath": "Views\\Produto\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\EmBranco.cshtml",
+      "TargetPath": "Views\\Pagina\\EmBranco.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocProducao.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\DocProducao.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Visualizar\\Renderizar.cshtml",
+      "TargetPath": "Views\\Visualizar\\Renderizar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\Create.cshtml",
+      "TargetPath": "Views\\Story\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\ListaCores.cshtml",
       "TargetPath": "Views\\Background\\ListaCores.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubGrupo\\Details.cshtml",
+      "TargetPath": "Views\\SubGrupo\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\CreatePasta.cshtml",
+      "TargetPath": "Views\\Ferramenta\\CreatePasta.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubSubGrupo\\Create.cshtml",
+      "TargetPath": "Views\\SubSubGrupo\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubStory\\Create.cshtml",
+      "TargetPath": "Views\\SubStory\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Produto\\paginacao.cshtml",
+      "TargetPath": "Views\\Produto\\paginacao.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundGradiente.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundGradiente.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Container\\Edit.cshtml",
+      "TargetPath": "Views\\Container\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubGrupo\\Create.cshtml",
+      "TargetPath": "Views\\SubGrupo\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\Edit.cshtml",
+      "TargetPath": "Views\\Elemento\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -1924,298 +2474,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\BaixarHtmlLivroCapitulo.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\BaixarHtmlLivroCapitulo.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubStory\\Delete.cshtml",
-      "TargetPath": "Views\\SubStory\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\Edit.cshtml",
-      "TargetPath": "Views\\Story\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundGradienteElemento.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundGradienteElemento.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\PaginaCriada.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\PaginaCriada.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubGrupo\\Delete.cshtml",
-      "TargetPath": "Views\\SubGrupo\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundCorContainer.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundCorContainer.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Erros\\Error.cshtml",
-      "TargetPath": "Views\\Erros\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_CarouselImg.cshtml",
-      "TargetPath": "Views\\Elemento\\_CarouselImg.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubStory\\Edit.cshtml",
-      "TargetPath": "Views\\SubStory\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundCorElemento.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundCorElemento.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\Lista.cshtml",
-      "TargetPath": "Views\\Div\\Lista.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_LinkBody.cshtml",
-      "TargetPath": "Views\\Elemento\\_LinkBody.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Produto\\paginacao.cshtml",
-      "TargetPath": "Views\\Produto\\paginacao.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\BaixarHtmlLivroVerso.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\BaixarHtmlLivroVerso.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pedido\\Galeria.cshtml",
-      "TargetPath": "Views\\Pedido\\Galeria.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\Create.cshtml",
-      "TargetPath": "Views\\Div\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\music.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\music.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Erros\\HandleErrorCode.cshtml",
-      "TargetPath": "Views\\Erros\\HandleErrorCode.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_Render2.cshtml",
-      "TargetPath": "Views\\Shared\\_Render2.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Grupo\\Delete.cshtml",
-      "TargetPath": "Views\\Grupo\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Texto.cshtml",
-      "TargetPath": "Views\\Elemento\\_Texto.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\ListaBackground.cshtml",
-      "TargetPath": "Views\\Background\\ListaBackground.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_LoginPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\GetView.cshtml",
-      "TargetPath": "Views\\Pagina\\GetView.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pedido\\Index.cshtml",
-      "TargetPath": "Views\\Pedido\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\EditCorElemento.cshtml",
-      "TargetPath": "Views\\Ferramenta\\EditCorElemento.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubSubGrupo\\Index.cshtml",
-      "TargetPath": "Views\\SubSubGrupo\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubGrupo\\Create.cshtml",
-      "TargetPath": "Views\\SubGrupo\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundImagem.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundImagem.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\EditCor.cshtml",
-      "TargetPath": "Views\\Ferramenta\\EditCor.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocCss.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\DocCss.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Home\\PaginaCriada.cshtml",
-      "TargetPath": "Views\\Home\\PaginaCriada.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubSubGrupo\\Delete.cshtml",
-      "TargetPath": "Views\\SubSubGrupo\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\EditCorContainer.cshtml",
-      "TargetPath": "Views\\Ferramenta\\EditCorContainer.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\NoPermission.cshtml",
-      "TargetPath": "Views\\Pagina\\NoPermission.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\Edit.cshtml",
-      "TargetPath": "Views\\Elemento\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Visualizar\\Renderizar.cshtml",
-      "TargetPath": "Views\\Visualizar\\Renderizar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\EmBranco.cshtml",
-      "TargetPath": "Views\\Pagina\\EmBranco.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\IdentificacaoBloco.cshtml",
-      "TargetPath": "Views\\Pagina\\IdentificacaoBloco.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\ListaCores.cshtml",
-      "TargetPath": "Views\\Ferramenta\\ListaCores.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\Delete.cshtml",
-      "TargetPath": "Views\\Story\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Campo.cshtml",
-      "TargetPath": "Views\\Elemento\\_Campo.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubSubGrupo\\Edit.cshtml",
-      "TargetPath": "Views\\SubSubGrupo\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pedido\\CreatePagina.cshtml",
-      "TargetPath": "Views\\Pedido\\CreatePagina.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubStory\\Details.cshtml",
-      "TargetPath": "Views\\SubStory\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Grupo\\Edit.cshtml",
-      "TargetPath": "Views\\Grupo\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundImagemContainer.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundImagemContainer.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Container\\Edit.cshtml",
-      "TargetPath": "Views\\Container\\Edit.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocCssDiv.cshtml",
+      "TargetPath": "wwwroot\\Arquivotxt\\DocCssDiv.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2224,213 +2484,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocProducao.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\DocProducao.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocBackgroundGradiente.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\DocBackgroundGradiente.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Container\\Create.cshtml",
-      "TargetPath": "Views\\Container\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\CreateCorContainer.cshtml",
-      "TargetPath": "Views\\Ferramenta\\CreateCorContainer.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\Details.cshtml",
-      "TargetPath": "Views\\Story\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Home\\Comentar.cshtml",
-      "TargetPath": "Views\\Home\\Comentar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundImagemElemento.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundImagemElemento.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Formulario.cshtml",
-      "TargetPath": "Views\\Elemento\\_Formulario.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Erros\\Error500.cshtml",
-      "TargetPath": "Views\\Erros\\Error500.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pedido\\ViewCreate.cshtml",
-      "TargetPath": "Views\\Pedido\\ViewCreate.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Produto\\Index.cshtml",
-      "TargetPath": "Views\\Produto\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\Admin.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\Admin.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\Create.cshtml",
-      "TargetPath": "Views\\Elemento\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\CreatePaginaComLayout.cshtml",
-      "TargetPath": "Views\\Pagina\\CreatePaginaComLayout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\EditarPagina.cshtml",
-      "TargetPath": "Views\\Pagina\\EditarPagina.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\_DivFixo.cshtml",
-      "TargetPath": "Views\\Div\\_DivFixo.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\ListaFixo.cshtml",
-      "TargetPath": "Views\\Div\\ListaFixo.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\Edit.cshtml",
-      "TargetPath": "Views\\Div\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Container\\Details.cshtml",
-      "TargetPath": "Views\\Container\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\Index.cshtml",
-      "TargetPath": "Views\\Story\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_CookieConsentPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\Lista.cshtml",
-      "TargetPath": "Views\\Elemento\\Lista.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\Delete.cshtml",
-      "TargetPath": "Views\\Pagina\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\MenuDropDown.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\MenuDropDown.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubStory\\Create.cshtml",
-      "TargetPath": "Views\\SubStory\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Produto\\Details.cshtml",
-      "TargetPath": "Views\\Produto\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\CreateCorElemento.cshtml",
-      "TargetPath": "Views\\Ferramenta\\CreateCorElemento.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\GaleriaLayout.cshtml",
-      "TargetPath": "Views\\Pagina\\GaleriaLayout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubGrupo\\Details.cshtml",
-      "TargetPath": "Views\\SubGrupo\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Home\\Preview.cshtml",
-      "TargetPath": "Views\\Home\\Preview.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubGrupo\\Edit.cshtml",
-      "TargetPath": "Views\\SubGrupo\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubStory\\Index.cshtml",
-      "TargetPath": "Views\\SubStory\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\IdentificacaoElemento.cshtml",
-      "TargetPath": "Views\\Pagina\\IdentificacaoElemento.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocCssDiv.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\DocCssDiv.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Grupo\\Create.cshtml",
-      "TargetPath": "Views\\Grupo\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Visualizar\\SubSubGrupo.cshtml",
-      "TargetPath": "Views\\Visualizar\\SubSubGrupo.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubGrupo\\Index.cshtml",
-      "TargetPath": "Views\\SubGrupo\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\HttpNotFound.cshtml",
-      "TargetPath": "Views\\Pagina\\HttpNotFound.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Imagem.cshtml",
-      "TargetPath": "Views\\Elemento\\_Imagem.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundGradiente.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundGradiente.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Visualizar\\SubGrupo.cshtml",
+      "TargetPath": "Views\\Visualizar\\SubGrupo.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2439,133 +2494,23 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\Carousel.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\Carousel.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\_DivFixo.cshtml",
+      "TargetPath": "Views\\Div\\_DivFixo.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\Edit.cshtml",
-      "TargetPath": "Views\\Background\\Edit.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_CookieConsentPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Container\\Index.cshtml",
-      "TargetPath": "Views\\Container\\Index.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\EditarPagina.cshtml",
+      "TargetPath": "Views\\Pagina\\EditarPagina.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Musica.cshtml",
-      "TargetPath": "Views\\Elemento\\_Musica.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Grupo\\Details.cshtml",
-      "TargetPath": "Views\\Grupo\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Grupo\\Index.cshtml",
-      "TargetPath": "Views\\Grupo\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\_DivComum.cshtml",
-      "TargetPath": "Views\\Div\\_DivComum.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_Render.cshtml",
-      "TargetPath": "Views\\Shared\\_Render.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\Create.cshtml",
-      "TargetPath": "Views\\Story\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\Chat.cshtml",
-      "TargetPath": "Views\\Pagina\\Chat.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubSubGrupo\\Details.cshtml",
-      "TargetPath": "Views\\SubSubGrupo\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\QuantidadeBloco.cshtml",
-      "TargetPath": "Views\\Pagina\\QuantidadeBloco.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundGradienteContainer.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundGradienteContainer.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Visualizar\\SubGrupo.cshtml",
-      "TargetPath": "Views\\Visualizar\\SubGrupo.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\wwwroot\\Arquivotxt\\DocBloco.cshtml",
-      "TargetPath": "wwwroot\\Arquivotxt\\DocBloco.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SubSubGrupo\\Create.cshtml",
-      "TargetPath": "Views\\SubSubGrupo\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Video.cshtml",
-      "TargetPath": "Views\\Elemento\\_Video.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Admin\\EditPermissao.cshtml",
-      "TargetPath": "Views\\Admin\\EditPermissao.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Container\\Delete.cshtml",
-      "TargetPath": "Views\\Container\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\BlocoFerramenta.cshtml",
-      "TargetPath": "Views\\Pagina\\BlocoFerramenta.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_CarouselPagina.cshtml",
-      "TargetPath": "Views\\Elemento\\_CarouselPagina.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Pages\\_Layout.cshtml",
-      "TargetPath": "Pages\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundCor.cshtml",
-      "TargetPath": "Views\\Background\\_BackgroundCor.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\rede-social\\CMS\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Formulario.cshtml",
+      "TargetPath": "Views\\Elemento\\_Formulario.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2574,13 +2519,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\CreatePasta.cshtml",
-      "TargetPath": "Views\\Ferramenta\\CreatePasta.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\VideoIncorporado\\Edit.cshtml",
+      "TargetPath": "Views\\VideoIncorporado\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pedido\\GetView.cshtml",
-      "TargetPath": "Views\\Pedido\\GetView.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubSubGrupo\\Delete.cshtml",
+      "TargetPath": "Views\\SubSubGrupo\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2589,23 +2534,83 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\Incorporar.cshtml",
-      "TargetPath": "Views\\SuperAdmin\\Incorporar.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundCorContainer.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundCorContainer.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\Index.cshtml",
-      "TargetPath": "Views\\Pagina\\Index.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Grupo\\Create.cshtml",
+      "TargetPath": "Views\\Grupo\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\CreateCor.cshtml",
-      "TargetPath": "Views\\Ferramenta\\CreateCor.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Video.cshtml",
+      "TargetPath": "Views\\Elemento\\_Video.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Produto\\Create.cshtml",
-      "TargetPath": "Views\\Produto\\Create.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Background\\_BackgroundGradienteContainer.cshtml",
+      "TargetPath": "Views\\Background\\_BackgroundGradienteContainer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubStory\\Delete.cshtml",
+      "TargetPath": "Views\\SubStory\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubStory\\Details.cshtml",
+      "TargetPath": "Views\\SubStory\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\Edit.cshtml",
+      "TargetPath": "Views\\Div\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SubSubGrupo\\Details.cshtml",
+      "TargetPath": "Views\\SubSubGrupo\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\VideoIncorporado\\Delete.cshtml",
+      "TargetPath": "Views\\VideoIncorporado\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\Admin.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\Admin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\ListaCores.cshtml",
+      "TargetPath": "Views\\Ferramenta\\ListaCores.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\GetView.cshtml",
+      "TargetPath": "Views\\Pagina\\GetView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\SuperAdmin\\BaixarHtmlLivroVerso.cshtml",
+      "TargetPath": "Views\\SuperAdmin\\BaixarHtmlLivroVerso.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Home\\Preview.cshtml",
+      "TargetPath": "Views\\Home\\Preview.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Imagem.cshtml",
+      "TargetPath": "Views\\Elemento\\_Imagem.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2614,8 +2619,38 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\rede-social\\CMS\\Views\\Pagina\\Editar.cshtml",
-      "TargetPath": "Views\\Pagina\\Editar.cshtml",
+      "FilePath": "c:\\rede-social\\CMS\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Elemento\\_Campo.cshtml",
+      "TargetPath": "Views\\Elemento\\_Campo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Story\\Index.cshtml",
+      "TargetPath": "Views\\Story\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Home\\PaginaCriada.cshtml",
+      "TargetPath": "Views\\Home\\PaginaCriada.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Div\\ListaFixo.cshtml",
+      "TargetPath": "Views\\Div\\ListaFixo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\rede-social\\CMS\\Views\\Ferramenta\\EditCorElemento.cshtml",
+      "TargetPath": "Views\\Ferramenta\\EditCorElemento.cshtml",
       "FileKind": "mvc"
     }
   ],

@@ -28,7 +28,7 @@ namespace CMS.Models.Repository
          string renderizarPagina(Pagina pagina);
         IIncludableQueryable<Pagina, Div> includes();
 
-        string retornarVideos(long lista);
+        Task<string> retornarVideos(long lista);
 
         
     }
@@ -48,6 +48,8 @@ namespace CMS.Models.Repository
         }
 
        static string path = Directory.GetCurrentDirectory();       
+      public static string outroLivro = "https://localhost:5001";       
+     public  static int outroCapitulo = 1;       
 
         //140 linhas
         public string CodCss { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss.cshtml")); } }  

@@ -65,6 +65,8 @@ namespace CMS.Controllers
             ViewBag.stories = stories;
             ViewBag.compartilhante = compartilhante;
             ViewBag.users = users;
+            ViewBag.livro = RepositoryPagina.outroLivro;
+            ViewBag.capitulo = RepositoryPagina.outroCapitulo;
             return View();
         }
 

@@ -46,6 +46,11 @@ namespace CMS
             FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
             var contexto = provider.GetService<ApplicationDbContext>();
 
+            var dia = DateTime.Now.Day;
+            if(dia > 22) dia -= 8; 
+            int result = dia / 2;
+            RepositoryPagina.outroCapitulo = result;
+
         //     Random randNum = new Random();
         //     var name = "notbooks";
         //     var client = new HttpClient();

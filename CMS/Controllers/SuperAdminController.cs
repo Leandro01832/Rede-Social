@@ -44,8 +44,7 @@ namespace CMS.Controllers
             HostingEnvironment = hostingEnvironment;
         }
 
-        //Região Index
-        #region        
+              
          public async Task<ActionResult> Admin()
         {
             var user = await UserManager.GetUserAsync(this.User);
@@ -376,7 +375,7 @@ namespace CMS.Controllers
         public async Task<IActionResult> Incorporar(long cod, long cap)
         {  
             var videos = "";     
-            try { videos = epositoryPagina.retornarVideos(cod); }
+            try { videos = await epositoryPagina.retornarVideos(cod); }
             catch (System.Exception) 
             {
                 ModelState.AddModelError("",
@@ -447,7 +446,19 @@ namespace CMS.Controllers
             return View();
         } 
                 
-        #endregion     
+           public ActionResult CompartilhaVerso()
+           {
+             return View();
+           }
+
+             [HttpPost]
+           public IActionResult CompartilhaVerso(string livro, int capitulo)
+           {
+                RepositoryPagina.outroLivro = livro;
+                RepositoryPagina.outroCapitulo = capitulo;
+
+            return RedirectToAction("Index", "Home");  
+           }
 
     }
 }

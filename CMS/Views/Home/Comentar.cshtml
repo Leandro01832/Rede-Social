@@ -5,8 +5,7 @@
 }
 
 <h2>Criar</h2>
-<link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
-<link rel="stylesheet" href="~/css/RenderizarDinamico2.css" />
+
 
 <p class="text-danger">
     Atenção!!! Não é aceito comentários racistas, homofóbicos, pornográficos e de carater preconceituoso. Dependendo do comentário,
@@ -14,6 +13,9 @@
 </p>
 <p class="text-info">
     Os comentários  podem ser feitos a vontade. Somente o admin é que classificará os comentários em tipos e são eles:
+</p>
+
+<p>
     <ul>
         <li>comentários sobre um produto(Informe nº do capitulo e nº do verso ).</li>
         <li>comentários fakes</li>
@@ -23,10 +25,14 @@
         <li>comentários legais</li>
         <li>comentários inteligentes</li>
     </ul>
+
 </p>
 
 
-@using (Html.BeginForm())
+
+
+
+    @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
@@ -38,6 +44,8 @@
         <h4>Pagina</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        <input name="idPagina" id="idPagina" value="@ViewBag.idPagina" type="number" />        
 
         <div class="form-group">
             <label id="PalavrasTexto" name="PalavrasTexto" class="control-label">Conteudo:</label>
@@ -89,7 +97,7 @@
                 $("#ConteudoPagina").css("display", "none");
                 $("#Fechar").css("display", "none");
                 $("#Formulario").css("display", "block");
-            });
+            });            
 
         });
     </script>

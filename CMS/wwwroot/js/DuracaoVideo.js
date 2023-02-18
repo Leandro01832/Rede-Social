@@ -3,7 +3,7 @@ var duracaoVideo = 0;
 
 if(video.length > 0)
 {
-    
+      
     // 2. Este código carrega o código API do IFrame Player de forma assíncrona.
      var tag = document.createElement('script');
     
@@ -32,6 +32,8 @@ if(video.length > 0)
       function onPlayerReady(event) {
        
         duracaoVideo = player.getDuration();
+        document.getElementById("descricao").innerHTML = 
+        document.getElementsByTagName("iframe")[0].title;
       }
 
       // 5. The API calls this function when the player's state changes.

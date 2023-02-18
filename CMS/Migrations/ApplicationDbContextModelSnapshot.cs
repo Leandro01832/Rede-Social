@@ -36,6 +36,8 @@ namespace CMS.Migrations
 
                     b.Property<string>("Image");
 
+                    b.Property<string>("Livro");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -333,6 +335,23 @@ namespace CMS.Migrations
                     b.HasIndex("PaginaId");
 
                     b.ToTable("PaginaContainer");
+                });
+
+            modelBuilder.Entity("business.business.Comentario", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Capitulo");
+
+                    b.Property<long>("IdPagina");
+
+                    b.Property<int>("Verso");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Comentario");
                 });
 
             modelBuilder.Entity("business.business.Container", b =>

@@ -151,5 +151,6 @@ namespace CMS.Data
         public DbSet<business.Back.BackgroundGradienteElemento> BackgroundGradienteElemento { get; set; }
                      
         public DbSet<business.business.VideoIncorporado> VideoIncorporado { get; set; }
+        public DbSet<Comentario> Comentario { get; set; }
     }
 }

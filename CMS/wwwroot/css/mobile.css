@@ -55,6 +55,11 @@
             
         }
 
+        #user img
+        {
+            display: none;
+        }
+
 }
 
 @media only print {

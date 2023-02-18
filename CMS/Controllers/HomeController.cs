@@ -51,8 +51,10 @@ namespace CMS.Controllers
         }
 
         [Route("{compartilhante}")]
+        [Route("{capitulo?}/{verso?}")]
+        [Route("{verso:int?}")]
         [Route("")]
-        public async Task<IActionResult> Index(string compartilhante)
+        public async Task<IActionResult> Index(string compartilhante, int? capitulo, int? verso)
         {
 
             var stories = await _context.Story.Where(str => str.Nome != "Padrao")
@@ -62,11 +64,23 @@ namespace CMS.Controllers
 
             if (string.IsNullOrEmpty(compartilhante)) compartilhante = "user";
 
+            
+
             ViewBag.stories = stories;
             ViewBag.compartilhante = compartilhante;
             ViewBag.users = users;
             ViewBag.livro = RepositoryPagina.outroLivro;
             ViewBag.capitulo = RepositoryPagina.outroCapitulo;
+
+            if(capitulo != null)
+            {
+              return  RedirectToAction("Renderizar", "Visualizar",
+                 new{indice = verso, capitulo = capitulo, auto = 0, compartilhante = "user"});
+            }
+            if(verso != null)
+            {
+              return  Redirect($"{RepositoryPagina.outroLivro}/Renderizar/{RepositoryPagina.outroCapitulo}/{verso}/0/user");
+            }
             return View();
         }
 
@@ -75,18 +89,26 @@ namespace CMS.Controllers
 
 
         [Authorize]
-        public IActionResult Comentar()
+        [Route("Comentar/{capitulo?}/{verso?}/{escolha?}")]
+        public IActionResult Comentar( long? idPagina)
         {
+            if(idPagina != null)
+            ViewBag.idPagina = idPagina;
+            else
+            ViewBag.idPagina = 0;
             return View();
         }
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Comentar(string Conteudo)
+        public async Task<IActionResult> Comentar(string Conteudo, long idPagina)
         {
             var user = await UserManager.GetUserAsync(this.User);
             var Quant = await _context.Story.Where(st => st.Nome != "Padrao").ToListAsync();
-            var comenta = await _context.Story.Include(st => st.Pagina).Where(st => st.Comentario).ToListAsync();
+            var comenta = await _context.Story.Include(st => st.Pagina)
+            .Where(st => st.Comentario)
+            .OrderBy(st => st.Id)
+            .ToListAsync();
             var Story = comenta.LastOrDefault();
 
             if (Story == null || Story.Pagina.Where(p => !p.Layout).ToList().Count > 499)
@@ -116,7 +138,8 @@ namespace CMS.Controllers
                     SubGrupoId = null,
                     SubSubGrupoId = null,
                     Layout = false,
-                    Music = false
+                    Music = false,
+                    Tempo = 11000
                 };
                 p.Div = null;
 
@@ -162,7 +185,8 @@ namespace CMS.Controllers
                 SubGrupoId = null,
                 SubSubGrupoId = null,
                 Layout = false,
-                Music = false
+                Music = false,
+                Tempo = 11000
             };
             pagina.Div = null;
 
@@ -180,9 +204,9 @@ namespace CMS.Controllers
                 Elemento = new Texto
                 {
                     Pagina_ = pagina.Id,
-                    PalavrasTexto = $"<img src='{user.Image}' width='50' >" +
-                        $"<p> {user.UserName} </p>" +
-                        Conteudo
+                    PalavrasTexto = 
+                    $"<div id='usuario' style='display:nome;'>" +
+                    $" <img src='{user.Image}' width='30' >{user.UserName}</div> <br/> <br/> {Conteudo}"
                 }
 
             });
@@ -194,6 +218,18 @@ namespace CMS.Controllers
 
             _context.SaveChanges();
             RepositoryPagina.paginas.Clear();
+
+            if(idPagina != 0)
+            {
+                var comentar = new Comentario
+                {
+                    IdPagina = idPagina,
+                     Capitulo = Story.PaginaPadraoLink,
+                     Verso = Story.Pagina.Where(p => !p.Layout).ToList().Count
+                };
+                _context.Add(comentar);
+                _context.SaveChanges();
+            }
 
             return RedirectToAction(nameof(PaginaCriada),
             new { capitulo = Story.PaginaPadraoLink, versiculo = Story.Pagina.Where(p => !p.Layout).ToList().Count });

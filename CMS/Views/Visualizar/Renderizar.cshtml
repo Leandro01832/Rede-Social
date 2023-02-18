@@ -9,6 +9,8 @@
     ViewData["NomeStory"] = Model.Titulo;
     ViewBag.Title = Model.Titulo;
     string valor = ViewBag.html;
+    
+    
 }
 
 <script src="/lib/jquery/dist/jquery.js"></script>
@@ -97,9 +99,33 @@
             <a href="/paginacao/1/capitulo/1/20/11/@ViewBag.compartilhante" class="btn btn-primary">
                 Listas
             </a>
+
+            
+           
+            @Html.ActionLink("Comentar", "Comentar",
+            "Home", new {idPagina = Model.Id  })
+            <a href="/Comentarios/@Model.Id/1"  class="btn btn-warning" >Comentários</a>
+               
         </div>
 
     </div>
+
+    <div id="user"></div>
+
+  @{
+        if (Model.Story.Comentario
+        && Model.Story.SubStory.Where(str => str.Pagina.Count > 0).ToList().Count == 0)
+        {
+            <p>Comentário não classificado </p>
+        }
+        else if(Model.Story.Comentario)
+        {
+            <p>Classificação: @Model.Story.SubStory[0].Nome  </p>
+
+        }
+
+  }
+    
 
      </div> 
      
@@ -135,6 +161,7 @@
         }
         else
         {           
+            <div id="descricao" ></div>      
             @Html.Raw(ViewBag.Html)      
 
             <div id="player" ></div>      
@@ -192,6 +219,9 @@
 
     </div>
 
+
+      
+
       
 
     <div class="container1" style="display:none; position:fixed; bottom:2%; left: 1%; width: 100%; background-color: rgba(239, 243, 11, 0.5); z-index: 2000;">
@@ -236,5 +266,26 @@
     <script src="~/js/DuracaoVideo.js"></script>
     <script type="text/javascript" src="~/js/Navegacao.js"> </script>    
     <script type="text/javascript" src="~/js/progressbar.js" >  </script>    
+    <script type="text/javascript">
+    
+    if($("#usuario").length > 0)
+    {
+        document.getElementById("user").innerHTML = 
+        document.getElementById("usuario").innerHTML;
+        $("#usuario").hide();
+    }
+
+    function buscarComentarios(numero)
+    {
+            $("#comentario").load("/Pagina/Comentarios/" + numero);
+    }
+    
+    $(".modal-content").css("width", "100%");
+    $("#exampleModal").css("width", "100%");
+
+
+      </script>    
+
+    
 
 }

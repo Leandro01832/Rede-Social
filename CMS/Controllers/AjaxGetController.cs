@@ -72,7 +72,7 @@ namespace CMS.Controllers
         {
             if (valor != null)
             {
-                    var stories =  RetornarStories();
+                    var stories =  RetornarStories(false);
                     var lista =  stories.Where(s => s.Nome.ToLower().Contains(valor.ToLower())).OrderBy(p => p.Nome).ToList(); 
                     var listaSubStory = new List<Grup>();
                     var listaGrupo = new List<Grup>();
@@ -239,7 +239,7 @@ namespace CMS.Controllers
 
         public JsonResult GetStory(int Indice)
         {
-            List<Story> stories =  RetornarStories();
+            List<Story> stories =  RetornarStories(true);
             string[] result = new string[2];
 
             try
@@ -298,7 +298,7 @@ namespace CMS.Controllers
 
         public JsonResult GetSubStory(int Indice, int IndiceSubStory)
         {
-                var stories =  RetornarStories();                            
+                var stories =  RetornarStories(false);                            
                 int[] result = new int[2];
                 var story = stories[Indice];
 
@@ -318,7 +318,7 @@ namespace CMS.Controllers
 
         public JsonResult GetGrupo(int Indice, int IndiceSubStory, int IndiceGrupo)
         {            
-                var stories =  RetornarStories();                               
+                var stories =  RetornarStories(false);                               
                 var story = stories[Indice];
                 int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory, IndiceGrupo, null, null);
                 
@@ -334,7 +334,7 @@ namespace CMS.Controllers
 
         public JsonResult GetSubGrupo(int Indice, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo)
         {            
-            var stories =  RetornarStories();            
+            var stories =  RetornarStories(false);            
             var story = stories[Indice];
             int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory, IndiceGrupo, IndiceSubGrupo, null);
 
@@ -350,7 +350,7 @@ namespace CMS.Controllers
 
          public JsonResult GetSubSubGrupo(int Indice, int IndiceSubStory, int IndiceGrupo, int IndiceSubGrupo, int IndiceSubSubGrupo)
         {            
-            var stories =  RetornarStories();            
+            var stories =  RetornarStories(false);            
             var story = stories[Indice];
             int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory, IndiceGrupo, IndiceSubGrupo, IndiceSubSubGrupo); 
                 
@@ -364,14 +364,25 @@ namespace CMS.Controllers
                 }        
         }
 
-         private  List<Story> RetornarStories()
-        {                        
-            var stories = db.Story
+         private  List<Story> RetornarStories(bool comentario)
+        {     
+            List<Story> stories = null;
+            if(!comentario)                   
+            stories = db.Story
             .Include(str => str.SubStory).ThenInclude(l => l.Pagina)
             .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(l => l.Pagina)
             .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(str => str.SubGrupo).ThenInclude(l => l.Pagina)
             .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(str => str.SubGrupo).ThenInclude(str => str.SubSubGrupo).ThenInclude(l => l.Pagina)
             .Where(b => b.Nome != "Padrao" && !b.Comentario).ToList();
+            else
+            {
+                stories = db.Story
+            .Include(str => str.SubStory).ThenInclude(l => l.Pagina)
+            .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(l => l.Pagina)
+            .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(str => str.SubGrupo).ThenInclude(l => l.Pagina)
+            .Include(str => str.SubStory).ThenInclude(str => str.Grupo).ThenInclude(str => str.SubGrupo).ThenInclude(str => str.SubSubGrupo).ThenInclude(l => l.Pagina)
+            .Where(b => b.Nome != "Padrao").ToList();
+            }
             stories = stories.OrderBy(s => s.PaginaPadraoLink).ToList();
             return stories;
         }

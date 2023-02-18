@@ -1,0 +1,130 @@
+@model business.business.Pagina
+
+
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+
+    <link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
+    <link rel="stylesheet" href="~/css/RenderizarDinamico2.css" />
+    <link rel="stylesheet" href="~/css/mobile.css" />
+
+    
+
+   @{
+     if(Model != null)
+     {
+         Layout = null;
+    var proximo = ViewBag.proximo;   
+    var anterior = proximo - 2;
+    var atual = proximo - 1;
+    var quant = ViewBag.quant;
+    ViewData["NomeStory"] = Model.Titulo;
+    ViewBag.Title = Model.Titulo;
+    string valor = ViewBag.html; 
+
+    <input type="hidden" value="@Model.Id" id="IdentificacaoPagina" />
+    <input type="hidden" value="@atual" id="ValorAtual" />
+    <input type="hidden" value="@quant" id="ValorQuant" />
+    <input type="hidden" value="@proximo" id="ValorProximo" />
+    <input type="hidden" value="@anterior" id="ValorAnterior" />
+        <div class="navbar navbar-inverse navbar-fixed-top">     
+
+    <div style="width:100%;" class="blocoLoader">
+    <a class="left carousel-control blocoLoader2" href="/Comentarios/@(ViewBag.PaginaComentada)/@(anterior)" style="display:none;">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+
+    <a class="right carousel-control blocoLoader2" href="/Comentarios/@(ViewBag.PaginaComentada)/@(proximo)" style="display:none;">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+
+        
+
+        <div class="right col-xs-8" id="Pesquisa">
+           
+           
+
+            @Html.ActionLink("Comentar", "Comentar",
+            "Home", new {idPagina = Model.Id  })
+               
+        </div>
+
+    </div>
+
+    <div id="user"></div>
+
+  @{
+        if (Model.Story.Comentario
+        && Model.Story.SubStory.Where(str => str.Pagina.Count > 0).ToList().Count == 0)
+        {
+            <p>Comentário não classificado </p>
+        }
+        else if(Model.Story.Comentario)
+        {
+            <p>Classificação: @Model.Story.SubStory[0].Nome  </p>
+
+        }
+
+  }    
+
+     </div> 
+     
+
+     <!-- ProdutoContent -->
+    <div class="comentarios" id="comentario" >
+             @Html.Raw(ViewBag.html)   
+      </div>
+    <!-- ProdutoContent -->   
+
+    <div id="PaginacaoConteudo" style="position:fixed; bottom:1%; width: 100%; " class="Paginacao">
+
+        <center>           
+            
+            <div class="DivPagina" style=" height:50px; overflow: hidden; background-color: darkgrey;  opacity: 0.90;">
+                    <span id="redireciona-1"></span>                        
+                @{                               
+                    for (var indice = 1; indice <= quant; indice++)
+                    {
+                         <div class="DivPag"
+                             style="width:35px; height: 30px; border-radius: 30px; display:inline-grid; margin: 6px; background-color:darkgray; opacity: 0.80;"
+                             id="DivPagina@(indice)">  
+                                <span style="font-size: 2rem;" class="indices"><b>@indice</b> </span>
+                                <span class="barra glyphicon glyphicon-minus"
+                              style="font-size: 2rem;"  ></span>
+                        </div>
+                                     
+                            if(indice >= 20){
+                                <span id="redireciona-@(indice)"></span>
+                            }          
+                    }                          
+                }
+
+            </div>
+        </center>
+    </div>
+    
+    <div id="loading" style="display:none; z-index:50;"><img src="~/imagem/loader.gif" /></div>
+     }
+     else
+     {
+         Layout = null;
+         <center>
+        <p>Não possui comentários</p>
+
+         </center>
+     }
+   }
+
+@section scripts
+{       
+    <script type="text/javascript">    
+    if($("#usuario").length > 0)
+    {
+        document.getElementById("user").innerHTML = 
+        document.getElementById("usuario").innerHTML;
+        $("#usuario").hide();
+    }
+    </script> 
+}

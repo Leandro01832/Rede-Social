@@ -12,18 +12,21 @@ using System;
 using System.Data.SqlClient;
 using business.business.Group;
 using Microsoft.Extensions.Configuration;
+using CMS.Data;
 
 namespace MeuProjetoAgora.Controllers
 {
     public class VisualizarController : Controller
     {
+        private readonly ApplicationDbContext db;
         public IRepositoryPagina epositoryPagina { get; }
         public UserManager<UserModel> UserManager { get; }
         public IConfiguration Configuration { get; }
 
         public VisualizarController(IRepositoryPagina repositoryPagina, UserManager<UserModel> userManager,
-         IConfiguration configuration)
+         IConfiguration configuration, ApplicationDbContext context)
         {
+            db = context;
             epositoryPagina = repositoryPagina;
             UserManager = userManager;
             Configuration = configuration;
@@ -200,7 +203,34 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
                 return View(pagina);            
-        }     
+        }    
+
+        [Route("Comentarios/{Id}/{indice}")]
+        public async Task<IActionResult> Comentarios(long Id, int indice)
+        { 
+            if(await db.Comentario.FirstOrDefaultAsync(p => p.IdPagina == Id) != null)
+            {
+                var lista = await db.Comentario
+                .Where(p => p.IdPagina == Id)
+                .OrderBy(p => p.Id)
+                .ToListAsync();
+
+                var comentario =  lista.Skip(indice - 1).First();
+
+                var story = await db.Story
+                .Include(str => str.Pagina)
+                .FirstAsync(str => str.PaginaPadraoLink == comentario.Capitulo);
+                var page = story.Pagina.OrderBy(p => p.Id).Skip(comentario.Verso - 1).First();
+                ViewBag.html = epositoryPagina.renderizarPagina(page);
+                ViewBag.quant = lista.Count;
+                ViewBag.PaginaComentada = Id;
+                ViewBag.proximo = indice + 1;
+
+            return View(page);            
+            }          
+            
+            return View();            
+        } 
 
 
         public IActionResult HttpNotFound()

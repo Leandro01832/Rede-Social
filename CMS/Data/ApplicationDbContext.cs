@@ -64,6 +64,7 @@ namespace CMS.Data
         public DbSet<Permissao> Permissao { get; set; }
         public DbSet<MensagemChat> MensagemChat { get; set; }
         public DbSet<PastaImagem> PastaImagem { get; set; }
+        public DbSet<Livro> Livro { get; set; }
 
 
         public object Configuration { get; internal set; }

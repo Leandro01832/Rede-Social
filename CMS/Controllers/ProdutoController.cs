@@ -19,7 +19,7 @@ using System.IO;
 
 namespace CMS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class ProdutoController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -49,6 +49,7 @@ namespace CMS.Controllers
             return View(applicationDbContext);
         }
 
+        [AllowAnonymous]
        [Route("paginacao/{pagina?}/{ordenar}/{automatico}/{tempo}/{tamanho}/{compartilhante}")]
         public async Task<IActionResult> paginacao(int? pagina, string ordenar,
          int automatico , int tempo, int tamanho, string compartilhante)

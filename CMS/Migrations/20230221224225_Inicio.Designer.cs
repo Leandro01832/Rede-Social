@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230212172105_video-incorporado")]
-    partial class videoincorporado
+    [Migration("20230221224225_Inicio")]
+    partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,6 +37,8 @@ namespace CMS.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("Image");
+
+                    b.Property<string>("Livro");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -335,6 +337,23 @@ namespace CMS.Migrations
                     b.HasIndex("PaginaId");
 
                     b.ToTable("PaginaContainer");
+                });
+
+            modelBuilder.Entity("business.business.Comentario", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Capitulo");
+
+                    b.Property<long>("IdPagina");
+
+                    b.Property<int>("Verso");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Comentario");
                 });
 
             modelBuilder.Entity("business.business.Container", b =>
@@ -768,6 +787,21 @@ namespace CMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Telefone");
+                });
+
+            modelBuilder.Entity("business.business.VideoIncorporado", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArquivoVideoIncorporado");
+
+                    b.Property<int?>("Tamanho");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VideoIncorporado");
                 });
 
             modelBuilder.Entity("business.div.Div", b =>

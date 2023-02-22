@@ -64,6 +64,11 @@ namespace business.business
 
         private int mostrarDados = 0;
         private DateTime data = DateTime.Now;
+        private Int64? camadaDezId = 0;
+        private Int64? camadaNoveId = 0;
+        private Int64? camadaOitoId = 0;
+        private Int64? camadaSeteId = 0;
+        private Int64? camadaSeisId = 0;
         private Int64? subSubGrupoId = 0;
         private Int64? subGrupoId = 0;
         private Int64? grupoId = 0;
@@ -137,7 +142,83 @@ namespace business.business
                 subSubGrupoId = value;
             }
         }
+
         public virtual SubSubGrupo SubSubGrupo { get; set; }
+
+         [Display(Name ="Camada nº 6")]
+        public Int64? CamadaSeisId
+        {
+            get
+            {
+                if (camadaSeisId == 0) return null;                
+                return camadaSeisId;
+            }
+            set
+            {   
+                camadaSeisId = value;
+            }
+        }
+        public virtual CamadaSeis CamadaSeis { get; set; }
+
+         [Display(Name ="Camada nº 7")]
+        public Int64? CamadaSeteId
+        {
+            get
+            {
+                if (camadaSeteId == 0) return null;                
+                return camadaSeteId;
+            }
+            set
+            {   
+                camadaSeteId = value;
+            }
+        }
+        public virtual CamadaSete CamadaSete { get; set; }
+
+         [Display(Name ="Camada nº 8")]
+        public Int64? CamadaOitoId
+        {
+            get
+            {
+                if (camadaOitoId == 0) return null;                
+                return camadaOitoId;
+            }
+            set
+            {   
+                camadaOitoId = value;
+            }
+        }
+        public virtual CamadaOito CamadaOito { get; set; }
+         
+         [Display(Name ="Camada nº 9")]
+        public Int64? CamadaNoveId
+        {
+            get
+            {
+                if (camadaNoveId == 0) return null;                
+                return camadaNoveId;
+            }
+            set
+            {   
+                camadaNoveId = value;
+            }
+        }
+        public virtual CamadaNove CamadaNove { get; set; }
+
+         [Display(Name ="Camada nº 10")]
+        public Int64? CamadaDezId
+        {
+            get
+            {
+                if (camadaDezId == 0) return null;                
+                return camadaDezId;
+            }
+            set
+            {   
+                camadaDezId = value;
+            }
+        }
+        public virtual CamadaDez CamadaDez { get; set; }
 
         [Required(ErrorMessage = "O titulo é necessário")]
         [Display(Name = "Titulo da pagina")]

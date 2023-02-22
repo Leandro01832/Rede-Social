@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 
 namespace MeuProjetoAgora.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class PedidoController : Controller
     {
         private readonly ApplicationDbContext Context;        
@@ -44,7 +45,7 @@ namespace MeuProjetoAgora.Controllers
             UserManager = userManager;
         }
                                
-        [Authorize]
+        
         [Route("Galeria/{pagina?}")]
         public async Task<ActionResult> Galeria(int? pagina)
         {
@@ -60,7 +61,7 @@ namespace MeuProjetoAgora.Controllers
             return View(applicationDbContext);
         }        
 
-        [Authorize]
+        
         [Route("Pedido/CreatePagina")]
         [Route("CreatePage")]
         [Route("Criar-Pagina")]
@@ -83,8 +84,7 @@ namespace MeuProjetoAgora.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize]
+        [ValidateAntiForgeryToken]        
         [Route("Pedido/CreatePagina")]
         [Route("CreatePage")]
         [Route("Criar-Pagina")]

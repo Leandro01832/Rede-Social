@@ -56,6 +56,15 @@ namespace CMS.Controllers
         [Route("")]
         public async Task<IActionResult> Index(string compartilhante, int? capitulo, int? verso)
         {
+            var usuario = await UserManager.GetUserAsync(this.User);
+            if(usuario != null)
+            {
+                    var lista = await  UserManager.GetRolesAsync(usuario);
+                    if(lista.FirstOrDefault(i => i == "Admin") != null)
+                    ViewBag.user = usuario.UserName;
+                    else
+                    ViewBag.user = "";
+            }
 
             var stories = await _context.Story.Where(str => str.Nome != "Padrao")
            .OrderBy(st => st.Nome)
@@ -65,12 +74,21 @@ namespace CMS.Controllers
             if (string.IsNullOrEmpty(compartilhante)) compartilhante = "user";
 
             
-
             ViewBag.stories = stories;
             ViewBag.compartilhante = compartilhante;
             ViewBag.users = users;
             ViewBag.livro = RepositoryPagina.outroLivro;
             ViewBag.capitulo = RepositoryPagina.outroCapitulo;
+            ViewBag.livro1 = RepositoryPagina.livros[0];
+            ViewBag.livro2 = RepositoryPagina.livros[1];
+            ViewBag.livro3 = RepositoryPagina.livros[2];
+            ViewBag.livro4 = RepositoryPagina.livros[3];
+            ViewBag.livro5 = RepositoryPagina.livros[4];
+            ViewBag.livro6 = RepositoryPagina.livros[5];
+            ViewBag.livro7 = RepositoryPagina.livros[6];
+            ViewBag.livro8 = RepositoryPagina.livros[7];
+            ViewBag.livro9 = RepositoryPagina.livros[8];
+            ViewBag.livro10 = RepositoryPagina.livros[9];
 
             if(capitulo != null)
             {
@@ -84,8 +102,49 @@ namespace CMS.Controllers
             return View();
         }
 
+         
+        [Authorize]
+        public async Task<IActionResult> Edit()
+        {
+            var user = await UserManager.GetUserAsync(this.User);
+            return View(user);
+        }
 
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Edit(string Livro, IFormFile imagem)
+        {
+            var user = await UserManager.GetUserAsync(this.User);
+            user.Livro = Livro;
 
+          var result = await  UserManager.UpdateAsync(user);
+
+           if (result.Succeeded && Request.Form.Files.Count > 0)
+            {
+                var Image = imagem;
+                byte[] buffer = new byte[16 * 1024];
+                using (FileStream output = System.IO.File.Create(this.HostingEnvironment.WebRootPath + "\\ImagensUsers\\" +
+                    user.Name + ".jpg"))
+                {
+                    using (Stream input = Image.OpenReadStream())
+                    {
+                        long totalReadBytes = 0;
+                        int readBytes;
+
+                        while ((readBytes = input.Read(buffer, 0, buffer.Length)) > 0)
+                        {
+                            await output.WriteAsync(buffer, 0, readBytes);
+                            totalReadBytes += readBytes;
+                        }
+                    }
+                }
+            }
+
+          if(result.Succeeded)
+            return RedirectToAction("Index");
+            else
+            return View(user);
+        }
 
 
         [Authorize]

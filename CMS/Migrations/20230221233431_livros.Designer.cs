@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230212225414_video")]
-    partial class video
+    [Migration("20230221233431_livros")]
+    partial class livros
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,6 +37,8 @@ namespace CMS.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("Image");
+
+                    b.Property<string>("Livro");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -337,6 +339,23 @@ namespace CMS.Migrations
                     b.ToTable("PaginaContainer");
                 });
 
+            modelBuilder.Entity("business.business.Comentario", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Capitulo");
+
+                    b.Property<long>("IdPagina");
+
+                    b.Property<int>("Verso");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Comentario");
+                });
+
             modelBuilder.Entity("business.business.Container", b =>
                 {
                     b.Property<long>("Id")
@@ -571,6 +590,19 @@ namespace CMS.Migrations
                     b.HasIndex("ProdutoId");
 
                     b.ToTable("ItemPedido");
+                });
+
+            modelBuilder.Entity("business.business.Livro", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("url");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Livro");
                 });
 
             modelBuilder.Entity("business.business.MensagemChat", b =>

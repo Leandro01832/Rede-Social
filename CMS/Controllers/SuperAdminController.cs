@@ -22,7 +22,8 @@ using Microsoft.AspNetCore.Hosting;
 using business.business.Group;
 using System.Text.RegularExpressions;
 using business.business.link;
-
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace CMS.Controllers
 {
@@ -34,14 +35,17 @@ namespace CMS.Controllers
         public UserManager<UserModel> UserManager { get; }
         public IRepositoryPagina epositoryPagina { get; }
         public IHostingEnvironment HostingEnvironment { get; }
+        public IConfiguration Configuration { get; }
 
         public SuperAdminController(ApplicationDbContext context, UserManager<UserModel> userManager,
-            IRepositoryPagina repositoryPagina, IHostingEnvironment hostingEnvironment)
+            IRepositoryPagina repositoryPagina, IHostingEnvironment hostingEnvironment,
+            IConfiguration configuration)
         {
             _context = context;
             UserManager = userManager;
             epositoryPagina = repositoryPagina;
             HostingEnvironment = hostingEnvironment;
+            Configuration = configuration;
         }
 
               
@@ -86,10 +90,10 @@ namespace CMS.Controllers
                
         
             WebClient client = new WebClient();
-            var html = client.DownloadString(url);
+            var html = RepositoryPagina.Verificar(url);
             string conteudo = "";            
 
-            if( html.Contains("<h1>Pagina não encontrada</h1>"))
+            if(string.IsNullOrEmpty(html))
             {
                 ModelState.AddModelError("", "Pagina não encontrada!!! Informe corretamente o capitulo e verso!!!");
                  var lista = new List<Story>()
@@ -219,12 +223,12 @@ namespace CMS.Controllers
         [HttpPost]
         public async Task<IActionResult> BaixarHtmlLivroCapitulo(string livro, int capitulo)
         {          
-            var url = livro + "/Renderizar/" + capitulo + "/1/1/user";     
+            var url = livro + "/Renderizar/" + capitulo + "/1/1/user";   
         
             WebClient client = new WebClient();
-            var html = client.DownloadString(url);                        
+            var html = RepositoryPagina.Verificar(url);                        
 
-            if( html.Contains("<h1>Pagina não encontrada</h1>"))
+            if(string.IsNullOrEmpty(html))
             {
                 ModelState.AddModelError("", "Pagina não encontrada!!! Informe corretamente o capitulo e verso!!!");
                  var lista = new List<Story>()
@@ -454,8 +458,91 @@ namespace CMS.Controllers
              [HttpPost]
            public IActionResult CompartilhaVerso(string livro, int capitulo)
            {
+                if(livro[livro.Length - 1] == '/')
+                livro.Replace(livro[livro.Length - 1].ToString(), "");
                 RepositoryPagina.outroLivro = livro;
                 RepositoryPagina.outroCapitulo = capitulo;
+
+            return RedirectToAction("Index", "Home");  
+           }
+          
+           public async Task<ActionResult> DefinirLivros(int? pagina)
+           {
+                int numeroPagina = (pagina ?? 1);
+
+                var applicationDbContext = await _context.Livro  
+                .OrderBy(p => p.Id)
+                .Skip((numeroPagina - 1) * 10)
+                .Take(10).ToListAsync();
+
+                if(applicationDbContext.Count == 10)
+                {
+                    ViewBag.livro1 = applicationDbContext[0];
+                    ViewBag.livro2 = applicationDbContext[1];
+                    ViewBag.livro3 = applicationDbContext[2];
+                    ViewBag.livro4 = applicationDbContext[3];
+                    ViewBag.livro5 = applicationDbContext[4];
+                    ViewBag.livro6 = applicationDbContext[5];
+                    ViewBag.livro7 = applicationDbContext[6];
+                    ViewBag.livro8 = applicationDbContext[7];
+                    ViewBag.livro9 = applicationDbContext[8];
+                    ViewBag.livro10 = applicationDbContext[9];
+                }
+                else
+                {
+                ViewBag.livro1 = RepositoryPagina.livros[0];
+                ViewBag.livro2 = RepositoryPagina.livros[1];
+                ViewBag.livro3 = RepositoryPagina.livros[2];
+                ViewBag.livro4 = RepositoryPagina.livros[3];
+                ViewBag.livro5 = RepositoryPagina.livros[4];
+                ViewBag.livro6 = RepositoryPagina.livros[5];
+                ViewBag.livro7 = RepositoryPagina.livros[6];
+                ViewBag.livro8 = RepositoryPagina.livros[7];
+                ViewBag.livro9 = RepositoryPagina.livros[8];
+                ViewBag.livro10 = RepositoryPagina.livros[9];
+
+                }
+                return View();
+           }
+
+             [HttpPost]
+           public async Task<IActionResult> DefinirLivros(string livro)
+           {
+                var form = await Request.ReadFormAsync();
+                Random randNum = new Random();
+
+                foreach(var item in form)
+                {
+                    if(item.Key.ToString().Contains("livro"))
+                    {
+                        if(item.Value.ToString()[item.Value.ToString().Length - 1] == '/')
+                        item.Value.ToString()
+                        .Replace(item.Value.ToString()[item.Value.ToString().Length - 1].ToString(), "");
+                        RepositoryPagina.livros[int.Parse(item.Key.ToString().Replace("livro", "")) - 1] =
+                        item.Value.ToString();
+                    }
+                }
+
+            var dia = DateTime.Now.Day;
+            if(dia == 31) dia -= 21; else
+            if(dia > 20) dia -= 20; else
+            if(dia > 10) dia -= 10;
+
+            if(!string.IsNullOrEmpty(RepositoryPagina.livros[dia - 1]))
+            RepositoryPagina.outroLivro = RepositoryPagina.livros[dia];
+            else
+            {
+                RepositoryPagina.outroLivro = Configuration.GetConnectionString("Livro");
+                RepositoryPagina.outroCapitulo = 1;
+            }
+
+            if(!string.IsNullOrEmpty(RepositoryPagina.outroLivro) &&
+            RepositoryPagina.outroLivro != Configuration.GetConnectionString("Livro"))
+            {
+               var capitulos = RepositoryPagina.RetornarCapitulos(RepositoryPagina.outroLivro);
+               RepositoryPagina.outroCapitulo = randNum.Next(1, capitulos);
+            }
+
 
             return RedirectToAction("Index", "Home");  
            }

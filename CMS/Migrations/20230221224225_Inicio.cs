@@ -42,11 +42,27 @@ namespace CMS.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    Image = table.Column<string>(nullable: true)
+                    Image = table.Column<string>(nullable: true),
+                    Livro = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Comentario",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    IdPagina = table.Column<long>(nullable: false),
+                    Capitulo = table.Column<int>(nullable: false),
+                    Verso = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comentario", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -225,6 +241,7 @@ namespace CMS.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Comentario = table.Column<bool>(nullable: false),
+                    Inportado = table.Column<bool>(nullable: false),
                     Nome = table.Column<string>(nullable: true),
                     PaginaPadraoLink = table.Column<int>(nullable: false)
                 },
@@ -248,6 +265,20 @@ namespace CMS.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Telefone", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "VideoIncorporado",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Tamanho = table.Column<int>(nullable: true),
+                    ArquivoVideoIncorporado = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VideoIncorporado", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -1092,6 +1123,9 @@ namespace CMS.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Comentario");
+
+            migrationBuilder.DropTable(
                 name: "Cor");
 
             migrationBuilder.DropTable(
@@ -1135,6 +1169,9 @@ namespace CMS.Migrations
 
             migrationBuilder.DropTable(
                 name: "Telefone");
+
+            migrationBuilder.DropTable(
+                name: "VideoIncorporado");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

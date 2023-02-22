@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230211010516_Inportado")]
-    partial class Inportado
+    [Migration("20230222142840_camadas")]
+    partial class camadas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,6 +37,8 @@ namespace CMS.Migrations
                     b.Property<bool>("EmailConfirmed");
 
                     b.Property<string>("Image");
+
+                    b.Property<string>("Livro");
 
                     b.Property<bool>("LockoutEnabled");
 
@@ -337,6 +339,23 @@ namespace CMS.Migrations
                     b.ToTable("PaginaContainer");
                 });
 
+            modelBuilder.Entity("business.business.Comentario", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Capitulo");
+
+                    b.Property<long>("IdPagina");
+
+                    b.Property<int>("Verso");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Comentario");
+                });
+
             modelBuilder.Entity("business.business.Container", b =>
                 {
                     b.Property<long>("Id")
@@ -442,6 +461,91 @@ namespace CMS.Migrations
                     b.HasIndex("ElementoId");
 
                     b.ToTable("ElementoDependenteElemento");
+                });
+
+            modelBuilder.Entity("business.business.Group.CamadaDez", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("CamadaNoveId");
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CamadaNoveId");
+
+                    b.ToTable("CamadaDez");
+                });
+
+            modelBuilder.Entity("business.business.Group.CamadaNove", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("CamadaOitoId");
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CamadaOitoId");
+
+                    b.ToTable("CamadaNove");
+                });
+
+            modelBuilder.Entity("business.business.Group.CamadaOito", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("CamadaSeteId");
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CamadaSeteId");
+
+                    b.ToTable("CamadaOito");
+                });
+
+            modelBuilder.Entity("business.business.Group.CamadaSeis", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome");
+
+                    b.Property<long>("SubSubGrupoId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SubSubGrupoId");
+
+                    b.ToTable("CamadaSeis");
+                });
+
+            modelBuilder.Entity("business.business.Group.CamadaSete", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("CamadaSeisId");
+
+                    b.Property<string>("Nome");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CamadaSeisId");
+
+                    b.ToTable("CamadaSete");
                 });
 
             modelBuilder.Entity("business.business.Group.Grupo", b =>
@@ -573,6 +677,19 @@ namespace CMS.Migrations
                     b.ToTable("ItemPedido");
                 });
 
+            modelBuilder.Entity("business.business.Livro", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("url");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Livro");
+                });
+
             modelBuilder.Entity("business.business.MensagemChat", b =>
                 {
                     b.Property<long>("Id")
@@ -600,6 +717,16 @@ namespace CMS.Migrations
 
                     b.Property<string>("ArquivoMusic");
 
+                    b.Property<long?>("CamadaDezId");
+
+                    b.Property<long?>("CamadaNoveId");
+
+                    b.Property<long?>("CamadaOitoId");
+
+                    b.Property<long?>("CamadaSeisId");
+
+                    b.Property<long?>("CamadaSeteId");
+
                     b.Property<DateTime>("Data");
 
                     b.Property<string>("FlexDirection");
@@ -626,6 +753,16 @@ namespace CMS.Migrations
                         .IsRequired();
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CamadaDezId");
+
+                    b.HasIndex("CamadaNoveId");
+
+                    b.HasIndex("CamadaOitoId");
+
+                    b.HasIndex("CamadaSeisId");
+
+                    b.HasIndex("CamadaSeteId");
 
                     b.HasIndex("GrupoId");
 
@@ -768,6 +905,21 @@ namespace CMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Telefone");
+                });
+
+            modelBuilder.Entity("business.business.VideoIncorporado", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArquivoVideoIncorporado");
+
+                    b.Property<int?>("Tamanho");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VideoIncorporado");
                 });
 
             modelBuilder.Entity("business.div.Div", b =>
@@ -1229,6 +1381,46 @@ namespace CMS.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("business.business.Group.CamadaDez", b =>
+                {
+                    b.HasOne("business.business.Group.CamadaNove", "CamadaNove")
+                        .WithMany()
+                        .HasForeignKey("CamadaNoveId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.business.Group.CamadaNove", b =>
+                {
+                    b.HasOne("business.business.Group.CamadaOito", "CamadaOito")
+                        .WithMany()
+                        .HasForeignKey("CamadaOitoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.business.Group.CamadaOito", b =>
+                {
+                    b.HasOne("business.business.Group.CamadaSete", "CamadaSete")
+                        .WithMany()
+                        .HasForeignKey("CamadaSeteId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.business.Group.CamadaSeis", b =>
+                {
+                    b.HasOne("business.business.Group.SubSubGrupo", "SubSubGrupo")
+                        .WithMany()
+                        .HasForeignKey("SubSubGrupoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.business.Group.CamadaSete", b =>
+                {
+                    b.HasOne("business.business.Group.CamadaSeis", "CamadaSeis")
+                        .WithMany()
+                        .HasForeignKey("CamadaSeisId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("business.business.Group.Grupo", b =>
                 {
                     b.HasOne("business.business.Group.SubStory", "SubStory")
@@ -1284,6 +1476,26 @@ namespace CMS.Migrations
 
             modelBuilder.Entity("business.business.Pagina", b =>
                 {
+                    b.HasOne("business.business.Group.CamadaDez", "CamadaDez")
+                        .WithMany("Pagina")
+                        .HasForeignKey("CamadaDezId");
+
+                    b.HasOne("business.business.Group.CamadaNove", "CamadaNove")
+                        .WithMany("Pagina")
+                        .HasForeignKey("CamadaNoveId");
+
+                    b.HasOne("business.business.Group.CamadaOito", "CamadaOito")
+                        .WithMany("Pagina")
+                        .HasForeignKey("CamadaOitoId");
+
+                    b.HasOne("business.business.Group.CamadaSeis", "CamadaSeis")
+                        .WithMany("Pagina")
+                        .HasForeignKey("CamadaSeisId");
+
+                    b.HasOne("business.business.Group.CamadaSete", "CamadaSete")
+                        .WithMany("Pagina")
+                        .HasForeignKey("CamadaSeteId");
+
                     b.HasOne("business.business.Group.Grupo", "Grupo")
                         .WithMany("Pagina")
                         .HasForeignKey("GrupoId");

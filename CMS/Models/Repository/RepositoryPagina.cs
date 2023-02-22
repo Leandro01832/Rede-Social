@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,8 +49,42 @@ namespace CMS.Models.Repository
         }
 
        static string path = Directory.GetCurrentDirectory();       
-      public static string outroLivro = "https://localhost:5001";       
-     public  static int outroCapitulo = 1;       
+      public static string outroLivro = "https://localhost:5001";    
+
+      public  static int? outroCapitulo = 1;  
+
+     public static string[] livros = new string[10];
+
+     public static string Verificar(string url)
+      {     
+        
+            WebClient client = new WebClient();
+            var html = client.DownloadString(url);                        
+
+            if( html.Contains("<h1>Pagina não encontrada</h1>"))
+            return null;
+            else 
+            return html; 
+      }  
+
+      public static int RetornarCapitulos(string livro)
+      {
+        int cap = 1;
+         var url = livro + "/Renderizar/" + cap + "/" + 1 + "/1/user";   
+         var html = "teste";
+
+         while(html != null)
+         {
+            html = Verificar(url);
+            if(html != null)
+            {
+                cap++;
+                url = livro + "/Renderizar/" + cap + "/" + 1 + "/1/user";   
+            }
+
+         }
+        return cap;
+      }  
 
         //140 linhas
         public string CodCss { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss.cshtml")); } }  

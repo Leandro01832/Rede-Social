@@ -1,9 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UserModel> SignInManager
+@inject UserManager<UserModel> UserManager
+
+    
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Instag Leo</title>
+    <title>@ViewData["Title"] - Instagleo</title>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -31,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @Html.ActionLink("Instag Leo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Instagleo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -39,6 +45,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sites</a>
                             <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Livros", "Index", "Livro")</li>
                                 <li><a href="/Galeria" id="AcessoTemplates">Galeria de paginas</a></li>
                                 <li>@Html.ActionLink("Galeria de stories", "Index", "Story")</li>
                                 <li>@Html.ActionLink("Galeria de sub-stories", "Index", "SubStory")</li>
@@ -51,8 +58,34 @@
 
 
                         <li>@Html.ActionLink("Contatos", "Contatos", "Home")</li>
-                        <li>@Html.ActionLink("Area do Admin", "Admin", "SuperAdmin")</li>
+                        <li>@Html.ActionLink("Usuario", "Edit", "Home")</li>
 
+                        @if (SignInManager.IsSignedIn(User))
+{
+    var usuario = await UserManager.GetUserAsync(this.User);
+    if(usuario.UserName == ViewBag.user)
+    {
+                        <li>
+                            <form action="/SuperAdmin/DefinirLivros" method="post">
+                           
+                <input id="livro1" name="livro1" class="form-control" type="hidden" value="@ViewBag.livro1" >           
+                <input id="livro2" name="livro2" class="form-control" type="hidden" value="@ViewBag.livro2" >            
+                <input id="livro3" name="livro3" class="form-control" type="hidden" value="@ViewBag.livro3" >           
+                <input id="livro4" name="livro4" class="form-control" type="hidden" value="@ViewBag.livro4" >           
+                <input id="livro5" name="livro5" class="form-control" type="hidden" value="@ViewBag.livro5" >          
+                <input id="livro6" name="livro6" class="form-control" type="hidden" value="@ViewBag.livro6" >           
+                <input id="livro7" name="livro7" class="form-control" type="hidden" value="@ViewBag.livro7" >           
+                <input id="livro8" name="livro8" class="form-control" type="hidden" value="@ViewBag.livro8" >          
+                <input id="livro9" name="livro9" class="form-control" type="hidden" value="@ViewBag.livro9" >          
+                <input id="livro10" name="livro10" class="form-control" type="hidden" value="@ViewBag.livro10" >
+            
+                                <input type="submit" value="Definir livro" />
+                            </form>
+                        </li>
+
+    }
+    
+}
 
                     </ul>
 

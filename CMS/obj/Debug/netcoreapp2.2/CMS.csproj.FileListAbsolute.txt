@@ -1091,10 +1091,16 @@ C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Details.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Edit.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Index.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Comentar.g.cshtml.cs
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Edit.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\PaginaCriada.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Preview.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Livro\Create.g.cshtml.cs
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Livro\Delete.g.cshtml.cs
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Livro\Details.g.cshtml.cs
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Livro\Edit.g.cshtml.cs
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Livro\Index.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\ApagarElemento.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\BlocoFerramenta.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Pagina\Chat.g.cshtml.cs
@@ -1154,6 +1160,7 @@ C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Admin.g.cshtml
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\BaixarHtmlLivroCapitulo.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\BaixarHtmlLivroVerso.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\CompartilhaVerso.g.cshtml.cs
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\DefinirLivros.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\Incorporar.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\PaginaCriada.g.cshtml.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\VideoIncorporado\Create.g.cshtml.cs

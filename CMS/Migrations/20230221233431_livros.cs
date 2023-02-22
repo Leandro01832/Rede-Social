@@ -3,39 +3,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CMS.Migrations
 {
-    public partial class comentario_livro : Migration
+    public partial class livros : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Livro",
-                table: "AspNetUsers",
-                nullable: true);
-
             migrationBuilder.CreateTable(
-                name: "Comentario",
+                name: "Livro",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    IdPagina = table.Column<long>(nullable: false),
-                    Capitulo = table.Column<int>(nullable: false),
-                    Verso = table.Column<int>(nullable: false)
+                    url = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comentario", x => x.Id);
+                    table.PrimaryKey("PK_Livro", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Comentario");
-
-            migrationBuilder.DropColumn(
-                name: "Livro",
-                table: "AspNetUsers");
+                name: "Livro");
         }
     }
 }

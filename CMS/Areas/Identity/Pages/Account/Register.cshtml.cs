@@ -55,14 +55,7 @@ namespace CMS.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
             [DataType(DataType.Url)]
-            public string Facebook { get; set; }
-
-            [Display(Name = "Twitter")]
-            [DataType(DataType.Url)]
-            public string Twiter { get; set; }
-
-            [DataType(DataType.Url)]
-            public string Instagram { get; set; }
+            public string Livro { get; set; }
 
 
             [Display(Name = "Nome de Usuario")]
@@ -103,60 +96,15 @@ namespace CMS.Areas.Identity.Pages.Account
                     Email = Input.Email,
                     Name = Input.Name.Trim().ToLower().Replace(" ", "-"),
                     Image = "/ImagensGaleria/Padrao.jpg",
+                    Livro = Input.Livro
                 };
+
+                if(user.Livro[user.Livro.Length - 1] == '/')
+                user.Livro.Replace(user.Livro[user.Livro.Length - 1].ToString(), "");
+                
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    var story = new Story
-                    {
-                        Nome = "Padrao"
-                    };
-                    await Context.AddAsync(story);
-
-
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Video");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Texto");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Imagem");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Carousel");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Background");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Music");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Link");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Div");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Elemento");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Pagina");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Ecommerce");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Formulario");
-                    await UserHelper.CreateUserASPAsync(user.UserName, "Admin");
-
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Video", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Texto", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Imagem", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Carousel", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Background", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Music", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Link", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Div", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Elemento", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Pagina", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Ecommerce", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Formulario", UserId = user.Id, UserName = user.UserName });
-                    await Context.Permissao.AddAsync(new Permissao
-                    { NomePermissao = "Admin", UserId = user.Id, UserName = user.UserName });
-
-                    await Context.SaveChangesAsync();
-
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

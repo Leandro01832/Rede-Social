@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CMS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class SubStoryController : Controller
     {
         private readonly ApplicationDbContext _context;

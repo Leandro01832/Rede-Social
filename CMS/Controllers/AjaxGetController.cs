@@ -186,6 +186,18 @@ namespace CMS.Controllers
             return Json(null);
         }
 
+         public JsonResult BuscarLivros(string valor)
+        {
+            if (valor != null)
+            {
+                var lista = db.Livro.Where(b => b.url.ToLower().Contains(valor.ToLower()));
+                return Json(lista);              
+            }
+            else
+            return Json(null);
+        }
+
+
 
         public JsonResult GetPastas(string Pagina)
         {

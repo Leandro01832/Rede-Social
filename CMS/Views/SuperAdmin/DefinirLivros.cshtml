@@ -1,0 +1,170 @@
+
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="row">
+    <div id="pesquisar" class="col-md-6">
+        <label>Pesquisa</label>
+    <input id="pesquisa" name="pesquisa" type="url" >             
+
+    </div>
+<div id="listaUrls" style="display:none; z-index:2000;" class="jumbotron col-md-2">
+
+            </div> 
+</div>
+
+
+    <div class="col-md-4">
+
+        @using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="">
+    <h4>Definir livros</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" }) 
+
+
+            <div class="form-group">
+                <label class="control-label">livro 1 - compartilhando em dia 1, 11 e 21</label>
+                <input id="livro1" name="livro1" class="form-control livros" type="url" value="@ViewBag.livro1"  >
+            </div>
+            <div class="form-group">
+                <label class="control-label">livro 2 - compartilhando em dia 2, 12 e 22</label>
+                <input id="livro2" name="livro2" class="form-control livros" type="url" value="@ViewBag.livro2" >
+            </div>
+            <div class="form-group">
+                <label class="control-label">livro 3 - compartilhando em dia 3, 13 e 23</label>
+                <input id="livro3" name="livro3" class="form-control livros" type="url" value="@ViewBag.livro3" >
+            </div>
+            <div class="form-group">
+                <label class="control-label">livro 4 - compartilhando em dia 4, 14 e 24</label>
+                <input id="livro4" name="livro4" class="form-control livros" type="url" value="@ViewBag.livro4" >
+            </div>
+            <div class="form-group">
+                <label class="control-label">livro 5 - compartilhando em dia 5, 15 e 25</label>
+                <input id="livro5" name="livro5" class="form-control livros" type="url" value="@ViewBag.livro5" >
+            </div>
+            <div class="form-group">
+                <label class="control-label">livro 6 - compartilhando em dia 6, 16 e 26</label>
+                <input id="livro6" name="livro6" class="form-control livros" type="url" value="@ViewBag.livro6" >
+            </div>
+            <div class="form-group">
+                <label class="control-label">livro 7 - compartilhando em dia 7, 17 e 27</label>
+                <input id="livro7" name="livro7" class="form-control livros" type="url" value="@ViewBag.livro7" >
+            </div>
+            <div class="form-group">
+                <label class="control-label">livro 8 - compartilhando em dia 8, 18 e 28</label>
+                <input id="livro8" name="livro8" class="form-control livros" type="url" value="@ViewBag.livro8" >
+            </div>
+            <div class="form-group">
+                <label class="control-label">livro 9 - compartilhando em dia 9, 19 e possivelmente 29</label>
+                <input id="livro9" name="livro9" class="form-control livros" type="url" value="@ViewBag.livro9" >
+            </div>
+            <div class="form-group">
+                <label class="control-label">livro 10 - compartilhando em dia 10, 20 e possivelmente 30</label>
+                <input id="livro10" name="livro10" class="form-control livros" type="url" value="@ViewBag.livro10" >
+            </div>
+
+            
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Definir" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+    </div>
+
+    
+
+
+<div>
+    @Html.ActionLink("Voltar para a lista", "Index")
+</div>
+
+<label>Lista:</label>
+<input type="number" id="numeroAcesso" value="@ViewBag.pagina" min="1" />
+
+@section scripts{
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#numeroAcesso").change(function () {
+            window.location.href = "/SuperAdmin/DefinirLivros/" + $(this).val();
+        });
+
+});
+</script>
+
+<script type="text/javascript">
+
+             function buscarLivro(url)
+            {
+                var lista = $(".livros");
+                for(var i = 0; i < lista.length; i++)
+                {
+                    if(lista[i].value == "")
+                    {
+                        lista[i].value = url;
+                        break;
+                    }
+                }
+                 $("#listaUrls").css("display", "none");
+                 $("#pesquisa").val("");
+            }         
+
+</script>
+    
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            
+            
+            $("#pesquisa").keyup(function(){   
+         
+
+                 $.ajax({
+                    type: 'POST',
+                    url: '/AjaxGet/BuscarLivros',
+                    dataType: 'json',
+                    data: { valor: $(this).val() },
+                    success: function (data) {                       
+
+                        if (data == null)
+                            $("#listaUrls").css("display", "none");
+                        else
+                            $("#listaUrls").css("display", "block");
+                        $("#listaUrls").empty();
+                        $.each(data, function (i) {
+                            
+                            $("#listaUrls").append("<p>" +
+                             "<a href='#' onclick=" + "\"buscarLivro('"+ data[i].url+"');\" >" +
+                                data[i].url +
+                                "</a></p> <br>");
+                                              
+                        });
+                        
+
+                    },
+                    error: function (ex) {
+                        alert('Falha ao buscar urls.' + ex);
+                    }
+                });
+
+            });
+
+             
+
+        });
+</script>
+
+}
+
+

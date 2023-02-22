@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CMS.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class SubSubGrupoController : Controller
     {
         private readonly ApplicationDbContext _context;

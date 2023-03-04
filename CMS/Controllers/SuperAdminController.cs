@@ -376,14 +376,21 @@ namespace CMS.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Incorporar(long cod, long cap)
+        public async Task<IActionResult> Incorporar( long cap, long cod)
         {  
             var videos = "";     
             try { videos = await epositoryPagina.retornarVideos(cod); }
-            catch (System.Exception) 
+            catch (System.Exception ex) 
             {
+                 var lista = new List<Story>()
+                {new Story{Nome = "Escolha um capitulo de destino", PaginaPadraoLink = 0, Id = 0}};
+                var stories = await _context.Story.Where(str =>  str.Nome != "Padrao" && !str.Comentario).ToListAsync();
+                lista.AddRange(stories);
+                var lista2 = await _context.VideoIncorporado.ToListAsync();
                 ModelState.AddModelError("",
-                 "informe uma lista existente!!!");
+                 "informe uma lista existente!!!" + ex.Message);
+                 ViewBag.cap = new SelectList(lista, "Id", "CapituloComNome");
+                 ViewBag.cod = new SelectList(lista2, "Id", "Nome");
                  return View();
             } 
 
@@ -509,7 +516,7 @@ namespace CMS.Controllers
            public async Task<IActionResult> DefinirLivros(string livro)
            {
                 var form = await Request.ReadFormAsync();
-                Random randNum = new Random();
+                
 
                 foreach(var item in form)
                 {
@@ -533,14 +540,16 @@ namespace CMS.Controllers
             else
             {
                 RepositoryPagina.outroLivro = Configuration.GetConnectionString("Livro");
-                RepositoryPagina.outroCapitulo = 1;
+                var quant = await _context.Story.Where(str => str.Nome != "Padrao").ToListAsync();
+                RepositoryPagina.outroCapitulo = RepositoryPagina.randNum
+                .Next(1, quant.Count);
             }
 
             if(!string.IsNullOrEmpty(RepositoryPagina.outroLivro) &&
             RepositoryPagina.outroLivro != Configuration.GetConnectionString("Livro"))
             {
                var capitulos = RepositoryPagina.RetornarCapitulos(RepositoryPagina.outroLivro);
-               RepositoryPagina.outroCapitulo = randNum.Next(1, capitulos);
+               RepositoryPagina.outroCapitulo = RepositoryPagina.randNum.Next(1, capitulos);
             }
 
 

@@ -41,11 +41,10 @@
 
     <a href='#' id='Fechar' class='btn btn-primary' style="display:none;">Fechar Preview</a>
     <div class="form-horizontal" id="Formulario">
-        <h4>Pagina</h4>
-        <hr />
+       
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
-        <input name="idPagina" id="idPagina" value="@ViewBag.idPagina" type="number" />        
+        <input name="idPagina" id="idPagina" value="@ViewBag.idPagina" type="hidden" />        
 
         <div class="form-group">
             <label id="PalavrasTexto" name="PalavrasTexto" class="control-label">Conteudo:</label>

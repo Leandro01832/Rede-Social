@@ -2,7 +2,8 @@ $(document).ready(function() {
 
     var indexSubStory = $("#indexsubstory").val();
 
-    var valorUser = $("#ValorUser").val();
+    var compartilhante = $("#compartilhante").val();
+    var auto = parseInt( $("#auto").val());
     var valorAtual = parseInt( $("#ValorAtual").val());
     var valorQuant = parseInt($("#ValorQuant").val()) ;
     var valorProximo = parseInt($("#ValorProximo").val());
@@ -33,12 +34,12 @@ $(document).ready(function() {
 
     $("#voltar").click(function() {
         redirecionar(valorAnterior);
-        window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorAnterior;
+        window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorAnterior + "/" + auto + "/" + compartilhante;
     });
 
     $("#avancar").click(function() {
         redirecionar(valorProximo);
-        window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorProximo;
+        window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorProximo + "/" + auto + "/" + compartilhante;
     });
 
     var checkbox = document.querySelector("#automatico");
@@ -51,28 +52,27 @@ $(document).ready(function() {
 
     if (valorAtual == 1) {
 
-        $.cookie('automatico', '1');
         ativarCheckbox(checkbox);
     }
 
     $("#automatico").change(function() {
 
         if ($("#automatico").is(':checked') == true) {
-            $.cookie('automatico', '1');
+           auto = 1;
             alert("As paginas serão mostradas automaticamente.");
             setTimeout(function() {
                 $("#loading").show();
 
                 if (valorAtual < valorQuant){
                     redirecionar(valorProximo);
-                    window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorProximo;
+                    window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + valorProximo + "/" + auto + "/" + compartilhante;
                 }
                 else
-                    window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory  + "/1";
+                    window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory  + "/1" + "/" + auto + "/" + compartilhante;
             }, tempo);
         }
         else
-            $.cookie('automatico', '0');
+        window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + indexSubStory  + "/" + valorAtual + "/" + 0 + "/" + compartilhante;
     });
 
     function BuscarStory() {
@@ -80,15 +80,15 @@ $(document).ready(function() {
             type: 'POST',
             url: '/AjaxGet/GetSubStory',
             dataType: 'json',
-            data: { Indice: valorPaginaPadraoLink, User: valorUser, IndiceSubStory : indexSubStory }
+            data: { Indice: valorPaginaPadraoLink, IndiceSubStory : indexSubStory }
         })
             .done(function(response) {
                 $.cookie('automatico', '1');
 
                 if(response[0] != 0)
-                window.location.href = "/SubStory/" + response[0] + "/" + response[1] + "/1";
+                window.location.href = "/SubStory/" + response[0] + "/" + response[1] + "/1" + "/" + auto + "/" + compartilhante;
                 else
-                window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/1";
+                window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/1/" + auto + "/" + compartilhante;
             });
     }
 
@@ -105,17 +105,17 @@ $(document).ready(function() {
                     });
              }
 
-    if ($.cookie('automatico') == '1') {
+    if (auto == 1) {
         ativarCheckbox(checkbox);
         setTimeout(function() {
 
-            if ($.cookie('automatico') == '1')
+            if (auto == 1)
                 $("#loading").show();
-            if (valorAtual < valorQuant && $.cookie('automatico') == '1'){
+            if (valorAtual < valorQuant && auto == 1){
                 redirecionar(valorProximo);
-                window.location.href = "/SubStory/" + valorPaginaPadraoLink  + "/" + indexSubStory + "/" + valorProximo;
+                window.location.href = "/SubStory/" + valorPaginaPadraoLink  + "/" + indexSubStory + "/" + valorProximo + "/" + auto + "/" + compartilhante;
             }
-            else if ($.cookie('automatico') == '1')             
+            else if (auto == 1)             
              BuscarStory();          
             
         }, tempo);

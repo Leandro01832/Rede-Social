@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tLXPXZzcOfGH7R1MPt97hF+5//4lSJh/w3Qezv8tPTQhBBLymnkeJ/H+B0bFOt2OmLM3N+b5c1JOGYze1VmehA==",
+  "dgSpecHash": "OlMre/kBnMPKxaUtJ3h+9xvFzr8+bMX+aykNKYpOSTeu+PoSyZS6oHBfCW4fnFSpp0HM17yUMJDhA1LmuomTSg==",
   "success": true,
   "projectFilePath": "C:\\rede-social\\CMS\\CMS.csproj",
   "expectedPackageFiles": [
@@ -217,11 +217,14 @@
     "C:\\Users\\leand\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\2.2.3\\microsoft.visualstudio.web.codegenerators.mvc.2.2.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\leand\\.nuget\\packages\\mysqlconnector\\0.49.2\\mysqlconnector.0.49.2.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\leand\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
     "C:\\Users\\leand\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\leand\\.nuget\\packages\\nvelocity\\1.2.0\\nvelocity.1.2.0.nupkg.sha512",
+    "C:\\Users\\leand\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\2.2.0\\pomelo.entityframeworkcore.mysql.2.2.0.nupkg.sha512",
+    "C:\\Users\\leand\\.nuget\\packages\\pomelo.jsonobject\\2.2.0\\pomelo.jsonobject.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\remotion.linq\\2.2.0\\remotion.linq.2.2.0.nupkg.sha512",
     "C:\\Users\\leand\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

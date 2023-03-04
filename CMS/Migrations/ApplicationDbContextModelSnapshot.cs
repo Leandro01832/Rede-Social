@@ -1382,7 +1382,7 @@ namespace CMS.Migrations
             modelBuilder.Entity("business.business.Group.CamadaDez", b =>
                 {
                     b.HasOne("business.business.Group.CamadaNove", "CamadaNove")
-                        .WithMany()
+                        .WithMany("CamadaDez")
                         .HasForeignKey("CamadaNoveId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -1390,7 +1390,7 @@ namespace CMS.Migrations
             modelBuilder.Entity("business.business.Group.CamadaNove", b =>
                 {
                     b.HasOne("business.business.Group.CamadaOito", "CamadaOito")
-                        .WithMany()
+                        .WithMany("CamadaNove")
                         .HasForeignKey("CamadaOitoId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -1398,7 +1398,7 @@ namespace CMS.Migrations
             modelBuilder.Entity("business.business.Group.CamadaOito", b =>
                 {
                     b.HasOne("business.business.Group.CamadaSete", "CamadaSete")
-                        .WithMany()
+                        .WithMany("CamadaOito")
                         .HasForeignKey("CamadaSeteId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -1406,7 +1406,7 @@ namespace CMS.Migrations
             modelBuilder.Entity("business.business.Group.CamadaSeis", b =>
                 {
                     b.HasOne("business.business.Group.SubSubGrupo", "SubSubGrupo")
-                        .WithMany()
+                        .WithMany("CamadaSeis")
                         .HasForeignKey("SubSubGrupoId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -1414,7 +1414,7 @@ namespace CMS.Migrations
             modelBuilder.Entity("business.business.Group.CamadaSete", b =>
                 {
                     b.HasOne("business.business.Group.CamadaSeis", "CamadaSeis")
-                        .WithMany()
+                        .WithMany("CamadaSete")
                         .HasForeignKey("CamadaSeisId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

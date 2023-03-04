@@ -45,16 +45,29 @@ namespace CMS
             var user = await UserManager.Users.
             FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
             var contexto = provider.GetService<ApplicationDbContext>();
-            
+
+        //     string[] stories =
+        //         {
+        //         "brinquedos", "moveis", "roupas", "calçados", "relogios", "eletrônicos", "eletrodomesticos",
+        //          "celular", "instrumentos", "cosmeticos", "notbooks"
+        //          };
+        //     string[] storiesEn =
+        //         {
+        //         "toy", "furniture", "clothes", "shoe", "clock", "electronics", "appliance",
+        //          "iphone", "instrument", "cosmetic", "notbooks"
+        //          };
             
         //     Random randNum = new Random();
-        //     var name = "notbooks";
+        //     for(var t = 0; t < stories.Length; t++)
+        //     {
+
+        //     var name = stories[t];
         //     var client = new HttpClient();
         //     var request = new HttpRequestMessage
         //     {
         //        Method = HttpMethod.Get,
         //        RequestUri =
-        //        new Uri("https://serpapi.com/search.json?q=notbook" +
+        //        new Uri($"https://serpapi.com/search.json?q={storiesEn[t]}" +
         //        "&tbm=shop&location=Dallas&hl=pt&gl=us&key=d0ebdc40d5e725ce2764208d4153772f10f531519c3952b626ce2f3a73191dd3"),
         //        Headers =
         //        {
@@ -97,7 +110,7 @@ namespace CMS
         //             SubSubGrupoId = null,
         //             Layout = false,
         //             Music = false,
-        //             pagina.Tempo = 11000
+        //             Tempo = 11000
         //     };  
         //     pag.Div = null;              
 
@@ -171,6 +184,7 @@ namespace CMS
 
 
         //        }
+        //     }
         //     }
 
             // if (RepositoryPagina.paginas[0] == null)     

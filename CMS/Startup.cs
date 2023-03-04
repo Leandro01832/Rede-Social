@@ -54,6 +54,7 @@ namespace CMS
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
+               // options.UseMySql( Configuration.GetConnectionString("DefaultConnection")));
                 options.UseSqlServer( Configuration.GetConnectionString("DefaultConnection")));
                // options.UseSqlServer(conecta1));
             services.AddDefaultIdentity<UserModel>()

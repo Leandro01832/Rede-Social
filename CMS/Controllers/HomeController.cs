@@ -24,6 +24,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using business.business.link;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CMS.Controllers
 {
@@ -320,7 +321,35 @@ namespace CMS.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+          [Authorize]
+        public async Task<ActionResult> Transmissao(string email)
+        {
+             var usuario = await UserManager.GetUserAsync(this.User);
 
+            ViewBag.email = email;
+
+            if (email == usuario.UserName)
+                ViewBag.condicao = true;
+            else
+                ViewBag.condicao = false;
+
+            return View(usuario);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> MinhaSala(string email)
+        {
+            var arr = email.Replace(" ", "").Split(',');
+
+            if (arr[0] == arr[1])
+                ViewBag.condicao2 = true;
+            else
+                ViewBag.condicao2 = false;
+
+            var usuario = await UserManager.GetUserAsync(this.User);
+
+            return PartialView(usuario);
+        }
 
     }
 }

@@ -153,5 +153,10 @@ namespace CMS.Data
                      
         public DbSet<business.business.VideoIncorporado> VideoIncorporado { get; set; }
         public DbSet<Comentario> Comentario { get; set; }
+        public DbSet<business.business.Group.CamadaSeis> CamadaSeis { get; set; }
+        public DbSet<business.business.Group.CamadaSete> CamadaSete { get; set; }
+        public DbSet<business.business.Group.CamadaOito> CamadaOito { get; set; }
+        public DbSet<business.business.Group.CamadaNove> CamadaNove { get; set; }
+        public DbSet<business.business.Group.CamadaDez> CamadaDez { get; set; }
     }
 }

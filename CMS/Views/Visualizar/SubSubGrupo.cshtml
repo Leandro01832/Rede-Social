@@ -60,6 +60,10 @@
         <div class="right col-xs-8" id="Pesquisa">
                        
             <a href="/" class="glyphicon glyphicon-home" ></a>
+
+             <a href="#" class="btn btn-primary agrupamento"  >
+                Camada nº 6
+            </a>
             
             <a id="voltar" href="#"
                class="btn btn-primary loader glyphicon glyphicon-chevron-left">
@@ -120,6 +124,24 @@
     </div>
 
      <div class="group" style="display:none; position:fixed; bottom:2%; left: 1%; width: 100%; background-color: rgba(239, 243, 11, 0.5); z-index: 2000;">       
+
+         @{
+            if(grupo.CamadaSeis != null && grupo.CamadaSeis.Where(str => str.Pagina.Count > 0).ToList().Count > 0){
+                for(int i = 1; i <= grupo.CamadaSeis.Where(str => str.Pagina.Count > 0).ToList().Count; i++)
+                {
+                         <center>
+                        <a href="/SubSubGrupo/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.grupoindexsubstory/@ViewBag.grupoindexgrupo/@ViewBag.grupoindexsubgrupo/@ViewBag.grupoindexsubsubgrupo/@i/1" class="btn btn-primary" >
+                          camada @i - @grupo.CamadaSeis.Where(str => str.Pagina.Count > 0).ToList()[i - 1].Nome
+                          </a>
+                        </center>
+                        <br />                   
+                }
+            }
+            else{
+              <center><p>não possui sub-sub-grupos</p></center>  
+            }
+
+        }
 
     </div>
 

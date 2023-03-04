@@ -1,9 +1,10 @@
 
-@media (max-width: 550px) {
+@media (max-width: 550px) and (min-width: 50px) {
 
-    .carousel-control {
-        display: block;
-        z-index: 40;
+    .blocoLoader2 {
+        display: block !important;
+        z-index: 40 !important;
+        
     }
 
     #Livro
@@ -53,6 +54,11 @@
         #message{
             width: 20%;
             
+        }
+
+        #user img
+        {
+            display: none;
         }
 
 }

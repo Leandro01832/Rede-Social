@@ -254,6 +254,46 @@
                                 " Capitulo " +data.subsubgrupo[i].capitulo+ " - Sub-Sub-Grupo "  + data.subsubgrupo[i].nome +
                                 "</a></p> <br>");
                         });
+                        
+                        $.each(data.camadaseis, function (i) {
+                             var url = data.camadaseis[i].url+"/1/"+compartilhante;
+                            $("#listaUrls").append("<p>" +
+                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                " Capitulo " +data.camadaseis[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadaseis[i].nome +
+                                "</a></p> <br>");
+                        });
+                      
+                        $.each(data.camadasete, function (i) {
+                             var url = data.camadasete[i].url+"/1/"+compartilhante;
+                            $("#listaUrls").append("<p>" +
+                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                " Capitulo " +data.camadasete[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadasete[i].nome +
+                                "</a></p> <br>");
+                        });
+                       
+                        $.each(data.camadaoito, function (i) {
+                             var url = data.camadaoito[i].url+"/1/"+compartilhante;
+                            $("#listaUrls").append("<p>" +
+                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                " Capitulo " +data.camadaoito[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadaoito[i].nome +
+                                "</a></p> <br>");
+                        });
+                        
+                        $.each(data.camadanove, function (i) {
+                             var url = data.camadanove[i].url+"/1/"+compartilhante;
+                            $("#listaUrls").append("<p>" +
+                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                " Capitulo " +data.camadanove[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadanove[i].nome +
+                                "</a></p> <br>");
+                        });
+                        
+                        $.each(data.camadadez, function (i) {
+                             var url = data.camadadez[i].url+"/1/"+compartilhante;
+                            $("#listaUrls").append("<p>" +
+                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                " Capitulo " +data.camadadez[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadadez[i].nome +
+                                "</a></p> <br>");
+                        });
                     },
                     error: function (ex) {
                         alert('Falha ao buscar urls.' + ex);

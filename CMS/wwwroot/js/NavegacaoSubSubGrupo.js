@@ -97,7 +97,7 @@ $(document).ready(function() {
                 if(response[0] != 0)
                 window.location.href = "/SubSubGrupo/" + response[0]  + "/" + response[1] + "/" + response[2] + "/" + response[3] + "/" + response[4] + "/1" + "/" + auto + "/" + compartilhante;
                 else
-                window.location.href = "/SubGrupo/" + valorPaginaPadraoLink + "/" + 1 + "/" + 1 + "/" + 1 + "/1" + "/" + auto + "/" + compartilhante;
+                window.location.href = "/SubGrupo/" + valorPaginaPadraoLink + "/1/1/1/1/" + auto + "/" + compartilhante;
             });
     }
 

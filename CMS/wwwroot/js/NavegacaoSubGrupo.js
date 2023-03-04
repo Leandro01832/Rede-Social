@@ -96,7 +96,7 @@ $(document).ready(function() {
                 if(response[0] != 0)
                 window.location.href = "/SubGrupo/" + response[0]  + "/" + response[1] + "/" + response[2] + "/" + response[3] + "/1" + "/" + auto + "/"  + compartilhante;
                 else
-                window.location.href = "/Grupo/" + valorPaginaPadraoLink + "/" + 1 + "/" + 1 + "/1" + "/" + auto + "/" + compartilhante;
+                window.location.href = "/Grupo/" + valorPaginaPadraoLink + "/1/1/1/"  + auto + "/" + compartilhante;
             });
     }
 

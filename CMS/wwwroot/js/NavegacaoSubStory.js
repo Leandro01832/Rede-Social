@@ -88,7 +88,7 @@ $(document).ready(function() {
                 if(response[0] != 0)
                 window.location.href = "/SubStory/" + response[0] + "/" + response[1] + "/1" + "/" + auto + "/" + compartilhante;
                 else
-                window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/1" + "/" + auto + "/" + compartilhante;
+                window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/1/" + auto + "/" + compartilhante;
             });
     }
 

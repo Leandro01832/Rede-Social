@@ -1,0 +1,160 @@
+﻿@model business.business.Pagina
+
+@{
+    Layout = "~/Views/Shared/_Render.cshtml";
+     business.business.Group.CamadaSete grupo = ViewBag.group;
+    var proximo = ViewBag.proximo;
+    var anterior = proximo - 2;
+    var atual = proximo - 1;
+    var quant = ViewBag.quantidadePaginas;
+    ViewData["NomeStory"] = Model.Titulo;
+    ViewBag.Title = Model.Titulo;
+    string valor = ViewBag.html;
+}
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="~/css/RenderizarDinamico.css" />
+    <link rel="stylesheet" href="~/css/RenderizarDinamico2.css" />
+    <link rel="stylesheet" href="~/css/mobile.css" />
+
+    <input type="hidden" value="@ViewBag.compartilhante" id="compartilhante" />
+    <input type="hidden" value="@ViewBag.auto" id="auto" />
+    <input type="hidden" value="@ViewBag.grupoindexcamadasete" id="indexcamadasete" />
+    <input type="hidden" value="@ViewBag.grupoindexcamadaseis" id="indexcamadaseis" />
+    <input type="hidden" value="@ViewBag.grupoindexsubsubgrupo" id="indexsubsubgrupo" />
+    <input type="hidden" value="@ViewBag.grupoindexsubgrupo" id="indexsubgrupo" />
+     <input type="hidden" value="@ViewBag.grupoindexgrupo" id="indexgrupo" />
+    <input type="hidden" value="@ViewBag.grupoindexsubstory" id="indexsubstory" />
+     <input type="hidden" value="@Model.Tempo" id="Tempo" />
+    <input type="hidden" value="@Model.Id" id="IdentificacaoPagina" />
+    <input type="hidden" value="@ViewBag.user" id="ValorUser" />
+    <input type="hidden" value="@atual" id="ValorAtual" />
+    <input type="hidden" value="@quant" id="ValorQuant" />
+    <input type="hidden" value="@proximo" id="ValorProximo" />
+    <input type="hidden" value="@anterior" id="ValorAnterior" />
+    <input type="hidden" value="@Model.Story.PaginaPadraoLink" id="ValorPaginaPadraoLink" />
+    <input type="hidden" value="@Model.Story.Nome" id="ValorStoryNome" />   
+
+    <a class="left carousel-control blocoLoader2" href="/SubSubGrupo/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.grupoindexsubstory/@ViewBag.grupoindexgrupo/@ViewBag.grupoindexsubgrupo/@ViewBag.grupoindexsubsubgrupo/@ViewBag.grupoindexcamadaseis/@ViewBag.grupoindexcamadasete/@(anterior)" style="display:none;">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+
+    <a class="right carousel-control blocoLoader2" href="/SubSubGrupo/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.grupoindexsubstory/@ViewBag.grupoindexgrupo/@ViewBag.grupoindexsubgrupo/@ViewBag.grupoindexsubsubgrupo/@ViewBag.grupoindexcamadaseis/@ViewBag.grupoindexcamadasete/@(proximo)" style="display:none;">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+
+    <div style="position:fixed; top:5px; width:100%;" class="blocoLoader">
+        <div class="col-xs-4">
+            @{
+                    <span style="font-size: 12px; background-color: white;">
+                        <strong style=" border: ridge; border-width: 5px; font-size: large;">
+                            Capítulo @Model.Story.PaginaPadraoLink
+                        </strong>
+                        <a href="/Renderizar/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.versiculo" class="btn btn-primary">
+                            Versiculo @ViewBag.versiculo
+                        </a>
+                    </span>
+            }
+        </div>
+
+        <div class="right col-xs-8" id="Pesquisa">
+                       
+            <a href="/" class="glyphicon glyphicon-home" ></a>
+
+            <a href="#" class="btn btn-primary agrupamento"  >
+                Camada nº 8
+            </a>
+            
+            <a id="voltar" href="#"
+               class="btn btn-primary loader glyphicon glyphicon-chevron-left">
+            </a>
+            <a id="avancar" href="#"
+               class="btn btn-primary loader glyphicon glyphicon-chevron-right">
+            </a>
+            
+        </div>
+
+    </div>
+
+    @Html.Raw(ViewBag.Html)
+
+    <div style="position:fixed; bottom:4%; width: 100%; overflow-x:auto;" class="Paginacao">
+
+        <center>
+            <a href="/Perfil/@ViewBag.user"  style="font-size:1.5rem; background-color:white; opacity: 0.80;">
+               <span class="text-primary" style="font-size: 2.5rem;" id="Livro" >Livro: @ViewBag.user</span> 
+            </a>
+            <h3 style="background-color:darkgray; opacity: 0.80;">@Html.CheckBox("automatico") Automático </h3>
+
+            <div class="DivPagina" style=" height:50px; overflow: hidden;">
+                <h4 style="background-color: yellow;">Camada @grupo.Nome</h4>
+                <span id="redireciona-1"></span> 
+                 @{
+                        for (var indice = 1; indice <= quant; indice++)
+                        {
+                            <div class="DivPag"
+                             style="width:22px; display:inline-grid; margin: 0px, 6px, 0px, 6px; background-color:darkgray; opacity: 0.80;"
+                             id="DivPagina@(indice)">
+
+                                <span class="glyphicon glyphicon-minus"
+                              style="font-size: 2rem;" id="record" ></span>
+
+                            </div>
+                            if(indice >= 20){
+                                <span id="redireciona-@(indice)"></span>
+                            }
+                        }                    
+                }
+
+            </div>
+        </center>
+
+        <div class="progressbar">
+                <div></div>
+            </div>
+
+    </div>
+
+    <div class="container1" style="display:none; position:fixed; bottom:2%; left: 1%; width: 100%; background-color: rgba(239, 243, 11, 0.5); z-index: 2000;">
+        <a class="btn btn-primary" href="#" id="fecharChat" > <span class="glyphicon glyphicon-remove-circle"></span> Fechar</a>
+    <input type="text" id="menssagemChat" placeholder="digite a mensagem aqui." />
+    <input type="button" id="sendmessage" value="Enviar mensagem" />
+    <input type="hidden" id="displayname" />
+    <ul id="discussion"></ul>
+    </div>
+
+     <div class="group" style="display:none; position:fixed; bottom:2%; left: 1%; width: 100%; background-color: rgba(239, 243, 11, 0.5); z-index: 2000;">       
+
+         @{
+            if(grupo.CamadaOito != null && grupo.CamadaOito.Where(str => str.Pagina.Count > 0).ToList().Count > 0){
+                for(int i = 1; i <= grupo.CamadaOito.Where(str => str.Pagina.Count > 0).ToList().Count; i++)
+                {
+                         <center>
+                        <a href="/SubSubGrupo/@ViewBag.user/@Model.Story.PaginaPadraoLink/@ViewBag.grupoindexsubstory/@ViewBag.grupoindexgrupo/@ViewBag.grupoindexsubgrupo/@ViewBag.grupoindexsubsubgrupo/@i/1" class="btn btn-primary" >
+                          camada @i - @grupo.CamadaOito.Where(str => str.Pagina.Count > 0).ToList()[i - 1].Nome
+                          </a>
+                        </center>
+                        <br />                   
+                }
+            }
+            else{
+              <center><p>não possui camadas</p></center>  
+            }
+
+        }
+
+    </div>
+
+    <div id="loading" style="display:none; z-index:50;"><img src="~/imagem/loader.gif" /></div>
+
+@section scripts{
+  
+    <script src="~/lib/aspnet-signalr/signalr.min.js"></script>
+    <script type="text/javascript" src="~/js/Chat-Renderizar.js"></script>
+    <script src="~/js/loader.js"></script>
+    <script type="text/javascript" src="~/js/NavegacaoSubSubGrupo.js"> </script>   
+    <script type="text/javascript" src="~/js/progressbar.js" >  </script>  
+
+}

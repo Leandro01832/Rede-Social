@@ -5,7 +5,8 @@ $(document).ready(function() {
     var indexSubGrupo = $("#indexsubgrupo").val();
     var indexSubSubGrupo = $("#indexsubsubgrupo").val();
 
-    var valorUser = $("#ValorUser").val();
+    var compartilhante = $("#compartilhante").val();
+    var auto = parseInt( $("#auto").val());
     var valorAtual = parseInt( $("#ValorAtual").val());
     var valorQuant = parseInt($("#ValorQuant").val()) ;
     var valorProximo = parseInt($("#ValorProximo").val());
@@ -36,12 +37,14 @@ $(document).ready(function() {
 
     $("#voltar").click(function() {
         redirecionar(valorAnterior);
-        window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + indexSubSubGrupo + "/" + valorAnterior;
+        window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" +
+         indexSubGrupo + "/" + indexSubSubGrupo + "/" + valorAnterior + "/" + auto + "/" + compartilhante;
     });
 
     $("#avancar").click(function() {
         redirecionar(valorProximo);
-        window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + indexSubSubGrupo + "/" + valorProximo;
+        window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" +
+         indexSubGrupo + "/" + indexSubSubGrupo + "/" + valorProximo + "/" + auto + "/" + compartilhante;
     });
 
     var checkbox = document.querySelector("#automatico");
@@ -68,14 +71,17 @@ $(document).ready(function() {
 
                 if (valorAtual < valorQuant){
                     redirecionar(valorProximo);
-                    window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + indexSubSubGrupo + "/" + valorProximo;
+                    window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo +
+                     "/" + indexSubGrupo + "/" + indexSubSubGrupo + "/" + valorProximo + "/" + auto + "/" + compartilhante;
                 }
                 else
-                    window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo + "/" + indexSubGrupo + "/" + indexSubSubGrupo + "/1";
+                    window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo +
+                     "/" + indexSubGrupo + "/" + indexSubSubGrupo + "/1" + "/" + auto + "/" + compartilhante;
             }, tempo);
         }
         else
-            $.cookie('automatico', '0');
+        window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink + "/" + indexSubStory + "/" + indexGrupo +
+        "/" + indexSubGrupo + "/" + indexSubSubGrupo + "/" + valorAtual + "/" + 0 + "/" + compartilhante;
     });
 
     function BuscarStory() {
@@ -89,9 +95,9 @@ $(document).ready(function() {
                 $.cookie('automatico', '1');
 
                 if(response[0] != 0)
-                window.location.href = "/SubSubGrupo/" + response[0]  + "/" + response[1] + "/" + response[2] + "/" + response[3] + "/" + response[4] + "/1";
+                window.location.href = "/SubSubGrupo/" + response[0]  + "/" + response[1] + "/" + response[2] + "/" + response[3] + "/" + response[4] + "/1" + "/" + auto + "/" + compartilhante;
                 else
-                window.location.href = "/SubGrupo/" + valorPaginaPadraoLink + "/" + 1 + "/" + 1 + "/" + 1 + "/1";
+                window.location.href = "/SubGrupo/" + valorPaginaPadraoLink + "/1/1/1/1/" + auto + "/" + compartilhante;
             });
     }
 
@@ -108,17 +114,18 @@ $(document).ready(function() {
                     });
              }
 
-    if ($.cookie('automatico') == '1') {
+    if (auto == 1) {
         ativarCheckbox(checkbox);
         setTimeout(function() {
 
-            if ($.cookie('automatico') == '1')
+            if (auto == 1)
                 $("#loading").show();
-            if (valorAtual < valorQuant && $.cookie('automatico') == '1'){
+            if (valorAtual < valorQuant && auto == 1){
                 redirecionar(valorProximo);
-                window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink  + "/" + indexSubStory +  "/" + indexGrupo  + "/" + indexSubGrupo + "/" + indexSubSubGrupo + "/" + valorProximo;
+                window.location.href = "/SubSubGrupo/" + valorPaginaPadraoLink  + "/" + indexSubStory +  "/" + indexGrupo  +
+                 "/" + indexSubGrupo + "/" + indexSubSubGrupo + "/" + valorProximo + "/" + auto + "/" + compartilhante;
             }
-            else if ($.cookie('automatico') == '1')             
+            else if (auto == 1)             
              BuscarStory();          
             
         }, tempo);

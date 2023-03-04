@@ -53,6 +53,8 @@ namespace CMS.Models.Repository
 
       public  static int? outroCapitulo = 1;  
 
+      public static Random randNum = new Random();
+
      public static string[] livros = new string[10];
 
      public static string Verificar(string url)
@@ -219,6 +221,56 @@ namespace CMS.Models.Repository
                 .ThenInclude(b => b.SubGrupo)
                 .ThenInclude(b => b.SubSubGrupo)
                 .ThenInclude(b => b.Pagina)
+                
+                .Include(p => p.Story)
+                .ThenInclude(b => b.SubStory)
+                .ThenInclude(b => b.Grupo)
+                .ThenInclude(b => b.SubGrupo)
+                .ThenInclude(b => b.SubSubGrupo)
+                .ThenInclude(b => b.CamadaSeis)
+                .ThenInclude(b => b.Pagina)
+                
+                .Include(p => p.Story)
+                .ThenInclude(b => b.SubStory)
+                .ThenInclude(b => b.Grupo)
+                .ThenInclude(b => b.SubGrupo)
+                .ThenInclude(b => b.SubSubGrupo)
+                .ThenInclude(b => b.CamadaSeis)
+                .ThenInclude(b => b.CamadaSete)
+                .ThenInclude(b => b.Pagina)
+               
+                .Include(p => p.Story)
+                .ThenInclude(b => b.SubStory)
+                .ThenInclude(b => b.Grupo)
+                .ThenInclude(b => b.SubGrupo)
+                .ThenInclude(b => b.SubSubGrupo)
+                .ThenInclude(b => b.CamadaSeis)
+                .ThenInclude(b => b.CamadaSete)
+                .ThenInclude(b => b.CamadaOito)
+                .ThenInclude(b => b.Pagina)
+               
+                .Include(p => p.Story)
+                .ThenInclude(b => b.SubStory)
+                .ThenInclude(b => b.Grupo)
+                .ThenInclude(b => b.SubGrupo)
+                .ThenInclude(b => b.SubSubGrupo)
+                .ThenInclude(b => b.CamadaSeis)
+                .ThenInclude(b => b.CamadaSete)
+                .ThenInclude(b => b.CamadaOito)
+                .ThenInclude(b => b.CamadaNove)
+                .ThenInclude(b => b.Pagina)
+                
+                .Include(p => p.Story)
+                .ThenInclude(b => b.SubStory)
+                .ThenInclude(b => b.Grupo)
+                .ThenInclude(b => b.SubGrupo)
+                .ThenInclude(b => b.SubSubGrupo)
+                .ThenInclude(b => b.CamadaSeis)
+                .ThenInclude(b => b.CamadaSete)
+                .ThenInclude(b => b.CamadaOito)
+                .ThenInclude(b => b.CamadaNove)
+                .ThenInclude(b => b.CamadaDez)
+                .ThenInclude(b => b.Pagina)
 
                 .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Background).ThenInclude(b => b.Imagem)
                 .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Background).ThenInclude(b => b.Cores)
@@ -267,7 +319,8 @@ namespace CMS.Models.Repository
         public async Task<string> retornarVideos(long lista)
         {
             var end = await contexto.VideoIncorporado.FirstAsync(vi => vi.Id == lista);
-            return File.ReadAllText(Path.Combine(path + $"/wwwroot/Arquivotxt{end.ArquivoVideoIncorporado}.txt"));
+            return File.ReadAllText
+            (Path.Combine(path + $"\\wwwroot{end.ArquivoVideoIncorporado.Replace("/","\\")}.txt"));
         }
     }
 }

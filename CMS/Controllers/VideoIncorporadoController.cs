@@ -72,29 +72,18 @@ namespace CMS.Controllers
 
                var filename = "videos" + video.Id;
 
-            video.ArquivoVideoIncorporado = "/VideoIncorporado/" + filename;
+            video.ArquivoVideoIncorporado = "/VideosIncorporar/" + filename;
             _context.Entry(video).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             
             if ( Request.Form.Files.Count > 0)
             {
-                var Image = Request.Form.Files[0];
-                byte[] buffer = new byte[16 * 1024];
-                using (FileStream output = System.IO.File.Create(this.HostingEnvironment.WebRootPath + "\\VideoIncorporado\\" +
-                    filename + ".jpg"))
+                using (FileStream output = 
+                new FileStream(this.HostingEnvironment.WebRootPath + "\\VideosIncorporar\\" +
+                    filename + ".txt", FileMode.Create))
                 {
-                    using (Stream input = Image.OpenReadStream())
-                    {
-                        long totalReadBytes = 0;
-                        int readBytes;
-
-                        while ((readBytes = input.Read(buffer, 0, buffer.Length)) > 0)
-                        {
-                            await output.WriteAsync(buffer, 0, readBytes);
-                            totalReadBytes += readBytes;
-                        }
-                    }
+                    await file.CopyToAsync(output);
                 }
             }
              return RedirectToAction(nameof(Index));

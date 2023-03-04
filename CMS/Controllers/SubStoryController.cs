@@ -64,8 +64,7 @@ namespace CMS.Controllers
 
         // GET: SubStory/Create
         public async Task<IActionResult> Create()
-        {
-            var user = await UserManager.GetUserAsync(this.User);
+        {            
             var stories = await _context.Story.Where(str => str.Nome != "Padrao" && !str.Comentario).ToListAsync();
             ViewData["StoryId"] = new SelectList(stories, "Id", "CapituloComNome");
             return View();
@@ -84,8 +83,7 @@ namespace CMS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-             var user = await UserManager.GetUserAsync(this.User);
+             
             var stories = await _context.Story.Where(str => str.Nome != "Padrao" && !str.Comentario).ToListAsync();
             ViewData["StoryId"] = new SelectList(stories, "Id", "CapituloComNome", subStory.StoryId);
             return View(subStory);
@@ -104,7 +102,7 @@ namespace CMS.Controllers
             {
                 return NotFound();
             }
-             var user = await UserManager.GetUserAsync(this.User);
+            
             var stories = await _context.Story.Where(str => str.Nome != "Padrao" && !str.Comentario).ToListAsync();
             ViewData["StoryId"] = new SelectList(stories, "Id", "CapituloComNome", subStory.StoryId);
             return View(subStory);
@@ -139,7 +137,7 @@ namespace CMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-             var user = await UserManager.GetUserAsync(this.User);
+             
             var stories = await _context.Story.Where(str => str.Nome != "Padrao" && !str.Comentario).ToListAsync();
             ViewData["StoryId"] = new SelectList(stories, "Id", "CapituloComNome", subStory.StoryId);
             return View(subStory);

@@ -1,0 +1,89 @@
+@model business.business.Group.CamadaDez
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+<h4>CamadaDez</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+             <div class="form-group">
+                <label class="control-label">Story</label>
+                <select id="StoryId" name="StoryId" class="form-control"></select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Sub-Story</label>
+                <select id="SubStoryId" name="SubStoryId" class="form-control"></select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Grupo</label>
+                <select id="GrupoId" name="GrupoId" class="form-control" ></select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Sub-Grupo</label>
+                <select id="SubGrupoId" name="SubGrupoId" class ="form-control"></select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Sub-Sub-Grupo</label>
+                <select id="SubSubGrupoId" name="SubSubGrupoId" class ="form-control" ></select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Camada nº 6</label>
+                <select id="CamadaSeisId" name="CamadaSeisId" class ="form-control" ></select>
+            </div>
+
+            <div class="form-group">
+                <label  class="control-label">Camada nº 7</label>
+                <select id="CamadaSeteId" name="CamadaSeteId" class ="form-control" ></select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Camada nº 8</label>
+                <select id="CamadaOitoId" name="CamadaOitoId" class ="form-control" ></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CamadaNoveId" class="control-label"></label>
+                <select asp-for="CamadaNoveId" class ="form-control" asp-items="ViewBag.CamadaNoveId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>
+
+@section scripts{
+  
+    <script type="text/javascript" src="~/js/AjaxGetGroup.js"></script>
+      
+
+}
+

@@ -204,6 +204,218 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.compartilhante = compartilhante;
                 return View(pagina);            
         }    
+         
+         [Route("CamadaSeis/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> CamadaSeis(string Name, int indice, int? capitulo, int substory,
+          int grupo, int subgrupo, int subsubgrupo, int camadaseis, int auto, string compartilhante)
+        {
+             await Verificar(capitulo);
+             var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
+            Pagina pag = lista.First();
+
+            var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
+             var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
+             var group3 = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
+              var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
+              var group5 = group4.CamadaSeis.Where(str => str.Pagina.Count > 0).Skip((int)camadaseis - 1).First(); 
+            Pagina pag2 = group5.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+            
+             Pagina pagina = lista.First(p => p.Id == pag2.Id);
+             int vers = lista.IndexOf(pagina) + 1;                    
+            
+                ViewBag.quantidadePaginas = group5.Pagina.Count(p => ! p.Layout);
+                ViewBag.group = group5;
+                ViewBag.versiculo = vers;
+                ViewBag.grupoindexsubstory = substory;
+                ViewBag.grupoindexgrupo = grupo;
+                ViewBag.grupoindexsubgrupo = subgrupo;
+                ViewBag.grupoindexsubsubgrupo = subsubgrupo;
+                ViewBag.grupoindexcamadaseis = camadaseis;
+                ViewBag.story = pagina.Story.Nome;
+                string html = "";
+                if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                html = pagina.Sobreescrita;
+                else
+                html =  epositoryPagina.renderizarPagina(pagina);
+                ViewBag.Html = html;
+                ViewBag.proximo = indice + 1;
+                ViewBag.compartilhante = compartilhante;
+                return View(pagina);            
+        }    
+         
+         [Route("CamadaSete/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> CamadaSete(string Name, int indice, int? capitulo, int substory,
+          int grupo, int subgrupo, int subsubgrupo, int camadaseis, int camadasete, int auto, string compartilhante)
+        {
+             await Verificar(capitulo);
+             var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
+            Pagina pag = lista.First();
+
+            var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
+             var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
+             var group3 = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
+              var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
+              var group5 = group4.CamadaSeis.Where(str => str.Pagina.Count > 0).Skip((int)camadaseis - 1).First(); 
+              var group6 = group5.CamadaSete.Where(str => str.Pagina.Count > 0).Skip((int)camadasete - 1).First(); 
+            Pagina pag2 = group6.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+            
+             Pagina pagina = lista.First(p => p.Id == pag2.Id);
+             int vers = lista.IndexOf(pagina) + 1;                    
+            
+                ViewBag.quantidadePaginas = group6.Pagina.Count(p => ! p.Layout);
+                ViewBag.group = group6;
+                ViewBag.versiculo = vers;
+                ViewBag.grupoindexsubstory = substory;
+                ViewBag.grupoindexgrupo = grupo;
+                ViewBag.grupoindexsubgrupo = subgrupo;
+                ViewBag.grupoindexsubsubgrupo = subsubgrupo;
+                ViewBag.grupoindexcamadaseis = camadaseis;
+                ViewBag.grupoindexcamadasete = camadasete;
+                ViewBag.story = pagina.Story.Nome;
+                string html = "";
+                if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                html = pagina.Sobreescrita;
+                else
+                html =  epositoryPagina.renderizarPagina(pagina);
+                ViewBag.Html = html;
+                ViewBag.proximo = indice + 1;
+                ViewBag.compartilhante = compartilhante;
+                return View(pagina);            
+        }    
+         
+         [Route("CamadaOito/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{camadaoito}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> CamadaOito(string Name, int indice, int? capitulo, int substory,
+          int grupo, int subgrupo, int subsubgrupo, int camadaseis, int camadasete, int camadaoito, int auto, string compartilhante)
+        {
+             await Verificar(capitulo);
+             var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
+            Pagina pag = lista.First();
+
+            var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
+             var group2  = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
+             var group3  = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
+              var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
+              var group5 = group4.CamadaSeis.Where(str => str.Pagina.Count > 0).Skip((int)camadaseis - 1).First(); 
+              var group6 = group5.CamadaSete.Where(str => str.Pagina.Count > 0).Skip((int)camadasete - 1).First(); 
+              var group7 = group6.CamadaOito.Where(str => str.Pagina.Count > 0).Skip((int)camadaoito - 1).First(); 
+            Pagina pag2 = group7.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+            
+             Pagina pagina = lista.First(p => p.Id == pag2.Id);
+             int vers = lista.IndexOf(pagina) + 1;                    
+            
+                ViewBag.quantidadePaginas = group7.Pagina.Count(p => ! p.Layout);
+                ViewBag.group = group7;
+                ViewBag.versiculo = vers;
+                ViewBag.grupoindexsubstory = substory;
+                ViewBag.grupoindexgrupo = grupo;
+                ViewBag.grupoindexsubgrupo = subgrupo;
+                ViewBag.grupoindexsubsubgrupo = subsubgrupo;
+                ViewBag.grupoindexcamadaseis = camadaseis;
+                ViewBag.grupoindexcamadasete = camadasete;
+                ViewBag.grupoindexcamadaoito = camadaoito;
+                ViewBag.story = pagina.Story.Nome;
+                string html = "";
+                if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                html = pagina.Sobreescrita;
+                else
+                html =  epositoryPagina.renderizarPagina(pagina);
+                ViewBag.Html = html;
+                ViewBag.proximo = indice + 1;
+                ViewBag.compartilhante = compartilhante;
+                return View(pagina);            
+        }    
+        
+         [Route("CamadaNove/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{camadaoito}/{camadanove}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> CamadaNove(string Name, int indice, int? capitulo, int substory,
+          int grupo, int subgrupo, int subsubgrupo, int camadaseis, int camadasete, int camadaoito,
+           int camadanove, int auto, string compartilhante)
+        {
+             await Verificar(capitulo);
+             var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
+            Pagina pag = lista.First();
+
+            var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
+             var group2  = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
+             var group3  = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
+              var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
+              var group5 = group4.CamadaSeis.Where(str => str.Pagina.Count > 0).Skip((int)camadaseis - 1).First(); 
+              var group6 = group5.CamadaSete.Where(str => str.Pagina.Count > 0).Skip((int)camadasete - 1).First(); 
+              var group7 = group6.CamadaOito.Where(str => str.Pagina.Count > 0).Skip((int)camadaoito - 1).First(); 
+              var group8 = group7.CamadaNove.Where(str => str.Pagina.Count > 0).Skip((int)camadanove - 1).First(); 
+            Pagina pag2 = group8.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+            
+             Pagina pagina = lista.First(p => p.Id == pag2.Id);
+             int vers = lista.IndexOf(pagina) + 1;                    
+            
+                ViewBag.quantidadePaginas = group8.Pagina.Count(p => ! p.Layout);
+                ViewBag.group = group8;
+                ViewBag.versiculo = vers;
+                ViewBag.grupoindexsubstory = substory;
+                ViewBag.grupoindexgrupo = grupo;
+                ViewBag.grupoindexsubgrupo = subgrupo;
+                ViewBag.grupoindexsubsubgrupo = subsubgrupo;
+                ViewBag.grupoindexcamadaseis = camadaseis;
+                ViewBag.grupoindexcamadasete = camadasete;
+                ViewBag.grupoindexcamadaoito = camadaoito;
+                ViewBag.grupoindexcamadanove = camadanove;
+                ViewBag.story = pagina.Story.Nome;
+                string html = "";
+                if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                html = pagina.Sobreescrita;
+                else
+                html =  epositoryPagina.renderizarPagina(pagina);
+                ViewBag.Html = html;
+                ViewBag.proximo = indice + 1;
+                ViewBag.compartilhante = compartilhante;
+                return View(pagina);            
+        }    
+        
+         [Route("CamadaDez/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{camadaoito}/{camadanove}/{camadadez}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> CamadaDez(string Name, int indice, int? capitulo, int substory,
+          int grupo, int subgrupo, int subsubgrupo, int camadaseis, int camadasete, int camadaoito,
+           int camadanove, int camadadez, int auto, string compartilhante)
+        {
+             await Verificar(capitulo);
+             var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
+            Pagina pag = lista.First();
+
+            var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
+             var group2  = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
+             var group3  = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
+              var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
+              var group5 = group4.CamadaSeis.Where(str => str.Pagina.Count > 0).Skip((int)camadaseis - 1).First(); 
+              var group6 = group5.CamadaSete.Where(str => str.Pagina.Count > 0).Skip((int)camadasete - 1).First(); 
+              var group7 = group6.CamadaOito.Where(str => str.Pagina.Count > 0).Skip((int)camadaoito - 1).First(); 
+              var group8 = group7.CamadaNove.Where(str => str.Pagina.Count > 0).Skip((int)camadanove - 1).First(); 
+              var group9 = group8.CamadaDez.Where(str => str.Pagina.Count > 0).Skip((int)camadadez - 1).First(); 
+            Pagina pag2 = group9.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+            
+             Pagina pagina = lista.First(p => p.Id == pag2.Id);
+             int vers = lista.IndexOf(pagina) + 1;                    
+            
+                ViewBag.quantidadePaginas = group9.Pagina.Count(p => ! p.Layout);
+                ViewBag.group = group9;
+                ViewBag.versiculo = vers;
+                ViewBag.grupoindexsubstory = substory;
+                ViewBag.grupoindexgrupo = grupo;
+                ViewBag.grupoindexsubgrupo = subgrupo;
+                ViewBag.grupoindexsubsubgrupo = subsubgrupo;
+                ViewBag.grupoindexcamadaseis = camadaseis;
+                ViewBag.grupoindexcamadasete = camadasete;
+                ViewBag.grupoindexcamadaoito = camadaoito;
+                ViewBag.grupoindexcamadanove = camadanove;
+                ViewBag.grupoindexcamadadez = camadadez;
+                ViewBag.story = pagina.Story.Nome;
+                string html = "";
+                if(!string.IsNullOrEmpty(pagina.Sobreescrita))
+                html = pagina.Sobreescrita;
+                else
+                html =  epositoryPagina.renderizarPagina(pagina);
+                ViewBag.Html = html;
+                ViewBag.proximo = indice + 1;
+                ViewBag.compartilhante = compartilhante;
+                return View(pagina);            
+        }    
 
         [Route("Comentarios/{Id}/{indice}")]
         public async Task<IActionResult> Comentarios(long Id, int indice)

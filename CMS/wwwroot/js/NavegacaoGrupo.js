@@ -89,7 +89,7 @@ $(document).ready(function() {
                 if(response[0] != 0)
                 window.location.href = "/Grupo/" + response[0]  + "/" + response[1] + "/" + response[2]  + "/1" + "/" + auto + "/" + compartilhante;
                 else
-                window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/" + 1 + "/1" + "/" + auto + "/" + compartilhante;
+                window.location.href = "/SubStory/" + valorPaginaPadraoLink + "/1/1/" + auto + "/" + compartilhante;
             });
     }
 

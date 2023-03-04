@@ -65,10 +65,8 @@ namespace CMS.Controllers
         }
 
         // GET: SubGrupo/Create
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
-            var usuario = await UserManager.GetUserAsync(this.User);
-            ViewBag.IdentificacaoUser = usuario.Id;
             return View();
         }
 
@@ -85,8 +83,6 @@ namespace CMS.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            var usuario = await UserManager.GetUserAsync(this.User);
-            ViewBag.IdentificacaoUser = usuario.Id;
             return View(subGrupo);
         }
 
@@ -103,8 +99,6 @@ namespace CMS.Controllers
             {
                 return NotFound();
             }
-            var usuario = await UserManager.GetUserAsync(this.User);
-            ViewBag.IdentificacaoUser = usuario.Id;
             return View(subGrupo);
         }
 
@@ -136,8 +130,6 @@ namespace CMS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            var usuario = await UserManager.GetUserAsync(this.User);
-            ViewBag.IdentificacaoUser = usuario.Id;
             return View(subGrupo);
         }
 

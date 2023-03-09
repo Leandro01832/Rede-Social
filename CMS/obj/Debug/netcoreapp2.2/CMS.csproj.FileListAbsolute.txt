@@ -1121,7 +1121,6 @@ C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Delete.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Details.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Edit.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Index.cshtml.g.cs
-C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Comentar.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Edit.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\PaginaCriada.cshtml.g.cs
@@ -1224,3 +1223,5 @@ C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\wwwroot\Arquivotxt\music.cshtml
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.genruntimeconfig.cache
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\MinhaSala.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Transmissao.cshtml.g.cs
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\Comentar.cshtml.g.cs
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Comentar.cshtml.g.cs

@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    var id = $("#IdentificacaoPagina").val();
     var compartilhante = $("#compartilhante").val();
     var auto = parseInt( $("#auto").val());
     var valorAtual = parseInt( $("#ValorAtual").val());
@@ -62,8 +63,6 @@ $(document).ready(function() {
     }
 
     if (valorAtual == 1) {
-
-      //  $.cookie('automatico', '1');
         ativarCheckbox(checkbox);
     }
 
@@ -129,7 +128,8 @@ $(document).ready(function() {
     });
 
     $("#LinkPadrao").click(function() {  
-        window.location.href = "/Renderizar/" + valorAtual + "/1" + "/" + auto + "/" + compartilhante;
+        desativarCheckbox(checkbox);
+        window.location.href = "/Renderizar/" + valorAtual + "/1/" + auto + "/" + compartilhante;
     });
 
     
@@ -141,5 +141,13 @@ $(document).ready(function() {
         $(".DivPagina").css("display", "none");
     
     });
+
+    $(".abrir").click(function () {
+        desativarCheckbox(checkbox);
+
+        $(".ProdutoContent").css("display", "none");
+        $("#comentario").css("display", "block");
+        $("#comentario").load("/Comentar/" + id);
+    });  
 
 });

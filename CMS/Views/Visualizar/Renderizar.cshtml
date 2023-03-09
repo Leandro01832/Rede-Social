@@ -90,7 +90,7 @@
             <a id="avancar" href="#"
                class="btn btn-primary loader glyphicon glyphicon-chevron-right">
             </a>
-            <a id="message" href="/Comentar/@Model.Id" class="btn btn-warning">
+            <a id="message" href="/Comentar/@Model.Id" class="btn btn-warning abrir">
                 <img src="~/imagem/blue-messager2.png" width="30" alt="mensagem" id="msg" />
             </a>
             <a href="#" class="btn btn-primary agrupamento">
@@ -121,8 +121,8 @@
     
 
      </div> 
-     
 
+     <div class="ProdutoContent">
      <!-- ProdutoContent -->
     @{
         if(Model.Produto != null)
@@ -164,6 +164,10 @@
     
 
     <!-- ProdutoContent -->   
+
+     </div>
+     
+
 
     <div id="PaginacaoConteudo" style="position:fixed; bottom:1%; width: 100%; " class="Paginacao">
 
@@ -209,6 +213,10 @@
         <div class="progressbar">
                 <div></div>
             </div>
+
+    </div>
+
+    <div id="comentario" style="display: none;">
 
     </div>
 

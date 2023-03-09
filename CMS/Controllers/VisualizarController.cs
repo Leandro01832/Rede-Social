@@ -13,6 +13,10 @@ using System.Data.SqlClient;
 using business.business.Group;
 using Microsoft.Extensions.Configuration;
 using CMS.Data;
+using business.Join;
+using business.business.Elementos.texto;
+using Microsoft.AspNetCore.Authorization;
+using business.business.link;
 
 namespace MeuProjetoAgora.Controllers
 {
@@ -489,6 +493,173 @@ namespace MeuProjetoAgora.Controllers
                 .Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).OrderBy(p => p.Id).ToListAsync());
              }
         }
+
+         [Authorize]
+        [Route("Comentar/{idPagina?}")]
+        public async Task <IActionResult> Comentar( long? idPagina)
+        {
+            if(idPagina != null)
+            ViewBag.idPagina = idPagina;
+            else
+            ViewBag.idPagina = 0;
+
+            if(RepositoryPagina.paginas.Where(p => p.Story.Comentario).ToList().Count == 0)
+             RepositoryPagina.paginas.AddRange(await epositoryPagina.includes()
+            .Where(p => p.Story.Comentario).ToListAsync());
+            var lista = await db.Comentario.Where(c => c.Id == idPagina)
+            .OrderBy(c => c.Id)
+            .ToListAsync();
+            var lista2 = new List<string>();
+
+            foreach(var item in lista)
+            {
+                var html = epositoryPagina
+                .renderizarPagina(RepositoryPagina.paginas.First(p => p.Id == item.IdPagina ));
+                lista2.Add( html + $" <hr /> <p> Capitulo {item.Capitulo} Verso {item.Verso}  </p>" );
+            }
+
+            ViewBag.comentarios = lista2;
+
+            return PartialView();
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("Comentar/{idPagina}")]
+        public async Task<IActionResult> Comentar(string Conteudo, long idPagina)
+        {
+            var user = await UserManager.GetUserAsync(this.User);
+            var Quant = await db.Story.Where(st => st.Nome != "Padrao").ToListAsync();
+            var comenta = await db.Story.Include(st => st.Pagina)
+            .Where(st => st.Comentario)
+            .OrderBy(st => st.Id)
+            .ToListAsync();
+            var Story = comenta.LastOrDefault();
+
+            if (Story == null || Story.Pagina.Where(p => !p.Layout).ToList().Count > 499)
+            {
+                Story = new Story
+                {
+                    Nome = "Comentario " + (comenta.Count + 1),
+                    Comentario = true,
+                    PaginaPadraoLink = Quant.Count + 1
+
+                };
+                db.Add(Story);
+                db.SaveChanges();
+
+                var str = await db.Story.FirstAsync(st => st.Nome == "Padrao");
+
+                var p = new Pagina()
+                {
+                    Data = DateTime.Now,
+                    ArquivoMusic = "",
+                    Titulo = "Story - " + str.Nome,
+                    CarouselPagina = new List<PaginaCarouselPagina>(),
+                    StoryId = str.Id,
+                    Sobreescrita = null,
+                    SubStoryId = null,
+                    GrupoId = null,
+                    SubGrupoId = null,
+                    SubSubGrupoId = null,
+                    Layout = false,
+                    Music = false,
+                    Tempo = 11000
+                };
+                p.Div = null;
+
+                db.Add(p);
+                db.SaveChanges();
+
+                var pagi = new Pagina(1);
+                pagi.Div.First(d => d.Container.Content).Container.Div
+                .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
+                pagi.Div.First(d => d.Container.Content).Container.Div
+                .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+                {
+                    Div = pagi.Div.First(d => d.Container.Content).Container.Div
+                    .First(d => d.Div.Content).Div,
+                    Elemento = new LinkBody
+                    {
+                        Pagina_ = p.Id,
+                        TextoLink = "#LinkPadrao",
+                        Texto = new Texto
+                        {
+                            Pagina_ = p.Id,
+                            PalavrasTexto = "<h1> Story " + Story.Nome + "</h1>"
+                        },
+                    }
+                });
+
+                p.Div = new List<PaginaContainer>();
+                foreach (var item in pagi.Div)
+                    p.IncluiDiv(item.Container);
+                db.SaveChanges();
+            }
+
+            var pagina = new Pagina()
+            {
+                Data = DateTime.Now,
+                ArquivoMusic = "",
+                Titulo = "Story - " + Story.Nome,
+                CarouselPagina = new List<PaginaCarouselPagina>(),
+                StoryId = Story.Id,
+                Sobreescrita = null,
+                SubStoryId = null,
+                GrupoId = null,
+                SubGrupoId = null,
+                SubSubGrupoId = null,
+                Layout = false,
+                Music = false,
+                Tempo = 11000
+            };
+            pagina.Div = null;
+
+            db.Add(pagina);
+            db.SaveChanges();
+
+            var pagin = new Pagina(1);
+            pagin.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
+            pagin.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+            {
+                Div = pagin.Div.First(d => d.Container.Content).Container.Div
+                .First(d => d.Div.Content).Div,
+                Elemento = new Texto
+                {
+                    Pagina_ = pagina.Id,
+                    PalavrasTexto = 
+                    $"<div id='usuario' style='display:nome;'>" +
+                    $" <img src='{user.Image}' width='30' >{user.UserName}</div> <br/> <br/> {Conteudo}"
+                }
+
+            });
+
+            pagina.Div = new List<PaginaContainer>();
+            foreach (var item in pagin.Div)
+
+                pagina.IncluiDiv(item.Container);
+
+            db.SaveChanges();
+            RepositoryPagina.paginas.Clear();
+
+            if(idPagina != 0)
+            {
+                var comentar = new Comentario
+                {
+                    IdPagina = idPagina,
+                     Capitulo = Story.PaginaPadraoLink,
+                     Verso = Story.Pagina.Where(p => !p.Layout).ToList().Count
+                };
+                db.Add(comentar);
+                db.SaveChanges();
+            }
+
+            return View();
+
+        }
+
         
 
     }

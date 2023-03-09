@@ -146,22 +146,64 @@ namespace CMS.Controllers
             else
             return View(user);
         }
-
-
-        [Authorize]
-        [Route("Comentar/{capitulo?}/{verso?}/{escolha?}")]
-        public IActionResult Comentar( long? idPagina)
+       
+        public ActionResult Preview(string Conteudo)
         {
-            if(idPagina != null)
-            ViewBag.idPagina = idPagina;
-            else
-            ViewBag.idPagina = 0;
+            ViewBag.html = Conteudo;
+            //return Json(html);
+            return PartialView("Preview");
+        }
+
+        public ActionResult PaginaCriada(int capitulo, int versiculo)
+        {
+            ViewBag.capitulo = capitulo;
+            ViewBag.versiculo = versiculo;
             return View();
         }
 
-        [HttpPost]
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+          [Authorize]
+        public async Task<ActionResult> Transmissao(string email)
+        {
+             var usuario = await UserManager.GetUserAsync(this.User);
+            ViewBag.email = email;
+
+            return View(usuario);
+        }
+
         [Authorize]
-        public async Task<IActionResult> Comentar(string Conteudo, long idPagina)
+        public async Task<ActionResult> MinhaSala()
+        {
+            var usuario = await UserManager.GetUserAsync(this.User);
+            var lista = await  UserManager.GetRolesAsync(usuario);
+                    if(lista.FirstOrDefault(i => i == "Admin") != null)
+                ViewBag.condicao = true;
+                    else
+                ViewBag.condicao = false;
+
+
+            return PartialView(usuario);
+        }
+
+         [Authorize]
+        [Route("Comentario/{idPagina?}")]
+        public IActionResult Comentar()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+         public async Task<IActionResult> Comentar(string Conteudo)
         {
             var user = await UserManager.GetUserAsync(this.User);
             var Quant = await _context.Story.Where(st => st.Nome != "Padrao").ToListAsync();
@@ -277,78 +319,9 @@ namespace CMS.Controllers
                 pagina.IncluiDiv(item.Container);
 
             _context.SaveChanges();
-            RepositoryPagina.paginas.Clear();
+            RepositoryPagina.paginas.Clear();           
 
-            if(idPagina != 0)
-            {
-                var comentar = new Comentario
-                {
-                    IdPagina = idPagina,
-                     Capitulo = Story.PaginaPadraoLink,
-                     Verso = Story.Pagina.Where(p => !p.Layout).ToList().Count
-                };
-                _context.Add(comentar);
-                _context.SaveChanges();
-            }
-
-            return RedirectToAction(nameof(PaginaCriada),
-            new { capitulo = Story.PaginaPadraoLink, versiculo = Story.Pagina.Where(p => !p.Layout).ToList().Count });
-
-        }
-
-        public ActionResult Preview(string Conteudo)
-        {
-            ViewBag.html = Conteudo;
-            //return Json(html);
-            return PartialView("Preview");
-        }
-
-        public ActionResult PaginaCriada(int capitulo, int versiculo)
-        {
-            ViewBag.capitulo = capitulo;
-            ViewBag.versiculo = versiculo;
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-          [Authorize]
-        public async Task<ActionResult> Transmissao(string email)
-        {
-             var usuario = await UserManager.GetUserAsync(this.User);
-
-            ViewBag.email = email;
-
-            if (email == usuario.UserName)
-                ViewBag.condicao = true;
-            else
-                ViewBag.condicao = false;
-
-            return View(usuario);
-        }
-
-        [Authorize]
-        public async Task<ActionResult> MinhaSala(string email)
-        {
-            var arr = email.Replace(" ", "").Split(',');
-
-            if (arr[0] == arr[1])
-                ViewBag.condicao2 = true;
-            else
-                ViewBag.condicao2 = false;
-
-            var usuario = await UserManager.GetUserAsync(this.User);
-
-            return PartialView(usuario);
         }
 
     }

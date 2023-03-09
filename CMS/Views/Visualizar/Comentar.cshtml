@@ -17,7 +17,7 @@
        
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
-             
+        <input name="idPagina" id="idPagina" value="@ViewBag.idPagina" type="hidden" />        
 
         <div class="form-group">
             <label id="PalavrasTexto" name="PalavrasTexto" class="control-label">Conteudo:</label>
@@ -34,13 +34,34 @@
 
 }
 
+<a href="#" class="btn btn-primary fechar" >Fechar</a>
 
+<div class="comentarios" style="height:350px; overflow: hidden; bottom: 1% position: fixed;" >
+        @{foreach(var item in lista)
+            {
+                @Html.Raw(item)
+                <br />
+                <hr />
+            }
+        }
+</div>
 
 
 @section scripts{
 
     <script type="text/javascript" src="~/js/AjaxGetGroup.js"></script>
-    <script type="text/javascript" src="~/js/FullScreen.js"></script>  
+    <script type="text/javascript" src="~/js/FullScreen.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".fechar").click(function () {
+                $(".ProdutoContent").css("display", "block");
+                $("#comentario").css("display", "none");
+            });           
+
+        });
+    </script>
 
 }
 

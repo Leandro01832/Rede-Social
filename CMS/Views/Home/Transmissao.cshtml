@@ -33,25 +33,7 @@
 
 <body>
 
-    <input type="hidden" value="@emails" id="Email" />
-
-    <div id="minhaSala" class="col-md-12">
-
-    </div>
-
-    <div class="col-md-12">
-        <h4>Usuario</h4>
-        <hr />
-        
-    </div>
-
-    @if (ViewBag.condicao)
-    {
-        <p>
-            @Html.ActionLink("Editar Usuario", "Edit", new { id = Model.Id })
-        </p>
-    }
-
+    <div id="minhaSala" class="col-md-12">    </div>
 
 </body>
 </html>
@@ -60,7 +42,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#minhaSala").load("/Home/MinhaSala", { email: $("#Email").val() });
+            $("#minhaSala").load("/Home/MinhaSala");
         });
     </script>
 

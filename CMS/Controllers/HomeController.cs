@@ -321,7 +321,7 @@ namespace CMS.Controllers
             _context.SaveChanges();
             RepositoryPagina.paginas.Clear();           
 
-            return View();
+            return View("Index", "Home");
         }
 
     }

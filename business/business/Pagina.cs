@@ -13,9 +13,6 @@ namespace business.business
 {
     public class Pagina : BaseModel
     {
-
-
-
         public Pagina()
         {
             if(Pagina.entity){
@@ -28,7 +25,7 @@ namespace business.business
                     }
 
                 };
-                Tempo = 15000;
+                Tempo = 11000;
             }
         }
         
@@ -43,7 +40,7 @@ namespace business.business
                 }
 
             };
-            Tempo = 15000;
+            Tempo = 11000;
         }
        
         public Pagina(int quant, int quantContainers)
@@ -59,7 +56,7 @@ namespace business.business
             };
             for (int i = 0; i < quantContainers; i++)
             Div.Add(new PaginaContainer());
-            Tempo = 15000;
+            Tempo = 11000;
         }
 
         private int mostrarDados = 0;
@@ -230,6 +227,11 @@ namespace business.business
         public string ArquivoMusic { get; set; }       
 
         public bool Music { get; set; }      
+
+        public long? Comentario { get; set; } 
+
+        [Display(Name = "Arquivo")]
+        public string ImagemContent { get; set; }  
         
         [JsonIgnore]
         public virtual List<PaginaContainer> Div { get; set; }

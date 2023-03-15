@@ -1,43 +1,49 @@
-﻿
+﻿@model IEnumerable<string>
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Comentar";
     List<string> lista = ViewBag.comentarios;
+       
 }
 
-    @using (Html.BeginForm())
-{
+
+
+
     @Html.AntiForgeryToken()
 
     <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=m8nq39l31dv5y829ehcjsd0rciwei8crem0yubndhdgs72fd"></script>
     <script src="~/js/Tynymce.js"></script>
 
-    <a href='#' id='Fechar' class='btn btn-primary' style="display:none;">Fechar Preview</a>
+    
     <div class="form-horizontal" id="Formulario">
        
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         
         <input name="idPagina" id="idPagina" value="@ViewBag.idPagina" type="hidden" />        
 
-        <div class="form-group">
+        <div class="form-group col-md-10">
             <label id="PalavrasTexto" name="PalavrasTexto" class="control-label">Conteudo:</label>
             <script type="text/javascript">Editar();</script>
             <textarea id="textarea" name="Conteudo" class="form-control"></textarea>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Comentar" class="btn btn-default" />
+            <div class=" col-md-10">
+              <center>
+                
+                <button id="comentar">Comentar</button>
+
+              </center>
             </div>
         </div>
     </div>
 
-}
 
-<a href="#" class="btn btn-primary fechar" >Fechar</a>
+    
 
-<div class="comentarios" style="height:350px; overflow: hidden; bottom: 1% position: fixed;" >
-        @{foreach(var item in lista)
+
+<div class="comentarios" style="height:350px; overflow: auto; bottom: 1% position: fixed;" >
+        @{foreach(var item in Model)
             {
                 @Html.Raw(item)
                 <br />
@@ -45,25 +51,39 @@
             }
         }
 </div>
+  
 
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
 
-@section scripts{
+$("#comentar").click(function(){
 
-    <script type="text/javascript" src="~/js/AjaxGetGroup.js"></script>
-    <script type="text/javascript" src="~/js/FullScreen.js"></script>
+       let token = $('[name=__RequestVerificationToken]').val();
 
-    <script type="text/javascript">
-        $(document).ready(function () {
+        let headers = {};
+        headers['RequestVerificationToken'] = token;
 
-            $(".fechar").click(function () {
-                $(".ProdutoContent").css("display", "block");
-                $("#comentario").css("display", "none");
-            });           
+        var data = 
+        {
+            IdPagina : parseInt($("#idPagina").val()),
+            Conteudo : $("#textarea").val(),
+            Message : ""
+        };
 
+        $.ajax({
+            url: '/Visualizar/FazerComentario',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            headers: headers
+        }).done(function (response) {            
+            alert(response.message);            
         });
-    </script>
 
-}
+   });
+
+</script>
+
 
 
 

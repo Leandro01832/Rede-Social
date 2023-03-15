@@ -1,0 +1,25 @@
+﻿
+
+<h4>Imagem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+
+        <form asp-action="ImageContent" asp-controller="SuperAdmin" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label  class="control-label">Story</label>
+                <select id="StoryId" name="StoryId" class="form-control" asp-items="@ViewBag.stories"></select>
+            </div>
+
+            
+                <div class="buttons">
+                    <div class="upload-button">
+                        <input id="files" name="files" type="file" multiple />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+           
+        </form>

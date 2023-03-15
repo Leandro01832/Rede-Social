@@ -875,6 +875,7 @@ namespace CMS.Migrations
                     Sobreescrita = table.Column<string>(nullable: true),
                     ArquivoMusic = table.Column<string>(nullable: true),
                     Music = table.Column<bool>(nullable: false),
+                    Comentario = table.Column<long>(nullable: true),
                     Layout = table.Column<bool>(nullable: false),
                     FlexDirection = table.Column<string>(nullable: true),
                     AlignItems = table.Column<string>(nullable: true),

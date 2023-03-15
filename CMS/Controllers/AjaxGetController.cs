@@ -1,5 +1,8 @@
 ﻿using business.business;
+using business.business.Elementos.texto;
 using business.business.Group;
+using business.business.link;
+using business.Join;
 using CMS.Data;
 using CMS.Models;
 using CMS.Models.Repository;
@@ -655,7 +658,7 @@ namespace CMS.Controllers
                     result[i] = 0;
                     return Json(result);     
                 }        
-        }
+        }        
 
          private  List<Story> RetornarStories(bool comentario)
         {     

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230303172557_Inicio")]
+    [Migration("20230313163004_Inicio")]
     partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -726,6 +726,8 @@ namespace CMS.Migrations
                     b.Property<long?>("CamadaSeisId");
 
                     b.Property<long?>("CamadaSeteId");
+
+                    b.Property<long?>("Comentario");
 
                     b.Property<DateTime>("Data");
 

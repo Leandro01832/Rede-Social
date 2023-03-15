@@ -1027,13 +1027,11 @@ C:\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.Views.pdb
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.CopyComplete
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.dll
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.pdb
-C:\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csprojAssemblyReference.cache
 C:\rede-social\CMS\bin\Debug\netcoreapp2.2\appsettings.Development.json
 C:\rede-social\CMS\bin\Debug\netcoreapp2.2\appsettings.json
 C:\rede-social\CMS\bin\Debug\netcoreapp2.2\bower.json
 C:\rede-social\CMS\bin\Debug\netcoreapp2.2\bundleconfig.json
 C:\rede-social\CMS\bin\Debug\netcoreapp2.2\global.json
-C:\rede-social\CMS\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
@@ -1225,3 +1223,6 @@ C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\MinhaSala.cshtml.g.c
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Transmissao.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Visualizar\Comentar.cshtml.g.cs
 C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\Home\Comentar.cshtml.g.cs
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.csproj.AssemblyReference.cache
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\CMS.GeneratedMSBuildEditorConfig.editorconfig
+C:\rede-social\CMS\obj\Debug\netcoreapp2.2\Razor\Views\SuperAdmin\ImageContent.cshtml.g.cs

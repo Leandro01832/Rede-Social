@@ -95,7 +95,7 @@ $(document).ready(function() {
         setTimeout(function() {
 
             setTimeout(function() {
-    
+               
     
                 if (auto == 1)
                     $("#loading").show();
@@ -109,7 +109,7 @@ $(document).ready(function() {
                     window.location.href = "/Renderizar/" + proximoCapitulo + "/1/" + auto + "/" + compartilhante;
                         //BuscarStory();
                     else
-                        window.location.href = "/Renderizar/0/1" + "/" + auto + "/" + compartilhante;
+                        window.location.href = "/Renderizar/0/1/" + auto + "/" + compartilhante;
                 }
             }, tempo);
 
@@ -128,7 +128,7 @@ $(document).ready(function() {
     });
 
     $("#LinkPadrao").click(function() {  
-        desativarCheckbox(checkbox);
+        
         window.location.href = "/Renderizar/" + valorAtual + "/1/" + auto + "/" + compartilhante;
     });
 
@@ -143,11 +143,27 @@ $(document).ready(function() {
     });
 
     $(".abrir").click(function () {
-        desativarCheckbox(checkbox);
+        
+      if($("#PalavrasTexto").length)
+      {
+        $(".ProdutoContent").css("display", "block");
+        $("#comentario")[0].innerHTML = "";
+        $("#comentario").css("display", "none");
+        $(".abrir").removeClass("btn-primary");
+        $(".abrir").addClass("btn-warning");
+      } 
+      else
+      {
+          $(".ProdutoContent").css("display", "none");
+          $("#comentario").css("display", "block");
+          $("#comentario").load("/Comentar/" + id);
+          $(".abrir").removeClass("btn-warning");
+        $(".abrir").addClass("btn-primary");
+      } 
+    }); 
+    
+    
+    
 
-        $(".ProdutoContent").css("display", "none");
-        $("#comentario").css("display", "block");
-        $("#comentario").load("/Comentar/" + id);
-    });  
-
+    
 });

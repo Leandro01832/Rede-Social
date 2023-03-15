@@ -24,6 +24,7 @@ using System.Text.RegularExpressions;
 using business.business.link;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using System.Net.Http.Headers;
 
 namespace CMS.Controllers
 {
@@ -555,6 +556,74 @@ namespace CMS.Controllers
 
             return RedirectToAction("Index", "Home");  
            }
+
+           public async Task<IActionResult> ImageContent()
+           {
+                var lista = new List<Story>()
+                {new Story{Nome = "Escolha um capitulo de destino", PaginaPadraoLink = 0, Id = 0}};
+                var stories = await _context.Story.Where(str =>  str.Nome != "Padrao" && !str.Comentario).ToListAsync();
+                lista.AddRange(stories);
+
+                if(stories.Count == 0)
+                {
+                    ViewBag.Error = "Crie seu story primeiro!!!";
+                    RedirectToAction("Create", "Story");
+                }
+
+                ViewBag.stories = new SelectList(lista, "Id", "CapituloComNome");
+                return View();
+           }
+
+        [HttpPost]
+        [RequestFormLimits(MultipartBodyLengthLimit = 409715200)]
+        [RequestSizeLimit(409715200)]
+        public async Task<IActionResult> ImageContent(IList<IFormFile> files, long StoryId, [FromServices] IHostingEnvironment hostingEnvironment)
+        {
+            foreach (IFormFile source in files)
+            {
+                string filename = ContentDispositionHeaderValue.Parse(source.ContentDisposition).FileName.ToString().Trim('"');
+
+
+                 var pagina = new Pagina()
+            {
+                 Data = DateTime.Now,
+                    ArquivoMusic = "",
+                    Titulo = "Imagem",
+                    CarouselPagina = new List<PaginaCarouselPagina>(),
+                    StoryId = StoryId,
+                    Sobreescrita = null,
+                    SubStoryId = null,
+                    GrupoId = null,
+                    SubGrupoId = null,
+                    SubSubGrupoId = null,
+                    Layout = false,
+                    Music = false,
+                    Tempo = 11000
+            };  
+            pagina.Div = null;           
+
+
+                using (FileStream output = 
+                new FileStream(this.HostingEnvironment.WebRootPath + "\\ImagemContent\\" +
+                    filename , FileMode.Create))
+                {
+                    await source.CopyToAsync(output);
+                }
+
+                pagina.ImagemContent = "/ImagemContent/" + filename;
+
+                _context.Add(pagina);
+                _context.SaveChanges(); 
+                pagina.Div = new List<PaginaContainer>(); 
+                var  pagin = new Pagina(1);  
+                foreach (var item in pagin.Div)            
+                pagina.IncluiDiv(item.Container);             
+                _context.SaveChanges();    
+
+                
+            }
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }

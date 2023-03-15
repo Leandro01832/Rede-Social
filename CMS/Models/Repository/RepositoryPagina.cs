@@ -200,9 +200,9 @@ namespace CMS.Models.Repository
             .Include(p => p.Story)
              .ThenInclude(b => b.Pagina)
 
-             .Include(p => p.Story)
-             .ThenInclude(b => b.SubStory)
-              .ThenInclude(b => b.Pagina)
+            .Include(p => p.Story)
+            .ThenInclude(b => b.SubStory)
+             .ThenInclude(b => b.Pagina)
 
                 .Include(p => p.Story)
                 .ThenInclude(b => b.SubStory)

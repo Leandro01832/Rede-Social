@@ -1,5 +1,7 @@
-﻿using business.business.Elementos;
+﻿using business.business;
+using business.business.Elementos;
 using business.business.Elementos.imagem;
+using business.Join;
 using CMS.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -212,6 +214,9 @@ namespace CMS.Controllers
             }
             return this.Content("success");
         }
+      
+      
+        
 
 
     }

@@ -20,6 +20,7 @@ using System.Collections;
 using SerpApi;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using CMS.Controllers;
 
 namespace CMS
 {
@@ -100,6 +101,7 @@ namespace CMS
             services.AddTransient<IRepositoryDiv, RepositoryDiv>();
             services.AddTransient<IRepositoryElemento, RepositoryElemento>();
             services.AddTransient<IUserHelper, UserHelper>();
+          //  services.AddHttpClient<ChatGptController>();
 
             services.AddAuthentication()
                 .AddGoogle(options =>

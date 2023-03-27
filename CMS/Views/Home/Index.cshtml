@@ -17,10 +17,28 @@
     #direita {
         right: 1%;
     }
+    
+    #partilha {
+        font-size: 18px;
+        color: rgb(95, 56, 23);
+        font-family: fantasy;
+    }
+    
+    #inscrito {
+        font-size: 14px;
+        color: rgb(212, 150, 65);
+        font-family: fantasy;
+    }
+    
+    #compartilhamentos {
+        font-size: 14px;
+        color: rgb(212, 150, 65);
+        font-family: fantasy;
+    }
 
    .topo{
        display:flex;
-       flex-direction: row;
+       flex-direction: row-reverse;
        flex-wrap: wrap;
        justify-content: space-between;
    }
@@ -38,31 +56,41 @@
 
 </script>
 
-<br />
-<br />
-<br />
+@ViewBag.message
 
-<div class="topo">
+<center>
+    <div class="form-group">
+                
+            <input id="livro" name="livro" class="form-control" type="url" placeholder="digite domínio ou o livro">            
+            @Html.ActionLink("Compartilhamentos", "Comentar", "Home", null, new {id = "compartilhamentos"})
+            </div>
+            <div id="listaUrls" style="position:absolute; display:none; z-index:2000;" class="jumbotron">
+
+            </div>
+</center>
+
+<div class="topo" style="z-index: 2;">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Sumário
 </button>
     
-    @Html.ActionLink("Compartilhe seu comentário", "Comentar", "Home")
-    <h4>Numero de inscritos: @ViewBag.users</h4>
-</div>
+    @Html.ActionLink("Compartilhe seu comentário", "Comentar", "Home", new {texto="..."}, new {id = "partilha"})
+    <h4 id="inscrito">Inscritos: @ViewBag.users</h4>
 
-<div style="z-index: 2;">
-        <center>
-            
+        <center>            
         <input type="text" id="NumeroPaginaAcesso" style="width:80%; margin-left: 60px;"
                placeholder="N° do capítulo ou o nome"  />
             <a id="acessoPaginaComInput"  class="btn btn-primary glyphicon glyphicon-search">
                 Acessar
             </a>
+            <div id="listaUrlGrupo" style="position:absolute; display:none; z-index:2000;" class="jumbotron">
+            </div>
+        </center>
+        <center>            
 
-            <label> capitulo @ViewBag.capitulo</label>
-        <input type="text" id="NumeroVersoAcesso" style="width:80%; margin-left: 60px;"
-               placeholder="N° do verso"  />
+            <label class="form-control" > capitulo @ViewBag.capitulo</label>
+        <input type="number" id="NumeroVersoAcesso" style="width:80%; margin-left: 60px;"
+               placeholder="N° do verso" min="1"  />
             <a id="acessoPaginaComVerso"  class="btn btn-primary glyphicon glyphicon-search">
                 Acessar
             </a>
@@ -70,15 +98,16 @@
     </div>
     <center>
 
-<div id="listaUrls" style="position:absolute; display:none; z-index:2000;" class="jumbotron">
 
-</div>
 
     </center>
 
         <div class="row">
             <div class="col-md-12">
-            <img src="~/imagem/story.jpg" class="img-responsive" style="width: 100%;"   />
+                <center>
+                <img src="~/imagem/story.jpg" class="img-responsive" style="width: 75%;"   />
+
+                </center>
             </div>        
         </div>
 
@@ -137,6 +166,57 @@
 
 
 @section Scripts {
+
+     <script type="text/javascript">
+
+             function buscarLivro(url)
+            {
+                document.getElementById("livro").value = url;
+                 $("#listaUrls").css("display", "none");
+            }         
+
+</script>
+    
+<script type="text/javascript">
+        $(document).ready(function () {
+
+            
+            
+            $("#livro").keyup(function(){   
+         
+
+                 $.ajax({
+                    type: 'POST',
+                    url: '/AjaxGet/BuscarLivros',
+                    dataType: 'json',
+                    data: { valor: $(this).val() },
+                    success: function (data) {
+
+                        if (data == null)
+                            $("#listaUrls").css("display", "none");
+                        else
+                            $("#listaUrls").css("display", "block");
+                        $("#listaUrls").empty();
+                        $.each(data, function (i) {
+                            
+                            $("#listaUrls").append("<p>" +
+                             "<a href='#' onclick=" + "\"buscarLivro('"+data[i].url+"');\" >" +
+                                data[i].url +
+                                "</a></p> <br>");
+                                              
+                        });
+                    },
+                    error: function (ex) {
+                        alert('Falha ao buscar urls.' + ex);
+                    }
+                });
+
+            });
+
+             
+
+        });
+</script>
     
 <script type="text/javascript">
         $(document).ready(function () {
@@ -166,6 +246,24 @@
             });
             return false;
     }
+           
+            function VerificarCompartilhamento(verso) {
+        $.ajax({
+            type: 'POST',
+            url: '/AjaxGet/verificarCompartilhamento',
+            dataType: 'json',
+            data: { Livro: "@ViewBag.livro", Capitulo: @ViewBag.capitulo, Verso: verso   }
+        })
+            .done(function(response) {                
+                debugger;
+                if(response != "")
+                window.location.href = response;
+                else
+                alert("Esta pagina não existe");
+
+            });
+            return false;
+    }
              
 
             $("#acessoPaginaComInput").click(function(){                
@@ -185,8 +283,7 @@
                 if($("#NumeroVersoAcesso").val() != "")
                 {
                     var num =  parseInt($("#NumeroVersoAcesso").val());
-                    window.location.href = "@ViewBag.livro" + "/Renderizar/"   + @ViewBag.capitulo +
-                      "/" + num + "/1/" + compartilhante;
+                    VerificarCompartilhamento(num);
                 }
                 else
                 alert("Informe o numero do verso!!!");
@@ -211,13 +308,13 @@
                     success: function (data) {
 
                         if (data == null)
-                            $("#listaUrls").css("display", "none");
+                            $("#listaUrlGrupo").css("display", "none");
                         else
-                            $("#listaUrls").css("display", "block");
-                        $("#listaUrls").empty();
+                            $("#listaUrlGrupo").css("display", "block");
+                        $("#listaUrlGrupo").empty();
                         $.each(data.story, function (i) {
                             var url = "/Renderizar/"+data.story[i].paginaPadraoLink+"/1/1/"+compartilhante;
-                            $("#listaUrls").append("<p>" +
+                            $("#listaUrlGrupo").append("<p>" +
                              "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.story[i].paginaPadraoLink+ " - "  + data.story[i].nome +
                                 "</a></p> <br>");
@@ -225,7 +322,7 @@
 
                         $.each(data.substory, function (i) {
                             var url = data.substory[i].url+"/1/"+compartilhante;
-                            $("#listaUrls").append("<p>" +
+                            $("#listaUrlGrupo").append("<p>" +
                              "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.substory[i].capitulo+ " - Sub-Story "  + data.substory[i].nome +
                                 "</a></p> <br>");
@@ -233,7 +330,7 @@
 
                         $.each(data.grupo, function (i) {
                             var url = data.grupo[i].url+"/1/"+compartilhante;
-                            $("#listaUrls").append("<p>" +
+                            $("#listaUrlGrupo").append("<p>" +
                              "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.grupo[i].capitulo+ " - Grupo "  + data.grupo[i].nome +
                                 "</a></p> <br>");
@@ -241,7 +338,7 @@
                         
                         $.each(data.subgrupo, function (i) {
                             var url = data.subgrupo[i].url+"/1/"+compartilhante;
-                            $("#listaUrls").append("<p>" +
+                            $("#listaUrlGrupo").append("<p>" +
                              "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.subgrupo[i].capitulo+ " - Sub-Grupo "  + data.subgrupo[i].nome +
                                 "</a></p> <br>");
@@ -249,7 +346,7 @@
 
                         $.each(data.subsubgrupo, function (i) {
                              var url = data.subsubgrupo[i].url+"/1/"+compartilhante;
-                            $("#listaUrls").append("<p>" +
+                            $("#listaUrlGrupo").append("<p>" +
                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.subsubgrupo[i].capitulo+ " - Sub-Sub-Grupo "  + data.subsubgrupo[i].nome +
                                 "</a></p> <br>");
@@ -257,7 +354,7 @@
                         
                         $.each(data.camadaseis, function (i) {
                              var url = data.camadaseis[i].url+"/1/"+compartilhante;
-                            $("#listaUrls").append("<p>" +
+                            $("#listaUrlGrupo").append("<p>" +
                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.camadaseis[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadaseis[i].nome +
                                 "</a></p> <br>");
@@ -265,7 +362,7 @@
                       
                         $.each(data.camadasete, function (i) {
                              var url = data.camadasete[i].url+"/1/"+compartilhante;
-                            $("#listaUrls").append("<p>" +
+                            $("#listaUrlGrupo").append("<p>" +
                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.camadasete[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadasete[i].nome +
                                 "</a></p> <br>");
@@ -273,7 +370,7 @@
                        
                         $.each(data.camadaoito, function (i) {
                              var url = data.camadaoito[i].url+"/1/"+compartilhante;
-                            $("#listaUrls").append("<p>" +
+                            $("#listaUrlGrupo").append("<p>" +
                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.camadaoito[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadaoito[i].nome +
                                 "</a></p> <br>");
@@ -281,7 +378,7 @@
                         
                         $.each(data.camadanove, function (i) {
                              var url = data.camadanove[i].url+"/1/"+compartilhante;
-                            $("#listaUrls").append("<p>" +
+                            $("#listaUrlGrupo").append("<p>" +
                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.camadanove[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadanove[i].nome +
                                 "</a></p> <br>");
@@ -289,7 +386,7 @@
                         
                         $.each(data.camadadez, function (i) {
                              var url = data.camadadez[i].url+"/1/"+compartilhante;
-                            $("#listaUrls").append("<p>" +
+                            $("#listaUrlGrupo").append("<p>" +
                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
                                 " Capitulo " +data.camadadez[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadadez[i].nome +
                                 "</a></p> <br>");

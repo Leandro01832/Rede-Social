@@ -13,8 +13,6 @@ using business.Join;
 using CMS.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 using business.business.div;
 
 namespace CMS.Data
@@ -35,9 +33,6 @@ namespace CMS.Data
         public DbSet<SubGrupo> SubGrupo { get; set; }
         public DbSet<Grupo> Grupo { get; set; }
         public DbSet<SubStory> SubStory { get; set; }
-        public DbSet<Solicitacao> Solicitacao { get; set; }
-        public DbSet<Seguindo> Seguindo { get; set; }
-        public DbSet<Seguidor> Seguidor { get; set; }
         public DbSet<Story> Story { get; set; }
         public DbSet<BackgroundGradiente> BackgroundGradiente { get; set; }
         public DbSet<BackgroundDiv> BackgroundDiv { get; set; }
@@ -158,5 +153,6 @@ namespace CMS.Data
         public DbSet<business.business.Group.CamadaOito> CamadaOito { get; set; }
         public DbSet<business.business.Group.CamadaNove> CamadaNove { get; set; }
         public DbSet<business.business.Group.CamadaDez> CamadaDez { get; set; }
+        public DbSet<business.business.Compartilhamento> Compartilhamento { get; set; }
     }
 }

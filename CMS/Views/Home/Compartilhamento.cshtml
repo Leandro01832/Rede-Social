@@ -1,0 +1,51 @@
+@model IEnumerable<business.business.Compartilhamento>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Compatlhamentos</title>
+</head>
+<body>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Livro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capitulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Verso)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data.ToString("dd/MM/yyyy"))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Livro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capitulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Verso)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

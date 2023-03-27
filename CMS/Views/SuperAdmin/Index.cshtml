@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<h1>Administrador</h1>
+
+
+@Html.ActionLink("Importar capitulo de livro", "BaixarHtmlLivroCapitulo", "SuperAdmin", null, new {Class="btn btn-primary"}) ||
+@Html.ActionLink("Importar verso de livro", "BaixarHtmlLivroVerso", "SuperAdmin", null, new {Class="btn btn-danger"}) ||
+@Html.ActionLink("Incorporar video do youtube", "Incorporar", "SuperAdmin", null, new {Class="btn btn-primary"}) ||
+@Html.ActionLink("Upload de arquivos txt", "Create", "VideoIncorporado", null, new {Class="btn btn-danger"}) ||
+@Html.ActionLink("Compartilhando com verso", "CompartilhaVerso", "SuperAdmin", null, new {Class="btn btn-primary"}) ||
+@Html.ActionLink("Definir livros", "DefinirLivros", "SuperAdmin", null, new {Class="btn btn-danger"}) ||
+@Html.ActionLink("Upload de imagens", "ImageContent", "SuperAdmin", null, new {Class="btn btn-primary"}) ||
+@Html.ActionLink("Conteudo com ChatGpt", "ChatGpt", "SuperAdmin", new {texto="..."}, new {Class="btn btn-danger"}) ||
+@Html.ActionLink("Videos de usuario de youtube", "VideosYoutube", "SuperAdmin", null, new {Class="btn btn-primary"}) ||
+
+
+

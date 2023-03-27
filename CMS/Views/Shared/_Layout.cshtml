@@ -42,21 +42,6 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sites</a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Livros", "Index", "Livro")</li>
-                                <li><a href="/Galeria" id="AcessoTemplates">Galeria de paginas</a></li>
-                                <li>@Html.ActionLink("Galeria de stories", "Index", "Story")</li>
-                                <li>@Html.ActionLink("Galeria de sub-stories", "Index", "SubStory")</li>
-                                <li>@Html.ActionLink("Galeria de grupos", "Index", "Grupo")</li>
-                                <li>@Html.ActionLink("Galeria de sub-grupos", "Index", "SubGrupo")</li>
-                                <li>@Html.ActionLink("Galeria de sub-sub-grupos", "Index", "SubSubGrupo")</li>
-                                <li>@Html.ActionLink("Galeria de produtos", "Index", "Produto")</li>
-                            </ul>
-                        </li>
-
-
                         <li>@Html.ActionLink("Contatos", "Contatos", "Home")</li>
                         <li>@Html.ActionLink("Usuario", "Edit", "Home")</li>
                         <li>@Html.ActionLink("Transmissão", "Transmissao", "Home")</li>
@@ -66,6 +51,25 @@
     var usuario = await UserManager.GetUserAsync(this.User);
     if(usuario.UserName == ViewBag.user)
     {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Config</a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Livros", "Index", "Livro")</li>
+                                <li><a href="/Galeria" id="AcessoTemplates">Galeria de paginas</a></li>
+                                <li>@Html.ActionLink("Galeria de stories", "Index", "Story")</li>
+                                <li>@Html.ActionLink("Galeria de sub-stories", "Index", "SubStory")</li>
+                                <li>@Html.ActionLink("Galeria de grupos", "Index", "Grupo")</li>
+                                <li>@Html.ActionLink("Galeria de sub-grupos", "Index", "SubGrupo")</li>
+                                <li>@Html.ActionLink("Galeria de sub-sub-grupos", "Index", "SubSubGrupo")</li>
+                                <li>@Html.ActionLink("Galeria da camada nº 6", "Index",  "CamadaSeis")</li>
+                                <li>@Html.ActionLink("Galeria da camada nº 7", "Index",  "CamadaSete")</li>
+                                <li>@Html.ActionLink("Galeria da camada nº 8", "Index",  "CamadaOito")</li>
+                                <li>@Html.ActionLink("Galeria da camada nº 9", "Index",  "CamadaNove")</li>
+                                <li>@Html.ActionLink("Galeria da camada nº 10", "Index", "CamadaDez")</li>
+                                <li>@Html.ActionLink("Galeria de produtos", "Index", "Produto")</li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Admin", "Index", "SuperAdmin")</li>
                         <li>
                             <form action="/SuperAdmin/DefinirLivros" method="post">
                            

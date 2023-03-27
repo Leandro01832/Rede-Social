@@ -47,10 +47,10 @@ C:\Users\leandro\rede-social\business\obj\Debug\netstandard2.0\business.csprojAs
 C:\rede-social\business\bin\Debug\netstandard2.0\business.deps.json
 C:\rede-social\business\bin\Debug\netstandard2.0\business.dll
 C:\rede-social\business\bin\Debug\netstandard2.0\business.pdb
-C:\rede-social\business\obj\Debug\netstandard2.0\business.csproj.CoreCompileInputs.cache
-C:\rede-social\business\obj\Debug\netstandard2.0\business.AssemblyInfoInputs.cache
-C:\rede-social\business\obj\Debug\netstandard2.0\business.AssemblyInfo.cs
-C:\rede-social\business\obj\Debug\netstandard2.0\business.dll
-C:\rede-social\business\obj\Debug\netstandard2.0\business.pdb
 C:\rede-social\business\obj\Debug\netstandard2.0\business.csproj.AssemblyReference.cache
 C:\rede-social\business\obj\Debug\netstandard2.0\business.GeneratedMSBuildEditorConfig.editorconfig
+C:\rede-social\business\obj\Debug\netstandard2.0\business.AssemblyInfoInputs.cache
+C:\rede-social\business\obj\Debug\netstandard2.0\business.AssemblyInfo.cs
+C:\rede-social\business\obj\Debug\netstandard2.0\business.csproj.CoreCompileInputs.cache
+C:\rede-social\business\obj\Debug\netstandard2.0\business.dll
+C:\rede-social\business\obj\Debug\netstandard2.0\business.pdb

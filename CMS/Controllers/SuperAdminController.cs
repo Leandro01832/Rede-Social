@@ -50,20 +50,8 @@ namespace CMS.Controllers
         }
 
               
-         public async Task<ActionResult> Admin()
+         public ActionResult Index()
         {
-            var user = await UserManager.GetUserAsync(this.User);
-            var stories = await _context.Story.Where(str =>  str.Nome != "Padrao" && !str.Comentario).ToListAsync();
-
-            if(stories.Count == 0)
-            {
-                ViewBag.Error = "Crie seu story primeiro!!!";
-                RedirectToAction("Create", "Story");
-            }
-
-            ViewBag.UserId = user.Id;
-            ViewBag.cap = new SelectList(stories, "Id", "CapituloComNome");
-
             return View();
         }
          
@@ -126,13 +114,14 @@ namespace CMS.Controllers
             }
             else
             {
-               pag = _context.Pagina.FirstOrDefault(p => p.Div.Count == 0 && p.Produto == null); 
-                    story = await _context.Story
-                .Include(str => str.Pagina)
-                .ThenInclude(str => str.Produto)
-                .Include(str => str.Pagina)
-                .ThenInclude(str => str.Div)
-                .FirstAsync(str => str.Id == pag.StoryId);
+               var str = await _context.Story
+               .Include(st => st.Pagina)
+            .ThenInclude(st => st.Produto)
+            .Include(st => st.Pagina)
+            .ThenInclude(st => st.Div)
+               .FirstOrDefaultAsync(p => p.PaginaPadraoLink == cap); 
+                    pag = str.Pagina
+                .FirstOrDefault(st => st.Div.Count == 0 && st.Produto == null);
             }
 
             if(pag != null)
@@ -160,9 +149,12 @@ namespace CMS.Controllers
                         },
                     
                 }); 
-                      
+                pag.Data = DateTime.Now;   
                 _context.Update(pag);
                  _context.SaveChanges();  
+
+                
+                 ViewBag.message = ObterMensagem(pag.StoryId);
 
                   var p = story.Pagina.First(pagina => pagina.Id == pag.Id);
                     var vers = story.Pagina.IndexOf(p) + 1;
@@ -171,7 +163,9 @@ namespace CMS.Controllers
             new { capitulo = story.PaginaPadraoLink, versiculo = vers });
             }
             else if(story.Pagina
-                .FirstOrDefault(p => p.Data < DateTime.Now.AddDays(-2) && p.Produto == null) != null)
+                .FirstOrDefault(p => Convert.ToDateTime(p.Data.ToString("dd/MM/yyyy"))
+                 < Convert.ToDateTime( DateTime.Now.AddDays(-2).ToString("dd/MM/yyyy"))
+                  && p.Produto == null) != null)
             {
                 pag = story.Pagina
                 .First(pa => pa.Data < DateTime.Now.AddDays(-2) && pa.Produto == null);
@@ -203,7 +197,9 @@ namespace CMS.Controllers
             }); 
              _context.Update(pag);
                 await  _context.SaveChangesAsync(); 
-
+                 
+                 ViewBag.message = ObterMensagem(pag.StoryId);
+                 
                 var p = story.Pagina.First(pagina => pagina.Id == pag.Id);
                 var vers = story.Pagina.IndexOf(p) + 1;
 
@@ -211,18 +207,26 @@ namespace CMS.Controllers
             new { capitulo = story.PaginaPadraoLink, versiculo = vers });
             }
             else
-            return View();            
+            {
+
+                ViewBag.message = ObterMensagem(pag.StoryId);
+
+             return View();            
+            }
         }
         
          public async Task<ActionResult> BaixarHtmlLivroCapitulo()
         {
-            var user = await UserManager.GetUserAsync(this.User);
-            ViewBag.UserId = user.Id;
+            var lista = new List<Story>()
+            {new Story{Nome = "Escolha um capitulo de destino", PaginaPadraoLink = 0, Id = 0}};
+            var stories = await _context.Story.Where(str =>  str.Nome != "Padrao" && !str.Comentario).ToListAsync();
+            lista.AddRange(stories);
+            ViewBag.cap = new SelectList(lista, "Id", "CapituloComNome");
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> BaixarHtmlLivroCapitulo(string livro, int capitulo)
+        public async Task<IActionResult> BaixarHtmlLivroCapitulo(string livro, int capitulo, long cap)
         {          
             var url = livro + "/Renderizar/" + capitulo + "/1/1/user";   
         
@@ -246,6 +250,20 @@ namespace CMS.Controllers
                 var lst = await _context.Story.Where(st => st.Nome != "Padrao").ToListAsync();
 
                 var str = new Story();
+                Story destino = null;
+                Pagina pagina = null;
+
+                 if(cap != 0)
+            {
+             destino = await _context.Story
+            .Include(dest => dest.Pagina)
+            .ThenInclude(dest => dest.Produto)
+            .Include(dest => dest.Pagina)
+            .ThenInclude(dest => dest.Div)
+            .FirstAsync(dest => dest.Id == cap);
+
+
+            }
 
                  str.PaginaPadraoLink = lst.Count + 1;
                  str.Nome = "Inportados";
@@ -255,107 +273,94 @@ namespace CMS.Controllers
 
                 var Story = await _context.Story.FirstAsync(st => st.Nome == "Padrao");
 
+            Pagina.entity = true;
             var p = new Pagina()
             {
-                 Data = DateTime.Now,
-                    ArquivoMusic = "",
-                    Titulo = "Story - " + str.Nome,
-                    CarouselPagina = new List<PaginaCarouselPagina>(),
-                    StoryId = Story.Id,
-                    Sobreescrita = null,
-                    SubStoryId = null,
-                    GrupoId = null,
-                    SubGrupoId = null,
-                    SubSubGrupoId = null,
-                    Layout = false,
-                    Music = false
-            };  
-            p.Div = null;              
+                Titulo = "Story - " + Story.Nome,
+                StoryId = Story.Id,                
+                Layout = false
+            };
+            Pagina.entity = false;             
 
              _context.Add(p);
              _context.SaveChanges(); 
             
            var  pagin = new Pagina(1);  
-            pagin.Div.First(d => d.Container.Content).Container.Div
-            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-            pagin.Div.First(d => d.Container.Content).Container.Div
-            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
-            {
-                Div = pagin.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div,
-                Elemento = new LinkBody
-                {
-                    Pagina_ = p.Id,
-                    TextoLink = "#LinkPadrao",
-                    Texto = new Texto
-                    {
-                        Pagina_ = p.Id,
-                        PalavrasTexto = "<h1> Story " + str.Nome + "</h1>"
-                    },
-                }
-            });
+            pagin.setarElemento
+            (new Texto {Pagina_ = p.Id,
+            PalavrasTexto = "<h1> Story " + str.Nome + "</h1>"});
 
-                p.Div = new List<PaginaContainer>();                
+            p.Div = new List<PaginaContainer>();                
             foreach (var item in pagin.Div)            
-                p.IncluiDiv(item.Container);                
-                _context.SaveChanges();
+            p.IncluiDiv(item.Container);                
+            _context.SaveChanges();
+
+           
 
                 while(!codigoHtml.Contains("<h1>Pagina não encontrada</h1>") )
                 {
+
                     codigoHtml = client.DownloadString(url);
                     var arr2 = html.Split("<!-- ProdutoContent -->");
                     conteudoHtml = arr2[1];
 
-
-                     var pagina = new Pagina()
-            {
-                Data = DateTime.Now,
-                ArquivoMusic = "",
-                Titulo = "Story - " + str.Nome,
-                CarouselPagina = new List<PaginaCarouselPagina>(),
-                StoryId = str.Id,
-                Sobreescrita = null,
-                SubStoryId = null,
-                GrupoId = null,
-                SubGrupoId = null,
-                SubSubGrupoId = null,
-                Layout = false,
-                Music = false
-            };
-            pagina.Div = null;
-
-            _context.Add(pagina);
-            _context.SaveChanges();
-
-            var pagi = new Pagina(1);
-            pagi.Div.First(d => d.Container.Content).Container.Div
-            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-            pagi.Div.First(d => d.Container.Content).Container.Div
-            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
-            {
-                Div = pagi.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div,
-                Elemento =  new Texto
+                    if(destino == null)
                     {
-                        Pagina_ = pagina.Id,
-                        PalavrasTexto = conteudoHtml
-                    }
-                
-            });
+                        Pagina.entity = true;
+                        pagina = new Pagina()
+                        {
+                            Titulo = "Story - " + str.Nome,
+                            StoryId = str.Id,                
+                            Layout = false
+                        };
+                        Pagina.entity = false; 
 
-            pagina.Div = new List<PaginaContainer>();
-            foreach (var item in pagi.Div)
-                pagina.IncluiDiv(item.Container);
-            _context.SaveChanges();              
+                        _context.Add(pagina);
+                        _context.SaveChanges();
+
+                        var pagi = new Pagina(1);
+                        pagi
+                        .setarElemento( new Texto { Pagina_ = pagina.Id, PalavrasTexto = conteudoHtml });
+
+                        pagina.Div = new List<PaginaContainer>();
+                        foreach (var item in pagi.Div)
+                        pagina.IncluiDiv(item.Container);
+                        _context.SaveChanges();  
+                    }
+                    else
+                    {
+                         pagina = await _context.Pagina.Include(pa => pa.Story)
+                        .FirstOrDefaultAsync(pa => pa.Div.Count == 0 &&
+                         pa.Produto == null && pa.StoryId == cap); 
+                        if(pagina == null)
+                        break;
+
+                        pagina.Div = new List<PaginaContainer>
+                            {
+                            new PaginaContainer{Container = new Container()},
+                            new PaginaContainer
+                            {
+                                Container = new Container(1){Content = true}
+                            }
+
+                            };
+                            pagina.setarElemento
+                            ( new Texto { Pagina_ = pagina.Id,
+                            PalavrasTexto = conteudoHtml });
+                                
+                            _context.Update(pagina);
+                            _context.SaveChanges();                            
+                    }
 
                     verso++;
-                }
+                }    
+
+                ViewBag.message = ObterMensagem(pagina.StoryId);            
 
             RepositoryPagina.paginas.Clear();
                 return RedirectToAction("Index", "Home");
-                    
-                       
-        }
+
+                }
         
          public async Task<ActionResult> Incorporar()
         {
@@ -424,30 +429,16 @@ namespace CMS.Controllers
                 }
 
                 };
-                pag.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-                pag.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
-                {
-                    Div = pag.Div.First(d => d.Container.Content).Container.Div
-                    .First(d => d.Div.Content).Div,
-                    Elemento =  new Texto
-                        {
-                            Pagina_ = pag.Id,
-                            PalavrasTexto = resultado + "</iframe>"
-                        },
-                    
-                }); 
+                pag.setarElemento
+                ( new Texto { Pagina_ = pag.Id,
+                 PalavrasTexto = resultado + "</iframe>" });
                       
                 _context.Update(pag);
                  _context.SaveChanges();  
             }
 
-
-            RepositoryPagina.paginas.Clear();
-            
-            
-                return RedirectToAction("Index", "Home");                     
+            RepositoryPagina.paginas.Clear();        
+            return RedirectToAction("Index", "Home");                     
         }
 
          public ActionResult PaginaCriada( int capitulo, int versiculo)
@@ -584,23 +575,14 @@ namespace CMS.Controllers
                 string filename = ContentDispositionHeaderValue.Parse(source.ContentDisposition).FileName.ToString().Trim('"');
 
 
-                 var pagina = new Pagina()
+                Pagina.entity = true;
+            var pagina = new Pagina()
             {
-                 Data = DateTime.Now,
-                    ArquivoMusic = "",
-                    Titulo = "Imagem",
-                    CarouselPagina = new List<PaginaCarouselPagina>(),
-                    StoryId = StoryId,
-                    Sobreescrita = null,
-                    SubStoryId = null,
-                    GrupoId = null,
-                    SubGrupoId = null,
-                    SubSubGrupoId = null,
-                    Layout = false,
-                    Music = false,
-                    Tempo = 11000
-            };  
-            pagina.Div = null;           
+                Titulo = "Imagem",
+                StoryId = StoryId,                
+                Layout = false
+            };
+            Pagina.entity = false;           
 
 
                 using (FileStream output = 
@@ -624,6 +606,216 @@ namespace CMS.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+        [Authorize]
+        [Route("SuperAdmin/ChatGpt/{texto}")]
+        public async Task<IActionResult> ChatGpt(string texto)
+        {
+            var lista = new List<Story>()
+            {new Story{Nome = "Escolha um capitulo de destino", PaginaPadraoLink = 0, Id = 0}};
+            var stories = await _context.Story.Where(str =>  str.Nome != "Padrao" &&
+            !str.Comentario).ToListAsync();
+            lista.AddRange(stories);
+
+            if(stories.Count == 0)
+            {
+                ViewBag.Error = "Crie seu story primeiro!!!";
+                RedirectToAction("Create", "Story");
+            }
+
+            ViewBag.texto = texto;
+            ViewBag.cap = new SelectList(lista, "Id", "CapituloComNome");
+            return View();
+        }
+
+        [HttpPost]
+         public async Task<IActionResult> ChatGpt(string Conteudo, long cap)
+        { 
+            Story Story = null;          
+            if(cap != 0)
+            {
+                Story = await _context.Story
+                .Include(str => str.Pagina)
+                .FirstAsync(str => str.Id == cap);  
+
+                Pagina.entity = true;
+                var pagina = new Pagina()
+                {
+                    Titulo = "Story - " + Story.Nome,
+                    StoryId = Story.Id,                
+                    Layout = false
+                };
+                Pagina.entity = false;
+
+                _context.Add(pagina);
+                _context.SaveChanges();
+
+                var pagin = new Pagina(1);
+                pagin.setarElemento(new Texto
+                {
+                Pagina_ = pagina.Id,
+                PalavrasTexto = $"{Conteudo}"
+                });
+
+                pagina.Div = new List<PaginaContainer>();
+                foreach (var item in pagin.Div)
+                pagina.IncluiDiv(item.Container);
+                _context.SaveChanges();
+                RepositoryPagina.paginas.Clear();              
+            }  
+            else
+            {
+                var  pag = await  _context.Pagina.Include(pa => pa.Produto)
+            .FirstOrDefaultAsync(pa => pa.Div.Count == 0 && pa.Produto == null);
+                if(pag != null)
+                {
+                    Story = await _context.Story
+                    .Include(str => str.Pagina)
+                    .ThenInclude(str => str.Div)
+                    .FirstAsync(str => str.Id == pag.StoryId);                      
+                    ViewBag.message = ObterMensagem(pag.StoryId);
+               
+                    pag.Div = new List<PaginaContainer>
+                    {
+                    new PaginaContainer{Container = new Container()},
+                    new PaginaContainer
+                    {
+                        Container = new Container(1){Content = true}
+                    }
+
+                    };
+                    pag.setarElemento
+                    ( new Texto { Pagina_ = pag.Id,
+                    PalavrasTexto = $"{Conteudo}" });
+                        
+                    _context.Update(pag);
+                    _context.SaveChanges();  
+                    RepositoryPagina.paginas.Clear();
+
+                }
+            } 
+
+            if(Story != null)
+            ViewBag.message += 
+             $" Conteudo criado com sucesso!!! Compartilhe!!! \n capitulo {Story.PaginaPadraoLink}" + 
+             $" \n verso {Story.Pagina.Where(p => !p.Layout).ToList().Count}";     
+            return View("Index", "Home");
+        }
+
+       [Route("SuperAdmin/VideosYoutube")]
+        public async Task<IActionResult> VideosYoutube()
+        {
+            var stories = await _context.Story
+            .Where(str =>  str.Nome != "Padrao" && !str.Comentario).ToListAsync();
+
+            if(stories.Count == 0)
+            {
+                ViewBag.Error = "Crie seu story primeiro!!!";
+                RedirectToAction("Create", "Story");
+            }
+            
+            ViewBag.cap = new SelectList(stories, "Id", "CapituloComNome");
+            return View();
+        }
+
+        
+        public async Task<IActionResult> VideosYoutube(string usuario, long cap)
+        {
+            Pagina pag = null;
+            if(usuario.Contains("@"))
+            usuario.Replace("@", "");
+
+            var url = $"https://www.youtube.com/@{usuario}/shorts";
+
+            var html = RepositoryPagina.Verificar(url);
+
+            var arr = html.Split('"');
+
+            foreach(var texto in arr)
+            {
+                if(texto.Contains("/shorts/"))
+                {
+                    texto.Replace("shorts", "embed");
+                    if(cap != 0)
+                    {
+                         pag = await _context.Pagina.Include(pa => pa.Story)
+                        .FirstOrDefaultAsync(pa => pa.Div.Count == 0 &&
+                        pa.Produto == null && pa.StoryId == cap); 
+                        if(pag == null)
+                        break;
+
+                        pag.Div = new List<PaginaContainer>
+                        {
+                        new PaginaContainer{Container = new Container()},
+                        new PaginaContainer
+                        {
+                            Container = new Container(1){Content = true}
+                        }
+
+                        };
+                        pag.setarElemento
+                        ( new Texto { Pagina_ = pag.Id,
+                        PalavrasTexto = $"<iframe width='320' height='560' src='https://www.youtube.com{texto}' " + 
+                        "frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; " + 
+                        "gyroscope; picture-in-picture; web-share' allowfullscreen ></iframe>" });
+                            
+                        _context.Update(pag);
+                        _context.SaveChanges(); 
+                    }
+                    else
+                    {
+                        pag = await _context.Pagina.Include(pa => pa.Story)
+                        .FirstOrDefaultAsync(pa => pa.Div.Count == 0 && pa.Produto == null);
+                        if(pag == null)
+                        break;
+
+                        pag.Div = new List<PaginaContainer>
+                        {
+                        new PaginaContainer{Container = new Container()},
+                        new PaginaContainer
+                        {
+                            Container = new Container(1){Content = true}
+                        }
+
+                        };
+                        pag.setarElemento
+                        ( new Texto { Pagina_ = pag.Id,
+                        PalavrasTexto = $"<iframe width='320' height='560' src='https://www.youtube.com{texto}' " + 
+                        "frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; " + 
+                        "gyroscope; picture-in-picture; web-share' allowfullscreen ></iframe>" });
+                            
+                        _context.Update(pag);
+                        _context.SaveChanges(); 
+                    }
+                }                
+            }
+
+            if(pag != null)
+            ViewBag.message = ObterMensagem(pag.StoryId);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        private string ObterMensagem(long StoryId)
+        {
+            var story = _context.Story
+            .Include(str => str.Pagina)
+            .ThenInclude(str => str.Div)
+            .Include(str => str.Pagina)
+            .ThenInclude(str => str.Produto)
+            .First(str => str.Id == StoryId);
+
+            bool teste = false;
+            foreach(var item in story.Pagina)
+            if(item.Div.Count == 0 && item.Produto == null)
+            teste = true;
+
+            if(teste)
+            return $"Existem paginas sem conteudo no capitulo {story.PaginaPadraoLink}";
+            else
+            return "Story Completo";
+        }
+
 
     }
 }

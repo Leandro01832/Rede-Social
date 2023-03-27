@@ -34,6 +34,44 @@ namespace CMS.Controllers
             Arr = new ObjectArray();
         }
 
+        public async Task<JsonResult> verificarCompartilhamento(string Livro, int Capitulo, int Verso)
+        {
+            var url = $"{Livro}/Renderizar/{Capitulo}/{Verso}/1/user";
+            var html = RepositoryPagina.Verificar(url);
+
+            if(html != null)
+            {
+                var c = await  db.Compartilhamento
+                .FirstOrDefaultAsync(com => com.Data.ToString("dd/MM/yyyy") ==
+                 DateTime.Now.ToString("dd/MM/yyyy") &&
+                 com.Livro == Livro &&
+                 com.Capitulo == Capitulo &&
+                  com.Verso == Verso);
+                if(c == null)
+                {
+                    var registro = new Compartilhamento
+                    {
+                      Data = DateTime.Now,
+                      Livro = Livro,
+                      Capitulo = Capitulo,
+                      Verso = Verso   
+                    };
+                    await db.AddAsync(registro);
+                    await db.SaveChangesAsync();
+                }
+                else
+                {
+                    c.Quantidade++;
+                    db.Update(c);
+                    await db.SaveChangesAsync();
+                }
+
+                return Json(url);
+            }
+            else
+            return Json("");
+        }
+
         public JsonResult GetStories2()
         {
             var stories = db.Story.Where(b => b.Nome != "Padrao" && !b.Comentario);

@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
+using System.Linq;
+using business.business.Elementos.texto;
+using business.business.Elementos.element;
 
 namespace business.business
 {
@@ -15,17 +18,25 @@ namespace business.business
     {
         public Pagina()
         {
-            if(Pagina.entity){
-                Div = new List<PaginaContainer>
-                {
-                    new PaginaContainer{Container = new Container()},              
-                    new PaginaContainer
-                    {
-                        Container = new Container(){Content = true}
-                    }
-
-                };
+            if(Pagina.entity)
+            {
+                Comentario = null;
+                Div = null;                
+                CarouselPagina = null;
+                Music = false;
                 Tempo = 11000;
+                Data = DateTime.Now;
+                ArquivoMusic = "";
+                Sobreescrita = null;
+                SubStoryId = null;
+                GrupoId = null;
+                SubGrupoId = null;
+                SubSubGrupoId = null;
+                CamadaSeis = null;
+                CamadaSete = null;
+                CamadaOito = null;
+                CamadaNove = null;
+                CamadaDez = null;
             }
         }
         
@@ -255,16 +266,26 @@ namespace business.business
 
         public int Tempo { get; set; }
 
-       // [NotMapped]
-      //  public string Html { get; set; }
-
+        public static string Capa { get { return File.ReadAllText
+        (Path.Combine( Directory.GetCurrentDirectory() + "/../CMS/wwwroot/Arquivotxt/Capa.html")); } }
+        
         public void IncluiDiv(Container container)
         {
             this.Div.Add(new PaginaContainer { Container = container, Pagina = this });
-        }         
-
-        public static string Capa { get { return File.ReadAllText(Path.Combine( Directory.GetCurrentDirectory() + "/../CMS/wwwroot/Arquivotxt/Capa.html")); } }
+        }
         
+        public void setarElemento(Elemento elemento)
+        {
+            this.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
+            this.Div.First(d => d.Container.Content).Container.Div
+            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+            {
+                Div = this.Div.First(d => d.Container.Content).Container.Div
+                .First(d => d.Div.Content).Div,
+                Elemento = elemento                
+            });
+        }
        
     }
 }

@@ -609,45 +609,28 @@ namespace MeuProjetoAgora.Controllers
 
                 var str = await db.Story.FirstAsync(st => st.Nome == "Padrao");
 
-                var p = new Pagina()
-                {
-                    Data = DateTime.Now,
-                    ArquivoMusic = "",
-                    Titulo = "Story - " + str.Nome,
-                    CarouselPagina = new List<PaginaCarouselPagina>(),
-                    StoryId = str.Id,
-                    Sobreescrita = null,
-                    SubStoryId = null,
-                    GrupoId = null,
-                    SubGrupoId = null,
-                    SubSubGrupoId = null,
-                    Layout = false,
-                    Music = false,
-                    Tempo = 11000
-                };
-                p.Div = null;
+                Pagina.entity = true;
+            var p = new Pagina()
+            {
+                Titulo = "Story - " + str.Nome,
+                StoryId = str.Id,                
+                Layout = false
+            };
+            Pagina.entity = false; 
 
                 db.Add(p);
                 db.SaveChanges();
 
                 var pagi = new Pagina(1);
-                pagi.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-                pagi.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+                pagi.setarElemento(new LinkBody
                 {
-                    Div = pagi.Div.First(d => d.Container.Content).Container.Div
-                    .First(d => d.Div.Content).Div,
-                    Elemento = new LinkBody
-                    {
-                        Pagina_ = p.Id,
-                        TextoLink = "#LinkPadrao",
-                        Texto = new Texto
-                        {
-                            Pagina_ = p.Id,
-                            PalavrasTexto = "<h1> Story " + Story.Nome + "</h1>"
-                        },
-                    }
+                  Pagina_ = p.Id,
+                  TextoLink = "#LinkPadrao",
+                  Texto = new Texto
+                  {
+                    Pagina_ = p.Id,
+                    PalavrasTexto = "<h1> Story " + Story.Nome + "</h1>"
+                  }
                 });
 
                 p.Div = new List<PaginaContainer>();
@@ -655,46 +638,27 @@ namespace MeuProjetoAgora.Controllers
                     p.IncluiDiv(item.Container);
                 db.SaveChanges();
             }
-
+                        
+            Pagina.entity = true;
             var pagina = new Pagina()
             {
-                Data = DateTime.Now,
-                ArquivoMusic = "",
                 Titulo = "Story - " + Story.Nome,
-                CarouselPagina = new List<PaginaCarouselPagina>(),
-                StoryId = Story.Id,
-                Sobreescrita = null,
-                SubStoryId = null,
-                GrupoId = null,
-                SubGrupoId = null,
-                SubSubGrupoId = null,
+                StoryId = Story.Id,                
                 Layout = false,
-                Music = false,
-                Tempo = 11000,
                 Comentario = comentario.IdPagina
             };
-            pagina.Div = null;
+            Pagina.entity = false; 
 
             db.Add(pagina);
             db.SaveChanges();
 
             var pagin = new Pagina(1);
-            pagin.Div.First(d => d.Container.Content).Container.Div
-            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-            pagin.Div.First(d => d.Container.Content).Container.Div
-            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+            pagin.setarElemento(new Texto
             {
-                Div = pagin.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div,
-                
-                Elemento = new Texto
-                {
-                    Pagina_ = pagina.Id,
-                    PalavrasTexto = 
-                    $"<div id='usuario' style='display:nome;'>" +
-                    $" <img src='{user.Image}' width='30' >{user.Name} :</div> <br/> <br/> {comentario.Conteudo}"
-                }
-
+              Pagina_ = pagina.Id,
+              PalavrasTexto = 
+              $"<div id='usuario' style='display:nome;'>" +
+              $" <img src='{user.Image}' width='30' >{user.Name} : </div> <br/> <br/> {comentario.Conteudo}"
             });
             pagin.Div.First(d => d.Container.Content).Container.Height = 50;
             pagin.Div.First(d => d.Container.Content).Container.Div

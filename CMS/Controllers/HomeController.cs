@@ -98,9 +98,45 @@ namespace CMS.Controllers
             }
             if(verso != null)
             {
-              return  Redirect($"{RepositoryPagina.outroLivro}/Renderizar/{RepositoryPagina.outroCapitulo}/{verso}/0/user");
+                var url = $"{RepositoryPagina.outroLivro}/Renderizar/" +
+                 $"{RepositoryPagina.outroCapitulo}/{verso}/1/user";
+                var html = RepositoryPagina.Verificar(url);
+                var c = await  _context.Compartilhamento
+                .FirstOrDefaultAsync(com => com.Data.ToString("dd/MM/yyyy") ==
+                 DateTime.Now.ToString("dd/MM/yyyy") &&
+                 com.Livro == RepositoryPagina.outroLivro &&
+                 com.Capitulo == RepositoryPagina.outroCapitulo &&
+                  com.Verso == verso);
+                if(c == null && html != null)
+                {
+                    var registro = new Compartilhamento
+                    {
+                      Data = DateTime.Now,
+                      Livro = RepositoryPagina.outroLivro,
+                      Capitulo = (int) RepositoryPagina.outroCapitulo,
+                      Verso = (int) verso   
+                    };
+                    await _context.AddAsync(registro);
+                    await _context.SaveChangesAsync();
+                }
+                else if(c != null)
+                {
+                    c.Quantidade++;
+                    _context.Update(c);
+                    await _context.SaveChangesAsync();
+
+                }
+              return  Redirect(url);
             }
             return View();
+        }
+       
+        [Route("Compartilhamentos")]
+        public async Task<IActionResult> Compartilhamento()
+        {
+           var applicationDbContext = _context.Compartilhamento
+            .Where(c => c.Data > DateTime.Now.AddDays(-2));
+            return View(await applicationDbContext.ToListAsync());            
         }
 
          
@@ -196,14 +232,15 @@ namespace CMS.Controllers
         }
 
          [Authorize]
-        [Route("Comentario/{idPagina?}")]
-        public IActionResult Comentar()
+        [Route("Home/Comentar/{texto}")]
+        public IActionResult Comentar(string texto)
         {
-            return PartialView();
+            ViewBag.texto = texto;
+            return View();
         }
 
         [HttpPost]
-         public async Task<IActionResult> Comentar(string Conteudo)
+         public async Task<IActionResult> Comentar(string Conteudo, string teste)
         {
             var user = await UserManager.GetUserAsync(this.User);
             var Quant = await _context.Story.Where(st => st.Nome != "Padrao").ToListAsync();
@@ -227,36 +264,21 @@ namespace CMS.Controllers
 
                 var str = await _context.Story.FirstAsync(st => st.Nome == "Padrao");
 
-                var p = new Pagina()
-                {
-                    Data = DateTime.Now,
-                    ArquivoMusic = "",
-                    Titulo = "Story - " + str.Nome,
-                    CarouselPagina = new List<PaginaCarouselPagina>(),
-                    StoryId = str.Id,
-                    Sobreescrita = null,
-                    SubStoryId = null,
-                    GrupoId = null,
-                    SubGrupoId = null,
-                    SubSubGrupoId = null,
-                    Layout = false,
-                    Music = false,
-                    Tempo = 11000
-                };
-                p.Div = null;
+                Pagina.entity = true;
+            var p = new Pagina()
+            {
+                Titulo = "Story - " + Story.Nome,
+                StoryId = str.Id,                
+                Layout = false
+            };
+            Pagina.entity = false;
+                
 
                 _context.Add(p);
                 _context.SaveChanges();
 
                 var pagi = new Pagina(1);
-                pagi.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-                pagi.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
-                {
-                    Div = pagi.Div.First(d => d.Container.Content).Container.Div
-                    .First(d => d.Div.Content).Div,
-                    Elemento = new LinkBody
+                pagi.setarElemento(new LinkBody
                     {
                         Pagina_ = p.Id,
                         TextoLink = "#LinkPadrao",
@@ -265,8 +287,7 @@ namespace CMS.Controllers
                             Pagina_ = p.Id,
                             PalavrasTexto = "<h1> Story " + Story.Nome + "</h1>"
                         },
-                    }
-                });
+                    });
 
                 p.Div = new List<PaginaContainer>();
                 foreach (var item in pagi.Div)
@@ -274,43 +295,25 @@ namespace CMS.Controllers
                 _context.SaveChanges();
             }
 
+            Pagina.entity = true;
             var pagina = new Pagina()
             {
-                Data = DateTime.Now,
-                ArquivoMusic = "",
                 Titulo = "Story - " + Story.Nome,
-                CarouselPagina = new List<PaginaCarouselPagina>(),
-                StoryId = Story.Id,
-                Sobreescrita = null,
-                SubStoryId = null,
-                GrupoId = null,
-                SubGrupoId = null,
-                SubSubGrupoId = null,
-                Layout = false,
-                Music = false,
-                Tempo = 11000
+                StoryId = Story.Id,                
+                Layout = false
             };
-            pagina.Div = null;
+            Pagina.entity = false;
 
             _context.Add(pagina);
             _context.SaveChanges();
 
             var pagin = new Pagina(1);
-            pagin.Div.First(d => d.Container.Content).Container.Div
-            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-            pagin.Div.First(d => d.Container.Content).Container.Div
-            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
+            pagin.setarElemento(new Texto
             {
-                Div = pagin.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div,
-                Elemento = new Texto
-                {
-                    Pagina_ = pagina.Id,
-                    PalavrasTexto = 
-                    $"<div id='usuario' style='display:nome;'>" +
-                    $" <img src='{user.Image}' width='30' >{user.UserName}</div> <br/> <br/> {Conteudo}"
-                }
-
+              Pagina_ = pagina.Id,
+              PalavrasTexto = 
+              $"<div id='usuario' style='display:nome;'>" +
+              $" <img src='{user.Image}' width='30' >{user.UserName}</div> <br/> <br/> {Conteudo}"
             });
 
             pagina.Div = new List<PaginaContainer>();
@@ -319,7 +322,11 @@ namespace CMS.Controllers
                 pagina.IncluiDiv(item.Container);
 
             _context.SaveChanges();
-            RepositoryPagina.paginas.Clear();           
+            RepositoryPagina.paginas.Add(pagina);  
+
+
+            ViewBag.message = 
+            $"Comentário feito com sucesso!!! Compartilhe!!! \n capitulo {Story.PaginaPadraoLink} \n verso {Story.Pagina.Where(p => !p.Layout).ToList().Count}";         
 
             return View("Index", "Home");
         }

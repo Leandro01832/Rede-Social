@@ -4,7 +4,7 @@ namespace CMS.Models
     {
         public ChatGptInputModel(string prompt)
         {
-            this.prompt = $"Correct this english phrase: {prompt}";
+            this.prompt = $"{prompt}";
             temperature = 0.2m;
             max_tokens = 100;
             model = "text-davinci-003";

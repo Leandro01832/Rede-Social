@@ -354,6 +354,27 @@ namespace CMS.Migrations
                     b.ToTable("Comentario");
                 });
 
+            modelBuilder.Entity("business.business.Compartilhamento", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Capitulo");
+
+                    b.Property<DateTime>("Data");
+
+                    b.Property<string>("Livro");
+
+                    b.Property<int>("Quantidade");
+
+                    b.Property<int>("Verso");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Compartilhamento");
+                });
+
             modelBuilder.Entity("business.business.Container", b =>
                 {
                     b.Property<long>("Id")
@@ -838,51 +859,6 @@ namespace CMS.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Produto");
-                });
-
-            modelBuilder.Entity("business.business.Seguidor", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("User");
-
-                    b.Property<string>("UserIdSeguidor");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Seguidor");
-                });
-
-            modelBuilder.Entity("business.business.Seguindo", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("User");
-
-                    b.Property<string>("UserIdSeguindo");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Seguindo");
-                });
-
-            modelBuilder.Entity("business.business.Solicitacao", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("UserId");
-
-                    b.Property<string>("UserIdSolicitando");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Solicitacao");
                 });
 
             modelBuilder.Entity("business.business.Telefone", b =>

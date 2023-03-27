@@ -106,45 +106,22 @@ namespace CMS.Controllers
 
             var Story = await _context.Story.FirstAsync(st => st.Nome == "Padrao");
 
+           Pagina.entity = true;
             var pagina = new Pagina()
             {
-                 Data = DateTime.Now,
-                    ArquivoMusic = "",
-                    Titulo = "Story - " + story.Nome,
-                    CarouselPagina = new List<PaginaCarouselPagina>(),
-                    StoryId = Story.Id,
-                    Sobreescrita = null,
-                    SubStoryId = null,
-                    GrupoId = null,
-                    SubGrupoId = null,
-                    SubSubGrupoId = null,
-                    Layout = false,
-                    Music = false
-            };  
-            pagina.Div = null;              
+                Titulo = "Story - " + Story.Nome,
+                StoryId = Story.Id,                
+                Layout = false
+            };
+            Pagina.entity = false;             
 
              _context.Add(pagina);
              _context.SaveChanges(); 
             
            var  pagin = new Pagina(1);  
-            pagin.Div.First(d => d.Container.Content).Container.Div
-            .First(d => d.Div.Content).Div.Elemento = new List<DivElemento>();
-            pagin.Div.First(d => d.Container.Content).Container.Div
-            .First(d => d.Div.Content).Div.Elemento.Add(new DivElemento
-            {
-                Div = pagin.Div.First(d => d.Container.Content).Container.Div
-                .First(d => d.Div.Content).Div,
-                Elemento = new LinkBody
-                {
-                    Pagina_ = pagina.Id,
-                    TextoLink = "#LinkPadrao",
-                    Texto = new Texto
-                    {
-                        Pagina_ = pagina.Id,
-                        PalavrasTexto = "<h1> Story " + story.Nome + "</h1>"
-                    },
-                }
-            });
+            pagin.setarElemento
+            (new Texto { Pagina_ = pagina.Id, 
+            PalavrasTexto = "<h1> Story " + story.Nome + "</h1>" });
 
                 pagina.Div = new List<PaginaContainer>();                
             foreach (var item in pagin.Div)
@@ -239,12 +216,15 @@ namespace CMS.Controllers
             foreach (var item in story.Pagina)           
             _context.Remove(await _context.Pagina.FirstAsync(p => p.Id == item.Id));
             await _context.SaveChangesAsync();
-            var pag = new Pagina();
-            pag.StoryId = story.Id;
-            pag.Div = new List<PaginaContainer>();
-            pag.Titulo = "Capa";
-            pag.Sobreescrita = "";
-            pag.CarouselPagina = new List<PaginaCarouselPagina>();
+            
+            Pagina.entity = true;
+            var pag = new Pagina()
+            {
+                Titulo = "Story - " + story.Nome,
+                StoryId = story.Id,                
+                Layout = false
+            };
+            Pagina.entity = false;
             _context.Add(pag);
             _context.SaveChanges();
             

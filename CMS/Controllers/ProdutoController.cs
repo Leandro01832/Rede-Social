@@ -115,9 +115,7 @@ namespace CMS.Controllers
             {
                 var user = await UserManager.GetUserAsync(this.User);
                 Pagina pagina = new Pagina();
-                pagina.Div = null;
                 pagina.Produto = produto;
-                pagina.Tempo = 11000;
                 pagina.Titulo = produto.Nome;
                 pagina.StoryId = StoryId;
                 pagina.SubStoryId = SubStoryId;

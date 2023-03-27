@@ -33,26 +33,24 @@ namespace CMS.Controllers
         {
             Configuration = configuration;
         }
-
-        [HttpGet]
-        public async Task<IActionResult> Get(string text, [FromServices] IConfiguration configuration)
+        
+        
+        public async Task<ChatGptViewModel> Get([FromBody] ChatGptInputModel chat, [FromServices] IConfiguration configuration)
         {
             var token = Configuration.GetConnectionString("Token");
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization =
              new AuthenticationHeaderValue("Bearer", token);
-
-             ChatGptInputModel model = new ChatGptInputModel(text);             
-             var requestBody = JsonConvert.SerializeObject(model);
+           
+             var requestBody = JsonConvert.SerializeObject(chat);
             var content = new StringContent(requestBody, Encoding.UTF8, "application/json");
             var response = await client.PostAsync("https://api.openai.com/v1/completions", content);
             var result = (ChatGptViewModel) await response.Content.ReadAsAsync(typeof(ChatGptViewModel));
 
-            var promptResponse = result.choices.First();
-
-            return Ok(promptResponse.text.Replace("/n", "").Replace("/t", ""));
-
+            return result;
         }
+       
+       
 
     }
 }

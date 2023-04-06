@@ -9,7 +9,7 @@
     ViewData["NomeStory"] = Model.Titulo;
     ViewBag.Title = Model.Titulo;
     string valor = ViewBag.html;
-    
+    string[] classificacao = ViewBag.classificacoes;
     
 }
 
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="~/css/RenderizarDinamico2.css" />
     <link rel="stylesheet" href="~/css/mobile.css" />
 
+    <input type="hidden" value="@ViewBag.Livro" id="livro" />
     <input type="hidden" value="@ViewBag.compartilhante" id="compartilhante" />
     <input type="hidden" value="@ViewBag.auto" id="auto" />
     <input type="hidden" value="@Model.Tempo" id="Tempo" />
@@ -177,13 +178,17 @@
 
       @{
         if (Model.Story.Comentario
-        && Model.Story.SubStory.Where(str => str.Pagina.Count > 0).ToList().Count == 0)
+        && Model.SubStory != null)
         {
-            <p>Comentário não classificado </p>
+            for(var i = 1; i <= classificacao.Length; i++)
+            {
+                <p>@(i)º classificação: @classificacao[i - 1] </p>
+
+            }
         }
         else if (Model.Story.Comentario)
         {
-            <p>Classificação: @Model.Story.SubStory[0].Nome  </p>
+            <p>Comentário não classificado </p>
 
         }
      }
@@ -297,7 +302,7 @@
     <script type="text/javascript" src="~/js/Chat-Renderizar.js"></script> *@
     <script src="~/js/loader.js"></script>
     <script src="~/js/DuracaoVideo.js"></script>
-    <script type="text/javascript" src="~/js/Navegacao.js"> </script>    
+    <script type="text/javascript" src="~/js/Navegacao/Navegacao.js"> </script>    
     <script type="text/javascript" src="~/js/progressbar.js" >  </script>    
     <script type="text/javascript">
     

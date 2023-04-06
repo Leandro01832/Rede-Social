@@ -131,6 +131,12 @@ namespace CMS.Controllers
             return View();
         }
        
+        [Route("Compartilhe")]
+        public IActionResult Compartilhe()
+        {            
+           return Redirect("/paginacao/1/capitulo/1/20/81/user");           
+        }
+        
         [Route("Compartilhamentos")]
         public async Task<IActionResult> Compartilhamento()
         {

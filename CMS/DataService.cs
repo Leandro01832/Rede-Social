@@ -23,6 +23,7 @@ using business.business.Group;
 using business.Join;
 using business.business.link;
 using business.business.Elementos.texto;
+using System.Data.SqlClient;
 
 namespace CMS
 {
@@ -187,15 +188,33 @@ namespace CMS
         //     }
         //     }
 
-            // if (RepositoryPagina.paginas[0] == null)     
-            //   RepositoryPagina.paginas[0] = new List<business.business.Pagina>();
+         var quant = 0;
+         SqlConnection con = null;
+         SqlCommand cmd = null;
+            try
+            {
+                using (con = new SqlConnection(Configuration.GetConnectionString("DefaultConnection")))
+                {
+                    cmd = 
+                    new SqlCommand($"SELECT COUNT(*) FROM Pagina where Layout='False'", con);
+                    con.Open();
+                    quant = int.Parse(cmd.ExecuteScalar().ToString());
+                    con.Close();
+                }
+            }
+            catch (Exception)
+            {
+                quant = 0;
+            }            
 
-
-            // if (RepositoryPagina.paginas[0].FirstOrDefault() == null)
-            // {
-            //     var lst = await epositoryPagina.MostrarPageModels(user.Id);
-            //     RepositoryPagina.paginas[0].AddRange(lst);
-            // }             
+            if(
+                RepositoryPagina.paginas.Where(p => !p.Layout).ToList().Count == 0 ||
+                quant != RepositoryPagina.paginas.Where(p => !p.Layout).ToList().Count)
+             {                
+                RepositoryPagina.paginas.Clear();
+                RepositoryPagina.paginas.AddRange(await epositoryPagina.includes()
+                .Where(p => !p.Layout).OrderBy(p => p.Id).ToListAsync());
+             }            
 
             if (await contexto.Set<Imagem>().AnyAsync())
             {

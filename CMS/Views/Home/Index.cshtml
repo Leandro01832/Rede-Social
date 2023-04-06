@@ -46,6 +46,7 @@
 </style>
 
 <input type="hidden" value="@ViewBag.compartilhante" id="compartilhante" />
+<input type="hidden" value="0" id="inverter" />
 
 <script type="text/javascript">
 
@@ -62,7 +63,7 @@
     <div class="form-group">
                 
             <input id="livro" name="livro" class="form-control" type="url" placeholder="digite domínio ou o livro">            
-            @Html.ActionLink("Compartilhamentos", "Comentar", "Home", null, new {id = "compartilhamentos"})
+            @Html.ActionLink("Compartilhamentos", "Compartilhamento", "Home", null, new {id = "compartilhamentos"})
             </div>
             <div id="listaUrls" style="position:absolute; display:none; z-index:2000;" class="jumbotron">
 
@@ -83,7 +84,7 @@
             <a id="acessoPaginaComInput"  class="btn btn-primary glyphicon glyphicon-search">
                 Acessar
             </a>
-            <div id="listaUrlGrupo" style="position:absolute; display:none; z-index:2000;" class="jumbotron">
+            <div id="listaUrlGrupo" style="position:absolute; display:none; z-index:2000; height: 500px; overflow: auto;" class="jumbotron">
             </div>
         </center>
         <center>            
@@ -169,10 +170,76 @@
 
      <script type="text/javascript">
 
+            function buscarGrupos(texto, inversao)
+                {
+                        $.ajax({
+                        type: 'POST',
+                        url: '/AjaxGet/BuscarStories',
+                        dataType: 'json',
+                        data: { valor: texto, valorOrdem : inversao },
+                        success: function (data) {
+
+                            if (data == null)
+                                $("#listaUrlGrupo").css("display", "none");
+                            else
+                                $("#listaUrlGrupo").css("display", "block");
+                            $("#listaUrlGrupo").empty();      
+
+                            $("#listaUrlGrupo").append(" <p>" +
+                                "<a href='#' onclick=" + "\"buscarInverso();\" class='glyphicon glyphicon-refresh' >"  +
+                                    "</a></p> <br>");                                        
+
+                            $.each(data, function (i) {
+                                var url = data[i].url+"/1/"+compartilhante;
+                                var myArray = url.split("/");
+                                var name = "";
+                                if(myArray.length == 6) name = "Story";
+                                if(myArray.length == 7) name = "Sub-Story";
+                                if(myArray.length == 8) name = "Grupo";
+                                if(myArray.length == 9) name = "Sub-Grupo";
+                                if(myArray.length == 10) name = "Sub-Sub-Grupo";
+                                if(myArray.length == 11) name = "Camada nº 6";
+                                if(myArray.length == 12) name = "Camada nº 7";
+                                if(myArray.length == 13) name = "Camada nº 8";
+                                if(myArray.length == 14) name = "Camada nº 9";
+                                if(myArray.length == 15) name = "Camada nº 10";
+                                
+                                $("#listaUrlGrupo").append(" <p>" +
+                                "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
+                                    " Capitulo " +data[i].capitulo+ " - " + name + " " + data[i].nome +
+                                    "</a></p> <br>");
+                            });                        
+                        
+                        },
+                        error: function (ex) {
+                            alert('Falha ao buscar urls.' + ex);
+                        }
+                    });
+                }
+
              function buscarLivro(url)
             {
                 document.getElementById("livro").value = url;
                  $("#listaUrls").css("display", "none");
+            }         
+             
+             function buscarInverso()
+            {
+                debugger;
+                var texto =  $("#NumeroPaginaAcesso").val();
+                var ordenar = parseInt( $("#inverter").val());
+                if(ordenar == 0)
+                {
+                    ordenar = 1;
+                    $("#inverter").val(ordenar);
+                    buscarGrupos(texto, ordenar);
+                }
+                else
+                {
+                    ordenar = 0;
+                    $("#inverter").val(ordenar);
+                    buscarGrupos(texto, ordenar);
+                }
             }         
 
 </script>
@@ -255,7 +322,7 @@
             data: { Livro: "@ViewBag.livro", Capitulo: @ViewBag.capitulo, Verso: verso   }
         })
             .done(function(response) {                
-                debugger;
+                
                 if(response != "")
                 window.location.href = response;
                 else
@@ -289,114 +356,16 @@
                 alert("Informe o numero do verso!!!");
 
             });
-
-           
-
+            
             $("#NumeroPaginaAcesso").keyup(function(){   
          
 
                 var valor = parseInt( $(this).val());
+                var ordenar = parseInt( $("#inverter").val());
 
                if (isNaN(valor))
                 {
-
-                      $.ajax({
-                    type: 'POST',
-                    url: '/AjaxGet/BuscarStories',
-                    dataType: 'json',
-                    data: { valor: $(this).val() },
-                    success: function (data) {
-
-                        if (data == null)
-                            $("#listaUrlGrupo").css("display", "none");
-                        else
-                            $("#listaUrlGrupo").css("display", "block");
-                        $("#listaUrlGrupo").empty();
-                        $.each(data.story, function (i) {
-                            var url = "/Renderizar/"+data.story[i].paginaPadraoLink+"/1/1/"+compartilhante;
-                            $("#listaUrlGrupo").append("<p>" +
-                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
-                                " Capitulo " +data.story[i].paginaPadraoLink+ " - "  + data.story[i].nome +
-                                "</a></p> <br>");
-                        });
-
-                        $.each(data.substory, function (i) {
-                            var url = data.substory[i].url+"/1/"+compartilhante;
-                            $("#listaUrlGrupo").append("<p>" +
-                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
-                                " Capitulo " +data.substory[i].capitulo+ " - Sub-Story "  + data.substory[i].nome +
-                                "</a></p> <br>");
-                        });
-
-                        $.each(data.grupo, function (i) {
-                            var url = data.grupo[i].url+"/1/"+compartilhante;
-                            $("#listaUrlGrupo").append("<p>" +
-                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
-                                " Capitulo " +data.grupo[i].capitulo+ " - Grupo "  + data.grupo[i].nome +
-                                "</a></p> <br>");
-                        });
-                        
-                        $.each(data.subgrupo, function (i) {
-                            var url = data.subgrupo[i].url+"/1/"+compartilhante;
-                            $("#listaUrlGrupo").append("<p>" +
-                             "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
-                                " Capitulo " +data.subgrupo[i].capitulo+ " - Sub-Grupo "  + data.subgrupo[i].nome +
-                                "</a></p> <br>");
-                        });
-
-                        $.each(data.subsubgrupo, function (i) {
-                             var url = data.subsubgrupo[i].url+"/1/"+compartilhante;
-                            $("#listaUrlGrupo").append("<p>" +
-                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
-                                " Capitulo " +data.subsubgrupo[i].capitulo+ " - Sub-Sub-Grupo "  + data.subsubgrupo[i].nome +
-                                "</a></p> <br>");
-                        });
-                        
-                        $.each(data.camadaseis, function (i) {
-                             var url = data.camadaseis[i].url+"/1/"+compartilhante;
-                            $("#listaUrlGrupo").append("<p>" +
-                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
-                                " Capitulo " +data.camadaseis[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadaseis[i].nome +
-                                "</a></p> <br>");
-                        });
-                      
-                        $.each(data.camadasete, function (i) {
-                             var url = data.camadasete[i].url+"/1/"+compartilhante;
-                            $("#listaUrlGrupo").append("<p>" +
-                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
-                                " Capitulo " +data.camadasete[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadasete[i].nome +
-                                "</a></p> <br>");
-                        });
-                       
-                        $.each(data.camadaoito, function (i) {
-                             var url = data.camadaoito[i].url+"/1/"+compartilhante;
-                            $("#listaUrlGrupo").append("<p>" +
-                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
-                                " Capitulo " +data.camadaoito[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadaoito[i].nome +
-                                "</a></p> <br>");
-                        });
-                        
-                        $.each(data.camadanove, function (i) {
-                             var url = data.camadanove[i].url+"/1/"+compartilhante;
-                            $("#listaUrlGrupo").append("<p>" +
-                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
-                                " Capitulo " +data.camadanove[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadanove[i].nome +
-                                "</a></p> <br>");
-                        });
-                        
-                        $.each(data.camadadez, function (i) {
-                             var url = data.camadadez[i].url+"/1/"+compartilhante;
-                            $("#listaUrlGrupo").append("<p>" +
-                            "<a href='#' onclick=" + "\"acessarStory('"+url+"');\" >" +
-                                " Capitulo " +data.camadadez[i].capitulo+ " - Sub-Sub-Grupo "  + data.camadadez[i].nome +
-                                "</a></p> <br>");
-                        });
-                    },
-                    error: function (ex) {
-                        alert('Falha ao buscar urls.' + ex);
-                    }
-                });
-
+                     buscarGrupos($(this).val(), ordenar);
                 }
 
             });

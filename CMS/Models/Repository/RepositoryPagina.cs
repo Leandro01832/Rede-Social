@@ -184,9 +184,7 @@ namespace CMS.Models.Repository
             var html = new StringBuilder();
             bool result = Velocity.Evaluate(velocitycontext, new StringWriter(html), "NomeParaCapturarLogError",
             new StringReader(TextoHtml));
-
-           
-
+            
             return html.ToString();
         }       
 
@@ -200,77 +198,25 @@ namespace CMS.Models.Repository
             .Include(p => p.Story)
              .ThenInclude(b => b.Pagina)
 
-            .Include(p => p.Story)
-            .ThenInclude(b => b.SubStory)
-             .ThenInclude(b => b.Pagina)
-
-                .Include(p => p.Story)
-                .ThenInclude(b => b.SubStory)
-                .ThenInclude(b => b.Grupo)
-                .ThenInclude(b => b.Pagina)
-
-                .Include(p => p.Story)
-                .ThenInclude(b => b.SubStory)
-                .ThenInclude(b => b.Grupo)
-                .ThenInclude(b => b.SubGrupo)
-                .ThenInclude(b => b.Pagina)
-
-                .Include(p => p.Story)
-                .ThenInclude(b => b.SubStory)
-                .ThenInclude(b => b.Grupo)
-                .ThenInclude(b => b.SubGrupo)
-                .ThenInclude(b => b.SubSubGrupo)
-                .ThenInclude(b => b.Pagina)
+             .Include(b => b.SubStory) .ThenInclude(b => b.Pagina)
+             .Include(b => b.SubStory) .ThenInclude(b => b.Grupo)
+                .Include(b => b.Grupo) .ThenInclude(b => b.Pagina)
+                .Include(b => b.Grupo) .ThenInclude(b => b.SubGrupo)
+                .Include(b => b.SubGrupo).ThenInclude(b => b.Pagina)
+                .Include(b => b.SubGrupo).ThenInclude(b => b.SubSubGrupo)
+                .Include(b => b.SubSubGrupo).ThenInclude(b => b.Pagina)
+                .Include(b => b.SubSubGrupo).ThenInclude(b => b.CamadaSeis)
+                .Include(b => b.CamadaSeis).ThenInclude(b => b.Pagina)
+                .Include(b => b.CamadaSeis).ThenInclude(b => b.CamadaSete)
+                .Include(b => b.CamadaSete).ThenInclude(b => b.Pagina)
+                .Include(b => b.CamadaSete).ThenInclude(b => b.CamadaOito)
+                .Include(b => b.CamadaOito).ThenInclude(b => b.Pagina)
+                .Include(b => b.CamadaOito).ThenInclude(b => b.CamadaNove)
+                .Include(b => b.CamadaNove).ThenInclude(b => b.Pagina)
+                .Include(b => b.CamadaNove).ThenInclude(b => b.CamadaDez)
+                .Include(b => b.CamadaDez).ThenInclude(b => b.Pagina)            
                 
-                .Include(p => p.Story)
-                .ThenInclude(b => b.SubStory)
-                .ThenInclude(b => b.Grupo)
-                .ThenInclude(b => b.SubGrupo)
-                .ThenInclude(b => b.SubSubGrupo)
-                .ThenInclude(b => b.CamadaSeis)
-                .ThenInclude(b => b.Pagina)
-                
-                .Include(p => p.Story)
-                .ThenInclude(b => b.SubStory)
-                .ThenInclude(b => b.Grupo)
-                .ThenInclude(b => b.SubGrupo)
-                .ThenInclude(b => b.SubSubGrupo)
-                .ThenInclude(b => b.CamadaSeis)
-                .ThenInclude(b => b.CamadaSete)
-                .ThenInclude(b => b.Pagina)
                
-                .Include(p => p.Story)
-                .ThenInclude(b => b.SubStory)
-                .ThenInclude(b => b.Grupo)
-                .ThenInclude(b => b.SubGrupo)
-                .ThenInclude(b => b.SubSubGrupo)
-                .ThenInclude(b => b.CamadaSeis)
-                .ThenInclude(b => b.CamadaSete)
-                .ThenInclude(b => b.CamadaOito)
-                .ThenInclude(b => b.Pagina)
-               
-                .Include(p => p.Story)
-                .ThenInclude(b => b.SubStory)
-                .ThenInclude(b => b.Grupo)
-                .ThenInclude(b => b.SubGrupo)
-                .ThenInclude(b => b.SubSubGrupo)
-                .ThenInclude(b => b.CamadaSeis)
-                .ThenInclude(b => b.CamadaSete)
-                .ThenInclude(b => b.CamadaOito)
-                .ThenInclude(b => b.CamadaNove)
-                .ThenInclude(b => b.Pagina)
-                
-                .Include(p => p.Story)
-                .ThenInclude(b => b.SubStory)
-                .ThenInclude(b => b.Grupo)
-                .ThenInclude(b => b.SubGrupo)
-                .ThenInclude(b => b.SubSubGrupo)
-                .ThenInclude(b => b.CamadaSeis)
-                .ThenInclude(b => b.CamadaSete)
-                .ThenInclude(b => b.CamadaOito)
-                .ThenInclude(b => b.CamadaNove)
-                .ThenInclude(b => b.CamadaDez)
-                .ThenInclude(b => b.Pagina)
 
                 .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Background).ThenInclude(b => b.Imagem)
                 .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Background).ThenInclude(b => b.Cores)

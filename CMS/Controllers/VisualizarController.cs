@@ -69,6 +69,7 @@ namespace MeuProjetoAgora.Controllers
             ViewBag.proximo = indice + 1;
             ViewBag.compartilhante = compartilhante;
             ViewBag.auto = auto;
+            ViewBag.Livro = Configuration.GetConnectionString("Livro");
 
             if(pagina.Comentario != null)
             {
@@ -85,6 +86,102 @@ namespace MeuProjetoAgora.Controllers
                 .OrderBy(p => p.Id)
                 .ToList();
                 ViewBag.VersoComentario = paginas.IndexOf(page) + 1;
+
+                string[] classificacoes = null;
+
+                if (pagina.SubStory != null)
+                    {    
+                        if(pagina.CamadaDez != null)
+                        {
+                            classificacoes = new string[9];
+                            classificacoes[0] = pagina.SubStory.Nome;
+                            classificacoes[1] = pagina.Grupo.Nome;
+                            classificacoes[2] = pagina.SubGrupo.Nome;
+                            classificacoes[3] = pagina.SubSubGrupo.Nome;
+                            classificacoes[4] = pagina.CamadaSeis.Nome;
+                            classificacoes[5] = pagina.CamadaSete.Nome;
+                            classificacoes[6] = pagina.CamadaOito.Nome;
+                            classificacoes[7] = pagina.CamadaNove.Nome;
+                            classificacoes[8] = pagina.CamadaDez.Nome;
+                        }                        
+                        else
+                        if(pagina.CamadaNove != null)
+                        {
+                            classificacoes = new string[8];
+                            classificacoes[0] = pagina.SubStory.Nome;
+                            classificacoes[1] = pagina.Grupo.Nome;
+                            classificacoes[2] = pagina.SubGrupo.Nome;
+                            classificacoes[3] = pagina.SubSubGrupo.Nome;
+                            classificacoes[4] = pagina.CamadaSeis.Nome;
+                            classificacoes[5] = pagina.CamadaSete.Nome;
+                            classificacoes[6] = pagina.CamadaOito.Nome;
+                            classificacoes[7] = pagina.CamadaNove.Nome;
+                        }                        
+                        else
+                        if(pagina.CamadaOito != null)
+                        {
+                            classificacoes = new string[7];
+                            classificacoes[0] = pagina.SubStory.Nome;
+                            classificacoes[1] = pagina.Grupo.Nome;
+                            classificacoes[2] = pagina.SubGrupo.Nome;
+                            classificacoes[3] = pagina.SubSubGrupo.Nome;
+                            classificacoes[4] = pagina.CamadaSeis.Nome;
+                            classificacoes[5] = pagina.CamadaSete.Nome;
+                            classificacoes[6] = pagina.CamadaOito.Nome;
+                        }                        
+                        else
+                        if(pagina.CamadaSete != null)
+                        {
+                            classificacoes = new string[6];
+                            classificacoes[0] = pagina.SubStory.Nome;
+                            classificacoes[1] = pagina.Grupo.Nome;
+                            classificacoes[2] = pagina.SubGrupo.Nome;
+                            classificacoes[3] = pagina.SubSubGrupo.Nome;
+                            classificacoes[4] = pagina.CamadaSeis.Nome;
+                            classificacoes[5] = pagina.CamadaSete.Nome;
+                        }                        
+                        else
+                        if(pagina.CamadaSeis != null)
+                        {
+                            classificacoes = new string[5];
+                            classificacoes[0] = pagina.SubStory.Nome;
+                            classificacoes[1] = pagina.Grupo.Nome;
+                            classificacoes[2] = pagina.SubGrupo.Nome;
+                            classificacoes[3] = pagina.SubSubGrupo.Nome;
+                            classificacoes[4] = pagina.CamadaSeis.Nome;
+                        }                        
+                        else
+                        if(pagina.SubSubGrupo != null)
+                        {
+                            classificacoes = new string[4];
+                            classificacoes[0] = pagina.SubStory.Nome;
+                            classificacoes[1] = pagina.Grupo.Nome;
+                            classificacoes[2] = pagina.SubGrupo.Nome;
+                            classificacoes[3] = pagina.SubSubGrupo.Nome;
+                        }                        
+                        else
+                        if(pagina.SubGrupo != null)
+                        {
+                            classificacoes = new string[3];
+                            classificacoes[0] = pagina.SubStory.Nome;
+                            classificacoes[1] = pagina.Grupo.Nome;
+                            classificacoes[2] = pagina.SubGrupo.Nome;
+                        }                        
+                        else
+                        if(pagina.Grupo != null)
+                        {
+                            classificacoes = new string[2];
+                            classificacoes[0] = pagina.SubStory.Nome;
+                            classificacoes[1] = pagina.Grupo.Nome;
+                        }                        
+                        else
+                        if(pagina.SubStory != null)
+                        {
+                            classificacoes = new string[1];
+                            classificacoes[0] = pagina.SubStory.Nome;
+                        }                        
+                        ViewBag.classificacoes = classificacoes;
+                    }
             }
 
             return View(pagina);            
@@ -98,18 +195,19 @@ namespace MeuProjetoAgora.Controllers
             await Verificar(capitulo);
             var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
+            List<Pagina> listaComConteudo = null;
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First();
-            Pagina pag2 = group.Pagina.Where(p => !p.Layout).Skip((int)indice - 1).First();
-
-
+            if(group.Pagina.Where(p => !p.Layout && p.Produto != null).ToList().Count > 0)
+             listaComConteudo = retornarListaComConteudo(lista,
+             group.Pagina.Where(p => !p.Layout).ToList(), substory);
+             else listaComConteudo = group.Pagina.Where(p => !p.Layout).ToList();
+            Pagina pag2 = listaComConteudo.Where(p => !p.Layout).Skip((int)indice - 1).First();
 
             Pagina pagina = lista.First(p => p.Id == pag2.Id);
             int vers = lista.IndexOf(pagina) + 1;
 
-
-
-            ViewBag.quantidadePaginas = group.Pagina.Count(p => !p.Layout);
+            ViewBag.quantidadePaginas = listaComConteudo.Count(p => !p.Layout);
             ViewBag.group = group;
             ViewBag.versiculo = vers;
             ViewBag.grupoindexsubstory = substory;
@@ -124,7 +222,9 @@ namespace MeuProjetoAgora.Controllers
             ViewBag.compartilhante = compartilhante;
             ViewBag.auto = auto;
             return View(pagina);
-        }        
+        }
+
+        
 
         [Route("Grupo/{capitulo?}/{substory}/{grupo}/{indice}/{auto}/{compartilhante}")]
          public async Task<IActionResult> Grupo( int indice, int? capitulo, int substory, int grupo, int auto, string compartilhante)
@@ -132,15 +232,20 @@ namespace MeuProjetoAgora.Controllers
              await Verificar(capitulo);
             var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
+             List<Pagina> listaComConteudo = null;
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
-            Pagina pag2 = group2.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+            if(group2.Pagina.Where(p => !p.Layout && p.Produto != null).ToList().Count > 0)
+               listaComConteudo = retornarListaComConteudo(lista,
+             group2.Pagina.Where(p => !p.Layout).ToList(), grupo);
+             else listaComConteudo = group2.Pagina.Where(p => !p.Layout).ToList();
+            Pagina pag2 = listaComConteudo.Where(p => ! p.Layout).Skip((int)indice - 1).First();
            
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
              int vers = lista.IndexOf(pagina) + 1;          
             
-                ViewBag.quantidadePaginas = group2.Pagina.Count(p => ! p.Layout);
+                ViewBag.quantidadePaginas = listaComConteudo.Count(p => ! p.Layout);
                 ViewBag.group = group2;
                  ViewBag.versiculo = vers;
                  ViewBag.grupoindexsubstory = substory;
@@ -164,16 +269,21 @@ namespace MeuProjetoAgora.Controllers
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
+            List<Pagina> listaComConteudo = null;
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
              var group3 = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
-            Pagina pag2 = group3.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+            if(group3.Pagina.Where(p => !p.Layout && p.Produto != null).ToList().Count > 0)
+              listaComConteudo = retornarListaComConteudo(lista,
+             group3.Pagina.Where(p => !p.Layout).ToList(), subgrupo);
+             else listaComConteudo = group3.Pagina.Where(p => !p.Layout).ToList();
+            Pagina pag2 = listaComConteudo.Where(p => ! p.Layout).Skip((int)indice - 1).First();
             
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
              int vers = lista.IndexOf(pagina) + 1;                       
             
-                ViewBag.quantidadePaginas = group3.Pagina.Count(p => ! p.Layout);
+                ViewBag.quantidadePaginas = listaComConteudo.Count(p => ! p.Layout);
                 ViewBag.group = group3;
                 ViewBag.versiculo = vers;
                 ViewBag.grupoindexsubstory = substory;
@@ -198,17 +308,22 @@ namespace MeuProjetoAgora.Controllers
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
+              List<Pagina> listaComConteudo = null;
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
              var group3 = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
-              var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
-            Pagina pag2 = group4.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+              var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First();
+            if(group4.Pagina.Where(p => !p.Layout && p.Produto != null).ToList().Count > 0)
+              listaComConteudo = retornarListaComConteudo(lista,
+             group4.Pagina.Where(p => !p.Layout).ToList(), subsubgrupo); 
+             else listaComConteudo = group4.Pagina.Where(p => !p.Layout).ToList();
+            Pagina pag2 = listaComConteudo.Where(p => ! p.Layout).Skip((int)indice - 1).First();
             
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
              int vers = lista.IndexOf(pagina) + 1;                    
             
-                ViewBag.quantidadePaginas = group4.Pagina.Count(p => ! p.Layout);
+                ViewBag.quantidadePaginas = listaComConteudo.Count(p => ! p.Layout);
                 ViewBag.group = group4;
                 ViewBag.versiculo = vers;
                 ViewBag.grupoindexsubstory = substory;
@@ -234,18 +349,23 @@ namespace MeuProjetoAgora.Controllers
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
+             List<Pagina> listaComConteudo = null;
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
              var group3 = group2.SubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subgrupo - 1).First(); 
               var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
               var group5 = group4.CamadaSeis.Where(str => str.Pagina.Count > 0).Skip((int)camadaseis - 1).First(); 
-            Pagina pag2 = group5.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+            if(group5.Pagina.Where(p => !p.Layout && p.Produto != null).ToList().Count > 0)
+                listaComConteudo = retornarListaComConteudo(lista,
+             group5.Pagina.Where(p => !p.Layout).ToList(), camadaseis); 
+             else listaComConteudo = group5.Pagina.Where(p => !p.Layout).ToList();
+            Pagina pag2 = listaComConteudo.Where(p => ! p.Layout).Skip((int)indice - 1).First();
             
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
              int vers = lista.IndexOf(pagina) + 1;                    
             
-                ViewBag.quantidadePaginas = group5.Pagina.Count(p => ! p.Layout);
+                ViewBag.quantidadePaginas = listaComConteudo.Count(p => ! p.Layout);
                 ViewBag.group = group5;
                 ViewBag.versiculo = vers;
                 ViewBag.grupoindexsubstory = substory;
@@ -272,6 +392,7 @@ namespace MeuProjetoAgora.Controllers
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
+             List<Pagina> listaComConteudo = null;
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -279,6 +400,10 @@ namespace MeuProjetoAgora.Controllers
               var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
               var group5 = group4.CamadaSeis.Where(str => str.Pagina.Count > 0).Skip((int)camadaseis - 1).First(); 
               var group6 = group5.CamadaSete.Where(str => str.Pagina.Count > 0).Skip((int)camadasete - 1).First(); 
+            if(group6.Pagina.Where(p => !p.Layout && p.Produto != null).ToList().Count > 0)
+               listaComConteudo = retornarListaComConteudo(lista,
+             group6.Pagina.Where(p => !p.Layout).ToList(), camadasete);
+             else listaComConteudo = group6.Pagina.Where(p => !p.Layout).ToList();
             Pagina pag2 = group6.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
             
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
@@ -312,6 +437,7 @@ namespace MeuProjetoAgora.Controllers
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
+             List<Pagina> listaComConteudo = null;
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2  = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -319,13 +445,17 @@ namespace MeuProjetoAgora.Controllers
               var group4 = group3.SubSubGrupo.Where(str => str.Pagina.Count > 0).Skip((int)subsubgrupo - 1).First(); 
               var group5 = group4.CamadaSeis.Where(str => str.Pagina.Count > 0).Skip((int)camadaseis - 1).First(); 
               var group6 = group5.CamadaSete.Where(str => str.Pagina.Count > 0).Skip((int)camadasete - 1).First(); 
-              var group7 = group6.CamadaOito.Where(str => str.Pagina.Count > 0).Skip((int)camadaoito - 1).First(); 
-            Pagina pag2 = group7.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+              var group7 = group6.CamadaOito.Where(str => str.Pagina.Count > 0).Skip((int)camadaoito - 1).First();
+            if(group7.Pagina.Where(p => !p.Layout && p.Produto != null).ToList().Count > 0)
+               listaComConteudo = retornarListaComConteudo(lista,
+             group7.Pagina.Where(p => !p.Layout).ToList(), camadaoito); 
+             else listaComConteudo =  group7.Pagina.Where(p => !p.Layout).ToList();
+            Pagina pag2 = listaComConteudo.Where(p => ! p.Layout).Skip((int)indice - 1).First();
             
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
              int vers = lista.IndexOf(pagina) + 1;                    
             
-                ViewBag.quantidadePaginas = group7.Pagina.Count(p => ! p.Layout);
+                ViewBag.quantidadePaginas = listaComConteudo.Count(p => ! p.Layout);
                 ViewBag.group = group7;
                 ViewBag.versiculo = vers;
                 ViewBag.grupoindexsubstory = substory;
@@ -355,6 +485,7 @@ namespace MeuProjetoAgora.Controllers
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
+             List<Pagina> listaComConteudo = null;
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2  = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -364,12 +495,16 @@ namespace MeuProjetoAgora.Controllers
               var group6 = group5.CamadaSete.Where(str => str.Pagina.Count > 0).Skip((int)camadasete - 1).First(); 
               var group7 = group6.CamadaOito.Where(str => str.Pagina.Count > 0).Skip((int)camadaoito - 1).First(); 
               var group8 = group7.CamadaNove.Where(str => str.Pagina.Count > 0).Skip((int)camadanove - 1).First(); 
-            Pagina pag2 = group8.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+            if(group8.Pagina.Where(p => !p.Layout && p.Produto != null).ToList().Count > 0)
+              listaComConteudo = retornarListaComConteudo(lista,
+             group8.Pagina.Where(p => !p.Layout).ToList(), camadanove); 
+             else listaComConteudo = group8.Pagina.Where(p => !p.Layout).ToList();
+            Pagina pag2 = listaComConteudo.Where(p => ! p.Layout).Skip((int)indice - 1).First();
             
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
              int vers = lista.IndexOf(pagina) + 1;                    
             
-                ViewBag.quantidadePaginas = group8.Pagina.Count(p => ! p.Layout);
+                ViewBag.quantidadePaginas = listaComConteudo.Count(p => ! p.Layout);
                 ViewBag.group = group8;
                 ViewBag.versiculo = vers;
                 ViewBag.grupoindexsubstory = substory;
@@ -400,6 +535,7 @@ namespace MeuProjetoAgora.Controllers
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
+              List<Pagina> listaComConteudo = null;
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2  = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -410,12 +546,16 @@ namespace MeuProjetoAgora.Controllers
               var group7 = group6.CamadaOito.Where(str => str.Pagina.Count > 0).Skip((int)camadaoito - 1).First(); 
               var group8 = group7.CamadaNove.Where(str => str.Pagina.Count > 0).Skip((int)camadanove - 1).First(); 
               var group9 = group8.CamadaDez.Where(str => str.Pagina.Count > 0).Skip((int)camadadez - 1).First(); 
-            Pagina pag2 = group9.Pagina.Where(p => ! p.Layout).Skip((int)indice - 1).First();
+            if(group9.Pagina.Where(p => !p.Layout && p.Produto != null).ToList().Count > 0)
+                listaComConteudo = retornarListaComConteudo(lista,
+             group9.Pagina.Where(p => !p.Layout).ToList(), camadadez);
+             else listaComConteudo = group9.Pagina.Where(p => !p.Layout).ToList();
+            Pagina pag2 = listaComConteudo.Where(p => ! p.Layout).Skip((int)indice - 1).First();
             
              Pagina pagina = lista.First(p => p.Id == pag2.Id);
              int vers = lista.IndexOf(pagina) + 1;                    
             
-                ViewBag.quantidadePaginas = group9.Pagina.Count(p => ! p.Layout);
+                ViewBag.quantidadePaginas = listaComConteudo.Count(p => ! p.Layout);
                 ViewBag.group = group9;
                 ViewBag.versiculo = vers;
                 ViewBag.grupoindexsubstory = substory;
@@ -688,6 +828,32 @@ namespace MeuProjetoAgora.Controllers
 
             return comentario;
         }
+
+        private List<Pagina> retornarListaComConteudo(List<Pagina> content, List<Pagina> produtos, int grupo)
+        {
+            int pular = (int) (content.Count * 0.2);
+            List<Pagina> conteudo = content.Where(p => p.Div.Count > 0).ToList();
+            List<Pagina> conteudoPorGrupo = conteudo.Skip((grupo - 1) * pular).Take(pular).ToList();
+            List<Pagina> listaComConteudo = new List<Pagina>();
+            int interacao = 0;
+
+            while(produtos.Skip(interacao * 2).ToList().Count >= 2) 
+            {
+                listaComConteudo.AddRange(produtos.Skip(interacao * 2).Take(2).ToList());
+                if(conteudoPorGrupo.Skip(interacao).FirstOrDefault() != null)
+                listaComConteudo.Add(conteudoPorGrupo.Skip(interacao).First());
+
+                interacao++;
+            }
+
+            if(listaComConteudo.Count == 0) return produtos;
+            if(!listaComConteudo.Contains(produtos.Last()))
+            listaComConteudo.Add(produtos.Last());
+
+            return listaComConteudo;
+        }
+
+        
 
     }
 

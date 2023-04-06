@@ -39,7 +39,7 @@ namespace CMS.Controllers
             var url = $"{Livro}/Renderizar/{Capitulo}/{Verso}/1/user";
             var html = RepositoryPagina.Verificar(url);
 
-            if(html != null)
+            if(html != null && Capitulo != 0)
             {
                 var c = await  db.Compartilhamento
                 .FirstOrDefaultAsync(com => com.Data.ToString("dd/MM/yyyy") ==
@@ -68,6 +68,8 @@ namespace CMS.Controllers
 
                 return Json(url);
             }
+            else if(Capitulo == 0 && html != null)
+            return Json(url);
             else
             return Json("");
         }
@@ -139,21 +141,15 @@ namespace CMS.Controllers
             return Json(stories);
         }
           
-          public JsonResult BuscarStories(string valor)
+          public JsonResult BuscarStories(string valor, int valorOrdem)
         {
             if (valor != null)
             {
                     var stories =  RetornarStories(false);
                     var lista =  stories.Where(s => s.Nome.ToLower().Contains(valor.ToLower())).OrderBy(p => p.Nome).ToList(); 
-                    var listaSubStory = new List<Grup>();
-                    var listaGrupo = new List<Grup>();
-                    var listaSubGrupo = new List<Grup>();
-                    var listaSubSubGrupo = new List<Grup>();
-                    var listaSeis = new List<Grup>();
-                    var listaSete = new List<Grup>();
-                    var listaOito = new List<Grup>();
-                    var listaNove = new List<Grup>();
-                    var listaDez = new List<Grup>();
+                    var ordenar = 0;                    
+                   
+                    var listaGrupos = new List<Grup>();                    
 
                         int[] resultDez = new int[10];
                         for (int i = 0; i < resultDez.Length; i++)
@@ -184,7 +180,7 @@ namespace CMS.Controllers
                         resultSubStory[i] = 1;
 
                     foreach (var item in stories)
-                    {                       
+                    {   
                          while (resultDez != null)
                          {
                             resultDez = Arr.RetornarArray(item, resultDez[0], resultDez[1],
@@ -204,12 +200,16 @@ namespace CMS.Controllers
                                 .CamadaNove.Where(str => str.Pagina.Count > 0).ToList()[resultDez[8]]
                                 .CamadaDez.Where(str => str.Pagina.Count > 0).ToList()[resultDez[9]].Nome;
                                 if(name.ToLower().Contains(valor.ToLower()))
-                                listaDez.Add(new Grup()
                                 {
-                                capitulo = resultDez[0],
-                                url = $"/CamadaDez/{resultDez[0]}/{resultDez[1]}/{resultDez[2]}/{resultDez[3]}/{resultDez[4]}/{resultDez[5]}/{resultDez[6]}/{resultDez[7]}/{resultDez[8]}/{resultDez[9]}/1",
-                                nome = name
-                                });
+                                    ordenar++;
+                                    listaGrupos.Add(new Grup()
+                                    {
+                                    capitulo = resultDez[0],
+                                    url = $"/CamadaDez/{resultDez[0]}/{resultDez[1]}/{resultDez[2]}/{resultDez[3]}/{resultDez[4]}/{resultDez[5]}/{resultDez[6]}/{resultDez[7]}/{resultDez[8]}/{resultDez[9]}/1",
+                                    nome = name,
+                                    ordem = ordenar
+                                    });
+                                }
                             }                            
                          }
                         
@@ -229,12 +229,16 @@ namespace CMS.Controllers
                                 .CamadaOito.Where(str => str.Pagina.Count > 0).ToList()[resultNove[7]]
                                 .CamadaNove.Where(str => str.Pagina.Count > 0).ToList()[resultNove[8]].Nome;
                                 if(name.ToLower().Contains(valor.ToLower()))
-                                listaNove.Add(new Grup()
                                 {
-                                capitulo = resultNove[0],
-                                url = $"/CamadaNove/{resultNove[0]}/{resultNove[1]}/{resultNove[2]}/{resultNove[3]}/{resultNove[4]}/{resultNove[5]}/{resultNove[6]}/{resultNove[7]}/{resultNove[8]}/1",
-                                nome = name
-                                });
+                                    ordenar++;
+                                    listaGrupos.Add(new Grup()
+                                    {
+                                    capitulo = resultNove[0],
+                                    url = $"/CamadaNove/{resultNove[0]}/{resultNove[1]}/{resultNove[2]}/{resultNove[3]}/{resultNove[4]}/{resultNove[5]}/{resultNove[6]}/{resultNove[7]}/{resultNove[8]}/1",
+                                    nome = name,
+                                    ordem = ordenar
+                                    });
+                                }
                             }                            
                          }
                          
@@ -253,12 +257,16 @@ namespace CMS.Controllers
                                 .CamadaSete.Where(str => str.Pagina.Count > 0).ToList()[resultOito[6]]
                                 .CamadaOito.Where(str => str.Pagina.Count > 0).ToList()[resultOito[7]].Nome;
                                 if(name.ToLower().Contains(valor.ToLower()))
-                                listaOito.Add(new Grup()
                                 {
-                                capitulo = resultOito[0],
-                                url = $"/CamadaOito/{resultOito[0]}/{resultOito[1]}/{resultOito[2]}/{resultOito[3]}/{resultOito[4]}/{resultOito[5]}/{resultOito[6]}/{resultOito[7]}/1",
-                                nome = name
-                                });
+                                    ordenar++;
+                                    listaGrupos.Add(new Grup()
+                                    {
+                                    capitulo = resultOito[0],
+                                    url = $"/CamadaOito/{resultOito[0]}/{resultOito[1]}/{resultOito[2]}/{resultOito[3]}/{resultOito[4]}/{resultOito[5]}/{resultOito[6]}/{resultOito[7]}/1",
+                                    nome = name,
+                                    ordem = ordenar
+                                    });
+                                }
                             }                            
                          }
                         
@@ -276,12 +284,16 @@ namespace CMS.Controllers
                                 .CamadaSeis.Where(str => str.Pagina.Count > 0).ToList()[resultSete[5]]
                                 .CamadaSete.Where(str => str.Pagina.Count > 0).ToList()[resultSete[6]].Nome;
                                 if(name.ToLower().Contains(valor.ToLower()))
-                                listaSete.Add(new Grup()
                                 {
-                                capitulo = resultSete[0],
-                                url = $"/CamadaSete/{resultSete[0]}/{resultSete[1]}/{resultSete[2]}/{resultSete[3]}/{resultSete[4]}/{resultSete[5]}/{resultSete[6]}/1",
-                                nome = name
-                                });
+                                    ordenar++;
+                                    listaGrupos.Add(new Grup()
+                                    {
+                                    capitulo = resultSete[0],
+                                    url = $"/CamadaSete/{resultSete[0]}/{resultSete[1]}/{resultSete[2]}/{resultSete[3]}/{resultSete[4]}/{resultSete[5]}/{resultSete[6]}/1",
+                                    nome = name,
+                                    ordem = ordenar
+                                    });
+                                }
                             }                            
                          }
                         
@@ -300,12 +312,16 @@ namespace CMS.Controllers
                                 .SubSubGrupo.Where(str => str.Pagina.Count > 0).ToList()[resultSeis[4]]
                                 .CamadaSeis.Where(str => str.Pagina.Count > 0).ToList()[resultSeis[5]].Nome;
                                 if(name.ToLower().Contains(valor.ToLower()))
-                                listaSeis.Add(new Grup()
                                 {
-                                capitulo = resultSeis[0],
-                                url = $"/CamadaSeis/{resultSeis[0]}/{resultSeis[1]}/{resultSeis[2]}/{resultSeis[3]}/{resultSeis[4]}/{resultSeis[5]}/1",
-                                nome = name
-                                });
+                                    ordenar++;
+                                    listaGrupos.Add(new Grup()
+                                    {
+                                    capitulo = resultSeis[0],
+                                    url = $"/CamadaSeis/{resultSeis[0]}/{resultSeis[1]}/{resultSeis[2]}/{resultSeis[3]}/{resultSeis[4]}/{resultSeis[5]}/1",
+                                    nome = name,
+                                    ordem = ordenar
+                                    });
+                                }
                             }                            
                          }
                          
@@ -321,12 +337,16 @@ namespace CMS.Controllers
                                 .SubGrupo.Where(str => str.Pagina.Count > 0).ToList()[resultSubSubGrupo[3]]
                                 .SubSubGrupo.Where(str => str.Pagina.Count > 0).ToList()[resultSubSubGrupo[4]].Nome;
                                 if(name.ToLower().Contains(valor.ToLower()))
-                                listaSubSubGrupo.Add(new Grup()
                                 {
-                                capitulo = resultSubSubGrupo[0],
-                                url = $"/SubSubGrupo/{resultSubSubGrupo[0]}/{resultSubSubGrupo[1]}/{resultSubSubGrupo[2]}/{resultSubSubGrupo[3]}/{resultSubSubGrupo[4]}/1",
-                                nome = name
-                                });
+                                    ordenar++;
+                                    listaGrupos.Add(new Grup()
+                                    {
+                                    capitulo = resultSubSubGrupo[0],
+                                    url = $"/SubSubGrupo/{resultSubSubGrupo[0]}/{resultSubSubGrupo[1]}/{resultSubSubGrupo[2]}/{resultSubSubGrupo[3]}/{resultSubSubGrupo[4]}/1",
+                                    nome = name,
+                                    ordem = ordenar
+                                    });
+                                }
                             }                            
                          }
                         
@@ -341,12 +361,16 @@ namespace CMS.Controllers
                                 .Grupo.Where(str => str.Pagina.Count > 0).ToList()[resultSubGrupo[2]]
                                 .SubGrupo.Where(str => str.Pagina.Count > 0).ToList()[resultSubGrupo[3]].Nome;
                                  if(name.ToLower().Contains(valor.ToLower()))
-                                listaSubGrupo.Add(new Grup()
-                                {
-                                capitulo = resultSubGrupo[0],
-                                url = $"/SubGrupo/{resultSubGrupo[0]}/{resultSubGrupo[1]}/{resultSubGrupo[2]}/{resultSubGrupo[3]}/1",
-                                nome = name
-                                });
+                                 {
+                                    ordenar++;
+                                    listaGrupos.Add(new Grup()
+                                    {
+                                    capitulo = resultSubGrupo[0],
+                                    url = $"/SubGrupo/{resultSubGrupo[0]}/{resultSubGrupo[1]}/{resultSubGrupo[2]}/{resultSubGrupo[3]}/1",
+                                    nome = name,
+                                    ordem = ordenar
+                                    });
+                                 }
                             } 
                             
                          }
@@ -361,12 +385,16 @@ namespace CMS.Controllers
                                 var name =  story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[resultGrupo[1]]
                                 .Grupo.Where(str => str.Pagina.Count > 0).ToList()[resultGrupo[2]].Nome;
                                  if(name.ToLower().Contains(valor.ToLower()))
-                                listaGrupo.Add(new Grup()
-                                {
-                                capitulo = resultGrupo[0],
-                                url = $"/Grupo/{resultGrupo[0]}/{resultGrupo[1]}/{resultGrupo[2]}/1",
-                                nome = name
-                                });
+                                 {
+                                    ordenar++;
+                                    listaGrupos.Add(new Grup()
+                                    {
+                                    capitulo = resultGrupo[0],
+                                    url = $"/Grupo/{resultGrupo[0]}/{resultGrupo[1]}/{resultGrupo[2]}/1",
+                                    nome = name,
+                                    ordem = ordenar
+                                    });
+                                 }
                             } 
                             
                          }
@@ -380,31 +408,41 @@ namespace CMS.Controllers
                                 var story = stories[resultSubStory[0]];
                                 var name =  story.SubStory.Where(str => str.Pagina.Count > 0).ToList()[resultSubStory[1]].Nome;
                                  if(name.ToLower().Contains(valor.ToLower()))
-                                listaSubStory.Add(new Grup()
-                                {
-                                capitulo = resultSubStory[0],
-                                url = $"/SubStory/{resultSubStory[0]}/{resultSubStory[1]}/1",
-                                nome = name
-                                });
+                                 {
+                                    ordenar++;
+                                    listaGrupos.Add(new Grup()
+                                    {
+                                    capitulo = resultSubStory[0],
+                                    url = $"/SubStory/{resultSubStory[0]}/{resultSubStory[1]}/1",
+                                    nome = name,
+                                    ordem = ordenar
+                                    });
+                                 }
                             }                             
                          }                         
+                   
+                                           
                     }
 
-                    var Modelo = new
-                    {
-                        story = lista,
-                        substory = listaSubStory,
-                        grupo = listaGrupo,
-                        subgrupo = listaSubGrupo,
-                        subsubgrupo = listaSubSubGrupo,
-                        camadaseis = listaSeis,
-                        camadasete = listaSete,
-                        camadaoito = listaOito,
-                        camadanove = listaNove,
-                        camadadez = listaDez
-                    };
+                    foreach(var i in lista)
+                        {
+                            ordenar++;
+                            listaGrupos.Add(new Grup
+                            {
+                                url = $"/Renderizar/{i.PaginaPadraoLink}/1",
+                                nome = i.Nome,
+                                capitulo = i.PaginaPadraoLink,
+                                ordem = ordenar
 
-                return Json(Modelo);              
+                            });
+                        } 
+
+                    if(valorOrdem == 0)
+                    listaGrupos = listaGrupos.OrderByDescending(g => g.ordem).ToList();
+                    else
+                    listaGrupos = listaGrupos.OrderBy(g => g.ordem).ToList();
+
+                return Json(listaGrupos);              
             }
             else
             return Json(null);
@@ -727,5 +765,6 @@ namespace CMS.Controllers
         public string nome { get; set; }
         public string url { get; set; }
         public int capitulo { get; set; }
+        public int ordem { get; set; }
     }
 }

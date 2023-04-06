@@ -50,7 +50,8 @@ namespace CMS.Controllers
         }
 
               
-         public ActionResult Index()
+        [Route("SuperAdmin")]
+         public IActionResult Index()
         {
             return View();
         }
@@ -702,7 +703,7 @@ namespace CMS.Controllers
             return View("Index", "Home");
         }
 
-       [Route("SuperAdmin/VideosYoutube")]
+       
         public async Task<IActionResult> VideosYoutube()
         {
             var stories = await _context.Story
@@ -718,7 +719,7 @@ namespace CMS.Controllers
             return View();
         }
 
-        
+        [HttpPost]
         public async Task<IActionResult> VideosYoutube(string usuario, long cap)
         {
             Pagina pag = null;
@@ -735,7 +736,8 @@ namespace CMS.Controllers
             {
                 if(texto.Contains("/shorts/"))
                 {
-                    texto.Replace("shorts", "embed");
+                   var  text =  texto.Replace("shorts", "embed");
+                   text += "?autoplay=1"; 
                     if(cap != 0)
                     {
                          pag = await _context.Pagina.Include(pa => pa.Story)
@@ -752,11 +754,11 @@ namespace CMS.Controllers
                             Container = new Container(1){Content = true}
                         }
 
-                        };
+                        }; 
                         pag.setarElemento
                         ( new Texto { Pagina_ = pag.Id,
-                        PalavrasTexto = $"<iframe width='320' height='560' src='https://www.youtube.com{texto}' " + 
-                        "frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; " + 
+                        PalavrasTexto = $"<iframe width='320' height='560' src='https://www.youtube.com{text}' " + 
+                        "frameborder='0' title='video' allow='accelerometer; autoplay; clipboard-write; encrypted-media; " + 
                         "gyroscope; picture-in-picture; web-share' allowfullscreen ></iframe>" });
                             
                         _context.Update(pag);
@@ -780,8 +782,8 @@ namespace CMS.Controllers
                         };
                         pag.setarElemento
                         ( new Texto { Pagina_ = pag.Id,
-                        PalavrasTexto = $"<iframe width='320' height='560' src='https://www.youtube.com{texto}' " + 
-                        "frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; " + 
+                        PalavrasTexto = $"<iframe width='320' height='560' src='https://www.youtube.com{text}' " + 
+                        "frameborder='0' title='video' allow='accelerometer; autoplay; clipboard-write; encrypted-media; " + 
                         "gyroscope; picture-in-picture; web-share' allowfullscreen ></iframe>" });
                             
                         _context.Update(pag);

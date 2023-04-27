@@ -192,9 +192,9 @@ namespace CMS
          var quant = 0;
          SqlConnection con = null;
          SqlCommand cmd = null;
-         string path = Directory.GetCurrentDirectory();
+         
 
-         string conecta1 = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={path}\wwwroot\rede-social2.mdf;Integrated Security=True";
+         string conecta1 = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Startup.path}\wwwroot\rede-social2.mdf;Integrated Security=True";
             try
             {
                 using (con = new SqlConnection(conecta1))

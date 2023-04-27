@@ -33,7 +33,7 @@ namespace CMS
 
         public IConfiguration Configuration { get; }
 
-        static string path = Directory.GetCurrentDirectory();
+       public static string path = Directory.GetCurrentDirectory();
         
 
         // This method gets called by the runtime. Use this method to add services to the container.

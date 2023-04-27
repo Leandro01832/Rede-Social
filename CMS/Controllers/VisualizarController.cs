@@ -17,6 +17,7 @@ using business.Join;
 using business.business.Elementos.texto;
 using Microsoft.AspNetCore.Authorization;
 using business.business.link;
+using CMS;
 
 namespace MeuProjetoAgora.Controllers
 {
@@ -657,10 +658,10 @@ namespace MeuProjetoAgora.Controllers
 
         private async Task Verificar(int? capitulo)
         {
+              string conecta1 = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Startup.path}\wwwroot\rede-social2.mdf;Integrated Security=True";
              var quant  = buscarCount(null, null, new Story().GetType(),
-              Configuration.GetConnectionString("DefaultConnection"), capitulo);
-             var comentarios  = CountComentarios(null, null, new Story().GetType(),
-              Configuration.GetConnectionString("DefaultConnection"));
+             conecta1, capitulo);
+             var comentarios  = CountComentarios(null, null, new Story().GetType(), conecta1);
 
               if(RepositoryPagina.paginas.Where(p => p.Story.Comentario).ToList().Count != comentarios)
               {

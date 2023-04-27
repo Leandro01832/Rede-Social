@@ -12,9 +12,9 @@ var chat = new signalR.HubConnectionBuilder().withUrl("/streamingHub").build();
 $('#message').click(function () {
 
     desativarCheckbox(checkbox);
-    $.cookie('automatico', '0');
     $(".container1").css("display", "block");
     $(".DivPagina").css("display", "none");
+    $(".group").css("display", "none");
 
     if ($('#displayname').val() === '')
     {
@@ -52,6 +52,7 @@ $("#sendmessage").click(function () {
 $("#fecharChat").click(function () {
 
     $(".container1").css("display", "none");
+    $(".group").css("display", "none");
     $(".DivPagina").css("display", "block");
 
 });

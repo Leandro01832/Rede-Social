@@ -42,31 +42,31 @@ namespace Tests
            string escolhidos = "";
                 
             
-            for (int i = 0; i < RepositoryPagina.paginas.Length; i++)
-             {
-                if(i == aleatorio)
-                {
+            // for (int i = 0; i < RepositoryPagina.paginas.Length; i++)
+            //  {
+            //     if(i == aleatorio)
+            //     {
 
-                 RepositoryPagina.paginas[i] = new List<business.business.Pagina>();
-                 RepositoryPagina.paginas[i].Add(new Pagina());
-                 aleatorio = rnd.Next(i, 99999999);
-                 escolhidos += i + ", ";
+            //     // RepositoryPagina.paginas[i] = new List<business.business.Pagina>();
+            //     // RepositoryPagina.paginas[i].Add(new Pagina());
+            //      aleatorio = rnd.Next(i, 99999999);
+            //      escolhidos += i + ", ";
                
-                }
+            //     }
                 
-             }           
+            //  }           
 
-              for (int i = 0; i < RepositoryPagina.paginas.Length; i++)
-             {
-                if(RepositoryPagina.paginas[i] == null)               
-                continue;
+            //   for (int i = 0; i < RepositoryPagina.paginas.Length; i++)
+            //  {
+            //     if(RepositoryPagina.paginas[i] == null)               
+            //     continue;
                 
-                Console.Write(i + ", ");  
-             }
+            //     Console.Write(i + ", ");  
+            //  }
                 Console.WriteLine("\n"); 
 
             Console.WriteLine(escolhidos); 
-            Console.WriteLine(RepositoryPagina.paginas.Length); 
+          //  Console.WriteLine(RepositoryPagina.paginas.Length); 
             Console.WriteLine("Executado!!!"); 
 
         }

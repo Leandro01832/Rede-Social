@@ -39,7 +39,7 @@ namespace CMS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-             string conecta1 = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={path}\rede-social.mdf;Integrated Security=True";
+             string conecta1 = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={path}\wwwroot\rede-social2.mdf;Integrated Security=True";
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -55,9 +55,9 @@ namespace CMS
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-               // options.UseMySql( Configuration.GetConnectionString("DefaultConnection")));
-                options.UseSqlServer( Configuration.GetConnectionString("DefaultConnection")));
-               // options.UseSqlServer(conecta1));
+              //  options.UseMySql( Configuration.GetConnectionString("DefaultConnection")));
+              //  options.UseSqlServer( Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(conecta1));
             services.AddDefaultIdentity<UserModel>()
                 .AddRoles<IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap3)

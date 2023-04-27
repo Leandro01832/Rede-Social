@@ -214,50 +214,20 @@ namespace CMS.Models.Repository
                 .Include(b => b.CamadaOito).ThenInclude(b => b.CamadaNove)
                 .Include(b => b.CamadaNove).ThenInclude(b => b.Pagina)
                 .Include(b => b.CamadaNove).ThenInclude(b => b.CamadaDez)
-                .Include(b => b.CamadaDez).ThenInclude(b => b.Pagina)            
-                
-               
-
-                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Background).ThenInclude(b => b.Imagem)
-                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Background).ThenInclude(b => b.Cores)
-                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Background).ThenInclude(b => b.Video)
-
-                 .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Imagem)
-                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Cores)
-                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Background).ThenInclude(b => b.Video)
-
-                 .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div)
-                 .ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento).ThenInclude(b => b.Background).ThenInclude(b => b.Imagem)
-                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div)
-                .ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento).ThenInclude(b => b.Background).ThenInclude(b => b.Cores)
-                .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div)
-                 .ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento).ThenInclude(b => b.Background).ThenInclude(b => b.Video)
-
+                .Include(b => b.CamadaDez).ThenInclude(b => b.Pagina)   
 
             .Include(p => p.Div)
 
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
+            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div)
+            .ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
             .ThenInclude(b => b.Imagem)
 
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
-            .ThenInclude(b => b.Texto)
+            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div)
+            .ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
+            .ThenInclude(b => b.Texto)           
 
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
-            .ThenInclude(b => b.Formulario)
-
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
-            .ThenInclude(b => b.Dependentes).ThenInclude(b => b.Elemento)
-
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
-            .ThenInclude(b => b.Dependentes).ThenInclude(b => b.ElementoDependente)
-            
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
-            .ThenInclude(b => b.Paginas).ThenInclude(b => b.Elemento)
-
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
-            .ThenInclude(b => b.Paginas).ThenInclude(b => b.Pagina)
-
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div).ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Div);
+            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div)
+            .ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Div);
 
             return include;
         }

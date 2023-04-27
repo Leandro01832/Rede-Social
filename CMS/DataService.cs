@@ -24,6 +24,7 @@ using business.Join;
 using business.business.link;
 using business.business.Elementos.texto;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace CMS
 {
@@ -43,9 +44,9 @@ namespace CMS
 
         public async Task InicializaDBAsync(IServiceProvider provider)
         {
-            var user = await UserManager.Users.
-            FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
             var contexto = provider.GetService<ApplicationDbContext>();
+           // var user = await UserManager.Users.
+           // FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
 
         //     string[] stories =
         //         {
@@ -191,9 +192,12 @@ namespace CMS
          var quant = 0;
          SqlConnection con = null;
          SqlCommand cmd = null;
+         string path = Directory.GetCurrentDirectory();
+
+         string conecta1 = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={path}\wwwroot\rede-social2.mdf;Integrated Security=True";
             try
             {
-                using (con = new SqlConnection(Configuration.GetConnectionString("DefaultConnection")))
+                using (con = new SqlConnection(conecta1))
                 {
                     cmd = 
                     new SqlCommand($"SELECT COUNT(*) FROM Pagina where Layout='False'", con);
@@ -212,8 +216,8 @@ namespace CMS
                 quant != RepositoryPagina.paginas.Where(p => !p.Layout).ToList().Count)
              {                
                 RepositoryPagina.paginas.Clear();
-                RepositoryPagina.paginas.AddRange(await epositoryPagina.includes()
-                .Where(p => !p.Layout).OrderBy(p => p.Id).ToListAsync());
+                await Task.Run(() => buscar());
+                
              }            
 
             if (await contexto.Set<Imagem>().AnyAsync())
@@ -223,6 +227,14 @@ namespace CMS
 
             var lista = await ListaImagens(provider);         
 
+        }
+
+        private async void buscar()
+        {
+            var lista = await epositoryPagina.includes()
+                .Where(p => !p.Layout).OrderBy(p => p.Id).ToListAsync();
+            RepositoryPagina.paginas.AddRange(lista);
+           
         }
 
         private async Task<List<Imagem>> ListaImagens(IServiceProvider provider)

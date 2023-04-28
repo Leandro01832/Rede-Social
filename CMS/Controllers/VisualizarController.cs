@@ -658,10 +658,10 @@ namespace MeuProjetoAgora.Controllers
 
         private async Task Verificar(int? capitulo)
         {
-              string conecta1 = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Startup.path}\wwwroot\rede-social2.mdf;Integrated Security=True";
+             
              var quant  = buscarCount(null, null, new Story().GetType(),
-             conecta1, capitulo);
-             var comentarios  = CountComentarios(null, null, new Story().GetType(), conecta1);
+             Startup.conexao, capitulo);
+             var comentarios  = CountComentarios(null, null, new Story().GetType(), Startup.conexao);
 
               if(RepositoryPagina.paginas.Where(p => p.Story.Comentario).ToList().Count != comentarios)
               {

@@ -1,0 +1,1 @@
+// "DefaultConnection":  "Data Source=DESKTOP-7TI5J9C\\SQLEXPRESS;Initial Catalog=sites;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False",

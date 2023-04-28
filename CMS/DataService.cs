@@ -191,34 +191,33 @@ namespace CMS
 
          var quant = 0;
          SqlConnection con = null;
-         SqlCommand cmd = null;
-         
-
-         string conecta1 = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Startup.path}\wwwroot\rede-social2.mdf;Integrated Security=True";
-            try
-            {
-                using (con = new SqlConnection(conecta1))
-                {
-                    cmd = 
-                    new SqlCommand($"SELECT COUNT(*) FROM Pagina where Layout='False'", con);
-                    con.Open();
-                    quant = int.Parse(cmd.ExecuteScalar().ToString());
-                    con.Close();
-                }
-            }
-            catch (Exception)
-            {
-                quant = 0;
-            }            
-
-            if(
-                RepositoryPagina.paginas.Where(p => !p.Layout).ToList().Count == 0 ||
-                quant != RepositoryPagina.paginas.Where(p => !p.Layout).ToList().Count)
-             {                
-                RepositoryPagina.paginas.Clear();
-                await Task.Run(() => buscar());
+         SqlCommand cmd = null;         
+         using (con = new SqlConnection(Startup.conexao))
+                {                
+                     try
+                    {
+                            cmd = 
+                            new SqlCommand($"SELECT COUNT(*) FROM Pagina where Layout='False'", con);
+                            con.Open();
+                            quant = int.Parse(cmd.ExecuteScalar().ToString());
+                            con.Close();
+                    }                                                                                   
+                    catch (Exception)
+                    {
+                        quant = 0;
+                        con.Close();
+                    }
+                }            
                 
-             }            
+                            if(
+                                RepositoryPagina.paginas.Where(p => !p.Layout).ToList().Count == 0 ||
+                                quant != RepositoryPagina.paginas.Where(p => !p.Layout).ToList().Count)
+                            {                
+                                RepositoryPagina.paginas.Clear();
+                               await  Task.Run(() => buscar());
+                                
+                            }            
+
 
             if (await contexto.Set<Imagem>().AnyAsync())
             {
@@ -229,10 +228,10 @@ namespace CMS
 
         }
 
-        private async void buscar()
+        private  void buscar()
         {
-            var lista = await epositoryPagina.includes()
-                .Where(p => !p.Layout).OrderBy(p => p.Id).ToListAsync();
+            var lista = epositoryPagina.includes()
+                .Where(p => !p.Layout).OrderBy(p => p.Id).ToList();
             RepositoryPagina.paginas.AddRange(lista);
            
         }

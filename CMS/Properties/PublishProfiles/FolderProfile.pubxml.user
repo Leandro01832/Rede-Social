@@ -7,5 +7,35 @@ ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.mi
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>C:\Users\simon\Documents\Deploy</_PublishTargetUrl>
+    <History>False|2023-05-01T20:38:44.7853332Z;</History>
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="AppConfig">
+      <Value>Endpoint=https://instagleo.azconfig.io%3bId=W+V7-l0-s0:IHbg1XyIiURmqm8Rxl/Q%3bSecret=MwXk8xCo5D0sUprkJaXFE5pE4USsCuaZxl8ICQ5nUOI=</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="Azure:SignalR:ConnectionString">
+      <Value>Endpoint=https://instagleo.azconfig.io%3bId=W+V7-l0-s0:IHbg1XyIiURmqm8Rxl/Q%3bSecret=MwXk8xCo5D0sUprkJaXFE5pE4USsCuaZxl8ICQ5nUOI=</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="conecta">
+      <Value>Endpoint=https://instagleo.azconfig.io%3bId=W+V7-l0-s0:IHbg1XyIiURmqm8Rxl/Q%3bSecret=MwXk8xCo5D0sUprkJaXFE5pE4USsCuaZxl8ICQ5nUOI=</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Endpoint=https://instagleo.azconfig.io%3bId=W+V7-l0-s0:IHbg1XyIiURmqm8Rxl/Q%3bSecret=MwXk8xCo5D0sUprkJaXFE5pE4USsCuaZxl8ICQ5nUOI=</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="Email">
+      <Value>Endpoint=https://instagleo.azconfig.io%3bId=W+V7-l0-s0:IHbg1XyIiURmqm8Rxl/Q%3bSecret=MwXk8xCo5D0sUprkJaXFE5pE4USsCuaZxl8ICQ5nUOI=</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="Livro">
+      <Value>Endpoint=https://instagleo.azconfig.io%3bId=W+V7-l0-s0:IHbg1XyIiURmqm8Rxl/Q%3bSecret=MwXk8xCo5D0sUprkJaXFE5pE4USsCuaZxl8ICQ5nUOI=</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="path">
+      <Value>Endpoint=https://instagleo.azconfig.io%3bId=W+V7-l0-s0:IHbg1XyIiURmqm8Rxl/Q%3bSecret=MwXk8xCo5D0sUprkJaXFE5pE4USsCuaZxl8ICQ5nUOI=</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="Senha">
+      <Value>Endpoint=https://instagleo.azconfig.io%3bId=W+V7-l0-s0:IHbg1XyIiURmqm8Rxl/Q%3bSecret=MwXk8xCo5D0sUprkJaXFE5pE4USsCuaZxl8ICQ5nUOI=</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="Token">
+      <Value>Endpoint=https://instagleo.azconfig.io%3bId=W+V7-l0-s0:IHbg1XyIiURmqm8Rxl/Q%3bSecret=MwXk8xCo5D0sUprkJaXFE5pE4USsCuaZxl8ICQ5nUOI=</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
 </Project>

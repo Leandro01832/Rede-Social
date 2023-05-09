@@ -119,7 +119,7 @@ namespace CMS.Controllers
                     html =  epositoryPagina.renderizarPagina(pagina);
                 }
                 else
-                html = Pagina.Capa;
+                html = RepositoryPagina.Capa;
                 ViewBag.Html = html;                            
 
             ViewBag.proximo = id + 1;
@@ -288,7 +288,8 @@ namespace CMS.Controllers
 
                 await db.Pagina.AddAsync(pag);
 
-                await db.SaveChangesAsync();                 
+                await db.SaveChangesAsync();         
+                pag.Story.Quantidade++;        
 
                 pag.Div = new List<PaginaContainer>();
                 foreach (var item in pag2.Div)

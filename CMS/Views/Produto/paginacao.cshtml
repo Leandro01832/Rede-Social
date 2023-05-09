@@ -120,7 +120,7 @@
 
             var Versiculo = lista.IndexOf(lista.First(l => l.Id == identifica)) + 1;
 
-                    <div class="produto">
+                    <div class="produto" onclick="cancelar()">
                         <div class="info">
                             <p> Nome: @item.Nome </p>
                             <p> Descrição: @item.Descricao </p>
@@ -133,7 +133,7 @@
                                 Capitulo @Capitulo                        
                                 </a> <br>
                                 <a href="/Renderizar/@Capitulo/@Versiculo/1/@compartilhante/#redireciona-@Versiculo" >                        
-                                Verso @Versiculo
+                                Versiculo @Versiculo
                                 </a>
                             </strong>
                         </div>
@@ -164,7 +164,12 @@
         var time = parseInt(document.getElementById("tempo").value) * 1000;
         var ss = 0;
         var porcentagem = 0;
+        var funcaoCarregarPagina = null;
     const progresso = document.querySelector(".progressbar div")
+
+    function myStopFunction() {
+        clearTimeout(funcaoCarregarPagina);
+      }
 
     if (parseInt(element2.value) == 1) 
     {
@@ -230,10 +235,15 @@
             window.location.href = "/paginacao/@atual/@ViewBag.ordenar/1/" +
             document.getElementById("tempo").value + "/@ViewBag.tamanho/@compartilhante";
         }
+
+        function cancelar()
+        {
+            myStopFunction();
+        }
        
         if(parseInt(element2.value) == 1)
         {
-            setTimeout(function() {
+           funcaoCarregarPagina =  setTimeout(function() {
             if(parseInt(document.getElementById("quantidade").value) == parseInt(element3.value))
             window.location.href = "/paginacao/" + @proximo + "/" + "@ViewBag.ordenar/1/@ViewBag.tempo/@ViewBag.tamanho/@compartilhante";
             else

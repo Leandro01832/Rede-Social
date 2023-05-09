@@ -22,15 +22,16 @@ class cor {
 
     getData() {
 
-        var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-        numero = numero.replace('44311', '');
+        var numero = $("#IdentificaPagina").val();
 
         return {
             Id: $("#Id").val(),
             CorBackground: $("#CorBackground").val(),
             Position: $("#Position").val(),
             Transparencia: $("#Transparencia").val(),
-            BackgroundId: $("#BackgroundId").val(),
+            BackgroundDivId: $("#BackgroundDivId").val(),
+            BackgroundContainerId: $("#BackgroundContainerId").val(),
+            BackgroundElementoId: $("#BackgroundElementoId").val(),
             Grau: $("#Grau").val()
         };
     }
@@ -50,8 +51,7 @@ class cor {
             headers: headers
         }).done(function (response) {
 
-            var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-            numero = numero.replace('44311', '');
+            var numero = $("#IdentificaPagina").val();
             $(".content").load("/Pagina/getview", { id: numero });
             alert("Cor criada com sucesso!!! " + response);
         });
@@ -72,8 +72,7 @@ class cor {
             headers: headers
         }).done(function (response) {
 
-            var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-            numero = numero.replace('44311', '');
+            var numero = $("#IdentificaPagina").val();
             $(".content").load("/Pagina/getview", { id: numero });
         });
     }

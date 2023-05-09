@@ -285,6 +285,7 @@ namespace CMS.Controllers
 
              _context.Add(p);
              _context.SaveChanges(); 
+             p.Story.Quantidade++;
             
            var  pagin = new Pagina(1);  
             pagin.setarElemento
@@ -318,6 +319,7 @@ namespace CMS.Controllers
 
                         _context.Add(pagina);
                         _context.SaveChanges();
+                        pagina.Story.Quantidade++;
 
                         var pagi = new Pagina(1);
                         pagi
@@ -455,13 +457,24 @@ namespace CMS.Controllers
              return View();
            }
 
-             [HttpPost]
-           public IActionResult CompartilhaVerso(string livro, int capitulo)
+            [HttpPost]
+           public async Task<IActionResult> CompartilhaVerso(string livro, int capitulo)
            {
+                var li = await _context.Livro.FirstAsync(l => l.Compartilhando);
+                if(li != null)
+                {
+                    li.Compartilhando = false;
+                    _context.Update(li);
+                    await _context.SaveChangesAsync();
+                }
+
                 if(livro[livro.Length - 1] == '/')
                 livro.Replace(livro[livro.Length - 1].ToString(), "");
-                RepositoryPagina.outroLivro = livro;
-                RepositoryPagina.outroCapitulo = capitulo;
+                var liv = await _context.Livro.FirstAsync(l => l.url == livro);
+                liv.Capitulo = capitulo;
+                liv.Compartilhando = true;
+                _context.Update(liv);
+                await _context.SaveChangesAsync();
 
             return RedirectToAction("Index", "Home");  
            }
@@ -528,22 +541,23 @@ namespace CMS.Controllers
             if(dia > 20) dia -= 20; else
             if(dia > 10) dia -= 10;
 
-            if(!string.IsNullOrEmpty(RepositoryPagina.livros[dia - 1]))
-            RepositoryPagina.outroLivro = RepositoryPagina.livros[dia];
-            else
-            {
-                RepositoryPagina.outroLivro = Configuration.GetConnectionString("Livro");
-                var quant = await _context.Story.Where(str => str.Nome != "Padrao").ToListAsync();
-                RepositoryPagina.outroCapitulo = RepositoryPagina.randNum
-                .Next(1, quant.Count);
-            }
+             var liv = await _context.Livro.FirstAsync(l => l.url == "https://www.instagleo.net.br");
+            // if(!string.IsNullOrEmpty(RepositoryPagina.livros[dia - 1]))
+            // RepositoryPagina.outroLivro = RepositoryPagina.livros[dia];
+            // else
+            // {
+            //     RepositoryPagina.outroLivro = Configuration.GetConnectionString("Livro");
+            //     var quant = await _context.Story.Where(str => str.Nome != "Padrao").ToListAsync();
+            //     RepositoryPagina.outroCapitulo = RepositoryPagina.randNum
+            //     .Next(1, quant.Count);
+            // }
 
-            if(!string.IsNullOrEmpty(RepositoryPagina.outroLivro) &&
-            RepositoryPagina.outroLivro != Configuration.GetConnectionString("Livro"))
-            {
-               var capitulos = RepositoryPagina.RetornarCapitulos(RepositoryPagina.outroLivro);
-               RepositoryPagina.outroCapitulo = RepositoryPagina.randNum.Next(1, capitulos);
-            }
+            // if(!string.IsNullOrEmpty(RepositoryPagina.outroLivro) &&
+            // RepositoryPagina.outroLivro != Configuration.GetConnectionString("Livro"))
+            // {
+            //    var capitulos = RepositoryPagina.RetornarCapitulos(liv.url);
+            //    RepositoryPagina.outroCapitulo = RepositoryPagina.randNum.Next(1, capitulos);
+            // }
 
 
             return RedirectToAction("Index", "Home");  
@@ -597,6 +611,7 @@ namespace CMS.Controllers
 
                 _context.Add(pagina);
                 _context.SaveChanges(); 
+                pagina.Story.Quantidade++;
                 pagina.Div = new List<PaginaContainer>(); 
                 var  pagin = new Pagina(1);  
                 foreach (var item in pagin.Div)            
@@ -650,6 +665,7 @@ namespace CMS.Controllers
 
                 _context.Add(pagina);
                 _context.SaveChanges();
+                pagina.Story.Quantidade++;
 
                 var pagin = new Pagina(1);
                 pagin.setarElemento(new Texto

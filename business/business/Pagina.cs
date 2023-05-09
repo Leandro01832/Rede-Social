@@ -264,10 +264,7 @@ namespace business.business
         
         public string AlignItems { get { return alignItems; } set { alignItems = value; } }
 
-        public int Tempo { get; set; }
-
-        public static string Capa { get { return File.ReadAllText
-        (Path.Combine( Directory.GetCurrentDirectory() + "/../CMS/wwwroot/Arquivotxt/Capa.html")); } }
+        public int Tempo { get; set; }       
         
         public void IncluiDiv(Container container)
         {

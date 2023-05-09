@@ -13,6 +13,7 @@ $(document).ready(function() {
     var valorStoryNome = $("#ValorStoryNome").val();
     var redirecionamento = "";
     var proximoCapitulo = valorPaginaPadraoLink + 1;
+    var funcaoCarregarPagina = null;
 
     setInterval(function() {           
         if(duracaoVideo != 0)
@@ -50,6 +51,10 @@ $(document).ready(function() {
             });
             return false;
     }
+    
+    function myStopFunction() {
+        clearTimeout(funcaoCarregarPagina);
+      }
 
 
 
@@ -64,29 +69,35 @@ $(document).ready(function() {
 
 
     $("#voltar").click(function() {
+        myStopFunction();
         redirecionar(valorAnterior);
         window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/" + valorAnterior + "/" + auto + "/" + compartilhante + redirecionamento;
     });
 
     $("#avancar").click(function() {
+        myStopFunction();
         redirecionar(valorProximo);
         window.location.href = "/Renderizar/" + valorPaginaPadraoLink + "/" + valorProximo + "/" + auto + "/" + compartilhante + redirecionamento;
     });
 
     var checkbox = document.querySelector("#automatico");
     function ativarCheckbox(el) {
+       
         el.checked = true;
     }
+
     function desativarCheckbox(el) {
         el.checked = false;
     }
-
+    
     if (valorAtual == 1) {
         ativarCheckbox(checkbox);
+        auto = 1;
     }
-
+    
     $("#automatico").change(function() {
-
+        
+        myStopFunction();
         if (auto == 0) {          
             auto = 1;
             alert("As paginas serão mostradas automaticamente.");
@@ -113,7 +124,7 @@ $(document).ready(function() {
         ativarCheckbox(checkbox);
         setTimeout(function() {
 
-            setTimeout(function() {
+            funcaoCarregarPagina =  setTimeout(function() {
                
     
                 if (auto == 1)
@@ -147,16 +158,29 @@ $(document).ready(function() {
     // });
    
     $("#acessoPaginaComInput2").click(function() {       
-        VerificarCompartilhamento(parseInt($("#NumeroPaginaAcesso2").val()));
+       // VerificarCompartilhamento(parseInt($("#NumeroPaginaAcesso2").val()));
+       myStopFunction();
+       var vers = parseInt($("#NumeroPaginaAcesso2").val());
+       window.location.href = Livro + "/Renderizar/" + valorPaginaPadraoLink
+       + "/" +vers+ "/" + auto + "/" + compartilhante + "/#redireciona-" + vers;
     });
-
+    
     $("#LinkPadrao").click(function() {  
         
+        myStopFunction();
         window.location.href = "/Renderizar/" + valorAtual + "/1/" + auto + "/" + compartilhante;
     });
 
     
 
+    $(".blocoLoader2").click(function () {
+        myStopFunction();    
+    });
+    
+    $("#capituloStory").click(function () {
+        myStopFunction();    
+    });
+    
     $(".agrupamento").click(function () {
 
         $(".group").css("display", "block");

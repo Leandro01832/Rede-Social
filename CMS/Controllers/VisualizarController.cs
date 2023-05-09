@@ -62,15 +62,24 @@ namespace MeuProjetoAgora.Controllers
                 if(!string.IsNullOrEmpty(pagina.Sobreescrita))
                 html = pagina.Sobreescrita;
                 else
-                html =  epositoryPagina.renderizarPagina(pagina);
+                {
+                    try
+                    {
+                        html =  epositoryPagina.renderizarPagina(pagina);
+                    }
+                    catch(Exception ex)
+                    {
+                        return Content("Erro: " + ex.Message);
+                    }
+                }
             }
-            else
-            html = Pagina.Capa;
+            else if(pagina.Produto == null)
+            html = RepositoryPagina.Capa;
             ViewBag.Html = html;
             ViewBag.proximo = indice + 1;
             ViewBag.compartilhante = compartilhante;
             ViewBag.auto = auto;
-            ViewBag.Livro = Configuration.GetConnectionString("Livro");
+            ViewBag.Livro =  Configuration.GetConnectionString("Livro");
 
             if(pagina.Comentario != null)
             {
@@ -622,7 +631,7 @@ namespace MeuProjetoAgora.Controllers
             {
                 using (con = new SqlConnection(conexao))
                 {
-                    cmd = new SqlCommand($"SELECT COUNT(*) FROM Story where PaginaPadraoLink={capitulo}", con);
+                    cmd = new SqlCommand($"SELECT COUNT(*) FROM Pagina as P inner join Story as st on P.StoryId = st.Id where st.PaginaPadraoLink={capitulo}", con);
                     con.Open();
                     _TotalRegistros = int.Parse(cmd.ExecuteScalar().ToString());
                     con.Close();
@@ -658,10 +667,48 @@ namespace MeuProjetoAgora.Controllers
 
         private async Task Verificar(int? capitulo)
         {
-             
-             var quant  = buscarCount(null, null, new Story().GetType(),
-             Startup.conexao, capitulo);
-             var comentarios  = CountComentarios(null, null, new Story().GetType(), Startup.conexao);
+             var quantidadeCap = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink ==
+                capitulo && !p.Layout).ToList().Count;
+                var quant = 0;
+                if(RepositoryPagina.paginas.Count != 0 && 
+                RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink ==
+                capitulo).ToList().Count != 0 &&
+                RepositoryPagina.paginas.FirstOrDefault(p => p.Story.PaginaPadraoLink ==
+                capitulo).Story.Quantidade == 0)
+                {
+                    quant  = buscarCount(null, null, new Story().GetType(),
+                    Startup.conexao, capitulo);                    
+                    RepositoryPagina.paginas.First(p => p.Story.PaginaPadraoLink ==
+                     capitulo).Story.Quantidade = quant;
+
+                }
+             else if(RepositoryPagina.paginas.Count != 0 && 
+             RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink ==
+                capitulo).ToList().Count != 0)
+             {
+                quant = RepositoryPagina.paginas.First(p => p.Story.PaginaPadraoLink ==
+                        capitulo).Story.Quantidade;
+             }
+
+             var comentarios = 0;
+                if(RepositoryPagina.paginas.Count != 0 &&
+                 RepositoryPagina.paginas.FirstOrDefault().Story.QuantComentario == 0)
+                {
+              comentarios  = CountComentarios(null, null, new Story().GetType(), Startup.conexao);
+                   RepositoryPagina.paginas.First().Story.QuantComentario = comentarios;
+                }
+              else if(RepositoryPagina.paginas.Count != 0)
+              comentarios = RepositoryPagina.paginas.FirstOrDefault().Story.QuantComentario;
+
+              if(
+               quantidadeCap == 0 ||
+                quant != quantidadeCap
+              )
+             {                
+                RepositoryPagina.paginas.RemoveAll(p => p.Story.PaginaPadraoLink == capitulo);
+                RepositoryPagina.paginas.AddRange(await epositoryPagina.includes()
+                .Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).OrderBy(p => p.Id).ToListAsync());
+             }
 
               if(RepositoryPagina.paginas.Where(p => p.Story.Comentario).ToList().Count != comentarios)
               {
@@ -670,17 +717,7 @@ namespace MeuProjetoAgora.Controllers
                 .Where(p => p.Story.Comentario).ToListAsync());
               }
 
-            if(
-                RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink ==
-                capitulo && !p.Layout).ToList().Count == 0 ||
-                quant != RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink ==
-                capitulo && !p.Layout).ToList().Count
-              )
-             {                
-                RepositoryPagina.paginas.RemoveAll(p => p.Story.PaginaPadraoLink == capitulo);
-                RepositoryPagina.paginas.AddRange(await epositoryPagina.includes()
-                .Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).OrderBy(p => p.Id).ToListAsync());
-             }
+            
         }
 
          [Authorize]
@@ -761,6 +798,7 @@ namespace MeuProjetoAgora.Controllers
 
                 db.Add(p);
                 db.SaveChanges();
+                p.Story.Quantidade++;
 
                 var pagi = new Pagina(1);
                 pagi.setarElemento(new LinkBody
@@ -792,6 +830,7 @@ namespace MeuProjetoAgora.Controllers
 
             db.Add(pagina);
             db.SaveChanges();
+            pagina.Story.QuantComentario++;
 
             var pagin = new Pagina(1);
             pagin.setarElemento(new Texto

@@ -11,8 +11,7 @@
 
     getData() {
 
-        var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-        numero = numero.replace('44311', '');
+        var numero = $("#IdentificaPagina").val();
 
         var data = $("form#formulario").serializeArray();
 
@@ -23,6 +22,8 @@
         });
         
         formdata["Pagina_"] = numero;
+        formdata["Content"] = $("#Content").is(':checked');
+        
         return formdata;
     }
 
@@ -47,8 +48,7 @@
 
             $("#numero-back").val(response.replace(/[^0-9]/g, ''));
 
-            var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-            numero = numero.replace('44311', '');
+            var numero = $("#IdentificaPagina").val();
             $(".content").load("/Pagina/getview", { id: numero });
             
             alert("Bloco criado com sucesso!!! " + response);
@@ -71,8 +71,7 @@
             headers: headers
         }).done(function (response) {
 
-            var numero = $(".bloco")[0].baseURI.replace(/[^0-9]/g, '');
-            numero = numero.replace('44311', '');
+            var numero = $("#IdentificaPagina").val();
             $(".content").load("/Pagina/getview", { id: numero });
 
         });

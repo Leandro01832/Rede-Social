@@ -2,6 +2,7 @@ C:\rede-social\Tests\bin\Release\netcoreapp2.2\publish\CMS.runtimeconfig.json
 C:\rede-social\Tests\bin\Release\netcoreapp2.2\publish\CMS.Views.dll
 C:\rede-social\Tests\bin\Release\netcoreapp2.2\publish\CMS.Views.pdb
 C:\rede-social\Tests\bin\Release\netcoreapp2.2\publish\wwwroot\Arquivotxt\Capa.html
+C:\rede-social\Tests\bin\Release\netcoreapp2.2\publish\wwwroot\Arquivotxt\default.txt
 C:\rede-social\Tests\bin\Release\netcoreapp2.2\publish\wwwroot\Caminho\dominios.txt
 C:\rede-social\Tests\bin\Release\netcoreapp2.2\publish\wwwroot\css\carousel.css
 C:\rede-social\Tests\bin\Release\netcoreapp2.2\publish\wwwroot\css\Editar.css

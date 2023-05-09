@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CMS.Data;
 using business.business.Group;
 using Microsoft.AspNetCore.Authorization;
+using business.business;
 
 namespace Controllers
 {
@@ -63,8 +64,20 @@ namespace Controllers
         {
             if (ModelState.IsValid)
             {
+                long story = 0;
+                var form = await Request.ReadFormAsync();
+                 foreach(var item in form)
+                {
+                    if(item.Key.ToString() == "StoryId")
+                    {
+                        story = long.Parse(item.Value);
+                        break;
+                    }
+                }
                 _context.Add(camadaNove);
-                await _context.SaveChangesAsync();
+                 _context.SaveChanges();
+                _context.Add(new Filtro{CamadaOito = camadaNove.Id, StoryId = story});
+                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CamadaOitoId"] = new SelectList(_context.CamadaOito, "Id", "Id", camadaNove.CamadaOitoId);

@@ -8,7 +8,10 @@ namespace business.business.Group
     public class Story : BaseModel
     {
         private int paginaPadraoLink = 0;
+        private int quantidade = 0;
+        private int quantComentario = 0;
 
+        public virtual List<Filtro> Filtro { get; set; }
         public virtual List<SubStory> SubStory { get; set; }
 
         public bool Comentario { get; set; }
@@ -33,6 +36,20 @@ namespace business.business.Group
         public string CapituloComNome
         {
             get { return "Capitulo " + this.paginaPadraoLink + " - " + this.Nome; }
+        } 
+
+        [NotMapped]
+        public int Quantidade
+        {
+            get { return quantidade; }
+            set { quantidade = value; }
+        }
+       
+        [NotMapped]
+        public int QuantComentario
+        {
+            get { return quantComentario; }
+            set { quantComentario = value; }
         }
 
     }

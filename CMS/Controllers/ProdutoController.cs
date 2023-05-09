@@ -123,7 +123,8 @@ namespace CMS.Controllers
                 pagina.SubGrupoId = SubGrupoId;
                 pagina.SubSubGrupoId = SubSubGrupoId;
                 _context.Pagina.Add(pagina);
-                _context.SaveChanges();              
+                _context.SaveChanges(); 
+                pagina.Story.Quantidade++;             
 
                 var p = new Pagina(1);
 

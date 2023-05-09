@@ -315,21 +315,10 @@
     }
            
             function VerificarCompartilhamento(verso) {
-        $.ajax({
-            type: 'POST',
-            url: '/AjaxGet/verificarCompartilhamento',
-            dataType: 'json',
-            data: { Livro: "@ViewBag.livro", Capitulo: @ViewBag.capitulo, Verso: verso   }
-        })
-            .done(function(response) {                
                 
-                if(response != "")
-                window.location.href = response;
-                else
-                alert("Esta pagina não existe");
-
-            });
-            return false;
+                 window.location.href = 
+                 "@ViewBag.livro/Renderizar/@ViewBag.capitulo/" +verso+ "/1/user/#redireciona-" + verso;
+       
     }
              
 

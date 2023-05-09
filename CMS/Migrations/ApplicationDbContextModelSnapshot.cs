@@ -482,6 +482,39 @@ namespace CMS.Migrations
                     b.ToTable("ElementoDependenteElemento");
                 });
 
+            modelBuilder.Entity("business.business.Filtro", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long?>("CamadaDez");
+
+                    b.Property<long?>("CamadaNove");
+
+                    b.Property<long?>("CamadaOito");
+
+                    b.Property<long?>("CamadaSeis");
+
+                    b.Property<long?>("CamadaSete");
+
+                    b.Property<long?>("Grupo");
+
+                    b.Property<long>("StoryId");
+
+                    b.Property<long?>("SubGrupo");
+
+                    b.Property<long?>("SubStory");
+
+                    b.Property<long?>("SubSubGrupo");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StoryId");
+
+                    b.ToTable("Filtro");
+                });
+
             modelBuilder.Entity("business.business.Group.CamadaDez", b =>
                 {
                     b.Property<long>("Id")
@@ -701,6 +734,10 @@ namespace CMS.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Capitulo");
+
+                    b.Property<bool>("Compartilhando");
 
                     b.Property<string>("url");
 
@@ -1356,6 +1393,14 @@ namespace CMS.Migrations
                     b.HasOne("business.business.Elementos.element.Elemento", "Elemento")
                         .WithMany("Dependentes")
                         .HasForeignKey("ElementoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("business.business.Filtro", b =>
+                {
+                    b.HasOne("business.business.Group.Story", "Story")
+                        .WithMany("Filtro")
+                        .HasForeignKey("StoryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -78,8 +78,15 @@ namespace CMS.Controllers
             ViewBag.stories = stories;
             ViewBag.compartilhante = compartilhante;
             ViewBag.users = users;
-            ViewBag.livro = RepositoryPagina.outroLivro;
-            ViewBag.capitulo = RepositoryPagina.outroCapitulo;
+            Livro livro = await _context.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+            if(livro != null)
+            ViewBag.livro = livro.url;
+            else
+            ViewBag.livro = Configuration.GetConnectionString("Livro");
+            if(livro != null)
+            ViewBag.capitulo = livro.Capitulo;
+            else
+            ViewBag.capitulo = 1;
             ViewBag.livro1 = RepositoryPagina.livros[0];
             ViewBag.livro2 = RepositoryPagina.livros[1];
             ViewBag.livro3 = RepositoryPagina.livros[2];
@@ -91,6 +98,11 @@ namespace CMS.Controllers
             ViewBag.livro9 = RepositoryPagina.livros[8];
             ViewBag.livro10 = RepositoryPagina.livros[9];
 
+            if(capitulo == null && verso == null && compartilhante != "user")
+            {
+                 return Redirect("/paginacao/1/capitulo/1/20/81/" + compartilhante);  
+            }
+
             if(capitulo != null)
             {
               return  RedirectToAction("Renderizar", "Visualizar",
@@ -98,37 +110,42 @@ namespace CMS.Controllers
             }
             if(verso != null)
             {
-                var url = $"{RepositoryPagina.outroLivro}/Renderizar/" +
-                 $"{RepositoryPagina.outroCapitulo}/{verso}/1/user";
-                var html = RepositoryPagina.Verificar(url);
-                var c = await  _context.Compartilhamento
-                .FirstOrDefaultAsync(com => com.Data.ToString("dd/MM/yyyy") ==
-                 DateTime.Now.ToString("dd/MM/yyyy") &&
-                 com.Livro == RepositoryPagina.outroLivro &&
-                 com.Capitulo == RepositoryPagina.outroCapitulo &&
-                  com.Verso == verso);
-                if(c == null && html != null)
-                {
-                    var registro = new Compartilhamento
-                    {
-                      Data = DateTime.Now,
-                      Livro = RepositoryPagina.outroLivro,
-                      Capitulo = (int) RepositoryPagina.outroCapitulo,
-                      Verso = (int) verso   
-                    };
-                    await _context.AddAsync(registro);
-                    await _context.SaveChangesAsync();
-                }
-                else if(c != null)
-                {
-                    c.Quantidade++;
-                    _context.Update(c);
-                    await _context.SaveChangesAsync();
+                 var liv = await _context.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+                 if(liv != null)
+                 {
+                     var url = $"{liv.url}/Renderizar/" +
+                  $"{liv.Capitulo}/{verso}/1/user";
+                // var html = RepositoryPagina.Verificar(url);
+                // var c = await  _context.Compartilhamento
+                // .FirstOrDefaultAsync(com => com.Data.ToString("dd/MM/yyyy") ==
+                //  DateTime.Now.ToString("dd/MM/yyyy") &&
+                //  com.Livro == liv.url &&
+                //  com.Capitulo == liv.Capitulo &&
+                //   com.Verso == verso);
+                // if(c == null && html != null)
+                // {
+                //     var registro = new Compartilhamento
+                //     {
+                //       Data = DateTime.Now,
+                //       Livro = liv.url,
+                //       Capitulo = (int) liv.Capitulo,
+                //       Verso = (int) verso   
+                //     };
+                //     await _context.AddAsync(registro);
+                //     await _context.SaveChangesAsync();
+                // }
+                // else if(c != null)
+                // {
+                //     c.Quantidade++;
+                //     _context.Update(c);
+                //     await _context.SaveChangesAsync();
 
-                }
-              return  Redirect(url);
+                // }
+                    return  Redirect(url);
+                 }
+                
             }
-            return View();
+            return View();  
         }
        
         [Route("Compartilhe")]
@@ -282,6 +299,7 @@ namespace CMS.Controllers
 
                 _context.Add(p);
                 _context.SaveChanges();
+                p.Story.Quantidade++;
 
                 var pagi = new Pagina(1);
                 pagi.setarElemento(new LinkBody
@@ -312,6 +330,7 @@ namespace CMS.Controllers
 
             _context.Add(pagina);
             _context.SaveChanges();
+            pagina.Story.Quantidade++;
 
             var pagin = new Pagina(1);
             pagin.setarElemento(new Texto

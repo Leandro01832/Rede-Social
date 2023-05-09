@@ -30,7 +30,7 @@ namespace CMS
 {
     public class DataService : IDataService
     {
-        public IRepositoryPagina epositoryPagina { get; }
+        public  IRepositoryPagina epositoryPagina { get; }
         public UserManager<UserModel> UserManager { get; }
         public IConfiguration Configuration { get; }
 
@@ -45,6 +45,9 @@ namespace CMS
         public async Task InicializaDBAsync(IServiceProvider provider)
         {
             var contexto = provider.GetService<ApplicationDbContext>();
+            // if(RepositoryPagina.paginas.Count == 0)
+            // await Task.Run(() => buscar(contexto));
+          
            // var user = await UserManager.Users.
            // FirstOrDefaultAsync(u => u.UserName.ToLower() == Configuration.GetConnectionString("Email"));
 
@@ -188,53 +191,50 @@ namespace CMS
         //        }
         //     }
         //     }
-
-         var quant = 0;
-         SqlConnection con = null;
-         SqlCommand cmd = null;         
-         using (con = new SqlConnection(Startup.conexao))
-                {                
-                     try
-                    {
-                            cmd = 
-                            new SqlCommand($"SELECT COUNT(*) FROM Pagina where Layout='False'", con);
-                            con.Open();
-                            quant = int.Parse(cmd.ExecuteScalar().ToString());
-                            con.Close();
-                    }                                                                                   
-                    catch (Exception)
-                    {
-                        quant = 0;
-                        con.Close();
-                    }
-                }            
-                
-                            if(
-                                RepositoryPagina.paginas.Where(p => !p.Layout).ToList().Count == 0 ||
-                                quant != RepositoryPagina.paginas.Where(p => !p.Layout).ToList().Count)
-                            {                
-                                RepositoryPagina.paginas.Clear();
-                               await  Task.Run(() => buscar());
-                                
-                            }            
-
-
+        
             if (await contexto.Set<Imagem>().AnyAsync())
             {
                 return;
             }
 
-            var lista = await ListaImagens(provider);         
+            var lista2 = await ListaImagens(provider);         
 
         }
 
-        private  void buscar()
-        {
-            var lista = epositoryPagina.includes()
-                .Where(p => !p.Layout).OrderBy(p => p.Id).ToList();
-            RepositoryPagina.paginas.AddRange(lista);
-           
-        }
+        // private static void buscar(ApplicationDbContext contexto)
+        // {           
+        //         RepositoryPagina.paginas.AddRange( contexto.Pagina
+        //         .Include(p => p.Produto)
+        //     .ThenInclude(p => p.Imagem)
+        //     .Include(p => p.Produto)
+        //     .ThenInclude(p => p.Itens)
+        //     .Include(p => p.Story)
+        //      .ThenInclude(b => b.Pagina)
+
+        //      .Include(b => b.SubStory) .ThenInclude(b => b.Pagina)
+        //      .Include(b => b.SubStory) .ThenInclude(b => b.Grupo)
+        //         .Include(b => b.Grupo) .ThenInclude(b => b.Pagina)
+        //         .Include(b => b.Grupo) .ThenInclude(b => b.SubGrupo)
+        //         .Include(b => b.SubGrupo).ThenInclude(b => b.Pagina)
+        //         .Include(b => b.SubGrupo).ThenInclude(b => b.SubSubGrupo)
+        //         .Include(b => b.SubSubGrupo).ThenInclude(b => b.Pagina)
+        //         .Include(b => b.SubSubGrupo).ThenInclude(b => b.CamadaSeis)
+        //         .Include(b => b.CamadaSeis).ThenInclude(b => b.Pagina)
+        //         .Include(b => b.CamadaSeis).ThenInclude(b => b.CamadaSete)
+        //         .Include(b => b.CamadaSete).ThenInclude(b => b.Pagina)
+        //         .Include(b => b.CamadaSete).ThenInclude(b => b.CamadaOito)
+        //         .Include(b => b.CamadaOito).ThenInclude(b => b.Pagina)
+        //         .Include(b => b.CamadaOito).ThenInclude(b => b.CamadaNove)
+        //         .Include(b => b.CamadaNove).ThenInclude(b => b.Pagina)
+        //         .Include(b => b.CamadaNove).ThenInclude(b => b.CamadaDez)
+        //         .Include(b => b.CamadaDez).ThenInclude(b => b.Pagina)   
+
+        //     .Include(p => p.Div)
+        //     .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div)
+        //     .ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
+        //     .ThenInclude(b => b.Texto)  
+        //         .Where(p => !p.Layout).OrderBy(p => p.Id).ToList());
+        // }
 
         private async Task<List<Imagem>> ListaImagens(IServiceProvider provider)
         {

@@ -10,6 +10,7 @@ using CMS.Data;
 using business.business.Group;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using business.business;
 
 namespace CMS.Controllers
 {
@@ -80,8 +81,20 @@ namespace CMS.Controllers
         {
             if (ModelState.IsValid)
             {
+                long story = 0;
+                var form = await Request.ReadFormAsync();
+                 foreach(var item in form)
+                {
+                    if(item.Key.ToString() == "StoryId")
+                    {
+                        story = long.Parse(item.Value);
+                        break;
+                    }
+                }
                 _context.Add(subSubGrupo);
-                await _context.SaveChangesAsync();
+                 _context.SaveChanges();
+                _context.Add(new Filtro{SubSubGrupo = subSubGrupo.Id, StoryId = story});
+                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             return View(subSubGrupo);

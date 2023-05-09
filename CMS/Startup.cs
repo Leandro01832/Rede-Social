@@ -32,19 +32,19 @@ namespace CMS
         }
 
         public IConfiguration Configuration { get; }
-
-        string path = Directory.GetCurrentDirectory();
+        
        public static string conexao;
         
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var p = Configuration.GetConnectionString("path");
             int conecta =  int.Parse(Configuration.GetConnectionString("conecta"));
             if(conecta == 1)
             conexao =  Configuration.GetConnectionString("DefaultConnection");
             else
-            conexao =  $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={path}\wwwroot\rede-social2.mdf;Integrated Security=True";
+            conexao =  $@"{p}";
 
            
 

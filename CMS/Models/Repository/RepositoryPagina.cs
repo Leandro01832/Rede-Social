@@ -1,6 +1,7 @@
 ﻿using business.business;
 using business.business.carousel;
 using business.business.Elementos;
+using business.business.Elementos.texto;
 using business.business.Group;
 using business.div;
 using business.Join;
@@ -27,7 +28,7 @@ namespace CMS.Models.Repository
     {
         Task<List<Pagina>> MostrarPageModels();
          string renderizarPagina(Pagina pagina);
-        IIncludableQueryable<Pagina, Div> includes();
+        IIncludableQueryable<Pagina, Texto> includes();
 
         Task<string> retornarVideos(long lista);
 
@@ -49,9 +50,9 @@ namespace CMS.Models.Repository
         }
 
        static string path = Directory.GetCurrentDirectory();       
-      public static string outroLivro = "https://localhost:5001";    
+     // public static string outroLivro = "https://localhost:5001";    
 
-      public  static int? outroCapitulo = 1;  
+    //  public  static int? outroCapitulo = 1;  
 
       public static Random randNum = new Random();
 
@@ -88,6 +89,8 @@ namespace CMS.Models.Repository
         return cap;
       }  
 
+        public static string Capa { get { return File.ReadAllText(path + "/wwwroot/Arquivotxt/Capa.html"); } }  
+        public string textDefault { get { return File.ReadAllText(path + configuration.GetConnectionString("path")); } }  
         //140 linhas
         public string CodCss { get { return File.ReadAllText(Path.Combine(path + "/wwwroot/Arquivotxt/DocCss.cshtml")); } }  
         //93 linhas
@@ -118,9 +121,7 @@ namespace CMS.Models.Repository
       //  public static List<Pagina>[] paginas = new List<Pagina>[99999999];
         public static List<Pagina> paginas = new List<Pagina>();
 
-        public static string Capa = "<br /> <br /> <br />  <center> <h1> "+ 
-                 "Instagleo</h1> <br /> <img src='" + "/" +
-                 "' width='300' class='img-circle img-responsive' /> </center> <br />  <br /> <br /> ";
+        
         
      
 
@@ -150,9 +151,10 @@ namespace CMS.Models.Repository
 
         public string renderizarPagina(Pagina pagina)
         {
-            var resultado =  renderizar(pagina, CodigoBloco + CodCss + CodCss2 +
-                CodigoProducao + CodigoMusic
-                + CodigoCarousel);
+            // var resultado =  renderizar(pagina, CodigoBloco + CodCss + CodCss2 +
+            //     CodigoProducao + CodigoMusic
+            //     + CodigoCarousel);
+            var resultado =  renderizar(pagina, textDefault);
             return resultado;
         }       
        
@@ -188,7 +190,7 @@ namespace CMS.Models.Repository
             return html.ToString();
         }       
 
-        public IIncludableQueryable<Pagina, Div> includes()
+        public IIncludableQueryable<Pagina, Texto> includes()
         {
             var include = dbSet
             .Include(p => p.Produto)
@@ -197,6 +199,8 @@ namespace CMS.Models.Repository
             .ThenInclude(p => p.Itens)
             .Include(p => p.Story)
              .ThenInclude(b => b.Pagina)
+            .Include(p => p.Story)
+             .ThenInclude(b => b.Filtro)
 
              .Include(b => b.SubStory) .ThenInclude(b => b.Pagina)
              .Include(b => b.SubStory) .ThenInclude(b => b.Grupo)
@@ -216,18 +220,18 @@ namespace CMS.Models.Repository
                 .Include(b => b.CamadaNove).ThenInclude(b => b.CamadaDez)
                 .Include(b => b.CamadaDez).ThenInclude(b => b.Pagina)   
 
-            .Include(p => p.Div)
+            
+
+            // .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div)
+            // .ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
+            // .ThenInclude(b => b.Imagem)
+            // .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div)
+            // .ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Div);
 
             .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div)
             .ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
-            .ThenInclude(b => b.Imagem)
+            .ThenInclude(b => b.Texto);           
 
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div)
-            .ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Elemento)
-            .ThenInclude(b => b.Texto)           
-
-            .Include(p => p.Div).ThenInclude(b => b.Container).ThenInclude(b => b.Div)
-            .ThenInclude(b => b.Div).ThenInclude(b => b.Elemento).ThenInclude(b => b.Div);
 
             return include;
         }

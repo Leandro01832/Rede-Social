@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using System;
 
 namespace CMS
 {
@@ -11,8 +13,10 @@ namespace CMS
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+            WebHost.CreateDefaultBuilder(args)                
                 .UseStartup<Startup>()
+                .UseSetting("detailedErrors", "true")
+                .CaptureStartupErrors(true)
             .UseIISIntegration();
     }
 }

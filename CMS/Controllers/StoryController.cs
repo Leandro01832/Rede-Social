@@ -116,7 +116,8 @@ namespace CMS.Controllers
             Pagina.entity = false;             
 
              _context.Add(pagina);
-             _context.SaveChanges(); 
+             _context.SaveChanges();
+             pagina.Story.Quantidade++; 
             
            var  pagin = new Pagina(1);  
             pagin.setarElemento
@@ -227,6 +228,7 @@ namespace CMS.Controllers
             Pagina.entity = false;
             _context.Add(pag);
             _context.SaveChanges();
+            pag.Story.Quantidade++;
             
             return RedirectToAction(nameof(Index));
         }

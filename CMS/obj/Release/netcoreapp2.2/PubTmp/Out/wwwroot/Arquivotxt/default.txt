@@ -1,0 +1,1168 @@
+
+#foreach($container in $divs)
+
+#foreach($bloco in $container.Container.Div)
+
+#if($bloco.Div.Tipo == "DivFixo" && $bloco.Div.EscolherPosicao == false)
+
+<style>
+    #DIV${bloco.Div.Id}Pagina${model.Pagina.Id} 
+    {
+        display: none;
+        position: fixed; 
+        right: ${bloco.Div.EixoXBlocoFixado}%;
+        top: ${bloco.Div.EixoYBlocoFixado}%;
+    }
+</style>
+
+#elseif($bloco.Div.Tipo == "DivFixo")
+
+<style>
+    #DIV${bloco.Div.Id}Pagina${model.Pagina.Id} 
+    {
+        display: none;
+    }
+</style>
+
+#end
+
+#if($bloco.Div.Background.Tipo == "BackgroundImagem")
+<style>
+    #DIV${bloco.Div.Id}Pagina${model.Pagina.Id} {
+
+      background-repeat: ${bloco.Div.Background.Background_Repeat};       
+
+    background-image: url($bloco.Div.Background.Imagem.ArquivoImagem);
+       
+    }
+</style>
+
+#elseif($bloco.Div.Background.Tipo == "BackgroundGradiente")
+
+  <style>
+    #DIV${bloco.Div.Id}Pagina${model.Pagina.Id} {
+
+        #set($um = 1)
+         #foreach($Cores in $bloco.Div.Background.Cores)
+         #if($um == 1)
+        #set($back = $Cores.HexToColor($Cores.CorBackground))
+        background: rgb($back); 
+        #end
+        #set($um = $um + 1)        
+         #end
+
+
+         #set($quantidade = $bloco.Div.Background.Cores.Count())
+        background: -moz-linear-gradient(${bloco.Div.Background.Grau}deg,
+        #foreach($Cor in $bloco.Div.Background.Cores)
+         #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: -webkit-linear-gradient(${bloco.Div.Background.Grau}deg,
+        #foreach($Cor in $bloco.Div.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+        #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: linear-gradient(${bloco.Div.Background.Grau}deg,
+        #foreach($Cor in $bloco.Div.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+             ,
+            #end
+
+        #end  
+
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09e718',endColorstr='#1c8ea5',GradientType=1);
+    
+    }
+</style>
+
+#else
+
+<style>
+    #DIV${bloco.Div.Id}Pagina${model.Pagina.Id} {       
+
+    background-color: $bloco.Div.Background.Cor;    
+    
+    }
+</style>
+#end
+
+#foreach($elemento in $bloco.Div.Elemento)
+
+    #if($elemento.Elemento.Background.Tipo == "BackgroundImagemElemento")
+<style>
+    #elemento${elemento.Elemento.Id}Pagina${model.Pagina.Id} {
+
+      background-repeat: ${elemento.Elemento.Background.Background_RepeatElemento};       
+
+    background-image: url($elemento.Elemento.Background.Imagem.ArquivoImagem);
+       
+    }
+</style>
+
+#elseif($elemento.Elemento.Background.Tipo == "BackgroundGradienteElemento")
+
+  <style>
+    #elemento${elemento.Elemento.Id}Pagina${model.Pagina.Id} {
+
+        #set($um = 1)
+         #foreach($Cores in $elemento.Elemento.Background.Cores)
+         #if($um == 1)
+        #set($back = $Cores.HexToColor($Cores.CorBackground))
+        background: rgb($back); 
+        #end
+        #set($um = $um + 1)        
+         #end
+
+
+         #set($quantidade = $elemento.Elemento.Background.Cores.Count())
+        background: -moz-linear-gradient(${elemento.Elemento.Background.GrauElemento}deg,
+        #foreach($Cor in $elemento.Elemento.Background.Cores)
+         #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: -webkit-linear-gradient(${elemento.Elemento.Background.GrauElemento}deg,
+        #foreach($Cor in $elemento.Elemento.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+        #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: linear-gradient(${elemento.Elemento.Background.GrauElemento}deg,
+        #foreach($Cor in $elemento.Elemento.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+             ,
+            #end
+
+        #end  
+
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09e718',endColorstr='#1c8ea5',GradientType=1);
+    
+    }
+</style>
+
+#else
+
+<style>
+    #elemento${elemento.Elemento.Id}Pagina${model.Pagina.Id} {       
+
+    background-color: $elemento.Elemento.Background.CorElemento;    
+    
+    }
+</style>
+#end
+
+#end
+
+#end
+
+#end
+
+<div>
+    <script type='text/javascript'>
+        jQuery(function () {
+
+                $('#Ocultar').click(function () {
+
+                    #foreach($bloco in $divs)
+                    $('#DIV${bloco.Div.Id}Pagina${model.Pagina.Id}').css('display', 'block');
+                    #end
+
+                });
+
+            $('.Ferramenta').click(function () {
+
+                    #foreach($bloco in $divs)
+                    #if($bloco.Div.Fixado)
+                        $('#DIV${bloco.Div.Id}Pagina${model.Pagina.Id}').css('display', 'none');
+                    #end
+                    #end
+
+            });
+
+
+                    #foreach($bloco in $divs) 
+                    #if ($bloco.Div.Fixado && $bloco.Div.EscolherPosicao)
+
+                        var header = $('#DIV${bloco.Div.Id}Pagina${model.Pagina.Id}');
+                    var sticky = header[0].offsetTop;
+
+                        window.onscroll = function () {
+                            if (window.pageYOffset + ${bloco.Div.InicioFixacao} > sticky) {
+
+                        header.addClass('stickyDIV${bloco.Div.Id}Pagina${model.Pagina.Id}');
+                    } else
+                    {
+                        header.removeClass('stickyDIV${bloco.Div.Id}Pagina${model.Pagina.Id}');
+                    }
+                }
+        #end
+        #end
+
+        });
+    </script>
+</div>
+
+
+#foreach($bloco in $divs)
+#foreach($bl in $bloco.Container.Div)
+
+#if($bl.Div.Tipo == 'DivFixo' && $bl.Div.Fixado && $bloco.Div.EscolherPosicao)
+
+<style>
+    .stickyDIV${bl.Div.Id}Pagina${model.Pagina.Id} {
+        position: fixed;
+        top: ${bloco.Div.PosicaoFixacao}%;
+        
+    }
+</style>
+#end
+#end
+#end
+
+
+#foreach($bloco in $divs)
+
+#if($bloco.Container.Background.Tipo == "BackgroundImagemContainer")
+<style>
+    #Container${bloco.Container.Id}Pagina${model.Pagina.Id} {
+
+      background-repeat: ${bloco.Container.Background.Background_RepeatContainer};       
+
+    background-image: url($bloco.Container.Background.Imagem.ArquivoImagem);
+
+    }
+</style>
+
+#elseif($bloco.Container.Background.Tipo == "BackgroundGradienteContainer")
+
+  <style>
+    #Container${bloco.Container.Id}Pagina${model.Pagina.Id} {
+
+        #set($um = 1)
+         #foreach($Cores in $bloco.Container.Background.Cores)
+         #if($um == 1)
+        #set($back = $Cores.HexToColor($Cores.CorBackground))
+        background: rgb($back); 
+        #end
+        #set($um = $um + 1)        
+         #end
+
+
+         #set($quantidade = $bloco.Container.Background.Cores.Count())
+        background: -moz-linear-gradient(${bloco.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $bloco.Container.Background.Cores)
+         #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: -webkit-linear-gradient(${bloco.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $bloco.Container.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+        #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: linear-gradient(${bloco.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $bloco.Container.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+             ,
+            #end
+
+        #end  
+
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09e718',endColorstr='#1c8ea5',GradientType=1);
+           
+    }
+</style>
+
+#else
+
+<style>
+    #Container${bloco.Container.Id}Pagina${model.Pagina.Id} {     
+    
+    background-color: $bloco.Container.Background.CorContainer;
+    
+    }
+</style>
+#end
+
+#end
+
+#set($site = '')
+
+#if($model.Div1.Container.Background.Tipo == "BackgroundImagemContainer")
+
+<style>    
+
+    .content {
+        background-image: url($site$model.Div1.Container.Background.Imagem.ArquivoImagem);
+    }
+</style>
+
+#elseif($model.Div1.Container.Background.Tipo == "BackgroundGradienteContainer")
+
+<style>
+    .content {
+
+         #set($um = 1)
+         #foreach($Cores in $model.Div1.Container.Background.BackgroundGradiente.Cores)
+         #if($um == 1)
+        #set($back = $Cores.HexToColor($Cores.CorBackground))
+        background: rgb($back); 
+        #end
+        #set($um = $um + 1)        
+         #end
+
+
+         #set($quantidade = $model.Div1.Container.Background.Cores.Count())
+        background: -moz-linear-gradient(${model.Div1.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $model.Div1.Container.Background.Cores)
+         #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: -webkit-linear-gradient(${model.Div1.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $model.Div1.Container.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+        #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: linear-gradient(${model.Div1.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $model.Div1.Container.Background.BackgroundGradiente.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+             ,
+            #end
+
+        #end  
+
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09e718',endColorstr='#1c8ea5',GradientType=1);
+    }
+
+    #pagina$model.Pagina.Id {
+
+         #set($um = 1)
+         #foreach($Cores in $model.Div1.Container.Background.Cores)
+         #if($um == 1)
+        #set($back = $Cores.HexToColor($Cores.CorBackground))
+        background: rgb($back); 
+        #end
+        #set($um = $um + 1)        
+         #end
+
+
+         #set($quantidade = $model.Div1.Container.Background.Cores.Count())
+        background: -moz-linear-gradient(${model.Div1.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $model.Div1.Container.Background.Cores)
+         #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: -webkit-linear-gradient(${model.Div1.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $model.Div1.Container.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+        #if($velocityCount == $quantidade)
+             );
+        #else
+            ,
+            #end
+
+        #end  
+
+        background: linear-gradient(${model.Div1.Container.Background.GrauContainer}deg,
+        #foreach($Cor in $model.Div1.Container.Background.Cores)
+        #set($Transparencia = $Cor.Transparencia / 10)
+        rgba($Cor.HexToColor($Cor.CorBackground),$Transparencia.toString().replace(',','.')) ${Cor.Position}%
+
+            #if($velocityCount == $quantidade)
+             );
+        #else
+             ,
+            #end
+
+        #end  
+
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09e718',endColorstr='#1c8ea5',GradientType=1);
+    }
+
+</style>
+
+#else
+
+<style>
+    .content {
+        background-color: $model.Div1.Container.Background.CorContainer;
+    }
+
+    #pagina$model.Pagina.Id {
+        background-color: $model.Div1.Container.Background.CorContainer;
+    }
+</style>
+
+#end
+
+
+<style>
+
+    img {
+        margin: auto;
+    }
+    .Elemento {
+        margin: auto;
+    }
+</style>
+
+#set($site = '')
+
+<style>
+    .bloco 
+    {
+        display: flex;    
+        flex-direction: ${model.Pagina.FlexDirection};    
+        align-items: ${model.Pagina.AlignItems};
+        width: 100%;
+        min-height: 50px;
+        height: auto;
+        background-size: contain;
+    } 
+
+</style>
+
+#foreach($container in $divs)
+
+<style>
+
+#Container${container.Container.Id}Pagina${model.Pagina.Id}
+    {
+        width: ${container.Container.Width}%;
+        min-height: ${container.Container.Height}px;
+        height: auto;
+        border-radius: ${container.Container.BorderRadius}px;
+        padding: ${container.Container.Padding}%;
+        order: ${container.Container.Ordem};
+        flex-wrap: ${container.Container.FlexWrap};
+        justify-content: ${container.Container.JustifyContent};
+        flex-direction: ${container.Container.FlexDirection};    
+        align-items: ${container.Container.AlignItems};          
+        align-self: ${container.Container.AlignSelf};
+        
+    }
+</style>
+
+#foreach($bl in $container.Container.Div)
+
+<style>
+    #DIV${bl.Div.Id}Pagina${model.Pagina.Id} 
+    {
+        order: ${bl.Div.Ordem};
+        width: ${bl.Div.Width}%;
+        min-height: ${bl.Div.Height}px;
+        height: auto;
+        border-radius: ${bl.Container.BorderRadius}px;
+        flex-wrap: ${bl.Div.FlexWrap};
+        justify-content: ${bl.Div.JustifyContent};
+        flex-direction: ${bl.Div.FlexDirection};    
+        align-items: ${bl.Div.AlignItems};        
+        align-self: ${bl.Div.AlignSelf};
+        
+    }
+</style>
+
+#foreach($elemento in $bl.Div.Elemento)
+
+    <style>
+    #elemento${elemento.Elemento.Id}Pagina${model.Pagina.Id}
+    {
+        order: ${elemento.Elemento.Ordem};        
+        align-self: ${elemento.Elemento.AlignSelf};
+        flex-grow: ${elemento.Elemento.Width};
+        
+    }
+</style>
+
+#end
+#end
+#end
+
+
+               #if($model.Pagina.MostrarDados == 1)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".Elemento").css("border", "ridge");
+            $(".Elemento").css("border-width", "3px");
+            $(".ClassDiv").css("border", "ridge");
+            $(".ClassDiv").css("border-width", "8px");
+            $(".ContainerDiv").css("border", "ridge");
+            $(".ContainerDiv").css("border-width", "15px");
+        });
+    </script>
+            #else
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".Elemento").css("border", "none");
+            $(".ClassDiv").css("border", "none");
+            $(".ContainerDiv").css("border", "none");
+            });
+    </script>
+            #end
+
+            <script type="text/javascript">
+        $(document).ready(function () {      
+            
+                if ($("#margem").is(':checked'))
+                {
+                    $(".Elemento").css("border", "ridge");
+                    $(".Elemento").css("border-width", "3px");
+                    $(".ClassDiv").css("border", "ridge");
+                    $(".ClassDiv").css("border-width", "8px");
+                    $(".ContainerDiv").css("border", "ridge");
+                    $(".ContainerDiv").css("border-width", "15px"); 
+                }
+                else
+                {
+                    $(".Elemento").css("border", "none");
+                    $(".ClassDiv").css("border", "none");
+                    $(".ContainerDiv").css("border", "none");
+                }      
+
+        });
+    </script>
+
+#set($site = '')
+
+<meta charset='UTF-8'>
+
+ 
+
+    <div id='blocos$model.Div1.Container.Id' class='bloco' data-value='$model.Div1.Container.Id'>
+
+        
+            #foreach($bloco in $divs)
+
+           <div id='Container${bloco.Container.Id}Pagina${model.Pagina.Id}' class='${bloco.Container.ClassesModificadoras}ContainerDiv' data-value='$bloco.Container.Id' >                
+                #if ($model.Pagina.Id == 0 && $bloco.Container.Id != 0 && $model.Pagina.MostrarDados == 1)
+                <center><p>Identificação do Container: $bloco.Container.Id</p></center> 
+                #end
+
+
+              #foreach($bl in $bloco.Container.Div)
+            <div id='DIV${bl.Div.Id}Pagina${model.Pagina.Id}' class='${bl.Div.ClassesModificadoras}ClassDiv' data-value='$bl.Div.Id'>
+                #if ($model.Pagina.Id == 0 && $bl.Div.Id != 0 && $model.Pagina.MostrarDados == 1)
+                <center><p>Identificação do bloco: $bl.Div.Id</p></center> 
+                #end
+
+               
+                #foreach($element in $bl.Div.Elemento)
+
+                #if ($element.Elemento.VerificarPagina == 0)
+                             
+                <div id='elemento${element.Elemento.Id}Pagina${model.Pagina.Id}' class='${element.Elemento.ClassesModificadoras}Elemento' data-value='$element.Elemento.Id'>
+                        #if($model.Pagina.MostrarDados == 1)
+                       <center><p>Identificação do elemento: $element.Elemento.Id</p></center> 
+                        #end
+                   
+
+
+                        #if ($element.Elemento.Tipo == 'CarouselImg')
+                            <div id='carouselsite$element.Elemento.Id' class='carousel' data-ride='carousel'>
+                                <div class='carousel-inner' role='listbox'>
+                                    #foreach($dependente in $element.Elemento.Dependentes)
+                                    <div class='item'>
+                                        <img class='img-responsive minhaimg' src='$site$dependente.ElementoDependente.ArquivoImagem' alt='imagem' style='width:${dependente.ElementoDependente.Dependente.Width}%;' />
+                                        <!-- <div class='carousel-caption'>
+                                        </div>   -->
+                                    </div>
+                                    #end
+                                </div>
+                            </div>
+                        #end
+
+                        #if($element.Elemento.Tipo == 'CarouselPagina')
+                            <div id='carouselsiteCarouselPagina$element.Elemento.Id' class='carousel' data-ride='carousel'>
+                                <div class='carousel-inner' role='listbox'>
+                                    #foreach($Page in $element.Elemento.Paginas)
+                                    <div id='Page$Page.Pagina.Id' class='item'>
+                                        #foreach($bl in $Page.Pagina.Div)
+                                        <div id='BlocoCarouselPagina$bl.Div.Id' class='BlocoCarouselPagina $bl.Div.Divisao'>
+
+                                            #foreach($el in $bl.Div.Elemento)
+
+                                            <div id='ElementoCarouselPagina$el.Elemento.Id'>
+
+                                                #if ($el.Elemento.Tipo == 'Video')
+
+                                                <div id='VideoCarouselPagina${el.Elemento.Id}Pagina${model.Pagina.Id}' class=''>
+
+                                                    <video style='width:100%; height:100%' controls>
+                                                        <source src='$site$el.Elemento.ArquivoVideo' type='video/mp4' />
+                                                    </video>
+
+                                                </div>
+
+                                                #end
+
+                                                #if ($el.Elemento.Tipo == 'Texto')
+
+                                                <div id='textoCarouselPagina${el.Elemento.Id}Pagina${model.Pagina.Id}' class=''>
+
+                                                    <p>$el.Elemento.PalavrasTexto</p>
+                                                </div>
+
+                                                #end
+
+                                                #if($el.Elemento.Tipo == 'Link')
+
+                                                #if($element.Elemento.TextoLink != '#LinkPadrao')
+
+                                                <a href='$element.Elemento.TextoLink'>
+
+                                                 ${element.Elemento.Texto.PalavrasTexto}
+                                
+                                                <img class='img-responsive' src='$site$element.Elemento.Imagem.ArquivoImagem' alt='imagem' style='width:100%;' />
+                               
+
+                                                </a>  
+
+                                                #else
+
+                                                <a id='LinkPadrao' href='#'> ${element.Elemento.Texto.PalavrasTexto} </a>
+
+                                                #end
+
+                                                #end
+
+                                                #if ($el.Elemento.Tipo == 'Imagem')
+
+                                                <div id='ImagemCarouselPagina${el.Elemento.Id}Pagina${model.Pagina.Id}' class=''>
+                                                    <img class='img-responsive' src='$site$el.Elemento.ArquivoImagem' alt='imagem' style='width:${el.Elemento.Width}%;' />
+                                                </div>
+
+                                                #end
+
+                                                #if($el.Elemento.Tipo == 'Formulario')
+
+                                                <div id='FormCarouselPagina${el.Elemento.Id}Pagina${model.Pagina.Id}' class=''>
+
+                                                    <form>
+                                                        #foreach($el in $el.Elemento.Dependentes)
+
+                                                        <label>$el.ElementoDependente.Dependente.Nome</label>
+                                                        <input class='CampoFormulario$el.Elemento.Id' id='Campo$el.ElementoDependente.Dependente.Id' name='Campo$el.ElementoDependente.Dependente.Id' type='$el.ElementoDependente.Dependente.TipoCampo' placeholder='$el.ElementoDependente.Dependente.Placeholder' value='$el.ElementoDependente.Dependente.ValorCampo' />
+                                                        <br />
+
+                                                        #end
+                                                        <a href='#' id='SalvarDadosFormulario'>Salvar</a>
+                                                    </form>
+
+                                                </div>
+
+                                                <script type='text/javascript'>
+
+                                                    $(document).ready(function () {
+
+                                                        $('#SalvarDadosFormulario').click(function () {
+
+                                                            var Arquivos = $('.CampoFormulario');
+                                                            var formData = new FormData();
+
+                                                            let token = $('[name=__RequestVerificationToken]').val();
+                                                            let headers = {};
+                                                            headers['RequestVerificationToken'] = token;
+
+                                                            for (var i = 0; i !== Arquivos.length; i++) {
+                                                                formData.append('valores', document.getElementsByClassName('CampoFormulario$el.Elemento.Id')[i].value);
+                                                                formData.append('Formulario', $el.Elemento.Id);
+                                                            }
+
+                                                            jQuery.ajax({
+                                                                url: '/Formulario/SalvarDados',
+                                                                data: formData,
+                                                                processData: !1,
+                                                                contentType: !1,
+                                                                type: 'POST',
+                                                                headers: headers,
+                                                                success: function (data) {
+                                                                    alert('dados salvos com sucesso!' + data);
+                                                                }
+                                                            });
+
+
+                                                        });
+                                                    });
+                                                </script>
+                                                #end
+                                            </div>
+                                            #end
+                                        </div>
+                                        #end
+                                    </div>
+                                    #end
+                                </div>
+                            </div>
+                        #end
+
+                        #if($element.Elemento.Tipo == 'Formulario')
+                            <form>
+                                #foreach($el in $element.Elemento.Dependentes)
+
+                                <label>$el.ElementoDependente.Dependente.Nome</label>
+                                <input class='CampoFormulario$element.Elemento.Id' id='Campo$el.ElementoDependente.Dependente.Id' name='Campo$el.ElementoDependente.Dependente.Id' type='$el.ElementoDependente.Dependente.TipoCampo' placeholder='$el.ElementoDependente.Dependente.Placeholder' />
+                                <br />
+
+                                #end
+                                <a href='#' id='SalvarDadosFormulario'>Salvar</a>
+                            </form>
+
+                        <script type='text/javascript'>
+
+                            $(document).ready(function () {
+
+                                $('#SalvarDadosFormulario').click(function () {
+
+                                    var Arquivos = $('.CampoFormulario');
+                                    var formData = new FormData();
+
+                                    let token = $('[name=__RequestVerificationToken]').val();
+                                    let headers = {};
+                                    headers['RequestVerificationToken'] = token;
+
+                                    for (var i = 0; i !== Arquivos.length; i++) {
+                                        formData.append('valores', document.getElementsByClassName('CampoFormulario$element.Elemento.Id')[i].value);
+                                        formData.append('Formulario', $element.Elemento.Id);
+                                    }
+
+                                    jQuery.ajax({
+                                        url: '/Formulario/SalvarDados',
+                                        data: formData,
+                                        processData: !1,
+                                        contentType: !1,
+                                        type: 'POST',
+                                        headers: headers,
+                                        success: function (data) {
+                                            alert('dados salvos com sucesso!' + data);
+                                        }
+                                    });
+
+
+                                });
+
+                            });
+
+                        </script>
+
+                        #end
+
+                        #if ($element.Elemento.Tipo == 'Imagem')
+                        <img class='img-responsive' src='$site$element.Elemento.ArquivoImagem' alt='imagem' style='width:${element.Elemento.WidthImagem}%;' />
+                        #end
+
+                        #if($element.Elemento.Tipo == 'LinkBody')
+
+                            #if($element.Elemento.TextoLink != '#LinkPadrao')
+                            <a href='$element.Elemento.TextoLink'>
+
+                                ${element.Elemento.Texto.PalavrasTexto}
+                                #if($element.Elemento.VerificarNuloImagem == 1)
+                                <img class='img-responsive' src='$site$element.Elemento.Imagem.ArquivoImagem' alt='imagem' style='width:100%;' />
+                               #end
+
+                            </a>
+                            #else
+
+                            <a href='#' id='LinkPadrao'  > ${element.Elemento.Texto.PalavrasTexto} </a>
+                            #end
+                        
+                        #end                        
+
+                        #if ($element.Elemento.Tipo == 'Texto')
+                            <p>$element.Elemento.PalavrasTexto</p>
+                        #end
+
+                        #if ($element.Elemento.Tipo == 'Video')
+                            <video style='width:100%; height:100%' controls>
+                                <source src='$site$element.Elemento.ArquivoVideo' type='video/mp4' />
+                            </video>
+                        #end
+
+                    
+
+                </div>
+                   
+                #elseif($element.Elemento.PaginaEscolhida == $model.Pagina.Id)
+
+                <div id='elemento${element.Elemento.Id}Pagina${model.Pagina.Id}' class='${element.Elemento.ClassesModificadoras}Elemento' data-value='$element.Elemento.Id'>
+                        #if($model.Pagina.MostrarDados == 1)
+                      <center><p>Identificação do elemento: $element.Elemento.Id</p></center> 
+                        #end
+                   
+
+
+                        #if ($element.Elemento.Tipo == 'CarouselImg')
+                            <div id='carouselsite$element.Elemento.Id' class='carousel' data-ride='carousel'>
+                                <div class='carousel-inner' role='listbox'>
+                                    #foreach($dependente in $element.Elemento.Dependentes)
+                                    <div class='item'>
+                                        <img class='img-responsive minhaimg' src='$site$dependente.ElementoDependente.ArquivoImagem' alt='imagem' style='width:${dependente.ElementoDependente.Dependente.Width}%;' />
+                                        <!-- <div class='carousel-caption'>
+                                        </div>   -->
+                                    </div>
+                                    #end
+                                </div>
+                            </div>
+                        #end
+
+                        #if($element.Elemento.Tipo == 'CarouselPagina')
+                            <div id='carouselsiteCarouselPagina$element.Elemento.Id' class='carousel' data-ride='carousel'>
+                                <div class='carousel-inner' role='listbox'>
+                                    #foreach($Page in $element.Elemento.Paginas)
+                                    <div id='Page$Page.Pagina.Id' class='item'>
+                                        #foreach($bl in $Page.Pagina.Div)
+                                        <div id='BlocoCarouselPagina$bl.Div.Id' class='BlocoCarouselPagina $bl.Div.Divisao'>
+
+                                            #foreach($el in $bl.Div.Elemento)
+
+                                            <div id='ElementoCarouselPagina$el.Elemento.Id'>
+
+                                                #if ($el.Elemento.Tipo == 'Video')
+
+                                                <div id='VideoCarouselPagina${el.Elemento.Id}Pagina${model.Pagina.Id}' class=''>
+
+                                                    <video style='width:100%; height:100%' controls>
+                                                        <source src='$site$el.Elemento.ArquivoVideo' type='video/mp4' />
+                                                    </video>
+
+                                                </div>
+
+                                                #end
+
+                                                #if ($el.Elemento.Tipo == 'Texto')
+
+                                                <div id='textoCarouselPagina${el.Elemento.Id}Pagina${model.Pagina.Id}' class=''>
+
+                                                    <p>$el.Elemento.PalavrasTexto</p>
+                                                </div>
+
+                                                #end
+
+                                                #if($el.Elemento.Tipo == 'Link')
+
+                                                #if($element.Elemento.TextoLink != '#LinkPadrao')
+                                                <a href='$element.Elemento.TextoLink'>
+
+                                                 ${element.Elemento.Texto.PalavrasTexto}
+                                
+                                                <img class='img-responsive' src='$site$element.Elemento.Imagem.ArquivoImagem' alt='imagem' style='width:100%;' />
+                               
+
+                                                </a>      
+                                                #else
+                                                <a href='#' id='LinkPadrao'> ${element.Elemento.Texto.PalavrasTexto} </a>
+                                                #end                                       
+
+                                                #end
+
+                                                #if ($el.Elemento.Tipo == 'Imagem')
+
+                                                <div id='ImagemCarouselPagina${el.Elemento.Id}Pagina${model.Pagina.Id}' class=''>
+                                                    <img class='img-responsive' src='$site$el.Elemento.ArquivoImagem' alt='imagem' style='width:${el.Elemento.Width}%;' />
+                                                </div>
+
+                                                #end
+
+                                                #if($el.Elemento.Tipo == 'Formulario')
+
+                                                <div id='FormCarouselPagina${el.Elemento.Id}Pagina${model.Pagina.Id}' class=''>
+
+                                                    <form>
+                                                        #foreach($el in $el.Elemento.Dependentes)
+
+                                                        <label>$el.ElementoDependente.Dependente.Nome</label>
+                                                        <input class='CampoFormulario$el.Elemento.Id' id='Campo$el.ElementoDependente.Dependente.Id' name='Campo$el.ElementoDependente.Dependente.Id' type='$el.ElementoDependente.Dependente.TipoCampo' placeholder='$el.ElementoDependente.Dependente.Placeholder' value='$el.ElementoDependente.Dependente.ValorCampo' />
+                                                        <br />
+
+                                                        #end
+                                                        <a href='#' id='SalvarDadosFormulario'>Salvar</a>
+                                                    </form>
+
+                                                </div>
+
+                                                <script type='text/javascript'>
+
+                                                    $(document).ready(function () {
+
+                                                        $('#SalvarDadosFormulario').click(function () {
+
+                                                            var Arquivos = $('.CampoFormulario');
+                                                            var formData = new FormData();
+
+                                                            let token = $('[name=__RequestVerificationToken]').val();
+                                                            let headers = {};
+                                                            headers['RequestVerificationToken'] = token;
+
+                                                            for (var i = 0; i !== Arquivos.length; i++) {
+                                                                formData.append('valores', document.getElementsByClassName('CampoFormulario$el.Elemento.Id')[i].value);
+                                                                formData.append('Formulario', $el.Elemento.Id);
+                                                            }
+
+                                                            jQuery.ajax({
+                                                                url: '/Formulario/SalvarDados',
+                                                                data: formData,
+                                                                processData: !1,
+                                                                contentType: !1,
+                                                                type: 'POST',
+                                                                headers: headers,
+                                                                success: function (data) {
+                                                                    alert('dados salvos com sucesso!' + data);
+                                                                }
+                                                            });
+
+
+                                                        });
+                                                    });
+                                                </script>
+                                                #end
+                                            </div>
+                                            #end
+                                        </div>
+                                        #end
+                                    </div>
+                                    #end
+                                </div>
+                            </div>
+                        #end
+
+                        #if($element.Elemento.Tipo == 'Formulario')
+                            <form>
+                                #foreach($el in $element.Elemento.Dependentes)
+
+                                <label>$el.ElementoDependente.Dependente.Nome</label>
+                                <input class='CampoFormulario$element.Elemento.Id' id='Campo$el.ElementoDependente.Dependente.Id' name='Campo$el.ElementoDependente.Dependente.Id' type='$el.ElementoDependente.Dependente.TipoCampo' placeholder='$el.ElementoDependente.Dependente.Placeholder' />
+                                <br />
+
+                                #end
+                                <a href='#' id='SalvarDadosFormulario'>Salvar</a>
+                            </form>
+
+                        <script type='text/javascript'>
+
+                            $(document).ready(function () {
+
+                                $('#SalvarDadosFormulario').click(function () {
+
+                                    var Arquivos = $('.CampoFormulario');
+                                    var formData = new FormData();
+
+                                    let token = $('[name=__RequestVerificationToken]').val();
+                                    let headers = {};
+                                    headers['RequestVerificationToken'] = token;
+
+                                    for (var i = 0; i !== Arquivos.length; i++) {
+                                        formData.append('valores', document.getElementsByClassName('CampoFormulario$element.Elemento.Id')[i].value);
+                                        formData.append('Formulario', $element.Elemento.Id);
+                                    }
+
+                                    jQuery.ajax({
+                                        url: '/Formulario/SalvarDados',
+                                        data: formData,
+                                        processData: !1,
+                                        contentType: !1,
+                                        type: 'POST',
+                                        headers: headers,
+                                        success: function (data) {
+                                            alert('dados salvos com sucesso!' + data);
+                                        }
+                                    });
+
+
+                                });
+
+                            });
+
+                        </script>
+
+                        #end
+
+                        #if ($element.Elemento.Tipo == 'Imagem')
+                        <img class='img-responsive' src='$site$element.Elemento.ArquivoImagem' alt='imagem' style='width:${element.Elemento.WidthImagem}%;' />
+                        #end
+
+                        #if($element.Elemento.Tipo == 'LinkBody')
+
+                            #if($element.Elemento.TextoLink != '#LinkPadrao')
+                            <a href='$element.Elemento.TextoLink'>
+
+                                ${element.Elemento.Texto.PalavrasTexto}
+                                #if($element.Elemento.VerificarNuloImagem == 1)
+                                <img class='img-responsive' src='$site$element.Elemento.Imagem.ArquivoImagem' alt='imagem' style='width:100%;' />
+                               #end
+
+                            </a>
+                            #else
+                            <a href='#' id='LinkPadrao'> ${element.Elemento.Texto.PalavrasTexto}</a>
+                            #end
+                        
+                        #end                        
+
+                        #if ($element.Elemento.Tipo == 'Texto')
+                            <p>$element.Elemento.PalavrasTexto</p>
+                        #end
+
+                        #if ($element.Elemento.Tipo == 'Video')
+                            <video style='width:100%; height:100%' controls>
+                                <source src='$site$element.Elemento.ArquivoVideo' type='video/mp4' />
+                            </video>
+                        #end
+
+                    
+
+                </div>
+
+                #end
+
+
+                #end
+            </div>
+            #end
+
+           </div>
+
+
+            #end        
+    
+</div>    
+
+<script type='text/javascript'>
+
+        $(document).ready(function () {
+
+            jQuery(function () {
+
+                $('.item:first-child').addClass('active').show();
+            });
+
+        });
+
+</script>
+
+#if($model.Musicbool)
+<audio controls autoplay loop>
+    <source src='$site$model.arquivoMusic' type='audio/mp3' />
+
+</audio>
+#end
+
+#foreach($bl in $divs)
+#foreach($bloco in $bl.Container.Div)
+#foreach($element in $bloco.Div.Elemento)
+#if ($element.Elemento.tipo == "Carousel")
+
+<script type='text/javascript'>
+    jQuery(function () {
+        $('.item:first-child').addClass('active$element.Elemento.IdElemento').show();
+
+        setInterval(slide, 5000);
+
+        function slide() {
+            if ($('.active$element.Elemento.IdElemento').next().size()) {
+                $('.active$element.Elemento.IdElemento').fadeOut().removeClass('active$element.Elemento.IdElemento')
+                    .next().addClass('active$element.Elemento.IdElemento');
+                $('.active$element.Elemento.IdElemento').delay(500).fadeIn();
+            } else {
+                $('.active$element.Elemento.IdElemento').fadeOut().removeClass('active$element.Elemento.IdElemento');
+
+                $('.item:first-child').delay(500).fadeIn().addClass('active$element.Elemento.IdElemento');
+            }
+        }
+    });
+</script>
+
+#end
+#end
+#end
+#end

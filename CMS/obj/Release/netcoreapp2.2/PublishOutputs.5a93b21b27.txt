@@ -1,4 +1,5 @@
 C:\rede-social\CMS\bin\Release\netcoreapp2.2\publish\wwwroot\Arquivotxt\Capa.html
+C:\rede-social\CMS\bin\Release\netcoreapp2.2\publish\wwwroot\Arquivotxt\default.txt
 C:\rede-social\CMS\bin\Release\netcoreapp2.2\publish\wwwroot\Caminho\dominios.txt
 C:\rede-social\CMS\bin\Release\netcoreapp2.2\publish\wwwroot\css\carousel.css
 C:\rede-social\CMS\bin\Release\netcoreapp2.2\publish\wwwroot\css\Editar.css

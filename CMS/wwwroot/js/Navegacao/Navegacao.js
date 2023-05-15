@@ -169,9 +169,11 @@ $(document).ready(function() {
         
         myStopFunction();
         window.location.href = "/Renderizar/" + valorAtual + "/1/" + auto + "/" + compartilhante;
-    });
+    });    
 
-    
+    $("#NumeroPaginaAcesso2").click(function () {
+        myStopFunction();    
+    });
 
     $(".blocoLoader2").click(function () {
         myStopFunction();    

@@ -28,6 +28,9 @@ namespace MeuProjetoAgora.Controllers
         public UserManager<UserModel> UserManager { get; }
         public IConfiguration Configuration { get; }
 
+        public ClassArray Arr;
+
+
         public VisualizarController(IRepositoryPagina repositoryPagina, UserManager<UserModel> userManager,
          IConfiguration configuration, ApplicationDbContext context)
         {
@@ -35,6 +38,7 @@ namespace MeuProjetoAgora.Controllers
             epositoryPagina = repositoryPagina;
             UserManager = userManager;
             Configuration = configuration;
+            Arr = new ClassArray();
         }
         
 
@@ -196,21 +200,36 @@ namespace MeuProjetoAgora.Controllers
 
             return View(pagina);            
         }
-
         
-
-        [Route("SubStory/{capitulo?}/{substory}/{indice}/{auto}/{compartilhante}")]
-         public async Task<IActionResult> SubStory( int indice, int? capitulo, int substory, int auto, string compartilhante)
+        [Route("SubStory/{capitulo}/{filtrar}/{redirecionar?}")]
+        [Route("SubStory/{capitulo}/{substory}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> SubStory( int indice, int capitulo,
+          int substory, int auto, int? redirecionar, string compartilhante, string filtrar)
         {
-            await Verificar(capitulo);
+            await Verificar(capitulo);            
             var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
-            Pagina pag = lista.First();
+            Pagina pag = lista.First();            
             List<Pagina> listaComConteudo = null;
+            if(filtrar != null)
+            {
+              var livro = await db.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+                if( livro != null && redirecionar == null)
+                Redirect($"{livro.url}/{capitulo}/{filtrar}/1");
+                
+                var indiceFiltro = int.Parse(filtrar.Replace("pasta-", ""));
+                var fi =  pag.Story.Filtro.OrderBy(f => f.Id).ToList()[indiceFiltro];
+                 var arr = Arr.RetornarArray(pag.Story, false, (long) fi.SubStory, capitulo, 1);
+                indice = 1;
+                auto = 1;
+                compartilhante = "user";
+                substory = arr[1];
+            }
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First();
+
             if(group.Pagina.Where(p => !p.Layout && p.Produto != null).ToList().Count > 0)
              listaComConteudo = retornarListaComConteudo(lista,
-             group.Pagina.Where(p => !p.Layout).ToList(), substory);
+              group.Pagina.Where(p => !p.Layout).ToList(), substory);
              else listaComConteudo = group.Pagina.Where(p => !p.Layout).ToList();
             Pagina pag2 = listaComConteudo.Where(p => !p.Layout).Skip((int)indice - 1).First();
 
@@ -231,18 +250,38 @@ namespace MeuProjetoAgora.Controllers
             ViewBag.proximo = indice + 1;
             ViewBag.compartilhante = compartilhante;
             ViewBag.auto = auto;
+            var filtro = pag.Story.Filtro.First(f => f.SubStory == group.Id);
+            ViewBag.filtro = pag.Story.Filtro.OrderBy(f => f.Id).ToList().IndexOf(filtro) + 1;
             return View(pagina);
         }
 
         
 
-        [Route("Grupo/{capitulo?}/{substory}/{grupo}/{indice}/{auto}/{compartilhante}")]
-         public async Task<IActionResult> Grupo( int indice, int? capitulo, int substory, int grupo, int auto, string compartilhante)
+        [Route("Grupo/{capitulo}/{filtrar}/{redirecionar?}")]
+        [Route("Grupo/{capitulo}/{substory}/{grupo}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> Grupo( int indice, int capitulo, int substory,
+          int grupo, int auto, int? redirecionar, string compartilhante, string filtrar)
         {             
              await Verificar(capitulo);
             var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
              List<Pagina> listaComConteudo = null;
+
+             if(filtrar != null)
+            {
+                 var livro = await db.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+                if( livro != null && redirecionar == null)
+                Redirect($"{livro.url}/{capitulo}/{filtrar}/1");
+
+                var indiceFiltro = int.Parse(filtrar.Replace("pasta-", ""));
+                var fi =  pag.Story.Filtro.OrderBy(f => f.Id).ToList()[indiceFiltro];
+                 var arr = Arr.RetornarArray(pag.Story, false, (long) fi.Grupo, capitulo, 1);
+                indice = 1;
+                auto = 1;
+                compartilhante = "user";
+                substory = arr[1];
+                grupo = arr[2];
+            }
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -270,16 +309,37 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
                 ViewBag.auto = auto;
+                var filtro = pag.Story.Filtro.First(f => f.Grupo == group2.Id);
+            ViewBag.filtro = pag.Story.Filtro.OrderBy(f => f.Id).ToList().IndexOf(filtro) + 1;
                 return View(pagina);            
         }
 
-         [Route("SubGrupo/{capitulo?}/{substory}/{grupo}/{subgrupo}/{indice}/{auto}/{compartilhante}")]
-         public async Task<IActionResult> SubGrupo(int indice, int? capitulo, int substory, int grupo, int subgrupo, int auto, string compartilhante)
+         [Route("SubGrupo/{capitulo}/{filtrar}/{redirecionar?}")]
+         [Route("SubGrupo/{capitulo}/{substory}/{grupo}/{subgrupo}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> SubGrupo(int indice, int capitulo, int substory,
+          int grupo, int subgrupo, int auto, int? redirecionar, string compartilhante, string filtrar)
         {
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
             List<Pagina> listaComConteudo = null;
+
+            if(filtrar != null)
+            {
+                 var livro = await db.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+                if( livro != null && redirecionar == null)
+                Redirect($"{livro.url}/{capitulo}/{filtrar}/1");
+
+                var indiceFiltro = int.Parse(filtrar.Replace("pasta-", ""));
+                var fi =  pag.Story.Filtro.OrderBy(f => f.Id).ToList()[indiceFiltro];
+                 var arr = Arr.RetornarArray(pag.Story, false, (long) fi.SubGrupo, capitulo, 1);
+                indice = 1;
+                auto = 1;
+                compartilhante = "user";
+                substory = arr[1];
+                grupo = arr[2];
+                subgrupo = arr[3];
+            }
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -309,16 +369,39 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
                 ViewBag.auto = auto;
+                var filtro = pag.Story.Filtro.First(f => f.SubGrupo == group3.Id);
+            ViewBag.filtro = pag.Story.Filtro.OrderBy(f => f.Id).ToList().IndexOf(filtro) + 1;
                 return View(pagina);            
         }
 
-         [Route("SubSubGrupo/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{indice}/{auto}/{compartilhante}")]
-         public async Task<IActionResult> SubSubGrupo(string Name, int indice, int? capitulo, int substory, int grupo, int subgrupo, int subsubgrupo, int auto, string compartilhante)
+         [Route("SubSubGrupo/{capitulo}/{filtrar}/{grupo}")]
+         [Route("SubSubGrupo/{capitulo}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> SubSubGrupo(string Name, int indice, int capitulo,  int substory,
+          int grupo, int subgrupo, int subsubgrupo, int auto, int? redirecionar, string compartilhante,
+           string filtrar)
         {
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
               List<Pagina> listaComConteudo = null;
+
+               if(filtrar != null)
+            {
+                 var livro = await db.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+                if( livro != null && redirecionar == null)
+                Redirect($"{livro.url}/{capitulo}/{filtrar}/1");
+
+                var indiceFiltro = int.Parse(filtrar.Replace("pasta-", ""));
+                var fi =  pag.Story.Filtro.OrderBy(f => f.Id).ToList()[indiceFiltro];
+                 var arr = Arr.RetornarArray(pag.Story, false, (long) fi.SubSubGrupo, capitulo, 1);
+                indice = 1;
+                auto = 1;
+                compartilhante = "user";
+                substory = arr[1];
+                grupo = arr[2];
+                subgrupo = arr[3];
+                subsubgrupo = arr[4];
+            }
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -349,17 +432,40 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
+                var filtro = pag.Story.Filtro.First(f => f.SubSubGrupo == group4.Id);
+            ViewBag.filtro = pag.Story.Filtro.OrderBy(f => f.Id).ToList().IndexOf(filtro) + 1;
                 return View(pagina);            
         }    
          
-         [Route("CamadaSeis/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{indice}/{auto}/{compartilhante}")]
-         public async Task<IActionResult> CamadaSeis(string Name, int indice, int? capitulo, int substory,
-          int grupo, int subgrupo, int subsubgrupo, int camadaseis, int auto, string compartilhante)
+         [Route("CamadaSeis/{capitulo}/{filtrar}/{redirecionar?}")]
+         [Route("CamadaSeis/{capitulo}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> CamadaSeis(string Name, int indice, int capitulo, int substory,
+          int grupo, int subgrupo, int subsubgrupo, int camadaseis, int auto, int? redirecionar,
+           string compartilhante, string filtrar)
         {
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
              List<Pagina> listaComConteudo = null;
+
+             if(filtrar != null)
+            {
+                 var livro = await db.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+                if( livro != null && redirecionar == null)
+                Redirect($"{livro.url}/{capitulo}/{filtrar}/1");
+
+                var indiceFiltro = int.Parse(filtrar.Replace("pasta-", ""));
+                var fi =  pag.Story.Filtro.OrderBy(f => f.Id).ToList()[indiceFiltro];
+                 var arr = Arr.RetornarArray(pag.Story, false, (long) fi.CamadaSeis, capitulo, 1);
+                indice = 1;
+                auto = 1;
+                compartilhante = "user";
+                substory = arr[1];
+                grupo = arr[2];
+                subgrupo = arr[3];
+                subsubgrupo = arr[4];
+                camadaseis = arr[5];
+            }
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -392,17 +498,41 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
+                var filtro = pag.Story.Filtro.First(f => f.CamadaSeis == group5.Id);
+            ViewBag.filtro = pag.Story.Filtro.OrderBy(f => f.Id).ToList().IndexOf(filtro) + 1;
                 return View(pagina);            
         }    
          
-         [Route("CamadaSete/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{indice}/{auto}/{compartilhante}")]
-         public async Task<IActionResult> CamadaSete(string Name, int indice, int? capitulo, int substory,
-          int grupo, int subgrupo, int subsubgrupo, int camadaseis, int camadasete, int auto, string compartilhante)
+         [Route("CamadaSete/{capitulo}/{filtrar}/{redirecionar?}")]
+         [Route("CamadaSete/{capitulo}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> CamadaSete(string Name, int indice, int capitulo, int substory,
+          int grupo, int subgrupo, int subsubgrupo, int camadaseis,
+           int camadasete, int auto, int? redirecionar, string compartilhante, string filtrar)
         {
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
              List<Pagina> listaComConteudo = null;
+
+             if(filtrar != null)
+            {
+                 var livro = await db.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+                if( livro != null && redirecionar == null)
+                Redirect($"{livro.url}/{capitulo}/{filtrar}/1");
+
+                var indiceFiltro = int.Parse(filtrar.Replace("pasta-", ""));
+                var fi =  pag.Story.Filtro.OrderBy(f => f.Id).ToList()[indiceFiltro];
+                 var arr = Arr.RetornarArray(pag.Story, false, (long) fi.CamadaSete, capitulo, 1);
+                indice = 1;
+                auto = 1;
+                compartilhante = "user";
+                substory = arr[1];
+                grupo = arr[2];
+                subgrupo = arr[3];
+                subsubgrupo = arr[4];
+                camadaseis = arr[5];
+                camadasete = arr[6];
+            }
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2 = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -437,17 +567,42 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
+                 var filtro = pag.Story.Filtro.First(f => f.CamadaSete == group6.Id);
+            ViewBag.filtro = pag.Story.Filtro.OrderBy(f => f.Id).ToList().IndexOf(filtro) + 1;
                 return View(pagina);            
         }    
          
-         [Route("CamadaOito/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{camadaoito}/{indice}/{auto}/{compartilhante}")]
-         public async Task<IActionResult> CamadaOito(string Name, int indice, int? capitulo, int substory,
-          int grupo, int subgrupo, int subsubgrupo, int camadaseis, int camadasete, int camadaoito, int auto, string compartilhante)
+         [Route("CamadaOito/{capitulo}/{filtrar}/{redirecionar?}")]
+         [Route("CamadaOito/{capitulo}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{camadaoito}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> CamadaOito(string Name, int indice, int capitulo, int substory,
+          int grupo, int subgrupo, int subsubgrupo, int camadaseis,  int camadasete, int camadaoito,
+           int auto, int? redirecionar, string compartilhante, string filtrar)
         {
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
              List<Pagina> listaComConteudo = null;
+
+             if(filtrar != null)
+            {
+                 var livro = await db.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+                if( livro != null && redirecionar == null)
+                Redirect($"{livro.url}/{capitulo}/{filtrar}/1");
+
+                var indiceFiltro = int.Parse(filtrar.Replace("pasta-", ""));
+                var fi =  pag.Story.Filtro.OrderBy(f => f.Id).ToList()[indiceFiltro];
+                 var arr = Arr.RetornarArray(pag.Story, false, (long) fi.CamadaOito, capitulo, 1);
+                indice = 1;
+                auto = 1;
+                compartilhante = "user";
+                substory = arr[1];
+                grupo = arr[2];
+                subgrupo = arr[3];
+                subsubgrupo = arr[4];
+                camadaseis = arr[5];
+                camadasete = arr[6];
+                camadaoito = arr[7];
+            }
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2  = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -484,18 +639,43 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
+                var filtro = pag.Story.Filtro.First(f => f.CamadaOito == group7.Id);
+            ViewBag.filtro = pag.Story.Filtro.OrderBy(f => f.Id).ToList().IndexOf(filtro) + 1;
                 return View(pagina);            
         }    
         
-         [Route("CamadaNove/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{camadaoito}/{camadanove}/{indice}/{auto}/{compartilhante}")]
-         public async Task<IActionResult> CamadaNove(string Name, int indice, int? capitulo, int substory,
+         [Route("CamadaNove/{capitulo}/{filtrar}/{redirecionar?}")]
+         [Route("CamadaNove/{capitulo}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{camadaoito}/{camadanove}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> CamadaNove(string Name, int indice, int capitulo, int substory,
           int grupo, int subgrupo, int subsubgrupo, int camadaseis, int camadasete, int camadaoito,
-           int camadanove, int auto, string compartilhante)
+           int camadanove, int auto, int? redirecionar, string compartilhante, string filtrar)
         {
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
              List<Pagina> listaComConteudo = null;
+
+              if(filtrar != null)
+            {
+                 var livro = await db.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+                if( livro != null && redirecionar == null)
+                Redirect($"{livro.url}/{capitulo}/{filtrar}/1");
+
+                var indiceFiltro = int.Parse(filtrar.Replace("pasta-", ""));
+                var fi =  pag.Story.Filtro.OrderBy(f => f.Id).ToList()[indiceFiltro];
+                 var arr = Arr.RetornarArray(pag.Story, false, (long) fi.CamadaNove, capitulo, 1);
+                indice = 1;
+                auto = 1;
+                compartilhante = "user";
+                substory = arr[1];
+                grupo = arr[2];
+                subgrupo = arr[3];
+                subsubgrupo = arr[4];
+                camadaseis = arr[5];
+                camadasete = arr[6];
+                camadaoito = arr[7];
+                camadanove = arr[8];
+            }
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2  = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -534,18 +714,44 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
+                var filtro = pag.Story.Filtro.First(f => f.CamadaNove == group8.Id);
+            ViewBag.filtro = pag.Story.Filtro.OrderBy(f => f.Id).ToList().IndexOf(filtro) + 1;
                 return View(pagina);            
         }    
         
-         [Route("CamadaDez/{capitulo?}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{camadaoito}/{camadanove}/{camadadez}/{indice}/{auto}/{compartilhante}")]
-         public async Task<IActionResult> CamadaDez(string Name, int indice, int? capitulo, int substory,
+         [Route("CamadaDez/{capitulo}/{filtrar}/{redirecionar}")]
+         [Route("CamadaDez/{capitulo}/{substory}/{grupo}/{subgrupo}/{subsubgrupo}/{camadaseis}/{camadasete}/{camadaoito}/{camadanove}/{camadadez}/{indice}/{auto}/{compartilhante}")]
+         public async Task<IActionResult> CamadaDez(string Name, int indice, int capitulo, int substory,
           int grupo, int subgrupo, int subsubgrupo, int camadaseis, int camadasete, int camadaoito,
-           int camadanove, int camadadez, int auto, string compartilhante)
+           int camadanove, int camadadez, int auto, int? redirecionar, string compartilhante, string filtrar)
         {
              await Verificar(capitulo);
              var lista = RepositoryPagina.paginas.Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
             Pagina pag = lista.First();
               List<Pagina> listaComConteudo = null;
+
+              if(filtrar != null)
+            {
+                 var livro = await db.Livro.FirstOrDefaultAsync(l => l.Compartilhando);
+                if( livro != null && redirecionar == null)
+                Redirect($"{livro.url}/{capitulo}/{filtrar}/1");
+
+                var indiceFiltro = int.Parse(filtrar.Replace("pasta-", ""));
+                var fi =  pag.Story.Filtro.OrderBy(f => f.Id).ToList()[indiceFiltro];
+                 var arr = Arr.RetornarArray(pag.Story, false, (long) fi.CamadaDez, capitulo, 1);
+                indice = 1;
+                auto = 1;
+                compartilhante = "user";
+                substory = arr[1];
+                grupo = arr[2];
+                subgrupo = arr[3];
+                subsubgrupo = arr[4];
+                camadaseis = arr[5];
+                camadasete = arr[6];
+                camadaoito = arr[7];
+                camadanove = arr[8];
+                camadadez = arr[9];
+            }
 
             var group = pag.Story.SubStory.Where(str => str.Pagina.Count > 0).Skip((int)substory - 1).First(); 
              var group2  = group.Grupo.Where(str => str.Pagina.Count > 0).Skip((int)grupo - 1).First(); 
@@ -586,6 +792,8 @@ namespace MeuProjetoAgora.Controllers
                 ViewBag.Html = html;
                 ViewBag.proximo = indice + 1;
                 ViewBag.compartilhante = compartilhante;
+                var filtro = pag.Story.Filtro.First(f => f.CamadaNove == group8.Id);
+            ViewBag.filtro = pag.Story.Filtro.OrderBy(f => f.Id).ToList().IndexOf(filtro) + 1;
                 return View(pagina);            
         }    
 
@@ -893,7 +1101,143 @@ namespace MeuProjetoAgora.Controllers
             return listaComConteudo;
         }
 
-        
+        public async Task<IActionResult> filtrar(int capitulo, string filtro)
+        {
+            await Verificar(capitulo);
+            var lista = RepositoryPagina.paginas
+            .Where(p => p.Story.PaginaPadraoLink == capitulo && !p.Layout).ToList();
+            Pagina pag = lista.First();
+            var indiceFiltro = int.Parse(filtro.Replace("pasta-",""));
+                Filtro f = pag.Story.Filtro.OrderBy(fil => fil.Id).ToList()[indiceFiltro];
+            if(f.SubStory != null)
+            {
+                return Redirect("");                
+            }
+            else
+            if(f.Grupo != null)
+            {
+                return Redirect("");
+            }
+            else
+            if(f.SubGrupo != null)
+            {
+                return Redirect("");
+            }
+            else
+            if(f.SubSubGrupo != null)
+            {
+                return Redirect("");
+            }
+            else
+            if(f.CamadaSeis != null)
+            {
+                return Redirect("");
+            }
+            else
+            if(f.CamadaSete != null)
+            {
+                return Redirect("");
+            }
+            else
+            if(f.CamadaSete != null)
+            {
+                return Redirect("");
+            }
+            else
+            if(f.CamadaOito != null)
+            {
+                return Redirect("");
+            }
+            else
+            if(f.CamadaNove != null)
+            {
+                return Redirect("");
+                
+            }
+            else
+            if(f.CamadaDez != null)
+            {
+                return Redirect("");
+            }
+
+            return Redirect("/");
+        }
+
+        private async Task<List<Pagina>> retornarListaFiltro(Filtro filtro)
+        {
+            List<Pagina> retorno = null;
+            if(filtro.SubStory != null)
+            {
+                var group = await db.SubStory.Include(s => s.Pagina)
+                .FirstAsync(s => s.Id == filtro.SubStory);
+                retorno = group.Pagina.Where(p => !p.Layout).ToList();
+            }
+            else
+            if(filtro.Grupo != null)
+            {
+                var group = await db.Grupo.Include(s => s.Pagina)
+                .FirstAsync(s => s.Id == filtro.Grupo);
+                retorno = group.Pagina.Where(p => !p.Layout).ToList();
+            }
+            else
+            if(filtro.SubGrupo != null)
+            {
+                var group = await db.SubGrupo.Include(s => s.Pagina)
+                .FirstAsync(s => s.Id == filtro.SubGrupo);
+                retorno = group.Pagina.Where(p => !p.Layout).ToList();
+            }
+            else
+            if(filtro.SubSubGrupo != null)
+            {
+                var group = await db.SubSubGrupo.Include(s => s.Pagina)
+                .FirstAsync(s => s.Id == filtro.SubSubGrupo);
+                retorno = group.Pagina.Where(p => !p.Layout).ToList();
+            }
+            else
+            if(filtro.CamadaSeis != null)
+            {
+                var group = await db.CamadaSeis.Include(s => s.Pagina)
+                .FirstAsync(s => s.Id == filtro.CamadaSeis);
+                retorno = group.Pagina.Where(p => !p.Layout).ToList();
+            }
+            else
+            if(filtro.CamadaSete != null)
+            {
+                var group = await db.CamadaSete.Include(s => s.Pagina)
+                .FirstAsync(s => s.Id == filtro.CamadaSete);
+                retorno = group.Pagina.Where(p => !p.Layout).ToList();
+            }
+            else
+            if(filtro.CamadaSete != null)
+            {
+                var group = await db.CamadaSete.Include(s => s.Pagina)
+                .FirstAsync(s => s.Id == filtro.CamadaSete);
+                retorno = group.Pagina.Where(p => !p.Layout).ToList();
+            }
+            else
+            if(filtro.CamadaOito != null)
+            {
+                var group = await db.CamadaOito.Include(s => s.Pagina)
+                .FirstAsync(s => s.Id == filtro.CamadaOito);
+                retorno = group.Pagina.Where(p => !p.Layout).ToList();
+            }
+            else
+            if(filtro.CamadaNove != null)
+            {
+                var group = await db.CamadaNove.Include(s => s.Pagina)
+                .FirstAsync(s => s.Id == filtro.CamadaNove);
+                retorno = group.Pagina.Where(p => !p.Layout).ToList();
+            }
+            else
+            if(filtro.CamadaDez != null)
+            {
+                var group = await db.CamadaDez.Include(s => s.Pagina)
+                .FirstAsync(s => s.Id == filtro.CamadaDez);
+                retorno = group.Pagina.Where(p => !p.Layout).ToList();
+            }
+
+            return retorno;
+        }
 
     }
 

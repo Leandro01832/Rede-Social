@@ -22,7 +22,7 @@ namespace CMS.Controllers
         public IRepositoryPagina epositoryPagina { get; }
         public IHttpHelper HttpHelper { get; }
         public UserManager<UserModel> UserManager { get; }
-        public ObjectArray Arr;
+        public ClassArray Arr;
 
         public AjaxGetController(ApplicationDbContext context, IRepositoryPagina repositoryPagina,
             IHttpHelper httpHelper, UserManager<UserModel> userManager)
@@ -31,7 +31,7 @@ namespace CMS.Controllers
             epositoryPagina = repositoryPagina;
             HttpHelper = httpHelper;
             UserManager = userManager;
-            Arr = new ObjectArray();
+            Arr = new ClassArray();
         }
 
         public async Task<JsonResult> verificarCompartilhamento(string Livro, int Capitulo, int Verso)
@@ -183,7 +183,7 @@ namespace CMS.Controllers
                     {   
                          while (resultDez != null)
                          {
-                            resultDez = Arr.RetornarArray(item, resultDez[0], resultDez[1],
+                            resultDez = Arr.RetornarArray(item, true, 0, resultDez[0], resultDez[1],
                              resultDez[2], resultDez[3], resultDez[4], resultDez[5],
                               resultDez[6], resultDez[7], resultDez[8], resultDez[9]);
                             if(resultDez != null)
@@ -215,8 +215,8 @@ namespace CMS.Controllers
                         
                          while (resultNove != null)
                          {
-                            resultNove = Arr.RetornarArray(item, resultNove[0], resultNove[1],
-                             resultNove[2], resultNove[3], resultNove[4], resultNove[5], resultNove[6], resultNove[7], resultNove[8], null);
+                            resultNove = Arr.RetornarArray(item, true, 0, resultNove[0], resultNove[1],
+                             resultNove[2], resultNove[3], resultNove[4], resultNove[5], resultNove[6], resultNove[7], resultNove[8]);
                             if(resultNove != null)
                             {
                                 var story = stories[resultNove[0]];
@@ -244,8 +244,8 @@ namespace CMS.Controllers
                          
                          while (resultOito != null)
                          {
-                            resultOito = Arr.RetornarArray(item, resultOito[0], resultOito[1],
-                             resultOito[2], resultOito[3], resultOito[4], resultOito[5], resultOito[6], resultOito[7], null, null);
+                            resultOito = Arr.RetornarArray(item, true, 0, resultOito[0], resultOito[1],
+                             resultOito[2], resultOito[3], resultOito[4], resultOito[5], resultOito[6], resultOito[7]);
                             if(resultOito != null)
                             {
                                 var story = stories[resultOito[0]];
@@ -272,8 +272,8 @@ namespace CMS.Controllers
                         
                          while (resultSete != null)
                          {
-                            resultSete = Arr.RetornarArray(item, resultSete[0], resultSete[1],
-                             resultSete[2], resultSete[3], resultSete[4], resultSete[5], resultSete[6], null, null, null);
+                            resultSete = Arr.RetornarArray(item, true, 0, resultSete[0], resultSete[1],
+                             resultSete[2], resultSete[3], resultSete[4], resultSete[5], resultSete[6]);
                             if(resultSete != null)
                             {
                                 var story = stories[resultSete[0]];
@@ -301,8 +301,8 @@ namespace CMS.Controllers
                         
                          while (resultSeis != null)
                          {
-                            resultSeis = Arr.RetornarArray(item, resultSeis[0], resultSeis[1],
-                             resultSeis[2], resultSeis[3], resultSeis[4], resultSeis[5], null, null, null, null);
+                            resultSeis = Arr.RetornarArray(item, true, 0, resultSeis[0], resultSeis[1],
+                             resultSeis[2], resultSeis[3], resultSeis[4], resultSeis[5]);
                             if(resultSeis != null)
                             {
                                 var story = stories[resultSeis[0]];
@@ -327,8 +327,8 @@ namespace CMS.Controllers
                          
                          while (resultSubSubGrupo != null)
                          {
-                            resultSubSubGrupo = Arr.RetornarArray(item, resultSubSubGrupo[0], resultSubSubGrupo[1],
-                             resultSubSubGrupo[2], resultSubSubGrupo[3], resultSubSubGrupo[4], null, null, null, null, null);
+                            resultSubSubGrupo = Arr.RetornarArray(item, true, 0, resultSubSubGrupo[0], resultSubSubGrupo[1],
+                             resultSubSubGrupo[2], resultSubSubGrupo[3], resultSubSubGrupo[4]);
                             if(resultSubSubGrupo != null)
                             {
                                 var story = stories[resultSubSubGrupo[0]];
@@ -352,8 +352,8 @@ namespace CMS.Controllers
                         
                          while (resultSubGrupo != null)
                          {
-                         resultSubGrupo = Arr.RetornarArray(item, resultSubGrupo[0], resultSubGrupo[1], resultSubGrupo[2], resultSubGrupo[3],
-                          null, null, null, null, null, null);
+                         resultSubGrupo = Arr.RetornarArray(item, true, 0, resultSubGrupo[0], resultSubGrupo[1],
+                          resultSubGrupo[2], resultSubGrupo[3]);
                           if(resultSubGrupo != null)
                             {
                                 var story = stories[resultSubGrupo[0]];
@@ -377,8 +377,7 @@ namespace CMS.Controllers
 
                          while (resultGrupo != null)
                          {
-                         resultGrupo = Arr.RetornarArray(item, resultGrupo[0], resultGrupo[1], resultGrupo[2],
-                          null, null, null, null, null, null, null);
+                         resultGrupo = Arr.RetornarArray(item, true, 0, resultGrupo[0], resultGrupo[1], resultGrupo[2]);
                          if(resultGrupo != null)
                             {
                                 var story = stories[resultGrupo[0]];
@@ -401,8 +400,7 @@ namespace CMS.Controllers
 
                          while (resultSubStory != null)
                          {
-                         resultSubStory = Arr.RetornarArray(item, resultSubStory[0], resultSubStory[1],
-                          null, null, null, null, null, null, null, null);
+                         resultSubStory = Arr.RetornarArray(item, true, 0, resultSubStory[0], resultSubStory[1]);
                             if(resultSubStory != null)
                             {
                                 var story = stories[resultSubStory[0]];
@@ -572,7 +570,7 @@ namespace CMS.Controllers
                 int[] result = new int[2];
                 var story = stories[Indice];
 
-                result = Arr.RetornarArray(story, Indice, IndiceSubStory,
+                result = Arr.RetornarArray(story, true, 0, Indice, IndiceSubStory,
                  null, null, null, null, null, null, null, null);
 
                 
@@ -591,7 +589,7 @@ namespace CMS.Controllers
         {            
                 var stories =  RetornarStories(false);                               
                 var story = stories[Indice];
-                int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory,
+                int[] result = Arr.RetornarArray(story, true, 0, Indice, IndiceSubStory,
                  IndiceGrupo, null, null, null, null, null, null, null);
                 
                 if(result != null)
@@ -608,7 +606,7 @@ namespace CMS.Controllers
         {            
             var stories =  RetornarStories(false);            
             var story = stories[Indice];
-            int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory,
+            int[] result = Arr.RetornarArray(story, true, 0, Indice, IndiceSubStory,
              IndiceGrupo, IndiceSubGrupo, null, null, null, null, null, null);
 
                 if(result != null)
@@ -625,7 +623,7 @@ namespace CMS.Controllers
         {            
             var stories =  RetornarStories(false);            
             var story = stories[Indice];
-            int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory, IndiceGrupo,
+            int[] result = Arr.RetornarArray(story, true, 0, Indice, IndiceSubStory, IndiceGrupo,
              IndiceSubGrupo, IndiceSubSubGrupo, null, null, null, null, null); 
                 
                 if(result != null)
@@ -643,7 +641,7 @@ namespace CMS.Controllers
         {            
             var stories =  RetornarStories(false);            
             var story = stories[Indice];
-            int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory,
+            int[] result = Arr.RetornarArray(story, true, 0, Indice, IndiceSubStory,
              IndiceGrupo, IndiceSubGrupo, IndiceSubSubGrupo,
               IndiceCamadaSeis, null, null, null, null); 
                 
@@ -662,7 +660,7 @@ namespace CMS.Controllers
         {            
             var stories =  RetornarStories(false);            
             var story = stories[Indice];
-            int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory,
+            int[] result = Arr.RetornarArray(story, true, 0, Indice, IndiceSubStory,
              IndiceGrupo, IndiceSubGrupo, IndiceSubSubGrupo, IndiceCamadaSeis,
               IndiceCamadaSete, null, null, null); 
                 
@@ -682,7 +680,7 @@ namespace CMS.Controllers
         {            
             var stories =  RetornarStories(false);            
             var story = stories[Indice];
-            int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory, IndiceGrupo,
+            int[] result = Arr.RetornarArray(story, true, 0, Indice, IndiceSubStory, IndiceGrupo,
              IndiceSubGrupo, IndiceSubSubGrupo, IndiceCamadaSeis, IndiceCamadaSete,
               IndiceCamadaOito, null, null); 
                 
@@ -702,7 +700,7 @@ namespace CMS.Controllers
         {            
             var stories =  RetornarStories(false);            
             var story = stories[Indice];
-            int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory, IndiceGrupo,
+            int[] result = Arr.RetornarArray(story, true, 0, Indice, IndiceSubStory, IndiceGrupo,
              IndiceSubGrupo, IndiceSubSubGrupo, IndiceCamadaSeis, IndiceCamadaSete,
               IndiceCamadaOito, IndiceCamadaNove, null); 
                 
@@ -722,7 +720,7 @@ namespace CMS.Controllers
         {            
             var stories =  RetornarStories(false);            
             var story = stories[Indice];
-            int[] result = Arr.RetornarArray(story, Indice, IndiceSubStory, IndiceGrupo,
+            int[] result = Arr.RetornarArray(story, true, 0, Indice, IndiceSubStory, IndiceGrupo,
              IndiceSubGrupo, IndiceSubSubGrupo, IndiceCamadaSeis, IndiceCamadaSete,
               IndiceCamadaOito, IndiceCamadaNove, IndiceCamadaDez); 
                 

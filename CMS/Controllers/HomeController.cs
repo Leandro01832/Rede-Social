@@ -51,11 +51,12 @@ namespace CMS.Controllers
             RepositoryDiv = repositoryDiv;
         }
 
+        [Route("{capitulo?}/{filtrar}/{redirecionar?}")]
         [Route("{compartilhante}")]
         [Route("{capitulo?}/{verso?}")]
         [Route("{verso:int?}")]
         [Route("")]
-        public async Task<IActionResult> Index(string compartilhante, int? capitulo, int? verso)
+        public async Task<IActionResult> Index(string compartilhante, int? capitulo, int? verso, string filtrar, int? redirecionar )
         {
             var usuario = await UserManager.GetUserAsync(this.User);
             if(usuario != null)
@@ -355,6 +356,8 @@ namespace CMS.Controllers
 
             return View("Index", "Home");
         }
+
+        
 
     }
 }

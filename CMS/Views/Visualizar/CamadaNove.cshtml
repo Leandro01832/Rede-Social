@@ -85,13 +85,10 @@
     <div style="position:fixed; bottom:4%; width: 100%; overflow-x:auto;" class="Paginacao">
 
         <center>
-            <a href="/Perfil/@ViewBag.user"  style="font-size:1.5rem; background-color:white; opacity: 0.80;">
-               <span class="text-primary" style="font-size: 2.5rem;" id="Livro" >Livro: @ViewBag.user</span> 
-            </a>
             <h3 style="background-color:darkgray; opacity: 0.80;">@Html.CheckBox("automatico") Automático </h3>
 
             <div class="DivPagina" style=" height:50px; overflow: hidden;">
-                <h4 style="background-color: yellow;">Camada @grupo.Nome</h4>
+             <header><h4 style="background-color: yellow;">Camada @grupo.Nome</h4></header>   
                 <span id="redireciona-1"></span> 
                  @{
                         for (var indice = 1; indice <= quant; indice++)
